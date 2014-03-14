@@ -133,15 +133,23 @@
 1394127488 source:/home/xavier/monpremierjeu/src/text.c
 	"text.h"
 
+<<<<<<< HEAD
 1394541065 source:/home/xavier/git/Super_Martin/monpremierjeu/src/jeu.c
 	"jeu.h"
 
 1394359394 /home/xavier/git/Super_Martin/monpremierjeu/src/jeu.h
+=======
+1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/text.c
+	"text.h"
+
+1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/text.h
+>>>>>>> 8dc6e20f6e816767846462359b5a8a04b7ce450e
 	<stdlib.h>
 	<stdio.h>
 	<errno.h>
 	<SDL/SDL.h>
 	<SDL/SDL_image.h>
+<<<<<<< HEAD
 	"const.h"
 	"text.h"
 	"sound.h"
@@ -149,25 +157,51 @@
 1393967684 /home/xavier/git/Super_Martin/monpremierjeu/src/const.h
 
 1394128132 /home/xavier/git/Super_Martin/monpremierjeu/src/text.h
+=======
+	<SDL/SDL_ttf.h>
+
+1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.c
+	"jeu.h"
+
+1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.h
+>>>>>>> 8dc6e20f6e816767846462359b5a8a04b7ce450e
 	<stdlib.h>
 	<stdio.h>
 	<errno.h>
 	<SDL/SDL.h>
 	<SDL/SDL_image.h>
+<<<<<<< HEAD
 	<SDL/SDL_ttf.h>
 
 1394271964 /home/xavier/git/Super_Martin/monpremierjeu/src/sound.h
+=======
+	"const.h"
+	"text.h"
+	"sound.h"
+
+1394816570 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/const.h
+
+1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/sound.h
+>>>>>>> 8dc6e20f6e816767846462359b5a8a04b7ce450e
 	<FMOD/fmod.h>
 	<stdlib.h>
 	<stdio.h>
 	<errno.h>
 
+<<<<<<< HEAD
 1394123298 source:/home/xavier/git/Super_Martin/monpremierjeu/src/main.c
+=======
+1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/main.c
+>>>>>>> 8dc6e20f6e816767846462359b5a8a04b7ce450e
 	"jeu.h"
 	"const.h"
 	"menu.h"
 
+<<<<<<< HEAD
 1394267933 /home/xavier/git/Super_Martin/monpremierjeu/src/menu.h
+=======
+1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.h
+>>>>>>> 8dc6e20f6e816767846462359b5a8a04b7ce450e
 	<stdlib.h>
 	<stdio.h>
 	<errno.h>
@@ -178,10 +212,20 @@
 	"text.h"
 	"sound.h"
 
+<<<<<<< HEAD
 1394540900 source:/home/xavier/git/Super_Martin/monpremierjeu/src/player.c
 	"player.h"
 
 1394801024 /home/xavier/git/Super_Martin/monpremierjeu/src/player.h
+=======
+1394816629 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.c
+	"menu.h"
+
+1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/player.c
+	"player.h"
+
+1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/player.h
+>>>>>>> 8dc6e20f6e816767846462359b5a8a04b7ce450e
 	"const.h"
 	<stdlib.h>
 	<stdio.h>
@@ -189,9 +233,15 @@
 	<SDL/SDL.h>
 	"jeu.h"
 
+<<<<<<< HEAD
 1394269558 source:/home/xavier/git/Super_Martin/monpremierjeu/src/sound.c
 	"sound.h"
 
 1394127488 source:/home/xavier/git/Super_Martin/monpremierjeu/src/text.c
 	"text.h"
 
+=======
+1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/sound.c
+	"sound.h"
+
+>>>>>>> 8dc6e20f6e816767846462359b5a8a04b7ce450e
