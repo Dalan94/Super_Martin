@@ -133,3 +133,68 @@
 1394127488 source:/home/xavier/monpremierjeu/src/text.c
 	"text.h"
 
+1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/text.c
+	"text.h"
+
+1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/text.h
+	<stdlib.h>
+	<stdio.h>
+	<errno.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	<SDL/SDL_ttf.h>
+
+1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.c
+	"jeu.h"
+
+1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.h
+	<stdlib.h>
+	<stdio.h>
+	<errno.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	"const.h"
+	"text.h"
+	"sound.h"
+
+1394816570 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/const.h
+
+1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/sound.h
+	<FMOD/fmod.h>
+	<stdlib.h>
+	<stdio.h>
+	<errno.h>
+
+1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/main.c
+	"jeu.h"
+	"const.h"
+	"menu.h"
+
+1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.h
+	<stdlib.h>
+	<stdio.h>
+	<errno.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"const.h"
+	"text.h"
+	"sound.h"
+
+1394816629 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.c
+	"menu.h"
+
+1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/player.c
+	"player.h"
+
+1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/player.h
+	"const.h"
+	<stdlib.h>
+	<stdio.h>
+	<errno.h>
+	<SDL/SDL.h>
+	"jeu.h"
+
+1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/sound.c
+	"sound.h"
+
