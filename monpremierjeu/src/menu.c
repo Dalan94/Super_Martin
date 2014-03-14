@@ -73,7 +73,7 @@ int menu(SDL_Surface *screen,int *continuer){
 
         SDL_BlitSurface(waiting, NULL, screen, &posWait);
         if(printingText)
-            printText(screen,&posText,"Press Enter",black,"polices/manga.ttf",65,1);
+            printText(screen,&posText,"Press Enter",black,"polices/sherwood.ttf",65,1);
         SDL_Flip(screen);
     }
 
