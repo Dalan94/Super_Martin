@@ -44,12 +44,12 @@ void moveCharacter(Character *c,int direction,Map *m){
     switch (direction){
         case RIGHT:
             if(c->location.x+c->spriteL->w < m->nbBlocLg*TAILLE_BLOC)
-                (c->location.x)++;
+                (c->location.x)+=2;
             c->isRight = 1;
             break;
         case LEFT:
             if(c->location.x > TAILLE_BLOC)
-                (c->location.x)--;
+                (c->location.x)-=2;
             c->isRight = 0;
             break;
         default: ;

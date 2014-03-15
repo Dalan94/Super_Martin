@@ -35,6 +35,14 @@
 			<Add option="-lSDLmain -lSDL -lSDL_image -lSDL_ttf -lfmod" />
 		</Linker>
 		<Unit filename="src/const.h" />
+		<Unit filename="src/file.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/file.h" />
+		<Unit filename="src/file_level.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/file_level.h" />
 		<Unit filename="src/jeu.c">
 			<Option compilerVar="CC" />
 		</Unit>

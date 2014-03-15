@@ -44,8 +44,6 @@ void jouer(SDL_Surface *screen){
     /*Gestion des mouvements*/
     int move_right=0;
     int move_left=0;
-    int scrolling_right=0;
-    int scrolling_left=0;
 
     //effacer l'écran
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
@@ -104,19 +102,12 @@ void jouer(SDL_Surface *screen){
                         break;
 
                     case SDLK_RIGHT:
-                        scrolling_right=1;
-                        break;
-
-                    case SDLK_LEFT:
-                        scrolling_left=1;
-                        break;
-                    case SDLK_q:
-                        move_left=1;
-                        break;
-                    case SDLK_d:
                         move_right=1;
                         break;
 
+                    case SDLK_LEFT:
+                        move_left=1;
+                        break;
                     default: ;
                 }
                 break;
@@ -124,25 +115,18 @@ void jouer(SDL_Surface *screen){
                 switch(event.key.keysym.sym)
                 {
                     case SDLK_RIGHT:
-                        scrolling_right=0;
-                        break;
-                    case SDLK_LEFT:
-                        scrolling_left=0;
-                        break;
-                    case SDLK_q:
-                        move_left=0;
-                        break;
-                    case SDLK_d:
                         move_right=0;
                         break;
-
+                    case SDLK_LEFT:
+                        move_left=0;
+                        break;
                     default: ;
                 }
 
             default: ;
         }
 
-        move(move_left,move_right,scrolling_left,scrolling_right,player,m);
+        move(move_left,move_right,player,m);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
@@ -375,23 +359,25 @@ void printGameOver(SDL_Surface *screen,int *continuer){
 }
 
 /**
- *\fn void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m)
+ *\fn void move (int move_left, int move_right, Character *player,Map *m)
  *  Deplace le joueur et scrolle l'ecran si besoin
  *\param[in] move_left booleen pour savoir si l'on bouge a gauche
  *\param[in] move_right booleen pour savoir si l'on bouge a droite
- *\param[in] scrolling_left booleen pour savoir si l'on scrolle a gauche
- *\param[in] scrolling_right booleen pour savoir si l'on scrolle a droite
  *\param[in] player le joueur
  *\param[in] m la carte
  */
-void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m)
+void move (int move_left, int move_right, Character *player,Map *m)
 {
-    if(move_left)
-        moveCharacter(player,LEFT,m);
     if (move_right)
+    {
+        if(player->location.x > m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
+            scrolling(m,RIGHT);
         moveCharacter(player,RIGHT,m);
-    if (scrolling_left)
-        scrolling(m,LEFT);
-    if (scrolling_right)
-        scrolling(m,RIGHT);
+    }
+    if (move_left)
+    {
+        if(player->location.x < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
+            scrolling(m,LEFT);
+        moveCharacter(player,LEFT,m);
+    }
 }
