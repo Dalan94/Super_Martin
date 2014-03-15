@@ -19,11 +19,8 @@
 #include "const.h"
 #include "text.h"
 #include "sound.h"
-<<<<<<< HEAD
 #include "share.h"
-=======
 #include "player.h"
->>>>>>> fbcb09d748f22e53e54828b0326bcb20b068db7f
 
 
 

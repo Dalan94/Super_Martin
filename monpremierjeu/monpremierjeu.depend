@@ -133,18 +133,19 @@
 1394127488 source:/home/xavier/monpremierjeu/src/text.c
 	"text.h"
 
-1394802622 D
+1394880229 D
 	"const.h"
 	"text.h"
 	"sound.h"
 	<SDL/SDL_ttf.h>
+	"share.h"
 
 1394541065 source:/home/xavier/git/Super_Martin/monpremierjeu/src/jeu.c
 	"jeu.h"
 
 1394359394 /home/xavier/git/Super_Martin/monpremierjeu/src/jeu.h
 
-1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/text.c
+1394895813 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/text.c
 	"text.h"
 
 1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/text.h
@@ -188,20 +189,27 @@
 1394128132 /home/xavier/git/Super_Martin/monpremierjeu/src/text.h
 	<SDL/SDL_ttf.h>
 
-1394895598 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.c
+1394895813 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.c
 	"jeu.h"
 
-<<<<<<< HEAD
-1394895321 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.h
-=======
-1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.h
+1394896104 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.h
+	<stdlib.h>
+	<stdio.h>
+	<errno.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	"const.h"
+	"text.h"
+	"sound.h"
+	"share.h"
+	"player.h"
 
 1394271964 /home/xavier/git/Super_Martin/monpremierjeu/src/sound.h
 	"const.h"
 	"text.h"
 	"sound.h"
 
-1394816570 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/const.h
+1394895813 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/const.h
 
 1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/sound.h
 
@@ -211,20 +219,26 @@
 
 1394267933 /home/xavier/git/Super_Martin/monpremierjeu/src/menu.h
 
-1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.h
+1394895321 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.h
 
 1394540900 source:/home/xavier/git/Super_Martin/monpremierjeu/src/player.c
 	"player.h"
 
 1394801024 /home/xavier/git/Super_Martin/monpremierjeu/src/player.h
 
-1394816629 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.c
+1394895813 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.c
 	"menu.h"
 
-1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/player.c
+1394895813 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/player.c
 	"player.h"
 
-1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/player.h
+1394895813 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/player.h
+	"const.h"
+	<stdlib.h>
+	<stdio.h>
+	<errno.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
 
 1394269558 source:/home/xavier/git/Super_Martin/monpremierjeu/src/sound.c
 	"sound.h"
@@ -239,7 +253,8 @@
 	"jeu.h"
 
 1394889200 /home/xavier/Git/Super_Martin/monpremierjeu/src/jeu.h
->>>>>>> fbcb09d748f22e53e54828b0326bcb20b068db7f
+
+1394882793 b09d748f22e53e54828b0326bcb20b068db7f
 	<stdlib.h>
 	<stdio.h>
 	<errno.h>
@@ -248,11 +263,20 @@
 	"const.h"
 	"text.h"
 	"sound.h"
-<<<<<<< HEAD
+	<stdlib.h>
+	<stdio.h>
+	<errno.h>
+	<SDL/SDL.h>
+	<SDL/SDL_image.h>
+	<SDL/SDL_ttf.h>
+	"const.h"
+	"text.h"
+	"sound.h"
 	"share.h"
-=======
+	"menu.h"
+
+1394889200 
 	"player.h"
->>>>>>> fbcb09d748f22e53e54828b0326bcb20b068db7f
 
 1394889191 /home/xavier/Git/Super_Martin/monpremierjeu/src/const.h
 
@@ -275,28 +299,9 @@
 	"const.h"
 	"menu.h"
 
-<<<<<<< HEAD
-1394895321 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.h
-=======
 1394880229 /home/xavier/Git/Super_Martin/monpremierjeu/src/menu.h
->>>>>>> fbcb09d748f22e53e54828b0326bcb20b068db7f
-	<stdlib.h>
-	<stdio.h>
-	<errno.h>
-	<SDL/SDL.h>
-	<SDL/SDL_image.h>
-	<SDL/SDL_ttf.h>
-	"const.h"
-	"text.h"
-	"sound.h"
-	"share.h"
 
-<<<<<<< HEAD
-1394895598 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.c
-=======
 1394882869 source:/home/xavier/Git/Super_Martin/monpremierjeu/src/menu.c
->>>>>>> fbcb09d748f22e53e54828b0326bcb20b068db7f
-	"menu.h"
 
 1394890473 source:/home/xavier/Git/Super_Martin/monpremierjeu/src/player.c
 	"player.h"
@@ -312,15 +317,15 @@
 1394880229 source:/home/xavier/Git/Super_Martin/monpremierjeu/src/sound.c
 	"sound.h"
 
-<<<<<<< HEAD
 1394895676 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/share.c
 	"share.h"
 
 1394895598 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/share.h
 	"const.h"
 	<SDL/SDL.h>
-=======
+
+1394895598 >
+
 1394882793 source:/home/xavier/Git/Super_Martin/monpremierjeu/src/text.c
 	"text.h"
->>>>>>> fbcb09d748f22e53e54828b0326bcb20b068db7f
 
