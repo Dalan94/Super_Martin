@@ -13,7 +13,7 @@ sudo cp ~/Téléchargement/fmodapi44431linux/api/inc/* /usr/include/FMOD
 sudo cp ~/Téléchargement/fmodapi44431linux/api/libfmodex64-4.44.31.so /usr/lib
 
 6) créer un lien symbolique vers ce fichier :
-sudo ln -s /usr/lib/libfmodex64-4.44.31.so /usr/libfmod.so
+sudo ln -s /usr/lib/libfmodex64-4.44.31.so /usr/lib/libfmod.so
 
 7)FIN
 
