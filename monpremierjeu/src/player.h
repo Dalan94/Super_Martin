@@ -14,14 +14,18 @@
 #include <errno.h>
 
 #include <SDL/SDL.h>
-#include "jeu.h"
+#include <SDL/SDL_image.h>
+
 
 typedef struct{
     SDL_Surface *spriteR,*spriteL;
     SDL_Rect location;
+    int isRight; /*! indique la direction de regard du personnage (1 droite, 0 gauche)*/
 }Character;
 
 /*prototypes*/
 Character *createrCharacter(char *spR,char *spL);
+void moveCharacter(Character *c,int direction, Map *m);
+void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 
 #endif

@@ -11,7 +11,7 @@
  *\fn void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, SDL_Color color, char *font,int ptSize,int mode)
  *affiche le texte sur l'écran à la position donnée
  *\param[out] screen L'écran
- *\param[in] posText La position du texte à afficher
+ *\param[in] posText La position du texte à afficher ; si NULL, centré en largeur et hauteur
  *\param[in] text Le texte à afficher
  *\param[in] color la couleur du texte
  *\param[in] font L'adresse de la police d'affichage (.ttf)
@@ -45,6 +45,13 @@ void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, SDL_Color col
     if(textSurface == NULL){
         fprintf(stderr,"writing error");
         exit(EXIT_FAILURE);
+    }
+
+    if(posText == NULL){
+        posText = (SDL_Rect *) malloc(sizeof(SDL_Rect));
+        posText->h = posText->w = 0;
+        posText->x = screen->w/2-textSurface->w/2;
+        posText->y = screen->h/2-textSurface->h/2;
     }
 
     SDL_BlitSurface(textSurface, NULL, screen, posText);
