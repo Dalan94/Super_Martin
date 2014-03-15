@@ -41,6 +41,12 @@ void jouer(SDL_Surface *screen){
     SDL_Rect posBack;
     SDL_Event event;
 
+    /*Gestion des mouvements*/
+    int move_right=0;
+    int move_left=0;
+    int scrolling_right=0;
+    int scrolling_left=0;
+
     //effacer l'écran
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
 
@@ -48,7 +54,7 @@ void jouer(SDL_Surface *screen){
     posBack.y = 0;
 
     /*initialisation de la carte */
-    m = initMap(64,24,screen);
+    m = initMap(3*NB_BLOCS_LARGEUR,NB_BLOCS_HAUTEUR,screen);
 
     /*ligne d'herbe*/
     for(i=0;i<m->nbBlocLg;i++){
@@ -66,7 +72,7 @@ void jouer(SDL_Surface *screen){
     /* ****************************** */
 
     /*chargement des différentes sprites*/
-    background = IMG_Load("sprites/game-background.jpg");
+    background = IMG_Load("sprites/Background/green_hills_3.png");
 
     if(background == NULL){
         perror("couldn't load background sprite");
@@ -74,7 +80,7 @@ void jouer(SDL_Surface *screen){
     }
 
     /*initialisation du joueur*/
-    player = createrCharacter("sprites/peachD.png","sprites/peachG.png");
+    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png");
     player->location.x = 10*TAILLE_BLOC;
     player->location.y = 19*TAILLE_BLOC-player->spriteL->h;
 
@@ -98,24 +104,46 @@ void jouer(SDL_Surface *screen){
                         break;
 
                     case SDLK_RIGHT:
-                        scrolling(m,RIGHT);
+                        scrolling_right=1;
                         break;
 
                     case SDLK_LEFT:
-                        scrolling(m,LEFT);
+                        scrolling_left=1;
                         break;
                     case SDLK_q:
-                        moveCharacter(player,LEFT,m);
+                        move_left=1;
                         break;
                     case SDLK_d:
-                        moveCharacter(player,RIGHT,m);
+                        move_right=1;
                         break;
 
                     default: ;
                 }
-            break;
+                break;
+            case SDL_KEYUP:
+                switch(event.key.keysym.sym)
+                {
+                    case SDLK_RIGHT:
+                        scrolling_right=0;
+                        break;
+                    case SDLK_LEFT:
+                        scrolling_left=0;
+                        break;
+                    case SDLK_q:
+                        move_left=0;
+                        break;
+                    case SDLK_d:
+                        move_right=0;
+                        break;
+
+                    default: ;
+                }
+
             default: ;
         }
+
+        move(move_left,move_right,scrolling_left,scrolling_right,player,m);
+
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
@@ -139,7 +167,6 @@ void jouer(SDL_Surface *screen){
         }
 
         SDL_Flip(screen);//affichage de l'écran
-        //SDL_Delay(60);
 
 
     } //while
@@ -245,7 +272,6 @@ Uint32 decomptage(Uint32 intervalle,void* parametre){
 /**
  *\fn void initMap(int nbBlocLgMap, int nbBloHtMap,SDL_Surface *screen)
  *initialise la carte
-
  *\param[in] nbBlocLgMap Le nombre de bloc dans la largeur de la carte
  *\param[in] nbBlocHtMap Le nombre de bloc dans la hauteur de la carte
  *\param[in] screen l'écran de jeu
@@ -346,4 +372,26 @@ void printGameOver(SDL_Surface *screen,int *continuer){
     *continuer = 0;
     freeSound(s);
 
+}
+
+/**
+ *\fn void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m)
+ *  Deplace le joueur et scrolle l'ecran si besoin
+ *\param[in] move_left booleen pour savoir si l'on bouge a gauche
+ *\param[in] move_right booleen pour savoir si l'on bouge a droite
+ *\param[in] scrolling_left booleen pour savoir si l'on scrolle a gauche
+ *\param[in] scrolling_right booleen pour savoir si l'on scrolle a droite
+ *\param[in] player le joueur
+ *\param[in] m la carte
+ */
+void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m)
+{
+    if(move_left)
+        moveCharacter(player,LEFT,m);
+    if (move_right)
+        moveCharacter(player,RIGHT,m);
+    if (scrolling_left)
+        scrolling(m,LEFT);
+    if (scrolling_right)
+        scrolling(m,RIGHT);
 }

@@ -37,7 +37,7 @@ int menu(SDL_Surface *screen,int *continuer){
     /* *********************** */
 
     /*winting screen */
-    waiting = IMG_Load("sprites/title.jpg");
+    waiting = IMG_Load("sprites/Background/desert_hills_2.png");
     posWait.x = 0;
     posWait.y = 0;
 
@@ -75,6 +75,8 @@ int menu(SDL_Surface *screen,int *continuer){
         }
 
         waitFPS(&previous_time,&current_time);
+
+        SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
         SDL_BlitSurface(waiting, NULL, screen, &posWait);
         if(printingText)
