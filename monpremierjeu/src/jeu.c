@@ -69,6 +69,7 @@ void jouer(SDL_Surface *screen){
     }
     m->lvl[23][20] = VOID;
     m->lvl[45][23] = VOID;
+    m->lvl[24][18] = GREY_WALL;
     /* ****************************** */
 
     /*chargement des différentes sprites*/
@@ -148,11 +149,7 @@ void jouer(SDL_Surface *screen){
 
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
-        /*blit de peach*/
-       /* if(isPeachR)
-            SDL_BlitSurface(peachR, NULL, screen, &posPeach);
-        else
-            SDL_BlitSurface(peachL, NULL, screen, &posPeach);*/
+
         blitCharacter(screen,player,m);
 
         updateScreenMap(screen,m); //blit du niveau
@@ -196,7 +193,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
     SDL_Rect pos; //position de la sprite à blit
 
     /*liste des sprites ayant possibilité d'être affichées*/
-    SDL_Surface *grass1, *ground1;
+    SDL_Surface *grass1, *ground1,*grey_wall;
 
 
     /* ********************************************* */
@@ -204,9 +201,10 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
     /*chargement des sprites*/
     grass1 = IMG_Load("sprites/herbe.bmp");
     ground1 = IMG_Load("sprites/ground1.bmp");
+    grey_wall = IMG_Load("sprites/grey_wall.png");
 
 
-    if(grass1 == NULL || ground1 == NULL){
+    if(grass1 == NULL || ground1 == NULL || grey_wall == NULL){
         perror("couldn't load sprite(s)");
         exit(errno);
     }
@@ -231,6 +229,9 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
                         break;
                     case GROUND1 :
                         SDL_BlitSurface(ground1,NULL,screen,&pos);
+                        break;
+                    case GREY_WALL :
+                        SDL_BlitSurface(grey_wall,NULL,screen,&pos);
                         break;
                     default: ;
                     }
