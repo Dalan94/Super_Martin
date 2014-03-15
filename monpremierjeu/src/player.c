@@ -44,14 +44,14 @@ Character *createrCharacter(char *spR,char *spL){
 void moveCharacter(Character *c,int direction,Map *m,float speed){
     SDL_Rect futureLocation = c->location;
     switch (direction){
-        case RIGHT:
-            (futureLocation.x)+=speed;
-            c->isRight = 1;
-            break;
 
         case LEFT:
             (futureLocation.x)-=speed;
             c->isRight = 0;
+            break;
+        case RIGHT:
+            (futureLocation.x)+=speed;
+            c->isRight = 1;
             break;
         default: ;
     }

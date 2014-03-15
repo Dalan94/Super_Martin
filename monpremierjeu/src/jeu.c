@@ -127,7 +127,7 @@ void jouer(SDL_Surface *screen){
             default: ;
         }
 
-        move(move_left,move_right,player,m);
+        move(move_left,move_right,player,m,1);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
@@ -370,7 +370,7 @@ void printGameOver(SDL_Surface *screen,int *continuer){
  *\param[in] m la carte
 
  */
-void move (int move_left, int move_right, Character *player,Map *m)
+void move(int move_left, int move_right, Character *player,Map *m,float speed)
 {
     if (move_right)
     {
@@ -383,5 +383,14 @@ void move (int move_left, int move_right, Character *player,Map *m)
         if(player->location.x - m->xScroll < m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100)
             scrolling(m,LEFT,5);
         moveCharacter(player,LEFT,m,5);
+                    scrolling(m,RIGHT,5);
+        moveCharacter(player,RIGHT,m,speed);
+    }
+    if (move_left)
+    {
+        if(player->location.x - m->xScroll< m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
+            scrolling(m,LEFT,5);
+        moveCharacter(player,LEFT,m,speed);
+
     }
 }
