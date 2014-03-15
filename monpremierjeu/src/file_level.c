@@ -9,19 +9,25 @@
  #include "file_level.h"
 
 /*!
- * \fn  Level *openMap(char *file_name, Level *lvl)
+ * \fn  Level *openLevel(char *file_name)
  *  Ouvre un fichier map, et le stocke
  * \param[in] file_name le nom du fichier
- * \param[out] lvl le niveau
  * \return un pointeur sur le niveau
  */
-Level *openMap(char *file_name, Level *lvl)
+Level *openLevel(char *file_name)
  {
      FILE *ptr_file;
-     int i;
-     char string_width[TAILLE_MAX_NB_BLOCS_LARGEUR];
-     char string_height[TAILLE_MAX_NB_BLOCS_HAUTEUR];
+     int i,j;
      char buffer[TAILLE_BUFFER];
+     Level *lvl;
+     char *saut_ligne;
+
+     if ((lvl=(Level *)malloc(sizeof(Level))) == NULL)
+     {
+            printf("\nProbleme allocation memoire\n");
+            perror("");
+            exit(0);
+     }
 
      ptr_file=openFile(file_name,"r");
 
@@ -31,20 +37,29 @@ Level *openMap(char *file_name, Level *lvl)
         return NULL;
      }
 
-     fgets(string_width,TAILLE_MAX_NB_BLOCS_LARGEUR,ptr_file);
-     sscanf(string_width,"%d",&(lvl->width));
-     fgets(string_height,TAILLE_MAX_NB_BLOCS_HAUTEUR,ptr_file);
-     sscanf(string_height,"%d",&(lvl->height));
+     fscanf(ptr_file,"%d",&(lvl->width));
+     fscanf(ptr_file,"%d",&(lvl->height));
 
      initLevel(lvl);
+
+     fgets(buffer,TAILLE_BUFFER,ptr_file);
+     fgets(lvl->background,TAILLE_MAX_NOM_FICHIER,ptr_file);
+
+     /*Enleve le saut de ligne final de background*/
+     saut_ligne = strchr(lvl->background, '\n');
+        *saut_ligne = 0;
 
     for(i=0 ; i < lvl->height ; i++)
     {
         fgets((char *)lvl->map[i],lvl->width+1,ptr_file);
         fgets(buffer,TAILLE_BUFFER,ptr_file);
+        for (j=0 ; j < lvl->width ; j++)
+            lvl->map[i][j]-=48;
     }
 
      closeFile(ptr_file);
+
+
 
      return lvl;
  }
@@ -102,16 +117,21 @@ Level *initLevel(Level *lvl)
  */
 void writeLevel(char *file_name, Level *lvl)
 {
-    int i;
+    int i,j;
     FILE *ptr_file;
 
     ptr_file=openFile(file_name,"w");
 
     fprintf(ptr_file,"%d\n",lvl->width);
     fprintf(ptr_file,"%d\n",lvl->height);
+    fprintf(ptr_file,"%s",lvl->background);
 
     for (i=0 ; i<lvl->height ; i++)
-        fprintf(ptr_file,"%s\n",lvl->map[i]);
+    {
+        for (j=0 ; j<lvl->width ; j++)
+            fprintf(ptr_file,"%hhu",lvl->map[i][j]);
+        fprintf(ptr_file,"\n");
+    }
 
     closeFile(ptr_file);
 }

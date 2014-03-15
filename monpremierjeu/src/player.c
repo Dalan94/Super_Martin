@@ -40,8 +40,9 @@ Character *createrCharacter(char *spR,char *spL){
  *\param[in] direction La direction du déplacement
  *\param[in] m la carte sur laquelle le personnage se déplace
  *\param[in] speed la vitesse de déplacement
+ *\return 1 si le personnage a pu se deplacer, 0 sinon
  */
-void moveCharacter(Character *c,int direction,Map *m,float speed){
+int moveCharacter(Character *c,int direction,Map *m,float speed){
     SDL_Rect futureLocation = c->location;
     switch (direction){
 
@@ -58,7 +59,9 @@ void moveCharacter(Character *c,int direction,Map *m,float speed){
 
     if(!collisionSprite(futureLocation,m)){
         c->location = futureLocation;
+        return 1;
     }
+    return 0;
 }
 
 /**
@@ -95,7 +98,7 @@ int collisionSprite(SDL_Rect r,Map *m){
     int xmin,xmax,ymin,ymax;
     SDL_Rect test;
 
-    if(r.x+r.w > m->nbBlocLg*TAILLE_BLOC || r.x < TAILLE_BLOC)
+    if(r.x+r.w > (m->lvl->width+1)*TAILLE_BLOC || r.x < TAILLE_BLOC)
         return 1; //test les limites du monde
 
     xmin =  (r.x) / TAILLE_BLOC ;
@@ -105,7 +108,7 @@ int collisionSprite(SDL_Rect r,Map *m){
 
     for(i = xmin ; i< xmax ; i++){
         for (j=ymin ; j< ymax ; j++){
-            if(m->lvl[i][j] != VOID){
+            if(m->lvl->map[j][i] != VOID){
                 test.x = i*TAILLE_BLOC;
                 test.y = j*TAILLE_BLOC;
                 if((r.x+r.w <= test.x)

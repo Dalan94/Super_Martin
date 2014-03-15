@@ -16,6 +16,7 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 
+#include "file_level.h"
 
 typedef struct{
     SDL_Surface *spriteR,*spriteL;
@@ -25,7 +26,7 @@ typedef struct{
 
 /*prototypes*/
 Character *createrCharacter(char *spR,char *spL);
-void moveCharacter(Character *c,int direction, Map *m,float speed);
+int moveCharacter(Character *c,int direction, Map *m,float speed);
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 int collisionSprite(SDL_Rect r,Map *m);
 

@@ -1,5 +1,4 @@
+*.layout
+*.depend
 monpremierjeu/bin
 monpremierjeu/obj
-monpremierjeu/monpremierjeu.depend
-monpremierjeu/monpremierjeu.layout
-monpremierjeu/SDL.workspace.layout

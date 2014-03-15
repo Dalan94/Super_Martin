@@ -11,14 +11,15 @@
 
 
 /**
- *\fn void jouer(SDL_Surface *screen)
+ *\fn void jouer(SDL_Surface *screen,char *level_name)
  *contient la boucle principale du jeu qui appelle les fonctions
  *\param[in,out] screen L'écran de jeu
+ *\param[in] lvel_name le nom du niveau
  */
 
-void jouer(SDL_Surface *screen){
+void jouer(SDL_Surface *screen, char *level_name){
 
-    int continuer = 1 ,i,j;
+    int continuer = 1;
 
     /*gestion du temps*/
     int time = 200;
@@ -31,6 +32,7 @@ void jouer(SDL_Surface *screen){
 
     /*définition du niveau*/
     Map *m;
+    Level *lvl;
 
     /*définition du joueur*/
     Character *player;
@@ -51,27 +53,12 @@ void jouer(SDL_Surface *screen){
     posBack.x=0;
     posBack.y = 0;
 
-    /*initialisation de la carte */
-    m = initMap(2*NB_BLOCS_LARGEUR,NB_BLOCS_HAUTEUR,screen);
-
-    /*ligne d'herbe*/
-    for(i=0;i<m->nbBlocLg;i++){
-        m->lvl[i][19] = GRASS1;
-    }
-
-    /*terre*/
-    for (i = 0; i<m->nbBlocLg; i++){
-        for(j = 20; j<m->nbBlocHt; j++){
-            m->lvl[i][j] = GROUND1;
-        }
-    }
-    m->lvl[23][20] = VOID;
-    m->lvl[45][23] = VOID;
-   // m->lvl[24][18] = GREY_WALL;
-    /* ****************************** */
+    /*initialisation de la carte et du niveau*/
+    lvl = openLevel(level_name);
+    m = initMap(lvl,screen);
 
     /*chargement des différentes sprites*/
-    background = IMG_Load("sprites/Background/green_hills_3.png");
+    background = IMG_Load(m->lvl->background);
 
     if(background == NULL){
         perror("couldn't load background sprite");
@@ -127,7 +114,7 @@ void jouer(SDL_Surface *screen){
             default: ;
         }
 
-        move(move_left,move_right,player,m,1);
+        move(move_left,move_right,player,m,10);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
@@ -200,11 +187,11 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
     /*mise à jour de la surface screen*/
     for(i=minx;i<maxx;i++){
         for(j=0;j<nbRow;j++){
-            pos.x = i*TAILLE_BLOC-m->xScroll;
+            pos.x = (i+1)*TAILLE_BLOC-m->xScroll;
             pos.y = j*TAILLE_BLOC;
 
-            if(i>0 && i<m->nbBlocLg){
-                switch(m->lvl[i][j]){
+            if(i>=0 && i<m->lvl->width){
+                switch(m->lvl->map[j][i]){
                     case VOID:
                         break;
 
@@ -238,7 +225,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
 void scrolling(Map *m, int direction,float speed){
     switch (direction){
         case RIGHT:
-            if(m->xScroll < m->nbBlocLg*TAILLE_BLOC-m->screenWidth)
+            if(m->xScroll < (m->lvl->width+1)*TAILLE_BLOC-m->screenWidth)
                 m->xScroll+= speed;
             break;
 
@@ -257,43 +244,24 @@ Uint32 decomptage(Uint32 intervalle,void* parametre){
 }
 
 /**
- *\fn void initMap(int nbBlocLgMap, int nbBloHtMap,SDL_Surface *screen)
+ *\fn  Map *initMap(Level *lvl,SDL_Surface *screen){
  *initialise la carte
- *\param[in] nbBlocLgMap Le nombre de bloc dans la largeur de la carte
- *\param[in] nbBlocHtMap Le nombre de bloc dans la hauteur de la carte
  *\param[in] screen l'écran de jeu
+ *\param[in] level le niveau
  *\return un pointeur sur la carte initialisée
  */
- Map *initMap(int nbBlocLgMap, int nbBlocHtMap,SDL_Surface *screen){
+ Map *initMap(Level *lvl,SDL_Surface *screen){
     Map *m;
-    int i,j;
 
     m = (Map *)malloc(sizeof(Map));
     if (m == NULL){
         perror("allocation error");
         exit(errno);
     }
-    m->lvl = (unsigned char **) malloc(nbBlocLgMap*sizeof(char*));
-    for(i = 0;i<nbBlocLgMap;i++)
-        m->lvl[i] = (unsigned char *)malloc(nbBlocHtMap*sizeof(char));
-    if(m->lvl == NULL){
-        perror("allocation error");
-        exit(errno);
-    }
-
-
-    m->nbBlocHt = nbBlocHtMap;
-    m->nbBlocLg = nbBlocLgMap;
+    m->lvl=lvl;
     m->screenHeight = screen->h;
     m->screenWidth = screen->w;
     m->xScroll = 20;
-
-    /*initialation à VOID*/
-    for (i = 0; i<nbBlocLgMap; i++){
-        for(j = 0; j<nbBlocHtMap; j++){
-            m->lvl[i][j] = VOID;
-        }
-    }
 
     return m;
  }
@@ -304,12 +272,7 @@ Uint32 decomptage(Uint32 intervalle,void* parametre){
   *\param[in,out] m la carte
   */
 void freeMap(Map *m){
-    int i;
-
-    for(i = 0;i<m->nbBlocLg;i++){
-        free((void *)m->lvl[i]);
-    }
-    free((void *)m->lvl);
+    closeLevel(m->lvl);
     free((void *)m);
 }
 
@@ -362,7 +325,7 @@ void printGameOver(SDL_Surface *screen,int *continuer){
 }
 
 /**
- *\fn void move (int move_left, int move_right, Character *player,Map *m)
+ *\fn void move (int move_left, int move_right, Character *player,Map *m, float speed)
  *  Deplace le joueur et scrolle l'ecran si besoin
  *\param[in] move_left booleen pour savoir si l'on bouge a gauche
  *\param[in] move_right booleen pour savoir si l'on bouge a droite
@@ -374,23 +337,12 @@ void move(int move_left, int move_right, Character *player,Map *m,float speed)
 {
     if (move_right)
     {
-        if(player->location.x > m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
-            scrolling(m,RIGHT,5);
-        moveCharacter(player,RIGHT,m,5);
+        if(moveCharacter(player,RIGHT,m,speed) && player->location.x > m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
+            scrolling(m,RIGHT,speed);
     }
     if (move_left)
     {
-        if(player->location.x - m->xScroll < m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100)
-            scrolling(m,LEFT,5);
-        moveCharacter(player,LEFT,m,5);
-                    scrolling(m,RIGHT,5);
-        moveCharacter(player,RIGHT,m,speed);
-    }
-    if (move_left)
-    {
-        if(player->location.x - m->xScroll< m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
-            scrolling(m,LEFT,5);
-        moveCharacter(player,LEFT,m,speed);
-
+        if(moveCharacter(player,LEFT,m,speed) &&player->location.x - m->xScroll < m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100)
+            scrolling(m,LEFT,speed);
     }
 }

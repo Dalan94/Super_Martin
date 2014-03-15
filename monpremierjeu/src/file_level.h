@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "file.h"
 #include "const.h"
 
@@ -18,7 +19,7 @@
 #define TAILLE_MAX_NB_BLOCS_HAUTEUR 4
 #define TAILLE_BUFFER 2
 
-Level *openMap(char *file_name, Level *lvl);
+Level *openLevel(char *file_name);
 void closeLevel(Level *lvl);
 Level *initLevel(Level *lvl);
 void writeLevel(char *file_name, Level *lvl);

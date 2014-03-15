@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     {
 
         if(menu(screen,&continuer))
-            jouer(screen);
+            jouer(screen,"level/test.lvl");
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
