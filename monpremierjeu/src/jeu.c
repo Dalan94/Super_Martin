@@ -20,8 +20,6 @@ void jouer(SDL_Surface *screen){
 
     int continuer = 1 ,i,j;
 
-    int isPeachR = 1; //1 si peach vers la droite, 0 si vers la gauche
-
     /*gestion du temps*/
     int time = 10;
     char timeChar[5];
@@ -34,8 +32,8 @@ void jouer(SDL_Surface *screen){
 
 
     /*définition des surfaces*/
-    SDL_Surface *peachR = NULL, *background = NULL, *peachL;
-    SDL_Rect posPeach,posBack;
+    SDL_Surface *background = NULL;
+    SDL_Rect posBack;
     SDL_Event event;
 
     //effacer l'écran
@@ -44,9 +42,8 @@ void jouer(SDL_Surface *screen){
     posBack.x=0;
     posBack.y = 0;
 
+    /*initialisation de la carte */
     m = initMap(64,24,screen);
-
-
 
     /*ligne d'herbe*/
     for(i=0;i<m->nbBlocLg;i++){
@@ -61,25 +58,15 @@ void jouer(SDL_Surface *screen){
     }
     m->lvl[23][20] = VOID;
     m->lvl[45][23] = VOID;
+    /* ****************************** */
 
-
-    /*chargement de peach et des différentes sprites*/
-    peachR= IMG_Load("sprites/peachD.png");
-    peachL= IMG_Load("sprites/peachG.png");
+    /*chargement des différentes sprites*/
     background = IMG_Load("sprites/game-background.jpg");
 
-    if(peachR == NULL || background == NULL ||peachL == NULL){
-        perror("couldn't load sprite");
+    if(background == NULL){
+        perror("couldn't load background sprite");
         exit(errno);
     }
-
-
-
-    /*position de départ de peach*/
-    posPeach.x=screen->w/2-peachR->w;
-    posPeach.y=19*TAILLE_BLOC-peachR->h;
-
-
 
     SDL_EnableKeyRepeat(100,100); //répétition des touches
 
@@ -100,12 +87,10 @@ void jouer(SDL_Surface *screen){
 
                     case SDLK_RIGHT:
                         scrolling(m,RIGHT);
-                        isPeachR = 1;
                         break;
 
                     case SDLK_LEFT:
                         scrolling(m,LEFT);
-                        isPeachR = 0;
                         break;
                     default: ;
                 }
@@ -117,10 +102,10 @@ void jouer(SDL_Surface *screen){
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
         /*blit de peach*/
-        if(isPeachR)
+       /* if(isPeachR)
             SDL_BlitSurface(peachR, NULL, screen, &posPeach);
         else
-            SDL_BlitSurface(peachL, NULL, screen, &posPeach);
+            SDL_BlitSurface(peachL, NULL, screen, &posPeach);*/
 
         updateScreenMap(screen,m); //blit du niveau
         if(time>0){
@@ -140,10 +125,8 @@ void jouer(SDL_Surface *screen){
     SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
     SDL_Flip(screen);
 
-    if (peachR !=NULL)
-        SDL_FreeSurface(peachR);
+
     SDL_FreeSurface(background);
-    SDL_FreeSurface(peachL);
 
     freeMap(m);
     SDL_RemoveTimer(timer);
@@ -322,6 +305,8 @@ void printGameOver(SDL_Surface *screen,int *continuer){
 
     printText(screen,&posText,"GAME OVER",color,"polices/manga.ttf",65,1);
     SDL_Flip(screen);
+
+    SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
 
     while(cont){
         SDL_WaitEvent(&event);

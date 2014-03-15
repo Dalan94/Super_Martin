@@ -39,5 +39,13 @@ Character *createrCharacter(char *spR,char *spL){
  *\param[in] direction La direction du déplacement
  */
 void moveCharacter(Character *c,int direction){
-
+    switch (direction){
+        case RIGHT:
+            (c->location.x)++;
+            break;
+        case LEFT:
+            (c->location.x)--;
+            break;
+        default: ;
+    }
 }

@@ -39,8 +39,8 @@ int menu(SDL_Surface *screen,int *continuer){
     posWait.y = 0;
 
         /*position texte*/
-    posText.x = screen->w/2-150;
-    posText.y = screen->h/2-65;
+    /*posText.x = screen->w/2-150;
+    posText.y = screen->h/2-65;*/
     /* ************************ */
 
     /*appel du timer*/
@@ -73,7 +73,7 @@ int menu(SDL_Surface *screen,int *continuer){
 
         SDL_BlitSurface(waiting, NULL, screen, &posWait);
         if(printingText)
-            printText(screen,&posText,"Press Enter",black,"polices/sherwood.ttf",65,1);
+            printText(screen,NULL,"Press Enter",black,"polices/sherwood.ttf",65,1); //argument 2 NULL pour centrer le texte
         SDL_Flip(screen);
     }
 
