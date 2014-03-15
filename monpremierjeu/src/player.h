@@ -25,7 +25,8 @@ typedef struct{
 
 /*prototypes*/
 Character *createrCharacter(char *spR,char *spL);
-void moveCharacter(Character *c,int direction, Map *m);
+void moveCharacter(Character *c,int direction, Map *m,float speed);
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
+int collisionSprite(SDL_Rect r,Map *m);
 
 #endif

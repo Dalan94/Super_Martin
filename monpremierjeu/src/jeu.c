@@ -54,7 +54,7 @@ void jouer(SDL_Surface *screen){
     posBack.y = 0;
 
     /*initialisation de la carte */
-    m = initMap(3*NB_BLOCS_LARGEUR,NB_BLOCS_HAUTEUR,screen);
+    m = initMap(2*NB_BLOCS_LARGEUR,NB_BLOCS_HAUTEUR,screen);
 
     /*ligne d'herbe*/
     for(i=0;i<m->nbBlocLg;i++){
@@ -142,7 +142,7 @@ void jouer(SDL_Surface *screen){
             default: ;
         }
 
-        move(move_left,move_right,scrolling_left,scrolling_right,player,m);
+        move(move_left,move_right,scrolling_left,scrolling_right,player,m,3);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
@@ -375,7 +375,7 @@ void printGameOver(SDL_Surface *screen,int *continuer){
 }
 
 /**
- *\fn void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m)
+ *\fn void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m,int speed)
  *  Deplace le joueur et scrolle l'ecran si besoin
  *\param[in] move_left booleen pour savoir si l'on bouge a gauche
  *\param[in] move_right booleen pour savoir si l'on bouge a droite
@@ -383,13 +383,14 @@ void printGameOver(SDL_Surface *screen,int *continuer){
  *\param[in] scrolling_right booleen pour savoir si l'on scrolle a droite
  *\param[in] player le joueur
  *\param[in] m la carte
+ *\param[in] speed la vitesse de déplacement(joueur)
  */
-void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m)
+void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m,int speed)
 {
     if(move_left)
-        moveCharacter(player,LEFT,m);
+        moveCharacter(player,LEFT,m,speed);
     if (move_right)
-        moveCharacter(player,RIGHT,m);
+        moveCharacter(player,RIGHT,m,speed);
     if (scrolling_left)
         scrolling(m,LEFT);
     if (scrolling_right)
