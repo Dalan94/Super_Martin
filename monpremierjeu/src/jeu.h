@@ -27,7 +27,7 @@
 /*prototypes*/
 void jouer(SDL_Surface *screen);
 void updateScreenMap(SDL_Surface *screen, Map *m);
-void scrolling(Map *m,int direction);
+void scrolling(Map *m,int direction,float speed);
 Uint32 decomptage(Uint32 intervalle,void* parametre);
 Map* initMap(int nbBlocLgMap, int nbBlocHtMap,SDL_Surface *screen);
 void freeMap(Map *m);

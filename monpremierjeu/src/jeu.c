@@ -67,7 +67,7 @@ void jouer(SDL_Surface *screen){
     }
     m->lvl[23][20] = VOID;
     m->lvl[45][23] = VOID;
-    m->lvl[24][18] = GREY_WALL;
+   // m->lvl[24][18] = GREY_WALL;
     /* ****************************** */
 
     /*chargement des différentes sprites*/
@@ -225,24 +225,26 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
 
     SDL_FreeSurface(grass1);
     SDL_FreeSurface(ground1);
+    SDL_FreeSurface(grey_wall);
 }
 
 /**
- *\fn void scrolling(Map *m,int direction)
+ *\fn void scrolling(Map *m,int direction,float speed)
  *effectue un scrolling
  *\param[in,out] map Le niveau à gérer
  *\param[in] direction La direction de scrolling
+ *\param[in] speed la vitesse de scrolling
  */
-void scrolling(Map *m, int direction){
+void scrolling(Map *m, int direction,float speed){
     switch (direction){
         case RIGHT:
             if(m->xScroll < m->nbBlocLg*TAILLE_BLOC-m->screenWidth)
-                m->xScroll+=2;
+                m->xScroll+= speed;
             break;
 
         case LEFT:
             if(m->xScroll > TAILLE_BLOC)
-                m->xScroll-=2;
+                m->xScroll-= speed;
             break;
         default: ;
     }
@@ -366,20 +368,29 @@ void printGameOver(SDL_Surface *screen,int *continuer){
  *\param[in] move_right booleen pour savoir si l'on bouge a droite
  *\param[in] player le joueur
  *\param[in] m la carte
- *\param[in] speed la vitesse de déplacement(joueur)
+
  */
 void move(int move_left, int move_right, Character *player,Map *m,float speed)
 {
     if (move_right)
     {
         if(player->location.x > m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
-            scrolling(m,RIGHT);
+            scrolling(m,RIGHT,5);
+        moveCharacter(player,RIGHT,m,5);
+    }
+    if (move_left)
+    {
+        if(player->location.x - m->xScroll < m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100)
+            scrolling(m,LEFT,5);
+        moveCharacter(player,LEFT,m,5);
+                    scrolling(m,RIGHT,5);
         moveCharacter(player,RIGHT,m,speed);
     }
     if (move_left)
     {
-        if(player->location.x < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
-            scrolling(m,LEFT);
+        if(player->location.x - m->xScroll< m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
+            scrolling(m,LEFT,5);
         moveCharacter(player,LEFT,m,speed);
+
     }
 }
