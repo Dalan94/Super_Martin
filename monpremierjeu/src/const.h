@@ -16,7 +16,7 @@
     #define FPS                 60
 
 
-    enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL};
+    enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3};
     enum {JUMP,RIGHT,LEFT};
 
 typedef struct{

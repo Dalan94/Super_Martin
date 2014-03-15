@@ -45,21 +45,18 @@ void moveCharacter(Character *c,int direction,Map *m,float speed){
     SDL_Rect futureLocation = c->location;
     switch (direction){
         case RIGHT:
-<<<<<<< HEAD
             if(c->location.x+c->spriteL->w < m->nbBlocLg*TAILLE_BLOC)
                 (c->location.x)+=2;
             c->isRight = 1;
             break;
-        case LEFT:
+        /*case LEFT:
             if(c->location.x > TAILLE_BLOC)
                 (c->location.x)-=2;
-=======
             (futureLocation.x)+=speed;
             c->isRight = 1;
-            break;
+            break;*/
         case LEFT:
             (futureLocation.x)-=speed;
->>>>>>> df1982ff5ce7e254c0d2f65de0e5e82c88f6c3ab
             c->isRight = 0;
             break;
         default: ;

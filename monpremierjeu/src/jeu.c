@@ -127,11 +127,7 @@ void jouer(SDL_Surface *screen){
             default: ;
         }
 
-<<<<<<< HEAD
         move(move_left,move_right,player,m);
-=======
-        move(move_left,move_right,scrolling_left,scrolling_right,player,m,3);
->>>>>>> df1982ff5ce7e254c0d2f65de0e5e82c88f6c3ab
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
@@ -364,11 +360,7 @@ void printGameOver(SDL_Surface *screen,int *continuer){
 }
 
 /**
-<<<<<<< HEAD
  *\fn void move (int move_left, int move_right, Character *player,Map *m)
-=======
- *\fn void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m,int speed)
->>>>>>> df1982ff5ce7e254c0d2f65de0e5e82c88f6c3ab
  *  Deplace le joueur et scrolle l'ecran si besoin
  *\param[in] move_left booleen pour savoir si l'on bouge a gauche
  *\param[in] move_right booleen pour savoir si l'on bouge a droite
@@ -376,31 +368,18 @@ void printGameOver(SDL_Surface *screen,int *continuer){
  *\param[in] m la carte
  *\param[in] speed la vitesse de déplacement(joueur)
  */
-<<<<<<< HEAD
 void move (int move_left, int move_right, Character *player,Map *m)
 {
     if (move_right)
     {
         if(player->location.x > m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
             scrolling(m,RIGHT);
-        moveCharacter(player,RIGHT,m);
+        moveCharacter(player,RIGHT,m,1);
     }
     if (move_left)
     {
         if(player->location.x < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
             scrolling(m,LEFT);
-        moveCharacter(player,LEFT,m);
+        moveCharacter(player,LEFT,m,1);
     }
-=======
-void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m,int speed)
-{
-    if(move_left)
-        moveCharacter(player,LEFT,m,speed);
-    if (move_right)
-        moveCharacter(player,RIGHT,m,speed);
-    if (scrolling_left)
-        scrolling(m,LEFT);
-    if (scrolling_right)
-        scrolling(m,RIGHT);
->>>>>>> df1982ff5ce7e254c0d2f65de0e5e82c88f6c3ab
 }
