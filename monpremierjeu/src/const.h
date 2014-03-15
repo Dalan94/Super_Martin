@@ -16,7 +16,7 @@
     #define FPS                 60
 
 
-    enum {VOID=0, GRASS1, GROUND1, PEACH};
+    enum {VOID=0, GRASS1=1, GROUND1=2, PEACH};
     enum {JUMP,RIGHT,LEFT};
 
 typedef struct{
@@ -25,5 +25,12 @@ typedef struct{
     int xScroll;
     int screenWidth,screenHeight;
 }Map;
+
+typedef struct{
+    unsigned char**map;
+    int width;
+    int height;
+}Level;
+
 #endif // CONST_H_INCLUDED
 
