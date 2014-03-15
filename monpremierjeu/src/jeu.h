@@ -32,6 +32,10 @@ Uint32 decomptage(Uint32 intervalle,void* parametre);
 Map* initMap(int nbBlocLgMap, int nbBlocHtMap,SDL_Surface *screen);
 void freeMap(Map *m);
 void printGameOver(SDL_Surface *screen, int* continuer);
+<<<<<<< HEAD
 void move (int move_left, int move_right, Character *player,Map *m);
+=======
+void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m,int speed);
+>>>>>>> df1982ff5ce7e254c0d2f65de0e5e82c88f6c3ab
 
 #endif // JEU_H_INCLUDED

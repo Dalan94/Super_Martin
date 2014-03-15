@@ -52,7 +52,7 @@ void jouer(SDL_Surface *screen){
     posBack.y = 0;
 
     /*initialisation de la carte */
-    m = initMap(3*NB_BLOCS_LARGEUR,NB_BLOCS_HAUTEUR,screen);
+    m = initMap(2*NB_BLOCS_LARGEUR,NB_BLOCS_HAUTEUR,screen);
 
     /*ligne d'herbe*/
     for(i=0;i<m->nbBlocLg;i++){
@@ -67,6 +67,7 @@ void jouer(SDL_Surface *screen){
     }
     m->lvl[23][20] = VOID;
     m->lvl[45][23] = VOID;
+    m->lvl[24][18] = GREY_WALL;
     /* ****************************** */
 
     /*chargement des différentes sprites*/
@@ -126,17 +127,17 @@ void jouer(SDL_Surface *screen){
             default: ;
         }
 
+<<<<<<< HEAD
         move(move_left,move_right,player,m);
+=======
+        move(move_left,move_right,scrolling_left,scrolling_right,player,m,3);
+>>>>>>> df1982ff5ce7e254c0d2f65de0e5e82c88f6c3ab
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
-        /*blit de peach*/
-       /* if(isPeachR)
-            SDL_BlitSurface(peachR, NULL, screen, &posPeach);
-        else
-            SDL_BlitSurface(peachL, NULL, screen, &posPeach);*/
+
         blitCharacter(screen,player,m);
 
         updateScreenMap(screen,m); //blit du niveau
@@ -180,7 +181,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
     SDL_Rect pos; //position de la sprite à blit
 
     /*liste des sprites ayant possibilité d'être affichées*/
-    SDL_Surface *grass1, *ground1;
+    SDL_Surface *grass1, *ground1,*grey_wall;
 
 
     /* ********************************************* */
@@ -188,9 +189,10 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
     /*chargement des sprites*/
     grass1 = IMG_Load("sprites/herbe.bmp");
     ground1 = IMG_Load("sprites/ground1.bmp");
+    grey_wall = IMG_Load("sprites/grey_wall.png");
 
 
-    if(grass1 == NULL || ground1 == NULL){
+    if(grass1 == NULL || ground1 == NULL || grey_wall == NULL){
         perror("couldn't load sprite(s)");
         exit(errno);
     }
@@ -215,6 +217,9 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
                         break;
                     case GROUND1 :
                         SDL_BlitSurface(ground1,NULL,screen,&pos);
+                        break;
+                    case GREY_WALL :
+                        SDL_BlitSurface(grey_wall,NULL,screen,&pos);
                         break;
                     default: ;
                     }
@@ -359,13 +364,19 @@ void printGameOver(SDL_Surface *screen,int *continuer){
 }
 
 /**
+<<<<<<< HEAD
  *\fn void move (int move_left, int move_right, Character *player,Map *m)
+=======
+ *\fn void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m,int speed)
+>>>>>>> df1982ff5ce7e254c0d2f65de0e5e82c88f6c3ab
  *  Deplace le joueur et scrolle l'ecran si besoin
  *\param[in] move_left booleen pour savoir si l'on bouge a gauche
  *\param[in] move_right booleen pour savoir si l'on bouge a droite
  *\param[in] player le joueur
  *\param[in] m la carte
+ *\param[in] speed la vitesse de déplacement(joueur)
  */
+<<<<<<< HEAD
 void move (int move_left, int move_right, Character *player,Map *m)
 {
     if (move_right)
@@ -380,4 +391,16 @@ void move (int move_left, int move_right, Character *player,Map *m)
             scrolling(m,LEFT);
         moveCharacter(player,LEFT,m);
     }
+=======
+void move (int move_left, int move_right, int scrolling_left, int scrolling_right, Character *player,Map *m,int speed)
+{
+    if(move_left)
+        moveCharacter(player,LEFT,m,speed);
+    if (move_right)
+        moveCharacter(player,RIGHT,m,speed);
+    if (scrolling_left)
+        scrolling(m,LEFT);
+    if (scrolling_right)
+        scrolling(m,RIGHT);
+>>>>>>> df1982ff5ce7e254c0d2f65de0e5e82c88f6c3ab
 }

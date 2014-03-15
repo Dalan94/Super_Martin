@@ -34,15 +34,18 @@ Character *createrCharacter(char *spR,char *spL){
 }
 
 /**
- *\fn void moveCharacter(Character *c,int direction, Map *m)
+ *\fn void moveCharacter(Character *c,int direction, Map *m,float speed)
  *déplace le personnage selon la direction
  *\param[in,out] c Le personnage
  *\param[in] direction La direction du déplacement
  *\param[in] m la carte sur laquelle le personnage se déplace
+ *\param[in] speed la vitesse de déplacement
  */
-void moveCharacter(Character *c,int direction,Map *m){
+void moveCharacter(Character *c,int direction,Map *m,float speed){
+    SDL_Rect futureLocation = c->location;
     switch (direction){
         case RIGHT:
+<<<<<<< HEAD
             if(c->location.x+c->spriteL->w < m->nbBlocLg*TAILLE_BLOC)
                 (c->location.x)+=2;
             c->isRight = 1;
@@ -50,9 +53,20 @@ void moveCharacter(Character *c,int direction,Map *m){
         case LEFT:
             if(c->location.x > TAILLE_BLOC)
                 (c->location.x)-=2;
+=======
+            (futureLocation.x)+=speed;
+            c->isRight = 1;
+            break;
+        case LEFT:
+            (futureLocation.x)-=speed;
+>>>>>>> df1982ff5ce7e254c0d2f65de0e5e82c88f6c3ab
             c->isRight = 0;
             break;
         default: ;
+    }
+
+    if(!collisionSprite(futureLocation,m)){
+        c->location = futureLocation;
     }
 }
 
@@ -77,3 +91,42 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
         default:;
     }
 }
+
+/**
+ *\fn int collisionSprite(SDL_Rect r,Map *m)
+ *détermine s'il y a collision entre une sprite et le décor
+ *\param[in] r le SDL_Rect correspondant à la sprite
+ *\param[in] m la carte contenant le décor
+ *\return 1 s'il y a collision ou si en dehors du monde, 0 sinon
+ */
+int collisionSprite(SDL_Rect r,Map *m){
+    int i,j;
+    int xmin,xmax,ymin,ymax;
+    SDL_Rect test;
+
+    if(r.x+r.w > m->nbBlocLg*TAILLE_BLOC || r.x < TAILLE_BLOC)
+        return 1; //test les limites du monde
+
+    xmin =  (r.x) / TAILLE_BLOC ;
+    xmax =  (r.x + r.w )  / TAILLE_BLOC ;
+    ymin = (r.y) / TAILLE_BLOC ;
+    ymax =  (r.y + r.h ) / TAILLE_BLOC ;
+
+    for(i = xmin ; i< xmax ; i++){
+        for (j=ymin ; j< ymax ; j++){
+            if(m->lvl[i][j] != VOID){
+                test.x = i*TAILLE_BLOC;
+                test.y = j*TAILLE_BLOC;
+                if((r.x+r.w <= test.x)
+                    || (r.x >= test.x+test.w)
+                    || (r.y+r.h <= test.y)
+                    || (r.y >= test.y+test.h)
+                )
+                    return 1;
+            }
+        }
+    }
+
+    return 0;
+}
+

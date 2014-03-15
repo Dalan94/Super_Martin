@@ -15,7 +15,7 @@
  */
 int menu(SDL_Surface *screen,int *continuer){
     SDL_Surface *waiting;
-    SDL_Rect posWait,posText;
+    SDL_Rect posWait;
     int printingText = 1;
     int ret = 0;
     int previous_time=0;
