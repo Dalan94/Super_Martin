@@ -28,6 +28,8 @@ void jouer(SDL_Surface *screen){
     SDL_TimerID timer = SDL_AddTimer(1000,decomptage,&time); /*initialiation et Démarrage du timer */
     SDL_Rect posTime={10,10,0,0};
     SDL_Color black = {0,0,0};
+    int previous_time=0;
+    int current_time=0;
 
     /*définition du niveau*/
     Map *m;
@@ -83,6 +85,8 @@ void jouer(SDL_Surface *screen){
 
     SDL_EnableKeyRepeat(100,100); //répétition des touches
 
+    current_time=previous_time=SDL_GetTicks();
+
 
     while(continuer){
         SDL_PollEvent(&event);
@@ -123,13 +127,15 @@ void jouer(SDL_Surface *screen){
             SDL_BlitSurface(peachL, NULL, screen, &posPeach);
 
         updateScreenMap(screen,m); //blit du niveau
+
+        waitFPS(&previous_time,&current_time);
+
         if(time>0){
             sprintf(timeChar,"%d",time);
             printText(screen,&posTime,timeChar,black,"polices/code.otf",20,0);
         }else{
             printGameOver(screen,&continuer);
         }
-
 
         SDL_Flip(screen);//affichage de l'écran
         //SDL_Delay(60);

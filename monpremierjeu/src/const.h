@@ -13,6 +13,7 @@
     #define NB_BLOCS_HAUTEUR    24
     #define LARGEUR_FENETRE     TAILLE_BLOC * NB_BLOCS_LARGEUR
     #define HAUTEUR_FENETRE     TAILLE_BLOC * NB_BLOCS_HAUTEUR
+    #define FPS                 60
 
 
     enum {VOID=0, GRASS1, GROUND1, PEACH};

@@ -50,6 +50,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/player.h" />
+		<Unit filename="src/share.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/share.h" />
 		<Unit filename="src/sound.c">
 			<Option compilerVar="CC" />
 		</Unit>

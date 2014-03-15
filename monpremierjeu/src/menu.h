@@ -21,6 +21,8 @@
 #include "const.h"
 #include "text.h"
 #include "sound.h"
+#include "share.h"
+
 
 
 /*prototypes*/

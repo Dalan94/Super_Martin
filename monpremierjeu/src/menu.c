@@ -18,6 +18,9 @@ int menu(SDL_Surface *screen,int *continuer){
     SDL_Rect posWait,posText;
     int printingText = 1;
     int ret = 0;
+    int previous_time=0;
+    int current_time=0;
+
 
     SDL_Event event;
 
@@ -70,6 +73,8 @@ int menu(SDL_Surface *screen,int *continuer){
                 }
                 break;
         }
+
+        waitFPS(&previous_time,&current_time);
 
         SDL_BlitSurface(waiting, NULL, screen, &posWait);
         if(printingText)

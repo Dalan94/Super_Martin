@@ -144,10 +144,10 @@
 	<SDL/SDL_image.h>
 	<SDL/SDL_ttf.h>
 
-1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.c
+1394895598 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.c
 	"jeu.h"
 
-1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.h
+1394895321 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/jeu.h
 	<stdlib.h>
 	<stdio.h>
 	<errno.h>
@@ -156,6 +156,7 @@
 	"const.h"
 	"text.h"
 	"sound.h"
+	"share.h"
 
 1394816570 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/const.h
 
@@ -170,7 +171,7 @@
 	"const.h"
 	"menu.h"
 
-1394802622 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.h
+1394895321 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.h
 	<stdlib.h>
 	<stdio.h>
 	<errno.h>
@@ -180,8 +181,9 @@
 	"const.h"
 	"text.h"
 	"sound.h"
+	"share.h"
 
-1394816629 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.c
+1394895598 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/menu.c
 	"menu.h"
 
 1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/player.c
@@ -197,4 +199,11 @@
 
 1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/sound.c
 	"sound.h"
+
+1394895676 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/share.c
+	"share.h"
+
+1394895598 /home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/share.h
+	"const.h"
+	<SDL/SDL.h>
 
