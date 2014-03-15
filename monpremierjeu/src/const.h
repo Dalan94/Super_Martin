@@ -18,5 +18,11 @@
     enum {VOID=0, GRASS1, GROUND1, PEACH};
     enum {JUMP,RIGHT,LEFT};
 
+typedef struct{
+    unsigned char **lvl;
+    int nbBlocLg, nbBlocHt;
+    int xScroll;
+    int screenWidth,screenHeight;
+}Map;
 #endif // CONST_H_INCLUDED
 

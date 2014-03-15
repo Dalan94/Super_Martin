@@ -232,10 +232,10 @@
 1394802622 source:/home/dalan/Langage C/Semestre 2/Projet/Super_Martin/monpremierjeu/src/sound.c
 	"sound.h"
 
-1394881307 source:/home/xavier/Git/Super_Martin/monpremierjeu/src/jeu.c
+1394890498 source:/home/xavier/Git/Super_Martin/monpremierjeu/src/jeu.c
 	"jeu.h"
 
-1394880229 /home/xavier/Git/Super_Martin/monpremierjeu/src/jeu.h
+1394889200 /home/xavier/Git/Super_Martin/monpremierjeu/src/jeu.h
 	<stdlib.h>
 	<stdio.h>
 	<errno.h>
@@ -244,8 +244,9 @@
 	"const.h"
 	"text.h"
 	"sound.h"
+	"player.h"
 
-1394880229 /home/xavier/Git/Super_Martin/monpremierjeu/src/const.h
+1394889191 /home/xavier/Git/Super_Martin/monpremierjeu/src/const.h
 
 1394880229 /home/xavier/Git/Super_Martin/monpremierjeu/src/text.h
 	<stdlib.h>
@@ -280,16 +281,16 @@
 1394882869 source:/home/xavier/Git/Super_Martin/monpremierjeu/src/menu.c
 	"menu.h"
 
-1394883349 source:/home/xavier/Git/Super_Martin/monpremierjeu/src/player.c
+1394890473 source:/home/xavier/Git/Super_Martin/monpremierjeu/src/player.c
 	"player.h"
 
-1394880229 /home/xavier/Git/Super_Martin/monpremierjeu/src/player.h
+1394890430 /home/xavier/Git/Super_Martin/monpremierjeu/src/player.h
 	"const.h"
 	<stdlib.h>
 	<stdio.h>
 	<errno.h>
 	<SDL/SDL.h>
-	"jeu.h"
+	<SDL/SDL_image.h>
 
 1394880229 source:/home/xavier/Git/Super_Martin/monpremierjeu/src/sound.c
 	"sound.h"

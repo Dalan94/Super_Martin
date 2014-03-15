@@ -21,7 +21,7 @@ void jouer(SDL_Surface *screen){
     int continuer = 1 ,i,j;
 
     /*gestion du temps*/
-    int time = 10;
+    int time = 200;
     char timeChar[5];
     SDL_TimerID timer = SDL_AddTimer(1000,decomptage,&time); /*initialiation et Démarrage du timer */
     SDL_Rect posTime={10,10,0,0};
@@ -29,6 +29,9 @@ void jouer(SDL_Surface *screen){
 
     /*définition du niveau*/
     Map *m;
+
+    /*définition du joueur*/
+    Character *player;
 
 
     /*définition des surfaces*/
@@ -68,6 +71,11 @@ void jouer(SDL_Surface *screen){
         exit(errno);
     }
 
+    /*initialisation du joueur*/
+    player = createrCharacter("sprites/peachD.png","sprites/peachG.png");
+    player->location.x = 10*TAILLE_BLOC;
+    player->location.y = 19*TAILLE_BLOC-player->spriteL->h;
+
     SDL_EnableKeyRepeat(100,100); //répétition des touches
 
 
@@ -92,6 +100,13 @@ void jouer(SDL_Surface *screen){
                     case SDLK_LEFT:
                         scrolling(m,LEFT);
                         break;
+                    case SDLK_q:
+                        moveCharacter(player,LEFT,m);
+                        break;
+                    case SDLK_d:
+                        moveCharacter(player,RIGHT,m);
+                        break;
+
                     default: ;
                 }
             break;
@@ -106,6 +121,7 @@ void jouer(SDL_Surface *screen){
             SDL_BlitSurface(peachR, NULL, screen, &posPeach);
         else
             SDL_BlitSurface(peachL, NULL, screen, &posPeach);*/
+        blitCharacter(screen,player,m);
 
         updateScreenMap(screen,m); //blit du niveau
         if(time>0){

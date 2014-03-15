@@ -19,13 +19,9 @@
 #include "const.h"
 #include "text.h"
 #include "sound.h"
+#include "player.h"
 
-typedef struct{
-    unsigned char **lvl;
-    int nbBlocLg, nbBlocHt;
-    int xScroll;
-    int screenWidth,screenHeight;
-}Map;
+
 
 /*prototypes*/
 void jouer(SDL_Surface *screen);
