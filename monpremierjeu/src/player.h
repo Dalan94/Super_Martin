@@ -35,23 +35,18 @@ typedef struct{
     SDL_Surface *spriteR,*spriteL;
     SDL_Rect location;
     int isRight; /*! indique la direction de regard du personnage (1 droite, 0 gauche)*/
+    int isOnGround; /*! indique si le perso est au sol*/
 }Character;
 
-typedef struct{
-    Character *c;
-    int direction;
-    Map *m;
-    float speed;
-}GravityApplication;
+
 
 /*prototypes*/
 Character *createrCharacter(char *spR,char *spL);
 int moveCharacter(Character *c,int direction, Map *m,float speed);
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 int collisionSprite(SDL_Rect r,Map *m);
-Uint32 falling(Uint32 interval, void *param);
-void gravity(Character *c, Map *m);
-void movementVector(int direction, int *vx, int *vy,int speed);
+void gravity(Character *c, Map *m,SDL_Surface *screen);
+void movementVector(int direction, int *vx, int *vy,int speed,Character *c);
 int tryMovement(Character *c,int vx,int vy,Map *m);
 void presiseMoveCharacter(Character *c, int vx,int vy, Map *m);
 

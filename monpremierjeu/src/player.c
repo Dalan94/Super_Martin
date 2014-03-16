@@ -29,6 +29,7 @@ Character *createrCharacter(char *spR,char *spL){
 
     c->location.x = c->location.y = 0;
     c->isRight = 1;
+    c->isOnGround = 0;
 
     return c;
 }
@@ -40,15 +41,16 @@ Character *createrCharacter(char *spR,char *spL){
  *\param[in] direction La direction du déplacement
  *\param[in] m la carte sur laquelle le personnage se déplace
  *\param[in] speed la vitesse de déplacement
- *\return 1 si le personnage a pu se deplacer, 0 sinon
+ *\return 1 si le personnage a pu se deplacer normalement, 0 s'il a fallut affiner
  */
 int moveCharacter(Character *c,int direction,Map *m,float speed){
     int vx = 0,vy = 0;
-    movementVector(direction,&vx,&vy,speed);
+    movementVector(direction,&vx,&vy,speed,c);
 
     if(tryMovement(c,vx,vy,m))
         return 1;
     presiseMoveCharacter(c,vx,vy,m);
+    c->isOnGround = 1;
     return 0;
 }
 
@@ -65,11 +67,7 @@ int moveCharacter(Character *c,int direction,Map *m,float speed){
 int tryMovement(Character *c,int vx,int vy,Map *m){
     SDL_Rect futureLocation = c->location;
     futureLocation.x += vx;
-    if(vx > 0){
-        c->isRight =1;
-    }else {
-        c->isRight = 0;
-    }
+
     futureLocation.y += vy;
 
     if(!collisionSprite(futureLocation,m)){
@@ -81,20 +79,23 @@ int tryMovement(Character *c,int vx,int vy,Map *m){
 
 
 /**
- *\fn void movementVector(int direction, int *vx, int *vy,int speed)
+ *\fn void movementVector(int direction, int *vx, int *vy,int speed,Character *c)
  *create a movement vector
  *\param[in] direction The movement's direction
  *\param[out] vx the horizontal component of the vector
  *\param[out] vy the vertical component of the vector
  *\param[in] speed the speed of the move
+ *\param[out] c the Character you have to move
  */
-void movementVector(int direction, int *vx, int *vy,int speed){
+void movementVector(int direction, int *vx, int *vy,int speed,Character *c){
     switch(direction){
         case LEFT:
             *vx = 0-speed;
+            c->isRight = 0;
             break;
         case RIGHT:
             *vx = 0+ speed;
+            c->isRight = 1;
             break;
         case DOWN:
             *vy = 0+speed;
@@ -173,36 +174,15 @@ int collisionSprite(SDL_Rect r,Map *m){
  *\param[in,out] c the Character
  *\param[in] m The map the Character is on
  */
-void gravity(Character *c, Map *m){
-    /*GravityApplication *g;
-    g =(GravityApplication *)malloc(sizeof(GravityApplication));
-    SDL_TimerID timer ;
+void gravity(Character *c, Map *m,SDL_Surface *screen){
 
-    g->c = c;
-    g->direction = DOWN;
-    g->m = m;
-    g->speed = 4;
-
-    timer = SDL_AddTimer(17,falling,g);*/
-
-
-    moveCharacter(c,DOWN,m,4);
-
+        moveCharacter(c,DOWN,m,6);
+       /* blitCharacter(screen,c,m);
+        SDL_Flip(screen);*/
 
 }
 
-/**
- *\fn Uint32 falling(Uint32 interval, void *param)
- *make the Character falling while in void
- *\param[in] interval the duration between two calls of this function
- *\param[in,out] param the structure containing the parameters of moveCharacter
- \return interval
- */
-Uint32 falling(Uint32 interval, void *param){
-    GravityApplication *gra = param;
-    moveCharacter(gra->c,gra->direction,gra->m,gra->speed);
-    return interval;
-}
+
 
 /**
  *\fn void presiseMoveCharacter(Charactere *c, int vx,int vy, Map m*)

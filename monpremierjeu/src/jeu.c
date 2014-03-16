@@ -70,7 +70,7 @@ void jouer(SDL_Surface *screen, char *level_name){
     /*initialisation du joueur*/
     player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png");
     player->location.x = 5*TAILLE_BLOC;
-    player->location.y = 19*TAILLE_BLOC-player->spriteR->h-2;
+    player->location.y = 2*TAILLE_BLOC-player->spriteR->h-2;
 
 
     SDL_EnableKeyRepeat(100,100); //répétition des touches
@@ -125,12 +125,13 @@ void jouer(SDL_Surface *screen, char *level_name){
                 printGameOver(screen,&continuer);
             }
             old_time=time;
+
             event_appear = 1;
         }
 
-        if(event_appear)
+     //   if(event_appear)
         {
-            move(move_left,move_right,player,m,20);
+            move(move_left,move_right,player,m,10);
 
             SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
@@ -143,12 +144,13 @@ void jouer(SDL_Surface *screen, char *level_name){
 
             updateScreenMap(screen,m); //blit du niveau
         }
-        gravity(player,m);
+
         waitFPS(&previous_time,&current_time);
 
+        if(!player->isOnGround)
+            gravity(player,m,screen);
 
-
-        if(event_appear)
+       // if(event_appear)
             SDL_Flip(screen);//affichage de l'écran
 
         event_appear = 1;
