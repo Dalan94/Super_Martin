@@ -30,6 +30,7 @@ Character *createrCharacter(char *spR,char *spL){
     c->location.x = c->location.y = 0;
     c->isRight = 1;
     c->isOnGround = 0;
+    c->isJumping = 0;
 
     return c;
 }
@@ -50,7 +51,7 @@ int moveCharacter(Character *c,int direction,Map *m,float speed){
     if(tryMovement(c,vx,vy,m))
         return 1;
     presiseMoveCharacter(c,vx,vy,m);
-    c->isOnGround = 1;
+   // c->isOnGround = 1;
     return 0;
 }
 
@@ -183,7 +184,6 @@ void gravity(Character *c, Map *m,SDL_Surface *screen){
 }
 
 
-
 /**
  *\fn void presiseMoveCharacter(Charactere *c, int vx,int vy, Map m*)
  *make a more presise move of a character if he can still move but the distance between it and the obstacle is less than its speed
@@ -206,4 +206,14 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m){
     }
 }
 
+/**
+ *\fn void jumping(Character *c, Map *m)
+ *make the character jump
+ *\param[in,out] c the Character
+ *\param[in] m The map the Character is on
+ */
+void jumping(Character *c, Map *m){
 
+    moveCharacter(c,UP,m,4);
+    c->isJumping --;
+}

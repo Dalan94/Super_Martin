@@ -99,6 +99,10 @@ void jouer(SDL_Surface *screen, char *level_name){
                     case SDLK_LEFT:
                         move_left=1;
                         break;
+
+                    case SDLK_SPACE:
+                        player->isJumping = 3;
+                        break;
                     default: ;
                 }
                 break;
@@ -147,8 +151,10 @@ void jouer(SDL_Surface *screen, char *level_name){
 
         waitFPS(&previous_time,&current_time);
 
-       // if(!player->isOnGround)
+        if(!player->isJumping)
             gravity(player,m,screen);
+        else
+            jumping(player,m);
 
        // if(event_appear)
             SDL_Flip(screen);//affichage de l'écran

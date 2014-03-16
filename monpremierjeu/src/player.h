@@ -36,6 +36,7 @@ typedef struct{
     SDL_Rect location;
     int isRight; /*! indique la direction de regard du personnage (1 droite, 0 gauche)*/
     int isOnGround; /*! indique si le perso est au sol*/
+    int isJumping; /*! 0 when not, height remaning between character and max height if jumping*/
 }Character;
 
 
@@ -49,5 +50,6 @@ void gravity(Character *c, Map *m,SDL_Surface *screen);
 void movementVector(int direction, int *vx, int *vy,int speed,Character *c);
 int tryMovement(Character *c,int vx,int vy,Map *m);
 void presiseMoveCharacter(Character *c, int vx,int vy, Map *m);
+void jumping(Character *c, Map *m);
 
 #endif
