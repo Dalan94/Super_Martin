@@ -147,7 +147,7 @@ void jouer(SDL_Surface *screen, char *level_name){
 
         waitFPS(&previous_time,&current_time);
 
-        if(!player->isOnGround)
+       // if(!player->isOnGround)
             gravity(player,m,screen);
 
        // if(event_appear)
