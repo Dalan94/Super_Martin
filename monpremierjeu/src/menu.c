@@ -34,7 +34,7 @@ int menu(SDL_Surface *screen,int *continuer){
     /*initialisation du systeme audio*/
 
     Sound *s = createSound();
-    playMusic(s,"sound/Lorena.mp3");
+   // playMusic(s,"sound/Lorena.mp3");
 
     /* *********************** */
 
@@ -43,9 +43,7 @@ int menu(SDL_Surface *screen,int *continuer){
     posWait.x = 0;
     posWait.y = 0;
 
-        /*position texte*/
-    /*posText.x = screen->w/2-150;
-    posText.y = screen->h/2-65;*/
+
     /* ************************ */
 
     /*appel du timer*/

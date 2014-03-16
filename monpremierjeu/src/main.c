@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
 
 
-    SDL_WM_SetCaption("Super Princess Peach", NULL); //titre de la fenêtres
+    SDL_WM_SetCaption("Super Martin", NULL); //titre de la fenêtres
 
     SDL_ShowCursor(SDL_DISABLE); //efface la souris
 

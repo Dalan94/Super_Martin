@@ -22,7 +22,7 @@ void jouer(SDL_Surface *screen, char *level_name){
     int continuer = 1;
 
     /*gestion du temps*/
-    int time = 5;
+    int time = 200;
     char timeChar[5];
     SDL_TimerID timer = SDL_AddTimer(1000,decomptage,&time); /*initialiation et Démarrage du timer */
     SDL_Rect posTime={10,10,0,0};
@@ -69,8 +69,9 @@ void jouer(SDL_Surface *screen, char *level_name){
 
     /*initialisation du joueur*/
     player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png");
-    player->location.x = 10*TAILLE_BLOC;
+    player->location.x = 1*TAILLE_BLOC;
     player->location.y = 19*TAILLE_BLOC-player->spriteL->h;
+    //gravity(player,m);
 
     SDL_EnableKeyRepeat(100,100); //répétition des touches
 
@@ -129,7 +130,7 @@ void jouer(SDL_Surface *screen, char *level_name){
 
         if(event_appear)
         {
-            move(move_left,move_right,player,m,10);
+            move(move_left,move_right,player,m,20);
 
             SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 

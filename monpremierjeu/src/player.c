@@ -44,24 +44,47 @@ Character *createrCharacter(char *spR,char *spL){
  */
 int moveCharacter(Character *c,int direction,Map *m,float speed){
     SDL_Rect futureLocation = c->location;
-    switch (direction){
-
-        case LEFT:
-            (futureLocation.x)-=speed;
-            c->isRight = 0;
-            break;
-        case RIGHT:
-            (futureLocation.x)+=speed;
-            c->isRight = 1;
-            break;
-        default: ;
+    int vx = 0,vy = 0;
+    movementVector(direction,&vx,&vy,speed);
+    futureLocation.x += vx;
+    if(vx > 0){
+        c->isRight =1;
+    }else {
+        c->isRight = 0;
     }
+    futureLocation.y += vy;
 
     if(!collisionSprite(futureLocation,m)){
         c->location = futureLocation;
         return 1;
     }
     return 0;
+}
+
+/**
+ *\fn void movementVector(int direction, int *vx, int *vy,int speed)
+ *create a movement vector
+ *\param[in] direction The movement's direction
+ *\param[out] vx the horizontal component of the vector
+ *\param[out] vy the vertical component of the vector
+ *\param[in] speed the speed of the move
+ */
+void movementVector(int direction, int *vx, int *vy,int speed){
+    switch(direction){
+        case LEFT:
+            *vx = 0-speed;
+            break;
+        case RIGHT:
+            *vx = 0+ speed;
+            break;
+        case DOWN:
+            *vy = 0+speed;
+            break;
+        case UP:
+            *vy = 0-speed;
+            break;
+        default: ;
+    }
 }
 
 /**
@@ -97,6 +120,7 @@ int collisionSprite(SDL_Rect r,Map *m){
     int i,j;
     int xmin,xmax,ymin,ymax;
     SDL_Rect test;
+    test.h = test.w = TAILLE_BLOC;
 
     if(r.x+r.w > (m->lvl->width+1)*TAILLE_BLOC || r.x < TAILLE_BLOC)
         return 1; //test les limites du monde
@@ -111,10 +135,10 @@ int collisionSprite(SDL_Rect r,Map *m){
             if(m->lvl->map[j][i] != VOID){
                 test.x = i*TAILLE_BLOC;
                 test.y = j*TAILLE_BLOC;
-                if((r.x+r.w <= test.x)
+                if(!((r.x+r.w <= test.x)
                     || (r.x >= test.x+test.w)
                     || (r.y+r.h <= test.y)
-                    || (r.y >= test.y+test.h)
+                    || (r.y >= test.y+test.h))
                 )
                     return 1;
             }
@@ -123,4 +147,48 @@ int collisionSprite(SDL_Rect r,Map *m){
 
     return 0;
 }
+
+/**
+ *\fn void gravity(Character *c,Map *m)
+ *apply gravity to a Character
+ *\param[in,out] c the Character
+ *\param[in] m The map the Character is on
+ */
+void gravity(Character *c, Map *m){
+    GravityApplication *g;
+    g =(GravityApplication *)malloc(sizeof(GravityApplication));
+    SDL_TimerID timer ;
+
+    g->c = c;
+    g->direction = DOWN;
+    g->m = m;
+    g->speed = 4;
+
+    timer = SDL_AddTimer(17,falling,g);
+}
+
+/**
+ *\fn Uint32 falling(Uint32 interval, void *param)
+ *make the Character falling while in void
+ *\param[in] interval the duration between two calls of this function
+ *\param[in,out] param the structure containing the parameters of moveCharacter
+ \return interval
+ */
+Uint32 falling(Uint32 interval, void *param){
+    GravityApplication *gra = param;
+    moveCharacter(gra->c,gra->direction,gra->m,gra->speed);
+    return interval;
+}
+
+/**
+ *\fn void presiseMoveCharacter(Charactere *c, int direction, Map m*)
+ *make a more presise move of a character if he can still move but the distance between it and the obstacle is less than its speed
+ *\param[in,out] c the charactere
+ *\param[in] m the map
+ *\param[in] direction
+ */
+void presiseMoveCharacter(Character *c, int direction, Map *m){
+
+}
+
 

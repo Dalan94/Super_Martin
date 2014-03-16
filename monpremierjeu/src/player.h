@@ -24,10 +24,20 @@ typedef struct{
     int isRight; /*! indique la direction de regard du personnage (1 droite, 0 gauche)*/
 }Character;
 
+typedef struct{
+    Character *c;
+    int direction;
+    Map *m;
+    float speed;
+}GravityApplication;
+
 /*prototypes*/
 Character *createrCharacter(char *spR,char *spL);
 int moveCharacter(Character *c,int direction, Map *m,float speed);
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 int collisionSprite(SDL_Rect r,Map *m);
+Uint32 falling(Uint32 interval, void *param);
+void gravity(Character *c, Map *m);
+void movementVector(int direction, int *vx, int *vy,int speed);
 
 #endif

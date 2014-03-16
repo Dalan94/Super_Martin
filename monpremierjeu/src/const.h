@@ -18,7 +18,7 @@
 
 
     enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3};
-    enum {JUMP,RIGHT,LEFT};
+    enum {RIGHT,LEFT,UP,DOWN};
 
 typedef struct{
     unsigned char**map;
