@@ -29,6 +29,8 @@ void jouer(SDL_Surface *screen, char *level_name){
     SDL_Color black = {0,0,0};
     int previous_time=0;
     int current_time=0;
+    int event_appear=1;
+    int old_time=201;
 
     /*définition du niveau*/
     Map *m;
@@ -111,32 +113,44 @@ void jouer(SDL_Surface *screen, char *level_name){
                     default: ;
                 }
 
-            default: ;
+            default: event_appear = 0;
         }
 
-        move(move_left,move_right,player,m,10);
+        if (old_time != time)
+        {
+            if(time>0){
+                sprintf(timeChar,"%d",time);
+            }else{
+                printGameOver(screen,&continuer);
+            }
+            old_time=time;
+            event_appear = 1;
+        }
 
-        SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
+        if(event_appear)
+        {
+            move(move_left,move_right,player,m,10);
 
-        SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
+            SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
+
+            printText(screen,&posTime,timeChar,black,"polices/code.otf",20,0);
+
+            SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
 
-        blitCharacter(screen,player,m);
+            blitCharacter(screen,player,m);
 
-        updateScreenMap(screen,m); //blit du niveau
+            updateScreenMap(screen,m); //blit du niveau
+        }
 
         waitFPS(&previous_time,&current_time);
 
-        if(time>0){
-            sprintf(timeChar,"%d",time);
-            printText(screen,&posTime,timeChar,black,"polices/code.otf",20,0);
-        }else{
-            printGameOver(screen,&continuer);
-        }
-
-        SDL_Flip(screen);//affichage de l'écran
 
 
+        if(event_appear)
+            SDL_Flip(screen);//affichage de l'écran
+
+        event_appear = 1;
     } //while
 
     SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
@@ -337,12 +351,12 @@ void move(int move_left, int move_right, Character *player,Map *m,float speed)
 {
     if (move_right)
     {
-        if(moveCharacter(player,RIGHT,m,speed) && player->location.x > m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
+        if(moveCharacter(player,RIGHT,m,speed) && player->location.x > m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100)
             scrolling(m,RIGHT,speed);
     }
     if (move_left)
     {
-        if(moveCharacter(player,LEFT,m,speed) &&player->location.x - m->xScroll < m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100)
+        if(moveCharacter(player,LEFT,m,speed) &&player->location.x - m->xScroll < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
             scrolling(m,LEFT,speed);
     }
 }
