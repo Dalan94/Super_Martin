@@ -9,7 +9,7 @@
  #include "menu_level.h"
 
 
-int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER])
+int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound *s)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -100,6 +100,8 @@ int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER])
     sprintf(level_name,"level/%s.lvl",level_names[pos_curseur]);
 
     closeLevelList(level_names,nb_lvl);
+
+    FMOD_ChannelGroup_Stop(s->channel);
 
     return play_lvl;
 }

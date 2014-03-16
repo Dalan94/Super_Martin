@@ -2,6 +2,7 @@
 #include "const.h"
 #include "menu.h"
 #include "menu_level.h"
+#include "sound.h"
 
 int main(int argc, char *argv[])
 {
@@ -13,6 +14,8 @@ int main(int argc, char *argv[])
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 
+    Sound *s = NULL;
+    s =createSound();
 
 
     /*initialisation de l'écran*/
@@ -27,9 +30,9 @@ int main(int argc, char *argv[])
     while (continuer) //main loop
     {
 
-        if(menu(screen,&continuer))
+        if(menu(screen,&continuer,s))
         {
-            if (menuLevel(screen,level_name))
+            if (menuLevel(screen,level_name,s))
                 jouer(screen,level_name);
         }
 

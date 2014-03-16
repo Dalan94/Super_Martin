@@ -16,12 +16,13 @@
 typedef struct {
     FMOD_SYSTEM *sys;
     FMOD_SOUND *sound;
-    FMOD_CHANNEL *channel;
+    FMOD_CHANNELGROUP *channel;
 }Sound;
 
 /*prototypes*/
 Sound *createSound(void);
 void playMusic(Sound *s, char *file);
 void freeSound(Sound *s);
+void stopSound(Sound *s);
 
 #endif // SOUND_H

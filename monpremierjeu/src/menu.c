@@ -11,9 +11,11 @@
  *\fn int menu(SDL_Surface *screen)
  *affiche le menu à l'écran
  *\param[out] screen l'écran
+ *\param[in,out] continuer main loop validation
+ *\param[out] s sound system
  *\return 1 si la touche entrée a été activée
  */
-int menu(SDL_Surface *screen,int *continuer){
+int menu(SDL_Surface *screen,int *continuer,Sound *s){
     SDL_Surface *waiting;
     SDL_Rect posWait;
     int printingText = 1;
@@ -33,8 +35,8 @@ int menu(SDL_Surface *screen,int *continuer){
 
     /*initialisation du systeme audio*/
 
-    Sound *s = createSound();
-    //playMusic(s,"sound/Lorena.mp3");
+   // s = createSound();
+    playMusic(s,"sound/Lorena.mp3");
 
     /* *********************** */
 
@@ -100,7 +102,6 @@ int menu(SDL_Surface *screen,int *continuer){
 
 
 
-    freeSound(s);
 
     SDL_FreeSurface(waiting);
 

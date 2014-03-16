@@ -47,15 +47,33 @@ void playMusic(Sound *s, char *file){
     /* On active la répétition de la musique à l'infini */
     FMOD_Sound_SetLoopCount(s->sound, -1);
 
+
     /* On joue la musique */
     FMOD_System_PlaySound(s->sys, FMOD_CHANNEL_FREE, s->sound, 0, NULL);
+    FMOD_System_GetMasterChannelGroup(s->sys,&s->channel);
 
 }
 
+
+/**
+ *\fn void freeSound(Sound *s)
+ *release the sound
+ *\param[out] s the sound
+ */
 void freeSound(Sound *s){
     FMOD_Sound_Release(s->sound);
     FMOD_System_Close(s->sys);
     FMOD_System_Release(s->sys);
 
     free((void *)s);
+}
+
+
+/**
+ *\fn void stopSound(Sound *s)
+ *stop the sound
+ *\param[out] the sound to stop
+ */
+void stopSound(Sound *s){
+    FMOD_ChannelGroup_Stop((s->channel));
 }
