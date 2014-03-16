@@ -124,7 +124,7 @@ void writeLevel(char *file_name, Level *lvl)
 
     fprintf(ptr_file,"%d\n",lvl->width);
     fprintf(ptr_file,"%d\n",lvl->height);
-    fprintf(ptr_file,"%s",lvl->background);
+    fprintf(ptr_file,"%s\n",lvl->background);
 
     for (i=0 ; i<lvl->height ; i++)
     {

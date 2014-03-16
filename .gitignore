@@ -1,4 +1,4 @@
 *.layout
 *.depend
-monpremierjeu/bin
-monpremierjeu/obj
+monpremierjeu/bin/
+monpremierjeu/obj/
