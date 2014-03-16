@@ -22,7 +22,7 @@ void jouer(SDL_Surface *screen, char *level_name){
     int continuer = 1;
 
     /*gestion du temps*/
-    int time = 200;
+    int time = 5;
     char timeChar[5];
     SDL_TimerID timer = SDL_AddTimer(1000,decomptage,&time); /*initialiation et Démarrage du timer */
     SDL_Rect posTime={10,10,0,0};
