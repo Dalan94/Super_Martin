@@ -144,7 +144,7 @@ int collisionSprite(SDL_Rect r,Map *m){
     if(r.x+r.w > (m->lvl->width+1)*TAILLE_BLOC || r.x < TAILLE_BLOC)
         return 1; //test les limites du monde
 
-    xmin =  (r.x) / TAILLE_BLOC ;
+    xmin =  (r.x) / TAILLE_BLOC -1;
     xmax =  (r.x + r.w )  / TAILLE_BLOC ;
     ymin = (r.y) / TAILLE_BLOC ;
     ymax =  (r.y + r.h ) / TAILLE_BLOC ;
@@ -155,9 +155,9 @@ int collisionSprite(SDL_Rect r,Map *m){
                 test.x = i*TAILLE_BLOC;
                 test.y = j*TAILLE_BLOC;
                 if(!((r.x+r.w <= test.x)
-                    || (r.x >= test.x+test.w)
-                    || (r.y+r.h <= test.y)
-                    || (r.y >= test.y+test.h))
+                    && (r.x >= test.x+test.w)
+                    && (r.y+r.h <= test.y)
+                    && (r.y >= test.y+test.h))
                 )
                     return 1;
             }
