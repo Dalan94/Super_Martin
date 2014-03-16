@@ -41,6 +41,7 @@ int main(int argc, char *argv[])
         SDL_Flip(screen);
     }
 
+    freeSound(s);
     SDL_Quit();
 
     return 0;
