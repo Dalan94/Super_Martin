@@ -17,6 +17,7 @@
 #include <SDL/SDL_image.h>
 
 #include "file_level.h"
+#include "share.h"
 
 /**
  *\def SGN(X)

@@ -69,9 +69,9 @@ void jouer(SDL_Surface *screen, char *level_name){
 
     /*initialisation du joueur*/
     player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png");
-    player->location.x = 4*TAILLE_BLOC;
-    player->location.y = 19*TAILLE_BLOC-player->spriteL->h;
-    //gravity(player,m);
+    player->location.x = 5*TAILLE_BLOC;
+    player->location.y = 19*TAILLE_BLOC-player->spriteR->h-2;
+
 
     SDL_EnableKeyRepeat(100,100); //répétition des touches
 
@@ -143,7 +143,7 @@ void jouer(SDL_Surface *screen, char *level_name){
 
             updateScreenMap(screen,m); //blit du niveau
         }
-
+        gravity(player,m);
         waitFPS(&previous_time,&current_time);
 
 

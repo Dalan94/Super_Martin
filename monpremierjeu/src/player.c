@@ -147,17 +147,17 @@ int collisionSprite(SDL_Rect r,Map *m){
     xmin =  (r.x) / TAILLE_BLOC -1;
     xmax =  (r.x + r.w )  / TAILLE_BLOC ;
     ymin = (r.y) / TAILLE_BLOC ;
-    ymax =  (r.y + r.h ) / TAILLE_BLOC ;
+    ymax =  (r.y + r.h ) / TAILLE_BLOC +1;
 
     for(i = xmin ; i< xmax ; i++){
         for (j=ymin ; j< ymax ; j++){
             if(m->lvl->map[j][i] != VOID){
                 test.x = i*TAILLE_BLOC;
                 test.y = j*TAILLE_BLOC;
-                if(!((r.x+r.w <= test.x)
-                    && (r.x >= test.x+test.w)
-                    && (r.y+r.h <= test.y)
-                    && (r.y >= test.y+test.h))
+                if(!(((r.x+r.w < test.x)
+                    && (r.x > test.x+test.w))
+                    && ((r.y+r.h <= test.y)
+                    && (r.y >= test.y+test.h)))
                 )
                     return 1;
             }
@@ -174,7 +174,7 @@ int collisionSprite(SDL_Rect r,Map *m){
  *\param[in] m The map the Character is on
  */
 void gravity(Character *c, Map *m){
-    GravityApplication *g;
+    /*GravityApplication *g;
     g =(GravityApplication *)malloc(sizeof(GravityApplication));
     SDL_TimerID timer ;
 
@@ -183,7 +183,12 @@ void gravity(Character *c, Map *m){
     g->m = m;
     g->speed = 4;
 
-    timer = SDL_AddTimer(17,falling,g);
+    timer = SDL_AddTimer(17,falling,g);*/
+
+
+    moveCharacter(c,DOWN,m,4);
+
+
 }
 
 /**
