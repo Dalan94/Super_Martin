@@ -34,7 +34,7 @@ int menu(SDL_Surface *screen,int *continuer){
     /*initialisation du systeme audio*/
 
     Sound *s = createSound();
-   // playMusic(s,"sound/Lorena.mp3");
+    //playMusic(s,"sound/Lorena.mp3");
 
     /* *********************** */
 

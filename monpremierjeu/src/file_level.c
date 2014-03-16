@@ -135,3 +135,65 @@ void writeLevel(char *file_name, Level *lvl)
 
     closeFile(ptr_file);
 }
+
+/*!
+ * \fn  char **readLevelFile(int *nb_lvl)
+ *  Lis le fichier level
+ * \param[out] nb_lvl le nombre de niveau
+ * \return un pointeur sur la liste des niveaux cree
+ */
+char **readLevelFile(int *nb_lvl)
+{
+    char **level_names;
+    FILE *ptr_file;
+    int i;
+
+    ptr_file=openFile("level/level","r");
+    if (ptr_file == NULL)
+     {
+        printf("\nErreur : Le fichier n'a pas pu etre lu.\n");
+        return NULL;
+     }
+
+    fscanf(ptr_file,"%d",nb_lvl);
+
+    if ((level_names=(char **)malloc(*nb_lvl*sizeof(char*))) == NULL)
+    {
+        printf("\nProbleme allocation memoire\n");
+        perror("");
+        exit(0);
+    }
+
+    for (i=0 ; i<*nb_lvl ; i++)
+    {
+        if ((level_names[i]=(char *)malloc(TAILLE_MAX_NOM_FICHIER*sizeof(char))) == NULL)
+        {
+            printf("\nProbleme allocation memoire\n");
+            perror("");
+            exit(0);
+        }
+    }
+
+    for (i=0 ; i<*nb_lvl ; i++)
+    {
+        fscanf(ptr_file,"%s",level_names[i]);
+    }
+
+    closeFile(ptr_file);
+
+    return level_names;
+}
+
+/*!
+ * \fn  void closeLevelList(char **level_names, int nb_lvl)
+ *  Desalloue la liste des noms de niveau
+ * \param[in,out] level_names la liste des noms de niveau
+ * \param[in] nb_lvl le nombre de niveau
+ */
+void closeLevelList(char **level_names, int nb_lvl)
+{
+    int i;
+    for (i=0 ; i<nb_lvl ; i++)
+        free(level_names[i]);
+    free(level_names);
+}

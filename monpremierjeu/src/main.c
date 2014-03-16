@@ -1,12 +1,15 @@
 #include "jeu.h"
 #include "const.h"
 #include "menu.h"
+#include "menu_level.h"
 
 int main(int argc, char *argv[])
 {
     SDL_Surface *screen = NULL;
 
     int continuer = 1;
+
+    char level_name[TAILLE_MAX_NOM_FICHIER];
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 
@@ -21,12 +24,14 @@ int main(int argc, char *argv[])
 
     SDL_ShowCursor(SDL_DISABLE); //efface la souris
 
-
     while (continuer) //main loop
     {
 
         if(menu(screen,&continuer))
-            jouer(screen,"level/test.lvl");
+        {
+            if (menuLevel(screen,level_name))
+                jouer(screen,level_name);
+        }
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 

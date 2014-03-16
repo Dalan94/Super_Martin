@@ -23,5 +23,7 @@ Level *openLevel(char *file_name);
 void closeLevel(Level *lvl);
 Level *initLevel(Level *lvl);
 void writeLevel(char *file_name, Level *lvl);
+char **readLevelFile(int *nb_lvl);
+void closeLevelList(char **level_names, int nb_lvl);
 
 #endif // FILE_MAP_H_INCLUDED

@@ -16,8 +16,8 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/monpremierjeu" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
+				<Option output="super_martin" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release" />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -54,6 +54,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/menu.h" />
+		<Unit filename="src/menu_level.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu_level.h" />
 		<Unit filename="src/player.c">
 			<Option compilerVar="CC" />
 		</Unit>
