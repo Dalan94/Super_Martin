@@ -1,0 +1,5 @@
+<map id="move" name="move">
+<area shape="rect" id="node3" href="$player_8c.html#a41576a8f270bc8128d967b5eb9e2ad13" title="moveCharacter" alt="" coords="111,5,220,38"/>
+<area shape="rect" id="node7" href="$jeu_8c.html#a6f031e5ad35ada9038d3a72a56053760" title="scrolling" alt="" coords="131,61,200,94"/>
+<area shape="rect" id="node5" href="$player_8c.html#a3ae2e15eb2f82dd33309de7d4b76ef86" title="movementVector" alt="" coords="269,5,389,38"/>
+</map>
