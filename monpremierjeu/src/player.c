@@ -43,9 +43,27 @@ Character *createrCharacter(char *spR,char *spL){
  *\return 1 si le personnage a pu se deplacer, 0 sinon
  */
 int moveCharacter(Character *c,int direction,Map *m,float speed){
-    SDL_Rect futureLocation = c->location;
     int vx = 0,vy = 0;
     movementVector(direction,&vx,&vy,speed);
+
+    if(tryMovement(c,vx,vy,m))
+        return 1;
+    presiseMoveCharacter(c,vx,vy,m);
+    return 0;
+}
+
+/**
+ *\fn int tryMovement(Character *c,int vx,in vy,Map *m)
+ *try to move a character
+ *\param[in,out] c the character
+ *\param[in] vx the horizontal component of the movement vector
+ *\param[in] vy the vertical component of the movement vector
+ *\param[in] m the map the character is on
+
+ *\return 1 if the character could be moved, 0 if not
+ */
+int tryMovement(Character *c,int vx,int vy,Map *m){
+    SDL_Rect futureLocation = c->location;
     futureLocation.x += vx;
     if(vx > 0){
         c->isRight =1;
@@ -60,6 +78,7 @@ int moveCharacter(Character *c,int direction,Map *m,float speed){
     }
     return 0;
 }
+
 
 /**
  *\fn void movementVector(int direction, int *vx, int *vy,int speed)
@@ -181,14 +200,25 @@ Uint32 falling(Uint32 interval, void *param){
 }
 
 /**
- *\fn void presiseMoveCharacter(Charactere *c, int direction, Map m*)
+ *\fn void presiseMoveCharacter(Charactere *c, int vx,int vy, Map m*)
  *make a more presise move of a character if he can still move but the distance between it and the obstacle is less than its speed
  *\param[in,out] c the charactere
  *\param[in] m the map
- *\param[in] direction
+ *\param[in] vx the horizontal component of the movement vector
+ *\param[in] vy the vertical component of the movement vector
  */
-void presiseMoveCharacter(Character *c, int direction, Map *m){
+void presiseMoveCharacter(Character *c, int vx,int vy, Map *m){
+    int i,j;
 
+    for(i = 0 ; i < ABS(vx) ; i++){
+
+            if(!tryMovement(c,SGN(vx),0,m))
+                break;
+    }
+    for(j = 0 ; j < ABS(vy) ; j++){
+        if(!tryMovement(c,0,SGN(vy),m))
+                break;
+    }
 }
 
 

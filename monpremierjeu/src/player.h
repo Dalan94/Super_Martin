@@ -18,6 +18,18 @@
 
 #include "file_level.h"
 
+/**
+ *\def SGN(X)
+ *X sign
+ */
+#define SGN(X) (((X)==0)?(0):(((X)<0)?(-1):(1)))
+
+/**
+ *\def ABS(X)
+ *X absolute value
+ */
+#define ABS(X) ((((X)<0)?(-(X)):(X)))
+
 typedef struct{
     SDL_Surface *spriteR,*spriteL;
     SDL_Rect location;
@@ -39,5 +51,7 @@ int collisionSprite(SDL_Rect r,Map *m);
 Uint32 falling(Uint32 interval, void *param);
 void gravity(Character *c, Map *m);
 void movementVector(int direction, int *vx, int *vy,int speed);
+int tryMovement(Character *c,int vx,int vy,Map *m);
+void presiseMoveCharacter(Character *c, int vx,int vy, Map *m);
 
 #endif

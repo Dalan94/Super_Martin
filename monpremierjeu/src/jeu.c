@@ -69,7 +69,7 @@ void jouer(SDL_Surface *screen, char *level_name){
 
     /*initialisation du joueur*/
     player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png");
-    player->location.x = 1*TAILLE_BLOC;
+    player->location.x = 19*TAILLE_BLOC;
     player->location.y = 19*TAILLE_BLOC-player->spriteL->h;
     //gravity(player,m);
 
