@@ -56,7 +56,7 @@ void playMusic(Sound *s, char *file){
 
 /**
  *\fn void playMusicOnce(Sound *s, char *file)
- *lit un fichier long (musique)
+ *lit un fichier long une fois
  *\param[in,out] s la structure son que l'on manipule
  *\param[in] file Le fichier son à lire
  */
@@ -70,7 +70,7 @@ void playMusicOnce(Sound *s, char *file){
         exit(errno);
     }
 
-    /* On active la répétition de la musique à l'infini */
+    /* On active la lecture une fois*/
     FMOD_Sound_SetLoopCount(s->sound, 0);
 
     /* On joue la musique */

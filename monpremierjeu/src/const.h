@@ -16,6 +16,8 @@
     #define FPS                     60
     #define TAILLE_MAX_NOM_FICHIER    100
     #define TAILLE_SAUT             17
+    #define MARGE_SCROLLING         2
+    #define POURCENTAGE_DEPLACEMENT 20
 
 
     enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3};

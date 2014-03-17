@@ -32,7 +32,6 @@ void jouer(SDL_Surface *screen, char *level_name){
     int event_appear=1;
     int old_time=201;
     int pause=0;
-    int time_pause;
 
     int acceleration=0;
     float speed=0;
@@ -176,9 +175,7 @@ void jouer(SDL_Surface *screen, char *level_name){
 
         if (pause)
         {
-            time_pause=time;
-            printPause(screen,&event);
-            time=time_pause;
+            printPause(screen,&event,&time);
             pause=0;
         }
 
@@ -412,7 +409,7 @@ void printGameOver(SDL_Surface *screen,int *continuer){
  *\param[in] move_right booleen pour savoir si l'on bouge a droite
  *\param[in] player le joueur
  *\param[in] m la carte
-
+ *\param[in] speed la vitesse de deplacement
  */
 void move(int move_left, int move_right, Character *player,Map *m,float speed, int *acceleration)
 {
@@ -421,8 +418,10 @@ void move(int move_left, int move_right, Character *player,Map *m,float speed, i
         if(moveCharacter(player,RIGHT,m,speed))
         {
             (*acceleration)++;
-            if (player->location.x > m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100)
+            if (player->location.x - m->xScroll > m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100  && player->location.x - m->xScroll < m->screenWidth*(50 + MARGE_SCROLLING-POURCENTAGE_DEPLACEMENT)/100)
                 scrolling(m,RIGHT,speed);
+            else if (player->location.x - m->xScroll >= m->screenWidth*(50 + MARGE_SCROLLING-POURCENTAGE_DEPLACEMENT)/100 )
+                scrolling(m,RIGHT,2*speed);
         }
     }
     if (move_left && !move_right)
@@ -430,12 +429,20 @@ void move(int move_left, int move_right, Character *player,Map *m,float speed, i
         if(moveCharacter(player,LEFT,m,speed))
         {
             (*acceleration)++;
-            if (player->location.x - m->xScroll < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
+            if (player->location.x - m->xScroll < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100 && player->location.x - m->xScroll > m->screenWidth*(50 - MARGE_SCROLLING+POURCENTAGE_DEPLACEMENT)/100)
                 scrolling(m,LEFT,speed);
+            else if (player->location.x - m->xScroll <= m->screenWidth*(50- MARGE_SCROLLING+POURCENTAGE_DEPLACEMENT)/100)
+                scrolling(m,LEFT,2*speed);
         }
     }
 }
 
+/**
+ *\fn void updateSpeed(float *speed, int acceleration)
+ * Met a jour la vitesse
+ *\param[out] float la vitesse
+ *\param[out] acceleration l'acceleration
+ */
 void updateSpeed(float *speed, int acceleration)
 {
     switch(acceleration)
@@ -460,15 +467,18 @@ void updateSpeed(float *speed, int acceleration)
 }
 
 /**
- *\fn void printPause(SDL_Surface *screen, SDL_Event *event)
- *affiche le message de game overflow_error
+ *\fn void printPause(SDL_Surface *screen, SDL_Event *event, int *time)
+ * Met en pause le jeu
  *\param[out] screen l'écran de jeu
+ *\param[out] time le temps restant
+ *\param[out] event l'evenement en cours
  */
-void printPause(SDL_Surface *screen, SDL_Event *event){
+void printPause(SDL_Surface *screen, SDL_Event *event, int *time){
     SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
     SDL_Color color = {186,38,18};
     int cont = 1;
+    int time_pause=*time;
 
     gameOver = IMG_Load("sprites/game-over.jpg");
     posGame.x = posGame.y = 0;
@@ -496,4 +506,5 @@ void printPause(SDL_Surface *screen, SDL_Event *event){
     }
     SDL_FreeSurface(gameOver);
 
+    *time=time_pause;
 }

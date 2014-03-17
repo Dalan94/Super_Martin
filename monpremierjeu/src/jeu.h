@@ -23,8 +23,6 @@
 #include "player.h"
 #include "file_level.h"
 
-#define POURCENTAGE_DEPLACEMENT 15
-
 /*prototypes*/
 void jouer(SDL_Surface *screen,char *level_name);
 void updateScreenMap(SDL_Surface *screen, Map *m);
@@ -35,5 +33,5 @@ void freeMap(Map *m);
 void printGameOver(SDL_Surface *screen, int* continuer);
 void move (int move_left, int move_right, Character *player,Map *m,float speed, int *acceleration);
 void updateSpeed(float *speed, int acceleration);
-void printPause(SDL_Surface *screen, SDL_Event *event);
+void printPause(SDL_Surface *screen, SDL_Event *event, int *time);
 #endif // JEU_H_INCLUDED
