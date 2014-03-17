@@ -74,6 +74,7 @@ void jouer(SDL_Surface *screen, char *level_name){
     sound_jump =createSound();
     music=createSound();
     playMusic(music,m->lvl->music);
+    soundVolume(music,0.2);
 
     /*chargement des différentes sprites*/
     background = IMG_Load(m->lvl->background);
