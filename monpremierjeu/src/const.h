@@ -26,6 +26,7 @@ typedef struct{
     int width;
     int height;
     char background[TAILLE_MAX_NOM_FICHIER];
+    char music[TAILLE_MAX_NOM_FICHIER];
 }Level;
 
 typedef struct{

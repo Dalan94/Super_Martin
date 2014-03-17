@@ -54,6 +54,10 @@ void jouer(SDL_Surface *screen, char *level_name){
     int move_right=0;
     int move_left=0;
 
+    /*Sound*/
+    Sound *sound_jump = NULL;
+    Sound *music=NULL;
+
     //effacer l'écran
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
 
@@ -63,6 +67,10 @@ void jouer(SDL_Surface *screen, char *level_name){
     /*initialisation de la carte et du niveau*/
     lvl = openLevel(level_name);
     m = initMap(lvl,screen);
+
+    sound_jump =createSound();
+    music=createSound();
+    playMusic(music,m->lvl->music);
 
     /*chargement des différentes sprites*/
     background = IMG_Load(m->lvl->background);
@@ -119,7 +127,10 @@ void jouer(SDL_Surface *screen, char *level_name){
 
                     case SDLK_SPACE:
                         if(player->isOnGround)
+                        {
                             player->isJumping = TAILLE_SAUT;
+                            playMusicOnce(sound_jump,"sound/jump_big.ogg");
+                        }
                         break;
                     default: ;
                 }
@@ -190,7 +201,9 @@ void jouer(SDL_Surface *screen, char *level_name){
     SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
     SDL_Flip(screen);
 
-
+    /*Free*/
+    freeSound(sound_jump);
+    freeSound(music);
     SDL_FreeSurface(background2);
     freeMap(m);
     SDL_RemoveTimer(timer);

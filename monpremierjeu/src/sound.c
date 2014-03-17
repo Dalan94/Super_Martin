@@ -54,6 +54,31 @@ void playMusic(Sound *s, char *file){
 
 }
 
+/**
+ *\fn void playMusicOnce(Sound *s, char *file)
+ *lit un fichier long (musique)
+ *\param[in,out] s la structure son que l'on manipule
+ *\param[in] file Le fichier son à lire
+ */
+void playMusicOnce(Sound *s, char *file){
+
+    /*chargement du fichier son*/
+    if(FMOD_System_CreateSound(s->sys, file,
+                FMOD_LOOP_NORMAL|FMOD_SOFTWARE | FMOD_2D | FMOD_CREATESTREAM,
+                0, &(s->sound)) != FMOD_OK){
+        perror("can't read audio file");
+        exit(errno);
+    }
+
+    /* On active la répétition de la musique à l'infini */
+    FMOD_Sound_SetLoopCount(s->sound, 0);
+
+    /* On joue la musique */
+    FMOD_System_PlaySound(s->sys, FMOD_CHANNEL_FREE, s->sound, 0, NULL);
+    FMOD_System_GetMasterChannelGroup(s->sys,&s->channel);
+
+}
+
 
 /**
  *\fn void freeSound(Sound *s)

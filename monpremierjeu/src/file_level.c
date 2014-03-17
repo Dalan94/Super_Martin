@@ -44,9 +44,14 @@ Level *openLevel(char *file_name)
 
      fgets(buffer,TAILLE_BUFFER,ptr_file);
      fgets(lvl->background,TAILLE_MAX_NOM_FICHIER,ptr_file);
+     fgets(lvl->music,TAILLE_MAX_NOM_FICHIER,ptr_file);
 
      /*Enleve le saut de ligne final de background*/
      saut_ligne = strchr(lvl->background, '\n');
+        *saut_ligne = 0;
+
+    /*Enleve le saut de ligne final de sound*/
+     saut_ligne = strchr(lvl->music, '\n');
         *saut_ligne = 0;
 
     for(i=0 ; i < lvl->height ; i++)
