@@ -25,6 +25,7 @@ typedef struct{
     unsigned char**map;
     int width;
     int height;
+    int timer_level;
     char background[TAILLE_MAX_NOM_FICHIER];
     char music[TAILLE_MAX_NOM_FICHIER];
 }Level;

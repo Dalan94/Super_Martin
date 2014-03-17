@@ -39,6 +39,7 @@ Level *openLevel(char *file_name)
 
      fscanf(ptr_file,"%d",&(lvl->width));
      fscanf(ptr_file,"%d",&(lvl->height));
+     fscanf(ptr_file,"%d",&(lvl->timer_level));
 
      initLevel(lvl);
 

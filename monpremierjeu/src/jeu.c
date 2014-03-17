@@ -68,6 +68,7 @@ void jouer(SDL_Surface *screen, char *level_name){
     lvl = openLevel(level_name);
     m = initMap(lvl,screen);
 
+    time=lvl->timer_level;
     sound_jump =createSound();
     music=createSound();
     playMusic(music,m->lvl->music);
@@ -160,6 +161,7 @@ void jouer(SDL_Surface *screen, char *level_name){
             if(time>0){
                 sprintf(timeChar,"%d",time);
             }else{
+                stopSound(music);
                 printGameOver(screen,&continuer);
             }
             old_time=time;
