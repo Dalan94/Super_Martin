@@ -15,6 +15,7 @@
     #define HAUTEUR_FENETRE         TAILLE_BLOC * NB_BLOCS_HAUTEUR
     #define FPS                     60
     #define TAILLE_MAX_NOM_FICHIER    100
+    #define TAILLE_SAUT             15
 
 
     enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3};

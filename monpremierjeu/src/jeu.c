@@ -31,6 +31,8 @@ void jouer(SDL_Surface *screen, char *level_name){
     int current_time=0;
     int event_appear=1;
     int old_time=201;
+    int acceleration=0;
+    float speed=0;
 
     /*définition du niveau*/
     Map *m;
@@ -93,18 +95,18 @@ void jouer(SDL_Surface *screen, char *level_name){
                         break;
 
                     case SDLK_RIGHT:
-                        if (player->isJumping == 0 && player->isOnGround)
+                        if (player->isJumping > TAILLE_SAUT - 4 || (player->isJumping == 0 && player->isOnGround))
                             move_right=1;
                         break;
 
                     case SDLK_LEFT:
-                        if (player->isJumping == 0 && player->isOnGround)
+                        if (player->isJumping > TAILLE_SAUT - 4 || (player->isJumping == 0 && player->isOnGround))
                             move_left=1;
                         break;
 
                     case SDLK_SPACE:
                         if(player->isOnGround)
-                            player->isJumping = 15;
+                            player->isJumping = TAILLE_SAUT;
                         break;
                     default: ;
                 }
@@ -114,9 +116,11 @@ void jouer(SDL_Surface *screen, char *level_name){
                 {
                     case SDLK_RIGHT:
                         move_right=0;
+                        acceleration=0;
                         break;
                     case SDLK_LEFT:
                         move_left=0;
+                        acceleration=0;
                         break;
                     case SDLK_SPACE:
                         player->isJumping = 0;
@@ -139,9 +143,11 @@ void jouer(SDL_Surface *screen, char *level_name){
             event_appear = 1;
         }
 
-     //   if(event_appear)
+        //if(event_appear)
         {
-            move(move_left,move_right,player,m,10);
+            updateSpeed(&speed,acceleration);
+
+            move(move_left,move_right,player,m,speed,&acceleration);
 
             SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
@@ -362,16 +368,47 @@ void printGameOver(SDL_Surface *screen,int *continuer){
  *\param[in] m la carte
 
  */
-void move(int move_left, int move_right, Character *player,Map *m,float speed)
+void move(int move_left, int move_right, Character *player,Map *m,float speed, int *acceleration)
 {
-    if (move_right)
+    if (move_right && !move_left)
     {
-        if(moveCharacter(player,RIGHT,m,speed) && player->location.x > m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100)
-            scrolling(m,RIGHT,speed);
+        if(moveCharacter(player,RIGHT,m,speed))
+        {
+            (*acceleration)++;
+            if (player->location.x > m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100)
+                scrolling(m,RIGHT,speed);
+        }
     }
-    if (move_left)
+    if (move_left && !move_right)
     {
-        if(moveCharacter(player,LEFT,m,speed) &&player->location.x - m->xScroll < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
-            scrolling(m,LEFT,speed);
+        if(moveCharacter(player,LEFT,m,speed))
+        {
+            (*acceleration)++;
+            if (player->location.x - m->xScroll < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100)
+                scrolling(m,LEFT,speed);
+        }
+    }
+}
+
+void updateSpeed(float *speed, int acceleration)
+{
+    switch(acceleration)
+    {
+        case 0:
+            *speed = 1;
+            break;
+        case 5:
+            *speed = 3;
+            break;
+        case 10:
+            *speed = 5;
+            break;
+        case 15:
+            *speed=7;
+            break;
+        case 20 :
+            *speed = 10;
+            break;
+        default:;
     }
 }

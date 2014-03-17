@@ -144,7 +144,7 @@ int collisionSprite(SDL_Rect r,Map *m){
     SDL_Rect test;
     test.h = test.w = TAILLE_BLOC;
 
-    if(r.x+r.w > (m->lvl->width+1)*TAILLE_BLOC || r.x < TAILLE_BLOC)
+    if(r.x+r.w > (m->lvl->width+1)*TAILLE_BLOC || r.x < TAILLE_BLOC || r.y+r.h >(m->lvl->height)*TAILLE_BLOC -1 || r.y<0)
         return 1; //test les limites du monde
 
     xmin =  (r.x) / TAILLE_BLOC -1;
@@ -178,7 +178,7 @@ int collisionSprite(SDL_Rect r,Map *m){
  */
 void gravity(Character *c, Map *m,SDL_Surface *screen){
 
-        moveCharacter(c,DOWN,m,6);
+        moveCharacter(c,DOWN,m,10);
        /* blitCharacter(screen,c,m);
         SDL_Flip(screen);*/
 
