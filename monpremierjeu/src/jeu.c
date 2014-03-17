@@ -197,7 +197,7 @@ void jouer(SDL_Surface *screen, char *level_name){
 
             blitCharacter(screen,player,m);
 
-            updateScreenMap(screen,m); //blit du niveau
+            updateScreenMap(screen,m,"sprites/tilesetok.png"); //blit du niveau
         }
 
         waitFPS(&previous_time,&current_time);
@@ -225,77 +225,47 @@ void jouer(SDL_Surface *screen, char *level_name){
 }
 
 /**
- *\fn void updateScreenMap(SDL_Surface *screen, SDL_Surface **lvl,int col,int nbCol)
+ *\fn void updateScreenMap(SDL_Surface *screen, Map *m,char *tileset)
  *met à jour l'écran avec les données de la carte (ignore les personnages)
- *\param[in,out] screen l'écran
- *\param[in] lvl le niveau.
- *\param[in] col la première colonne à afficher
- *\param[in] nbCol le nombre de colonnes à afficher (nombre de colonnes de la fenêtre)
- *\param[in] nbRow le nombre de lignes à afficher (nombre de lignes de la fenêtre)
+ *\param[in,out] screen of the game
+ *\param[in] Map *m The map
+ *\param[in] tileset lvl tileset
  */
-void updateScreenMap(SDL_Surface *screen, Map *m){
+void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
+    SDL_Surface *tile;
+    SDL_Rect posTile, posTileSet;
     int i,j;
-    int minx,maxx,nbRow;
-    SDL_Rect pos; //position de la sprite à blit
+    int minx, maxx, nbRow;
 
-    /*liste des sprites ayant possibilité d'être affichées*/
-    SDL_Surface *grass1, *ground1,*grey_wall1;
-    SDL_Surface *grass2, *ground2,*grey_wall2;
-
-
-    /* ********************************************* */
-
-    /*chargement des sprites*/
-    grass1 = IMG_Load("sprites/herbe.bmp");
-    ground1 = IMG_Load("sprites/ground1.bmp");
-    grey_wall1 = IMG_Load("sprites/grey_wall.png");
-
-    grass2 = SDL_DisplayFormat(grass1);
-    ground2 = SDL_DisplayFormat(ground1);
-    grey_wall2 = SDL_DisplayFormatAlpha(grey_wall1);
-
-    SDL_FreeSurface(grass1);
-    SDL_FreeSurface(ground1);
-    SDL_FreeSurface(grey_wall1);
-
-    if(grass2 == NULL || ground2 == NULL || grey_wall2 == NULL){
-        perror("couldn't load sprite(s)");
-        exit(errno);
-    }
+    posTile.h = posTile.w = posTileSet.h = posTileSet.w = TAILLE_BLOC;
 
     minx = m->xScroll/TAILLE_BLOC-1;
     maxx = (m->xScroll + m->screenWidth)/TAILLE_BLOC+1;
     nbRow = m->screenHeight/TAILLE_BLOC;
 
-    /*mise à jour de la surface screen*/
-    for(i=minx;i<maxx;i++){
+    tile = IMG_Load(tileset);
+    if(tile == NULL)
+    {
+        perror("error while loading TileSet");
+        exit(errno);
+    }
+
+     for(i=minx;i<maxx;i++){
         for(j=0;j<nbRow;j++){
-            pos.x = (i+1)*TAILLE_BLOC-m->xScroll;
-            pos.y = j*TAILLE_BLOC;
+            posTile.x = (i+1)*TAILLE_BLOC-m->xScroll;
+            posTile.y = j*TAILLE_BLOC;
+            posTileSet.x = m->lvl->map[j][i] % 8 * TAILLE_BLOC;
+            posTileSet.y = m->lvl->map[j][i] / 8 * TAILLE_BLOC;
 
-            if(i>=0 && i<m->lvl->width){
-                switch(m->lvl->map[j][i]){
-                    case VOID:
-                        break;
-
-                    case GRASS1:
-                        SDL_BlitSurface(grass2,NULL,screen,&pos);
-                        break;
-                    case GROUND1 :
-                        SDL_BlitSurface(ground2,NULL,screen,&pos);
-                        break;
-                    case GREY_WALL :
-                        SDL_BlitSurface(grey_wall2,NULL,screen,&pos);
-                        break;
-                    default: ;
-                    }
+            if(i>=0 && i<m->lvl->width)
+            {
+                SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
             }
         }
     }
 
-    SDL_FreeSurface(grass2);
-    SDL_FreeSurface(ground2);
-    SDL_FreeSurface(grey_wall2);
+    SDL_FreeSurface(tile);
+
 }
 
 /**
