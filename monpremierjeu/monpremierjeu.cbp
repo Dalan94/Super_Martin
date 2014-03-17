@@ -28,11 +28,10 @@
 				</Linker>
 			</Target>
 		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-		</Compiler>
 		<Linker>
 			<Add option="-lSDLmain -lSDL -lSDL_image -lSDL_ttf -lfmod" />
+			<Add library="../../../../../../../../usr/lib64/libSDL.so" />
+			<Add library="../../../../../../../../usr/lib64/libSDL_image.so" />
 		</Linker>
 		<Unit filename="src/const.h" />
 		<Unit filename="src/file.c">

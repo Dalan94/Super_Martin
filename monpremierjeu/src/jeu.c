@@ -22,7 +22,7 @@ void jouer(SDL_Surface *screen, char *level_name){
     int continuer = 1;
 
     /*gestion du temps*/
-    int time = 200;
+    int time = 10;
     char timeChar[5];
     SDL_TimerID timer = SDL_AddTimer(1000,decomptage,&time); /*initialiation et Démarrage du timer */
     SDL_Rect posTime={10,10,0,0};
@@ -31,6 +31,7 @@ void jouer(SDL_Surface *screen, char *level_name){
     int current_time=0;
     int event_appear=1;
     int old_time=201;
+
 
     /*définition du niveau*/
     Map *m;
@@ -79,6 +80,7 @@ void jouer(SDL_Surface *screen, char *level_name){
 
 
     while(continuer){
+
         SDL_PollEvent(&event);
         switch(event.type)
         {
@@ -173,7 +175,6 @@ void jouer(SDL_Surface *screen, char *level_name){
 
 
     SDL_FreeSurface(background);
-
     freeMap(m);
     SDL_RemoveTimer(timer);
 }
@@ -349,6 +350,7 @@ void printGameOver(SDL_Surface *screen,int *continuer){
         }
     }
     *continuer = 0;
+    SDL_FreeSurface(gameOver);
     freeSound(s);
 
 }
