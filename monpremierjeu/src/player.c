@@ -51,7 +51,8 @@ int moveCharacter(Character *c,int direction,Map *m,float speed){
     if(tryMovement(c,vx,vy,m))
         return 1;
     presiseMoveCharacter(c,vx,vy,m);
-   // c->isOnGround = 1;
+    if(vy>0)
+        c->isOnGround = 1;
     return 0;
 }
 
@@ -213,7 +214,7 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m){
  *\param[in] m The map the Character is on
  */
 void jumping(Character *c, Map *m){
-
-    moveCharacter(c,UP,m,4);
+    c->isOnGround = 0;
+    moveCharacter(c,UP,m,6);
     c->isJumping --;
 }

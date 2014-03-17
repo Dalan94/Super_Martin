@@ -93,15 +93,18 @@ void jouer(SDL_Surface *screen, char *level_name){
                         break;
 
                     case SDLK_RIGHT:
-                        move_right=1;
+                        if (player->isJumping == 0 && player->isOnGround)
+                            move_right=1;
                         break;
 
                     case SDLK_LEFT:
-                        move_left=1;
+                        if (player->isJumping == 0 && player->isOnGround)
+                            move_left=1;
                         break;
 
                     case SDLK_SPACE:
-                        player->isJumping = 3;
+                        if(player->isOnGround)
+                            player->isJumping = 15;
                         break;
                     default: ;
                 }
@@ -114,6 +117,9 @@ void jouer(SDL_Surface *screen, char *level_name){
                         break;
                     case SDLK_LEFT:
                         move_left=0;
+                        break;
+                    case SDLK_SPACE:
+                        player->isJumping = 0;
                         break;
                     default: ;
                 }

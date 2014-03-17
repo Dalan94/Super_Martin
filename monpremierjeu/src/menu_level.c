@@ -34,7 +34,7 @@ int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound 
 
     level_names=readLevelFile(&nb_lvl);
 
-    SDL_EnableKeyRepeat(0,100);
+    SDL_EnableKeyRepeat(100,100);
 
     while(continuer){
         SDL_WaitEvent(&event);
