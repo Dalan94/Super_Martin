@@ -102,3 +102,14 @@ void freeSound(Sound *s){
 void stopSound(Sound *s){
     FMOD_ChannelGroup_Stop((s->channel));
 }
+
+/**
+ *\fn void soundVolume(Sound *s,float volume)
+ *set the sound volume
+ *\param[out] s the sound
+ *\param[in] volume the sound volume : [0.0 : no sound ; 1.0 (default) max power]
+ */
+void soundVolume(Sound *s,float volume)
+{
+    FMOD_ChannelGroup_SetVolume(s->channel, volume);
+}

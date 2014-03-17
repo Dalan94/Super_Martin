@@ -25,5 +25,6 @@ void playMusic(Sound *s, char *file);
 void playMusicOnce(Sound *s, char *file);
 void freeSound(Sound *s);
 void stopSound(Sound *s);
+void soundVolume(Sound *s,float volume);
 
 #endif // SOUND_H
