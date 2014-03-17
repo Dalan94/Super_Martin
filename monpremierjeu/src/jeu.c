@@ -22,7 +22,7 @@ void jouer(SDL_Surface *screen, char *level_name){
     int continuer = 1;
 
     /*gestion du temps*/
-    int time = 10;
+    int time = 100;
     char timeChar[5];
     SDL_TimerID timer = SDL_AddTimer(1000,decomptage,&time); /*initialiation et Démarrage du timer */
     SDL_Rect posTime={10,10,0,0};
@@ -46,6 +46,7 @@ void jouer(SDL_Surface *screen, char *level_name){
 
     /*définition des surfaces*/
     SDL_Surface *background = NULL;
+    SDL_Surface *background2 = NULL;
     SDL_Rect posBack;
     SDL_Event event;
 
@@ -70,6 +71,15 @@ void jouer(SDL_Surface *screen, char *level_name){
         perror("couldn't load background sprite");
         exit(errno);
     }
+
+    background2=SDL_DisplayFormatAlpha(background);
+
+    if(background2 == NULL){
+        perror("couldn't load background sprite");
+        exit(errno);
+    }
+
+    SDL_FreeSurface(background);
 
     /*initialisation du joueur*/
     player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png");
@@ -156,7 +166,7 @@ void jouer(SDL_Surface *screen, char *level_name){
 
             printText(screen,&posTime,timeChar,black,"polices/code.otf",20,0);
 
-            SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
+            SDL_BlitSurface(background2,NULL,screen,&posBack); // blit du background
 
 
             blitCharacter(screen,player,m);
@@ -181,7 +191,7 @@ void jouer(SDL_Surface *screen, char *level_name){
     SDL_Flip(screen);
 
 
-    SDL_FreeSurface(background);
+    SDL_FreeSurface(background2);
     freeMap(m);
     SDL_RemoveTimer(timer);
 }
@@ -201,7 +211,8 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
     SDL_Rect pos; //position de la sprite à blit
 
     /*liste des sprites ayant possibilité d'être affichées*/
-    SDL_Surface *grass1, *ground1,*grey_wall;
+    SDL_Surface *grass1, *ground1,*grey_wall1;
+    SDL_Surface *grass2, *ground2,*grey_wall2;
 
 
     /* ********************************************* */
@@ -209,10 +220,17 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
     /*chargement des sprites*/
     grass1 = IMG_Load("sprites/herbe.bmp");
     ground1 = IMG_Load("sprites/ground1.bmp");
-    grey_wall = IMG_Load("sprites/grey_wall.png");
+    grey_wall1 = IMG_Load("sprites/grey_wall.png");
 
+    grass2 = SDL_DisplayFormat(grass1);
+    ground2 = SDL_DisplayFormat(ground1);
+    grey_wall2 = SDL_DisplayFormatAlpha(grey_wall1);
 
-    if(grass1 == NULL || ground1 == NULL || grey_wall == NULL){
+    SDL_FreeSurface(grass1);
+    SDL_FreeSurface(ground1);
+    SDL_FreeSurface(grey_wall1);
+
+    if(grass2 == NULL || ground2 == NULL || grey_wall2 == NULL){
         perror("couldn't load sprite(s)");
         exit(errno);
     }
@@ -233,13 +251,13 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
                         break;
 
                     case GRASS1:
-                        SDL_BlitSurface(grass1,NULL,screen,&pos);
+                        SDL_BlitSurface(grass2,NULL,screen,&pos);
                         break;
                     case GROUND1 :
-                        SDL_BlitSurface(ground1,NULL,screen,&pos);
+                        SDL_BlitSurface(ground2,NULL,screen,&pos);
                         break;
                     case GREY_WALL :
-                        SDL_BlitSurface(grey_wall,NULL,screen,&pos);
+                        SDL_BlitSurface(grey_wall2,NULL,screen,&pos);
                         break;
                     default: ;
                     }
@@ -247,9 +265,9 @@ void updateScreenMap(SDL_Surface *screen, Map *m){
         }
     }
 
-    SDL_FreeSurface(grass1);
-    SDL_FreeSurface(ground1);
-    SDL_FreeSurface(grey_wall);
+    SDL_FreeSurface(grass2);
+    SDL_FreeSurface(ground2);
+    SDL_FreeSurface(grey_wall2);
 }
 
 /**
