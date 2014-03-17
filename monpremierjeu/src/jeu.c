@@ -31,6 +31,8 @@ void jouer(SDL_Surface *screen, char *level_name){
     int current_time=0;
     int event_appear=1;
     int old_time=201;
+    int pause=0;
+    int time_pause;
 
     int acceleration=0;
     float speed=0;
@@ -133,6 +135,8 @@ void jouer(SDL_Surface *screen, char *level_name){
                             playMusicOnce(sound_jump,"sound/jump_big.ogg");
                         }
                         break;
+                    case SDLK_UP:
+                        pause=1;
                     default: ;
                 }
                 break;
@@ -167,6 +171,14 @@ void jouer(SDL_Surface *screen, char *level_name){
             old_time=time;
 
             event_appear = 1;
+        }
+
+        if (pause)
+        {
+            time_pause=time;
+            printPause(screen,&event);
+            time=time_pause;
+            pause=0;
         }
 
         //if(event_appear)
@@ -354,7 +366,7 @@ void freeMap(Map *m){
  */
 void printGameOver(SDL_Surface *screen,int *continuer){
     SDL_Surface *gameOver = NULL;
-    SDL_Rect posGame, posText;
+    SDL_Rect posGame;
     SDL_Color color = {186,38,18};
     int cont = 1;
     SDL_Event event;
@@ -368,10 +380,7 @@ void printGameOver(SDL_Surface *screen,int *continuer){
     SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
     SDL_BlitSurface(gameOver,NULL,screen,&posGame);
 
-    posText.x = screen->w/2-150;
-    posText.y = screen->h/2-65;
-
-    printText(screen,&posText,"GAME OVER",color,"polices/manga.ttf",65,1);
+    printText(screen,NULL,"GAME OVER",color,"polices/manga.ttf",65,1);
     SDL_Flip(screen);
 
     SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
@@ -447,4 +456,43 @@ void updateSpeed(float *speed, int acceleration)
             break;
         default:;
     }
+}
+
+/**
+ *\fn void printPause(SDL_Surface *screen, SDL_Event *event)
+ *affiche le message de game overflow_error
+ *\param[out] screen l'écran de jeu
+ */
+void printPause(SDL_Surface *screen, SDL_Event *event){
+    SDL_Surface *gameOver = NULL;
+    SDL_Rect posGame;
+    SDL_Color color = {186,38,18};
+    int cont = 1;
+
+    gameOver = IMG_Load("sprites/game-over.jpg");
+    posGame.x = posGame.y = 0;
+    SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
+    SDL_BlitSurface(gameOver,NULL,screen,&posGame);
+
+
+    printText(screen,NULL,"PAUSE",color,"polices/manga.ttf",65,1);
+    SDL_Flip(screen);
+
+    //SDL_Delay(500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
+
+    while(cont){
+        SDL_WaitEvent(event);
+        switch(event->type){
+            case SDL_QUIT:
+                cont = 0;
+                break;
+            case SDL_KEYDOWN:
+                cont = 0;
+                break;
+            default:
+                ;
+        }
+    }
+    SDL_FreeSurface(gameOver);
+
 }

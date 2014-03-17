@@ -35,4 +35,5 @@ void freeMap(Map *m);
 void printGameOver(SDL_Surface *screen, int* continuer);
 void move (int move_left, int move_right, Character *player,Map *m,float speed, int *acceleration);
 void updateSpeed(float *speed, int acceleration);
+void printPause(SDL_Surface *screen, SDL_Event *event);
 #endif // JEU_H_INCLUDED
