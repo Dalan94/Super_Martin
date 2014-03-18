@@ -33,3 +33,5 @@
 /*  N° de la derniere tile */
 
 #define MAX_TILES 8
+
+#define GAMEOVER_TIME 50

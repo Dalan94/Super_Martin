@@ -50,7 +50,7 @@ void draw(void){
 
     /*  Affichage de la map */
 
-    drawMap();
+    drawMap("sprites/Tuto/Tiles/tilesetok.png");
 
     /*  Affichage de l'ecran */
 

@@ -1,76 +1,101 @@
 #include "map.h"
 
-
 void loadMap(char *name){
-
-    int x,y;
+    int x, y;
     FILE *fp;
+    int maxX, maxY;
 
     fp = fopen(name, "r");
 
-    if(fp == NULL){
+    /* Si on ne peut pas ouvrir le fichier, on quitte */
 
+    if (fp == NULL)
+    {
         printf("Failed to open map %s\n", name);
+
         exit(1);
     }
 
-    /* Lecture des donnees du fichier map */
-
+    /* Lit les données du fichier dans la map */
+    fseek(fp, 0, SEEK_SET);
+    fscanf(fp, "%d", &maxX);
+    fscanf(fp, "%d", &maxY);
+    fseek(fp, -((maxX+1)*maxY), SEEK_END);
     map.maxX = map.maxY = 0;
 
-    for(y = 0; y < MAX_MAP_Y; y++){
+    for (y = 0; y < MAX_MAP_Y; y++)
+    {
+        for (x = 0; x < MAX_MAP_X; x++)
+        {
+            /* On lit le numéro de la tile et on le copie dans notre tableau */
 
-        for(x = 0; x < MAX_MAP_X; x++){
 
-            /*  Lecture du numero de la tile et stockage dans le tableau */
+            map.tile[y][x] = fgetc(fp);
 
-            fscanf(fp, "%d", &map.tile[y][x]);
+            if(map.tile[y][x] == '\n'){
 
-            /*  Determination de la taille de la map */
+                map.tile[y][x] = fgetc(fp);
+            }
 
-            if(map.tile[y][x] > 0){
+            map.tile[y][x] -= '0';
 
-                if(x > map.maxX){
 
+            /* Permet de déterminer la taille de la map (voir plus bas) */
+            if (map.tile[y][x] > 0)
+            {
+                if (x > map.maxX)
+                {
                     map.maxX = x;
                 }
 
-                if(y > map.maxY){
-
+                if (y > map.maxY)
+                {
                     map.maxY = y;
                 }
             }
         }
     }
-
-    map.maxX = MAX_MAP_X * TILE_SIZE;
-    map.maxY = MAX_MAP_Y * TILE_SIZE;
-
-    /*  Remise a zero des coordonnees de depart de la map */
-
-    map.startX = map.startY = 0;
-
-    /*  Fermeture du fichier */
-
-    fclose(fp);
 }
 
 
-void saveMap(char *name){
+void saveMap(char *name_lst){
 
     int x, y;
-    FILE *fp;
+    int lvl_number = 0;
+    char name_dest[100] = "level/Map_";
+    FILE *fp, *fplst;
 
-    fp = fopen(name, "w+");
+    fplst = fopen(name_lst, "r+");
 
-    if(fp == NULL){
+    if(fplst == NULL){
 
-        printf("Failed to open map %s\n", name);
+        printf("Failed to open file %s\n", name_lst);
         exit(1);
     }
 
 
-    fprintf(fp, "%d\n%d\nsprites/Background/green_hills_3.png\nsound/ezer_ev.mp3\n", MAX_MAP_X, MAX_MAP_Y);
+    lvl_number = fgetc(fplst);
+    name_dest[10] = lvl_number;
+    name_dest[11] = '\0';
+    lvl_number -= '0';
+    fseek(fplst, 0, SEEK_SET);
+    fprintf(fplst, "%d\n", lvl_number+1);
+    fseek(fplst, 0, SEEK_END);
+    fprintf(fplst, "Map_%d\n", lvl_number);
+
+    //fprintf(fplst, "Map_%d\n", lvl_number);
+    fclose(fplst);
+    strncat(name_dest, ".lvl", 5);
+
+    fp = fopen(name_dest, "w+");
+
+    if(fp == NULL){
+
+        printf("Failed to open map %s\n", name_dest);
+        exit(1);
+    }
+
+    fprintf(fp, "%d\n%d\n%d\nsprites/Background/green_hills_3.png\nsound/ezer_ev.mp3\n", map.maxX/TILE_SIZE, map.maxY/TILE_SIZE, GAMEOVER_TIME);
 
     /*  Sauvegarde de la map */
 
@@ -90,7 +115,7 @@ void saveMap(char *name){
 
 void reinitMap(char *name){
 
-    int x, y;
+    int x, y, maxX, maxY;
     FILE *fp;
 
     fp = fopen(name, "w+");
@@ -100,8 +125,11 @@ void reinitMap(char *name){
         printf("Failed to open map %s\n", name);
         exit(1);
     }
-
-    fprintf("%d\n%d\n50\nsprites/Background/green_hills_3.png\nsound/ezer_ev.mp3", map.maxX, map.maxY);
+    fseek(fp, 0, SEEK_SET);
+    fscanf(fp, "%d", &maxX);
+    fscanf(fp, "%d", &maxY);
+    fseek(fp, -((maxX+1)*maxY), SEEK_END);
+    fprintf(fp, "%d\n%d\nsprites/Background/green_hills_3.png\nsound/ezer_ev.mp3\n", map.maxX/TILE_SIZE, map.maxY/TILE_SIZE);
 
     /*  Remplissage de la map avec des 0 */
 
@@ -119,67 +147,42 @@ void reinitMap(char *name){
 }
 
 
-void drawMap(void){
+void drawMap(char *tileset){
 
-    int x,y, mapX, x1, x2, mapY, y1, y2, xsrc, ysrc, a;
+    SDL_Surface *tile;
+    SDL_Rect posTile, posTileSet;
+    int i,j;
+    int minx, maxx, nbRow;
+    int xsrc, ysrc;
 
-    /*  Calcul de l'affichage de l'ecran pour le scrolling */
+    posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
 
-    /*  Initialisation de mapX a la 1ere colonne */
+    minx = map.startX/TILE_SIZE-1;
+    maxx = (map.startX + MAX_MAP_X*TILE_SIZE)/TILE_SIZE+1;
+    nbRow = MAX_MAP_Y;
 
-    mapX = map.startX / TILE_SIZE;
-
-    /*  Coordonnee x de depart pour l'affichage de la map */
-
-    x1 = (map.startX % TILE_SIZE) * (-1);
-
-    /*  Coordonnee x de fin d'affichage de la map */
-
-    x2 = x1 + SCREEN_WIDTH + (x1 == 0 ? 0 : TILE_SIZE);
-
-    /*  Initialisation de mapY a la 1ere ligne */
-
-    mapY = map.startY / TILE_SIZE;
-
-    /*  Coordonnee y de depart pour l'affichage de la map */
-
-    y1 = (map.startY % TILE_SIZE) * (-1);
-
-    /*  Coordonnee y de fin d'affichage de la map */
-
-    y2 = y1 + SCREEN_HEIGHT + (y1 == 0 ? 0 : TILE_SIZE);
-
-
-
-    /*  Dessin de la carte en commençant par startX et startY */
-
-    for(y = y1; y < y2; y += TILE_SIZE){
-
-        /* Reinitialisation de la colonne a chaque debut de ligne */
-
-        mapX = map.startX / TILE_SIZE;
-
-        /* Dessin de la tile suivant la colonne courante */
-
-        for(x = x1; x < x2; x += TILE_SIZE){
-
-        /*  Decoupage du tileset suivant le numero de notre tile */
-
-        a = map.tile[mapY][mapX];
-
-        /* Calcul des coordonnees du tile a traiter pour un tileset de 10 tiles par ligne */
-
-        ysrc = a / MAX_TILES * TILE_SIZE;
-        xsrc = a % MAX_TILES * TILE_SIZE;
-
-        /* Blittage de la bonne tile au bon endroit */
-
-        drawTile(map.tileSet, x, y, xsrc, ysrc);
-        mapX++;
-        }
-
-    mapY++;
+    tile = IMG_Load(tileset);
+    if(tile == NULL)
+    {
+        perror("error while loading TileSet");
+        exit(1);
     }
+
+     for(i=minx;i<maxx;i++){
+        for(j=0;j<nbRow;j++){
+            posTile.x = (i+1)*TILE_SIZE-map.startX;
+            posTile.y = j*TILE_SIZE;
+            posTileSet.x = map.tile[j][i] % 8 * TILE_SIZE;
+            posTileSet.y = map.tile[j][i] / 8 * TILE_SIZE;
+
+            if(i>=0 && i<MAX_MAP_X)
+            {
+                SDL_BlitSurface(tile,&posTileSet,jeu.screen,&posTile);
+            }
+        }
+    }
+
+    SDL_FreeSurface(tile);
 
 
     /*  Affichage de la tile selctionnee a cote du curseur */
@@ -187,4 +190,5 @@ void drawMap(void){
     ysrc = cursor.tileID / MAX_TILES * TILE_SIZE;
     xsrc = cursor.tileID % MAX_TILES * TILE_SIZE;
     drawTile(map.tileSet, cursor.x, cursor.y, xsrc, ysrc);
+
 }

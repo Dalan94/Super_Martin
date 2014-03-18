@@ -286,16 +286,16 @@ void update(void){
 
     if(input.reinit == 1){
 
-        reinitMap("sprites/Tuto/Map/map1.txt");
-        loadMap("sprites/Tuto/Map/map1.txt");
+        reinitMap("sprites/Tuto/Map/test1.lvl");
+        loadMap("sprites/Tuto/Map/test1.lvl");
         input.reinit = 0;
     }
 
-    /*  Gestion de la suavegarde de la map */
+    /*  Gestion de la sauvegarde de la map */
 
     if(input.save == 1){
 
-        saveMap("sprites/Tuto/Map/test1.lvl");
+        saveMap("level/level");
         input.save = 0;
     }
 
@@ -303,7 +303,7 @@ void update(void){
 
     if(input.load == 1){
 
-        loadMap("sprites/Tuto/Map/map4.txt");
+        loadMap("sprites/Tuto/Map/map1.txt");
         input.load = 0;
     }
 

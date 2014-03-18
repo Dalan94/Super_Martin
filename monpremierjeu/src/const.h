@@ -8,9 +8,9 @@
 #ifndef CONST_H_INCLUDED
 #define CONST_H_INCLUDED
 
-    #define TAILLE_BLOC             20 // Taille d'un bloc (carré) en pixels
-    #define NB_BLOCS_LARGEUR        48
-    #define NB_BLOCS_HAUTEUR        27
+    #define TAILLE_BLOC             16 // Taille d'un bloc (carré) en pixels
+    #define NB_BLOCS_LARGEUR        60
+    #define NB_BLOCS_HAUTEUR        34
     #define LARGEUR_FENETRE         TAILLE_BLOC * NB_BLOCS_LARGEUR
     #define HAUTEUR_FENETRE         TAILLE_BLOC * NB_BLOCS_HAUTEUR
     #define FPS                     60
