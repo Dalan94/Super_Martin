@@ -45,7 +45,7 @@ void loadGame(void){
 
     map.tileSet = loadImage("sprites/Tuto/Tiles/tilesetok.png");
 
-    loadMap("sprites/Tuto/Map/map4.txt");
+    loadMap("sprites/Tuto/Map/test1.lvl");
 }
 
 /* Fonction quittant le jeu */

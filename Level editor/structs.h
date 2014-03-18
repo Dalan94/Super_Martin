@@ -5,6 +5,8 @@
 
 /* Structure utilisee pour gérer l'input */
 
+
+
 typedef struct Input {
 
     int left, right, up, down, add, remove;

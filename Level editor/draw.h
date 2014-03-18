@@ -1,5 +1,5 @@
 #include "structs.h"
 
-extern void drawMap();
+extern void drawMap(char*);
 extern Gestion jeu;
 extern Map map;
