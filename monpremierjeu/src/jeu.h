@@ -31,6 +31,6 @@ void jouer(SDL_Surface *screen,char *level_name);
 void printGameOver(SDL_Surface *screen, int* continuer);
 void move (int move_left, int move_right, Character *player,Map *m,float speed, int *acceleration);
 void updateSpeed(float *speed, int acceleration);
-void printPause(SDL_Surface *screen, SDL_Event *event, int *time);
+void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer);
 Uint32 decomptage(Uint32 intervalle,void* parametre);
 #endif // JEU_H_INCLUDED

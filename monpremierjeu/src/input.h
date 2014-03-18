@@ -12,6 +12,7 @@
 typedef struct
 {
 	char key[SDLK_LAST];
+	int quit;
 } Input;
 
 /*prototype*/

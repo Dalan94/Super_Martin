@@ -98,6 +98,8 @@ void jouer(SDL_Surface *screen, char *level_name){
         updateEvents(&in);
         keyboardActionGame(&in,&move_left,&move_right,&jump,&pause,player);
         /* ******** */
+        if(in.quit)
+            continuer = 0;
 
         if(player->isOnGround && jump)
             player->isJumping = TAILLE_SAUT;
@@ -117,7 +119,7 @@ void jouer(SDL_Surface *screen, char *level_name){
 
         if (pause)
         {
-            printPause(screen,&event,&(m->lvl->timer_level));
+            printPause(screen,&in,&(m->lvl->timer_level),&continuer);
             pause=0;
         }
 
@@ -179,6 +181,7 @@ void printGameOver(SDL_Surface *screen,int *continuer){
     SDL_Color color = {186,38,18};
     int cont = 1;
     SDL_Event event;
+
 
     Sound *s;
     s = createSound();
@@ -278,13 +281,15 @@ void updateSpeed(float *speed, int acceleration)
 }
 
 /**
- *\fn void printPause(SDL_Surface *screen, SDL_Event *event, int *time)
+ *\fn void printPause(SDL_Surface *screen, Input *in, int *time,int *continuer)
  * Met en pause le jeu
  *\param[out] screen l'écran de jeu
  *\param[out] time le temps restant
- *\param[out] event l'evenement en cours
+ *\param[in] in la structure input
+ *\param[out] le booléen de main loop de la fonction jouer
  */
-void printPause(SDL_Surface *screen, SDL_Event *event, int *time){
+void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer)
+{
     SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
     SDL_Color color = {186,38,18};
@@ -299,25 +304,19 @@ void printPause(SDL_Surface *screen, SDL_Event *event, int *time){
 
     printText(screen,NULL,"PAUSE",color,"polices/manga.ttf",65,1);
     SDL_Flip(screen);
+    in->key[SDLK_p] = 0;
 
-    //SDL_Delay(500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
+    while(!in->key[SDLK_p] && *continuer){
 
-    while(cont){
-        SDL_WaitEvent(event);
-        switch(event->type){
-            case SDL_QUIT:
-                cont = 0;
-                break;
-            case SDL_KEYDOWN:
-                cont = 0;
-                break;
-            default:
-                ;
-        }
+        updateEvents(in);
+        if(in->quit)
+            *continuer = 0;
+
     }
     SDL_FreeSurface(gameOver);
 
     *time=time_pause;
+    in->key[SDLK_p] = 0;
 }
 
 Uint32 decomptage(Uint32 intervalle,void* parametre){

@@ -27,6 +27,8 @@ void updateEvents(Input* in)
 		case SDL_KEYUP:
 			in->key[event.key.keysym.sym] = 0;
 			break;
+        case SDL_QUIT:
+            in->quit = 1;
 		default:
 			break;
 		}
@@ -43,6 +45,7 @@ void updateEvents(Input* in)
  *\param[out] jump the jump boolean
  *\param[out] pause the pause boolean
  *\param[in] player the Player
+
  */
 void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player)
 {
@@ -67,5 +70,6 @@ void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *
         /*pause*/
     if(in->key[SDLK_p])
         *pause = 1;
+
 
 }
