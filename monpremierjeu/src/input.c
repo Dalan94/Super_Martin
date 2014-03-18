@@ -1,5 +1,5 @@
 /*!
- *\file ....c
+ *\file input.c
  *\brief
  *\author Xavier COPONET
  *\date 2014-03-18
@@ -9,12 +9,13 @@
 
 
 /**
- *\fn void updateEvents(Input* in)
+ *\fn int updateEvents(Input* in)
  *recuperate keyboard input
  *\param[out] in the input structure
+ *\return 1 if a key is activated
  */
 
-void updateEvents(Input* in)
+int updateEvents(Input* in)
 {
 	SDL_Event event;
 	while(SDL_PollEvent(&event))
@@ -23,6 +24,7 @@ void updateEvents(Input* in)
 		{
 		case SDL_KEYDOWN:
 			in->key[event.key.keysym.sym] = 1;
+			return 1;
 			break;
 		case SDL_KEYUP:
 			in->key[event.key.keysym.sym] = 0;
@@ -33,6 +35,7 @@ void updateEvents(Input* in)
 			break;
 		}
 	}
+	return 0;
 }
 
 
@@ -70,6 +73,4 @@ void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *
         /*pause*/
     if(in->key[SDLK_p])
         *pause = 1;
-
-
 }

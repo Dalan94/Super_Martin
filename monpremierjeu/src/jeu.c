@@ -112,7 +112,7 @@ void jouer(SDL_Surface *screen, char *level_name){
                 sprintf(timeChar,"%d",m->lvl->timer_level);
             }else{
                 stopSound(music);
-                printGameOver(screen,&continuer);
+                printGameOver(screen,&continuer,&in);
             }
             old_time=m->lvl->timer_level;
         }
@@ -171,17 +171,14 @@ void jouer(SDL_Surface *screen, char *level_name){
 
 
 /**
- *\fn void printGameOver(SDL_Surface *screen,int *continuer)
+ *\fn void printGameOver(SDL_Surface *screen,int *continuer,Input *in)
  *affiche le message de game overflow_error
  *\param[out] screen l'écran de jeu
  */
-void printGameOver(SDL_Surface *screen,int *continuer){
+void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
     SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
     SDL_Color color = {186,38,18};
-    int cont = 1;
-    SDL_Event event;
-
 
     Sound *s;
     s = createSound();
@@ -197,19 +194,7 @@ void printGameOver(SDL_Surface *screen,int *continuer){
 
     SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
 
-    while(cont){
-        SDL_WaitEvent(&event);
-        switch(event.type){
-            case SDL_QUIT:
-                cont = 0;
-                break;
-            case SDL_KEYDOWN:
-                cont = 0;
-                break;
-            default:
-                ;
-        }
-    }
+    while(!updateEvents(in));
     *continuer = 0;
     SDL_FreeSurface(gameOver);
     freeSound(s);
