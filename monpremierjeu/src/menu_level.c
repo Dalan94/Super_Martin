@@ -29,7 +29,9 @@ int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound 
     int taille_texte;
     int pos_curseur=0;
 
+    Input in;
     SDL_Event event;
+
     SDL_Rect posText={0,0,0,0};
     SDL_Color black = {0, 0, 0}; /*couleur pour le texte*/
 
@@ -40,40 +42,28 @@ int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound 
 
     level_names=readLevelFile(&nb_lvl);
 
-    SDL_EnableKeyRepeat(100,100);
 
-    while(continuer){
-        SDL_WaitEvent(&event);
-        switch(event.type)
+
+    memset(&in,0,sizeof(in));
+
+    while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
+    {
+        updateWaitEvents(&in);
+        //keyboardActionMenu(&in,&pos_curseur,&play_lvl,nb_lvl);
+        if(in.key[SDLK_ESCAPE] || in.quit)
+        play_lvl = 0;
+
+        if(in.key[SDLK_UP])
         {
-            case SDL_QUIT:
-                continuer = 0;
-                play_lvl = 0;
-                break;
-            case SDL_KEYDOWN:
-                switch(event.key.keysym.sym)
-                {
-                    case SDLK_ESCAPE: // Veut arrêter le jeu
-                        continuer = 0;
-                        play_lvl = 0;
-                        break;
-                    case SDLK_RETURN:
-                        continuer=0;
-                        break;
-                    case SDLK_UP:
-                        pos_curseur--;
-                        if (pos_curseur < 0)
-                            pos_curseur=nb_lvl-1;
-                        break;
-                    case SDLK_DOWN:
-                        pos_curseur++;
-                        if (pos_curseur >= nb_lvl)
-                            pos_curseur=0;
-                        break;
-                    default : ;
-                }
-                break;
-            default :;
+            (pos_curseur)--;
+            if(pos_curseur < 0)
+                pos_curseur = nb_lvl-1;
+        }
+        if(in.key[SDLK_DOWN])
+        {
+            pos_curseur++;
+            if(pos_curseur >= nb_lvl)
+                pos_curseur = 0;
         }
 
         waitFPS(&previous_time,&current_time);

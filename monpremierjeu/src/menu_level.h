@@ -21,6 +21,7 @@
 #include "text.h"
 #include "sound.h"
 #include "image.h"
+#include "input.h"
 
 int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound *s);
 
