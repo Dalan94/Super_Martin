@@ -18,6 +18,7 @@
 
 #include "file_level.h"
 #include "share.h"
+#include "sound.h"
 
 /**
  *\def SGN(X)
@@ -50,6 +51,6 @@ void gravity(Character *c, Map *m,SDL_Surface *screen);
 void movementVector(int direction, int *vx, int *vy,int speed,Character *c);
 int tryMovement(Character *c,int vx,int vy,Map *m);
 void presiseMoveCharacter(Character *c, int vx,int vy, Map *m);
-void jumping(Character *c, Map *m);
+void jumping(Character *c, Map *m,Sound *jump_sound);
 
 #endif

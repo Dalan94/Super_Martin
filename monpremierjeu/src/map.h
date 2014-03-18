@@ -18,7 +18,6 @@
 #include "image.h"
 #include "file_level.h"
 
-
 /*prototypes*/
 void updateScreenMap(SDL_Surface *screen, Map *m,char *tileset);
 void scrolling(Map *m,int direction,float speed);

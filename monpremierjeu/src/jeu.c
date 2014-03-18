@@ -50,10 +50,15 @@ void jouer(SDL_Surface *screen, char *level_name){
     /*Gestion des mouvements*/
     int move_right=0;
     int move_left=0;
+    int jump = 0;
 
     /*Sound*/
     Sound *sound_jump = NULL;
     Sound *music=NULL;
+
+    /*gestion des inputs*/
+    Input in;
+    memset(&in,0,sizeof(in));
 
     //effacer l'écran
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
@@ -79,7 +84,7 @@ void jouer(SDL_Surface *screen, char *level_name){
     /*initialisation du joueur*/
     player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png");
     player->location.x = 5*TAILLE_BLOC;
-    player->location.y = 2*TAILLE_BLOC-player->spriteR->h-2;
+    player->location.y = 8*TAILLE_BLOC-player->spriteR->h;
 
 
     SDL_EnableKeyRepeat(100,100); //répétition des touches
@@ -87,62 +92,17 @@ void jouer(SDL_Surface *screen, char *level_name){
     current_time=previous_time=SDL_GetTicks();
 
 
-    while(continuer){
+    while(!in.key[SDLK_ESCAPE] && continuer){
 
-        SDL_PollEvent(&event);
-        switch(event.type)
-        {
-            case SDL_QUIT:
-                continuer = 0;
-                break;
-            case SDL_KEYDOWN:
-                switch(event.key.keysym.sym)
-                {
-                    case SDLK_ESCAPE:
-                        continuer = 0;
-                        break;
+        /* récupération des inputs clavier*/
+        updateEvents(&in);
+        keyboardActionGame(&in,&move_left,&move_right,&jump,&pause,player);
+        /* ******** */
 
-                    case SDLK_RIGHT:
-                        if (player->isJumping > TAILLE_SAUT - 4 || (player->isJumping == 0 && player->isOnGround))
-                            move_right=1;
-                        break;
-
-                    case SDLK_LEFT:
-                        if (player->isJumping > TAILLE_SAUT - 4 || (player->isJumping == 0 && player->isOnGround))
-                            move_left=1;
-                        break;
-
-                    case SDLK_SPACE:
-                        if(player->isOnGround)
-                        {
-                            player->isJumping = TAILLE_SAUT;
-                            playMusicOnce(sound_jump,"sound/jump_big.ogg");
-                        }
-                        break;
-                    case SDLK_UP:
-                        pause=1;
-                    default: ;
-                }
-                break;
-            case SDL_KEYUP:
-                switch(event.key.keysym.sym)
-                {
-                    case SDLK_RIGHT:
-                        move_right=0;
-                        acceleration=0;
-                        break;
-                    case SDLK_LEFT:
-                        move_left=0;
-                        acceleration=0;
-                        break;
-                    case SDLK_SPACE:
-                        player->isJumping = 0;
-                        break;
-                    default: ;
-                }
-
-            default:;
-        }
+        if(player->isOnGround && jump)
+            player->isJumping = TAILLE_SAUT;
+        if(!jump)
+            player->isJumping = 0;
 
         if (old_time != m->lvl->timer_level)
         {
@@ -175,7 +135,7 @@ void jouer(SDL_Surface *screen, char *level_name){
         blitCharacter(screen,player,m);
 
 
-            updateScreenMap(screen,m,"sprites/tilesetok.png"); //blit du niveau
+        updateScreenMap(screen,m,"sprites/tilesetok.png"); //blit du niveau
 
 
 
@@ -184,7 +144,7 @@ void jouer(SDL_Surface *screen, char *level_name){
         if(!player->isJumping)
             gravity(player,m,screen);
         else
-            jumping(player,m);
+            jumping(player,m,sound_jump);
 
         SDL_Flip(screen);//affichage de l'écran
     } //while

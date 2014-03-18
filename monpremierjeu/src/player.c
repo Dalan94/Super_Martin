@@ -213,7 +213,12 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m){
  *\param[in,out] c the Character
  *\param[in] m The map the Character is on
  */
-void jumping(Character *c, Map *m){
+void jumping(Character *c, Map *m,Sound *jump_sound){
+    if(c->isOnGround)
+    {
+        playMusicOnce(jump_sound,"sound/jump_big.ogg");
+    }
+
     c->isOnGround = 0;
     moveCharacter(c,UP,m,6);
     c->isJumping --;

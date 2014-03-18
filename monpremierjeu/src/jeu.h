@@ -24,6 +24,7 @@
 #include "file_level.h"
 #include "image.h"
 #include "map.h"
+#include "input.h"
 
 /*prototypes*/
 void jouer(SDL_Surface *screen,char *level_name);
