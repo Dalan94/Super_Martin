@@ -55,6 +55,10 @@
 		<Unit filename="src/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src/map.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/map.h" />
 		<Unit filename="src/menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
