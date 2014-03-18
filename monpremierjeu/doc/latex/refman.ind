@@ -1,32 +1,33 @@
 \begin{theindex}
 
   \item {A\discretionary {-}{}{}B\discretionary {-}{}{}S}
-    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{27}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{36}
 
   \indexspace
 
   \item {blit\discretionary {-}{}{}Character}
-    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{24}
-    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{27}
+    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{32}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{36}
 
   \indexspace
 
   \item {Character}, \hyperpage{5}
+    \subitem {is\discretionary {-}{}{}Jumping}, \hyperpage{5}
     \subitem {is\discretionary {-}{}{}On\discretionary {-}{}{}Ground}, 
 		\hyperpage{5}
   \item {close\discretionary {-}{}{}File}
     \subitem {file.\discretionary {-}{}{}c}, \hyperpage{9}
     \subitem {file.\discretionary {-}{}{}h}, \hyperpage{11}
   \item {collision\discretionary {-}{}{}Sprite}
-    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{24}
-    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{27}
+    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{32}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{36}
   \item {const.\discretionary {-}{}{}h}, \hyperpage{7}
   \item {create\discretionary {-}{}{}Sound}
-    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{30}
-    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{32}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{40}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{44}
   \item {creater\discretionary {-}{}{}Character}
-    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{24}
-    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{28}
+    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{32}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{36}
 
   \indexspace
 
@@ -41,36 +42,53 @@
     \subitem {read\discretionary {-}{}{}File\discretionary {-}{}{}Size}, 
 		\hyperpage{11}
   \item {free\discretionary {-}{}{}Sound}
-    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{30}
-    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{32}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{40}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{44}
 
   \indexspace
 
+  \item {image.\discretionary {-}{}{}c}, \hyperpage{12}
+    \subitem {image\discretionary {-}{}{}Load}, \hyperpage{12}
+    \subitem {image\discretionary {-}{}{}Load\discretionary {-}{}{}Alpha}, 
+		\hyperpage{12}
+  \item {image.\discretionary {-}{}{}h}, \hyperpage{13}
+    \subitem {image\discretionary {-}{}{}Load}, \hyperpage{14}
+    \subitem {image\discretionary {-}{}{}Load\discretionary {-}{}{}Alpha}, 
+		\hyperpage{14}
+  \item {image\discretionary {-}{}{}Load}
+    \subitem {image.\discretionary {-}{}{}c}, \hyperpage{12}
+    \subitem {image.\discretionary {-}{}{}h}, \hyperpage{14}
+  \item {image\discretionary {-}{}{}Load\discretionary {-}{}{}Alpha}
+    \subitem {image.\discretionary {-}{}{}c}, \hyperpage{12}
+    \subitem {image.\discretionary {-}{}{}h}, \hyperpage{14}
   \item {init\discretionary {-}{}{}Map}
-    \subitem {jeu.\discretionary {-}{}{}c}, \hyperpage{12}
-    \subitem {jeu.\discretionary {-}{}{}h}, \hyperpage{16}
+    \subitem {map.\discretionary {-}{}{}c}, \hyperpage{22}
+    \subitem {map.\discretionary {-}{}{}h}, \hyperpage{25}
+  \item {is\discretionary {-}{}{}Jumping}
+    \subitem {Character}, \hyperpage{5}
   \item {is\discretionary {-}{}{}On\discretionary {-}{}{}Ground}
     \subitem {Character}, \hyperpage{5}
 
   \indexspace
 
-  \item {jeu.\discretionary {-}{}{}c}, \hyperpage{12}
-    \subitem {init\discretionary {-}{}{}Map}, \hyperpage{12}
-    \subitem {jouer}, \hyperpage{13}
-    \subitem {move}, \hyperpage{13}
+  \item {jeu.\discretionary {-}{}{}c}, \hyperpage{14}
+    \subitem {jouer}, \hyperpage{15}
     \subitem {print\discretionary {-}{}{}Game\discretionary {-}{}{}Over}, 
-		\hyperpage{14}
-    \subitem {scrolling}, \hyperpage{14}
-  \item {jeu.\discretionary {-}{}{}h}, \hyperpage{15}
-    \subitem {init\discretionary {-}{}{}Map}, \hyperpage{16}
-    \subitem {jouer}, \hyperpage{16}
-    \subitem {move}, \hyperpage{17}
+		\hyperpage{16}
+    \subitem {print\discretionary {-}{}{}Pause}, \hyperpage{17}
+    \subitem {update\discretionary {-}{}{}Speed}, \hyperpage{17}
+  \item {jeu.\discretionary {-}{}{}h}, \hyperpage{18}
+    \subitem {jouer}, \hyperpage{19}
     \subitem {print\discretionary {-}{}{}Game\discretionary {-}{}{}Over}, 
-		\hyperpage{17}
-    \subitem {scrolling}, \hyperpage{18}
+		\hyperpage{20}
+    \subitem {print\discretionary {-}{}{}Pause}, \hyperpage{21}
+    \subitem {update\discretionary {-}{}{}Speed}, \hyperpage{21}
   \item {jouer}
-    \subitem {jeu.\discretionary {-}{}{}c}, \hyperpage{13}
-    \subitem {jeu.\discretionary {-}{}{}h}, \hyperpage{16}
+    \subitem {jeu.\discretionary {-}{}{}c}, \hyperpage{15}
+    \subitem {jeu.\discretionary {-}{}{}h}, \hyperpage{19}
+  \item {jumping}
+    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{33}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{38}
 
   \indexspace
 
@@ -79,21 +97,35 @@
   \indexspace
 
   \item {Map}, \hyperpage{6}
-  \item {menu.\discretionary {-}{}{}c}, \hyperpage{18}
-  \item {menu.\discretionary {-}{}{}h}, \hyperpage{19}
+  \item {map.\discretionary {-}{}{}c}, \hyperpage{22}
+    \subitem {init\discretionary {-}{}{}Map}, \hyperpage{22}
+    \subitem {scrolling}, \hyperpage{23}
+    \subitem {update\discretionary {-}{}{}Screen\discretionary {-}{}{}Map}, 
+		\hyperpage{23}
+  \item {map.\discretionary {-}{}{}h}, \hyperpage{23}
+    \subitem {init\discretionary {-}{}{}Map}, \hyperpage{25}
+    \subitem {scrolling}, \hyperpage{25}
+    \subitem {update\discretionary {-}{}{}Screen\discretionary {-}{}{}Map}, 
+		\hyperpage{25}
+  \item {menu.\discretionary {-}{}{}c}, \hyperpage{25}
+  \item {menu.\discretionary {-}{}{}h}, \hyperpage{26}
   \item {menu\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}c}, 
-		\hyperpage{20}
+		\hyperpage{27}
+    \subitem {menu\discretionary {-}{}{}Level}, \hyperpage{28}
   \item {menu\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}h}, 
-		\hyperpage{21}
-  \item {move}
-    \subitem {jeu.\discretionary {-}{}{}c}, \hyperpage{13}
-    \subitem {jeu.\discretionary {-}{}{}h}, \hyperpage{17}
+		\hyperpage{29}
+    \subitem {menu\discretionary {-}{}{}Level}, \hyperpage{30}
+  \item {menu\discretionary {-}{}{}Level}
+    \subitem {menu\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}c}, 
+		\hyperpage{28}
+    \subitem {menu\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}h}, 
+		\hyperpage{30}
   \item {move\discretionary {-}{}{}Character}
-    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{24}
-    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{28}
+    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{33}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{38}
   \item {movement\discretionary {-}{}{}Vector}
-    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{25}
-    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{28}
+    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{34}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{39}
 
   \indexspace
 
@@ -104,30 +136,38 @@
   \indexspace
 
   \item {play\discretionary {-}{}{}Music}
-    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{30}
-    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{32}
-  \item {player.\discretionary {-}{}{}c}, \hyperpage{23}
-    \subitem {blit\discretionary {-}{}{}Character}, \hyperpage{24}
-    \subitem {collision\discretionary {-}{}{}Sprite}, \hyperpage{24}
-    \subitem {creater\discretionary {-}{}{}Character}, \hyperpage{24}
-    \subitem {move\discretionary {-}{}{}Character}, \hyperpage{24}
-    \subitem {movement\discretionary {-}{}{}Vector}, \hyperpage{25}
-  \item {player.\discretionary {-}{}{}h}, \hyperpage{25}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{42}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{44}
+  \item {play\discretionary {-}{}{}Music\discretionary {-}{}{}Once}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{42}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{44}
+  \item {player.\discretionary {-}{}{}c}, \hyperpage{31}
+    \subitem {blit\discretionary {-}{}{}Character}, \hyperpage{32}
+    \subitem {collision\discretionary {-}{}{}Sprite}, \hyperpage{32}
+    \subitem {creater\discretionary {-}{}{}Character}, \hyperpage{32}
+    \subitem {jumping}, \hyperpage{33}
+    \subitem {move\discretionary {-}{}{}Character}, \hyperpage{33}
+    \subitem {movement\discretionary {-}{}{}Vector}, \hyperpage{34}
+  \item {player.\discretionary {-}{}{}h}, \hyperpage{34}
     \subitem {A\discretionary {-}{}{}B\discretionary {-}{}{}S}, 
-		\hyperpage{27}
-    \subitem {blit\discretionary {-}{}{}Character}, \hyperpage{27}
-    \subitem {collision\discretionary {-}{}{}Sprite}, \hyperpage{27}
-    \subitem {creater\discretionary {-}{}{}Character}, \hyperpage{28}
-    \subitem {move\discretionary {-}{}{}Character}, \hyperpage{28}
-    \subitem {movement\discretionary {-}{}{}Vector}, \hyperpage{28}
+		\hyperpage{36}
+    \subitem {blit\discretionary {-}{}{}Character}, \hyperpage{36}
+    \subitem {collision\discretionary {-}{}{}Sprite}, \hyperpage{36}
+    \subitem {creater\discretionary {-}{}{}Character}, \hyperpage{36}
+    \subitem {jumping}, \hyperpage{38}
+    \subitem {move\discretionary {-}{}{}Character}, \hyperpage{38}
+    \subitem {movement\discretionary {-}{}{}Vector}, \hyperpage{39}
     \subitem {S\discretionary {-}{}{}G\discretionary {-}{}{}N}, 
-		\hyperpage{27}
+		\hyperpage{36}
   \item {print\discretionary {-}{}{}Game\discretionary {-}{}{}Over}
-    \subitem {jeu.\discretionary {-}{}{}c}, \hyperpage{14}
-    \subitem {jeu.\discretionary {-}{}{}h}, \hyperpage{17}
+    \subitem {jeu.\discretionary {-}{}{}c}, \hyperpage{16}
+    \subitem {jeu.\discretionary {-}{}{}h}, \hyperpage{20}
+  \item {print\discretionary {-}{}{}Pause}
+    \subitem {jeu.\discretionary {-}{}{}c}, \hyperpage{17}
+    \subitem {jeu.\discretionary {-}{}{}h}, \hyperpage{21}
   \item {print\discretionary {-}{}{}Text}
-    \subitem {text.\discretionary {-}{}{}c}, \hyperpage{33}
-    \subitem {text.\discretionary {-}{}{}h}, \hyperpage{35}
+    \subitem {text.\discretionary {-}{}{}c}, \hyperpage{45}
+    \subitem {text.\discretionary {-}{}{}h}, \hyperpage{48}
 
   \indexspace
 
@@ -138,30 +178,48 @@
   \indexspace
 
   \item {S\discretionary {-}{}{}G\discretionary {-}{}{}N}
-    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{27}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{36}
   \item {scrolling}
-    \subitem {jeu.\discretionary {-}{}{}c}, \hyperpage{14}
-    \subitem {jeu.\discretionary {-}{}{}h}, \hyperpage{18}
+    \subitem {map.\discretionary {-}{}{}c}, \hyperpage{23}
+    \subitem {map.\discretionary {-}{}{}h}, \hyperpage{25}
   \item {Sound}, \hyperpage{6}
-  \item {sound.\discretionary {-}{}{}c}, \hyperpage{29}
-    \subitem {create\discretionary {-}{}{}Sound}, \hyperpage{30}
-    \subitem {free\discretionary {-}{}{}Sound}, \hyperpage{30}
-    \subitem {play\discretionary {-}{}{}Music}, \hyperpage{30}
-    \subitem {stop\discretionary {-}{}{}Sound}, \hyperpage{30}
-  \item {sound.\discretionary {-}{}{}h}, \hyperpage{30}
-    \subitem {create\discretionary {-}{}{}Sound}, \hyperpage{32}
-    \subitem {free\discretionary {-}{}{}Sound}, \hyperpage{32}
-    \subitem {play\discretionary {-}{}{}Music}, \hyperpage{32}
-    \subitem {stop\discretionary {-}{}{}Sound}, \hyperpage{32}
+  \item {sound.\discretionary {-}{}{}c}, \hyperpage{39}
+    \subitem {create\discretionary {-}{}{}Sound}, \hyperpage{40}
+    \subitem {free\discretionary {-}{}{}Sound}, \hyperpage{40}
+    \subitem {play\discretionary {-}{}{}Music}, \hyperpage{42}
+    \subitem {play\discretionary {-}{}{}Music\discretionary {-}{}{}Once}, 
+		\hyperpage{42}
+    \subitem {sound\discretionary {-}{}{}Volume}, \hyperpage{42}
+    \subitem {stop\discretionary {-}{}{}Sound}, \hyperpage{42}
+  \item {sound.\discretionary {-}{}{}h}, \hyperpage{42}
+    \subitem {create\discretionary {-}{}{}Sound}, \hyperpage{44}
+    \subitem {free\discretionary {-}{}{}Sound}, \hyperpage{44}
+    \subitem {play\discretionary {-}{}{}Music}, \hyperpage{44}
+    \subitem {play\discretionary {-}{}{}Music\discretionary {-}{}{}Once}, 
+		\hyperpage{44}
+    \subitem {sound\discretionary {-}{}{}Volume}, \hyperpage{44}
+    \subitem {stop\discretionary {-}{}{}Sound}, \hyperpage{45}
+  \item {sound\discretionary {-}{}{}Volume}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{42}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{44}
   \item {stop\discretionary {-}{}{}Sound}
-    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{30}
-    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{32}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{42}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{45}
 
   \indexspace
 
-  \item {text.\discretionary {-}{}{}c}, \hyperpage{32}
-    \subitem {print\discretionary {-}{}{}Text}, \hyperpage{33}
-  \item {text.\discretionary {-}{}{}h}, \hyperpage{33}
-    \subitem {print\discretionary {-}{}{}Text}, \hyperpage{35}
+  \item {text.\discretionary {-}{}{}c}, \hyperpage{45}
+    \subitem {print\discretionary {-}{}{}Text}, \hyperpage{45}
+  \item {text.\discretionary {-}{}{}h}, \hyperpage{47}
+    \subitem {print\discretionary {-}{}{}Text}, \hyperpage{48}
+
+  \indexspace
+
+  \item {update\discretionary {-}{}{}Screen\discretionary {-}{}{}Map}
+    \subitem {map.\discretionary {-}{}{}c}, \hyperpage{23}
+    \subitem {map.\discretionary {-}{}{}h}, \hyperpage{25}
+  \item {update\discretionary {-}{}{}Speed}
+    \subitem {jeu.\discretionary {-}{}{}c}, \hyperpage{17}
+    \subitem {jeu.\discretionary {-}{}{}h}, \hyperpage{21}
 
 \end{theindex}

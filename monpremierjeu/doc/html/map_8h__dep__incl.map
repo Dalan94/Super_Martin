@@ -1,0 +1,5 @@
+<map id="map.h" name="map.h">
+<area shape="rect" id="node3" href="$jeu_8h.html" title="header de jeu.c " alt="" coords="5,89,56,122"/>
+<area shape="rect" id="node7" href="$map_8c.html" title="contient les fonction liées au chargement et à l&#39;affichage de la carte " alt="" coords="80,89,139,122"/>
+<area shape="rect" id="node5" href="$jeu_8c.html" title="contient les fonction liées au jeu " alt="" coords="5,171,56,205"/>
+</map>

@@ -36,6 +36,8 @@ int \hyperlink{player_8c_a74592844d979355c6b83af0bda7ce14f}{collision\-Sprite} (
 \item 
 \hypertarget{player_8c_acc4b88f793f3273b22dc205902d38815}{void {\bfseries presise\-Move\-Character} (\hyperlink{struct_character}{Character} $\ast$c, int vx, int vy, \hyperlink{struct_map}{Map} $\ast$m)}\label{player_8c_acc4b88f793f3273b22dc205902d38815}
 
+\item 
+void \hyperlink{player_8c_ae7b7055e59cc3e653c2ed700b1b47e91}{jumping} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m)
 \end{DoxyCompactItemize}
 
 
@@ -103,6 +105,45 @@ créer un personnage
 \begin{DoxyReturn}{Returns}
 le pointeur sur la structure créée 
 \end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{player_8c_a3638b65ca0405b3a93824dbd7c6bad98_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{player_8c_ae7b7055e59cc3e653c2ed700b1b47e91}{\index{player.\-c@{player.\-c}!jumping@{jumping}}
+\index{jumping@{jumping}!player.c@{player.\-c}}
+\subsubsection[{jumping}]{\setlength{\rightskip}{0pt plus 5cm}void jumping (
+\begin{DoxyParamCaption}
+\item[{{\bf Character} $\ast$}]{c, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{player_8c_ae7b7055e59cc3e653c2ed700b1b47e91}
+make the character jump 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em c} & the \hyperlink{struct_character}{Character} \\
+\hline
+\mbox{\tt in}  & {\em m} & The map the \hyperlink{struct_character}{Character} is on \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8c_ae7b7055e59cc3e653c2ed700b1b47e91_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{player_8c_a41576a8f270bc8128d967b5eb9e2ad13}{\index{player.\-c@{player.\-c}!move\-Character@{move\-Character}}
 \index{move\-Character@{move\-Character}!player.c@{player.\-c}}
 \subsubsection[{move\-Character}]{\setlength{\rightskip}{0pt plus 5cm}void move\-Character (

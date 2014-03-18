@@ -19,8 +19,6 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
     SDL_Rect posTile, posTileSet;
     int i,j,minx,maxx,nbRow;
 
-
-
     posTile.h = posTile.w = posTileSet.h = posTileSet.w = TAILLE_BLOC;
 
     minx = m->xScroll/TAILLE_BLOC-1;
@@ -28,11 +26,6 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
     nbRow = m->screenHeight/TAILLE_BLOC;
 
     tile = imageLoadAlpha(tileset);
-    if(tile == NULL)
-    {
-        perror("error while loading TileSet");
-        exit(errno);
-    }
 
      for(i=minx;i<maxx;i++){
         for(j=0;j<nbRow;j++){

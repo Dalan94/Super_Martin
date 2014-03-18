@@ -102,12 +102,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;SDL/SDL_image.h&gt;</code><br/>
 <code>#include &quot;file_level.h&quot;</code><br/>
 <code>#include &quot;share.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="image_8h_source.html">image.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for player.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="player_8h__incl.png" border="0" usemap="#player_8h" alt=""/></div>
 <map name="player_8h" id="player_8h">
-<area shape="rect" id="node3" href="const_8h.html" title="contient les constantes du programme " alt="" coords="200,171,264,205"/><area shape="rect" id="node15" href="file__level_8h_source.html" title="file_level.h" alt="" coords="427,89,509,122"/><area shape="rect" id="node27" href="share_8h_source.html" title="share.h" alt="" coords="133,89,197,122"/><area shape="rect" id="node21" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="427,171,477,205"/></map>
+<area shape="rect" id="node3" href="const_8h.html" title="contient les constantes du programme " alt="" coords="238,171,302,205"/><area shape="rect" id="node15" href="file__level_8h_source.html" title="file_level.h" alt="" coords="100,89,182,122"/><area shape="rect" id="node27" href="share_8h_source.html" title="share.h" alt="" coords="308,89,372,122"/><area shape="rect" id="node31" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="446,89,513,122"/><area shape="rect" id="node21" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="76,171,126,205"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -152,6 +153,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>tryMovement</b> (<a cl
 <tr class="memitem:acc4b88f793f3273b22dc205902d38815"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acc4b88f793f3273b22dc205902d38815"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>presiseMoveCharacter</b> (<a class="el" href="struct_character.html">Character</a> *c, int vx, int vy, <a class="el" href="struct_map.html">Map</a> *m)</td></tr>
 <tr class="separator:acc4b88f793f3273b22dc205902d38815"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7b7055e59cc3e653c2ed700b1b47e91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8h.html#ae7b7055e59cc3e653c2ed700b1b47e91">jumping</a> (<a class="el" href="struct_character.html">Character</a> *c, <a class="el" href="struct_map.html">Map</a> *m)</td></tr>
+<tr class="separator:ae7b7055e59cc3e653c2ed700b1b47e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>header de <a class="el" href="player_8c.html" title="contient les fonction pour manipuler le joueur ">player.c</a> </p>
@@ -302,6 +305,58 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>presiseMoveCharacter<
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>le pointeur sur la structure créée </dd></dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="player_8h_a8157b7870fc8049298ca3ca227ca7a02_cgraph.png" border="0" usemap="#player_8h_a8157b7870fc8049298ca3ca227ca7a02_cgraph" alt=""/></div>
+<map name="player_8h_a8157b7870fc8049298ca3ca227ca7a02_cgraph" id="player_8h_a8157b7870fc8049298ca3ca227ca7a02_cgraph">
+<area shape="rect" id="node3" href="image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="175,5,292,38"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ae7b7055e59cc3e653c2ed700b1b47e91"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void jumping </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_character.html">Character</a> *&#160;</td>
+          <td class="paramname"><em>c</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_map.html">Map</a> *&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>make the character jump </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">c</td><td>the <a class="el" href="struct_character.html">Character</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>The map the <a class="el" href="struct_character.html">Character</a> is on </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="player_8h_ae7b7055e59cc3e653c2ed700b1b47e91_cgraph.png" border="0" usemap="#player_8h_ae7b7055e59cc3e653c2ed700b1b47e91_cgraph" alt=""/></div>
+<map name="player_8h_ae7b7055e59cc3e653c2ed700b1b47e91_cgraph" id="player_8h_ae7b7055e59cc3e653c2ed700b1b47e91_cgraph">
+<area shape="rect" id="node3" href="player_8c.html#a41576a8f270bc8128d967b5eb9e2ad13" title="moveCharacter" alt="" coords="121,5,231,38"/><area shape="rect" id="node5" href="player_8c.html#a3ae2e15eb2f82dd33309de7d4b76ef86" title="movementVector" alt="" coords="280,5,400,38"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="ad717798dc37cc831c64a304e0c901637"></a>
@@ -420,7 +475,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 16 2014 19:48:16 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 18 2014 18:00:51 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

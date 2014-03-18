@@ -18,6 +18,7 @@
 
 #include "file_level.h"
 #include "share.h"
+#include "image.h"
 
 /**
  *\def SGN(X)

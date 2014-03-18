@@ -9,7 +9,6 @@
 #include "jeu.h"
 
 
-
 /**
  *\fn void jouer(SDL_Surface *screen,char *level_name)
  *contient la boucle principale du jeu qui appelle les fonctions
@@ -199,13 +198,6 @@ void jouer(SDL_Surface *screen, char *level_name){
     freeMap(m);
     SDL_RemoveTimer(timer);
 }
-
-
-
-
-
-
-
 
 
 /**

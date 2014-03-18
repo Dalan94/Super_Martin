@@ -1,6 +1,7 @@
 <map id="player.h" name="player.h">
-<area shape="rect" id="node3" href="$const_8h.html" title="contient les constantes du programme " alt="" coords="200,171,264,205"/>
-<area shape="rect" id="node15" href="$file__level_8h_source.html" title="file_level.h" alt="" coords="427,89,509,122"/>
-<area shape="rect" id="node27" href="$share_8h_source.html" title="share.h" alt="" coords="133,89,197,122"/>
-<area shape="rect" id="node21" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="427,171,477,205"/>
+<area shape="rect" id="node3" href="$const_8h.html" title="contient les constantes du programme " alt="" coords="238,171,302,205"/>
+<area shape="rect" id="node15" href="$file__level_8h_source.html" title="file_level.h" alt="" coords="100,89,182,122"/>
+<area shape="rect" id="node27" href="$share_8h_source.html" title="share.h" alt="" coords="308,89,372,122"/>
+<area shape="rect" id="node31" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="446,89,513,122"/>
+<area shape="rect" id="node21" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="76,171,126,205"/>
 </map>

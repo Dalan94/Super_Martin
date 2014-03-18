@@ -1,7 +1,8 @@
 <map id="menu.c" name="menu.c">
-<area shape="rect" id="node3" href="$menu_8h.html" title="header de menu.c " alt="" coords="412,89,476,122"/>
+<area shape="rect" id="node3" href="$menu_8h.html" title="header de menu.c " alt="" coords="463,89,527,122"/>
 <area shape="rect" id="node17" href="$const_8h.html" title="contient les constantes du programme " alt="" coords="789,254,853,287"/>
-<area shape="rect" id="node19" href="$text_8h.html" title="header de text.c " alt="" coords="385,171,439,205"/>
-<area shape="rect" id="node27" href="$sound_8h.html" title="header de sound.c " alt="" coords="193,171,260,205"/>
-<area shape="rect" id="node34" href="$share_8h_source.html" title="share.h" alt="" coords="689,171,753,205"/>
+<area shape="rect" id="node19" href="$text_8h.html" title="header de text.c " alt="" coords="404,171,457,205"/>
+<area shape="rect" id="node27" href="$sound_8h.html" title="header de sound.c " alt="" coords="263,171,329,205"/>
+<area shape="rect" id="node34" href="$share_8h_source.html" title="share.h" alt="" coords="724,171,788,205"/>
+<area shape="rect" id="node38" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="532,171,599,205"/>
 </map>

@@ -1,10 +1,12 @@
 <map id="file.h" name="file.h">
-<area shape="rect" id="node3" href="$file_8c.html" title="Fonctions d&#39;acces au fichiers. " alt="" coords="5,89,56,122"/>
-<area shape="rect" id="node5" href="$file__level_8h_source.html" title="file_level.h" alt="" coords="80,89,163,122"/>
-<area shape="rect" id="node7" href="$player_8h.html" title="header de player.c " alt="" coords="88,171,155,205"/>
-<area shape="rect" id="node9" href="$jeu_8h.html" title="header de jeu.c " alt="" coords="21,254,72,287"/>
-<area shape="rect" id="node16" href="$menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="184,171,283,205"/>
-<area shape="rect" id="node13" href="$player_8c.html" title="contient les fonction pour manipuler le joueur " alt="" coords="96,254,163,287"/>
-<area shape="rect" id="node11" href="$jeu_8c.html" title="contient les fonction liées au jeu " alt="" coords="21,337,72,370"/>
-<area shape="rect" id="node18" href="$menu__level_8c.html" title="Menu gerant le choix du niveau. " alt="" coords="187,254,285,287"/>
+<area shape="rect" id="node3" href="$file_8c.html" title="Fonctions d&#39;acces au fichiers. " alt="" coords="41,89,92,122"/>
+<area shape="rect" id="node5" href="$file__level_8h_source.html" title="file_level.h" alt="" coords="116,89,199,122"/>
+<area shape="rect" id="node7" href="$player_8h.html" title="header de player.c " alt="" coords="20,171,87,205"/>
+<area shape="rect" id="node9" href="$jeu_8h.html" title="header de jeu.c " alt="" coords="96,254,147,287"/>
+<area shape="rect" id="node16" href="$map_8h.html" title="header de map.c " alt="" coords="161,171,220,205"/>
+<area shape="rect" id="node21" href="$menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="249,171,348,205"/>
+<area shape="rect" id="node13" href="$player_8c.html" title="contient les fonction pour manipuler le joueur " alt="" coords="5,254,72,287"/>
+<area shape="rect" id="node11" href="$jeu_8c.html" title="contient les fonction liées au jeu " alt="" coords="96,337,147,370"/>
+<area shape="rect" id="node19" href="$map_8c.html" title="contient les fonction liées au chargement et à l&#39;affichage de la carte " alt="" coords="171,254,229,287"/>
+<area shape="rect" id="node23" href="$menu__level_8c.html" title="Menu gerant le choix du niveau. " alt="" coords="253,254,352,287"/>
 </map>
