@@ -19,6 +19,8 @@
     #define MARGE_SCROLLING         2
     #define POURCENTAGE_DEPLACEMENT 20
 
+    #define TILE_MAX 8
+
 
     enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3};
     enum {RIGHT,LEFT,UP,DOWN};
