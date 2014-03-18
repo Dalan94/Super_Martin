@@ -22,9 +22,8 @@ void jouer(SDL_Surface *screen, char *level_name){
     int continuer = 1;
 
     /*gestion du temps*/
-    int time = 100;
     char timeChar[5];
-    SDL_TimerID timer = SDL_AddTimer(1000,decomptage,&time); /*initialiation et Démarrage du timer */
+    SDL_TimerID timer = NULL;
     SDL_Rect posTime={10,10,0,0};
     SDL_Color black = {0,0,0};
     int previous_time=0;
@@ -39,7 +38,6 @@ void jouer(SDL_Surface *screen, char *level_name){
 
     /*définition du niveau*/
     Map *m;
-    Level *lvl;
 
     /*définition du joueur*/
     Character *player;
@@ -66,14 +64,14 @@ void jouer(SDL_Surface *screen, char *level_name){
     posBack.y = 0;
 
     /*initialisation de la carte et du niveau*/
-    lvl = openLevel(level_name);
-    m = initMap(lvl,screen);
+    m = initMap(screen,level_name);
 
-    time=lvl->timer_level;
     sound_jump =createSound();
     music=createSound();
     playMusic(music,m->lvl->music);
     soundVolume(music,0.2);
+
+    timer=SDL_AddTimer(1000,decomptage,&(m->lvl->timer_level)); /*Démarrage du timer */
 
     /*chargement des différentes sprites*/
     background = IMG_Load(m->lvl->background);
@@ -160,22 +158,22 @@ void jouer(SDL_Surface *screen, char *level_name){
             default: event_appear = 0;
         }
 
-        if (old_time != time)
+        if (old_time != m->lvl->timer_level)
         {
-            if(time>0){
-                sprintf(timeChar,"%d",time);
+            if(m->lvl->timer_level>0){
+                sprintf(timeChar,"%d",m->lvl->timer_level);
             }else{
                 stopSound(music);
                 printGameOver(screen,&continuer);
             }
-            old_time=time;
+            old_time=m->lvl->timer_level;
 
             event_appear = 1;
         }
 
         if (pause)
         {
-            printPause(screen,&event,&time);
+            printPause(screen,&event,&(m->lvl->timer_level));
             pause=0;
         }
 
@@ -324,13 +322,13 @@ Uint32 decomptage(Uint32 intervalle,void* parametre){
 }
 
 /**
- *\fn  Map *initMap(Level *lvl,SDL_Surface *screen){
+ *\fn  Map *initMap(SDL_Surface *screen,char * level_name){
  *initialise la carte
  *\param[in] screen l'écran de jeu
- *\param[in] level le niveau
+ *\param[in] level_name le nom du niveau
  *\return un pointeur sur la carte initialisée
  */
- Map *initMap(Level *lvl,SDL_Surface *screen){
+ Map *initMap(SDL_Surface *screen,char * level_name){
     Map *m;
 
     m = (Map *)malloc(sizeof(Map));
@@ -338,7 +336,7 @@ Uint32 decomptage(Uint32 intervalle,void* parametre){
         perror("allocation error");
         exit(errno);
     }
-    m->lvl=lvl;
+    m->lvl=openLevel(level_name);
     m->screenHeight = screen->h;
     m->screenWidth = screen->w;
     m->xScroll = 20;
