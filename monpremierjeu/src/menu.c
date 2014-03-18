@@ -26,7 +26,8 @@ int menu(SDL_Surface *screen,int *continuer,Sound *s){
     int event_appear=1;
 
 
-    SDL_Event event;
+    Input in;
+    memset(&in,0,sizeof(in));
 
     SDL_TimerID timer; /* Variable pour stocker le numéro du timer */
 
@@ -54,29 +55,15 @@ int menu(SDL_Surface *screen,int *continuer,Sound *s){
 
 
     while(*continuer && !ret){
-        SDL_PollEvent(&event);
-        event_appear = 1;
-        switch(event.type)
-        {
-            case SDL_QUIT:
+            if(updateEvents(&in))
+                event_appear = 1;
+
+            if(in.key[SDLK_ESCAPE] || in.quit)
                 *continuer = 0;
-                break;
-            case SDL_KEYDOWN:
-                switch(event.key.keysym.sym)
-                {
-                    case SDLK_ESCAPE: // Veut arrêter le jeu
-                        *continuer = 0;
-                        break;
-                    case SDLK_RETURN:
+            if(in.key[SDLK_RETURN])
+                ret = 1;
 
-                        ret = 1;
 
-                        break;
-                    default : ;
-                }
-                break;
-            default : event_appear = 0;
-        }
 
         if(printingText != previous_printing_text)
         {

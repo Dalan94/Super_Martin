@@ -23,6 +23,7 @@
 #include "sound.h"
 #include "share.h"
 #include "image.h"
+#include "input.h"
 
 
 
