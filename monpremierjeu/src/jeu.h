@@ -22,6 +22,7 @@
 #include "share.h"
 #include "player.h"
 #include "file_level.h"
+#include "image.h"
 
 /*prototypes*/
 void jouer(SDL_Surface *screen,char *level_name);

@@ -22,6 +22,7 @@
 #include "text.h"
 #include "sound.h"
 #include "share.h"
+#include "image.h"
 
 
 

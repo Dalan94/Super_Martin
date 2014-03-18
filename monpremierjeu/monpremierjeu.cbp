@@ -44,6 +44,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/file_level.h" />
+		<Unit filename="src/image.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/image.h" />
 		<Unit filename="src/jeu.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -34,7 +34,7 @@ int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound 
     SDL_Color black = {0, 0, 0}; /*couleur pour le texte*/
 
     /*winting screen */
-    waiting = IMG_Load("sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");
     posWait.x = 0;
     posWait.y = 0;
 

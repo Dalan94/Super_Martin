@@ -41,7 +41,7 @@ int menu(SDL_Surface *screen,int *continuer,Sound *s){
     /* *********************** */
 
     /*winting screen */
-    waiting = IMG_Load("sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");
     posWait.x = 0;
     posWait.y = 0;
 
