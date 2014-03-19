@@ -1,12 +1,12 @@
 /*!
- * \file jeu.c
+ * \file game.c
  * \brief contient les fonction liées au jeu
  * \author Xavier COPONET
  * \date 2014-02-27
  */
 
 
-#include "jeu.h"
+#include "game.h"
 
 
 
