@@ -3,7 +3,7 @@
  * \brief   Menu gerant le choix du niveau
  * \author  Remi BERTHO
  * \date    15/03/14
- * \version 1.0
+ * \version 2.0
  */
 
 #ifndef MENU_LEVEL_H_INCLUDED

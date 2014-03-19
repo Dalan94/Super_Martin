@@ -3,7 +3,7 @@
  * \brief   Menu gerant le choix du niveau
  * \author  Remi BERTHO
  * \date    15/03/14
- * \version 1.0
+ * \version 2.0 (implémentation de la gestion des event)
  */
 
  #include "menu_level.h"
@@ -49,22 +49,7 @@ int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound 
     while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
     {
         updateWaitEvents(&in);
-        //keyboardActionMenu(&in,&pos_curseur,&play_lvl,nb_lvl);
-        if(in.key[SDLK_ESCAPE] || in.quit)
-        play_lvl = 0;
-
-        if(in.key[SDLK_UP])
-        {
-            (pos_curseur)--;
-            if(pos_curseur < 0)
-                pos_curseur = nb_lvl-1;
-        }
-        if(in.key[SDLK_DOWN])
-        {
-            pos_curseur++;
-            if(pos_curseur >= nb_lvl)
-                pos_curseur = 0;
-        }
+        keyboardActionMenu(&in,&pos_curseur,&play_lvl,nb_lvl);
 
         waitFPS(&previous_time,&current_time);
 

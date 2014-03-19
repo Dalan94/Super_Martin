@@ -89,8 +89,8 @@ int updateWaitEvents(Input* in)
 	SDL_EnableKeyRepeat(100,100);
 	SDL_WaitEvent(&event);
 
-		switch (event.type)
-		{
+    switch (event.type)
+    {
 		case SDL_KEYDOWN:
 			in->key[event.key.keysym.sym] = 1;
 			return 1;
@@ -102,7 +102,7 @@ int updateWaitEvents(Input* in)
             in->quit = 1;
 		default:
 			break;
-		}
+    }
 
 	return 0;
 }
@@ -119,18 +119,18 @@ int updateWaitEvents(Input* in)
 void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
 {
     if(in->key[SDLK_ESCAPE] || in->quit)
-        *play_level = 0;
+        (*play_level) = 0;
 
     if(in->key[SDLK_UP])
     {
         (*cursorPos)--;
         if(cursorPos < 0)
-            *cursorPos = nb_lvl-1;
+            (*cursorPos) = nb_lvl-1;
     }
     if(in->key[SDLK_DOWN])
     {
-        *cursorPos++;
+        (*cursorPos)++;
         if(*cursorPos >= nb_lvl)
-            *cursorPos = 0;
+            (*cursorPos) = 0;
     }
 }
