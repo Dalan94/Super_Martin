@@ -22,8 +22,8 @@ Character *createrCharacter(char *spR,char *spL){
         exit(errno);
     }
 
-    c->spriteR = IMG_Load(spR);
-    c->spriteL = IMG_Load(spL);
+    c->spriteR = imageLoadAlpha(spR);
+    c->spriteL = imageLoadAlpha(spL);
     c->location.h = c->spriteR->h;
     c->location.w = c->spriteR->w;
 

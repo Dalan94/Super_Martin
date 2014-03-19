@@ -18,7 +18,11 @@
 
 #include "file_level.h"
 #include "share.h"
+
 #include "sound.h"
+
+#include "image.h"
+
 
 /**
  *\def SGN(X)

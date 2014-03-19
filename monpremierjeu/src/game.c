@@ -6,7 +6,9 @@
  */
 
 
+
 #include "game.h"
+
 
 
 
@@ -161,13 +163,6 @@ void jouer(SDL_Surface *screen, char *level_name){
     freeMap(m);
     SDL_RemoveTimer(timer);
 }
-
-
-
-
-
-
-
 
 
 /**

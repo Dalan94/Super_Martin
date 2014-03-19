@@ -103,12 +103,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;share.h&quot;</code><br/>
 <code>#include &quot;<a class="el" href="text_8h_source.html">text.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="sound_8h_source.html">sound.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="image_8h_source.html">image.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for menu_level.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="menu__level_8h__incl.png" border="0" usemap="#menu__level_8h" alt=""/></div>
 <map name="menu__level_8h" id="menu__level_8h">
-<area shape="rect" id="node15" href="const_8h.html" title="contient les constantes du programme " alt="" coords="583,171,647,205"/><area shape="rect" id="node17" href="file__level_8h_source.html" title="file_level.h" alt="" coords="680,89,763,122"/><area shape="rect" id="node29" href="share_8h_source.html" title="share.h" alt="" coords="523,89,587,122"/><area shape="rect" id="node33" href="text_8h.html" title="header de text.c " alt="" coords="356,89,409,122"/><area shape="rect" id="node41" href="sound_8h.html" title="header de sound.c " alt="" coords="935,171,1001,205"/><area shape="rect" id="node22" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="721,171,772,205"/></map>
+<area shape="rect" id="node15" href="const_8h.html" title="contient les constantes du programme " alt="" coords="288,171,352,205"/><area shape="rect" id="node17" href="file__level_8h_source.html" title="file_level.h" alt="" coords="191,89,273,122"/><area shape="rect" id="node29" href="share_8h_source.html" title="share.h" alt="" coords="399,89,463,122"/><area shape="rect" id="node33" href="text_8h.html" title="header de text.c " alt="" coords="605,89,659,122"/><area shape="rect" id="node41" href="sound_8h.html" title="header de sound.c " alt="" coords="1077,171,1144,205"/><area shape="rect" id="node48" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="700,89,767,122"/><area shape="rect" id="node22" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="163,171,213,205"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -122,8 +123,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2df6ef1e00c1fe9c46d267b8f0f56adf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2df6ef1e00c1fe9c46d267b8f0f56adf"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>menuLevel</b> (SDL_Surface *screen, char level_name[TAILLE_MAX_NOM_FICHIER], <a class="el" href="struct_sound.html">Sound</a> *s)</td></tr>
+<tr class="memitem:a2df6ef1e00c1fe9c46d267b8f0f56adf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu__level_8h.html#a2df6ef1e00c1fe9c46d267b8f0f56adf">menuLevel</a> (SDL_Surface *screen, char level_name[TAILLE_MAX_NOM_FICHIER], <a class="el" href="struct_sound.html">Sound</a> *s)</td></tr>
 <tr class="separator:a2df6ef1e00c1fe9c46d267b8f0f56adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -131,10 +131,61 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>menuLevel</b> (SDL_Sur
 <dl class="section author"><dt>Author</dt><dd>Remi BERTHO </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>15/03/14 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a2df6ef1e00c1fe9c46d267b8f0f56adf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int menuLevel </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>screen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>level_name</em>[TAILLE_MAX_NOM_FICHIER], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_sound.html">Sound</a> *&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Menu pour choisr le niveau </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>l'écran de jeu </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">level_name</td><td>le nom du level que l'on va vouloir lancer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>la musique de fond </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="menu__level_8h_a2df6ef1e00c1fe9c46d267b8f0f56adf_cgraph.png" border="0" usemap="#menu__level_8h_a2df6ef1e00c1fe9c46d267b8f0f56adf_cgraph" alt=""/></div>
+<map name="menu__level_8h_a2df6ef1e00c1fe9c46d267b8f0f56adf_cgraph" id="menu__level_8h_a2df6ef1e00c1fe9c46d267b8f0f56adf_cgraph">
+<area shape="rect" id="node3" href="image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="140,5,257,38"/><area shape="rect" id="node5" href="text_8c.html#a890bd15eb3d51cac26c63afdaf0018d6" title="printText" alt="" coords="163,61,235,94"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 16 2014 19:48:16 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 18 2014 18:00:51 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

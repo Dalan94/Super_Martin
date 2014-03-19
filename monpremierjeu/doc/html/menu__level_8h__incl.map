@@ -1,8 +1,9 @@
 <map id="menu_level.h" name="menu_level.h">
-<area shape="rect" id="node15" href="$const_8h.html" title="contient les constantes du programme " alt="" coords="583,171,647,205"/>
-<area shape="rect" id="node17" href="$file__level_8h_source.html" title="file_level.h" alt="" coords="680,89,763,122"/>
-<area shape="rect" id="node29" href="$share_8h_source.html" title="share.h" alt="" coords="523,89,587,122"/>
-<area shape="rect" id="node33" href="$text_8h.html" title="header de text.c " alt="" coords="356,89,409,122"/>
-<area shape="rect" id="node41" href="$sound_8h.html" title="header de sound.c " alt="" coords="935,171,1001,205"/>
-<area shape="rect" id="node22" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="721,171,772,205"/>
+<area shape="rect" id="node15" href="$const_8h.html" title="contient les constantes du programme " alt="" coords="288,171,352,205"/>
+<area shape="rect" id="node17" href="$file__level_8h_source.html" title="file_level.h" alt="" coords="191,89,273,122"/>
+<area shape="rect" id="node29" href="$share_8h_source.html" title="share.h" alt="" coords="399,89,463,122"/>
+<area shape="rect" id="node33" href="$text_8h.html" title="header de text.c " alt="" coords="605,89,659,122"/>
+<area shape="rect" id="node41" href="$sound_8h.html" title="header de sound.c " alt="" coords="1077,171,1144,205"/>
+<area shape="rect" id="node48" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="700,89,767,122"/>
+<area shape="rect" id="node22" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="163,171,213,205"/>
 </map>

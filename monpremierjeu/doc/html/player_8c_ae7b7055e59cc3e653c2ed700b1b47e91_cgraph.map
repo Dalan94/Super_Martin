@@ -1,0 +1,4 @@
+<map id="jumping" name="jumping">
+<area shape="rect" id="node3" href="$player_8c.html#a41576a8f270bc8128d967b5eb9e2ad13" title="moveCharacter" alt="" coords="121,5,231,38"/>
+<area shape="rect" id="node5" href="$player_8c.html#a3ae2e15eb2f82dd33309de7d4b76ef86" title="movementVector" alt="" coords="280,5,400,38"/>
+</map>
