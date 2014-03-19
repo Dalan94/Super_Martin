@@ -13,13 +13,13 @@
 
 
 /**
- *\fn void jouer(SDL_Surface *screen,char *level_name)
+ *\fn void play(SDL_Surface *screen,char *level_name)
  *contient la boucle principale du jeu qui appelle les fonctions
  *\param[in,out] screen L'écran de jeu
  *\param[in] lvel_name le nom du niveau
  */
 
-void jouer(SDL_Surface *screen, char *level_name){
+void play(SDL_Surface *screen, char *level_name){
 
     int continuer = 1;
 

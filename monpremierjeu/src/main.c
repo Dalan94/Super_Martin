@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
         if(menu(screen,&continuer,s))
         {
             if (menuLevel(screen,level_name,s))
-                jouer(screen,level_name);
+                play(screen,level_name);
         }
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
