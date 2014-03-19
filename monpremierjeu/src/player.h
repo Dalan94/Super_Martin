@@ -42,6 +42,7 @@ typedef struct{
     int isRight; /*! indique la direction de regard du personnage (1 droite, 0 gauche)*/
     int isOnGround; /*! indique si le perso est au sol*/
     int isJumping; /*! 0 when not, height remaning between character and max height if jumping*/
+    int life; /*! character life, 100 when full life, 0 when dead*/
 }Character;
 
 

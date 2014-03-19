@@ -22,11 +22,12 @@
 void play(SDL_Surface *screen, char *level_name){
 
     int continuer = 1;
+    char charLife[5];
 
     /*gestion du temps*/
-    char timeChar[5];
+    char charTime[5];
     SDL_TimerID timer = NULL;
-    SDL_Rect posTime={10,10,0,0};
+    SDL_Rect posTime={10,10,0,0}, posLife = {screen->w - 50,10,0,0};
     SDL_Color black = {0,0,0};
     int previous_time=0;
     int current_time=0;
@@ -96,10 +97,10 @@ void play(SDL_Surface *screen, char *level_name){
 
     while(!in.key[SDLK_ESCAPE] && continuer){
 
-        /* récupération des inputs clavier*/
+        /* récupération des inputs clavier et gestion de leurs auctions*/
         updateEvents(&in);
         keyboardActionGame(&in,&move_left,&move_right,&jump,&pause,player);
-        /* ******** */
+
         if(in.quit)
             continuer = 0;
 
@@ -107,17 +108,22 @@ void play(SDL_Surface *screen, char *level_name){
             player->isJumping = TAILLE_SAUT;
         if(!jump)
             player->isJumping = 0;
+            /* ********* */
 
+        /* gestion de la mort*/
+        if(player->location.y+player->location.h >= (31*TAILLE_BLOC))
+            player->life = 0;
         if (old_time != m->lvl->timer_level)
         {
-            if(m->lvl->timer_level>0){
-                sprintf(timeChar,"%d",m->lvl->timer_level);
-            }else{
+            if(!(m->lvl->timer_level>0 && player->life))
+            {
                 stopSound(music);
                 printGameOver(screen,&continuer,&in);
-            }
+            }else
+                sprintf(charTime,"%d",m->lvl->timer_level);
             old_time=m->lvl->timer_level;
         }
+
 
         if (pause)
         {
@@ -132,7 +138,11 @@ void play(SDL_Surface *screen, char *level_name){
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
-        printText(screen,&posTime,timeChar,black,"polices/code.otf",20,0);
+
+        printText(screen,&posTime,charTime,0,0,0,"polices/code.otf",20,0);
+
+        sprintf(charLife,"%d",player->life);
+        printText(screen,&posLife,charLife,255,100,100,"polices/code.otf",20,1);
 
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
@@ -173,7 +183,7 @@ void play(SDL_Surface *screen, char *level_name){
 void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
     SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
-    SDL_Color color = {186,38,18};
+
 
     Sound *s;
     s = createSound();
@@ -184,7 +194,7 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
     SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
     SDL_BlitSurface(gameOver,NULL,screen,&posGame);
 
-    printText(screen,NULL,"GAME OVER",color,"polices/manga.ttf",65,1);
+    printText(screen,NULL,"GAME OVER",186,38,18,"polices/manga.ttf",65,1);
     SDL_Flip(screen);
 
     SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
@@ -272,7 +282,7 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer)
 {
     SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
-    SDL_Color color = {186,38,18};
+
     int cont = 1;
     int time_pause=*time;
 
@@ -282,7 +292,7 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer)
     SDL_BlitSurface(gameOver,NULL,screen,&posGame);
 
 
-    printText(screen,NULL,"PAUSE",color,"polices/manga.ttf",65,1);
+    printText(screen,NULL,"PAUSE",186,38,18,"polices/manga.ttf",65,1);
     SDL_Flip(screen);
     in->key[SDLK_p] = 0;
 

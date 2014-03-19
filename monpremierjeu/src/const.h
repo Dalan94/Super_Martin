@@ -10,7 +10,7 @@
 
     #define TAILLE_BLOC             16 // Taille d'un bloc (carré) en pixels
     #define NB_BLOCS_LARGEUR        60
-    #define NB_BLOCS_HAUTEUR        34
+    #define NB_BLOCS_HAUTEUR        33
     #define LARGEUR_FENETRE         TAILLE_BLOC * NB_BLOCS_LARGEUR
     #define HAUTEUR_FENETRE         TAILLE_BLOC * NB_BLOCS_HAUTEUR
     #define FPS                     60

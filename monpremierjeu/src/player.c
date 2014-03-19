@@ -31,6 +31,7 @@ Character *createrCharacter(char *spR,char *spL){
     c->isRight = 1;
     c->isOnGround = 0;
     c->isJumping = 0;
+    c->life = 100;
 
     return c;
 }

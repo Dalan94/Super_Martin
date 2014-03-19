@@ -31,8 +31,6 @@ int menu(SDL_Surface *screen,int *continuer,Sound *s){
 
     SDL_TimerID timer; /* Variable pour stocker le numéro du timer */
 
-    SDL_Color black = {0, 0, 0}; /*couleur pour le texte*/
-
 
     /*initialisation du systeme audio*/
     playMusic(s,"sound/Lorena.mp3");
@@ -79,7 +77,7 @@ int menu(SDL_Surface *screen,int *continuer,Sound *s){
             SDL_BlitSurface(waiting, NULL, screen, &posWait);
 
             if (printingText)
-                printText(screen,NULL,"Press Enter",black,"polices/sherwood.ttf",65,1); //argument 2 NULL pour centrer le texte
+                printText(screen,NULL,"Press Enter",0,0,0,"polices/sherwood.ttf",65,1); //argument 2 NULL pour centrer le texte
 
             SDL_Flip(screen);
         }
