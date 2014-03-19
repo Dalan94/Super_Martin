@@ -19,7 +19,6 @@ int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound 
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
-    int continuer=1;
     int previous_time=0;
     int current_time=0;
     int play_lvl=1;
@@ -30,7 +29,6 @@ int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound 
     int pos_curseur=0;
 
     Input in;
-    SDL_Event event;
 
     SDL_Rect posText={0,0,0,0};
     SDL_Color black = {0, 0, 0}; /*couleur pour le texte*/

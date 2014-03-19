@@ -179,10 +179,8 @@ int collisionSprite(SDL_Rect r,Map *m){
  */
 void gravity(Character *c, Map *m,SDL_Surface *screen){
 
-        moveCharacter(c,DOWN,m,10);
-       /* blitCharacter(screen,c,m);
-        SDL_Flip(screen);*/
-
+        if (moveCharacter(c,DOWN,m,10) != 0)
+            c->isOnGround = 0;
 }
 
 

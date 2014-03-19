@@ -52,13 +52,18 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/file_level.h" />
+		<Unit filename="src/game.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/game.h" />
 		<Unit filename="src/image.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/image.h" />
-		<Unit filename="src/jeu.c">
+		<Unit filename="src/input.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="src/input.h" />
 		<Unit filename="src/jeu.h" />
 		<Unit filename="src/main.c">
 			<Option compilerVar="CC" />
