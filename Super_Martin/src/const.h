@@ -18,6 +18,7 @@
     #define TAILLE_SAUT             17
     #define MARGE_SCROLLING         2
     #define POURCENTAGE_DEPLACEMENT 0
+    #define MAX_SPEED               8
 
     #define TILE_MAX 8
 
