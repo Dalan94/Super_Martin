@@ -1,5 +1,5 @@
 /*!
- * \file    file_map.h
+ * \file    file_level.h
  * \brief   Gestion des fichiers de carte
  * \author  Remi BERTHO
  * \date    15/03/14
