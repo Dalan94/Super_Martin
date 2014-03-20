@@ -1,6 +1,6 @@
 /*!
  * \file map.c
- * \brief contient les fonction liées au chargement et à l'affichage de la carte
+ * \brief loading and displaying the map
  * \author Xavier COPONET
  * \date 2014-03-18
  */
@@ -9,7 +9,7 @@
 
 /**
  *\fn void updateScreenMap(SDL_Surface *screen, Map *m,char *tileset)
- *met à jour l'écran avec les données de la carte (ignore les personnages)
+ *update and display the map
  *\param[in,out] screen of the game
  *\param[in] Map *m The map
  *\param[in] tileset lvl tileset
@@ -47,10 +47,10 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
 
 /**
  *\fn void scrolling(Map *m,int direction,float speed)
- *effectue un scrolling
- *\param[in,out] map Le niveau à gérer
- *\param[in] direction La direction de scrolling
- *\param[in] speed la vitesse de scrolling
+ *scroll the map
+ *\param[in,out] map the lvl
+ *\param[in] direction scrolling direction
+ *\param[in] speed scrolling speed
  */
 void scrolling(Map *m, int direction,float speed){
     switch (direction){
@@ -69,10 +69,10 @@ void scrolling(Map *m, int direction,float speed){
 
 /**
  *\fn  Map *initMap(SDL_Surface *screen,char * level_name){
- *initialise la carte
- *\param[in] screen l'écran de jeu
- *\param[in] level_name le nom du niveau
- *\return un pointeur sur la carte initialisée
+ *initialize the map
+ *\param[in] screen game screen
+ *\param[in] level_name lvl name
+ *\return pointer on the map
  */
  Map *initMap(SDL_Surface *screen,char * level_name){
     Map *m;
@@ -92,8 +92,8 @@ void scrolling(Map *m, int direction,float speed){
 
  /**
   *\fn void freeMap(map *m)
-  *désalloue la carte
-  *\param[in,out] m la carte
+  *free memory allocated to the map
+  *\param[in,out] m the map
   */
 void freeMap(Map *m){
     closeLevel(m->lvl);
