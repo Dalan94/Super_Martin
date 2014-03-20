@@ -252,7 +252,7 @@ void update(Map *m, Input *input, Cursor *cursor){
 
     if(input->reinit == 1){
 
-        //reinitMap(m);
+        reinitMap(m);
         input->reinit = 0;
     }
 
