@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.2.18)  16 MAR 2014 19:49
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.2.18)  20 MAR 2014 15:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1039,19 +1039,15 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 1.
  [3
 
-]
-LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 71.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 6.29996pt on input line 71.
- [4])
+])
 \tf@toc=\write5
 \openout5 = `refman.toc'.
 
- [5]
-[6
-
-]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <7> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 128.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 6.29996pt on input line 128.
+ [4]
 Package hyperref Info: Option `pageanchor' set `true' on input line 130.
 
 Chapter 1.
@@ -1072,22 +1068,16 @@ LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 12.9599pt on input line 1.
 ) [1
 
+
 ] [2
 
 ]
 Chapter 2.
-(./files.tex
-
-LaTeX Warning: Reference `file__level_8h' on page 3 undefined on input line 6.
-
-
-LaTeX Warning: Reference `share_8h' on page 3 undefined on input line 15.
-
-) [3] [4
+(./files.tex) [3] [4
 
 ]
 Chapter 3.
-(./struct_character.tex
+(./struct_cursor.tex
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
 (Font)              Font shape `T1/phv/b/n' tried instead on input line 4.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
@@ -1095,53 +1085,62 @@ LaTeX Font Info:    Font shape `T1/phv/b/n' will be
 LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
 (Font)              scaled to size 10.79993pt on input line 4.
 LaTeX Font Info:    Try loading font information for TS1+phv on input line 7.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1phv.fd
 File: ts1phv.fd 2001/06/04 scalable font definitions for TS1/phv.
 )
 LaTeX Font Info:    Font shape `TS1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 7.
-LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
-(Font)              scaled to size 8.99994pt on input line 26.
-) (./struct_level.tex) (./struct_map.tex <struct_map__coll__graph.pdf, id=572, 
-120.45pt x 184.69pt>
+) (./struct_input.tex) (./struct_level.tex [5]) (./struct_map.tex
+<struct_map__coll__graph.pdf, id=402, 120.45pt x 184.69pt>
 File: struct_map__coll__graph.pdf Graphic file (type pdf)
 
 <use struct_map__coll__graph.pdf>
 Package pdftex.def Info: struct_map__coll__graph.pdf used on input line 10.
 (pdftex.def)             Requested size: 120.0pt x 184.00471pt.
- [5]) (./struct_sound.tex) [6 <./struct_map__coll__graph.pdf>]
+) [6 <./struct_map__coll__graph.pdf>]
 Chapter 4.
-(./const_8h.tex <const_8h__dep__incl.pdf, id=613, 374.39874pt x 355.3275pt>
-File: const_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use const_8h__dep__incl.pdf>
-Package pdftex.def Info: const_8h__dep__incl.pdf used on input line 14.
-(pdftex.def)             Requested size: 350.0pt x 332.19156pt.
- [7
-
- <./const_8h__dep__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 66
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 69
-[][][]
- []
-
-) (./file_8c.tex
+(./const_8h.tex
 LaTeX Font Info:    Try loading font information for T1+pcr on input line 9.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
-<file_8c__incl.pdf, id=636, 256.96pt x 230.8625pt>
+<const_8h__incl.pdf, id=427, 523.9575pt x 168.63pt>
+File: const_8h__incl.pdf Graphic file (type pdf)
+ <use const_8h__incl.pdf>
+Package pdftex.def Info: const_8h__incl.pdf used on input line 20.
+(pdftex.def)             Requested size: 350.0pt x 112.647pt.
+
+<const_8h__dep__incl.pdf, id=428, 332.24126pt x 293.095pt>
+File: const_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use const_8h__dep__incl.pdf>
+Package pdftex.def Info: const_8h__dep__incl.pdf used on input line 28.
+(pdftex.def)             Requested size: 331.0pt x 292.01645pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7
+
+ <./const_8h__incl.pdf>] [8 <./const_8h__dep__incl.pdf>]
+LaTeX Font Info:    Font shape `T1/phv/bc/n' will be
+(Font)              scaled to size 8.99994pt on input line 105.
+
+Underfull \hbox (badness 10000) detected at line 105
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 108
+[][][]
+ []
+
+) (./file_8c.tex <file_8c__incl.pdf, id=485, 256.96pt x 230.8625pt>
 File: file_8c__incl.pdf Graphic file (type pdf)
- <use file_8c__incl.pdf>
+
+<use file_8c__incl.pdf>
 Package pdftex.def Info: file_8c__incl.pdf used on input line 15.
 (pdftex.def)             Requested size: 256.0pt x 230.01648pt.
-
-[8 <./file_8c__incl.pdf>]
+ [9 <./file_8c__incl.pdf>]
 Underfull \hbox (badness 10000) detected at line 30
 [][][]
  []
@@ -1174,413 +1173,244 @@ Underfull \hbox (badness 10000) detected at line 84
 [][][]
  []
 
-) (./file_8h.tex [9] <file_8h__incl.pdf, id=677, 256.96pt x 168.63pt>
+) (./file_8h.tex <file_8h__incl.pdf, id=513, 256.96pt x 168.63pt>
 File: file_8h__incl.pdf Graphic file (type pdf)
 
 <use file_8h__incl.pdf>
-Package pdftex.def Info: file_8h__incl.pdf used on input line 17.
+Package pdftex.def Info: file_8h__incl.pdf used on input line 16.
 (pdftex.def)             Requested size: 256.0pt x 168.01202pt.
-
-<file_8h__dep__incl.pdf, id=678, 291.0875pt x 355.3275pt>
+ [10]
+<file_8h__dep__incl.pdf, id=520, 223.83624pt x 293.095pt>
 File: file_8h__dep__incl.pdf Graphic file (type pdf)
 
 <use file_8h__dep__incl.pdf>
-Package pdftex.def Info: file_8h__dep__incl.pdf used on input line 25.
-(pdftex.def)             Requested size: 290.0pt x 354.02536pt.
- [10 <./file_8h__incl.pdf> <./file_8h__dep__incl.pdf
+Package pdftex.def Info: file_8h__dep__incl.pdf used on input line 24.
+(pdftex.def)             Requested size: 223.0pt x 292.0075pt.
+ [11 <./file_8h__incl.pdf> <./file_8h__dep__incl.pdf
 
 pdfTeX warning: pdflatex (file ./file_8h__dep__incl.pdf): PDF inclusion: multip
 le pdfs with page group included in a single page
 >]
-Underfull \hbox (badness 10000) detected at line 40
+Underfull \hbox (badness 10000) detected at line 39
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 43
+Underfull \hbox (badness 10000) detected at line 42
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 61
+Underfull \hbox (badness 10000) detected at line 60
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 79
+Underfull \hbox (badness 10000) detected at line 78
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 94
+Underfull \hbox (badness 10000) detected at line 93
 [][][]
  []
 
-) (./jeu_8c.tex [11] <jeu_8c__incl.pdf, id=720, 986.68625pt x 417.56pt>
-File: jeu_8c__incl.pdf Graphic file (type pdf)
+) (./file__level_8h.tex
+<file__level_8h__incl.pdf, id=558, 588.1975pt x 230.8625pt>
+File: file__level_8h__incl.pdf Graphic file (type pdf)
 
-<use jeu_8c__incl.pdf>
-Package pdftex.def Info: jeu_8c__incl.pdf used on input line 15.
-(pdftex.def)             Requested size: 350.0pt x 148.11696pt.
+<use file__level_8h__incl.pdf>
+Package pdftex.def Info: file__level_8h__incl.pdf used on input line 19.
+(pdftex.def)             Requested size: 350.0pt x 137.37369pt.
+ [12]
+<file__level_8h__dep__incl.pdf, id=564, 192.72pt x 230.8625pt>
+File: file__level_8h__dep__incl.pdf Graphic file (type pdf)
 
-Underfull \hbox (badness 10000) detected at line 43
-[][][]
- []
+<use file__level_8h__dep__incl.pdf>
+Package pdftex.def Info: file__level_8h__dep__incl.pdf used on input line 27.
+(pdftex.def)             Requested size: 192.0pt x 229.99886pt.
+ [13 <./file__level_8h__incl.pdf> <./file__level_8h__dep__incl.pdf
 
-
-Underfull \hbox (badness 10000) detected at line 46
-[][][]
- []
-
-[12 <./jeu_8c__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 67
-[][][]
- []
-
-
-<jeu_8c_ae9a0a76fc32328b2b6e4923f01c7de89_cgraph.pdf, id=760, 491.8375pt x 315.
-1775pt>
-File: jeu_8c_ae9a0a76fc32328b2b6e4923f01c7de89_cgraph.pdf Graphic file (type pd
-f)
- <use jeu_8c_ae9a0a76fc32328b2b6e4923f01c7de89_cgraph.pdf>
-Package pdftex.def Info: jeu_8c_ae9a0a76fc32328b2b6e4923f01c7de89_cgraph.pdf us
-ed on input line 91.
-(pdftex.def)             Requested size: 350.0pt x 224.29218pt.
-
-<jeu_8c_a297ffd698dfe4680eb42f1a1335697c2_cgraph.pdf, id=761, 369.38pt x 146.54
-75pt>
-File: jeu_8c_a297ffd698dfe4680eb42f1a1335697c2_cgraph.pdf Graphic file (type pd
-f)
- <use jeu_8c_a297ffd698dfe4680eb42f1a1335697c2_cgraph.pdf>
-Package pdftex.def Info: jeu_8c_a297ffd698dfe4680eb42f1a1335697c2_cgraph.pdf us
-ed on input line 124.
-(pdftex.def)             Requested size: 350.0pt x 138.8593pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13 <./jeu_8c_ae9a0a76fc32328b2b6e4923f01c7de89_cgraph.pdf>]
-<jeu_8c_a8c1653310113496aa24fa5d3c86461a6_cgraph.pdf, id=773, 273.02pt x 230.86
-25pt>
-File: jeu_8c_a8c1653310113496aa24fa5d3c86461a6_cgraph.pdf Graphic file (type pd
-f)
- <use jeu_8c_a8c1653310113496aa24fa5d3c86461a6_cgraph.pdf>
-Package pdftex.def Info: jeu_8c_a8c1653310113496aa24fa5d3c86461a6_cgraph.pdf us
-ed on input line 148.
-(pdftex.def)             Requested size: 272.0pt x 230.01295pt.
- [14 <./jeu_8c_a297ffd698dfe4680eb42f1a1335697c2_cgraph.pdf> <./jeu_8c_a8c16533
-10113496aa24fa5d3c86461a6_cgraph.pdf
-
-pdfTeX warning: pdflatex (file ./jeu_8c_a8c1653310113496aa24fa5d3c86461a6_cgrap
-h.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]) (./jeu_8h.tex <jeu_8h__incl.pdf, id=790, 986.68625pt x 355.3275pt>
-File: jeu_8h__incl.pdf Graphic file (type pdf)
-
-<use jeu_8h__incl.pdf>
-Package pdftex.def Info: jeu_8h__incl.pdf used on input line 25.
-(pdftex.def)             Requested size: 350.0pt x 126.04182pt.
- <jeu_8h__dep__incl.pdf, id=791, 118.4425pt x 168.63pt>
-File: jeu_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use jeu_8h__dep__incl.pdf>
-Package pdftex.def Info: jeu_8h__dep__incl.pdf used on input line 33.
-(pdftex.def)             Requested size: 118.0pt x 168.00432pt.
- [15 <./jeu_8h__incl.pdf> <./jeu_8h__dep__incl.pdf
-
-pdfTeX warning: pdflatex (file ./jeu_8h__dep__incl.pdf): PDF inclusion: multipl
-e pdfs with page group included in a single page
+pdfTeX warning: pdflatex (file ./file__level_8h__dep__incl.pdf): PDF inclusion:
+ multiple pdfs with page group included in a single page
 >]
-Underfull \hbox (badness 10000) detected at line 67
+Underfull \hbox (badness 10000) detected at line 54
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 70
+Underfull \hbox (badness 10000) detected at line 57
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 91
+Underfull \hbox (badness 10000) detected at line 60
 [][][]
  []
 
 
-<jeu_8h_ae9a0a76fc32328b2b6e4923f01c7de89_cgraph.pdf, id=829, 491.8375pt x 315.
-1775pt>
-File: jeu_8h_ae9a0a76fc32328b2b6e4923f01c7de89_cgraph.pdf Graphic file (type pd
-f)
- <use jeu_8h_ae9a0a76fc32328b2b6e4923f01c7de89_cgraph.pdf>
-Package pdftex.def Info: jeu_8h_ae9a0a76fc32328b2b6e4923f01c7de89_cgraph.pdf us
-ed on input line 115.
-(pdftex.def)             Requested size: 350.0pt x 224.29218pt.
-
-Underfull \vbox (badness 1776) has occurred while \output is active []
-
- [16]
-<jeu_8h_a297ffd698dfe4680eb42f1a1335697c2_cgraph.pdf, id=844, 369.38pt x 146.54
-75pt>
-File: jeu_8h_a297ffd698dfe4680eb42f1a1335697c2_cgraph.pdf Graphic file (type pd
-f)
- <use jeu_8h_a297ffd698dfe4680eb42f1a1335697c2_cgraph.pdf>
-Package pdftex.def Info: jeu_8h_a297ffd698dfe4680eb42f1a1335697c2_cgraph.pdf us
-ed on input line 148.
-(pdftex.def)             Requested size: 350.0pt x 138.8593pt.
- [17 <./jeu_8h_ae9a0a76fc32328b2b6e4923f01c7de89_cgraph.pdf> <./jeu_8h_a297ffd6
-98dfe4680eb42f1a1335697c2_cgraph.pdf
-
-pdfTeX warning: pdflatex (file ./jeu_8h_a297ffd698dfe4680eb42f1a1335697c2_cgrap
-h.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->]
-<jeu_8h_a8c1653310113496aa24fa5d3c86461a6_cgraph.pdf, id=860, 273.02pt x 230.86
-25pt>
-File: jeu_8h_a8c1653310113496aa24fa5d3c86461a6_cgraph.pdf Graphic file (type pd
-f)
- <use jeu_8h_a8c1653310113496aa24fa5d3c86461a6_cgraph.pdf>
-Package pdftex.def Info: jeu_8h_a8c1653310113496aa24fa5d3c86461a6_cgraph.pdf us
-ed on input line 172.
-(pdftex.def)             Requested size: 272.0pt x 230.01295pt.
-) (./menu_8c.tex <menu_8c__incl.pdf, id=861, 718.685pt x 293.095pt>
-File: menu_8c__incl.pdf Graphic file (type pdf)
- <use menu_8c__incl.pdf>
-Package pdftex.def Info: menu_8c__incl.pdf used on input line 15.
-(pdftex.def)             Requested size: 350.0pt x 142.74123pt.
-
-[18 <./jeu_8h_a8c1653310113496aa24fa5d3c86461a6_cgraph.pdf> <./menu_8c__incl.pd
-f
-
-pdfTeX warning: pdflatex (file ./menu_8c__incl.pdf): PDF inclusion: multiple pd
-fs with page group included in a single page
->]
-Underfull \hbox (badness 10000) detected at line 30
+Underfull \hbox (badness 10000) detected at line 105
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 33
-[][][]
- []
-
-) (./menu_8h.tex <menu_8h__incl.pdf, id=879, 718.685pt x 230.8625pt>
-File: menu_8h__incl.pdf Graphic file (type pdf)
-
-<use menu_8h__incl.pdf>
-Package pdftex.def Info: menu_8h__incl.pdf used on input line 24.
-(pdftex.def)             Requested size: 350.0pt x 112.43317pt.
- <menu_8h__dep__incl.pdf, id=880, 128.48pt x 168.63pt>
-File: menu_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use menu_8h__dep__incl.pdf>
-Package pdftex.def Info: menu_8h__dep__incl.pdf used on input line 32.
-(pdftex.def)             Requested size: 128.0pt x 168.01202pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [19 <./menu_8h__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 47
+Underfull \hbox (badness 10000) detected at line 120
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 50
-[][][]
- []
+<file__level_8h_a149f2e0878473ca6968717a39c119639_cgraph.pdf, id=614, 234.8775p
+t x 188.705pt>
+File: file__level_8h_a149f2e0878473ca6968717a39c119639_cgraph.pdf Graphic file 
+(type pdf)
 
-) (./menu__level_8c.tex
-<menu__level_8c__incl.pdf, id=897, 844.15375pt x 355.3275pt>
-File: menu__level_8c__incl.pdf Graphic file (type pdf)
-
-<use menu__level_8c__incl.pdf>
-Package pdftex.def Info: menu__level_8c__incl.pdf used on input line 15.
-(pdftex.def)             Requested size: 350.0pt x 147.32803pt.
- [20 <./menu_8h__dep__incl.pdf> <./menu__level_8c__incl.pdf
-
-pdfTeX warning: pdflatex (file ./menu__level_8c__incl.pdf): PDF inclusion: mult
-iple pdfs with page group included in a single page
->]
-Underfull \hbox (badness 10000) detected at line 27
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 30
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 33
-[][][]
- []
-
-) (./menu__level_8h.tex
-<menu__level_8h__incl.pdf, id=924, 844.15375pt x 293.095pt>
-File: menu__level_8h__incl.pdf Graphic file (type pdf)
-
-<use menu__level_8h__incl.pdf>
-Package pdftex.def Info: menu__level_8h__incl.pdf used on input line 25.
-(pdftex.def)             Requested size: 350.0pt x 121.52481pt.
-
-<menu__level_8h__dep__incl.pdf, id=925, 154.5775pt x 168.63pt>
-File: menu__level_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use menu__level_8h__dep__incl.pdf>
-Package pdftex.def Info: menu__level_8h__dep__incl.pdf used on input line 33.
-(pdftex.def)             Requested size: 154.0pt x 168.0146pt.
-
-Underfull \vbox (badness 3179) has occurred while \output is active []
-
- [21 <./menu__level_8h__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 45
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 48
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 51
-[][][]
- []
-
-) (./player_8c.tex <player_8c__incl.pdf, id=946, 487.8225pt x 355.3275pt>
-File: player_8c__incl.pdf Graphic file (type pdf)
-
-<use player_8c__incl.pdf>
-Package pdftex.def Info: player_8c__incl.pdf used on input line 15.
-(pdftex.def)             Requested size: 350.0pt x 254.94098pt.
-
-Underfull \vbox (badness 4981) has occurred while \output is active []
-
- [22 <./menu__level_8h__dep__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 43
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 46
-[][][]
- []
-
-[23 <./player_8c__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 85
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 103
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 127
-[][][]
- []
-
-
-<player_8c_a41576a8f270bc8128d967b5eb9e2ad13_cgraph.pdf, id=1004, 291.0875pt x 
-104.39pt>
-File: player_8c_a41576a8f270bc8128d967b5eb9e2ad13_cgraph.pdf Graphic file (type
- pdf)
- <use player_8c_a41576a8f270bc8128d967b5eb9e2ad13_cgraph.pdf>
-Package pdftex.def Info: player_8c_a41576a8f270bc8128d967b5eb9e2ad13_cgraph.pdf
- used on input line 136.
-(pdftex.def)             Requested size: 290.0pt x 104.00743pt.
- [24])
-(./player_8h.tex <player_8h__incl.pdf, id=1011, 487.8225pt x 293.095pt>
-File: player_8h__incl.pdf Graphic file (type pdf)
-
-<use player_8h__incl.pdf>
-Package pdftex.def Info: player_8h__incl.pdf used on input line 22.
-(pdftex.def)             Requested size: 350.0pt x 210.2903pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25 <./player_8c_a41576a8f270bc8128d967b5eb9e2ad13_cgraph.pdf>]
-<player_8h__dep__incl.pdf, id=1023, 186.6975pt x 230.8625pt>
-File: player_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use player_8h__dep__incl.pdf>
-Package pdftex.def Info: player_8h__dep__incl.pdf used on input line 30.
-(pdftex.def)             Requested size: 186.0pt x 230.00943pt.
- [26 <./player_8h__incl.pdf> <./player_8h__dep__incl.pdf
-
-pdfTeX warning: pdflatex (file ./player_8h__dep__incl.pdf): PDF inclusion: mult
-iple pdfs with page group included in a single page
->]
-Underfull \hbox (badness 10000) detected at line 70
-[][][]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 73
-[][][]
- []
-
-[27]
-Underfull \hbox (badness 10000) detected at line 129
-[][][]
- []
-
-
+<use file__level_8h_a149f2e0878473ca6968717a39c119639_cgraph.pdf>
+Package pdftex.def Info: file__level_8h_a149f2e0878473ca6968717a39c119639_cgrap
+h.pdf used on input line 130.
+(pdftex.def)             Requested size: 234.0pt x 187.99907pt.
+ [14]
 Underfull \hbox (badness 10000) detected at line 147
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 171
+<file__level_8h_af646d7df8d540e24e2acc84fc3ea3ad3_cgraph.pdf, id=619, 246.9225p
+t x 146.5475pt>
+File: file__level_8h_af646d7df8d540e24e2acc84fc3ea3ad3_cgraph.pdf Graphic file 
+(type pdf)
+
+<use file__level_8h_af646d7df8d540e24e2acc84fc3ea3ad3_cgraph.pdf>
+Package pdftex.def Info: file__level_8h_af646d7df8d540e24e2acc84fc3ea3ad3_cgrap
+h.pdf used on input line 157.
+(pdftex.def)             Requested size: 246.0pt x 145.99925pt.
+ [15 <./file__level_8h_a149f2e0878473ca6968717a39c119639_cgraph.pdf> <./file__l
+evel_8h_af646d7df8d540e24e2acc84fc3ea3ad3_cgraph.pdf
+
+pdfTeX warning: pdflatex (file ./file__level_8h_af646d7df8d540e24e2acc84fc3ea3a
+d3_cgraph.pdf): PDF inclusion: multiple pdfs with page group included in a sing
+le page
+>]
+<file__level_8h_aa22f94cc3689a4c98d553ff300c32bc9_cgraph.pdf, id=636, 234.8775p
+t x 146.5475pt>
+File: file__level_8h_aa22f94cc3689a4c98d553ff300c32bc9_cgraph.pdf Graphic file 
+(type pdf)
+
+<use file__level_8h_aa22f94cc3689a4c98d553ff300c32bc9_cgraph.pdf>
+Package pdftex.def Info: file__level_8h_aa22f94cc3689a4c98d553ff300c32bc9_cgrap
+h.pdf used on input line 184.
+(pdftex.def)             Requested size: 234.0pt x 145.99925pt.
+)
+(./game_8c.tex <game_8c__incl.pdf, id=637, 588.1975pt x 355.3275pt>
+File: game_8c__incl.pdf Graphic file (type pdf)
+
+<use game_8c__incl.pdf>
+Package pdftex.def Info: game_8c__incl.pdf used on input line 15.
+(pdftex.def)             Requested size: 350.0pt x 211.43602pt.
+ [16 <./file__level_8h_aa22f94cc3689a4c98d553ff300c32bc9_cgraph.pdf> <./game_8c
+__incl.pdf
+
+pdfTeX warning: pdflatex (file ./game_8c__incl.pdf): PDF inclusion: multiple pd
+fs with page group included in a single page
+>]
+Underfull \hbox (badness 10000) detected at line 28
 [][][]
  []
 
 
-<player_8h_ad717798dc37cc831c64a304e0c901637_cgraph.pdf, id=1086, 291.0875pt x 
-104.39pt>
-File: player_8h_ad717798dc37cc831c64a304e0c901637_cgraph.pdf Graphic file (type
- pdf)
- <use player_8h_ad717798dc37cc831c64a304e0c901637_cgraph.pdf>
-Package pdftex.def Info: player_8h_ad717798dc37cc831c64a304e0c901637_cgraph.pdf
- used on input line 180.
-(pdftex.def)             Requested size: 290.0pt x 104.00743pt.
- [28 <./player_8h_ad717798dc37cc831c64a304e0c901637_cgraph.pdf>]) (./sound_8c.t
-ex
-<sound_8c__incl.pdf, id=1098, 353.32pt x 230.8625pt>
-File: sound_8c__incl.pdf Graphic file (type pdf)
- <use sound_8c__incl.pdf>
-Package pdftex.def Info: sound_8c__incl.pdf used on input line 15.
-(pdftex.def)             Requested size: 350.0pt x 228.69547pt.
-
-Underfull \hbox (badness 10000) detected at line 32
+Underfull \hbox (badness 10000) detected at line 31
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 35
+<game_8c_ae342e4b762af0d52f4ee914643441426_cgraph.pdf, id=664, 307.1475pt x 273
+.02pt>
+File: game_8c_ae342e4b762af0d52f4ee914643441426_cgraph.pdf Graphic file (type p
+df)
+ <use game_8c_ae342e4b762af0d52f4ee914643441426_cgraph.pdf>
+Package pdftex.def Info: game_8c_ae342e4b762af0d52f4ee914643441426_cgraph.pdf u
+sed on input line 59.
+(pdftex.def)             Requested size: 306.0pt x 272.01534pt.
+)
+(./game_8h.tex <game_8h__incl.pdf, id=666, 588.1975pt x 293.095pt>
+File: game_8h__incl.pdf Graphic file (type pdf)
+
+<use game_8h__incl.pdf>
+Package pdftex.def Info: game_8h__incl.pdf used on input line 18.
+(pdftex.def)             Requested size: 350.0pt x 174.40486pt.
+
+Underfull \vbox (badness 1655) has occurred while \output is active []
+
+ [17 <./game_8c_ae342e4b762af0d52f4ee914643441426_cgraph.pdf>]
+<game_8h__dep__incl.pdf, id=678, 192.72pt x 168.63pt>
+File: game_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use game_8h__dep__incl.pdf>
+Package pdftex.def Info: game_8h__dep__incl.pdf used on input line 26.
+(pdftex.def)             Requested size: 192.0pt x 167.99916pt.
+
+Underfull \hbox (badness 10000) detected at line 37
 [][][]
  []
 
-[29 <./sound_8c__incl.pdf>]
-Underfull \hbox (badness 10000) detected at line 48
+
+Underfull \hbox (badness 10000) detected at line 40
 [][][]
  []
 
-) (./sound_8h.tex <sound_8h__incl.pdf, id=1123, 353.32pt x 168.63pt>
-File: sound_8h__incl.pdf Graphic file (type pdf)
+[18 <./game_8h__incl.pdf> <./game_8h__dep__incl.pdf
 
-<use sound_8h__incl.pdf>
-Package pdftex.def Info: sound_8h__incl.pdf used on input line 18.
-(pdftex.def)             Requested size: 350.0pt x 167.04712pt.
+pdfTeX warning: pdflatex (file ./game_8h__dep__incl.pdf): PDF inclusion: multip
+le pdfs with page group included in a single page
+>] [19]
+<game_8h_ae342e4b762af0d52f4ee914643441426_cgraph.pdf, id=710, 307.1475pt x 273
+.02pt>
+File: game_8h_ae342e4b762af0d52f4ee914643441426_cgraph.pdf Graphic file (type p
+df)
+ <use game_8h_ae342e4b762af0d52f4ee914643441426_cgraph.pdf>
+Package pdftex.def Info: game_8h_ae342e4b762af0d52f4ee914643441426_cgraph.pdf u
+sed on input line 68.
+(pdftex.def)             Requested size: 306.0pt x 272.01534pt.
+)
+(./input_8c.tex <input_8c__incl.pdf, id=711, 523.9575pt x 293.095pt>
+File: input_8c__incl.pdf Graphic file (type pdf)
+
+<use input_8c__incl.pdf>
+Package pdftex.def Info: input_8c__incl.pdf used on input line 17.
+(pdftex.def)             Requested size: 350.0pt x 195.79121pt.
+ [20 <./game_8h_ae342e4b762af0d52f4ee914643441426_cgraph.pdf> <./input_8c__incl
+.pdf
+
+pdfTeX warning: pdflatex (file ./input_8c__incl.pdf): PDF inclusion: multiple p
+dfs with page group included in a single page
+>]
+Underfull \hbox (badness 10000) detected at line 30
+[][][]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 33
+[][][]
+ []
+
+) (./input_8h.tex <input_8h__incl.pdf, id=735, 523.9575pt x 230.8625pt>
+File: input_8h__incl.pdf Graphic file (type pdf)
+
+<use input_8h__incl.pdf>
+Package pdftex.def Info: input_8h__incl.pdf used on input line 15.
+(pdftex.def)             Requested size: 350.0pt x 154.21912pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [30]
-<sound_8h__dep__incl.pdf, id=1128, 345.29pt x 230.8625pt>
-File: sound_8h__dep__incl.pdf Graphic file (type pdf)
+ [21]
+<input_8h__dep__incl.pdf, id=744, 224.84pt x 230.8625pt>
+File: input_8h__dep__incl.pdf Graphic file (type pdf)
 
-<use sound_8h__dep__incl.pdf>
-Package pdftex.def Info: sound_8h__dep__incl.pdf used on input line 26.
-(pdftex.def)             Requested size: 344.0pt x 230.00238pt.
- [31 <./sound_8h__incl.pdf> <./sound_8h__dep__incl.pdf
+<use input_8h__dep__incl.pdf>
+Package pdftex.def Info: input_8h__dep__incl.pdf used on input line 23.
+(pdftex.def)             Requested size: 224.0pt x 230.00943pt.
+ [22 <./input_8h__incl.pdf> <./input_8h__dep__incl.pdf
 
-pdfTeX warning: pdflatex (file ./sound_8h__dep__incl.pdf): PDF inclusion: multi
+pdfTeX warning: pdflatex (file ./input_8h__dep__incl.pdf): PDF inclusion: multi
 ple pdfs with page group included in a single page
 >]
 Underfull \hbox (badness 10000) detected at line 48
@@ -1592,88 +1422,72 @@ Underfull \hbox (badness 10000) detected at line 51
 [][][]
  []
 
+) (./main_8c.tex <main_8c__incl.pdf, id=779, 588.1975pt x 355.3275pt>
+File: main_8c__incl.pdf Graphic file (type pdf)
 
-Underfull \hbox (badness 10000) detected at line 64
+<use main_8c__incl.pdf>
+Package pdftex.def Info: main_8c__incl.pdf used on input line 11.
+(pdftex.def)             Requested size: 350.0pt x 211.43602pt.
+ [23 <./main_8c__incl.pdf>]
+Underfull \hbox (badness 10000) detected at line 23
 [][][]
  []
 
-) (./text_8c.tex <text_8c__incl.pdf, id=1162, 556.0775pt x 230.8625pt>
-File: text_8c__incl.pdf Graphic file (type pdf)
 
-<use text_8c__incl.pdf>
-Package pdftex.def Info: text_8c__incl.pdf used on input line 15.
-(pdftex.def)             Requested size: 350.0pt x 145.31027pt.
-
-Underfull \vbox (badness 1521) has occurred while \output is active []
-
- [32]
 Underfull \hbox (badness 10000) detected at line 26
 [][][]
  []
 
+) (./map_8h.tex <map_8h__incl.pdf, id=797, 523.9575pt x 230.8625pt>
+File: map_8h__incl.pdf Graphic file (type pdf)
 
-Underfull \hbox (badness 10000) detected at line 29
+<use map_8h__incl.pdf>
+Package pdftex.def Info: map_8h__incl.pdf used on input line 15.
+(pdftex.def)             Requested size: 350.0pt x 154.21912pt.
+ <map_8h__dep__incl.pdf, id=798, 192.72pt x 230.8625pt>
+File: map_8h__dep__incl.pdf Graphic file (type pdf)
+
+<use map_8h__dep__incl.pdf>
+Package pdftex.def Info: map_8h__dep__incl.pdf used on input line 23.
+(pdftex.def)             Requested size: 192.0pt x 229.99886pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [24 <./map_8h__incl.pdf>]
+Underfull \hbox (badness 10000) detected at line 52
 [][][]
  []
 
-) (./text_8h.tex <text_8h__incl.pdf, id=1169, 556.0775pt x 168.63pt>
-File: text_8h__incl.pdf Graphic file (type pdf)
 
-<use text_8h__incl.pdf>
-Package pdftex.def Info: text_8h__incl.pdf used on input line 20.
-(pdftex.def)             Requested size: 350.0pt x 106.13968pt.
- [33 <./text_8c__incl.pdf>]
-<text_8h__dep__incl.pdf, id=1182, 335.2525pt x 230.8625pt>
-File: text_8h__dep__incl.pdf Graphic file (type pdf)
-
-<use text_8h__dep__incl.pdf>
-Package pdftex.def Info: text_8h__dep__incl.pdf used on input line 28.
-(pdftex.def)             Requested size: 334.0pt x 229.99886pt.
-
-Underfull \hbox (badness 10000) detected at line 39
+Underfull \hbox (badness 10000) detected at line 55
 [][][]
  []
 
-[34 <./text_8h__incl.pdf> <./text_8h__dep__incl.pdf
-
-pdfTeX warning: pdflatex (file ./text_8h__dep__incl.pdf): PDF inclusion: multip
-le pdfs with page group included in a single page
->]
-Underfull \hbox (badness 10000) detected at line 42
+[25 <./map_8h__dep__incl.pdf>]
+Underfull \hbox (badness 10000) detected at line 76
 [][][]
  []
 
-)
-Underfull \hbox (badness 10000) in paragraph at lines 62--159
-
- []
-
-[35] (./refman.ind [36
-
-] [37
+) [26] (./refman.ind [27
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 166.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 166.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 161.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 161.
  (./refman.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 166.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 166.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 161.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 161.
 Package rerunfilecheck Info: File `refman.out' has not changed.
-(rerunfilecheck)             Checksum: 6A9AF973A8FF039C44CFCBBA97E8BCD7;13564.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 166.
+(rerunfilecheck)             Checksum: E718A9EDC6E931E39FF9A80F3D93A9DD;8509.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 161.
  ) 
 Here is how much of TeX's memory you used:
- 12781 strings out of 495002
- 183830 string characters out of 6180262
- 255330 words of memory out of 5000000
- 15473 multiletter control sequences out of 15000+600000
+ 12595 strings out of 495002
+ 179695 string characters out of 6180262
+ 251256 words of memory out of 5000000
+ 15371 multiletter control sequences out of 15000+600000
  64321 words of font info for 79 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 48i,13n,43p,388b,424s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,13n,43p,326b,418s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/
@@ -1683,10 +1497,10 @@ public/tex-gyre/qhvr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier
 /texlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8ac.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on refman.pdf (43 pages, 341686 bytes).
+Output written on refman.pdf (31 pages, 280692 bytes).
 PDF statistics:
- 1402 PDF objects out of 1440 (max. 8388607)
- 1253 compressed objects within 13 object streams
- 255 named destinations out of 1000 (max. 500000)
- 892 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 970 PDF objects out of 1000 (max. 8388607)
+ 857 compressed objects within 9 object streams
+ 190 named destinations out of 1000 (max. 500000)
+ 575 words of extra memory for PDF output out of 10000 (max. 10000000)
 

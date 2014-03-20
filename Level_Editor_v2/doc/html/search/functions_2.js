@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['freesound',['freeSound',['../sound_8c.html#acc13f1ac1e0bac5afe39405869772a08',1,'freeSound(Sound *s):&#160;sound.c'],['../sound_8h.html#acc13f1ac1e0bac5afe39405869772a08',1,'freeSound(Sound *s):&#160;sound.c']]]
+  ['initlevel',['initLevel',['../file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707',1,'file_level.c']]],
+  ['initmap',['initMap',['../map_8h.html#a7ab71b3daf19eb6c3b544d408b8826e0',1,'map.c']]]
 ];

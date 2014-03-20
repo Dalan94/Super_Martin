@@ -1,0 +1,78 @@
+\hypertarget{map_8h}{\section{map.\-h File Reference}
+\label{map_8h}\index{map.\-h@{map.\-h}}
+}
+
+
+Header of map.\-c.  
+
+
+{\ttfamily \#include \char`\"{}const.\-h\char`\"{}}\\*
+Include dependency graph for map.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{map_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{map_8h_aba96287d54d5dbd87f817b62e7efa044}{void {\bfseries update\-Screen\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_map}{Map} $\ast$m, char $\ast$tileset, \hyperlink{struct_cursor}{Cursor} $\ast$cursor)}\label{map_8h_aba96287d54d5dbd87f817b62e7efa044}
+
+\item 
+\hypertarget{map_8h_ae76ef8a67afdd6dbc20eb19767f32933}{void {\bfseries scrolling} (\hyperlink{struct_map}{Map} $\ast$m, int direction)}\label{map_8h_ae76ef8a67afdd6dbc20eb19767f32933}
+
+\item 
+\hyperlink{struct_map}{Map} $\ast$ \hyperlink{map_8h_a7ab71b3daf19eb6c3b544d408b8826e0}{init\-Map} (\hyperlink{struct_level}{Level} $\ast$lvl, S\-D\-L\-\_\-\-Surface $\ast$screen)
+\item 
+\hypertarget{map_8h_ac4369c88fdf5425995721d7e216da126}{void {\bfseries save\-Map} (\hyperlink{struct_map}{Map} $\ast$m)}\label{map_8h_ac4369c88fdf5425995721d7e216da126}
+
+\item 
+\hypertarget{map_8h_a25a06c1f70073c5a3953188d50769059}{void {\bfseries clean\-String} (const char $\ast$buffer, F\-I\-L\-E $\ast$fp)}\label{map_8h_a25a06c1f70073c5a3953188d50769059}
+
+\item 
+\hypertarget{map_8h_aa7a83d90f4e3ff66110288a89eac5bfe}{void {\bfseries clean\-\_\-stdin} (void)}\label{map_8h_aa7a83d90f4e3ff66110288a89eac5bfe}
+
+\item 
+\hypertarget{map_8h_ac8d4dd6fc80c79d9cb5899684740d074}{void {\bfseries free\-Map} (\hyperlink{struct_map}{Map} $\ast$m)}\label{map_8h_ac8d4dd6fc80c79d9cb5899684740d074}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Header of map.\-c. \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T, Glenn H\-E\-R\-R\-O\-U 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/03-\/18 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{map_8h_a7ab71b3daf19eb6c3b544d408b8826e0}{\index{map.\-h@{map.\-h}!init\-Map@{init\-Map}}
+\index{init\-Map@{init\-Map}!map.h@{map.\-h}}
+\subsubsection[{init\-Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map}$\ast$ init\-Map (
+\begin{DoxyParamCaption}
+\item[{{\bf Level} $\ast$}]{lvl, }
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen}
+\end{DoxyParamCaption}
+)}}\label{map_8h_a7ab71b3daf19eb6c3b544d408b8826e0}
+Initialize the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt in}  & {\em level} & The level of the map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer on the map initialized 
+\end{DoxyReturn}

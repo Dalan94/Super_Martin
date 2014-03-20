@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['level',['Level',['../struct_level.html',1,'']]]
+  ['input',['Input',['../struct_input.html',1,'']]]
 ];

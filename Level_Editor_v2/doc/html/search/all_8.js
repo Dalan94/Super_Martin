@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['openfile',['openFile',['../file_8c.html#a8f17d8993e6de59936122f7c8ef4e37b',1,'openFile(char nom[], char mode[]):&#160;file.c'],['../file_8h.html#ae6218cf222b5ca17dce1ad7eb75346a9',1,'openFile(char nome[], char mode[]):&#160;file.c']]]
+  ['readfilesize',['readFileSize',['../file_8c.html#ad2924419af4232858df0519818c6fa64',1,'readFileSize(FILE *ptr_fichier):&#160;file.c'],['../file_8h.html#ad2924419af4232858df0519818c6fa64',1,'readFileSize(FILE *ptr_fichier):&#160;file.c']]],
+  ['readlevelfile',['readLevelFile',['../file__level_8h.html#af646d7df8d540e24e2acc84fc3ea3ad3',1,'file_level.c']]]
 ];

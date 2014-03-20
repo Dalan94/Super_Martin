@@ -17,7 +17,7 @@ Include dependency graph for text.\-c\-:\nopagebreak
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{text_8c_a890bd15eb3d51cac26c63afdaf0018d6}{print\-Text} (S\-D\-L\-\_\-\-Surface $\ast$screen, S\-D\-L\-\_\-\-Rect $\ast$pos\-Text, char $\ast$text, S\-D\-L\-\_\-\-Color color, char $\ast$font, int pt\-Size, int mode)
+void \hyperlink{text_8c_a1bd80be1aff6fe5303bdd5aa80161da3}{print\-Text} (S\-D\-L\-\_\-\-Surface $\ast$screen, S\-D\-L\-\_\-\-Rect $\ast$pos\-Text, char $\ast$text, int r, int g, int b, char $\ast$font, int pt\-Size, int mode)
 \end{DoxyCompactItemize}
 
 
@@ -31,19 +31,21 @@ Xavier C\-O\-P\-O\-N\-E\-T
 
 
 \subsection{Function Documentation}
-\hypertarget{text_8c_a890bd15eb3d51cac26c63afdaf0018d6}{\index{text.\-c@{text.\-c}!print\-Text@{print\-Text}}
+\hypertarget{text_8c_a1bd80be1aff6fe5303bdd5aa80161da3}{\index{text.\-c@{text.\-c}!print\-Text@{print\-Text}}
 \index{print\-Text@{print\-Text}!text.c@{text.\-c}}
 \subsubsection[{print\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Text (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
 \item[{S\-D\-L\-\_\-\-Rect $\ast$}]{pos\-Text, }
 \item[{char $\ast$}]{text, }
-\item[{S\-D\-L\-\_\-\-Color}]{color, }
+\item[{int}]{r, }
+\item[{int}]{g, }
+\item[{int}]{b, }
 \item[{char $\ast$}]{font, }
 \item[{int}]{pt\-Size, }
 \item[{int}]{mode}
 \end{DoxyParamCaption}
-)}}\label{text_8c_a890bd15eb3d51cac26c63afdaf0018d6}
+)}}\label{text_8c_a1bd80be1aff6fe5303bdd5aa80161da3}
 affiche le texte sur l'écran à la position donnée 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt out}  & {\em screen} & L'écran \\
@@ -52,7 +54,11 @@ affiche le texte sur l'écran à la position donnée
 \hline
 \mbox{\tt in}  & {\em text} & Le texte à afficher \\
 \hline
-\mbox{\tt in}  & {\em color} & la couleur du texte \\
+\mbox{\tt in}  & {\em int} & r red value \\
+\hline
+\mbox{\tt in}  & {\em int} & g green value \\
+\hline
+\mbox{\tt in}  & {\em int} & b blue value \\
 \hline
 \mbox{\tt in}  & {\em font} & L'adresse de la police d'affichage (.ttf) \\
 \hline

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Super Martin: file_level.h Source File</title>
+<title>Super Martin Level Editor: file_level.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Super Martin
+   <div id="projectname">Super Martin Level Editor
    </div>
   </td>
  </tr>
@@ -68,7 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Macros</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,9 +87,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">file_level.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef FILE_MAP_H_INCLUDED</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define FILE_MAP_H_INCLUDED</span></div>
+<a href="file__level_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef FILE_LEVEL_H_INCLUDED</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define FILE_LEVEL_H_INCLUDED</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
@@ -97,25 +97,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="file_8h.html">file.h</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="const_8h.html">const.h</a>&quot;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define TAILLE_MAX_NB_BLOCS_LARGEUR 5</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TAILLE_MAX_NB_BLOCS_HAUTEUR 4</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TAILLE_BUFFER 2</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="struct_level.html">Level</a> *openLevel(<span class="keywordtype">char</span> *file_name);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> closeLevel(<a class="code" href="struct_level.html">Level</a> *lvl);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="struct_level.html">Level</a> *initLevel(<a class="code" href="struct_level.html">Level</a> *lvl);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> writeLevel(<span class="keywordtype">char</span> *file_name, <a class="code" href="struct_level.html">Level</a> *lvl);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">char</span> **readLevelFile(<span class="keywordtype">int</span> *nb_lvl);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> closeLevelList(<span class="keywordtype">char</span> **level_names, <span class="keywordtype">int</span> nb_lvl);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // FILE_MAP_H_INCLUDED</span></div>
-<div class="ttc" id="file_8h_html"><div class="ttname"><a href="file_8h.html">file.h</a></div><div class="ttdoc">Prototypes des fonctions d&#39;acces aux fichiers. </div></div>
-<div class="ttc" id="const_8h_html"><div class="ttname"><a href="const_8h.html">const.h</a></div><div class="ttdoc">contient les constantes du programme </div></div>
-<div class="ttc" id="struct_level_html"><div class="ttname"><a href="struct_level.html">Level</a></div><div class="ttdef"><b>Definition:</b> const.h:23</div></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define TAILLE_BUFFER 2</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<a class="code" href="struct_level.html">Level</a> *<a class="code" href="file__level_8h.html#a149f2e0878473ca6968717a39c119639">openLevel</a>(<span class="keywordtype">char</span> *file_name);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="file__level_8h.html#a38020f30305d2344cdf39d06c7e8768e">closeLevel</a>(<a class="code" href="struct_level.html">Level</a> *lvl);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="struct_level.html">Level</a> *<a class="code" href="file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707">initLevel</a>(<a class="code" href="struct_level.html">Level</a> *lvl);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="file__level_8h.html#aa22f94cc3689a4c98d553ff300c32bc9">writeLevel</a>(<span class="keywordtype">char</span> *file_name, <a class="code" href="struct_level.html">Level</a> *lvl);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keywordtype">char</span> **<a class="code" href="file__level_8h.html#af646d7df8d540e24e2acc84fc3ea3ad3">readLevelFile</a>(<span class="keywordtype">int</span> *nb_lvl);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="file__level_8h.html#a3fafc12e3c322fc5a8166f7fb323bfe6">closeLevelList</a>(<span class="keywordtype">char</span> **level_names, <span class="keywordtype">int</span> nb_lvl);</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif // FILE_LEVEL_H_INCLUDED</span></div>
+<div class="ttc" id="file__level_8h_html_a38020f30305d2344cdf39d06c7e8768e"><div class="ttname"><a href="file__level_8h.html#a38020f30305d2344cdf39d06c7e8768e">closeLevel</a></div><div class="ttdeci">void closeLevel(Level *lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:76</div></div>
+<div class="ttc" id="file__level_8h_html_a149f2e0878473ca6968717a39c119639"><div class="ttname"><a href="file__level_8h.html#a149f2e0878473ca6968717a39c119639">openLevel</a></div><div class="ttdeci">Level * openLevel(char *file_name)</div><div class="ttdef"><b>Definition:</b> file_level.c:18</div></div>
+<div class="ttc" id="file_8h_html"><div class="ttname"><a href="file_8h.html">file.h</a></div><div class="ttdoc">Header of file.c. </div></div>
+<div class="ttc" id="file__level_8h_html_af646d7df8d540e24e2acc84fc3ea3ad3"><div class="ttname"><a href="file__level_8h.html#af646d7df8d540e24e2acc84fc3ea3ad3">readLevelFile</a></div><div class="ttdeci">char ** readLevelFile(int *nb_lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:149</div></div>
+<div class="ttc" id="file__level_8h_html_a1749fb3f97d8b947c393f8eac9d29707"><div class="ttname"><a href="file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707">initLevel</a></div><div class="ttdeci">Level * initLevel(Level *lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:92</div></div>
+<div class="ttc" id="file__level_8h_html_aa22f94cc3689a4c98d553ff300c32bc9"><div class="ttname"><a href="file__level_8h.html#aa22f94cc3689a4c98d553ff300c32bc9">writeLevel</a></div><div class="ttdeci">void writeLevel(char *file_name, Level *lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:122</div></div>
+<div class="ttc" id="const_8h_html"><div class="ttname"><a href="const_8h.html">const.h</a></div><div class="ttdoc">Definitions of every constants and structures used. </div></div>
+<div class="ttc" id="struct_level_html"><div class="ttname"><a href="struct_level.html">Level</a></div><div class="ttdef"><b>Definition:</b> const.h:38</div></div>
+<div class="ttc" id="file__level_8h_html_a3fafc12e3c322fc5a8166f7fb323bfe6"><div class="ttname"><a href="file__level_8h.html#a3fafc12e3c322fc5a8166f7fb323bfe6">closeLevelList</a></div><div class="ttdeci">void closeLevelList(char **level_names, int nb_lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:198</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Mar 16 2014 19:48:16 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 20 2014 15:02:22 for Super Martin Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

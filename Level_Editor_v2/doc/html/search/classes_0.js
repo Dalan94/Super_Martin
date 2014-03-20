@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['character',['Character',['../struct_character.html',1,'']]]
+  ['cursor',['Cursor',['../struct_cursor.html',1,'']]]
 ];

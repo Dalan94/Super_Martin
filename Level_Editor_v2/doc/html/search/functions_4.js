@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jouer',['jouer',['../jeu_8c.html#ae9a0a76fc32328b2b6e4923f01c7de89',1,'jouer(SDL_Surface *screen, char *level_name):&#160;jeu.c'],['../jeu_8h.html#ae9a0a76fc32328b2b6e4923f01c7de89',1,'jouer(SDL_Surface *screen, char *level_name):&#160;jeu.c']]]
+  ['play',['play',['../game_8c.html#ae342e4b762af0d52f4ee914643441426',1,'play(SDL_Surface *screen, char *level_name):&#160;game.c'],['../game_8h.html#ae342e4b762af0d52f4ee914643441426',1,'play(SDL_Surface *screen, char *level_name):&#160;game.c']]]
 ];

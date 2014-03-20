@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['openfile',['openFile',['../file_8c.html#a8f17d8993e6de59936122f7c8ef4e37b',1,'openFile(char nom[], char mode[]):&#160;file.c'],['../file_8h.html#ae6218cf222b5ca17dce1ad7eb75346a9',1,'openFile(char nome[], char mode[]):&#160;file.c']]]
+  ['update',['update',['../input_8c.html#a31a93a2df9a8fd20a9d049af30462dbf',1,'update(Map *m, Input *input, Cursor *cursor):&#160;input.c'],['../input_8h.html#a31a93a2df9a8fd20a9d049af30462dbf',1,'update(Map *m, Input *input, Cursor *cursor):&#160;input.c']]]
 ];
