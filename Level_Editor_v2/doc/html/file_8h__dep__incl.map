@@ -1,10 +1,7 @@
 <map id="file.h" name="file.h">
-<area shape="rect" id="node3" href="$file_8c.html" title="Fonctions d&#39;acces au fichiers. " alt="" coords="5,89,56,122"/>
-<area shape="rect" id="node5" href="$file__level_8h_source.html" title="file_level.h" alt="" coords="80,89,163,122"/>
-<area shape="rect" id="node7" href="$player_8h.html" title="header de player.c " alt="" coords="88,171,155,205"/>
-<area shape="rect" id="node9" href="$jeu_8h.html" title="header de jeu.c " alt="" coords="21,254,72,287"/>
-<area shape="rect" id="node16" href="$menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="184,171,283,205"/>
-<area shape="rect" id="node13" href="$player_8c.html" title="contient les fonction pour manipuler le joueur " alt="" coords="96,254,163,287"/>
-<area shape="rect" id="node11" href="$jeu_8c.html" title="contient les fonction liées au jeu " alt="" coords="21,337,72,370"/>
-<area shape="rect" id="node18" href="$menu__level_8c.html" title="Menu gerant le choix du niveau. " alt="" coords="187,254,285,287"/>
+<area shape="rect" id="node3" href="$file_8c.html" title="Contains the functions that handle the files of the game. " alt="" coords="5,89,56,122"/>
+<area shape="rect" id="node5" href="$file__level_8h.html" title="Header of file_level.c. " alt="" coords="80,89,163,122"/>
+<area shape="rect" id="node7" href="$game_8h.html" title="Header of game.c. " alt="" coords="89,171,153,205"/>
+<area shape="rect" id="node9" href="$game_8c.html" title="Contains the principal function of the game. " alt="" coords="47,254,111,287"/>
+<area shape="rect" id="node11" href="$main_8c.html" title="main.c" alt="" coords="135,254,196,287"/>
 </map>

@@ -14,9 +14,9 @@ header de \hyperlink{player_8c}{player.\-c}
 {\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
 {\ttfamily \#include \char`\"{}file\-\_\-level.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}share.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sound.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
-Include dependency graph for player.\-h\-:
-\nopagebreak
+Include dependency graph for player.\-h\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -27,7 +27,7 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=186pt]{player_8h__dep__incl}
+\includegraphics[width=350pt]{player_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Data Structures}
@@ -64,7 +64,8 @@ void \hyperlink{player_8h_a3ae2e15eb2f82dd33309de7d4b76ef86}{movement\-Vector} (
 \hypertarget{player_8h_acc4b88f793f3273b22dc205902d38815}{void {\bfseries presise\-Move\-Character} (\hyperlink{struct_character}{Character} $\ast$c, int vx, int vy, \hyperlink{struct_map}{Map} $\ast$m)}\label{player_8h_acc4b88f793f3273b22dc205902d38815}
 
 \item 
-void \hyperlink{player_8h_ae7b7055e59cc3e653c2ed700b1b47e91}{jumping} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m)
+\hypertarget{player_8h_adc09c260c7770798940f614b20cd472a}{void {\bfseries jumping} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m, \hyperlink{struct_sound}{Sound} $\ast$jump\-\_\-sound)}\label{player_8h_adc09c260c7770798940f614b20cd472a}
+
 \end{DoxyCompactItemize}
 
 
@@ -151,39 +152,11 @@ le pointeur sur la structure créée
 \end{DoxyReturn}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=296pt]{player_8h_a8157b7870fc8049298ca3ca227ca7a02_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{player_8h_ae7b7055e59cc3e653c2ed700b1b47e91}{\index{player.\-h@{player.\-h}!jumping@{jumping}}
-\index{jumping@{jumping}!player.h@{player.\-h}}
-\subsubsection[{jumping}]{\setlength{\rightskip}{0pt plus 5cm}void jumping (
-\begin{DoxyParamCaption}
-\item[{{\bf Character} $\ast$}]{c, }
-\item[{{\bf Map} $\ast$}]{m}
-\end{DoxyParamCaption}
-)}}\label{player_8h_ae7b7055e59cc3e653c2ed700b1b47e91}
-make the character jump 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in,out}  & {\em c} & the \hyperlink{struct_character}{Character} \\
-\hline
-\mbox{\tt in}  & {\em m} & The map the \hyperlink{struct_character}{Character} is on \\
-\hline
-\end{DoxyParams}
-
-
-Here is the call graph for this function\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{player_8h_ae7b7055e59cc3e653c2ed700b1b47e91_cgraph}
 \end{center}
 \end{figure}
 

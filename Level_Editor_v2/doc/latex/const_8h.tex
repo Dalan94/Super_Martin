@@ -3,15 +3,29 @@
 }
 
 
-contient les constantes du programme  
+Definitions of every constants and structures used.  
 
 
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
+Include dependency graph for const.\-h\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{const_8h__incl}
+\end{center}
+\end{figure}
 This graph shows which files directly or indirectly include this file\-:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{const_8h__dep__incl}
+\includegraphics[width=331pt]{const_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Data Structures}
@@ -20,39 +34,64 @@ This graph shows which files directly or indirectly include this file\-:
 struct \hyperlink{struct_level}{Level}
 \item 
 struct \hyperlink{struct_map}{Map}
+\item 
+struct \hyperlink{struct_cursor}{Cursor}
+\item 
+struct \hyperlink{struct_input}{Input}
 \end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{const_8h_abad9ad5ae94fd56569e71c156349030b}{\#define {\bfseries T\-A\-I\-L\-L\-E\-\_\-\-B\-L\-O\-C}~20}\label{const_8h_abad9ad5ae94fd56569e71c156349030b}
+\hypertarget{const_8h_a62ecd70800687eb2d625af180c4210d7}{\#define {\bfseries T\-I\-L\-E\-\_\-\-S\-I\-Z\-E}~16}\label{const_8h_a62ecd70800687eb2d625af180c4210d7}
 
 \item 
-\hypertarget{const_8h_a5b621c07985e98b04fc2d2195b85ad69}{\#define {\bfseries N\-B\-\_\-\-B\-L\-O\-C\-S\-\_\-\-L\-A\-R\-G\-E\-U\-R}~48}\label{const_8h_a5b621c07985e98b04fc2d2195b85ad69}
+\hypertarget{const_8h_a46c7999c8b56840b9bede77c21ba9126}{\#define {\bfseries N\-B\-\_\-\-T\-I\-L\-E\-S\-\_\-\-X}~60}\label{const_8h_a46c7999c8b56840b9bede77c21ba9126}
 
 \item 
-\hypertarget{const_8h_ad0de8de53b10369f89648fed34ce16c9}{\#define {\bfseries N\-B\-\_\-\-B\-L\-O\-C\-S\-\_\-\-H\-A\-U\-T\-E\-U\-R}~27}\label{const_8h_ad0de8de53b10369f89648fed34ce16c9}
+\hypertarget{const_8h_a1a670fcce2ba2f9ac69a9b9e9b566918}{\#define {\bfseries N\-B\-\_\-\-T\-I\-L\-E\-S\-\_\-\-Y}~34}\label{const_8h_a1a670fcce2ba2f9ac69a9b9e9b566918}
 
 \item 
-\hypertarget{const_8h_a6068a247ff9ece1b0a9773c58144906c}{\#define {\bfseries L\-A\-R\-G\-E\-U\-R\-\_\-\-F\-E\-N\-E\-T\-R\-E}~T\-A\-I\-L\-L\-E\-\_\-\-B\-L\-O\-C $\ast$ N\-B\-\_\-\-B\-L\-O\-C\-S\-\_\-\-L\-A\-R\-G\-E\-U\-R}\label{const_8h_a6068a247ff9ece1b0a9773c58144906c}
+\hypertarget{const_8h_a2cd109632a6dcccaa80b43561b1ab700}{\#define {\bfseries S\-C\-R\-E\-E\-N\-\_\-\-W\-I\-D\-T\-H}~T\-I\-L\-E\-\_\-\-S\-I\-Z\-E $\ast$ N\-B\-\_\-\-T\-I\-L\-E\-S\-\_\-\-X}\label{const_8h_a2cd109632a6dcccaa80b43561b1ab700}
 
 \item 
-\hypertarget{const_8h_afd1a1e285af564b849b17498e82e1a41}{\#define {\bfseries H\-A\-U\-T\-E\-U\-R\-\_\-\-F\-E\-N\-E\-T\-R\-E}~T\-A\-I\-L\-L\-E\-\_\-\-B\-L\-O\-C $\ast$ N\-B\-\_\-\-B\-L\-O\-C\-S\-\_\-\-H\-A\-U\-T\-E\-U\-R}\label{const_8h_afd1a1e285af564b849b17498e82e1a41}
+\hypertarget{const_8h_a6974d08a74da681b3957b2fead2608b8}{\#define {\bfseries S\-C\-R\-E\-E\-N\-\_\-\-H\-E\-I\-G\-H\-T}~T\-I\-L\-E\-\_\-\-S\-I\-Z\-E $\ast$ N\-B\-\_\-\-T\-I\-L\-E\-S\-\_\-\-Y}\label{const_8h_a6974d08a74da681b3957b2fead2608b8}
+
+\item 
+\hypertarget{const_8h_a52b56784841e87b2521e77da22059937}{\#define {\bfseries T\-I\-L\-E\-S\-E\-T\-\_\-\-L\-A\-S\-T}~8}\label{const_8h_a52b56784841e87b2521e77da22059937}
 
 \item 
 \hypertarget{const_8h_ac92ca5ab87034a348decad7ee8d4bd1b}{\#define {\bfseries F\-P\-S}~60}\label{const_8h_ac92ca5ab87034a348decad7ee8d4bd1b}
 
 \item 
-\hypertarget{const_8h_a26141a4793db30295b597c3af901ddc8}{\#define {\bfseries T\-A\-I\-L\-L\-E\-\_\-\-M\-A\-X\-\_\-\-N\-O\-M\-\_\-\-F\-I\-C\-H\-I\-E\-R}~100}\label{const_8h_a26141a4793db30295b597c3af901ddc8}
+\hypertarget{const_8h_a9620725a4f8ab39e0912adede7cb347f}{\#define {\bfseries M\-A\-X\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}~100}\label{const_8h_a9620725a4f8ab39e0912adede7cb347f}
+
+\item 
+\hypertarget{const_8h_a5f5b551fce6993579430d7edd352e766}{\#define {\bfseries T\-R\-A\-N\-S\-\_\-\-R}~255}\label{const_8h_a5f5b551fce6993579430d7edd352e766}
+
+\item 
+\hypertarget{const_8h_a2e05163a99bed3a22e4b6a0ab2ded999}{\#define {\bfseries T\-R\-A\-N\-S\-\_\-\-G}~255}\label{const_8h_a2e05163a99bed3a22e4b6a0ab2ded999}
+
+\item 
+\hypertarget{const_8h_a5cca986885934b3dc2e524e63c379bcb}{\#define {\bfseries T\-R\-A\-N\-S\-\_\-\-B}~255}\label{const_8h_a5cca986885934b3dc2e524e63c379bcb}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{const_8h_afa7cb00ec26d37d1ba8a7e0b6f32c63f}{typedef struct \hyperlink{struct_level}{Level} {\bfseries Level}}\label{const_8h_afa7cb00ec26d37d1ba8a7e0b6f32c63f}
+
+\item 
+\hypertarget{const_8h_a767ff9e0c58d27b070f30636b66d2603}{typedef struct \hyperlink{struct_map}{Map} {\bfseries Map}}\label{const_8h_a767ff9e0c58d27b070f30636b66d2603}
+
+\item 
+\hypertarget{const_8h_a364e9dcc08d9a51573526c0fb1d8d1d8}{typedef struct \hyperlink{struct_cursor}{Cursor} {\bfseries Cursor}}\label{const_8h_a364e9dcc08d9a51573526c0fb1d8d1d8}
+
+\item 
+\hypertarget{const_8h_ad1857177d745cb364a184655f148144e}{typedef struct \hyperlink{struct_input}{Input} {\bfseries Input}}\label{const_8h_ad1857177d745cb364a184655f148144e}
 
 \end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
-\item 
-enum \{ {\bfseries V\-O\-I\-D} =0, 
-{\bfseries G\-R\-A\-S\-S1} =1, 
-{\bfseries G\-R\-O\-U\-N\-D1} =2, 
-{\bfseries G\-R\-E\-Y\-\_\-\-W\-A\-L\-L} =3
- \}
 \item 
 enum \{ {\bfseries R\-I\-G\-H\-T}, 
 {\bfseries L\-E\-F\-T}, 
@@ -63,9 +102,9 @@ enum \{ {\bfseries R\-I\-G\-H\-T},
 
 
 \subsection{Detailed Description}
-contient les constantes du programme \begin{DoxyAuthor}{Author}
-Xavier C\-O\-P\-O\-N\-E\-T 
+Definitions of every constants and structures used. \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T, Glenn H\-E\-R\-R\-O\-U 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-2014-\/02-\/27 
+2014-\/03-\/18 
 \end{DoxyDate}

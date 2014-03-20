@@ -1,9 +1,14 @@
 <map id="sound.h" name="sound.h">
-<area shape="rect" id="node3" href="$jeu_8h.html" title="header de jeu.c " alt="" coords="5,89,56,122"/>
-<area shape="rect" id="node7" href="$menu_8h.html" title="header de menu.c " alt="" coords="80,89,144,122"/>
-<area shape="rect" id="node11" href="$menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="168,89,267,122"/>
-<area shape="rect" id="node15" href="$sound_8c.html" title="contient les fonction pour jouer du son " alt="" coords="291,89,357,122"/>
-<area shape="rect" id="node5" href="$jeu_8c.html" title="contient les fonction liées au jeu " alt="" coords="5,171,56,205"/>
-<area shape="rect" id="node9" href="$menu_8c.html" title="contient les fonction liées au menu " alt="" coords="80,171,144,205"/>
-<area shape="rect" id="node13" href="$menu__level_8c.html" title="Menu gerant le choix du niveau. " alt="" coords="168,171,267,205"/>
+<area shape="rect" id="node3" href="$game_8h.html" title="header de game.c " alt="" coords="38,254,102,287"/>
+<area shape="rect" id="node7" href="$main_8c.html" title="main.c" alt="" coords="273,337,334,370"/>
+<area shape="rect" id="node9" href="$player_8h.html" title="header de player.c " alt="" coords="125,89,191,122"/>
+<area shape="rect" id="node17" href="$menu_8h.html" title="header de menu.c " alt="" coords="211,254,275,287"/>
+<area shape="rect" id="node22" href="$menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="350,254,449,287"/>
+<area shape="rect" id="node32" href="$sound_8c.html" title="contient les fonction pour jouer du son " alt="" coords="401,89,467,122"/>
+<area shape="rect" id="node5" href="$game_8c.html" title="contient les fonction liées au jeu " alt="" coords="38,337,102,370"/>
+<area shape="rect" id="node12" href="$input_8h_source.html" title="input.h" alt="" coords="163,171,225,205"/>
+<area shape="rect" id="node27" href="$player_8c.html" title="contient les fonction pour manipuler le joueur " alt="" coords="22,171,89,205"/>
+<area shape="rect" id="node15" href="$input_8c.html" title="input.c" alt="" coords="126,254,187,287"/>
+<area shape="rect" id="node20" href="$menu_8c.html" title="contient les fonction liées au menu " alt="" coords="185,337,249,370"/>
+<area shape="rect" id="node25" href="$menu__level_8c.html" title="Menu gerant le choix du niveau. " alt="" coords="358,337,457,370"/>
 </map>

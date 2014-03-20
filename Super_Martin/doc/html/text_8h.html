@@ -108,22 +108,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="text_8h__dep__incl.png" border="0" usemap="#text_8hdep" alt=""/></div>
 <map name="text_8hdep" id="text_8hdep">
-<area shape="rect" id="node3" href="jeu_8h.html" title="header de jeu.c " alt="" coords="5,89,56,122"/><area shape="rect" id="node7" href="menu_8h.html" title="header de menu.c " alt="" coords="80,89,144,122"/><area shape="rect" id="node11" href="menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="168,89,267,122"/><area shape="rect" id="node15" href="text_8c.html" title="contient les fonction pour afficher du texte à l&#39;écran " alt="" coords="291,89,344,122"/><area shape="rect" id="node5" href="jeu_8c.html" title="contient les fonction liées au jeu " alt="" coords="5,171,56,205"/><area shape="rect" id="node9" href="menu_8c.html" title="contient les fonction liées au menu " alt="" coords="80,171,144,205"/><area shape="rect" id="node13" href="menu__level_8c.html" title="Menu gerant le choix du niveau. " alt="" coords="168,171,267,205"/></map>
+<area shape="rect" id="node3" href="game_8h.html" title="header de game.c " alt="" coords="48,89,112,122"/><area shape="rect" id="node9" href="menu_8h.html" title="header de menu.c " alt="" coords="136,89,200,122"/><area shape="rect" id="node14" href="menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="224,89,323,122"/><area shape="rect" id="node19" href="text_8c.html" title="contient les fonction pour afficher du texte à l&#39;écran " alt="" coords="347,89,400,122"/><area shape="rect" id="node5" href="game_8c.html" title="contient les fonction liées au jeu " alt="" coords="5,171,69,205"/><area shape="rect" id="node7" href="main_8c.html" title="main.c" alt="" coords="93,171,155,205"/><area shape="rect" id="node12" href="menu_8c.html" title="contient les fonction liées au menu " alt="" coords="179,171,243,205"/><area shape="rect" id="node17" href="menu__level_8c.html" title="Menu gerant le choix du niveau. " alt="" coords="267,171,365,205"/></map>
 </div>
 </div>
 <p><a href="text_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a890bd15eb3d51cac26c63afdaf0018d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8h.html#a890bd15eb3d51cac26c63afdaf0018d6">printText</a> (SDL_Surface *screen, SDL_Rect *posText, char *text, SDL_Color color, char *font, int ptSize, int mode)</td></tr>
-<tr class="separator:a890bd15eb3d51cac26c63afdaf0018d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bd80be1aff6fe5303bdd5aa80161da3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8h.html#a1bd80be1aff6fe5303bdd5aa80161da3">printText</a> (SDL_Surface *screen, SDL_Rect *posText, char *text, int r, int g, int b, char *font, int ptSize, int mode)</td></tr>
+<tr class="separator:a1bd80be1aff6fe5303bdd5aa80161da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>header de <a class="el" href="text_8c.html" title="contient les fonction pour afficher du texte à l&#39;écran ">text.c</a> </p>
 <dl class="section author"><dt>Author</dt><dd>Xavier COPONET </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2014-02-27 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a890bd15eb3d51cac26c63afdaf0018d6"></a>
+<a class="anchor" id="a1bd80be1aff6fe5303bdd5aa80161da3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -148,8 +148,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SDL_Color&#160;</td>
-          <td class="paramname"><em>color</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -182,7 +194,9 @@ Functions</h2></td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>L'écran </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">posText</td><td>La position du texte à afficher ; si NULL, centré en largeur et hauteur </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>Le texte à afficher </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>la couleur du texte </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>r red value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>g green value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>b blue value </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>L'adresse de la police d'affichage (.ttf) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ptSize</td><td>la taille du texte à afficher </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>Le mode d'écriture : 0 (Solid), 1 (Blended) </td></tr>
@@ -195,7 +209,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 18 2014 18:00:51 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

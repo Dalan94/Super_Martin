@@ -98,7 +98,7 @@ Include dependency graph for menu.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="menu_8c__incl.png" border="0" usemap="#menu_8c" alt=""/></div>
 <map name="menu_8c" id="menu_8c">
-<area shape="rect" id="node3" href="menu_8h.html" title="header de menu.c " alt="" coords="463,89,527,122"/><area shape="rect" id="node17" href="const_8h.html" title="contient les constantes du programme " alt="" coords="789,254,853,287"/><area shape="rect" id="node19" href="text_8h.html" title="header de text.c " alt="" coords="404,171,457,205"/><area shape="rect" id="node27" href="sound_8h.html" title="header de sound.c " alt="" coords="263,171,329,205"/><area shape="rect" id="node34" href="share_8h_source.html" title="share.h" alt="" coords="724,171,788,205"/><area shape="rect" id="node38" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="532,171,599,205"/></map>
+<area shape="rect" id="node3" href="menu_8h.html" title="header de menu.c " alt="" coords="648,89,712,122"/><area shape="rect" id="node17" href="const_8h.html" title="contient les constantes du programme " alt="" coords="997,419,1061,453"/><area shape="rect" id="node19" href="text_8h.html" title="header de text.c " alt="" coords="299,337,352,370"/><area shape="rect" id="node27" href="sound_8h.html" title="header de sound.c " alt="" coords="1400,419,1467,453"/><area shape="rect" id="node34" href="share_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1048,337,1112,370"/><area shape="rect" id="node38" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="603,337,669,370"/><area shape="rect" id="node46" href="input_8h_source.html" title="input.h" alt="" coords="785,171,847,205"/><area shape="rect" id="node52" href="player_8h.html" title="header de player.c " alt="" coords="927,254,993,287"/><area shape="rect" id="node60" href="file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1187,337,1269,370"/><area shape="rect" id="node66" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="1136,419,1187,453"/></map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -106,18 +106,52 @@ Functions</h2></td></tr>
 <tr class="memitem:a4604196e3bcbd88eb0a7888effc9dc6f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4604196e3bcbd88eb0a7888effc9dc6f"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>menu</b> (SDL_Surface *screen, int *continuer, <a class="el" href="struct_sound.html">Sound</a> *s)</td></tr>
 <tr class="separator:a4604196e3bcbd88eb0a7888effc9dc6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0943f574afa5b9e3928862fd99df0d4b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0943f574afa5b9e3928862fd99df0d4b"></a>
-Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>blinkText</b> (Uint32 intervalle, void *parametre)</td></tr>
-<tr class="separator:a0943f574afa5b9e3928862fd99df0d4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379c27eb17605f99e8d92b6045104ed4"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8c.html#a379c27eb17605f99e8d92b6045104ed4">blinkText</a> (Uint32 interval, void *param)</td></tr>
+<tr class="separator:a379c27eb17605f99e8d92b6045104ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>contient les fonction liées au menu </p>
 <dl class="section author"><dt>Author</dt><dd>Xavier COPONET </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2014-02-27 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a379c27eb17605f99e8d92b6045104ed4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Uint32 blinkText </td>
+          <td>(</td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>interval</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>param</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>toggle the printing text boolean </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">interval</td><td>the interval between two callback of the function </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1000 if the boolean is right, 600 if not </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 18 2014 18:00:51 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

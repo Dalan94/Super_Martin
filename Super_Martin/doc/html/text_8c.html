@@ -103,15 +103,15 @@ Include dependency graph for text.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a890bd15eb3d51cac26c63afdaf0018d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8c.html#a890bd15eb3d51cac26c63afdaf0018d6">printText</a> (SDL_Surface *screen, SDL_Rect *posText, char *text, SDL_Color color, char *font, int ptSize, int mode)</td></tr>
-<tr class="separator:a890bd15eb3d51cac26c63afdaf0018d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bd80be1aff6fe5303bdd5aa80161da3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3">printText</a> (SDL_Surface *screen, SDL_Rect *posText, char *text, int r, int g, int b, char *font, int ptSize, int mode)</td></tr>
+<tr class="separator:a1bd80be1aff6fe5303bdd5aa80161da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>contient les fonction pour afficher du texte à l'écran </p>
 <dl class="section author"><dt>Author</dt><dd>Xavier COPONET </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2014-02-27 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a890bd15eb3d51cac26c63afdaf0018d6"></a>
+<a class="anchor" id="a1bd80be1aff6fe5303bdd5aa80161da3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -136,8 +136,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SDL_Color&#160;</td>
-          <td class="paramname"><em>color</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -170,7 +182,9 @@ Functions</h2></td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>L'écran </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">posText</td><td>La position du texte à afficher ; si NULL, centré en largeur et hauteur </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>Le texte à afficher </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>la couleur du texte </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>r red value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>g green value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>b blue value </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>L'adresse de la police d'affichage (.ttf) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ptSize</td><td>la taille du texte à afficher </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>Le mode d'écriture : 0 (Solid), 1 (Blended) </td></tr>
@@ -183,7 +197,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 18 2014 18:00:51 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

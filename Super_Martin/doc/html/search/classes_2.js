@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['map',['Map',['../struct_map.html',1,'']]]
+  ['level',['Level',['../struct_level.html',1,'']]]
 ];

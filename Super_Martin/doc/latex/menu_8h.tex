@@ -17,8 +17,8 @@ header de \hyperlink{menu_8c}{menu.\-c}
 {\ttfamily \#include \char`\"{}sound.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}share.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
-Include dependency graph for menu.\-h\-:
-\nopagebreak
+{\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
+Include dependency graph for menu.\-h\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -29,7 +29,7 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=128pt]{menu_8h__dep__incl}
+\includegraphics[width=192pt]{menu_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
@@ -38,8 +38,7 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \hypertarget{menu_8h_a4604196e3bcbd88eb0a7888effc9dc6f}{int {\bfseries menu} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$continuer, \hyperlink{struct_sound}{Sound} $\ast$s)}\label{menu_8h_a4604196e3bcbd88eb0a7888effc9dc6f}
 
 \item 
-\hypertarget{menu_8h_a0943f574afa5b9e3928862fd99df0d4b}{Uint32 {\bfseries blink\-Text} (Uint32 intervalle, void $\ast$parametre)}\label{menu_8h_a0943f574afa5b9e3928862fd99df0d4b}
-
+Uint32 \hyperlink{menu_8h_a379c27eb17605f99e8d92b6045104ed4}{blink\-Text} (Uint32 interval, void $\ast$param)
 \end{DoxyCompactItemize}
 
 
@@ -50,3 +49,22 @@ Xavier C\-O\-P\-O\-N\-E\-T
 \begin{DoxyDate}{Date}
 2014-\/02-\/27 
 \end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{menu_8h_a379c27eb17605f99e8d92b6045104ed4}{\index{menu.\-h@{menu.\-h}!blink\-Text@{blink\-Text}}
+\index{blink\-Text@{blink\-Text}!menu.h@{menu.\-h}}
+\subsubsection[{blink\-Text}]{\setlength{\rightskip}{0pt plus 5cm}Uint32 blink\-Text (
+\begin{DoxyParamCaption}
+\item[{Uint32}]{interval, }
+\item[{void $\ast$}]{param}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a379c27eb17605f99e8d92b6045104ed4}
+toggle the printing text boolean 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em interval} & the interval between two callback of the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1000 if the boolean is right, 600 if not 
+\end{DoxyReturn}
