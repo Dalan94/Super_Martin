@@ -153,7 +153,7 @@ char **readLevelFile(int *nb_lvl)
     FILE *ptr_file;
     int i;
 
-    ptr_file=openFile("/home/glenn/GIT/Super_Martin/Super_Martin/level/level","r");
+    ptr_file=openFile("../Super_Martin/level/level","r");
     if (ptr_file == NULL)
      {
         printf("\nError opening file 'level/level'\n");

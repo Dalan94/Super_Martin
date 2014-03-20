@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Super Martin Level Editor: map.h File Reference</title>
+<title>Super Martin Level Editor: map.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,30 +86,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">map.h File Reference</div>  </div>
+<div class="title">map.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Header of <a class="el" href="map_8c.html" title="Contains the functions managing the maps. ">map.c</a>.  
+<p>Contains the functions managing the maps.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="const_8h_source.html">const.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="game_8h_source.html">game.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for map.h:</div>
+Include dependency graph for map.c:</div>
 <div class="dyncontent">
-<div class="center"><img src="map_8h__incl.png" border="0" usemap="#map_8h" alt=""/></div>
-<map name="map_8h" id="map_8h">
-<area shape="rect" id="node3" href="const_8h.html" title="Definitions of every constants and structures used. " alt="" coords="221,89,285,122"/></map>
+<div class="center"><img src="map_8c__incl.png" border="0" usemap="#map_8c" alt=""/></div>
+<map name="map_8c" id="map_8c">
+<area shape="rect" id="node3" href="game_8h.html" title="Header of game.c. " alt="" coords="316,89,380,122"/><area shape="rect" id="node5" href="const_8h.html" title="Definitions of every constants and structures used. " alt="" coords="289,254,353,287"/><area shape="rect" id="node19" href="file__level_8h.html" title="Header of file_level.c. " alt="" coords="419,171,501,205"/><area shape="rect" id="node31" href="input_8h.html" title="Header of input.c. " alt="" coords="200,171,261,205"/><area shape="rect" id="node34" href="map_8h.html" title="Header of map.c. " alt="" coords="285,171,344,205"/><area shape="rect" id="node24" href="file_8h.html" title="Header of file.c. " alt="" coords="543,254,593,287"/></map>
 </div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="map_8h__dep__incl.png" border="0" usemap="#map_8hdep" alt=""/></div>
-<map name="map_8hdep" id="map_8hdep">
-<area shape="rect" id="node3" href="game_8h.html" title="Header of game.c. " alt="" coords="92,89,156,122"/><area shape="rect" id="node5" href="game_8c.html" title="Contains the principal function of the game. " alt="" coords="5,171,69,205"/><area shape="rect" id="node7" href="main_8c.html" title="main.c" alt="" coords="93,171,155,205"/><area shape="rect" id="node9" href="map_8c.html" title="Contains the functions managing the maps. " alt="" coords="179,171,237,205"/></map>
-</div>
-</div>
-<p><a href="map_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aba96287d54d5dbd87f817b62e7efa044"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba96287d54d5dbd87f817b62e7efa044"></a>
@@ -118,32 +109,35 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>updateScreenMap</b> (
 <tr class="memitem:ae76ef8a67afdd6dbc20eb19767f32933"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae76ef8a67afdd6dbc20eb19767f32933"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>scrolling</b> (<a class="el" href="struct_map.html">Map</a> *m, int direction)</td></tr>
 <tr class="separator:ae76ef8a67afdd6dbc20eb19767f32933"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ab71b3daf19eb6c3b544d408b8826e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_map.html">Map</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8h.html#a7ab71b3daf19eb6c3b544d408b8826e0">initMap</a> (<a class="el" href="struct_level.html">Level</a> *lvl, SDL_Surface *screen)</td></tr>
-<tr class="separator:a7ab71b3daf19eb6c3b544d408b8826e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49f0a1130f157d0c35bd28f892b6a76b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_map.html">Map</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map_8c.html#a49f0a1130f157d0c35bd28f892b6a76b">initMap</a> (<a class="el" href="struct_level.html">Level</a> *lvl, SDL_Surface *screen)</td></tr>
+<tr class="separator:a49f0a1130f157d0c35bd28f892b6a76b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8d4dd6fc80c79d9cb5899684740d074"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8d4dd6fc80c79d9cb5899684740d074"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>freeMap</b> (<a class="el" href="struct_map.html">Map</a> *m)</td></tr>
+<tr class="separator:ac8d4dd6fc80c79d9cb5899684740d074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4369c88fdf5425995721d7e216da126"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac4369c88fdf5425995721d7e216da126"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>saveMap</b> (<a class="el" href="struct_map.html">Map</a> *m)</td></tr>
 <tr class="separator:ac4369c88fdf5425995721d7e216da126"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4cf529aaa793ecc4853065526d6151c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab4cf529aaa793ecc4853065526d6151c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>reinitMap</b> (<a class="el" href="struct_map.html">Map</a> *m)</td></tr>
+<tr class="separator:ab4cf529aaa793ecc4853065526d6151c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25a06c1f70073c5a3953188d50769059"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25a06c1f70073c5a3953188d50769059"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>cleanString</b> (const char *buffer, FILE *fp)</td></tr>
 <tr class="separator:a25a06c1f70073c5a3953188d50769059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7a83d90f4e3ff66110288a89eac5bfe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7a83d90f4e3ff66110288a89eac5bfe"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>clean_stdin</b> (void)</td></tr>
 <tr class="separator:aa7a83d90f4e3ff66110288a89eac5bfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8d4dd6fc80c79d9cb5899684740d074"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac8d4dd6fc80c79d9cb5899684740d074"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>freeMap</b> (<a class="el" href="struct_map.html">Map</a> *m)</td></tr>
-<tr class="separator:ac8d4dd6fc80c79d9cb5899684740d074"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header of <a class="el" href="map_8c.html" title="Contains the functions managing the maps. ">map.c</a>. </p>
+<div class="textblock"><p>Contains the functions managing the maps. </p>
 <dl class="section author"><dt>Author</dt><dd>Xavier COPONET, Glenn HERROU </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2014-03-18 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a7ab71b3daf19eb6c3b544d408b8826e0"></a>
+<a class="anchor" id="a49f0a1130f157d0c35bd28f892b6a76b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_map.html">Map</a>* initMap </td>
+          <td class="memname"><a class="el" href="struct_map.html">Map</a> * initMap </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_level.html">Level</a> *&#160;</td>
           <td class="paramname"><em>lvl</em>, </td>

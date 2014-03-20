@@ -140,7 +140,7 @@ void saveMap(Map *m){
             exit(1);
         }*/
 
-    ptr_file_level = fopen("/home/glenn/GIT/Super_Martin/Super_Martin/level/level", "r+");
+    ptr_file_level = fopen("../Super_Martin/level/level", "r+");
 
     if(ptr_file_level == NULL){
 
@@ -187,7 +187,7 @@ void saveMap(Map *m){
     printf("Map %s saved\n", level_name_tmp);
     /*  Write the level in the file */
 
-    sprintf(level_name,"/home/glenn/GIT/Super_Martin/Super_Martin/level/%s.lvl",level_name_tmp);
+    sprintf(level_name,"../Super_Martin/level/%s.lvl",level_name_tmp);
 
 
     writeLevel(level_name, m->lvl);
