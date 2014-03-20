@@ -25,6 +25,7 @@ void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r,int g, 
 
     SDL_Surface *textSurface = NULL;
     SDL_Color color = {r,g,b};
+    int allocateSDL_Rect = 0;
 
     /*chargement de TTF*/
     TTF_Init();
@@ -52,6 +53,7 @@ void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r,int g, 
     }
 
     if(posText == NULL){
+        allocateSDL_Rect = 1;
         posText = (SDL_Rect *) malloc(sizeof(SDL_Rect));
         posText->h = posText->w = 0;
         posText->x = screen->w/2-textSurface->w/2;
@@ -64,6 +66,8 @@ void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r,int g, 
     SDL_FreeSurface(textSurface);
     TTF_CloseFont(ttfFont);
     TTF_Quit();
+    if(allocateSDL_Rect)
+        free((void *)posText);
 
 }
 
