@@ -40,7 +40,7 @@ int updateEvents(Input* in)
 
 
 /**
- *\fn void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player)
+ *\fn void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration)
  *perform action command by keyboard action
  *\param[in] in the input structure
  *\param[out] move_left the left movement boolean
@@ -48,20 +48,20 @@ int updateEvents(Input* in)
  *\param[out] jump the jump boolean
  *\param[out] pause the pause boolean
  *\param[in] player the Player
-
+ *\param[in] acceleration the acceleration
  */
-void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player)
+void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration)
 {
     /*left move*/
     if(in->key[SDLK_LEFT] && (player->isJumping > TAILLE_SAUT - 4 || (player->isJumping == 0 && player->isOnGround)))
         *move_left = 1;
-    if(!in->key[SDLK_LEFT])
+    if(!in->key[SDLK_LEFT]  && player->isOnGround)
         *move_left = 0;
 
     /*right move*/
     if(in->key[SDLK_RIGHT] && (player->isJumping > TAILLE_SAUT - 4 || (player->isJumping == 0 && player->isOnGround)))
         *move_right = 1;
-    if(!in->key[SDLK_RIGHT])
+    if(!in->key[SDLK_RIGHT] && player->isOnGround)
         *move_right = 0;
 
     /*jump*/
@@ -73,6 +73,9 @@ void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *
         /*pause*/
     if(in->key[SDLK_p])
         *pause = 1;
+
+    if (!in->key[SDLK_RIGHT] && !in->key[SDLK_LEFT] && player->isOnGround)
+        *acceleration = 0;
 }
 
 

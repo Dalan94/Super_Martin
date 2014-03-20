@@ -17,7 +17,7 @@ typedef struct
 
 /*prototype*/
 int updateEvents(Input* in);
-void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause,Character *player);
+void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause,Character *player,int *acceleration);
 int updateWaitEvents(Input* in);
 void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl);
 

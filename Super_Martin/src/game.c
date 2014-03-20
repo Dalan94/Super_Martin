@@ -111,7 +111,7 @@ void play(SDL_Surface *screen, char *level_name){
 
         /* récupération des inputs clavier et gestion de leurs auctions*/
         updateEvents(&in);
-        keyboardActionGame(&in,&move_left,&move_right,&jump,&pause,player);
+        keyboardActionGame(&in,&move_left,&move_right,&jump,&pause,player,&acceleration);
 
         if(in.quit)
             continuer = 0;
@@ -122,10 +122,15 @@ void play(SDL_Surface *screen, char *level_name){
             player->isJumping = 0;
             /* ********* */
 
+        if(!player->isJumping)
+            gravity(player,m,screen);
+        else
+            jumping(player,m,sound_jump);
+
         /* gestion de la mort*/
-        if((player->location.y+player->spriteL->h) >= m->lvl->height*TAILLE_BLOC-(2*TAILLE_BLOC))
+        if((player->location.y+player->spriteL->h) >= m->lvl->height*TAILLE_BLOC-1)
             player->life = 0;
-        if (old_time != m->lvl->timer_level)
+        if (old_time != m->lvl->timer_level || !player->life)
         {
             if(!(m->lvl->timer_level>0 && player->life))
             {
@@ -171,11 +176,6 @@ void play(SDL_Surface *screen, char *level_name){
 
 
         waitFPS(&previous_time,&current_time);
-
-        if(!player->isJumping)
-            gravity(player,m,screen);
-        else
-            jumping(player,m,sound_jump);
 
         SDL_Flip(screen);//affichage de l'écran
     } //while
@@ -272,13 +272,13 @@ void updateSpeed(float *speed, int acceleration)
             *speed = 1;
             break;
         case 5:
-            *speed = 3;
+            *speed = 2;
             break;
         case 10:
-            *speed = 5;
+            *speed = 3;
             break;
         case 15:
-            *speed=7;
+            *speed=4;
             break;
         case 20 :
             *speed = MAX_SPEED;

@@ -219,6 +219,10 @@ void jumping(Character *c, Map *m,Sound *jump_sound){
     }
 
     c->isOnGround = 0;
-    moveCharacter(c,UP,m,6);
+    if (c->isJumping < 6)
+        moveCharacter(c,UP,m,c->isJumping);
+    else
+        moveCharacter(c,UP,m,6);
     c->isJumping --;
+
 }
