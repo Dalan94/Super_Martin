@@ -140,7 +140,7 @@ void saveMap(Map *m){
             exit(1);
         }*/
 
-    ptr_file_level = fopen("level/level", "r+");
+    ptr_file_level = fopen("/home/glenn/GIT/Super_Martin/Super_Martin/level/level", "r+");
 
     if(ptr_file_level == NULL){
 
@@ -149,7 +149,7 @@ void saveMap(Map *m){
     }
 
     level_list = readLevelFile(&level_number);
-    printf("%d\n", level_number);
+    printf("Number of levels already in the list : %d\n", level_number);
     /*  Manage the file name conflicts */
     while(wrong_name){
 
@@ -187,7 +187,7 @@ void saveMap(Map *m){
     printf("Map %s saved\n", level_name_tmp);
     /*  Write the level in the file */
 
-    sprintf(level_name,"level/%s.lvl",level_name_tmp);
+    sprintf(level_name,"/home/glenn/GIT/Super_Martin/Super_Martin/level/%s.lvl",level_name_tmp);
 
 
     writeLevel(level_name, m->lvl);
@@ -203,9 +203,15 @@ void saveMap(Map *m){
   *\param[in,out] m The map to reinit
   */
 
-/*void reinitMap(Map *m){
+void reinitMap(Map *m){
 
-}*/
+    int i,j;
+    for(i=0 ; i < m->lvl->height ; i++)
+    {
+        for (j=0 ; j < m->lvl->width ; j++)
+            m->lvl->map[i][j]=0;
+    }
+}
 
 void cleanString(const char *buffer, FILE *fp)
 {

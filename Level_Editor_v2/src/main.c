@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     int go = 1;
 
-    char level_name[MAX_LENGTH_FILE_NAME] = "level/test1.lvl";
+    char level_name[MAX_LENGTH_FILE_NAME] = "/home/glenn/GIT/Super_Martin/Super_Martin/level/test1.lvl";
 
     SDL_Init(SDL_INIT_VIDEO);
 
