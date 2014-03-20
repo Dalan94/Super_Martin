@@ -1,6 +1,6 @@
 /*!
  * \file player.c
- * \brief contient les fonction pour manipuler le joueur
+ * \brief manipulate character
  * \author Xavier COPONET
  * \date 2014-02-27
  */
@@ -9,10 +9,10 @@
 
 /**
  *\fn Character *createrCharacter(char *spR,char *spL)
- *créer un personnage
- *\param[in] spR l'adresse de la sprite droite
- *\param[in] spL l'adresse de la sprite gauche
- *\return le pointeur sur la structure créée
+ *create a character
+ *\param[in] spR right sprite address
+ *\param[in] spL right sprite address
+ *\return structure pointer
  */
 Character *createrCharacter(char *spR,char *spL){
     Character *c;
@@ -38,12 +38,12 @@ Character *createrCharacter(char *spR,char *spL){
 
 /**
  *\fn void moveCharacter(Character *c,int direction, Map *m,float speed)
- *déplace le personnage selon la direction
- *\param[in,out] c Le personnage
- *\param[in] direction La direction du déplacement
- *\param[in] m la carte sur laquelle le personnage se déplace
- *\param[in] speed la vitesse de déplacement
- *\return 1 si le personnage a pu se deplacer normalement, 0 s'il a fallut affiner
+ *move player according the direction
+ *\param[in,out] c the character
+ *\param[in] direction movement direction
+ *\param[in] m level map
+ *\param[in] speed movement speed
+ *\return 1 if character was moved without using the precise movement function, 0 if not
  */
 int moveCharacter(Character *c,int direction,Map *m,float speed){
     int vx = 0,vy = 0;
@@ -112,10 +112,10 @@ void movementVector(int direction, int *vx, int *vy,int speed,Character *c){
 
 /**
  *\fn void blitCharacter(SDL_Surface *screen, Character *c, Map *m)
- *blit le personnage à l'écran
- *\param[in,out] screen L'écran
- *\param[in] c Le personnage
- *\param[in] m la carte du jeu
+ *blit the character
+ *\param[in,out] screen game screen
+ *\param[in] c the character
+ *\param[in] m game map
  */
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
     SDL_Rect pos;
@@ -134,10 +134,10 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
 
 /**
  *\fn int collisionSprite(SDL_Rect r,Map *m)
- *détermine s'il y a collision entre une sprite et le décor
- *\param[in] r le SDL_Rect correspondant à la sprite
- *\param[in] m la carte contenant le décor
- *\return 1 s'il y a collision ou si en dehors du monde, 0 sinon
+ *determine if there is a collision beteewen a sprite and a "wall" of the map
+ *\param[in] r SDL_Rect corresponding to the sprite
+ *\param[in] m map
+ *\return 1 if there is a collision, 0 if not
  */
 int collisionSprite(SDL_Rect r,Map *m){
     int i,j;
