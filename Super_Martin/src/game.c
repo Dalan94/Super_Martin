@@ -27,7 +27,7 @@ void play(SDL_Surface *screen, char *level_name){
     /*gestion du temps*/
     char charTime[5];
     SDL_TimerID timer = NULL;
-    SDL_Rect posTime={10,10,0,0}, posLife = {screen->w - 50,10,0,0};
+    SDL_Rect posTime={40,10,0,0};
     SDL_Color black = {0,0,0};
     int previous_time=0;
     int current_time=0;
@@ -49,6 +49,11 @@ void play(SDL_Surface *screen, char *level_name){
     SDL_Surface *background = NULL;
     SDL_Rect posBack;
     SDL_Event event;
+    SDL_Surface *heart = NULL;
+    SDL_Rect posHeart = {screen->w-105,10,0,0},posLife = {screen->w-70,10,0,0};
+    SDL_Surface *watch;
+    SDL_Rect posWatch = {10,10,0,0};
+
 
     /*Gestion des mouvements*/
     int move_right=0;
@@ -94,6 +99,13 @@ void play(SDL_Surface *screen, char *level_name){
 
     current_time=previous_time=SDL_GetTicks();
 
+    heart = imageLoadAlpha("sprites/Heart.png");
+    watch = imageLoadAlpha("sprites/watch.png");
+    if(heart == NULL)
+    {
+        perror("error while loading heart sprite");
+        exit(errno);
+    }
 
     while(!in.key[SDLK_ESCAPE] && continuer){
 
@@ -138,11 +150,16 @@ void play(SDL_Surface *screen, char *level_name){
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
-
+        /*affichage temps*/
         printText(screen,&posTime,charTime,0,0,0,"polices/code.otf",20,0);
+        SDL_BlitSurface(watch,NULL,screen,&posWatch);
+        /* ***** */
 
+        /*affichage de la vie*/
         sprintf(charLife,"%d",player->life);
         printText(screen,&posLife,charLife,255,100,100,"polices/code.otf",20,1);
+        SDL_BlitSurface(heart,NULL,screen,&posHeart);
+        /* ****** */
 
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
@@ -264,7 +281,7 @@ void updateSpeed(float *speed, int acceleration)
             *speed=7;
             break;
         case 20 :
-            *speed = 8;
+            *speed = MAX_SPEED;
             break;
         default:;
     }
