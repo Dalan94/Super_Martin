@@ -31,7 +31,6 @@ int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound 
     Input in;
 
     SDL_Rect posText={0,0,0,0};
-    SDL_Color black = {0, 0, 0}; /*couleur pour le texte*/
 
     /*winting screen */
     waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");

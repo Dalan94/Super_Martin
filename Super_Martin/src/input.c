@@ -127,7 +127,7 @@ void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
     if(in->key[SDLK_UP])
     {
         (*cursorPos)--;
-        if(cursorPos < 0)
+        if(*cursorPos < 0)
             (*cursorPos) = nb_lvl-1;
     }
     if(in->key[SDLK_DOWN])

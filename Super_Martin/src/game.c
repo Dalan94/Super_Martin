@@ -28,7 +28,6 @@ void play(SDL_Surface *screen, char *level_name){
     char charTime[5];
     SDL_TimerID timer = NULL;
     SDL_Rect posTime={40,10,0,0};
-    SDL_Color black = {0,0,0};
     int previous_time=0;
     int current_time=0;
     int old_time=201;
@@ -48,7 +47,6 @@ void play(SDL_Surface *screen, char *level_name){
     /*définition des surfaces*/
     SDL_Surface *background = NULL;
     SDL_Rect posBack;
-    SDL_Event event;
     SDL_Surface *heart = NULL;
     SDL_Rect posHeart = {screen->w-105,10,0,0},posLife = {screen->w-70,10,0,0};
     SDL_Surface *watch;
@@ -300,7 +298,6 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer)
     SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
 
-    int cont = 1;
     int time_pause=*time;
 
     gameOver = IMG_Load("sprites/game-over.jpg");
