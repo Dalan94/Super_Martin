@@ -1,0 +1,170 @@
+\hypertarget{jeu_8c}{\section{jeu.\-c File Reference}
+\label{jeu_8c}\index{jeu.\-c@{jeu.\-c}}
+}
+
+
+contient les fonction liées au jeu  
+
+
+{\ttfamily \#include \char`\"{}jeu.\-h\char`\"{}}\\*
+Include dependency graph for jeu.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jeu_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{jeu_8c_ae9a0a76fc32328b2b6e4923f01c7de89}{jouer} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name)
+\item 
+\hypertarget{jeu_8c_a93e611e5879ce7399e92ab03d151acc3}{void {\bfseries update\-Screen\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_map}{Map} $\ast$m)}\label{jeu_8c_a93e611e5879ce7399e92ab03d151acc3}
+
+\item 
+void \hyperlink{jeu_8c_a6f031e5ad35ada9038d3a72a56053760}{scrolling} (\hyperlink{struct_map}{Map} $\ast$m, int direction, float speed)
+\item 
+\hypertarget{jeu_8c_ad16d857230b785e820b9b497b50b7fff}{Uint32 {\bfseries decomptage} (Uint32 intervalle, void $\ast$parametre)}\label{jeu_8c_ad16d857230b785e820b9b497b50b7fff}
+
+\item 
+\hyperlink{struct_map}{Map} $\ast$ \hyperlink{jeu_8c_a49f0a1130f157d0c35bd28f892b6a76b}{init\-Map} (\hyperlink{struct_level}{Level} $\ast$lvl, S\-D\-L\-\_\-\-Surface $\ast$screen)
+\item 
+\hypertarget{jeu_8c_ac8d4dd6fc80c79d9cb5899684740d074}{void {\bfseries free\-Map} (\hyperlink{struct_map}{Map} $\ast$m)}\label{jeu_8c_ac8d4dd6fc80c79d9cb5899684740d074}
+
+\item 
+void \hyperlink{jeu_8c_a8c1653310113496aa24fa5d3c86461a6}{print\-Game\-Over} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$continuer)
+\item 
+void \hyperlink{jeu_8c_a297ffd698dfe4680eb42f1a1335697c2}{move} (int move\-\_\-left, int move\-\_\-right, \hyperlink{struct_character}{Character} $\ast$player, \hyperlink{struct_map}{Map} $\ast$m, float speed)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contient les fonction liées au jeu \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/02-\/27 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{jeu_8c_a49f0a1130f157d0c35bd28f892b6a76b}{\index{jeu.\-c@{jeu.\-c}!init\-Map@{init\-Map}}
+\index{init\-Map@{init\-Map}!jeu.c@{jeu.\-c}}
+\subsubsection[{init\-Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map} $\ast$ init\-Map (
+\begin{DoxyParamCaption}
+\item[{{\bf Level} $\ast$}]{lvl, }
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen}
+\end{DoxyParamCaption}
+)}}\label{jeu_8c_a49f0a1130f157d0c35bd28f892b6a76b}
+initialise la carte 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em screen} & l'écran de jeu \\
+\hline
+\mbox{\tt in}  & {\em level} & le niveau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un pointeur sur la carte initialisée 
+\end{DoxyReturn}
+\hypertarget{jeu_8c_ae9a0a76fc32328b2b6e4923f01c7de89}{\index{jeu.\-c@{jeu.\-c}!jouer@{jouer}}
+\index{jouer@{jouer}!jeu.c@{jeu.\-c}}
+\subsubsection[{jouer}]{\setlength{\rightskip}{0pt plus 5cm}void jouer (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char $\ast$}]{level\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{jeu_8c_ae9a0a76fc32328b2b6e4923f01c7de89}
+contient la boucle principale du jeu qui appelle les fonctions 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & L'écran de jeu \\
+\hline
+\mbox{\tt in}  & {\em lvel\-\_\-name} & le nom du niveau \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jeu_8c_ae9a0a76fc32328b2b6e4923f01c7de89_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{jeu_8c_a297ffd698dfe4680eb42f1a1335697c2}{\index{jeu.\-c@{jeu.\-c}!move@{move}}
+\index{move@{move}!jeu.c@{jeu.\-c}}
+\subsubsection[{move}]{\setlength{\rightskip}{0pt plus 5cm}void move (
+\begin{DoxyParamCaption}
+\item[{int}]{move\-\_\-left, }
+\item[{int}]{move\-\_\-right, }
+\item[{{\bf Character} $\ast$}]{player, }
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{float}]{speed}
+\end{DoxyParamCaption}
+)}}\label{jeu_8c_a297ffd698dfe4680eb42f1a1335697c2}
+Deplace le joueur et scrolle l'ecran si besoin 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em move\-\_\-left} & booleen pour savoir si l'on bouge a gauche \\
+\hline
+\mbox{\tt in}  & {\em move\-\_\-right} & booleen pour savoir si l'on bouge a droite \\
+\hline
+\mbox{\tt in}  & {\em player} & le joueur \\
+\hline
+\mbox{\tt in}  & {\em m} & la carte \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jeu_8c_a297ffd698dfe4680eb42f1a1335697c2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{jeu_8c_a8c1653310113496aa24fa5d3c86461a6}{\index{jeu.\-c@{jeu.\-c}!print\-Game\-Over@{print\-Game\-Over}}
+\index{print\-Game\-Over@{print\-Game\-Over}!jeu.c@{jeu.\-c}}
+\subsubsection[{print\-Game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Game\-Over (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{int $\ast$}]{continuer}
+\end{DoxyParamCaption}
+)}}\label{jeu_8c_a8c1653310113496aa24fa5d3c86461a6}
+affiche le message de game overflow\-\_\-error 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & l'écran de jeu \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{jeu_8c_a8c1653310113496aa24fa5d3c86461a6_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{jeu_8c_a6f031e5ad35ada9038d3a72a56053760}{\index{jeu.\-c@{jeu.\-c}!scrolling@{scrolling}}
+\index{scrolling@{scrolling}!jeu.c@{jeu.\-c}}
+\subsubsection[{scrolling}]{\setlength{\rightskip}{0pt plus 5cm}void scrolling (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{int}]{direction, }
+\item[{float}]{speed}
+\end{DoxyParamCaption}
+)}}\label{jeu_8c_a6f031e5ad35ada9038d3a72a56053760}
+effectue un scrolling 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em map} & Le niveau à gérer \\
+\hline
+\mbox{\tt in}  & {\em direction} & La direction de scrolling \\
+\hline
+\mbox{\tt in}  & {\em speed} & la vitesse de scrolling \\
+\hline
+\end{DoxyParams}

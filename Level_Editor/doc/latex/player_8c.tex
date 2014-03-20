@@ -1,0 +1,164 @@
+\hypertarget{player_8c}{\section{player.\-c File Reference}
+\label{player_8c}\index{player.\-c@{player.\-c}}
+}
+
+
+contient les fonction pour manipuler le joueur  
+
+
+{\ttfamily \#include \char`\"{}player.\-h\char`\"{}}\\*
+Include dependency graph for player.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_character}{Character} $\ast$ \hyperlink{player_8c_a3638b65ca0405b3a93824dbd7c6bad98}{creater\-Character} (char $\ast$sp\-R, char $\ast$sp\-L)
+\item 
+int \hyperlink{player_8c_a41576a8f270bc8128d967b5eb9e2ad13}{move\-Character} (\hyperlink{struct_character}{Character} $\ast$c, int direction, \hyperlink{struct_map}{Map} $\ast$m, float speed)
+\item 
+\hypertarget{player_8c_af1ffd9c64aecf5738c80049d4156ca90}{int {\bfseries try\-Movement} (\hyperlink{struct_character}{Character} $\ast$c, int vx, int vy, \hyperlink{struct_map}{Map} $\ast$m)}\label{player_8c_af1ffd9c64aecf5738c80049d4156ca90}
+
+\item 
+void \hyperlink{player_8c_a3ae2e15eb2f82dd33309de7d4b76ef86}{movement\-Vector} (int direction, int $\ast$vx, int $\ast$vy, int speed, \hyperlink{struct_character}{Character} $\ast$c)
+\item 
+void \hyperlink{player_8c_a3c4b84a9d7123af243336f3540d2ae83}{blit\-Character} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m)
+\item 
+int \hyperlink{player_8c_a74592844d979355c6b83af0bda7ce14f}{collision\-Sprite} (S\-D\-L\-\_\-\-Rect r, \hyperlink{struct_map}{Map} $\ast$m)
+\item 
+\hypertarget{player_8c_a2230f7e5ceb772e3c5ca205fa1f9105d}{void {\bfseries gravity} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m, S\-D\-L\-\_\-\-Surface $\ast$screen)}\label{player_8c_a2230f7e5ceb772e3c5ca205fa1f9105d}
+
+\item 
+\hypertarget{player_8c_acc4b88f793f3273b22dc205902d38815}{void {\bfseries presise\-Move\-Character} (\hyperlink{struct_character}{Character} $\ast$c, int vx, int vy, \hyperlink{struct_map}{Map} $\ast$m)}\label{player_8c_acc4b88f793f3273b22dc205902d38815}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contient les fonction pour manipuler le joueur \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/02-\/27 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{player_8c_a3c4b84a9d7123af243336f3540d2ae83}{\index{player.\-c@{player.\-c}!blit\-Character@{blit\-Character}}
+\index{blit\-Character@{blit\-Character}!player.c@{player.\-c}}
+\subsubsection[{blit\-Character}]{\setlength{\rightskip}{0pt plus 5cm}void blit\-Character (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf Character} $\ast$}]{c, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{player_8c_a3c4b84a9d7123af243336f3540d2ae83}
+blit le personnage à l'écran 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & L'écran \\
+\hline
+\mbox{\tt in}  & {\em c} & Le personnage \\
+\hline
+\mbox{\tt in}  & {\em m} & la carte du jeu \\
+\hline
+\end{DoxyParams}
+\hypertarget{player_8c_a74592844d979355c6b83af0bda7ce14f}{\index{player.\-c@{player.\-c}!collision\-Sprite@{collision\-Sprite}}
+\index{collision\-Sprite@{collision\-Sprite}!player.c@{player.\-c}}
+\subsubsection[{collision\-Sprite}]{\setlength{\rightskip}{0pt plus 5cm}int collision\-Sprite (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Rect}]{r, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{player_8c_a74592844d979355c6b83af0bda7ce14f}
+détermine s'il y a collision entre une sprite et le décor 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em r} & le S\-D\-L\-\_\-\-Rect correspondant à la sprite \\
+\hline
+\mbox{\tt in}  & {\em m} & la carte contenant le décor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 s'il y a collision ou si en dehors du monde, 0 sinon 
+\end{DoxyReturn}
+\hypertarget{player_8c_a3638b65ca0405b3a93824dbd7c6bad98}{\index{player.\-c@{player.\-c}!creater\-Character@{creater\-Character}}
+\index{creater\-Character@{creater\-Character}!player.c@{player.\-c}}
+\subsubsection[{creater\-Character}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Character} $\ast$ creater\-Character (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{sp\-R, }
+\item[{char $\ast$}]{sp\-L}
+\end{DoxyParamCaption}
+)}}\label{player_8c_a3638b65ca0405b3a93824dbd7c6bad98}
+créer un personnage 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em sp\-R} & l'adresse de la sprite droite \\
+\hline
+\mbox{\tt in}  & {\em sp\-L} & l'adresse de la sprite gauche \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+le pointeur sur la structure créée 
+\end{DoxyReturn}
+\hypertarget{player_8c_a41576a8f270bc8128d967b5eb9e2ad13}{\index{player.\-c@{player.\-c}!move\-Character@{move\-Character}}
+\index{move\-Character@{move\-Character}!player.c@{player.\-c}}
+\subsubsection[{move\-Character}]{\setlength{\rightskip}{0pt plus 5cm}void move\-Character (
+\begin{DoxyParamCaption}
+\item[{{\bf Character} $\ast$}]{c, }
+\item[{int}]{direction, }
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{float}]{speed}
+\end{DoxyParamCaption}
+)}}\label{player_8c_a41576a8f270bc8128d967b5eb9e2ad13}
+déplace le personnage selon la direction 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em c} & Le personnage \\
+\hline
+\mbox{\tt in}  & {\em direction} & La direction du déplacement \\
+\hline
+\mbox{\tt in}  & {\em m} & la carte sur laquelle le personnage se déplace \\
+\hline
+\mbox{\tt in}  & {\em speed} & la vitesse de déplacement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 si le personnage a pu se deplacer normalement, 0 s'il a fallut affiner 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{player_8c_a41576a8f270bc8128d967b5eb9e2ad13_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{player_8c_a3ae2e15eb2f82dd33309de7d4b76ef86}{\index{player.\-c@{player.\-c}!movement\-Vector@{movement\-Vector}}
+\index{movement\-Vector@{movement\-Vector}!player.c@{player.\-c}}
+\subsubsection[{movement\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}void movement\-Vector (
+\begin{DoxyParamCaption}
+\item[{int}]{direction, }
+\item[{int $\ast$}]{vx, }
+\item[{int $\ast$}]{vy, }
+\item[{int}]{speed, }
+\item[{{\bf Character} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}}\label{player_8c_a3ae2e15eb2f82dd33309de7d4b76ef86}
+create a movement vector 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em direction} & The movement's direction \\
+\hline
+\mbox{\tt out}  & {\em vx} & the horizontal component of the vector \\
+\hline
+\mbox{\tt out}  & {\em vy} & the vertical component of the vector \\
+\hline
+\mbox{\tt in}  & {\em speed} & the speed of the move \\
+\hline
+\mbox{\tt out}  & {\em c} & the \hyperlink{struct_character}{Character} you have to move \\
+\hline
+\end{DoxyParams}
