@@ -1,6 +1,6 @@
 /*!
  * \file map.h
- * \brief header de map.c
+ * \brief  map.c header
  * \author Xavier COPONET
  * \date 2014-03-18
  */
