@@ -90,8 +90,15 @@ int menu(SDL_Surface *screen,int *continuer,Sound *s){
     return ret;
 }
 
-Uint32 blinkText(Uint32 intervalle, void *parametre){
-    int *printingText = parametre;
+/**
+ *\fn Uint32 blinkText(Uint32 interval, void *param)
+ *toggle the printing text boolean
+ *\param[in] interval the interval between two callback of the function
+ *\return 1000 if the boolean is right, 600 if not
+ */
+Uint32 blinkText(Uint32 interval, void *param)
+{
+    int *printingText = param;
 
     *printingText ^= 1;
 
