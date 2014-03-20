@@ -111,7 +111,7 @@ void play(SDL_Surface *screen, char *level_name){
             /* ********* */
 
         /* gestion de la mort*/
-        if(player->location.y+player->spriteL->h >= m->lvl->height*TAILLE_BLOC-TAILLE_BLOC)
+        if((player->location.y+player->spriteL->h) >= m->lvl->height*TAILLE_BLOC-(2*TAILLE_BLOC))
             player->life = 0;
         if (old_time != m->lvl->timer_level)
         {
