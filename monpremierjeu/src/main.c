@@ -1,3 +1,10 @@
+/**
+ *\file main.c
+ *\author Xavier COPONET
+ *\date 2014-02-27
+ */
+
+
 #include "game.h"
 #include "const.h"
 #include "menu.h"
