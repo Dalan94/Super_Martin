@@ -17,7 +17,7 @@
     #define TAILLE_MAX_NOM_FICHIER    100
     #define TAILLE_SAUT             17
     #define MARGE_SCROLLING         2
-    #define POURCENTAGE_DEPLACEMENT 20
+    #define POURCENTAGE_DEPLACEMENT 0
 
     #define TILE_MAX 8
 

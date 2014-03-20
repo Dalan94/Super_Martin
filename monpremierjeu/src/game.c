@@ -264,7 +264,7 @@ void updateSpeed(float *speed, int acceleration)
             *speed=7;
             break;
         case 20 :
-            *speed = 10;
+            *speed = 8;
             break;
         default:;
     }
