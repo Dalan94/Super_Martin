@@ -2,7 +2,7 @@ Méthode 1
 1) se placer dans le répertoire de ce fichier
 2) rendre le script exécutable : 
 chmod +x fmod.sh
-3) exécuter le script en tant que root (sudo)
+3) exécuter le script
 
 
 Méthode 2 (si méthode 1 marche pas)
