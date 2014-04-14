@@ -1,20 +1,25 @@
 /*!
- * \file player.c
+ * \file character.c
  * \brief manipulate character
  * \author Xavier COPONET
  * \date 2014-02-27
  */
 
-#include "player.h"
+#include "character.h"
+#include "enemies.h"
+
+int numberCharacter;
 
 /**
- *\fn Character *createrCharacter(char *spR,char *spL)
+ *\fn Character *createrCharacter(char *spR,char *spL,int x,int y)
  *create a character
  *\param[in] spR right sprite address
  *\param[in] spL right sprite address
- *\return structure pointer
+ *\param[in] x character's x location
+ *\param[in] y character's y location
+ *\return character structure pointer
  */
-Character *createrCharacter(char *spR,char *spL){
+Character *createrCharacter(char *spR,char *spL,int x, int y){
     Character *c;
     c = (Character *)malloc(sizeof(Character));
     if(c == NULL){
@@ -27,11 +32,13 @@ Character *createrCharacter(char *spR,char *spL){
     c->location.h = c->spriteR->h;
     c->location.w = c->spriteR->w;
 
-    c->location.x = c->location.y = 0;
+    c->location.x = x;
+    c->location.y = y;
     c->isRight = 1;
     c->isOnGround = 0;
     c->isJumping = 0;
     c->life = 100;
+    c->label = numberCharacter++;
 
     return c;
 }
@@ -73,7 +80,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m){
 
     futureLocation.y += vy;
 
-    if(!collisionSprite(futureLocation,m)){
+    if(!collisionMap(futureLocation,m)){
         c->location = futureLocation;
         return 1;
     }
@@ -133,13 +140,13 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
 }
 
 /**
- *\fn int collisionSprite(SDL_Rect r,Map *m)
+ *\fn int collisionMap(SDL_Rect r,Map *m)
  *determine if there is a collision beteewen a sprite and a "wall" of the map
  *\param[in] r SDL_Rect corresponding to the sprite
  *\param[in] m map
  *\return 1 if there is a collision, 0 if not
  */
-int collisionSprite(SDL_Rect r,Map *m){
+int collisionMap(SDL_Rect r,Map *m){
     int i,j;
     int xmin,xmax,ymin,ymax;
     SDL_Rect test;
@@ -167,6 +174,24 @@ int collisionSprite(SDL_Rect r,Map *m){
             }
         }
     }
+
+    return 0;
+}
+
+/**
+ *int collisionSprite(SDL_Rect s1, SDL_Rect s2)
+ *determine if there is a collision beteewen two sprites
+ *\param[in] s1 the first sprite
+ *\param[in] s2 the second sprite
+ *\return 1 if there is a collision, 0 if not
+*/
+int collisionSprite(SDL_Rect s1, SDL_Rect s2)
+{
+    if(!(((s1.x+s1.w < s2.x)
+            && (s1.x > s2.x+s2.w))
+            && ((s1.y+s1.h <= s2.y)
+            && (s1.y >= s2.y+s2.h)))
+    ) return 1;
 
     return 0;
 }

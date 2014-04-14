@@ -20,11 +20,13 @@
 #include "text.h"
 #include "sound.h"
 #include "share.h"
-#include "player.h"
+#include "character.h"
 #include "file_level.h"
 #include "image.h"
 #include "map.h"
 #include "input.h"
+
+#include "enemies.h"
 
 /*prototypes*/
 void play(SDL_Surface *screen,char *level_name);

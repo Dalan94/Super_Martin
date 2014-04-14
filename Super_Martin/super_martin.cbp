@@ -35,7 +35,19 @@
 		<Linker>
 			<Add option="-lSDLmain -lSDL -lSDL_image -lSDL_ttf -lfmod" />
 		</Linker>
+		<Unit filename="src/character.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/character.h" />
+		<Unit filename="src/character_list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/character_list.h" />
 		<Unit filename="src/const.h" />
+		<Unit filename="src/enemies.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemies.h" />
 		<Unit filename="src/file.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -71,10 +83,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/menu_level.h" />
-		<Unit filename="src/player.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src/player.h" />
 		<Unit filename="src/share.c">
 			<Option compilerVar="CC" />
 		</Unit>

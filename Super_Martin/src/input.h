@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <errno.h>
 
-#include "player.h"
+#include "character.h"
 
 
 typedef struct

@@ -43,6 +43,10 @@ void play(SDL_Surface *screen, char *level_name){
     /*définition du joueur*/
     Character *player;
 
+    /*définition des ennemis*/
+    list enemiesList;
+    Character *e;
+
 
     /*définition des surfaces*/
     SDL_Surface *background = NULL;
@@ -79,7 +83,7 @@ void play(SDL_Surface *screen, char *level_name){
     sound_jump =createSound();
     music=createSound();
     playMusic(music,m->lvl->music);
-    soundVolume(music,0.2);
+    soundVolume(music,0);
 
     /*Démarrage du timer */
     timer=SDL_AddTimer(1000,decomptage,&(m->lvl->timer_level));
@@ -88,10 +92,13 @@ void play(SDL_Surface *screen, char *level_name){
     background = imageLoadAlpha(m->lvl->background);
 
     /*initialisation du joueur*/
-    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png");
-    player->location.x = 5*TAILLE_BLOC;
-    player->location.y = 8*TAILLE_BLOC-player->spriteR->h;
+    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png",5*TAILLE_BLOC,19*TAILLE_BLOC-39);
+    /*player->location.x = 5*TAILLE_BLOC;
+    player->location.y = 8*TAILLE_BLOC-player->spriteR->h;*/
 
+    /*initialisation des ennemis*/
+    initList(&enemiesList);
+    createEnemy("sprites/Characters/witch_doctor_r.png","sprites/Characters/witch_doctor_l.png",8*TAILLE_BLOC,19*TAILLE_BLOC-28,&enemiesList);
 
     SDL_EnableKeyRepeat(100,100); //répétition des touches
 
@@ -167,6 +174,8 @@ void play(SDL_Surface *screen, char *level_name){
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
         blitCharacter(screen,player,m);
+        blitEnnemies(screen,&enemiesList,m);
+
 
 
         updateScreenMap(screen,m,"sprites/tilesetok.png"); //blit du niveau

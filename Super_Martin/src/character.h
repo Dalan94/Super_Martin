@@ -1,6 +1,6 @@
 /*!
- * \file player.h
- * \brief header de player.c
+ * \file character.h
+ * \brief header de character.c
  * \author Xavier COPONET
  * \date 2014-02-27
  */
@@ -37,6 +37,7 @@
 #define ABS(X) ((((X)<0)?(-(X)):(X)))
 
 typedef struct{
+    int label; /*! the character label, to indentify the character*/
     SDL_Surface *spriteR,*spriteL;
     SDL_Rect location;
     int isRight; /*! indique la direction de regard du personnage (1 droite, 0 gauche)*/
@@ -45,13 +46,13 @@ typedef struct{
     int life; /*! character life, 100 when full life, 0 when dead*/
 }Character;
 
-
+extern int numberCharacter;
 
 /*prototypes*/
-Character *createrCharacter(char *spR,char *spL);
+Character *createrCharacter(char *spR,char *spL,int x, int y);
 int moveCharacter(Character *c,int direction, Map *m,float speed);
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
-int collisionSprite(SDL_Rect r,Map *m);
+int collisionMap(SDL_Rect r,Map *m);
 void gravity(Character *c, Map *m,SDL_Surface *screen);
 void movementVector(int direction, int *vx, int *vy,int speed,Character *c);
 int tryMovement(Character *c,int vx,int vy,Map *m);
