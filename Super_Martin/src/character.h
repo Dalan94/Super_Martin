@@ -57,7 +57,7 @@ Character *createrCharacter(char *spR,char *spL,int x, int y);
 int moveCharacter(Character *c,int direction, Map *m,float speed);
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 int collisionMap(SDL_Rect r,Map *m);
-void gravity(Character *c, Map *m,SDL_Surface *screen);
+void gravity(Character *c, Map *m);
 void movementVector(int direction, int *vx, int *vy,int speed,Character *c);
 int tryMovement(Character *c,int vx,int vy,Map *m);
 void presiseMoveCharacter(Character *c, int vx,int vy, Map *m);

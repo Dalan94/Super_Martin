@@ -51,7 +51,8 @@ Character *createrCharacter(char *spR,char *spL,int x, int y){
  *\param[in] speed movement speed
  *\return 1 if character was moved without using the precise movement function, 0 if not
  */
-int moveCharacter(Character *c,int direction,Map *m,float speed){
+int moveCharacter(Character *c,int direction,Map *m,float speed)
+{
     int vx = 0,vy = 0;
     movementVector(direction,&vx,&vy,speed,c);
     if(vy>0)
@@ -206,7 +207,8 @@ int collisionSprite(SDL_Rect s1, SDL_Rect s2)
  *\param[in,out] c the Character
  *\param[in] m The map the Character is on
  */
-void gravity(Character *c, Map *m,SDL_Surface *screen){
+void gravity(Character *c, Map *m)
+{
 
         if (moveCharacter(c,DOWN,m,10) != 0)
             c->isOnGround = 0;

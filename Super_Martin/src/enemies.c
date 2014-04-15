@@ -125,21 +125,22 @@ int collisionEnemy(Character *c,list *l)
 void moveEnemies(list *l, Map *m)
 {
     setOnFirst(l);
-    while(!outOfList)
+    while(!outOfList(l))
     {
+        gravity(l->current->c->c,m);
         if(l->current->c->c->isRight && l->current->c->c->location.x<l->current->c->x2)
-            moveCharacter(l->current->c->c,RIGHT,m,5);
+            moveCharacter(l->current->c->c,RIGHT,m,2);
         else if(!l->current->c->c->isRight && l->current->c->c->location.x>l->current->c->x1)
-            moveCharacter(l->current->c->c,LEFT,m,5);
-        else if(l->current->c->c->location.x<l->current->c->x1)
+            moveCharacter(l->current->c->c,LEFT,m,2);
+        else if(l->current->c->c->location.x <= l->current->c->x1)
         {
             l->current->c->c->isRight = 1;
-            moveCharacter(l->current->c->c,RIGHT,m,5);
+            moveCharacter(l->current->c->c,RIGHT,m,2);
         }
-        else if(l->current->c->c->location.x>l->current->c->x2)
+        else if(l->current->c->c->location.x >= l->current->c->x2)
         {
             l->current->c->c->isRight = 0;
-            moveCharacter(l->current->c->c,LEFT,m,5);
+            moveCharacter(l->current->c->c,LEFT,m,2);
         }
         next(l);
     }
