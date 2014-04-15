@@ -86,7 +86,7 @@ int collisionEnemy(Character *c,list *l)
             case 1:
                 if(!c->isHurt)
                 {
-                    c->life -= 20;
+                    c->life -= 50;
                     c->isHurt = 150;
                     if(c->isRight)
                         c->location.x-=30;
@@ -121,31 +121,33 @@ int collisionEnemy(Character *c,list *l)
  *\param[in,out] l the enemy list
  *\param[in] m the game map
  */
-void moveEnemies(list *l, Map *m)
+void moveEnemies(list *l, Map *m, list *p)
 {
     int ret = 0;
     setOnFirst(l);
     while(!outOfList(l))
     {
-        gravity(l->current->c,m,NULL);
+        gravity(l->current->c,m,p);
         if(l->current->c->isRight && l->current->c->location.x<l->current->c->x2)
-           ret = moveCharacter(l->current->c,RIGHT,m,2,NULL);
+           ret = moveCharacter(l->current->c,RIGHT,m,2,p);
 
         else if(!l->current->c->isRight && l->current->c->location.x>l->current->c->x1)
-           ret = moveCharacter(l->current->c,LEFT,m,2,NULL);
+           ret = moveCharacter(l->current->c,LEFT,m,2,p);
 
         else if(l->current->c->location.x <= l->current->c->x1)
         {
             l->current->c->isRight = 1;
-           ret = moveCharacter(l->current->c,RIGHT,m,2,NULL);
+           ret = moveCharacter(l->current->c,RIGHT,m,2,p);
         }
         else if(l->current->c->location.x >= l->current->c->x2)
         {
             l->current->c->isRight = 0;
-          ret =  moveCharacter(l->current->c,LEFT,m,2,NULL);
+          ret =  moveCharacter(l->current->c,LEFT,m,2,p);
         }
         if(!ret)
             l->current->c->isRight ^=1;
+        if((l->current->c->location.y + l->current->c->spriteL->h) >= m->lvl->height*TAILLE_BLOC-1)
+            deleteCurrent(l);
         next(l);
     }
 }

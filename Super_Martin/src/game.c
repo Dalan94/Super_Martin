@@ -42,6 +42,7 @@ void play(SDL_Surface *screen, char *level_name){
 
     /*définition du joueur*/
     Character *player;
+    list playerList;
 
     /*définition des ennemis*/
     list enemiesList;
@@ -93,8 +94,8 @@ void play(SDL_Surface *screen, char *level_name){
 
     /*initialisation du joueur*/
     player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png",5*TAILLE_BLOC,19*TAILLE_BLOC-39,0,0);
-    /*player->location.x = 5*TAILLE_BLOC;
-    player->location.y = 8*TAILLE_BLOC-player->spriteR->h;*/
+    initList(&playerList);
+    playerList.current = playerList.first = playerList.last = newNode(player,NULL,NULL);
 
     /*initialisation des ennemis*/
     initList(&enemiesList);
@@ -159,7 +160,7 @@ void play(SDL_Surface *screen, char *level_name){
         updateSpeed(&speed,acceleration);
 
         move(move_left,move_right,player,m,speed,&acceleration,&enemiesList);
-        moveEnemies(&enemiesList,m);
+        moveEnemies(&enemiesList,m,&playerList);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
