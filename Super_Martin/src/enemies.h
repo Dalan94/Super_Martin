@@ -12,24 +12,13 @@
 #include "const.h"
 
 /**
- *\struct enemy
- *"Inheritance" of the character structure
- */
-typedef struct
-{
-    Character *c; /*! the enemy*/
-    int x1; /*! the enemy left deplacement limit */
-    int x2; /*! the enemy right deplacement limit */
-} enemy;
-
-/**
  *\struct node
  * node for the enemy list
  */
 
 typedef struct node
 {
-     enemy *c; /*! characater of the node*/
+     Character *c; /*! characater of the node*/
      struct node * next; /*! next node of the linked list*/
      struct node *previous; /*! previous node of the linked list*/
 }node;
@@ -47,7 +36,7 @@ typedef struct
  }list;
 
  /*prototypes*/
-  node * newNode(enemy *c, node * n,node *p);
+  node * newNode(Character *c, node * n,node *p);
 
  void initList(list * l);
 
@@ -60,18 +49,18 @@ typedef struct
  void setOnLast(list * l);
  void next (list * l);
  void previous(list *l);
- enemy *getCurrent (list * l);
+ Character *getCurrent (list * l);
 
  /*void printList(list * l);*/
 
- int insertFirst(list * l, enemy *c);
- int insertLast(list * l, enemy *c);
- int insertAfterCurrent(list * l, enemy *c);
- int insertBeforeCurrent(list * l, enemy *c);
+ int insertFirst(list * l, Character *c);
+ int insertLast(list * l, Character *c);
+ int insertAfterCurrent(list * l, Character *c);
+ int insertBeforeCurrent(list * l, Character *c);
 
- enemy *deleteFirst(list * l);
- enemy *deleteLast(list * l);
- enemy *deleteCurrent(list * l);
+ Character *deleteFirst(list * l);
+ Character *deleteLast(list * l);
+ Character *deleteCurrent(list * l);
 
 
 void createEnemy(char *spR,char *spL,int x,int y, list *l,int x1, int x2);

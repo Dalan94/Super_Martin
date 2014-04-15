@@ -92,7 +92,7 @@ void play(SDL_Surface *screen, char *level_name){
     background = imageLoadAlpha(m->lvl->background);
 
     /*initialisation du joueur*/
-    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png",5*TAILLE_BLOC,19*TAILLE_BLOC-39);
+    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png",5*TAILLE_BLOC,19*TAILLE_BLOC-39,0,0);
     /*player->location.x = 5*TAILLE_BLOC;
     player->location.y = 8*TAILLE_BLOC-player->spriteR->h;*/
 
@@ -202,7 +202,7 @@ void play(SDL_Surface *screen, char *level_name){
     SDL_RemoveTimer(timer);
 
     free((void *)player);
-    freeEnemies(enemiesList);
+    /*freeEnemies(enemiesList);*/ /*!\bug segmentation fault*/
 }
 
 

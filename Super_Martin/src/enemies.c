@@ -21,18 +21,13 @@
 
 void createEnemy(char *spR,char *spL,int x,int y, list *l, int x1, int x2)
 {
-    enemy *e;
-    e = (enemy *)malloc(sizeof(enemy));
+    Character *e;
+    e = createrCharacter(spR, spL, x, y, x1, x2);
     if(e == NULL)
     {
         perror("allocation error");
         exit(errno);
     }
-    e->c = createrCharacter(spR,spL,x, y);
-    e->x1 = x1;
-    e->x2 = x2;
-
-
     insertLast(l,e);
 }
 
@@ -66,7 +61,7 @@ void blitEnnemies(SDL_Surface *screen, list *l,Map *m)
 
     while(!outOfList(l))
     {
-        blitCharacter(screen,l->current->c->c,m);
+        blitCharacter(screen,l->current->c,m);
         next(l);
     }
 }
@@ -86,7 +81,7 @@ int collisionEnemy(Character *c,list *l)
 
     while(!outOfList(l))
     {
-        if(collisionSprite(c->location,l->current->c->c->location) && !c->isFalling)
+        if(collisionSprite(c->location,l->current->c->location) && !c->isFalling)
         {
             if(!c->isHurt)
             {
@@ -99,7 +94,7 @@ int collisionEnemy(Character *c,list *l)
             }
             ret = 1;
         }
-        if(collisionSprite(c->location,l->current->c->c->location) && c->isFalling)
+        if(collisionSprite(c->location,l->current->c->location) && c->isFalling)
         {
             deleteCurrent(l);
             ret = 1;
@@ -128,25 +123,25 @@ void moveEnemies(list *l, Map *m)
     setOnFirst(l);
     while(!outOfList(l))
     {
-        gravity(l->current->c->c,m);
-        if(l->current->c->c->isRight && l->current->c->c->location.x<l->current->c->x2)
-           ret = moveCharacter(l->current->c->c,RIGHT,m,2);
+        gravity(l->current->c,m);
+        if(l->current->c->isRight && l->current->c->location.x<l->current->c->x2)
+           ret = moveCharacter(l->current->c,RIGHT,m,2);
 
-        else if(!l->current->c->c->isRight && l->current->c->c->location.x>l->current->c->x1)
-           ret = moveCharacter(l->current->c->c,LEFT,m,2);
+        else if(!l->current->c->isRight && l->current->c->location.x>l->current->c->x1)
+           ret = moveCharacter(l->current->c,LEFT,m,2);
 
-        else if(l->current->c->c->location.x <= l->current->c->x1)
+        else if(l->current->c->location.x <= l->current->c->x1)
         {
-            l->current->c->c->isRight = 1;
-           ret = moveCharacter(l->current->c->c,RIGHT,m,2);
+            l->current->c->isRight = 1;
+           ret = moveCharacter(l->current->c,RIGHT,m,2);
         }
-        else if(l->current->c->c->location.x >= l->current->c->x2)
+        else if(l->current->c->location.x >= l->current->c->x2)
         {
-            l->current->c->c->isRight = 0;
-          ret =  moveCharacter(l->current->c->c,LEFT,m,2);
+            l->current->c->isRight = 0;
+          ret =  moveCharacter(l->current->c,LEFT,m,2);
         }
         if(!ret)
-            l->current->c->c->isRight ^=1;
+            l->current->c->isRight ^=1;
         next(l);
     }
 }
@@ -160,7 +155,7 @@ void moveEnemies(list *l, Map *m)
  *\return a pointer on the created node
  */
 
-node * 	newNode (enemy *c, node *n, node *p)
+node * 	newNode (Character *c, node *n, node *p)
 {
 	node *ptr=(node *) malloc(sizeof(node));
 	ptr->c=c;
@@ -272,7 +267,7 @@ void previous (list *l)
  *\param[in] l the list to be modified
  */
 
-enemy *getCurrent (list *l)
+Character *getCurrent (list *l)
 {
 	return l->current->c;
 }
@@ -285,7 +280,7 @@ enemy *getCurrent (list *l)
  *\param[in] c the enemy to be inserted
  *\return 1 if enemy inserted, 0 if failure
  */
-int insertFirst (list *l, enemy *c)
+int insertFirst (list *l, Character *c)
 {
 	node *first=newNode(c,l->first,NULL);
 	if(first==NULL) return 0;
@@ -302,7 +297,7 @@ int insertFirst (list *l, enemy *c)
  *\param[in] c the enemy to be inserted
  *\return 1 if enemy inserted, 0 if failure
  */
-int insertLast (list *l, enemy *c)
+int insertLast (list *l, Character *c)
 {
 	node *last=NULL;
 	if(empty(l)) insertFirst(l,c);
@@ -323,7 +318,7 @@ int insertLast (list *l, enemy *c)
  *\param[in] c the enemy to be inserted
  *\return 1 if enemy inserted, 0 if failure
  */
-int insertAfterCurrent (list *l, enemy *c)
+int insertAfterCurrent (list *l, Character *c)
 {
 	node *n=NULL;
 	if(empty(l))
@@ -347,7 +342,7 @@ int insertAfterCurrent (list *l, enemy *c)
  *\return 1 if enemy inserted, 0 if failure
  */
 
-int insertBeforeCurrent (list *l, enemy *c)
+int insertBeforeCurrent (list *l, Character *c)
 {
 	node *n=NULL;
 	if(empty(l)) insertFirst(l,c);
@@ -366,14 +361,14 @@ int insertBeforeCurrent (list *l, enemy *c)
  *\param[out] l the list which has to be modified
  *\return the first node's enemy, NULL if empty list
  */
-enemy *deleteFirst (list *l)
+Character *deleteFirst (list *l)
 {
 	if(empty(l)){
 		printf("Error : trying to delete a node in an empty list\n");
 		return NULL;
 	}
 	else{
-		enemy *ret;
+		Character *ret;
 		node *n = l->first;
 		l->first = n->next;
 
@@ -393,13 +388,13 @@ enemy *deleteFirst (list *l)
  *\param[out] l the list which has to be modified
  *\return the last node's enemy, NULL if empty list
  */
-enemy *deleteLast (list *l)
+Character *deleteLast (list *l)
 {
 	if(empty(l)){
 		printf("Error : trying to delete a node in an empty list\n");
 		return NULL;
 	}else{
-		enemy *ret;
+		Character *ret;
 		node *n=l->last;
 
 		l->last = l->last->previous;
@@ -417,13 +412,13 @@ enemy *deleteLast (list *l)
  *\return the current node's enemy, NULL if empty list
  */
 
-enemy *deleteCurrent (list *l)
+Character *deleteCurrent (list *l)
 {
 	if(empty(l)){
 		printf("Error : trying to delete a node in an empty list\n");
 		return NULL;
 	}else{
-		enemy *ret;
+		Character *ret;
 		node *n=l->current;
 		if(first(l)) {return deleteFirst(l); }
 		if(last(l)) {return deleteLast(l);}

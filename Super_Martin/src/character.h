@@ -49,11 +49,13 @@ typedef struct{
     int life; /*! character life, 100 when full life, 0 when dead*/
     int isHurt; /*! indicate if the character was hurt recently*/
     int isFalling; /*! indicate if the character is falling*/
+
+    int x1,x2; /*! left and right deplacement limits for pnj */
 }Character;
 
 
 /*prototypes*/
-Character *createrCharacter(char *spR,char *spL,int x, int y);
+Character *createrCharacter(char *spR,char *spL,int x, int y,int x1,int x2);
 int moveCharacter(Character *c,int direction, Map *m,float speed);
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 int collisionMap(SDL_Rect r,Map *m);

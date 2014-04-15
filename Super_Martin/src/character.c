@@ -17,7 +17,8 @@
  *\param[in] y character's y location
  *\return character structure pointer
  */
-Character *createrCharacter(char *spR,char *spL,int x, int y){
+Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2)
+{
     Character *c;
     c = (Character *)malloc(sizeof(Character));
     if(c == NULL){
@@ -38,6 +39,9 @@ Character *createrCharacter(char *spR,char *spL,int x, int y){
     c->life = 100;
     c->isHurt = 0;
     c->isFalling = 0;
+
+    c->x1 = x1;
+    c->x2 = x2;
 
     return c;
 }
