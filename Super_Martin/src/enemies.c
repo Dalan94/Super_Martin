@@ -81,24 +81,28 @@ int collisionEnemy(Character *c,list *l)
 
     while(!outOfList(l))
     {
-        if(collisionSprite(c->location,l->current->c->location) && !c->isFalling)
+        switch(collisionSprite(c->location,l->current->c->location))
         {
-            if(!c->isHurt)
-            {
-                c->life -= 50;
-                c->isHurt = 0;
-                if(c->isRight)
-                    c->location.x-=30;
-                else
-                    c->location.x+=30;
-            }
-            ret = 1;
-        }
-        if(collisionSprite(c->location,l->current->c->location) && c->isFalling)
-        {
-            deleteCurrent(l);
-            ret = 1;
-            break;
+            case 1:
+                if(!c->isHurt)
+                {
+                    c->life -= 20;
+                    c->isHurt = 150;
+                    if(c->isRight)
+                        c->location.x-=30;
+                    else
+                        c->location.x+=30;
+                }
+                ret = 1;
+                break;
+
+            case 2:
+                deleteCurrent(l);
+                ret = 1;
+                break;
+            case 0: ;
+
+            default: ;
         }
         next(l);
     }
@@ -123,22 +127,22 @@ void moveEnemies(list *l, Map *m)
     setOnFirst(l);
     while(!outOfList(l))
     {
-        gravity(l->current->c,m);
+        gravity(l->current->c,m,NULL);
         if(l->current->c->isRight && l->current->c->location.x<l->current->c->x2)
-           ret = moveCharacter(l->current->c,RIGHT,m,2);
+           ret = moveCharacter(l->current->c,RIGHT,m,2,NULL);
 
         else if(!l->current->c->isRight && l->current->c->location.x>l->current->c->x1)
-           ret = moveCharacter(l->current->c,LEFT,m,2);
+           ret = moveCharacter(l->current->c,LEFT,m,2,NULL);
 
         else if(l->current->c->location.x <= l->current->c->x1)
         {
             l->current->c->isRight = 1;
-           ret = moveCharacter(l->current->c,RIGHT,m,2);
+           ret = moveCharacter(l->current->c,RIGHT,m,2,NULL);
         }
         else if(l->current->c->location.x >= l->current->c->x2)
         {
             l->current->c->isRight = 0;
-          ret =  moveCharacter(l->current->c,LEFT,m,2);
+          ret =  moveCharacter(l->current->c,LEFT,m,2,NULL);
         }
         if(!ret)
             l->current->c->isRight ^=1;
@@ -184,7 +188,7 @@ void initList (list *l)
  */
 int	empty (list *l)
 {
-	if(l->first==NULL) return 1;
+	if(l==NULL || l->first==NULL) return 1;
 	return 0;
 }
 
@@ -217,8 +221,9 @@ int last (list *l){
  *\return 1 if the current node is in the list, 0 if not
  */
 int outOfList (list *l){
-	return l->current==NULL;
-
+	if(l!=NULL)
+        return l->current==NULL;
+    return 1;
 }
 
 /**
@@ -228,7 +233,8 @@ int outOfList (list *l){
  */
 void setOnFirst (list *l)
 {
-	l->current=l->first;
+    if(l!=NULL)
+        l->current=l->first;
 }
 
 /**

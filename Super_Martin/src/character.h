@@ -44,14 +44,14 @@
 
 /*prototypes*/
 Character *createrCharacter(char *spR,char *spL,int x, int y,int x1,int x2);
-int moveCharacter(Character *c,int direction, Map *m,float speed);
+int moveCharacter(Character *c,int direction, Map *m,float speed,list *l);
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 int collisionMap(SDL_Rect r,Map *m);
-void gravity(Character *c, Map *m);
+void gravity(Character *c, Map *m,list *l);
 void movementVector(int direction, int *vx, int *vy,int speed,Character *c);
-int tryMovement(Character *c,int vx,int vy,Map *m);
-void presiseMoveCharacter(Character *c, int vx,int vy, Map *m);
-void jumping(Character *c, Map *m,Sound *jump_sound);
+int tryMovement(Character *c,int vx,int vy,Map *m,list *l);
+void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l);
+void jumping(Character *c, Map *m,Sound *jump_sound,list *l);
 int collisionSprite(SDL_Rect s1, SDL_Rect s2);
 
 #endif

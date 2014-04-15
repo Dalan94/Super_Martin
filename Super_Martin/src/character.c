@@ -55,16 +55,16 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2)
  *\param[in] speed movement speed
  *\return 1 if character was moved without using the precise movement function, 0 if not
  */
-int moveCharacter(Character *c,int direction,Map *m,float speed)
+int moveCharacter(Character *c,int direction,Map *m,float speed,list *l)
 {
     int vx = 0,vy = 0;
     movementVector(direction,&vx,&vy,speed,c);
     if(vy>0)
         c->isFalling = 1;
 
-    if(tryMovement(c,vx,vy,m))
+    if(tryMovement(c,vx,vy,m,l))
         return 1;
-    presiseMoveCharacter(c,vx,vy,m);
+    presiseMoveCharacter(c,vx,vy,m,l);
     if(vy>0)
     {
         c->isOnGround = 1;
@@ -82,13 +82,14 @@ int moveCharacter(Character *c,int direction,Map *m,float speed)
  *\param[in] m the map the character is on
  *\return 1 if the character can be moved, 0 if not
  */
-int tryMovement(Character *c,int vx,int vy,Map *m){
+int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
+{
     SDL_Rect futureLocation = c->location;
     futureLocation.x += vx;
 
     futureLocation.y += vy;
 
-    if(!collisionMap(futureLocation,m) /*&& !collisionEnemy(c,l)*/)
+    if(!collisionMap(futureLocation,m) && !collisionEnemy(c,l))
     {
         c->location = futureLocation;
         return 1;
@@ -192,17 +193,20 @@ int collisionMap(SDL_Rect r,Map *m){
  *determine if there is a collision beteewen two sprites
  *\param[in] s1 the first sprite
  *\param[in] s2 the second sprite
- *\return 1 if there is a collision, 0 if not
+ *\return 1 if there is a collision and s1 is below s2, 2 if there is a collision and s1 is over s2, 0 if there is no collision
 */
 int collisionSprite(SDL_Rect s1, SDL_Rect s2)
 {
-    if(!(((s1.x+s1.w < s2.x)
-            || (s1.x > s2.x+s2.w))
-            || ((s1.y+s1.h <= s2.y)
-            || (s1.y >= s2.y+s2.h)))
-    ) return 1;
-
-    return 0;
+    if((s1.x+s1.w < s2.x)
+            || (s1.x > s2.x+s2.w)
+            || (s1.y+s1.h <= s2.y)
+            || (s1.y >= s2.y+s2.h)
+     )return 0;
+    if(s1.y+s1.h<=s2.y+10)
+    {
+        return 2;
+    }
+    return 1;
 }
 
 /**
@@ -211,10 +215,10 @@ int collisionSprite(SDL_Rect s1, SDL_Rect s2)
  *\param[in,out] c the Character
  *\param[in] m The map the Character is on
  */
-void gravity(Character *c, Map *m)
+void gravity(Character *c, Map *m,list *l)
 {
 
-        if (moveCharacter(c,DOWN,m,10) != 0)
+        if (moveCharacter(c,DOWN,m,10,l) != 0)
             c->isOnGround = 0;
 }
 
@@ -227,16 +231,16 @@ void gravity(Character *c, Map *m)
  *\param[in] vx the horizontal component of the movement vector
  *\param[in] vy the vertical component of the movement vector
  */
-void presiseMoveCharacter(Character *c, int vx,int vy, Map *m){
+void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l){
     int i,j;
 
     for(i = 0 ; i < ABS(vx) ; i++){
 
-            if(!tryMovement(c,SGN(vx),0,m))
+            if(!tryMovement(c,SGN(vx),0,m,l))
                 break;
     }
     for(j = 0 ; j < ABS(vy) ; j++){
-        if(!tryMovement(c,0,SGN(vy),m))
+        if(!tryMovement(c,0,SGN(vy),m,l))
                 break;
     }
 }
@@ -247,7 +251,8 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m){
  *\param[in,out] c the Character
  *\param[in] m The map the Character is on
  */
-void jumping(Character *c, Map *m,Sound *jump_sound){
+void jumping(Character *c, Map *m,Sound *jump_sound,list *l)
+{
     if(c->isOnGround)
     {
         playMusicOnce(jump_sound,"sound/jump_big.ogg");
@@ -255,9 +260,9 @@ void jumping(Character *c, Map *m,Sound *jump_sound){
 
     c->isOnGround = 0;
     if (c->isJumping < 6)
-        moveCharacter(c,UP,m,c->isJumping);
+        moveCharacter(c,UP,m,c->isJumping,l);
     else
-        moveCharacter(c,UP,m,6);
+        moveCharacter(c,UP,m,6,l);
     c->isJumping --;
 
 }

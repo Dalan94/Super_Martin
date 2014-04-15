@@ -130,9 +130,9 @@ void play(SDL_Surface *screen, char *level_name){
             /* ********* */
 
         if(!player->isJumping)
-            gravity(player,m);
+            gravity(player,m,&enemiesList);
         else
-            jumping(player,m,sound_jump);
+            jumping(player,m,sound_jump,&enemiesList);
 
         /* gestion de la mort*/
         if((player->location.y+player->spriteL->h) >= m->lvl->height*TAILLE_BLOC-1)
@@ -158,7 +158,7 @@ void play(SDL_Surface *screen, char *level_name){
 
         updateSpeed(&speed,acceleration);
 
-        move(move_left,move_right,player,m,speed,&acceleration);
+        move(move_left,move_right,player,m,speed,&acceleration,&enemiesList);
         moveEnemies(&enemiesList,m);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
@@ -246,11 +246,11 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
  *\param[in] m la carte
  *\param[in] speed la vitesse de deplacement
  */
-void move(int move_left, int move_right, Character *player,Map *m,float speed, int *acceleration)
+void move(int move_left, int move_right, Character *player,Map *m,float speed, int *acceleration,list *l)
 {
     if (move_right && !move_left)
     {
-        if(moveCharacter(player,RIGHT,m,speed))
+        if(moveCharacter(player,RIGHT,m,speed,l))
         {
             (*acceleration)++;
             if (player->location.x - m->xScroll > m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100  && player->location.x - m->xScroll < m->screenWidth*(50 + MARGE_SCROLLING-POURCENTAGE_DEPLACEMENT)/100)
@@ -261,7 +261,7 @@ void move(int move_left, int move_right, Character *player,Map *m,float speed, i
     }
     if (move_left && !move_right)
     {
-        if(moveCharacter(player,LEFT,m,speed))
+        if(moveCharacter(player,LEFT,m,speed,l))
         {
             (*acceleration)++;
             if (player->location.x - m->xScroll < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100 && player->location.x - m->xScroll > m->screenWidth*(50 - MARGE_SCROLLING+POURCENTAGE_DEPLACEMENT)/100)
