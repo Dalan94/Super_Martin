@@ -4,7 +4,10 @@
 typedef struct{
     int label; /*! the character label, to indentify the character*/
     SDL_Surface *spriteR,*spriteL;
+
     SDL_Rect location;
+    int dirX,dirY;
+
     int isRight; /*! indicate the character's diraction (1 right, 0 left)*/
     int isOnGround; /*! indicate if the character is on the ground*/
     int isJumping; /*! 0 when not jumping, height remaning between character and max height if jumping*/

@@ -97,6 +97,7 @@ int collisionEnemy(Character *c,list *l)
                 break;
 
             case 2:
+                c->dirY = -(JUMP_HEIGHT/2);
                 deleteCurrent(l);
                 ret = 1;
                 break;
@@ -127,31 +128,33 @@ void moveEnemies(list *l, Map *m, list *p)
     setOnFirst(l);
     while(!outOfList(l))
     {
-        gravity(l->current->c,m,p);
+
         if(l->current->c->isRight && l->current->c->location.x<l->current->c->x2)
-           ret = moveCharacter(l->current->c,RIGHT,m,2,p);
+           ret = moveCharacter(l->current->c,0,1,0,m,2,p);
 
         else if(!l->current->c->isRight && l->current->c->location.x>l->current->c->x1)
-           ret = moveCharacter(l->current->c,LEFT,m,2,p);
+           ret = moveCharacter(l->current->c,1,0,0,m,2,p);
 
         else if(l->current->c->location.x <= l->current->c->x1)
         {
             l->current->c->isRight = 1;
-           ret = moveCharacter(l->current->c,RIGHT,m,2,p);
+           ret = moveCharacter(l->current->c,0,1,0,m,2,p);
         }
         else if(l->current->c->location.x >= l->current->c->x2)
         {
             l->current->c->isRight = 0;
-          ret =  moveCharacter(l->current->c,LEFT,m,2,p);
+          ret =  moveCharacter(l->current->c,1,0,0,m,2,p);
         }
-        if(!ret)
-            l->current->c->isRight ^=1;
+
         if((l->current->c->location.y + l->current->c->spriteL->h) >= m->lvl->height*TAILLE_BLOC-1)
             deleteCurrent(l);
         next(l);
     }
 }
 
+
+/* ******************************** */
+/* gestion des listes*/
 /**
  *\fn node *newNode(enemy *c, node *n, node *p)
  *creates a new node
@@ -256,7 +259,8 @@ void setOnLast (list *l)
  */
 void next (list *l)
 {
-	l->current = (l->current->next);
+    if(!empty(l))
+        l->current = (l->current->next);
 }
 
 /**

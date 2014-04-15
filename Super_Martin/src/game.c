@@ -93,7 +93,7 @@ void play(SDL_Surface *screen, char *level_name){
     background = imageLoadAlpha(m->lvl->background);
 
     /*initialisation du joueur*/
-    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png",5*TAILLE_BLOC,19*TAILLE_BLOC-39,0,0);
+    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png",5*TAILLE_BLOC,8*TAILLE_BLOC-39,0,0);
     initList(&playerList);
     playerList.current = playerList.first = playerList.last = newNode(player,NULL,NULL);
 
@@ -124,16 +124,16 @@ void play(SDL_Surface *screen, char *level_name){
         if(in.quit)
             continuer = 0;
 
-        if(player->isOnGround && jump)
+        /*if(player->isOnGround && jump)
             player->isJumping = TAILLE_SAUT;
         if(!jump)
             player->isJumping = 0;
-            /* ********* */
+            /* ********* *
 
         if(!player->isJumping)
             gravity(player,m,&enemiesList);
         else
-            jumping(player,m,sound_jump,&enemiesList);
+            jumping(player,m,sound_jump,&enemiesList);*/
 
         /* gestion de la mort*/
         if((player->location.y+player->spriteL->h) >= m->lvl->height*TAILLE_BLOC-1)
@@ -159,7 +159,7 @@ void play(SDL_Surface *screen, char *level_name){
 
         updateSpeed(&speed,acceleration);
 
-        move(move_left,move_right,player,m,speed,&acceleration,&enemiesList);
+        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemiesList);
         moveEnemies(&enemiesList,m,&playerList);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
@@ -247,13 +247,15 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
  *\param[in] m la carte
  *\param[in] speed la vitesse de deplacement
  */
-void move(int move_left, int move_right, Character *player,Map *m,float speed, int *acceleration,list *l)
+void move(int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l)
 {
+    int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l);
     if (move_right && !move_left)
     {
-        if(moveCharacter(player,RIGHT,m,speed,l))
+        (*acceleration)++;
+
         {
-            (*acceleration)++;
+
             if (player->location.x - m->xScroll > m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100  && player->location.x - m->xScroll < m->screenWidth*(50 + MARGE_SCROLLING-POURCENTAGE_DEPLACEMENT)/100)
                 scrolling(m,RIGHT,speed);
             else if (player->location.x - m->xScroll >= m->screenWidth*(50 + MARGE_SCROLLING-POURCENTAGE_DEPLACEMENT)/100 )
@@ -262,9 +264,10 @@ void move(int move_left, int move_right, Character *player,Map *m,float speed, i
     }
     if (move_left && !move_right)
     {
-        if(moveCharacter(player,LEFT,m,speed,l))
+        (*acceleration)++;
+
         {
-            (*acceleration)++;
+
             if (player->location.x - m->xScroll < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100 && player->location.x - m->xScroll > m->screenWidth*(50 - MARGE_SCROLLING+POURCENTAGE_DEPLACEMENT)/100)
                 scrolling(m,LEFT,speed);
             else if (player->location.x - m->xScroll <= m->screenWidth*(50- MARGE_SCROLLING+POURCENTAGE_DEPLACEMENT)/100)

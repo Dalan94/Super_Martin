@@ -28,8 +28,10 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2)
 
     c->spriteR = imageLoadAlpha(spR);
     c->spriteL = imageLoadAlpha(spL);
+
     c->location.h = c->spriteR->h;
     c->location.w = c->spriteR->w;
+    c->dirX = c->dirY = 0;
 
     c->location.x = x;
     c->location.y = y;
@@ -55,22 +57,60 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2)
  *\param[in] speed movement speed
  *\return 1 if character was moved without using the precise movement function, 0 if not
  */
-int moveCharacter(Character *c,int direction,Map *m,float speed,list *l)
+/*int moveCharacter(Character *c,int direction,Map *m,float speed,list *l)
 {
-    int vx = 0,vy = 0;
-    movementVector(direction,&vx,&vy,speed,c);
-    if(vy>0)
+
+    movementVector(direction,speed,c);
+    if(c->dirY>0)
         c->isFalling = 1;
 
-    if(tryMovement(c,vx,vy,m,l))
+    if(tryMovement(c,c->dirX,c->dirY,m,l))
         return 1;
-    presiseMoveCharacter(c,vx,vy,m,l);
+    presiseMoveCharacter(c,c->dirX,c->dirY,m,l);
+
     if(vy>0)
     {
         c->isOnGround = 1;
         c->isFalling = 0;
     }
     return 0;
+}*/
+int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l)
+{
+    c->dirX = 0;
+
+    c->dirY+=GRAVITY_SPEED;
+    if(c->dirY >= MAX_FALL_SPEED)
+        c->dirY == MAX_FALL_SPEED;
+
+    if(jump && c->isOnGround)
+    {
+        c->dirY = -JUMP_HEIGHT;
+        c->isOnGround = 0;
+    }
+    if (move_right && !move_left)
+    {
+        c->dirX += speed;
+        c->isRight = 1;
+    }
+    if (move_left && !move_right)
+    {
+        c->dirX -= speed;
+        c->isRight = 0;
+    }
+
+    if(tryMovement(c,c->dirX,c->dirY,m,l))
+        return 1;
+    presiseMoveCharacter(c,c->dirX,c->dirY,m,l);
+
+    if(c->dirY>0)
+    {
+        c->isOnGround = 1;
+        c->isFalling = 0;
+    }
+    return 0;
+
+
 }
 
 /**
@@ -107,21 +147,21 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
  *\param[in] speed the speed of the move
  *\param[out] c the Character you have to move
  */
-void movementVector(int direction, int *vx, int *vy,int speed,Character *c){
+void movementVector(int direction,int speed,Character *c){
     switch(direction){
         case LEFT:
-            *vx = 0-speed;
+            c->dirX = 0-speed;
             c->isRight = 0;
             break;
         case RIGHT:
-            *vx = 0+ speed;
+            c->dirX = 0+ speed;
             c->isRight = 1;
             break;
         case DOWN:
-            *vy = 0+speed;
+            c->dirY += speed;
             break;
         case UP:
-            *vy = 0-speed;
+            c->dirY -= speed;
             break;
         default: ;
     }
@@ -215,12 +255,12 @@ int collisionSprite(SDL_Rect s1, SDL_Rect s2)
  *\param[in,out] c the Character
  *\param[in] m The map the Character is on
  */
-void gravity(Character *c, Map *m,list *l)
+/*void gravity(Character *c, Map *m,list *l)
 {
 
         if (moveCharacter(c,DOWN,m,10,l) != 0)
             c->isOnGround = 0;
-}
+}*/
 
 
 /**
@@ -251,7 +291,7 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l){
  *\param[in,out] c the Character
  *\param[in] m The map the Character is on
  */
-void jumping(Character *c, Map *m,Sound *jump_sound,list *l)
+/*void jumping(Character *c, Map *m,Sound *jump_sound,list *l)
 {
     if(c->isOnGround)
     {
@@ -265,4 +305,4 @@ void jumping(Character *c, Map *m,Sound *jump_sound,list *l)
         moveCharacter(c,UP,m,6,l);
     c->isJumping --;
 
-}
+}*/
