@@ -6,9 +6,7 @@
  */
 
 #include "character.h"
-#include "enemies.h"
 
-int numberCharacter;
 
 /**
  *\fn Character *createrCharacter(char *spR,char *spL,int x,int y)
@@ -38,14 +36,15 @@ Character *createrCharacter(char *spR,char *spL,int x, int y){
     c->isOnGround = 0;
     c->isJumping = 0;
     c->life = 100;
-    c->label = numberCharacter++;
+    c->isHurt = 0;
+    c->isFalling = 0;
 
     return c;
 }
 
 /**
  *\fn void moveCharacter(Character *c,int direction, Map *m,float speed)
- *move player according the direction
+ *move player according to the direction
  *\param[in,out] c the character
  *\param[in] direction movement direction
  *\param[in] m level map
@@ -55,12 +54,17 @@ Character *createrCharacter(char *spR,char *spL,int x, int y){
 int moveCharacter(Character *c,int direction,Map *m,float speed){
     int vx = 0,vy = 0;
     movementVector(direction,&vx,&vy,speed,c);
+    if(vy>0)
+        c->isFalling = 1;
 
     if(tryMovement(c,vx,vy,m))
         return 1;
     presiseMoveCharacter(c,vx,vy,m);
     if(vy>0)
+    {
         c->isOnGround = 1;
+        c->isFalling = 0;
+    }
     return 0;
 }
 
@@ -71,8 +75,7 @@ int moveCharacter(Character *c,int direction,Map *m,float speed){
  *\param[in] vx the horizontal component of the movement vector
  *\param[in] vy the vertical component of the movement vector
  *\param[in] m the map the character is on
-
- *\return 1 if the character could be moved, 0 if not
+ *\return 1 if the character can be moved, 0 if not
  */
 int tryMovement(Character *c,int vx,int vy,Map *m){
     SDL_Rect futureLocation = c->location;
@@ -80,7 +83,8 @@ int tryMovement(Character *c,int vx,int vy,Map *m){
 
     futureLocation.y += vy;
 
-    if(!collisionMap(futureLocation,m)){
+    if(!collisionMap(futureLocation,m))
+    {
         c->location = futureLocation;
         return 1;
     }
@@ -188,9 +192,9 @@ int collisionMap(SDL_Rect r,Map *m){
 int collisionSprite(SDL_Rect s1, SDL_Rect s2)
 {
     if(!(((s1.x+s1.w < s2.x)
-            && (s1.x > s2.x+s2.w))
-            && ((s1.y+s1.h <= s2.y)
-            && (s1.y >= s2.y+s2.h)))
+            || (s1.x > s2.x+s2.w))
+            || ((s1.y+s1.h <= s2.y)
+            || (s1.y >= s2.y+s2.h)))
     ) return 1;
 
     return 0;

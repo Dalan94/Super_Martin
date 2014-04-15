@@ -45,7 +45,7 @@ void play(SDL_Surface *screen, char *level_name){
 
     /*définition des ennemis*/
     list enemiesList;
-    Character *e;
+
 
 
     /*définition des surfaces*/
@@ -98,7 +98,9 @@ void play(SDL_Surface *screen, char *level_name){
 
     /*initialisation des ennemis*/
     initList(&enemiesList);
-    createEnemy("sprites/Characters/witch_doctor_r.png","sprites/Characters/witch_doctor_l.png",8*TAILLE_BLOC,19*TAILLE_BLOC-28,&enemiesList);
+    createEnemy("sprites/Characters/witch_doctor_r.png","sprites/Characters/witch_doctor_l.png",18*TAILLE_BLOC,19*TAILLE_BLOC-28,&enemiesList,15*TAILLE_BLOC,25*TAILLE_BLOC);
+    createEnemy("sprites/Characters/witch_doctor_r.png","sprites/Characters/witch_doctor_l.png",90*TAILLE_BLOC,19*TAILLE_BLOC-28,&enemiesList,100*TAILLE_BLOC,85*TAILLE_BLOC);
+    createEnemy("sprites/Characters/witch_doctor_r.png","sprites/Characters/witch_doctor_l.png",50*TAILLE_BLOC,19*TAILLE_BLOC-28,&enemiesList,46*TAILLE_BLOC,70*TAILLE_BLOC);
 
     SDL_EnableKeyRepeat(100,100); //répétition des touches
 
@@ -157,6 +159,7 @@ void play(SDL_Surface *screen, char *level_name){
         updateSpeed(&speed,acceleration);
 
         move(move_left,move_right,player,m,speed,&acceleration);
+        moveEnemies(&enemiesList,m);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
@@ -173,6 +176,7 @@ void play(SDL_Surface *screen, char *level_name){
 
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
+        collisionEnemy(player,&enemiesList);
         blitCharacter(screen,player,m);
         blitEnnemies(screen,&enemiesList,m);
 
@@ -196,6 +200,9 @@ void play(SDL_Surface *screen, char *level_name){
     SDL_FreeSurface(background);
     freeMap(m);
     SDL_RemoveTimer(timer);
+
+    free((void *)player);
+    freeEnemies(enemiesList);
 }
 
 

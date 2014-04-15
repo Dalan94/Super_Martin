@@ -24,6 +24,9 @@
 #include "image.h"
 
 
+
+//#include "character_list.h"
+
 /**
  *\def SGN(X)
  *X sign
@@ -40,13 +43,14 @@ typedef struct{
     int label; /*! the character label, to indentify the character*/
     SDL_Surface *spriteR,*spriteL;
     SDL_Rect location;
-    int isRight; /*! indique la direction de regard du personnage (1 droite, 0 gauche)*/
-    int isOnGround; /*! indique si le perso est au sol*/
-    int isJumping; /*! 0 when not, height remaning between character and max height if jumping*/
+    int isRight; /*! indicate the character's diraction (1 right, 0 left)*/
+    int isOnGround; /*! indicate if the character is on the ground*/
+    int isJumping; /*! 0 when not jumping, height remaning between character and max height if jumping*/
     int life; /*! character life, 100 when full life, 0 when dead*/
+    int isHurt; /*! indicate if the character was hurt recently*/
+    int isFalling; /*! indicate if the character is falling*/
 }Character;
 
-extern int numberCharacter;
 
 /*prototypes*/
 Character *createrCharacter(char *spR,char *spL,int x, int y);
@@ -58,5 +62,6 @@ void movementVector(int direction, int *vx, int *vy,int speed,Character *c);
 int tryMovement(Character *c,int vx,int vy,Map *m);
 void presiseMoveCharacter(Character *c, int vx,int vy, Map *m);
 void jumping(Character *c, Map *m,Sound *jump_sound);
+int collisionSprite(SDL_Rect s1, SDL_Rect s2);
 
 #endif

@@ -39,10 +39,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/character.h" />
-		<Unit filename="src/character_list.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="src/character_list.h" />
 		<Unit filename="src/const.h" />
 		<Unit filename="src/enemies.c">
 			<Option compilerVar="CC" />
