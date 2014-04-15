@@ -88,7 +88,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m){
 
     futureLocation.y += vy;
 
-    if(!collisionMap(futureLocation,m))
+    if(!collisionMap(futureLocation,m) /*&& !collisionEnemy(c,l)*/)
     {
         c->location = futureLocation;
         return 1;

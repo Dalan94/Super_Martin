@@ -39,19 +39,7 @@
  */
 #define ABS(X) ((((X)<0)?(-(X)):(X)))
 
-typedef struct{
-    int label; /*! the character label, to indentify the character*/
-    SDL_Surface *spriteR,*spriteL;
-    SDL_Rect location;
-    int isRight; /*! indicate the character's diraction (1 right, 0 left)*/
-    int isOnGround; /*! indicate if the character is on the ground*/
-    int isJumping; /*! 0 when not jumping, height remaning between character and max height if jumping*/
-    int life; /*! character life, 100 when full life, 0 when dead*/
-    int isHurt; /*! indicate if the character was hurt recently*/
-    int isFalling; /*! indicate if the character is falling*/
-
-    int x1,x2; /*! left and right deplacement limits for pnj */
-}Character;
+#include "structures.h"
 
 
 /*prototypes*/

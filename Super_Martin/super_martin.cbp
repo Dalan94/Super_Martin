@@ -87,6 +87,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/sound.h" />
+		<Unit filename="src/structures.h" />
 		<Unit filename="src/text.c">
 			<Option compilerVar="CC" />
 		</Unit>

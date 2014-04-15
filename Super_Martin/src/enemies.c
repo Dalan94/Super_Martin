@@ -85,8 +85,8 @@ int collisionEnemy(Character *c,list *l)
         {
             if(!c->isHurt)
             {
-                c->life -= 20;
-                c->isHurt = 150;
+                c->life -= 50;
+                c->isHurt = 0;
                 if(c->isRight)
                     c->location.x-=30;
                 else

@@ -10,30 +10,8 @@
 
 #include "character.h"
 #include "const.h"
+#include "structures.h"
 
-/**
- *\struct node
- * node for the enemy list
- */
-
-typedef struct node
-{
-     Character *c; /*! characater of the node*/
-     struct node * next; /*! next node of the linked list*/
-     struct node *previous; /*! previous node of the linked list*/
-}node;
-
-/**
- *\struct list
- *the linked list that stock the ennemies
- */
-
-typedef struct
-{
-     node * first; /*! the list's first node*/
-     node * current; /*! the list 's current node*/
-     node * last; /*! the list 's last node*/
- }list;
 
  /*prototypes*/
   node * newNode(Character *c, node * n,node *p);
