@@ -33,7 +33,7 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2)
     c->location.w = c->spriteR->w;
     c->dirX = c->dirY = 0;
 
-    c->location.x = x;
+    c->saveX = c->location.x = x;
     c->location.y = y;
     c->isRight = 1;
     c->isOnGround = 0;

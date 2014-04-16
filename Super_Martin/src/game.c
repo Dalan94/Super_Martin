@@ -220,6 +220,7 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
     Sound *s;
     s = createSound();
     playMusic(s,"sound/chopin1.mp3");
+    soundVolume(s,0);
 
     gameOver = IMG_Load("sprites/game-over.jpg");
     posGame.x = posGame.y = 0;

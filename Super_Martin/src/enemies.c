@@ -128,6 +128,9 @@ void moveEnemies(list *l, Map *m, list *p)
     setOnFirst(l);
     while(!outOfList(l))
     {
+        if(l->current->c->location.x == l->current->c->saveX)
+            l->current->c->isRight ^= 1;
+        l->current->c->saveX = l->current->c->location.x;
 
         if(l->current->c->isRight && l->current->c->location.x<l->current->c->x2)
            ret = moveCharacter(l->current->c,0,1,0,m,2,p);
