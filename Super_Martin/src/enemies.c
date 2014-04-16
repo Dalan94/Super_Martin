@@ -73,7 +73,7 @@ void blitEnnemies(SDL_Surface *screen, list *l,Map *m)
  *\param[in,out] l the enemy list, change the current node
  *\return 1 if there is a collision, 0 if not
  */
-int collisionEnemy(Character *c,list *l)
+int collisionEnemy(Character *c,list *l,Map *m)
 {
     int ret = 0;
 
@@ -86,12 +86,13 @@ int collisionEnemy(Character *c,list *l)
             case 1:
                 if(!c->isHurt)
                 {
+                    l->current->c->life -= 50;
                     c->life -= 50;
                     c->isHurt = 150;
                     if(c->isRight)
-                        c->location.x-=30;
+                        moveCharacter(c,1,0,0,m,30,l);
                     else
-                        c->location.x+=30;
+                        moveCharacter(c,0,1,0,m,30,l);
                 }
                 ret = 1;
                 break;

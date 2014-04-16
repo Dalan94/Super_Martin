@@ -177,7 +177,7 @@ void play(SDL_Surface *screen, char *level_name){
 
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
-        collisionEnemy(player,&enemiesList);
+
         blitCharacter(screen,player,m);
         blitEnnemies(screen,&enemiesList,m);
 
