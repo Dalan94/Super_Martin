@@ -13,7 +13,7 @@
  *\fn void updateScreenMap(SDL_Surface *screen, Map *m,char *tileset)
  *Update the screen with the data of the map (ignore characters)
  *\param[in,out] screen The screen of the game
- *\param[in] Map *m The map
+ *\param[in] Map *m The map of the game
  *\param[in] tileset The tileset used to draw the level
  */
 void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor){
