@@ -1,0 +1,12 @@
+<map id="player.h" name="player.h">
+<area shape="rect" id="node3" href="$game_8h.html" title="header de game.c " alt="" coords="48,171,112,205"/>
+<area shape="rect" id="node9" href="$input_8h_source.html" title="input.h" alt="" coords="137,89,199,122"/>
+<area shape="rect" id="node24" href="$player_8c.html" title="contient les fonction pour manipuler le joueur " alt="" coords="223,89,289,122"/>
+<area shape="rect" id="node5" href="$game_8c.html" title="contient les fonction liées au jeu " alt="" coords="5,254,69,287"/>
+<area shape="rect" id="node7" href="$main_8c.html" title="main.c" alt="" coords="181,254,243,287"/>
+<area shape="rect" id="node12" href="$input_8c.html" title="input.c" alt="" coords="347,171,408,205"/>
+<area shape="rect" id="node14" href="$menu_8h.html" title="header de menu.c " alt="" coords="136,171,200,205"/>
+<area shape="rect" id="node19" href="$menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="224,171,323,205"/>
+<area shape="rect" id="node17" href="$menu_8c.html" title="contient les fonction liées au menu " alt="" coords="93,254,157,287"/>
+<area shape="rect" id="node22" href="$menu__level_8c.html" title="Menu gerant le choix du niveau. " alt="" coords="267,254,365,287"/>
+</map>

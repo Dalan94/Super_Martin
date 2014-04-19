@@ -1,0 +1,116 @@
+\hypertarget{map_8c}{\section{map.\-c File Reference}
+\label{map_8c}\index{map.\-c@{map.\-c}}
+}
+
+
+contient les fonction liées au chargement et à l'affichage de la carte  
+
+
+{\ttfamily \#include \char`\"{}map.\-h\char`\"{}}\\*
+Include dependency graph for map.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{map_8c_afc8482e2afe6f96b7d6cb6ce3fc7081c}{update\-Screen\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_map}{Map} $\ast$m, char $\ast$tileset)
+\item 
+void \hyperlink{map_8c_a6f031e5ad35ada9038d3a72a56053760}{scrolling} (\hyperlink{struct_map}{Map} $\ast$m, int direction, float speed)
+\item 
+\hyperlink{struct_map}{Map} $\ast$ \hyperlink{map_8c_aa69680b270233f1a2b9f2e3eccf96863}{init\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name)
+\item 
+\hypertarget{map_8c_ac8d4dd6fc80c79d9cb5899684740d074}{void {\bfseries free\-Map} (\hyperlink{struct_map}{Map} $\ast$m)}\label{map_8c_ac8d4dd6fc80c79d9cb5899684740d074}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contient les fonction liées au chargement et à l'affichage de la carte \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/03-\/18 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{map_8c_aa69680b270233f1a2b9f2e3eccf96863}{\index{map.\-c@{map.\-c}!init\-Map@{init\-Map}}
+\index{init\-Map@{init\-Map}!map.c@{map.\-c}}
+\subsubsection[{init\-Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map} $\ast$ init\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char $\ast$}]{level\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{map_8c_aa69680b270233f1a2b9f2e3eccf96863}
+initialise la carte 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em screen} & l'écran de jeu \\
+\hline
+\mbox{\tt in}  & {\em level\-\_\-name} & le nom du niveau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un pointeur sur la carte initialisée 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{map_8c_aa69680b270233f1a2b9f2e3eccf96863_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8c_a6f031e5ad35ada9038d3a72a56053760}{\index{map.\-c@{map.\-c}!scrolling@{scrolling}}
+\index{scrolling@{scrolling}!map.c@{map.\-c}}
+\subsubsection[{scrolling}]{\setlength{\rightskip}{0pt plus 5cm}void scrolling (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{int}]{direction, }
+\item[{float}]{speed}
+\end{DoxyParamCaption}
+)}}\label{map_8c_a6f031e5ad35ada9038d3a72a56053760}
+effectue un scrolling 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em map} & Le niveau à gérer \\
+\hline
+\mbox{\tt in}  & {\em direction} & La direction de scrolling \\
+\hline
+\mbox{\tt in}  & {\em speed} & la vitesse de scrolling \\
+\hline
+\end{DoxyParams}
+\hypertarget{map_8c_afc8482e2afe6f96b7d6cb6ce3fc7081c}{\index{map.\-c@{map.\-c}!update\-Screen\-Map@{update\-Screen\-Map}}
+\index{update\-Screen\-Map@{update\-Screen\-Map}!map.c@{map.\-c}}
+\subsubsection[{update\-Screen\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void update\-Screen\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{char $\ast$}]{tileset}
+\end{DoxyParamCaption}
+)}}\label{map_8c_afc8482e2afe6f96b7d6cb6ce3fc7081c}
+met à jour l'écran avec les données de la carte (ignore les personnages) 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & of the game \\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{struct_map}{Map}} & $\ast$m The map \\
+\hline
+\mbox{\tt in}  & {\em tileset} & lvl tileset \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{map_8c_afc8482e2afe6f96b7d6cb6ce3fc7081c_cgraph}
+\end{center}
+\end{figure}
+
+

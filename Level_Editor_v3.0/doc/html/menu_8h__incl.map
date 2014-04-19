@@ -1,0 +1,11 @@
+<map id="menu.h" name="menu.h">
+<area shape="rect" id="node15" href="$const_8h.html" title="contient les constantes du programme " alt="" coords="997,337,1061,370"/>
+<area shape="rect" id="node17" href="$text_8h.html" title="header de text.c " alt="" coords="299,254,352,287"/>
+<area shape="rect" id="node25" href="$sound_8h.html" title="header de sound.c " alt="" coords="1400,337,1467,370"/>
+<area shape="rect" id="node32" href="$share_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1048,254,1112,287"/>
+<area shape="rect" id="node36" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="603,254,669,287"/>
+<area shape="rect" id="node44" href="$input_8h_source.html" title="input.h" alt="" coords="785,89,847,122"/>
+<area shape="rect" id="node50" href="$player_8h.html" title="header de player.c " alt="" coords="927,171,993,205"/>
+<area shape="rect" id="node58" href="$file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1187,254,1269,287"/>
+<area shape="rect" id="node64" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="1136,337,1187,370"/>
+</map>
