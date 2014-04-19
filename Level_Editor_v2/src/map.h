@@ -16,7 +16,7 @@ Map* initMap(Level *lvl,SDL_Surface *screen);
 void saveMap(Map *m);
 void cleanString(const char *buffer, FILE *fp);
 void clean_stdin(void);
-//void reinitMap(Map *m);
+void reinitMap(Map *m);
 void freeMap(Map *m);
 
 #endif // MAP_H_INCLUDED
