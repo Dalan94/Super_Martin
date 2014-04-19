@@ -93,7 +93,7 @@ void play(SDL_Surface *screen, char *level_name){
     background = imageLoadAlpha(m->lvl->background);
 
     /*initialisation du joueur*/
-    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png",5*TAILLE_BLOC,8*TAILLE_BLOC-39,0,0);
+    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png",5*TAILLE_BLOC,8*TAILLE_BLOC-39,0,0,0);
     initList(&playerList);
     playerList.current = playerList.first = playerList.last = newNode(player,NULL,NULL);
 

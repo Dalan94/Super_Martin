@@ -9,15 +9,16 @@
 
 
 /**
- *\fn Character *createrCharacter(char *spR,char *spL,int x,int y)
+ *\fn Character *createrCharacter(char *spR,char *spL,int x,int y,int npc)
  *create a character
  *\param[in] spR right sprite address
  *\param[in] spL right sprite address
  *\param[in] x character's x location
  *\param[in] y character's y location
+ *\param[in] npc 1 if creating a npc, 0 if not
  *\return character structure pointer
  */
-Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2)
+Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2,int npc)
 {
     Character *c;
     c = (Character *)malloc(sizeof(Character));
@@ -45,6 +46,8 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2)
     c->x1 = x1;
     c->x2 = x2;
 
+    c->isNpc = npc;
+
     return c;
 }
 
@@ -55,6 +58,7 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2)
  *\param[in] direction movement direction
  *\param[in] m level map
  *\param[in] speed movement speed
+
  *\return 1 if character was moved without using the precise movement function, 0 if not
  */
 /*int moveCharacter(Character *c,int direction,Map *m,float speed,list *l)
@@ -109,8 +113,6 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
         c->isFalling = 0;
     }
     return 0;
-
-
 }
 
 /**
@@ -128,6 +130,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
     futureLocation.x += vx;
 
     futureLocation.y += vy;
+
 
     if(!collisionMap(futureLocation,m) && !collisionEnemy(c,l))
     {
@@ -147,7 +150,8 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
  *\param[in] speed the speed of the move
  *\param[out] c the Character you have to move
  */
-void movementVector(int direction,int speed,Character *c){
+void movementVector(int direction,int speed,Character *c)
+{
     switch(direction){
         case LEFT:
             c->dirX = 0-speed;
@@ -242,7 +246,7 @@ int collisionSprite(SDL_Rect s1, SDL_Rect s2)
             || (s1.y+s1.h <= s2.y)
             || (s1.y >= s2.y+s2.h)
      )return 0;
-    if(s1.y+s1.h<=s2.y+10)
+    if(s1.y+s1.h<=s2.y+10 || s2.y+s2.h<=s1.y+10)
     {
         return 2;
     }

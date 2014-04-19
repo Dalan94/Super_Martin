@@ -2,7 +2,7 @@
 #define STRUCTURES_H_INCLUDED
 
 typedef struct{
-    int label; /*! the character label, to indentify the character*/
+    int isNpc; /*! 1 if a npc, 0 if not*/
     SDL_Surface *spriteR,*spriteL;
 
     SDL_Rect location;

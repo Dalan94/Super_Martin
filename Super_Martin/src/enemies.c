@@ -22,7 +22,7 @@
 void createEnemy(char *spR,char *spL,int x,int y, list *l, int x1, int x2)
 {
     Character *e;
-    e = createrCharacter(spR, spL, x, y, x1, x2);
+    e = createrCharacter(spR, spL, x, y, x1, x2,1);
     if(e == NULL)
     {
         perror("allocation error");
@@ -84,23 +84,49 @@ int collisionEnemy(Character *c,list *l,Map *m)
         switch(collisionSprite(c->location,l->current->c->location))
         {
             case 1:
-                if(!c->isHurt)
+                if(!c->isNpc && !c->isHurt)
                 {
-                    l->current->c->life -= 50;
                     c->life -= 50;
                     c->isHurt = 150;
                     if(c->isRight)
-                        moveCharacter(c,1,0,0,m,30,l);
+                    {
+                        c->location.x-=50;
+                        //moveCharacter(c,1,0,0,m,30,l);
+                    }
                     else
-                        moveCharacter(c,0,1,0,m,30,l);
+                    {
+                        c->location.x+=50;
+                       // moveCharacter(c,0,1,0,m,30,l);
+                    }
+                }
+                else
+                {
+                    if(!l->current->c->isHurt)
+                    {
+                        l->current->c->life -= 50;
+                        l->current->c->isHurt = 150;
+                        if(c->isRight)
+                        {
+                            l->current->c->location.x+=50;
+                           // moveCharacter(c,0,1,0,m,100,l);
+                        }
+                        else
+                        {
+                            l->current->c->location.x-=50;
+                            //moveCharacter(c,1,0,0,m,100,l);
+                        }
+                    }
                 }
                 ret = 1;
                 break;
 
             case 2:
-                c->dirY = -(JUMP_HEIGHT/2);
-                deleteCurrent(l);
-                ret = 1;
+                if(!c->isNpc)
+                {
+                    c->dirY = -(JUMP_HEIGHT/2);
+                    deleteCurrent(l);
+                    ret = 1;
+                }
                 break;
             case 0: ;
 
@@ -263,7 +289,7 @@ void setOnLast (list *l)
  */
 void next (list *l)
 {
-    if(!empty(l))
+    if(l!=NULL && !empty(l))
         l->current = (l->current->next);
 }
 
