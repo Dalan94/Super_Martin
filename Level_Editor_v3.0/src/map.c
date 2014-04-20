@@ -121,7 +121,9 @@ void saveMap(Map *m){
     }
 
     level_list = readLevelFile(&level_number);
-    printf("Number of levels already in the list : %d\n", level_number);
+    printf("Existing maps :\n");
+    for(i=0;i<level_number;i++)
+        printf("%s\n", level_list[i]);
     /*  Manage the file name conflicts */
     while(wrong_name){
 
@@ -164,8 +166,7 @@ void saveMap(Map *m){
 
     writeLevel(level_name, m->lvl);
 
-    closeLevelList(level_list, (level_number));
-    //free(level_name);
+    closeLevelList(level_list, level_number);
 }
 /**
   *\fn void reinitMap(map *m)

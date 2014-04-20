@@ -147,10 +147,9 @@ void writeLevel(char *file_name, Level *lvl)
             fprintf(ptr_file,"%hhu",lvl->map[i][j]);
         fprintf(ptr_file,"\n");
     }
-
     closeFile(ptr_file);
+    //closeLevel(lvl);
 
-    closeLevel(lvl);
 }
 
 /*!
