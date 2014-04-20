@@ -16,7 +16,7 @@
  */
 
 
-int menu(SDL_Surface *screen,int *choice)
+int menu(SDL_Surface *screen,int *choice, int *go)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -64,7 +64,8 @@ int menu(SDL_Surface *screen,int *choice)
     while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
    {
         updateWaitEvents(&in);
-
+        if(in.key[SDLK_ESCAPE])
+                *go = 0;
         keyboardActionMenu(&in,&pos_cursor,&select,nb_options);
 
         waitFPS(&previous_time,&current_time);

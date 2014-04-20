@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
     while (go) //main loop
     {
 
-        if(menu(screen, &choice))
+        if(menu(screen, &choice, &go))
         {
             if(!(choice))
             {
