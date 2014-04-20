@@ -1,0 +1,20 @@
+<map id="jouer" name="jouer">
+<area shape="rect" id="node3" href="$map_8c.html#aa69680b270233f1a2b9f2e3eccf96863" title="initMap" alt="" coords="136,5,200,38"/>
+<area shape="rect" id="node5" href="$sound_8c.html#a3b1e12665aed7169d8efdb2cc611184e" title="createSound" alt="" coords="293,70,387,103"/>
+<area shape="rect" id="node7" href="$sound_8c.html#a3af6fda5716d5f42846d0ccc01d5e2ca" title="playMusic" alt="" coords="300,137,380,170"/>
+<area shape="rect" id="node9" href="$sound_8c.html#a63831c086cacea9358f5c86bebbfb288" title="soundVolume" alt="" coords="119,375,217,409"/>
+<area shape="rect" id="node11" href="$image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="281,482,399,515"/>
+<area shape="rect" id="node13" href="$player_8c.html#a3638b65ca0405b3a93824dbd7c6bad98" title="createrCharacter" alt="" coords="109,482,227,515"/>
+<area shape="rect" id="node16" href="$sound_8c.html#a5378cbd0e1d0bfeaa823df1a8ea215f3" title="playMusicOnce" alt="" coords="112,594,224,627"/>
+<area shape="rect" id="node18" href="$sound_8c.html#ac3737f55b80ac35471d115d0304e8bc3" title="stopSound" alt="" coords="127,650,209,683"/>
+<area shape="rect" id="node20" href="$jeu_8c.html#a8c1653310113496aa24fa5d3c86461a6" title="printGameOver" alt="" coords="113,162,223,195"/>
+<area shape="rect" id="node24" href="$text_8c.html#a890bd15eb3d51cac26c63afdaf0018d6" title="printText" alt="" coords="304,215,376,249"/>
+<area shape="rect" id="node26" href="$sound_8c.html#acc13f1ac1e0bac5afe39405869772a08" title="freeSound" alt="" coords="300,297,380,330"/>
+<area shape="rect" id="node28" href="$jeu_8c.html#aa46a4a41f9d0a27db15635da26134d9e" title="printPause" alt="" coords="127,269,209,302"/>
+<area shape="rect" id="node31" href="$jeu_8c.html#a1bd040efd0195821d1e069d4006ffabf" title="updateSpeed" alt="" coords="119,706,217,739"/>
+<area shape="rect" id="node34" href="$player_8c.html#a3c4b84a9d7123af243336f3540d2ae83" title="blitCharacter" alt="" coords="120,762,216,795"/>
+<area shape="rect" id="node36" href="$map_8c.html#afc8482e2afe6f96b7d6cb6ce3fc7081c" title="updateScreenMap" alt="" coords="105,538,231,571"/>
+<area shape="rect" id="node39" href="$player_8c.html#ae7b7055e59cc3e653c2ed700b1b47e91" title="jumping" alt="" coords="135,818,201,851"/>
+<area shape="rect" id="node41" href="$player_8c.html#a41576a8f270bc8128d967b5eb9e2ad13" title="moveCharacter" alt="" coords="285,818,395,851"/>
+<area shape="rect" id="node43" href="$player_8c.html#a3ae2e15eb2f82dd33309de7d4b76ef86" title="movementVector" alt="" coords="448,818,568,851"/>
+</map>

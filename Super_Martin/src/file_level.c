@@ -16,43 +16,49 @@
  */
 Level *openLevel(char *file_name)
  {
-     FILE *ptr_file;
-     int i,j;
-     char buffer[TAILLE_BUFFER];
-     Level *lvl;
-     char *saut_ligne;
+    FILE *ptr_file;
+    int i,j;
+    char buffer[TAILLE_BUFFER];
+    Level *lvl;
+    char *saut_ligne;
 
-     if ((lvl=(Level *)malloc(sizeof(Level))) == NULL)
-     {
+    if ((lvl=(Level *)malloc(sizeof(Level))) == NULL)
+    {
             printf("\nProbleme allocation memoire\n");
             perror("");
             exit(0);
-     }
+    }
 
-     ptr_file=openFile(file_name,"r");
+    ptr_file=openFile(file_name,"r");
 
-     if (ptr_file == NULL)
-     {
+    if (ptr_file == NULL)
+    {
         printf("\nErreur : Le fichier n'a pas pu etre lu.\n");
         return NULL;
-     }
+    }
 
-     fscanf(ptr_file,"%d",&(lvl->width));
-     fscanf(ptr_file,"%d",&(lvl->height));
-     fscanf(ptr_file,"%d",&(lvl->timer_level));
+    fscanf(ptr_file,"%d",&(lvl->width));
+    fscanf(ptr_file,"%d",&(lvl->height));
+    fscanf(ptr_file,"%d",&(lvl->timer_level));
 
-     initLevel(lvl);
+    initLevel(lvl);
 
-     fgets(buffer,TAILLE_BUFFER,ptr_file);
-     fgets(lvl->background,TAILLE_MAX_NOM_FICHIER,ptr_file);
-     fgets(lvl->music,TAILLE_MAX_NOM_FICHIER,ptr_file);
+    fgets(buffer,TAILLE_BUFFER,ptr_file);
+    fgets(lvl->tileSet,TAILLE_MAX_NOM_FICHIER,ptr_file);
+    fgets(lvl->background,TAILLE_MAX_NOM_FICHIER,ptr_file);
+    fgets(lvl->music,TAILLE_MAX_NOM_FICHIER,ptr_file);
 
-     /*Enleve le saut de ligne final de background*/
-     saut_ligne = strchr(lvl->background, '\n');
+    /*Enleve le saut de ligne final de tileSet*/
+    saut_ligne = strchr(lvl->tileSet, '\n');
+        *saut_ligne = 0;
+
+
+    /*Enleve le saut de ligne final de background*/
+    saut_ligne = strchr(lvl->background, '\n');
         *saut_ligne = 0;
 
     /*Enleve le saut de ligne final de sound*/
-     saut_ligne = strchr(lvl->music, '\n');
+    saut_ligne = strchr(lvl->music, '\n');
         *saut_ligne = 0;
 
     for(i=0 ; i < lvl->height ; i++)
@@ -130,7 +136,10 @@ void writeLevel(char *file_name, Level *lvl)
 
     fprintf(ptr_file,"%d\n",lvl->width);
     fprintf(ptr_file,"%d\n",lvl->height);
+    fprintf(ptr_file,"%d\n",lvl->timer_level);
+    fprintf(ptr_file,"%s\n",lvl->tileSet);
     fprintf(ptr_file,"%s\n",lvl->background);
+    fprintf(ptr_file,"%s\n",lvl->music);
 
     for (i=0 ; i<lvl->height ; i++)
     {
