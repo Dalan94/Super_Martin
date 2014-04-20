@@ -16,6 +16,7 @@
  */
 void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
     SDL_Surface *tile;
+    SDL_Surface *end = NULL;
     SDL_Rect posTile, posTileSet;
     int i,j,minx,maxx,nbRow;
 
@@ -39,6 +40,16 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
                 SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
             }
         }
+    }
+
+    if (maxx >= m->lvl->width - NB_BLOCS_LARGEUR/2)
+    {
+        end = imageLoad("sprites/game-over.jpg");
+        posTile.x = (m->lvl->width - NB_BLOCS_LARGEUR/2 +1)*TAILLE_BLOC - m->xScroll;
+        posTile.y=0;
+        SDL_SetAlpha(end, SDL_SRCALPHA, 200);
+        SDL_BlitSurface(end,NULL,screen,&posTile);
+        SDL_FreeSurface(end);
     }
 
     SDL_FreeSurface(tile);
