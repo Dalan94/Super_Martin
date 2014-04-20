@@ -99,14 +99,14 @@ int menu(SDL_Surface *screen,int *choice)
     return select;
 }
 
-int menuTileSet(SDL_Surface *screen, int *choice)
+int menuTileSet(SDL_Surface *screen, char tileSet_name[MAX_LENGTH_FILE_NAME])
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
     int previous_time=0;
     int current_time=0;
     int select=1;
-    int nb_tileSet = 5;
+    int nb_tileSet = 6;
     char **tileSet_list;
     int i;
     int text_size;
@@ -143,6 +143,7 @@ int menuTileSet(SDL_Surface *screen, int *choice)
     tileSet_list[2] = "Forest";
     tileSet_list[3] = "Beach";
     tileSet_list[4] = "Desert";
+    tileSet_list[5] = "Mountains";
 
     memset(&in,0,sizeof(in));
 
@@ -177,7 +178,8 @@ int menuTileSet(SDL_Surface *screen, int *choice)
     }
 
     SDL_FreeSurface(waiting);
-    (*choice)=pos_cursor;
+    /*(*choice)=pos_cursor;*/
+    sprintf(tileSet_name,"../Super_Martin/level/Empty_levels/%s.lvl",tileSet_list[pos_cursor]);
 
     free(tileSet_list);
 

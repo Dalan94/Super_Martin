@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     int go = 1;
     int choice=0;
     char level_name[MAX_LENGTH_FILE_NAME];
+    char tileSet_name[MAX_LENGTH_FILE_NAME];
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 
@@ -44,8 +45,8 @@ int main(int argc, char *argv[])
             else
             {
 
-                if (menuTileSet(screen,&choice))
-                    play(screen, "../Super_Martin/level/empty.lvl");
+                if (menuTileSet(screen,tileSet_name))
+                    play(screen, tileSet_name);
             }
         }
 

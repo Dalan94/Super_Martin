@@ -77,7 +77,7 @@ void play(SDL_Surface *screen, char *level_name){
 
         SDL_BlitSurface(background,NULL,screen,&posBack);
         keyboardActionGame(&in,m,cursor);
-        updateScreenMap(screen,m,"../Super_Martin/sprites/tilesetok.png", cursor);
+        updateScreenMap(screen,m, m->lvl->tileSet/*"../Super_Martin/sprites/tileSet_Snow.png"*/, cursor);
 
         SDL_Flip(screen);
     }

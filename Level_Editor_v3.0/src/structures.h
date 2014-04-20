@@ -30,6 +30,7 @@ typedef struct{
     int width;
     int height;
     int timer_level;
+    char tileSet[MAX_LENGTH_FILE_NAME];
     char background[MAX_LENGTH_FILE_NAME];
     char music[MAX_LENGTH_FILE_NAME];
 }Level;

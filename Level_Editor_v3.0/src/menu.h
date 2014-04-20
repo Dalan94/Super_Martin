@@ -29,7 +29,7 @@
 
 /*prototypes*/
 int menu(SDL_Surface *screen,int *choice);
-int menuTileSet(SDL_Surface *screen, int *choice);
+int menuTileSet(SDL_Surface *screen, char tileSet_name[MAX_LENGTH_FILE_NAME]);
 
 
 #endif // MENU_H
