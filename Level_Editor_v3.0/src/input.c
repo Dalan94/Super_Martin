@@ -82,11 +82,13 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
 
     /*  Horizontal scrolling */
 
-    if(in->key[SDLK_LEFT])
-        scrolling(m, LEFT, TILE_SIZE);
+    if(in->key[SDLK_LEFT]){
+        printf(" left : %d ", in->key[SDLK_LEFT]);
+        scrolling(m, LEFT, 2);}
 
-    else if(in->key[SDLK_RIGHT])
-        scrolling(m, RIGHT, TILE_SIZE);
+    else if(in->key[SDLK_RIGHT]){
+        printf(" right : %d ", in->key[SDLK_RIGHT]);
+        scrolling(m, RIGHT, 2);}
 
     /*  Back-up of the map */
 
@@ -115,7 +117,6 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
     else if(in->mouse[SDL_BUTTON_MIDDLE])
     {
         m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 0;
-        cursor->tileID = 0;
     }
 
     /*  Copy of the tile pointed by the cursor */

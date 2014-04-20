@@ -24,7 +24,6 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
     minx = m->xScroll/TAILLE_BLOC-1;
     maxx = (m->xScroll + m->screenWidth)/TAILLE_BLOC+1;
     nbRow = m->screenHeight/TAILLE_BLOC;
-
     tile = imageLoadAlpha(tileset);
 
      for(i=minx;i<maxx;i++){

@@ -183,7 +183,7 @@ void play(SDL_Surface *screen, char *level_name){
 
 
 
-        updateScreenMap(screen,m,"sprites/tilesetok.png"); //blit du niveau
+        updateScreenMap(screen,m,m->lvl->tileSet); //blit du niveau
 
 
 
