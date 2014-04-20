@@ -1,8 +1,0 @@
-<map id="file.h" name="file.h">
-<area shape="rect" id="node3" href="$file_8c.html" title="Contains the functions that handle the files of the game. " alt="" coords="8,89,59,122"/>
-<area shape="rect" id="node5" href="$file__level_8h.html" title="Header of file_level.c. " alt="" coords="83,89,165,122"/>
-<area shape="rect" id="node7" href="$game_8h.html" title="Header of game.c. " alt="" coords="92,171,156,205"/>
-<area shape="rect" id="node9" href="$game_8c.html" title="Contains the principal function of the game. " alt="" coords="5,254,69,287"/>
-<area shape="rect" id="node11" href="$main_8c.html" title="main.c" alt="" coords="93,254,155,287"/>
-<area shape="rect" id="node13" href="$map_8c.html" title="Contains the functions managing the maps. " alt="" coords="179,254,237,287"/>
-</map>

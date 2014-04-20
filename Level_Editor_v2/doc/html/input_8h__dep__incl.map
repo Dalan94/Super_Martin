@@ -1,7 +1,0 @@
-<map id="input.h" name="input.h">
-<area shape="rect" id="node3" href="$game_8h.html" title="Header of game.c. " alt="" coords="92,89,156,122"/>
-<area shape="rect" id="node11" href="$input_8c.html" title="Management of keyboard and mouse inputs handled by the game. " alt="" coords="180,89,241,122"/>
-<area shape="rect" id="node5" href="$game_8c.html" title="Contains the principal function of the game. " alt="" coords="5,171,69,205"/>
-<area shape="rect" id="node7" href="$main_8c.html" title="main.c" alt="" coords="93,171,155,205"/>
-<area shape="rect" id="node9" href="$map_8c.html" title="Contains the functions managing the maps. " alt="" coords="179,171,237,205"/>
-</map>
