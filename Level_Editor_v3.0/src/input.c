@@ -127,7 +127,6 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
 
     if(in->mouse[SDL_BUTTON_WHEELDOWN])
     {
-        printf("down:%d\n", in->mouse[SDL_BUTTON_WHEELDOWN]);
         cursor->tileID--;
 
         if(cursor->tileID < 0){
@@ -145,8 +144,6 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
 
     else if(in->mouse[SDL_BUTTON_WHEELUP])
     {
-        printf("up:%d\n", in->mouse[SDL_BUTTON_WHEELUP]);
-
         cursor->tileID++;
 
         if(cursor->tileID < 0){
@@ -210,7 +207,7 @@ int updateWaitEvents(Input* in)
  *\param[in] nb_options the number of options of the menu
 
  */
-void keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
+int keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
 {
     if(in->key[SDLK_ESCAPE] || in->quit)
         (*select) = 0;
@@ -227,4 +224,5 @@ void keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
         if(*cursorPos >= nb_options)
             (*cursorPos) = 0;
     }
+    return *cursorPos;
 }

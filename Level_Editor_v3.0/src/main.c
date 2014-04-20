@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     SDL_Surface *screen = NULL;
 
     int go = 1;
-    int pos_cursor;
+    int choice=0;
     char level_name[MAX_LENGTH_FILE_NAME];
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
@@ -34,17 +34,17 @@ int main(int argc, char *argv[])
     while (go) //main loop
     {
 
-        if(menu(screen, pos_cursor))
+        if(menu(screen, &choice))
         {
-            if(!pos_cursor)
+            if(!(choice))
             {
                 if (menuLevel(screen,level_name))
                     play(screen,level_name);
             }
             else
             {
-                pos_cursor = 0;
-                if (menuTileSet(screen,pos_cursor))
+
+                if (menuTileSet(screen,&choice))
                     play(screen, "../Super_Martin/level/empty.lvl");
             }
         }

@@ -28,8 +28,8 @@
 
 
 /*prototypes*/
-int menu(SDL_Surface *screen,int pos_cursor);
-int menuTileSet(SDL_Surface *screen, int pos_cursor);
+int menu(SDL_Surface *screen,int *choice);
+int menuTileSet(SDL_Surface *screen, int *choice);
 
 
 #endif // MENU_H

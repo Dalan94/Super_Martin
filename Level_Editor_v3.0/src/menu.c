@@ -9,15 +9,14 @@
 
 /**
  *\fn int menu(SDL_Surface *screen)
- *affiche le menu à l'écran
+ *Display the menu on the screen
  *\param[out] screen l'écran
- *\param[in,out] go main loop validation
- *\param[out] s sound system
- *\return 1 si la touche entrée a été activée
+ *\param[out] choice the option selected
+ *\return 1 if an option has been selected
  */
 
 
-int menu(SDL_Surface *screen,int pos_cursor)
+int menu(SDL_Surface *screen,int *choice)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -27,7 +26,8 @@ int menu(SDL_Surface *screen,int pos_cursor)
     int nb_options=2;
     char **options;
     int i;
-    int taille_texte;
+    int text_size;
+    int pos_cursor = 0;
 
 
     Input in;
@@ -64,6 +64,7 @@ int menu(SDL_Surface *screen,int pos_cursor)
     while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
    {
         updateWaitEvents(&in);
+
         keyboardActionMenu(&in,&pos_cursor,&select,nb_options);
 
         waitFPS(&previous_time,&current_time);
@@ -75,22 +76,22 @@ int menu(SDL_Surface *screen,int pos_cursor)
         for (i=0 ; i < nb_options ; i++)
         {
             posText.x = 150;
-            taille_texte=screen->h / nb_options;
-            if (taille_texte > 60)
-                taille_texte=60;
-            posText.y = screen->h / (1+nb_options) * (i+1) - taille_texte/2;
-            printText(screen,&posText,options[i],0,0,0,"../Super_Martin/polices/ubuntu.ttf",taille_texte,1);
+            text_size=screen->h / nb_options;
+            if (text_size > 60)
+                text_size=60;
+            posText.y = screen->h / (1+nb_options) * (i+1) - text_size/2;
+            printText(screen,&posText,options[i],0,0,0,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
             if(i == pos_cursor)
             {
                 posText.x = 70;
-                printText(screen,&posText,"=>",0,0,0,"../Super_Martin/polices/ubuntu.ttf",taille_texte,1);
+                printText(screen,&posText,"=>",0,0,0,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
             }
         }
 
         SDL_Flip(screen);
 
     }
-
+    *choice=pos_cursor;
     SDL_FreeSurface(waiting);
 
     free(options);
@@ -98,7 +99,7 @@ int menu(SDL_Surface *screen,int pos_cursor)
     return select;
 }
 
-int menuTileSet(SDL_Surface *screen, int pos_cursor)
+int menuTileSet(SDL_Surface *screen, int *choice)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -109,7 +110,7 @@ int menuTileSet(SDL_Surface *screen, int pos_cursor)
     char **tileSet_list;
     int i;
     int text_size;
-
+    int pos_cursor=0;
     Input in;
 
     SDL_Rect posText={0,0,0,0};
@@ -150,7 +151,7 @@ int menuTileSet(SDL_Surface *screen, int pos_cursor)
         updateWaitEvents(&in);
         keyboardActionMenu(&in,&pos_cursor,&select,nb_tileSet);
 
-        //waitFPS(&previous_time,&current_time);
+        waitFPS(&previous_time,&current_time);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
@@ -159,7 +160,7 @@ int menuTileSet(SDL_Surface *screen, int pos_cursor)
         for (i=0 ; i < nb_tileSet ; i++)
         {
             posText.x = 150;
-            text_size=screen->h / nb_tileSet;
+            text_size=screen->h / (nb_tileSet*2);
             if (text_size > 60)
                 text_size=60;
             posText.y = screen->h / (1+nb_tileSet) * (i+1) - text_size/2;
@@ -176,7 +177,7 @@ int menuTileSet(SDL_Surface *screen, int pos_cursor)
     }
 
     SDL_FreeSurface(waiting);
-
+    (*choice)=pos_cursor;
 
     free(tileSet_list);
 
