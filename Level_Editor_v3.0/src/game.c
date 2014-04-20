@@ -70,16 +70,15 @@ void play(SDL_Surface *screen, char *level_name){
         updateEvents(&in);
 
 
-
+        if(in.quit)
+            go = 0;
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
         SDL_BlitSurface(background,NULL,screen,&posBack);
         keyboardActionGame(&in,m,cursor);
+        updateScreenMap(screen,m,"../Super_Martin/sprites/tilesetok.png", cursor);
 
-        updateScreenMap(screen,m,"sprites/tilesetok.png", cursor);
-        if(in.quit)
-            go = 0;
         SDL_Flip(screen);
     }
 
@@ -105,9 +104,9 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
 
     Sound *s;
     s = createSound();
-    playMusic(s,"sound/chopin1.mp3");
+    playMusic(s,"../Super_Martin/sound/chopin1.mp3");
 
-    gameOver = IMG_Load("sprites/game-over.jpg");
+    gameOver = IMG_Load("../Super_Martin/sprites/game-over.jpg");
     posGame.x = posGame.y = 0;
     SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
     SDL_BlitSurface(gameOver,NULL,screen,&posGame);
@@ -139,13 +138,13 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer)
 
     int time_pause=*time;
 
-    gameOver = IMG_Load("sprites/game-over.jpg");
+    gameOver = IMG_Load("../Super_Martin/sprites/game-over.jpg");
     posGame.x = posGame.y = 0;
     SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
     SDL_BlitSurface(gameOver,NULL,screen,&posGame);
 
 
-    printText(screen,NULL,"PAUSE",186,38,18,"polices/manga.ttf",65,1);
+    printText(screen,NULL,"PAUSE",186,38,18,"../Super_Martin/polices/manga.ttf",65,1);
     SDL_Flip(screen);
     in->key[SDLK_p] = 0;
 

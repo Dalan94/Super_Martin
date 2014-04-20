@@ -28,8 +28,8 @@
 
 
 /*prototypes*/
-int menu(SDL_Surface *screen,int *go);
-Uint32 blinkText(Uint32 interval, void *param);
+int menu(SDL_Surface *screen,int pos_cursor);
+int menuTileSet(SDL_Surface *screen, int pos_cursor);
 
 
 #endif // MENU_H

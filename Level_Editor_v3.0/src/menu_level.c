@@ -33,7 +33,7 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_LENGTH_FILE_NAME])
 
     /*  Waiting screen */
 
-    waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("../Super_Martin/sprites/Background/desert_hills_2.png");
     posWait.x = 0;
     posWait.y = 0;
 
@@ -46,7 +46,7 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_LENGTH_FILE_NAME])
         updateWaitEvents(&in);
         keyboardActionMenu(&in,&pos_curseur,&play_lvl,nb_lvl);
 
-        //waitFPS(&previous_time,&current_time);
+        waitFPS(&previous_time,&current_time);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
@@ -59,11 +59,11 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_LENGTH_FILE_NAME])
             if (taille_texte > 60)
                 taille_texte=60;
             posText.y = screen->h / (1+nb_lvl) * (i+1) - taille_texte/2;
-            printText(screen,&posText,level_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
+            printText(screen,&posText,level_names[i],0,0,0,"../Super_Martin/polices/ubuntu.ttf",taille_texte,1);
             if(i == pos_curseur)
             {
                 posText.x = 70;
-                printText(screen,&posText,"=>",0,0,0,"polices/ubuntu.ttf",taille_texte,1);
+                printText(screen,&posText,"=>",0,0,0,"../Super_Martin/polices/ubuntu.ttf",taille_texte,1);
             }
         }
 
@@ -73,7 +73,7 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_LENGTH_FILE_NAME])
 
     SDL_FreeSurface(waiting);
 
-    sprintf(level_name,"level/%s.lvl",level_names[pos_curseur]);
+    sprintf(level_name,"../Super_Martin/level/%s.lvl",level_names[pos_curseur]);
 
     closeLevelList(level_names,nb_lvl);
 

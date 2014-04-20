@@ -154,7 +154,7 @@ char **readLevelFile(int *nb_lvl)
     FILE *ptr_file;
     int i;
 
-    ptr_file=openFile("level/level","r");
+    ptr_file=openFile("../Super_Martin/level/level","r");
     if (ptr_file == NULL)
      {
         printf("\nErreur : Le fichier n'a pas pu etre lu.\n");
