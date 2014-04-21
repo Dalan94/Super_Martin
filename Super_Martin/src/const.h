@@ -19,6 +19,7 @@
     #define MARGE_SCROLLING         2
     #define POURCENTAGE_DEPLACEMENT 0
     #define MAX_SPEED               5
+    #define IMG_END_SIZE            80
 
     #define TILE_MAX 8
 
