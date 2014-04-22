@@ -26,16 +26,18 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2,int 
         perror("allocation error");
         exit(errno);
     }
+    c->isNpc = npc;
 
     c->spriteR = imageLoadAlpha(spR);
     c->spriteL = imageLoadAlpha(spL);
 
     c->location.h = c->spriteR->h;
     c->location.w = c->spriteR->w;
+    c->saveY=c->location.y = y;
+    c->saveX = c->location.x = x;
+
     c->dirX = c->dirY = 0;
 
-    c->saveX = c->location.x = x;
-    c->location.y = y;
     c->isRight = 1;
     c->isOnGround = 0;
     c->isJumping = 0;
@@ -46,7 +48,6 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2,int 
     c->x1 = x1;
     c->x2 = x2;
 
-    c->isNpc = npc;
 
     return c;
 }
@@ -76,6 +77,13 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
 {
     c->dirX = 0;
 
+    if(c->location.y == c->saveY)
+        c->dirY = 0;
+    c->saveY = c->location.y;
+
+    if(jump == 2)
+        c->dirY = -GRAVITY_SPEED*3;
+
     c->dirY+=GRAVITY_SPEED;
     if(c->dirY >= MAX_FALL_SPEED)
         c->dirY == MAX_FALL_SPEED;
@@ -85,8 +93,7 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
         c->dirY = -JUMP_HEIGHT;
         c->isOnGround = 0;
     }
-    if(jump == 2)
-        c->dirY = 0;
+
     if (move_right && !move_left)
     {
         c->dirX += speed;

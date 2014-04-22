@@ -7,6 +7,7 @@ typedef struct
     SDL_Surface *spriteR,*spriteL;
 
     SDL_Rect location;
+    int saveX,saveY; /*! save the position of the pnj to know if he is blocked at the next loop iteration*/
     float dirX,dirY;
 
     int isRight; /*! indicate the character's diraction (1 right, 0 left)*/
@@ -17,7 +18,7 @@ typedef struct
     int isFalling; /*! indicate if the character is falling*/
 
     int x1,x2; /*! left and right deplacement limits for pnj */
-    int saveX; /*! save the position of the pnj to know if he is blocked at the next loop iteration*/
+
 }Character;
 
 /**
