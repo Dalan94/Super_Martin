@@ -41,7 +41,7 @@
  Character *deleteCurrent(list * l);
 
 
-void createEnemy(char *spR,char *spL,int x,int y, list *l,int x1, int x2);
+void createEnemy(char *tile,int x,int y, list *l,int x1, int x2);
 void blitEnnemies(SDL_Surface *screen, list *l,Map *m);
 int collisionEnemy(Character *c,list *l,Map *m);
 void moveEnemies(list *l, Map *m,list *p);

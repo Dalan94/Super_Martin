@@ -93,15 +93,15 @@ void play(SDL_Surface *screen, char *level_name){
     background = imageLoadAlpha(m->lvl->background);
 
     /*initialisation du joueur*/
-    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png",5*TAILLE_BLOC,8*TAILLE_BLOC-39,0,0,0);
+    player = createrCharacter("sprites/Characters/maryo.png",5*TAILLE_BLOC,8*TAILLE_BLOC-39,0,0,0);
     initList(&playerList);
     playerList.current = playerList.first = playerList.last = newNode(player,NULL,NULL);
 
     /*initialisation des ennemis*/
     initList(&enemiesList);
-    createEnemy("sprites/Characters/witch_doctor_r.png","sprites/Characters/witch_doctor_l.png",18*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList,15*TAILLE_BLOC,25*TAILLE_BLOC);
-    createEnemy("sprites/Characters/witch_doctor_r.png","sprites/Characters/witch_doctor_l.png",90*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList,85*TAILLE_BLOC,120*TAILLE_BLOC);
-    createEnemy("sprites/Characters/witch_doctor_r.png","sprites/Characters/witch_doctor_l.png",50*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList,46*TAILLE_BLOC,70*TAILLE_BLOC);
+    createEnemy("sprites/Characters/witch_doctor.png",18*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList,15*TAILLE_BLOC,25*TAILLE_BLOC);
+    createEnemy("sprites/Characters/witch_doctor.png",90*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList,85*TAILLE_BLOC,120*TAILLE_BLOC);
+    createEnemy("sprites/Characters/witch_doctor.png",50*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList,46*TAILLE_BLOC,70*TAILLE_BLOC);
 
     SDL_EnableKeyRepeat(100,100); //répétition des touches
 
@@ -136,7 +136,7 @@ void play(SDL_Surface *screen, char *level_name){
             jumping(player,m,sound_jump,&enemiesList);*/
 
         /* gestion de la mort*/
-        if((player->location.y+player->spriteL->h) >= m->lvl->height*TAILLE_BLOC-1)
+        if((player->location.y+player->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TAILLE_BLOC-1)
             player->life = 0;
         if (old_time != m->lvl->timer_level || !player->life)
         {

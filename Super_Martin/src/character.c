@@ -18,7 +18,7 @@
  *\param[in] npc 1 if creating a npc, 0 if not
  *\return character structure pointer
  */
-Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2,int npc)
+Character *createrCharacter(char *tile,int x, int y, int x1,int x2,int npc)
 {
     Character *c;
     c = (Character *)malloc(sizeof(Character));
@@ -28,11 +28,10 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2,int 
     }
     c->isNpc = npc;
 
-    c->spriteR = imageLoadAlpha(spR);
-    c->spriteL = imageLoadAlpha(spL);
+    c->tile = imageLoadAlpha(tile);
 
-    c->location.h = c->spriteR->h;
-    c->location.w = c->spriteR->w;
+    c->location.h = c->tile->h/NB_TILE_MARYO_HEIGHT;
+    c->location.w = c->tile->w/NB_TILE_MARYO_WIDTH;
     c->saveY=c->location.y = y;
     c->saveX = c->location.x = x;
 
@@ -105,6 +104,9 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
         c->isRight = 0;
     }
 
+    if (c->dirY > 0)
+        c->isFalling=1;
+
     if(tryMovement(c,c->dirX,c->dirY,m,l))
         return 1;
     presiseMoveCharacter(c,c->dirX,c->dirY,m,l);
@@ -114,6 +116,7 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
         c->isOnGround = 1;
         c->isFalling = 0;
     }
+
     return 0;
 }
 
@@ -181,18 +184,50 @@ void movementVector(int direction,int speed,Character *c)
  *\param[in] m game map
  */
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
-    SDL_Rect pos;
+    SDL_Rect pos,poseTile;
+    static char deplacement=1;
+
     pos.y = c->location.y;
     pos.x = c->location.x - m->xScroll;
+    pos.h = poseTile.h = c->tile->h/NB_TILE_MARYO_HEIGHT;
+    pos.w = poseTile.w = c->tile->w/NB_TILE_MARYO_WIDTH;
+
     switch(c->isRight){
         case 0:
-            SDL_BlitSurface(c->spriteL,NULL,screen,&pos);
+            poseTile.y = 0;
             break;
         case 1:
-            SDL_BlitSurface(c->spriteR,NULL,screen,&pos);
+            poseTile.y = poseTile.h;
             break;
         default:;
     }
+
+    if (c->isFalling)
+        poseTile.x=3*poseTile.w;
+    else
+    {
+        if(c->dirX == 0)
+            poseTile.x=0;
+
+        else
+        {
+            if (deplacement < FPS)
+            {
+                poseTile.x = poseTile.w;
+                deplacement++;
+            }
+            else
+            {
+                poseTile.x = poseTile.w *2;
+                if (deplacement == 2*FPS)
+                    deplacement=0;
+                else
+                    deplacement ++;
+            }
+        }
+    }
+
+    SDL_BlitSurface(c->tile,&poseTile,screen,&pos);
 }
 
 /**

@@ -19,10 +19,10 @@
  *\param[in] x2  the enemy right deplacement limit
  */
 
-void createEnemy(char *spR,char *spL,int x,int y, list *l, int x1, int x2)
+void createEnemy(char *tile,int x,int y, list *l, int x1, int x2)
 {
     Character *e;
-    e = createrCharacter(spR, spL, x, y, x1, x2,1);
+    e = createrCharacter(tile, x, y, x1, x2,1);
     if(e == NULL)
     {
         perror("allocation error");
@@ -176,7 +176,7 @@ void moveEnemies(list *l, Map *m, list *p)
           ret =  moveCharacter(l->current->c,1,0,0,m,2,p);
         }
 
-        if((l->current->c->location.y + l->current->c->spriteL->h) >= m->lvl->height*TAILLE_BLOC-1)
+        if((l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TAILLE_BLOC-1)
             deleteCurrent(l);
         next(l);
     }

@@ -43,7 +43,7 @@
 
 
 /*prototypes*/
-Character *createrCharacter(char *spR,char *spL,int x, int y,int x1,int x2,int npc);
+Character *createrCharacter(char *tile,int x, int y,int x1,int x2,int npc);
 int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l);
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 int collisionMap(SDL_Rect r,Map *m);
