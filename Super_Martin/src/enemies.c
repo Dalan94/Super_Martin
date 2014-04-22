@@ -90,7 +90,10 @@ int collisionEnemy(Character *c,list *l,Map *m)
                 if(!c->isNpc && !c->isHurt)
                 {
                     c->life -= 50;
+
                     c->isHurt = 50;
+
+                    c->countStars -=2;
                     if(c->isRight)
                     {
                         moveCharacterCol(c,1,0,m);
@@ -105,7 +108,10 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     if(!l->current->c->isHurt)
                     {
                         l->current->c->life -= 50;
+
+                        l->current->c->countStars -=2;
                         l->current->c->isHurt = 50;
+
                         if(c->isRight)
                         {
                             moveCharacterCol(l->current->c,0,1,m);

@@ -24,6 +24,9 @@ void play(SDL_Surface *screen, char *level_name)
     int continuer = 1;
     char charLife[5];
 
+    /*gestion des etoiles*/
+    char charCountStars[5];
+
     /*gestion du temps*/
     char charTime[5];
     SDL_TimerID timer = NULL;
@@ -54,6 +57,8 @@ void play(SDL_Surface *screen, char *level_name)
     SDL_Rect posBack;
     SDL_Surface *heart = NULL;
     SDL_Rect posHeart = {screen->w-105,10,0,0},posLife = {screen->w-70,10,0,0};
+    SDL_Surface *stars = NULL;
+    SDL_Rect posStars ={screen->w/2,3,0,0}, posCountStars ={screen->w/2+40,10,0,0};
     SDL_Surface *watch;
     SDL_Rect posWatch = {10,10,0,0};
 
@@ -109,6 +114,13 @@ void play(SDL_Surface *screen, char *level_name)
 
     heart = imageLoadAlpha("sprites/Heart.png");
     watch = imageLoadAlpha("sprites/watch.png");
+    stars = imageLoadAlpha("sprites/stars.png");
+     if(stars == NULL)
+    {
+        perror("error while loading stars sprite");
+        exit(errno);
+    }
+
     if(heart == NULL)
     {
         perror("error while loading heart sprite");
@@ -172,6 +184,11 @@ void play(SDL_Surface *screen, char *level_name)
         else
             player->isHurt = 0;
         /* ****** */
+
+        /*affichage du nombre d'étoiles récoltées*/
+        sprintf(charCountStars,"%d",player->countStars);
+        printText(screen,&posCountStars,charCountStars,0,0,0,"polices/code.otf",20,1);
+        SDL_BlitSurface(stars,NULL,screen,&posStars);
 
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
