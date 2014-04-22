@@ -75,9 +75,12 @@ void blitEnnemies(SDL_Surface *screen, list *l,Map *m)
  */
 int collisionEnemy(Character *c,list *l,Map *m)
 {
+
     int ret = 0;
 
     setOnFirst(l);
+    if(l==NULL)
+        return 0;
 
     while(!outOfList(l))
     {
@@ -87,16 +90,14 @@ int collisionEnemy(Character *c,list *l,Map *m)
                 if(!c->isNpc && !c->isHurt)
                 {
                     c->life -= 50;
-                    c->isHurt = 150;
+                    c->isHurt = 50;
                     if(c->isRight)
                     {
-                        //c->location.x-=10;
-                        moveCharacterCol(c,LEFT,m,50,l);
+                        moveCharacterCol(c,1,0,m);
                     }
                     else
                     {
-                        //c->location.x+=10;
-                        moveCharacterCol(c,RIGHT,m,50,l);
+                        moveCharacterCol(c,0,1,m);
                     }
                 }
                 else
@@ -104,16 +105,14 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     if(!l->current->c->isHurt)
                     {
                         l->current->c->life -= 50;
-                        l->current->c->isHurt = 150;
+                        l->current->c->isHurt = 50;
                         if(c->isRight)
                         {
-                           // l->current->c->location.x+=10;
-                            moveCharacterCol(l->current->c,RIGHT,m,50,l);
+                            moveCharacterCol(l->current->c,0,1,m);
                         }
                         else
                         {
-                            //l->current->c->location.x-=10;
-                            moveCharacterCol(l->current->c,LEFT,m,50,l);
+                            moveCharacterCol(l->current->c,1,0,m);
                         }
                     }
                 }
@@ -135,10 +134,6 @@ int collisionEnemy(Character *c,list *l,Map *m)
         next(l);
     }
 
-    if(c->isHurt>0)
-        c->isHurt--;
-    else
-        c->isHurt = 0;
     return ret;
 }
 
@@ -160,26 +155,42 @@ void moveEnemies(list *l, Map *m, list *p)
         l->current->c->saveX = l->current->c->location.x;
 
         if(l->current->c->isRight && l->current->c->location.x<l->current->c->x2)
-           ret = moveCharacter(l->current->c,0,1,0,m,2,p);
+           ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL);
 
         else if(!l->current->c->isRight && l->current->c->location.x>l->current->c->x1)
-           ret = moveCharacter(l->current->c,1,0,0,m,2,p);
+           ret = moveCharacter(l->current->c,1,0,0,m,2,p,NULL);
 
         else if(l->current->c->location.x <= l->current->c->x1)
         {
             l->current->c->isRight = 1;
-           ret = moveCharacter(l->current->c,0,1,0,m,2,p);
+           ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL);
         }
         else if(l->current->c->location.x >= l->current->c->x2)
         {
-            l->current->c->isRight = 0;
-          ret =  moveCharacter(l->current->c,1,0,0,m,2,p);
+        l->current->c->isRight = 0;
+          ret =  moveCharacter(l->current->c,1,0,0,m,2,p,NULL);
         }
 
         if((l->current->c->location.y + l->current->c->spriteL->h) >= m->lvl->height*TAILLE_BLOC-1)
             deleteCurrent(l);
         next(l);
     }
+}
+
+/**
+ *\fn int moveCharacterCol(Character *c,int direction,Map *m,float speed)
+ *moves the character if it's hurt by an enemy
+ *\param[in,out] c the character
+ *\param[in] direction the direction of the movement
+ *\param[in] m level map
+ *\return 1 if character was moved without using the precise movement function, 0 if not
+ */
+
+int moveCharacterCol(Character *c,int move_left, int move_right,Map *m)
+{
+    moveCharacter(c,move_left,move_right,0,m,50,NULL,NULL);
+
+    return 0;
 }
 
 

@@ -29,8 +29,6 @@
  void previous(list *l);
  Character *getCurrent (list * l);
 
- /*void printList(list * l);*/
-
  int insertFirst(list * l, Character *c);
  int insertLast(list * l, Character *c);
  int insertAfterCurrent(list * l, Character *c);
@@ -45,5 +43,6 @@ void createEnemy(char *spR,char *spL,int x,int y, list *l,int x1, int x2);
 void blitEnnemies(SDL_Surface *screen, list *l,Map *m);
 int collisionEnemy(Character *c,list *l,Map *m);
 void moveEnemies(list *l, Map *m,list *p);
+int moveCharacterCol(Character *c,int move_left, int move_right,Map *m);
 
 #endif // ENEMIES_H_INCLUDED

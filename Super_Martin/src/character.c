@@ -53,27 +53,21 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2,int 
 }
 
 /**
- *\fn void moveCharacter(Character *c,int direction, Map *m,float speed)
+ *\fn int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l)
  *move player according to the direction
  *\param[in,out] c the character
- *\param[in] direction movement direction
+ *\param[in] move_left indicates if must go to the left
+ *\param[in] move_right indicates if must go to the right
+ *\param[in] jump indicates if must jump
  *\param[in] m level map
  *\param[in] speed movement speed
+ *\param[in,out] l the enemy list
 
  *\return 1 if character was moved without using the precise movement function, 0 if not
  */
-int moveCharacterCol(Character *c,int direction,Map *m,float speed,list *l)
-{
 
-    movementVector(direction,speed,c);
 
-    if(tryMovement(c,c->dirX,c->dirY,m,NULL))
-        return 1;
-    presiseMoveCharacter(c,c->dirX,c->dirY,m,NULL);
-
-    return 0;
-}
-int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l)
+int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *sound_jump)
 {
     c->dirX = 0;
 
@@ -92,6 +86,8 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     {
         c->dirY = -JUMP_HEIGHT;
         c->isOnGround = 0;
+        playMusicOnce(sound_jump,"sound/jump_big.ogg");
+        soundVolume(sound_jump,0);
     }
 
     if (move_right && !move_left)
@@ -134,7 +130,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
     futureLocation.y += vy;
 
 
-    if(!collisionMap(futureLocation,m) && !collisionEnemy(c,l))
+    if(!collisionMap(futureLocation,m) && !collisionEnemy(c,l,m))
     {
         c->location = futureLocation;
         return 1;
@@ -142,36 +138,6 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
     return 0;
 }
 
-
-/**
- *\fn void movementVector(int direction, int *vx, int *vy,int speed,Character *c)
- *create a movement vector
- *\param[in] direction The movement's direction
- *\param[out] vx the horizontal component of the vector
- *\param[out] vy the vertical component of the vector
- *\param[in] speed the speed of the move
- *\param[out] c the Character you have to move
- */
-void movementVector(int direction,int speed,Character *c)
-{
-    switch(direction){
-        case LEFT:
-            c->dirX = 0-speed;
-            c->isRight = 0;
-            break;
-        case RIGHT:
-            c->dirX = 0+ speed;
-            c->isRight = 1;
-            break;
-        case DOWN:
-            c->dirY += speed;
-            break;
-        case UP:
-            c->dirY -= speed;
-            break;
-        default: ;
-    }
-}
 
 /**
  *\fn void blitCharacter(SDL_Surface *screen, Character *c, Map *m)
@@ -206,8 +172,8 @@ int collisionMap(SDL_Rect r,Map *m){
     int i,j;
     int xmin,xmax,ymin,ymax;
     SDL_Rect test;
-    test.h = test.w = TAILLE_BLOC;
-
+    test.h = TAILLE_BLOC;
+    test.w = 2*TAILLE_BLOC;
     if(r.x+r.w > (m->lvl->width+1)*TAILLE_BLOC || r.x < TAILLE_BLOC || r.y+r.h >(m->lvl->height)*TAILLE_BLOC -1 || r.y<0)
         return 1; //test les limites du monde
 
@@ -218,14 +184,11 @@ int collisionMap(SDL_Rect r,Map *m){
 
     for(i = xmin ; i< xmax ; i++){
         for (j=ymin ; j< ymax ; j++){
-            if(m->lvl->map[j][i] != VOID){
+            if(m->lvl->map[j][i] != VOID)
+            {
                 test.x = i*TAILLE_BLOC;
                 test.y = j*TAILLE_BLOC;
-                if(!(((r.x+r.w < test.x)
-                    && (r.x > test.x+test.w))
-                    && ((r.y+r.h <= test.y)
-                    && (r.y >= test.y+test.h)))
-                )
+                if(collisionSprite(r,test))
                     return 1;
             }
         }
@@ -243,10 +206,11 @@ int collisionMap(SDL_Rect r,Map *m){
 */
 int collisionSprite(SDL_Rect s1, SDL_Rect s2)
 {
+
     if((s1.x+s1.w < s2.x)
             || (s1.x > s2.x+s2.w)
-            || (s1.y+s1.h <= s2.y)
-            || (s1.y >= s2.y+s2.h)
+            || (s1.y+s1.h < s2.y)
+            || (s1.y > s2.y+s2.h)
      )return 0;
     if(s1.y+s1.h<=s2.y+10 || s2.y+s2.h<=s1.y+10)
     {
@@ -255,18 +219,7 @@ int collisionSprite(SDL_Rect s1, SDL_Rect s2)
     return 1;
 }
 
-/**
- *\fn void gravity(Character *c,Map *m)
- *apply gravity to a Character
- *\param[in,out] c the Character
- *\param[in] m The map the Character is on
- */
-/*void gravity(Character *c, Map *m,list *l)
-{
 
-        if (moveCharacter(c,DOWN,m,10,l) != 0)
-            c->isOnGround = 0;
-}*/
 
 
 /**
@@ -291,24 +244,4 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l){
     }
 }
 
-/**
- *\fn void jumping(Character *c, Map *m)
- *make the character jump
- *\param[in,out] c the Character
- *\param[in] m The map the Character is on
- */
-/*void jumping(Character *c, Map *m,Sound *jump_sound,list *l)
-{
-    if(c->isOnGround)
-    {
-        playMusicOnce(jump_sound,"sound/jump_big.ogg");
-    }
 
-    c->isOnGround = 0;
-    if (c->isJumping < 6)
-        moveCharacter(c,UP,m,c->isJumping,l);
-    else
-        moveCharacter(c,UP,m,6,l);
-    c->isJumping --;
-
-}*/
