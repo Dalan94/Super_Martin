@@ -42,6 +42,7 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2,int 
     c->isOnGround = 0;
     c->isJumping = 0;
     c->life = 100;
+    c->countStars = 5;
     c->isHurt = 0;
     c->isFalling = 0;
 

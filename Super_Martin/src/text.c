@@ -48,7 +48,7 @@ void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r,int g, 
             exit(EXIT_FAILURE);
     }
     if(textSurface == NULL){
-        fprintf(stderr,"writing error");
+        fprintf(stderr,"Writing error, textSurface is Null!");
         exit(EXIT_FAILURE);
     }
 

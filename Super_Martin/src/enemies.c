@@ -87,6 +87,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
                 if(!c->isNpc && !c->isHurt)
                 {
                     c->life -= 50;
+                    c->countStars -=2;
                     c->isHurt = 150;
                     if(c->isRight)
                     {
@@ -104,6 +105,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     if(!l->current->c->isHurt)
                     {
                         l->current->c->life -= 50;
+                        l->current->c->countStars -=2;
                         l->current->c->isHurt = 150;
                         if(c->isRight)
                         {
