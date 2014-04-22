@@ -123,21 +123,25 @@ void writeLevel(char *file_name, Level *lvl)
 {
     int i,j;
     FILE *ptr_file;
+    Level *adapt_lvl=adaptSizeLevel(lvl);
+
     ptr_file=openFile(file_name,"w+");
 
-    fprintf(ptr_file,"%d\n",lvl->width);
-    fprintf(ptr_file,"%d\n",lvl->height);
-    fprintf(ptr_file,"%d\n",lvl->timer_level);
-    fprintf(ptr_file,"%s\n",lvl->background);
-    fprintf(ptr_file,"%s\n",lvl->music);
+    fprintf(ptr_file,"%d\n",adapt_lvl->width);
+    fprintf(ptr_file,"%d\n",adapt_lvl->height);
+    fprintf(ptr_file,"%d\n",adapt_lvl->timer_level);
+    fprintf(ptr_file,"%s\n",adapt_lvl->background);
+    fprintf(ptr_file,"%s\n",adapt_lvl->music);
 
-    for (i=0 ; i<lvl->height ; i++)
+    for (i=0 ; i<adapt_lvl->height ; i++)
     {
-        for (j=0 ; j<lvl->width ; j++)
-            fprintf(ptr_file,"%hhu",lvl->map[i][j]);
+        for (j=0 ; j<adapt_lvl->width ; j++)
+            fprintf(ptr_file,"%hhu",adapt_lvl->map[i][j]);
         fprintf(ptr_file,"\n");
     }
     closeFile(ptr_file);
+
+    closeLevel(adapt_lvl);
 }
 
 /*!
@@ -201,4 +205,56 @@ void closeLevelList(char **level_names, int nb_lvl)
     for (i=0 ; i<nb_lvl ; i++)
         free(level_names[i]);
     free(level_names);
+}
+
+Level *adaptSizeLevel(Level *lvl)
+{
+    int end;
+    int i,j;
+    Level *adapt_lvl;
+
+    if ((adapt_lvl=(Level *)malloc(sizeof(Level))) == NULL)
+     {
+            printf("\nError allocating memory\n");
+            perror("");
+            exit(0);
+     }
+
+    end = searchEndLevel(lvl);
+    adapt_lvl->height=lvl->height;
+    adapt_lvl->width = end + NB_TILES_X/2;
+    strcpy(adapt_lvl->music,lvl->music);
+    adapt_lvl->timer_level=lvl->timer_level;
+    strcpy(adapt_lvl->background,lvl->background);
+    initLevel(adapt_lvl);
+
+    for(i=0 ; i< end + NB_TILES_X/2 ; i++)
+    {
+        for (j=0 ; j<adapt_lvl->height ; j++)
+        {
+            if (i >= end)
+                adapt_lvl->map[j][i]=lvl->map[j][end-1];
+            else
+                adapt_lvl->map[j][i]=lvl->map[j][i];
+        }
+    }
+
+    return adapt_lvl;
+}
+
+
+int searchEndLevel(Level *lvl)
+{
+    int i;
+    int j;
+
+    for (i=lvl->width ; i>0 ; i--)
+    {
+        for (j=0 ; j<lvl->height ; j++)
+        {
+            if (lvl->map[j][i-1] != 0)
+                return i;
+        }
+    }
+    return 0;
 }

@@ -23,5 +23,7 @@ Level *initLevel(Level *lvl);
 void writeLevel(char *file_name, Level *lvl);
 char **readLevelFile(int *nb_lvl);
 void closeLevelList(char **level_names, int nb_lvl);
+Level *adaptSizeLevel(Level *lvl);
+int searchEndLevel(Level *lvl);
 
 #endif // FILE_LEVEL_H_INCLUDED

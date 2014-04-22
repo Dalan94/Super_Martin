@@ -149,6 +149,9 @@ void play(SDL_Surface *screen, char *level_name){
             old_time=m->lvl->timer_level;
         }
 
+        if((player->location.x)/TAILLE_BLOC >= m->lvl->width - NB_BLOCS_LARGEUR/2)
+            printWin(screen,&continuer,&in);
+
 
         if (pause)
         {
@@ -183,9 +186,10 @@ void play(SDL_Surface *screen, char *level_name){
 
 
 
+
         updateScreenMap(screen,m,"sprites/tilesetok.png"); //blit du niveau
-
-
+        blitCharacter(screen,player,m);
+        blitEnnemies(screen,&enemiesList,m);
 
         waitFPS(&previous_time,&current_time);
 
@@ -222,7 +226,7 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
     playMusic(s,"sound/chopin1.mp3");
     soundVolume(s,0);
 
-    gameOver = IMG_Load("sprites/game-over.jpg");
+    gameOver = imageLoad("sprites/game-over.jpg");
     posGame.x = posGame.y = 0;
     SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
     SDL_BlitSurface(gameOver,NULL,screen,&posGame);
@@ -232,9 +236,40 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
 
     SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
 
-    while(!updateEvents(in));
+    while(!updateWaitEvents(in));
     *continuer = 0;
     SDL_FreeSurface(gameOver);
+    freeSound(s);
+
+}
+
+/**
+ *\fn void printWin(SDL_Surface *screen,int *continuer,Input *in)
+ *affiche le message de reussite du niveau
+ *\param[out] screen l'écran de jeu
+ */
+void printWin(SDL_Surface *screen,int *continuer,Input *in){
+    SDL_Surface *win = NULL;
+    SDL_Rect posGame;
+
+
+    Sound *s;
+    s = createSound();
+    playMusic(s,"sound/win.mp3");
+
+    win = imageLoad("sprites/game-over.jpg");
+    posGame.x = posGame.y = 0;
+    SDL_SetAlpha(win, SDL_SRCALPHA, 200);
+    SDL_BlitSurface(win,NULL,screen,&posGame);
+
+    printText(screen,NULL,"YOU WIN !",186,38,18,"polices/sherwood.ttf",65,1);
+    SDL_Flip(screen);
+
+    SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
+
+    while(!updateWaitEvents(in));
+    *continuer = 0;
+    SDL_FreeSurface(win);
     freeSound(s);
 
 }
@@ -321,7 +356,7 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer)
 
     int time_pause=*time;
 
-    gameOver = IMG_Load("sprites/game-over.jpg");
+    gameOver = imageLoad("sprites/game-over.jpg");
     posGame.x = posGame.y = 0;
     SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
     SDL_BlitSurface(gameOver,NULL,screen,&posGame);
@@ -333,7 +368,7 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer)
 
     while(!in->key[SDLK_p] && *continuer){
 
-        updateEvents(in);
+        updateWaitEvents(in);
         if(in->quit)
             *continuer = 0;
 
