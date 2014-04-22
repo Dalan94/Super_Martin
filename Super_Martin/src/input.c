@@ -67,7 +67,9 @@ void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *
     /*jump*/
     if(in->key[SDLK_SPACE] && player->isOnGround)
         *jump = 1;
-    if(!in->key[SDLK_SPACE])
+    if(!in->key[SDLK_SPACE] && *jump==1)
+        *jump = 2;
+    if(!in->key[SDLK_SPACE] && (*jump==2 || *jump==0))
         *jump = 0;
 
         /*pause*/

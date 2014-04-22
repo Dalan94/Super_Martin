@@ -87,11 +87,13 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     if(c->dirY >= MAX_FALL_SPEED)
         c->dirY == MAX_FALL_SPEED;
 
-    if(jump && c->isOnGround)
+    if(jump==1 && c->isOnGround)
     {
         c->dirY = -JUMP_HEIGHT;
         c->isOnGround = 0;
     }
+    if(jump == 2)
+        c->dirY = 0;
     if (move_right && !move_left)
     {
         c->dirX += speed;
