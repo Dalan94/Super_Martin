@@ -90,13 +90,13 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     c->isHurt = 150;
                     if(c->isRight)
                     {
-                        c->location.x-=50;
-                        //moveCharacter(c,1,0,0,m,30,l);
+                        //c->location.x-=10;
+                        moveCharacterCol(c,LEFT,m,50,l);
                     }
                     else
                     {
-                        c->location.x+=50;
-                       // moveCharacter(c,0,1,0,m,30,l);
+                        //c->location.x+=10;
+                        moveCharacterCol(c,RIGHT,m,50,l);
                     }
                 }
                 else
@@ -107,13 +107,13 @@ int collisionEnemy(Character *c,list *l,Map *m)
                         l->current->c->isHurt = 150;
                         if(c->isRight)
                         {
-                            l->current->c->location.x+=50;
-                           // moveCharacter(c,0,1,0,m,100,l);
+                           // l->current->c->location.x+=10;
+                            moveCharacterCol(l->current->c,RIGHT,m,50,l);
                         }
                         else
                         {
-                            l->current->c->location.x-=50;
-                            //moveCharacter(c,1,0,0,m,100,l);
+                            //l->current->c->location.x-=10;
+                            moveCharacterCol(l->current->c,LEFT,m,50,l);
                         }
                     }
                 }
@@ -289,7 +289,7 @@ void setOnLast (list *l)
  */
 void next (list *l)
 {
-    if(l!=NULL && !empty(l))
+    if(l!=NULL && !empty(l) && !outOfList(l))
         l->current = (l->current->next);
 }
 

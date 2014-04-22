@@ -1,0 +1,129 @@
+\hypertarget{map_8h}{\section{map.\-h File Reference}
+\label{map_8h}\index{map.\-h@{map.\-h}}
+}
+
+
+header de \hyperlink{map_8c}{map.\-c}  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}file\-\_\-level.\-h\char`\"{}}\\*
+Include dependency graph for map.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{map_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{map_8h_afc8482e2afe6f96b7d6cb6ce3fc7081c}{update\-Screen\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_map}{Map} $\ast$m, char $\ast$tileset)
+\item 
+void \hyperlink{map_8h_a6f031e5ad35ada9038d3a72a56053760}{scrolling} (\hyperlink{struct_map}{Map} $\ast$m, int direction, float speed)
+\item 
+\hyperlink{struct_map}{Map} $\ast$ \hyperlink{map_8h_a92c61ecb670c1960ed8bff4819485094}{init\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name)
+\item 
+\hypertarget{map_8h_ac8d4dd6fc80c79d9cb5899684740d074}{void {\bfseries free\-Map} (\hyperlink{struct_map}{Map} $\ast$m)}\label{map_8h_ac8d4dd6fc80c79d9cb5899684740d074}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+header de \hyperlink{map_8c}{map.\-c} \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/03-\/18 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{map_8h_a92c61ecb670c1960ed8bff4819485094}{\index{map.\-h@{map.\-h}!init\-Map@{init\-Map}}
+\index{init\-Map@{init\-Map}!map.h@{map.\-h}}
+\subsubsection[{init\-Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map}$\ast$ init\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char $\ast$}]{level\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{map_8h_a92c61ecb670c1960ed8bff4819485094}
+initialise la carte 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em screen} & l'écran de jeu \\
+\hline
+\mbox{\tt in}  & {\em level\-\_\-name} & le nom du niveau \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un pointeur sur la carte initialisée 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{map_8h_a92c61ecb670c1960ed8bff4819485094_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8h_a6f031e5ad35ada9038d3a72a56053760}{\index{map.\-h@{map.\-h}!scrolling@{scrolling}}
+\index{scrolling@{scrolling}!map.h@{map.\-h}}
+\subsubsection[{scrolling}]{\setlength{\rightskip}{0pt plus 5cm}void scrolling (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{int}]{direction, }
+\item[{float}]{speed}
+\end{DoxyParamCaption}
+)}}\label{map_8h_a6f031e5ad35ada9038d3a72a56053760}
+effectue un scrolling 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em map} & Le niveau à gérer \\
+\hline
+\mbox{\tt in}  & {\em direction} & La direction de scrolling \\
+\hline
+\mbox{\tt in}  & {\em speed} & la vitesse de scrolling \\
+\hline
+\end{DoxyParams}
+\hypertarget{map_8h_afc8482e2afe6f96b7d6cb6ce3fc7081c}{\index{map.\-h@{map.\-h}!update\-Screen\-Map@{update\-Screen\-Map}}
+\index{update\-Screen\-Map@{update\-Screen\-Map}!map.h@{map.\-h}}
+\subsubsection[{update\-Screen\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void update\-Screen\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{char $\ast$}]{tileset}
+\end{DoxyParamCaption}
+)}}\label{map_8h_afc8482e2afe6f96b7d6cb6ce3fc7081c}
+met à jour l'écran avec les données de la carte (ignore les personnages) 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & of the game \\
+\hline
+\mbox{\tt in}  & {\em \hyperlink{struct_map}{Map}} & $\ast$m The map \\
+\hline
+\mbox{\tt in}  & {\em tileset} & lvl tileset \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{map_8h_afc8482e2afe6f96b7d6cb6ce3fc7081c_cgraph}
+\end{center}
+\end{figure}
+
+

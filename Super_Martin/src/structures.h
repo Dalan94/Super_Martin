@@ -1,7 +1,8 @@
 #ifndef STRUCTURES_H_INCLUDED
 #define STRUCTURES_H_INCLUDED
 
-typedef struct{
+typedef struct
+{
     int isNpc; /*! 1 if a npc, 0 if not*/
     SDL_Surface *spriteR,*spriteL;
 

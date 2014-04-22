@@ -1,0 +1,12 @@
+<map id="jeu.c" name="jeu.c">
+<area shape="rect" id="node3" href="$jeu_8h.html" title="header de jeu.c " alt="" coords="957,89,1008,122"/>
+<area shape="rect" id="node15" href="$const_8h.html" title="contient les constantes du programme " alt="" coords="1388,337,1452,370"/>
+<area shape="rect" id="node17" href="$text_8h.html" title="header de text.c " alt="" coords="439,254,492,287"/>
+<area shape="rect" id="node26" href="$sound_8h.html" title="header de sound.c " alt="" coords="311,337,377,370"/>
+<area shape="rect" id="node33" href="$share_8h_source.html" title="share.h" alt="" coords="1465,254,1529,287"/>
+<area shape="rect" id="node37" href="$player_8h.html" title="header de player.c " alt="" coords="1105,171,1172,205"/>
+<area shape="rect" id="node45" href="$file__level_8h_source.html" title="file_level.h" alt="" coords="761,254,844,287"/>
+<area shape="rect" id="node58" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="1071,254,1137,287"/>
+<area shape="rect" id="node68" href="$map_8h.html" title="header de map.c " alt="" coords="875,171,933,205"/>
+<area shape="rect" id="node51" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="692,337,743,370"/>
+</map>

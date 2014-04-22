@@ -61,24 +61,17 @@ Character *createrCharacter(char *spR,char *spL,int x, int y, int x1,int x2,int 
 
  *\return 1 if character was moved without using the precise movement function, 0 if not
  */
-/*int moveCharacter(Character *c,int direction,Map *m,float speed,list *l)
+int moveCharacterCol(Character *c,int direction,Map *m,float speed,list *l)
 {
 
     movementVector(direction,speed,c);
-    if(c->dirY>0)
-        c->isFalling = 1;
 
-    if(tryMovement(c,c->dirX,c->dirY,m,l))
+    if(tryMovement(c,c->dirX,c->dirY,m,NULL))
         return 1;
-    presiseMoveCharacter(c,c->dirX,c->dirY,m,l);
+    presiseMoveCharacter(c,c->dirX,c->dirY,m,NULL);
 
-    if(vy>0)
-    {
-        c->isOnGround = 1;
-        c->isFalling = 0;
-    }
     return 0;
-}*/
+}
 int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l)
 {
     c->dirX = 0;
