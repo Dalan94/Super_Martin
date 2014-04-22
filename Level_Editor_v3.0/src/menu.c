@@ -57,8 +57,8 @@ int menu(SDL_Surface *screen,int *choice, int *go)
         }
     }
 
-    options[1] = "Nouvelle map";
-    options[0] = "Editer une map existante";
+    strcpy(options[1],  "Creer une nouvelle map");
+    strcpy(options[0], "Editer une map existante");
     memset(&in,0,sizeof(in));
 
     while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
@@ -94,7 +94,8 @@ int menu(SDL_Surface *screen,int *choice, int *go)
     }
     *choice=pos_cursor;
     SDL_FreeSurface(waiting);
-
+    for (i=0 ; i<nb_options ; i++)
+        free(options[i]);
     free(options);
 
     return select;
@@ -139,12 +140,12 @@ int menuTileSet(SDL_Surface *screen, char tileSet_name[MAX_LENGTH_FILE_NAME])
         }
     }
 
-    tileSet_list[0] = "Grassland";
-    tileSet_list[1] = "Snow";
-    tileSet_list[2] = "Forest";
-    tileSet_list[3] = "Beach";
-    tileSet_list[4] = "Desert";
-    tileSet_list[5] = "Mountains";
+    strcpy(tileSet_list[0], "Grassland");
+    strcpy(tileSet_list[1], "Snow");
+    strcpy(tileSet_list[2], "Forest");
+    strcpy(tileSet_list[3], "Beach");
+    strcpy(tileSet_list[4], "Desert");
+    strcpy(tileSet_list[5], "Mountains");
 
     memset(&in,0,sizeof(in));
 
@@ -179,9 +180,9 @@ int menuTileSet(SDL_Surface *screen, char tileSet_name[MAX_LENGTH_FILE_NAME])
     }
 
     SDL_FreeSurface(waiting);
-    /*(*choice)=pos_cursor;*/
     sprintf(tileSet_name,"../Super_Martin/level/Empty_levels/%s.lvl",tileSet_list[pos_cursor]);
-
+    for (i=0 ; i<nb_tileSet ; i++)
+        free(tileSet_list[i]);
     free(tileSet_list);
 
     return select;

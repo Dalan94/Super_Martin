@@ -131,25 +131,25 @@ void writeLevel(char *file_name, Level *lvl)
     int i,j;
     FILE *ptr_file;
 
+    Level *adapt = adaptSizeLevel(lvl);
 
     ptr_file=openFile(file_name,"w");
 
-    fprintf(ptr_file,"%d\n",lvl->width);
-    fprintf(ptr_file,"%d\n",lvl->height);
-    fprintf(ptr_file,"%d\n",lvl->timer_level);
-    fprintf(ptr_file,"%s\n",lvl->tileSet);
-    fprintf(ptr_file,"%s\n",lvl->background);
-    fprintf(ptr_file,"%s\n",lvl->music);
+    fprintf(ptr_file,"%d\n",adapt->width);
+    fprintf(ptr_file,"%d\n",adapt->height);
+    fprintf(ptr_file,"%d\n",adapt->timer_level);
+    fprintf(ptr_file,"%s\n",adapt->tileSet);
+    fprintf(ptr_file,"%s\n",adapt->background);
+    fprintf(ptr_file,"%s\n",adapt->music);
 
-    for (i=0 ; i<lvl->height ; i++)
+    for (i=0 ; i<adapt->height ; i++)
     {
-        for (j=0 ; j<lvl->width ; j++)
-            fprintf(ptr_file,"%hhu",lvl->map[i][j]);
+        for (j=0 ; j<adapt->width ; j++)
+            fprintf(ptr_file,"%hhu",adapt->map[i][j]);
         fprintf(ptr_file,"\n");
     }
+    closeLevel(adapt);
     closeFile(ptr_file);
-    //closeLevel(lvl);
-
 }
 
 /*!
@@ -233,6 +233,7 @@ Level *adaptSizeLevel(Level *lvl)
     strcpy(adapt_lvl->music,lvl->music);
     adapt_lvl->timer_level=lvl->timer_level;
     strcpy(adapt_lvl->background,lvl->background);
+    strcpy(adapt_lvl->tileSet,lvl->tileSet);
     initLevel(adapt_lvl);
 
     for(i=0 ; i< end + NB_TILES_X/2 ; i++)

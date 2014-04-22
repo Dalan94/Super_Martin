@@ -2,9 +2,12 @@
 #define STRUCTURES_H_INCLUDED
 
 typedef struct{
-    int label; /*! the character label, to indentify the character*/
+    int isNpc; /*! 1 if a npc, 0 if not*/
     SDL_Surface *spriteR,*spriteL;
+
     SDL_Rect location;
+    float dirX,dirY;
+
     int isRight; /*! indicate the character's diraction (1 right, 0 left)*/
     int isOnGround; /*! indicate if the character is on the ground*/
     int isJumping; /*! 0 when not jumping, height remaning between character and max height if jumping*/
@@ -13,6 +16,7 @@ typedef struct{
     int isFalling; /*! indicate if the character is falling*/
 
     int x1,x2; /*! left and right deplacement limits for pnj */
+    int saveX; /*! save the position of the pnj to know if he is blocked at the next loop iteration*/
 }Character;
 
 /**

@@ -15,10 +15,16 @@
     #define HAUTEUR_FENETRE         TAILLE_BLOC * NB_BLOCS_HAUTEUR
     #define FPS                     60
     #define TAILLE_MAX_NOM_FICHIER    100
-    #define TAILLE_SAUT             17
     #define MARGE_SCROLLING         2
     #define POURCENTAGE_DEPLACEMENT 0
+
+
+    #define MAX_FALL_SPEED          10
+    #define GRAVITY_SPEED           1
+    #define JUMP_HEIGHT             13
     #define MAX_SPEED               5
+    #define IMG_END_SIZE            80
+
 
     #define TILE_MAX 8
 

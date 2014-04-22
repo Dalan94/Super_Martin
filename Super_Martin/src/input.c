@@ -53,13 +53,13 @@ int updateEvents(Input* in)
 void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration)
 {
     /*left move*/
-    if(in->key[SDLK_LEFT] && (player->isJumping > TAILLE_SAUT - 4 || (player->isJumping == 0 && player->isOnGround)))
+    if(in->key[SDLK_LEFT] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
         *move_left = 1;
     if(!in->key[SDLK_LEFT]  && player->isOnGround)
         *move_left = 0;
 
     /*right move*/
-    if(in->key[SDLK_RIGHT] && (player->isJumping > TAILLE_SAUT - 4 || (player->isJumping == 0 && player->isOnGround)))
+    if(in->key[SDLK_RIGHT] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
         *move_right = 1;
     if(!in->key[SDLK_RIGHT] && player->isOnGround)
         *move_right = 0;

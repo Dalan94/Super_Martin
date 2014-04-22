@@ -93,7 +93,7 @@ void play(SDL_Surface *screen, char *level_name){
     background = imageLoadAlpha(m->lvl->background);
 
     /*initialisation du joueur*/
-    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png",5*TAILLE_BLOC,19*TAILLE_BLOC-39,0,0);
+    player = createrCharacter("sprites/Characters/maryo_walk_r.png","sprites/Characters/maryo_walk_l.png",5*TAILLE_BLOC,8*TAILLE_BLOC-39,0,0,0);
     initList(&playerList);
     playerList.current = playerList.first = playerList.last = newNode(player,NULL,NULL);
 
@@ -124,16 +124,16 @@ void play(SDL_Surface *screen, char *level_name){
         if(in.quit)
             continuer = 0;
 
-        if(player->isOnGround && jump)
+        /*if(player->isOnGround && jump)
             player->isJumping = TAILLE_SAUT;
         if(!jump)
             player->isJumping = 0;
-            /* ********* */
+            /* ********* *
 
         if(!player->isJumping)
             gravity(player,m,&enemiesList);
         else
-            jumping(player,m,sound_jump,&enemiesList);
+            jumping(player,m,sound_jump,&enemiesList);*/
 
         /* gestion de la mort*/
         if((player->location.y+player->spriteL->h) >= m->lvl->height*TAILLE_BLOC-1)
@@ -162,7 +162,7 @@ void play(SDL_Surface *screen, char *level_name){
 
         updateSpeed(&speed,acceleration);
 
-        move(move_left,move_right,player,m,speed,&acceleration,&enemiesList);
+        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemiesList);
         moveEnemies(&enemiesList,m,&playerList);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
@@ -180,15 +180,14 @@ void play(SDL_Surface *screen, char *level_name){
 
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
-        collisionEnemy(player,&enemiesList);
+
         blitCharacter(screen,player,m);
         blitEnnemies(screen,&enemiesList,m);
 
-
-
         updateScreenMap(screen,m,m->lvl->tileSet); //blit du niveau
 
-
+        blitCharacter(screen,player,m);
+        blitEnnemies(screen,&enemiesList,m);
 
         waitFPS(&previous_time,&current_time);
 
@@ -223,6 +222,7 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
     Sound *s;
     s = createSound();
     playMusic(s,"sound/chopin1.mp3");
+    soundVolume(s,0);
 
     gameOver = imageLoad("sprites/game-over.jpg");
     posGame.x = posGame.y = 0;
@@ -234,7 +234,7 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
 
     SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
 
-    while(!updateEvents(in));
+    while(!updateWaitEvents(in));
     *continuer = 0;
     SDL_FreeSurface(gameOver);
     freeSound(s);
@@ -253,19 +253,19 @@ void printWin(SDL_Surface *screen,int *continuer,Input *in){
 
     Sound *s;
     s = createSound();
-    playMusic(s,"sound/chopin1.mp3");
+    playMusic(s,"sound/win.mp3");
 
     win = imageLoad("sprites/game-over.jpg");
     posGame.x = posGame.y = 0;
     SDL_SetAlpha(win, SDL_SRCALPHA, 200);
     SDL_BlitSurface(win,NULL,screen,&posGame);
 
-    printText(screen,NULL,"YOU WIN !",186,38,18,"polices/manga.ttf",65,1);
+    printText(screen,NULL,"YOU WIN !",186,38,18,"polices/sherwood.ttf",65,1);
     SDL_Flip(screen);
 
     SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
 
-    while(!updateEvents(in));
+    while(!updateWaitEvents(in));
     *continuer = 0;
     SDL_FreeSurface(win);
     freeSound(s);
@@ -281,13 +281,15 @@ void printWin(SDL_Surface *screen,int *continuer,Input *in){
  *\param[in] m la carte
  *\param[in] speed la vitesse de deplacement
  */
-void move(int move_left, int move_right, Character *player,Map *m,float speed, int *acceleration,list *l)
+void move(int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l)
 {
+    int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l);
     if (move_right && !move_left)
     {
-        if(moveCharacter(player,RIGHT,m,speed,l))
+        (*acceleration)++;
+
         {
-            (*acceleration)++;
+
             if (player->location.x - m->xScroll > m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100  && player->location.x - m->xScroll < m->screenWidth*(50 + MARGE_SCROLLING-POURCENTAGE_DEPLACEMENT)/100)
                 scrolling(m,RIGHT,speed);
             else if (player->location.x - m->xScroll >= m->screenWidth*(50 + MARGE_SCROLLING-POURCENTAGE_DEPLACEMENT)/100 )
@@ -296,9 +298,10 @@ void move(int move_left, int move_right, Character *player,Map *m,float speed, i
     }
     if (move_left && !move_right)
     {
-        if(moveCharacter(player,LEFT,m,speed,l))
+        (*acceleration)++;
+
         {
-            (*acceleration)++;
+
             if (player->location.x - m->xScroll < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100 && player->location.x - m->xScroll > m->screenWidth*(50 - MARGE_SCROLLING+POURCENTAGE_DEPLACEMENT)/100)
                 scrolling(m,LEFT,speed);
             else if (player->location.x - m->xScroll <= m->screenWidth*(50- MARGE_SCROLLING+POURCENTAGE_DEPLACEMENT)/100)
@@ -363,7 +366,7 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer)
 
     while(!in->key[SDLK_p] && *continuer){
 
-        updateEvents(in);
+        updateWaitEvents(in);
         if(in->quit)
             *continuer = 0;
 

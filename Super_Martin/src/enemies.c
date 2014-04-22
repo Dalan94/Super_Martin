@@ -22,7 +22,7 @@
 void createEnemy(char *spR,char *spL,int x,int y, list *l, int x1, int x2)
 {
     Character *e;
-    e = createrCharacter(spR, spL, x, y, x1, x2);
+    e = createrCharacter(spR, spL, x, y, x1, x2,1);
     if(e == NULL)
     {
         perror("allocation error");
@@ -73,7 +73,7 @@ void blitEnnemies(SDL_Surface *screen, list *l,Map *m)
  *\param[in,out] l the enemy list, change the current node
  *\return 1 if there is a collision, 0 if not
  */
-int collisionEnemy(Character *c,list *l)
+int collisionEnemy(Character *c,list *l,Map *m)
 {
     int ret = 0;
 
@@ -84,21 +84,49 @@ int collisionEnemy(Character *c,list *l)
         switch(collisionSprite(c->location,l->current->c->location))
         {
             case 1:
-                if(!c->isHurt)
+                if(!c->isNpc && !c->isHurt)
                 {
                     c->life -= 50;
                     c->isHurt = 150;
                     if(c->isRight)
-                        c->location.x-=30;
+                    {
+                        c->location.x-=50;
+                        //moveCharacter(c,1,0,0,m,30,l);
+                    }
                     else
-                        c->location.x+=30;
+                    {
+                        c->location.x+=50;
+                       // moveCharacter(c,0,1,0,m,30,l);
+                    }
+                }
+                else
+                {
+                    if(!l->current->c->isHurt)
+                    {
+                        l->current->c->life -= 50;
+                        l->current->c->isHurt = 150;
+                        if(c->isRight)
+                        {
+                            l->current->c->location.x+=50;
+                           // moveCharacter(c,0,1,0,m,100,l);
+                        }
+                        else
+                        {
+                            l->current->c->location.x-=50;
+                            //moveCharacter(c,1,0,0,m,100,l);
+                        }
+                    }
                 }
                 ret = 1;
                 break;
 
             case 2:
-                deleteCurrent(l);
-                ret = 1;
+                if(!c->isNpc)
+                {
+                    c->dirY = -(JUMP_HEIGHT/2);
+                    deleteCurrent(l);
+                    ret = 1;
+                }
                 break;
             case 0: ;
 
@@ -127,31 +155,36 @@ void moveEnemies(list *l, Map *m, list *p)
     setOnFirst(l);
     while(!outOfList(l))
     {
-        gravity(l->current->c,m,p);
+        if(l->current->c->location.x == l->current->c->saveX)
+            l->current->c->isRight ^= 1;
+        l->current->c->saveX = l->current->c->location.x;
+
         if(l->current->c->isRight && l->current->c->location.x<l->current->c->x2)
-           ret = moveCharacter(l->current->c,RIGHT,m,2,p);
+           ret = moveCharacter(l->current->c,0,1,0,m,2,p);
 
         else if(!l->current->c->isRight && l->current->c->location.x>l->current->c->x1)
-           ret = moveCharacter(l->current->c,LEFT,m,2,p);
+           ret = moveCharacter(l->current->c,1,0,0,m,2,p);
 
         else if(l->current->c->location.x <= l->current->c->x1)
         {
             l->current->c->isRight = 1;
-           ret = moveCharacter(l->current->c,RIGHT,m,2,p);
+           ret = moveCharacter(l->current->c,0,1,0,m,2,p);
         }
         else if(l->current->c->location.x >= l->current->c->x2)
         {
             l->current->c->isRight = 0;
-          ret =  moveCharacter(l->current->c,LEFT,m,2,p);
+          ret =  moveCharacter(l->current->c,1,0,0,m,2,p);
         }
-        if(!ret)
-            l->current->c->isRight ^=1;
+
         if((l->current->c->location.y + l->current->c->spriteL->h) >= m->lvl->height*TAILLE_BLOC-1)
             deleteCurrent(l);
         next(l);
     }
 }
 
+
+/* ******************************** */
+/* gestion des listes*/
 /**
  *\fn node *newNode(enemy *c, node *n, node *p)
  *creates a new node
@@ -256,7 +289,8 @@ void setOnLast (list *l)
  */
 void next (list *l)
 {
-	l->current = (l->current->next);
+    if(l!=NULL && !empty(l))
+        l->current = (l->current->next);
 }
 
 /**
