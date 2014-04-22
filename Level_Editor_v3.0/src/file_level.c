@@ -229,22 +229,17 @@ Level *adaptSizeLevel(Level *lvl)
 
     end = searchEndLevel(lvl);
     adapt_lvl->height=lvl->height;
-    adapt_lvl->width = end + NB_TILES_X/2;
+    adapt_lvl->width = end;
     strcpy(adapt_lvl->music,lvl->music);
     adapt_lvl->timer_level=lvl->timer_level;
     strcpy(adapt_lvl->background,lvl->background);
     strcpy(adapt_lvl->tileSet,lvl->tileSet);
     initLevel(adapt_lvl);
 
-    for(i=0 ; i< end + NB_TILES_X/2 ; i++)
+    for(i=0 ; i< end; i++)
     {
         for (j=0 ; j<adapt_lvl->height ; j++)
-        {
-            if (i >= end)
-                adapt_lvl->map[j][i]=lvl->map[j][end-1];
-            else
-                adapt_lvl->map[j][i]=lvl->map[j][i];
-        }
+            adapt_lvl->map[j][i]=lvl->map[j][i];
     }
 
     return adapt_lvl;

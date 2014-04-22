@@ -41,14 +41,15 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
         }
     }
 
-    if (maxx >= m->lvl->width - NB_BLOCS_LARGEUR/2)
+    if (maxx >= m->lvl->width - IMG_END_SIZE / TAILLE_BLOC + 1)
     {
         end = imageLoadAlpha("sprites/ending.png");
 
-        posTile.x = (m->lvl->width - NB_BLOCS_LARGEUR/2 +1)*TAILLE_BLOC - m->xScroll - IMG_END_SIZE/2;
+        posTile.x = (m->lvl->width - IMG_END_SIZE / TAILLE_BLOC + 2)*TAILLE_BLOC - m->xScroll - IMG_END_SIZE/2;
         i=0;
-        while (m->lvl->map[i][m->lvl->width-NB_BLOCS_LARGEUR/2] == 0)
+        while (m->lvl->map[i][m->lvl->width- IMG_END_SIZE / TAILLE_BLOC + 1] == 0)
             i++;
+
         if (i*TAILLE_BLOC - IMG_END_SIZE > 0)
             posTile.y=i*TAILLE_BLOC - IMG_END_SIZE;
         else
