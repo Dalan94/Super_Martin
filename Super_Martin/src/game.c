@@ -149,7 +149,7 @@ void play(SDL_Surface *screen, char *level_name){
             old_time=m->lvl->timer_level;
         }
 
-        if((player->location.x)/TAILLE_BLOC >= m->lvl->width - NB_BLOCS_LARGEUR/2)
+        if((player->location.x)/TAILLE_BLOC >= m->lvl->width - IMG_END_SIZE / TAILLE_BLOC + 1 && continuer)
             printWin(screen,&continuer,&in);
 
 
@@ -184,10 +184,8 @@ void play(SDL_Surface *screen, char *level_name){
         blitCharacter(screen,player,m);
         blitEnnemies(screen,&enemiesList,m);
 
+        updateScreenMap(screen,m,m->lvl->tileSet); //blit du niveau
 
-
-
-        updateScreenMap(screen,m,"sprites/tilesetok.png"); //blit du niveau
         blitCharacter(screen,player,m);
         blitEnnemies(screen,&enemiesList,m);
 

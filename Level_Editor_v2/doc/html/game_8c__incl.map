@@ -1,8 +1,0 @@
-<map id="game.c" name="game.c">
-<area shape="rect" id="node3" href="$game_8h.html" title="Header of game.c. " alt="" coords="316,89,380,122"/>
-<area shape="rect" id="node5" href="$const_8h.html" title="Definitions of every constants and structures used. " alt="" coords="289,254,353,287"/>
-<area shape="rect" id="node19" href="$file__level_8h.html" title="Header of file_level.c. " alt="" coords="419,171,501,205"/>
-<area shape="rect" id="node31" href="$input_8h.html" title="Header of input.c. " alt="" coords="200,171,261,205"/>
-<area shape="rect" id="node34" href="$map_8h.html" title="Header of map.c. " alt="" coords="285,171,344,205"/>
-<area shape="rect" id="node24" href="$file_8h.html" title="Header of file.c. " alt="" coords="543,254,593,287"/>
-</map>

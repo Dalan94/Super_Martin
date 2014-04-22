@@ -1,9 +1,0 @@
-<map id="menu_level.c" name="menu_level.c">
-<area shape="rect" id="node3" href="$menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="505,89,604,122"/>
-<area shape="rect" id="node17" href="$const_8h.html" title="contient les constantes du programme " alt="" coords="583,254,647,287"/>
-<area shape="rect" id="node19" href="$file__level_8h_source.html" title="file_level.h" alt="" coords="680,171,763,205"/>
-<area shape="rect" id="node31" href="$share_8h_source.html" title="share.h" alt="" coords="523,171,587,205"/>
-<area shape="rect" id="node35" href="$text_8h.html" title="header de text.c " alt="" coords="356,171,409,205"/>
-<area shape="rect" id="node43" href="$sound_8h.html" title="header de sound.c " alt="" coords="935,254,1001,287"/>
-<area shape="rect" id="node24" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="721,254,772,287"/>
-</map>

@@ -1,0 +1,11 @@
+<map id="menuLevel" name="menuLevel">
+<area shape="rect" id="node3" href="$image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="152,5,269,38"/>
+<area shape="rect" id="node5" href="$file__level_8h.html#af646d7df8d540e24e2acc84fc3ea3ad3" title="readLevelFile" alt="" coords="161,61,260,94"/>
+<area shape="rect" id="node11" href="$input_8c.html#ad3310b398fa046500863c183fd4468e6" title="updateWaitEvents" alt="" coords="147,117,275,150"/>
+<area shape="rect" id="node13" href="$input_8c.html#af272764fd4eba51f28af6b9b56273b37" title="keyboardActionMenu" alt="" coords="139,173,283,206"/>
+<area shape="rect" id="node15" href="$share_8h.html#a6e428694268169eee69c8f07827e72de" title="waitFPS" alt="" coords="175,229,247,262"/>
+<area shape="rect" id="node17" href="$text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="175,285,247,318"/>
+<area shape="rect" id="node19" href="$file__level_8h.html#a3fafc12e3c322fc5a8166f7fb323bfe6" title="closeLevelList" alt="" coords="159,341,263,374"/>
+<area shape="rect" id="node7" href="$file_8c.html#a8f17d8993e6de59936122f7c8ef4e37b" title="openFile" alt="" coords="333,33,403,66"/>
+<area shape="rect" id="node9" href="$file_8c.html#a0fca34d72624f611d2cbeac47279bb1f" title="closeFile" alt="" coords="331,89,405,122"/>
+</map>

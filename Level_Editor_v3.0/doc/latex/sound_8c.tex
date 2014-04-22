@@ -1,0 +1,122 @@
+\hypertarget{sound_8c}{\section{sound.\-c File Reference}
+\label{sound_8c}\index{sound.\-c@{sound.\-c}}
+}
+
+
+contient les fonction pour jouer du son  
+
+
+{\ttfamily \#include \char`\"{}sound.\-h\char`\"{}}\\*
+Include dependency graph for sound.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sound_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_sound}{Sound} $\ast$ \hyperlink{sound_8c_a3b1e12665aed7169d8efdb2cc611184e}{create\-Sound} (void)
+\item 
+void \hyperlink{sound_8c_a3af6fda5716d5f42846d0ccc01d5e2ca}{play\-Music} (\hyperlink{struct_sound}{Sound} $\ast$s, char $\ast$file)
+\item 
+void \hyperlink{sound_8c_a5378cbd0e1d0bfeaa823df1a8ea215f3}{play\-Music\-Once} (\hyperlink{struct_sound}{Sound} $\ast$s, char $\ast$file)
+\item 
+void \hyperlink{sound_8c_acc13f1ac1e0bac5afe39405869772a08}{free\-Sound} (\hyperlink{struct_sound}{Sound} $\ast$s)
+\item 
+void \hyperlink{sound_8c_ac3737f55b80ac35471d115d0304e8bc3}{stop\-Sound} (\hyperlink{struct_sound}{Sound} $\ast$s)
+\item 
+void \hyperlink{sound_8c_a63831c086cacea9358f5c86bebbfb288}{sound\-Volume} (\hyperlink{struct_sound}{Sound} $\ast$s, float volume)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contient les fonction pour jouer du son \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/02-\/27 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{sound_8c_a3b1e12665aed7169d8efdb2cc611184e}{\index{sound.\-c@{sound.\-c}!create\-Sound@{create\-Sound}}
+\index{create\-Sound@{create\-Sound}!sound.c@{sound.\-c}}
+\subsubsection[{create\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}sound $\ast$ create\-Sound (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{sound_8c_a3b1e12665aed7169d8efdb2cc611184e}
+créer une structure son \begin{DoxyReturn}{Returns}
+la structure son 
+\end{DoxyReturn}
+\hypertarget{sound_8c_acc13f1ac1e0bac5afe39405869772a08}{\index{sound.\-c@{sound.\-c}!free\-Sound@{free\-Sound}}
+\index{free\-Sound@{free\-Sound}!sound.c@{sound.\-c}}
+\subsubsection[{free\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Sound (
+\begin{DoxyParamCaption}
+\item[{{\bf Sound} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}}\label{sound_8c_acc13f1ac1e0bac5afe39405869772a08}
+release the sound 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em s} & the sound \\
+\hline
+\end{DoxyParams}
+\hypertarget{sound_8c_a3af6fda5716d5f42846d0ccc01d5e2ca}{\index{sound.\-c@{sound.\-c}!play\-Music@{play\-Music}}
+\index{play\-Music@{play\-Music}!sound.c@{sound.\-c}}
+\subsubsection[{play\-Music}]{\setlength{\rightskip}{0pt plus 5cm}void play\-Music (
+\begin{DoxyParamCaption}
+\item[{{\bf Sound} $\ast$}]{s, }
+\item[{char $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{sound_8c_a3af6fda5716d5f42846d0ccc01d5e2ca}
+lit un fichier long (musique) 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em s} & la structure son que l'on manipule \\
+\hline
+\mbox{\tt in}  & {\em file} & Le fichier son à lire \\
+\hline
+\end{DoxyParams}
+\hypertarget{sound_8c_a5378cbd0e1d0bfeaa823df1a8ea215f3}{\index{sound.\-c@{sound.\-c}!play\-Music\-Once@{play\-Music\-Once}}
+\index{play\-Music\-Once@{play\-Music\-Once}!sound.c@{sound.\-c}}
+\subsubsection[{play\-Music\-Once}]{\setlength{\rightskip}{0pt plus 5cm}void play\-Music\-Once (
+\begin{DoxyParamCaption}
+\item[{{\bf Sound} $\ast$}]{s, }
+\item[{char $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{sound_8c_a5378cbd0e1d0bfeaa823df1a8ea215f3}
+lit un fichier long une fois 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em s} & la structure son que l'on manipule \\
+\hline
+\mbox{\tt in}  & {\em file} & Le fichier son à lire \\
+\hline
+\end{DoxyParams}
+\hypertarget{sound_8c_a63831c086cacea9358f5c86bebbfb288}{\index{sound.\-c@{sound.\-c}!sound\-Volume@{sound\-Volume}}
+\index{sound\-Volume@{sound\-Volume}!sound.c@{sound.\-c}}
+\subsubsection[{sound\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}void sound\-Volume (
+\begin{DoxyParamCaption}
+\item[{{\bf Sound} $\ast$}]{s, }
+\item[{float}]{volume}
+\end{DoxyParamCaption}
+)}}\label{sound_8c_a63831c086cacea9358f5c86bebbfb288}
+set the sound volume 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em s} & the sound \\
+\hline
+\mbox{\tt in}  & {\em volume} & the sound volume \-: \mbox{[}0.\-0 \-: no sound ; 1.\-0 (default) max power\mbox{]} \\
+\hline
+\end{DoxyParams}
+\hypertarget{sound_8c_ac3737f55b80ac35471d115d0304e8bc3}{\index{sound.\-c@{sound.\-c}!stop\-Sound@{stop\-Sound}}
+\index{stop\-Sound@{stop\-Sound}!sound.c@{sound.\-c}}
+\subsubsection[{stop\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void stop\-Sound (
+\begin{DoxyParamCaption}
+\item[{{\bf Sound} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}}\label{sound_8c_ac3737f55b80ac35471d115d0304e8bc3}
+stop the sound 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em the} & sound to stop \\
+\hline
+\end{DoxyParams}

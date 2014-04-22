@@ -1,0 +1,112 @@
+\hypertarget{input_8c}{\section{input.\-c File Reference}
+\label{input_8c}\index{input.\-c@{input.\-c}}
+}
+{\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
+Include dependency graph for input.\-c\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{input_8c_a96302a81fac34b8c2bfa2add1a03d802}{update\-Events} (\hyperlink{struct_input}{Input} $\ast$in)
+\item 
+void \hyperlink{input_8c_a02a609bb8821ffe9d5719858775e6f0c}{keyboard\-Action\-Game} (\hyperlink{struct_input}{Input} $\ast$in, int $\ast$move\-\_\-left, int $\ast$move\-\_\-right, int $\ast$jump, int $\ast$pause, \hyperlink{struct_character}{Character} $\ast$player)
+\item 
+int \hyperlink{input_8c_ad3310b398fa046500863c183fd4468e6}{update\-Wait\-Events} (\hyperlink{struct_input}{Input} $\ast$in)
+\item 
+void \hyperlink{input_8c_af272764fd4eba51f28af6b9b56273b37}{keyboard\-Action\-Menu} (\hyperlink{struct_input}{Input} $\ast$in, int $\ast$cursor\-Pos, int $\ast$play\-\_\-level, int nb\-\_\-lvl)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/03-\/18 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{input_8c_a02a609bb8821ffe9d5719858775e6f0c}{\index{input.\-c@{input.\-c}!keyboard\-Action\-Game@{keyboard\-Action\-Game}}
+\index{keyboard\-Action\-Game@{keyboard\-Action\-Game}!input.c@{input.\-c}}
+\subsubsection[{keyboard\-Action\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void keyboard\-Action\-Game (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{int $\ast$}]{move\-\_\-left, }
+\item[{int $\ast$}]{move\-\_\-right, }
+\item[{int $\ast$}]{jump, }
+\item[{int $\ast$}]{pause, }
+\item[{{\bf Character} $\ast$}]{player}
+\end{DoxyParamCaption}
+)}}\label{input_8c_a02a609bb8821ffe9d5719858775e6f0c}
+perform action command by keyboard action 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em in} & the input structure \\
+\hline
+\mbox{\tt out}  & {\em move\-\_\-left} & the left movement boolean \\
+\hline
+\mbox{\tt out}  & {\em move\-\_\-right} & the right movement boolean \\
+\hline
+\mbox{\tt out}  & {\em jump} & the jump boolean \\
+\hline
+\mbox{\tt out}  & {\em pause} & the pause boolean \\
+\hline
+\mbox{\tt in}  & {\em player} & the Player \\
+\hline
+\end{DoxyParams}
+\hypertarget{input_8c_af272764fd4eba51f28af6b9b56273b37}{\index{input.\-c@{input.\-c}!keyboard\-Action\-Menu@{keyboard\-Action\-Menu}}
+\index{keyboard\-Action\-Menu@{keyboard\-Action\-Menu}!input.c@{input.\-c}}
+\subsubsection[{keyboard\-Action\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}void keyboard\-Action\-Menu (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{int $\ast$}]{cursor\-Pos, }
+\item[{int $\ast$}]{play\-\_\-level, }
+\item[{int}]{nb\-\_\-lvl}
+\end{DoxyParamCaption}
+)}}\label{input_8c_af272764fd4eba51f28af6b9b56273b37}
+perform action command by keyboard action 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em in} & the input structure \\
+\hline
+\mbox{\tt out}  & {\em cursor\-Pos} & cursor position \\
+\hline
+\mbox{\tt out}  & {\em play\-\_\-level} & boolean about playing the level or quit to title screen \\
+\hline
+\mbox{\tt in}  & {\em nb\-\_\-lvl} & the number of levels \\
+\hline
+\end{DoxyParams}
+\hypertarget{input_8c_a96302a81fac34b8c2bfa2add1a03d802}{\index{input.\-c@{input.\-c}!update\-Events@{update\-Events}}
+\index{update\-Events@{update\-Events}!input.c@{input.\-c}}
+\subsubsection[{update\-Events}]{\setlength{\rightskip}{0pt plus 5cm}int update\-Events (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{input_8c_a96302a81fac34b8c2bfa2add1a03d802}
+recuperate keyboard input with a S\-D\-L\-\_\-\-Poll\-Event 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em in} & the input structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if a key is activated 
+\end{DoxyReturn}
+\hypertarget{input_8c_ad3310b398fa046500863c183fd4468e6}{\index{input.\-c@{input.\-c}!update\-Wait\-Events@{update\-Wait\-Events}}
+\index{update\-Wait\-Events@{update\-Wait\-Events}!input.c@{input.\-c}}
+\subsubsection[{update\-Wait\-Events}]{\setlength{\rightskip}{0pt plus 5cm}int update\-Wait\-Events (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{input_8c_ad3310b398fa046500863c183fd4468e6}
+recuperate keyboard input with a S\-D\-L\-\_\-\-Wait\-Event 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em in} & the input structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if a key is activated 
+\end{DoxyReturn}

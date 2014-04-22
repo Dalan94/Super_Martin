@@ -1,0 +1,163 @@
+\hypertarget{game_8h}{\section{game.\-h File Reference}
+\label{game_8h}\index{game.\-h@{game.\-h}}
+}
+
+
+header de \hyperlink{game_8c}{game.\-c}  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}const.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}text.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sound.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}share.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}player.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}file\-\_\-level.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}map.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
+Include dependency graph for game.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{game_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{game_8h_ae342e4b762af0d52f4ee914643441426}{play} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name)
+\item 
+void \hyperlink{game_8h_aea20c6ea437379685d22df23af8e15dc}{print\-Game\-Over} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$continuer, \hyperlink{struct_input}{Input} $\ast$in)
+\item 
+\hypertarget{game_8h_a7f2f239253453097bfecb9a7e0f28934}{void {\bfseries move} (int move\-\_\-left, int move\-\_\-right, \hyperlink{struct_character}{Character} $\ast$player, \hyperlink{struct_map}{Map} $\ast$m, float speed, int $\ast$acceleration)}\label{game_8h_a7f2f239253453097bfecb9a7e0f28934}
+
+\item 
+void \hyperlink{game_8h_a1bd040efd0195821d1e069d4006ffabf}{update\-Speed} (float $\ast$speed, int acceleration)
+\item 
+void \hyperlink{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362}{print\-Pause} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_input}{Input} $\ast$in, int $\ast$time, int $\ast$continuer)
+\item 
+\hypertarget{game_8h_ad16d857230b785e820b9b497b50b7fff}{Uint32 {\bfseries decomptage} (Uint32 intervalle, void $\ast$parametre)}\label{game_8h_ad16d857230b785e820b9b497b50b7fff}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+header de \hyperlink{game_8c}{game.\-c} \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/02-\/27 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{game_8h_ae342e4b762af0d52f4ee914643441426}{\index{game.\-h@{game.\-h}!play@{play}}
+\index{play@{play}!game.h@{game.\-h}}
+\subsubsection[{play}]{\setlength{\rightskip}{0pt plus 5cm}void play (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char $\ast$}]{level\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{game_8h_ae342e4b762af0d52f4ee914643441426}
+contient la boucle principale du jeu qui appelle les fonctions 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & L'écran de jeu \\
+\hline
+\mbox{\tt in}  & {\em lvel\-\_\-name} & le nom du niveau \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{game_8h_ae342e4b762af0d52f4ee914643441426_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{game_8h_aea20c6ea437379685d22df23af8e15dc}{\index{game.\-h@{game.\-h}!print\-Game\-Over@{print\-Game\-Over}}
+\index{print\-Game\-Over@{print\-Game\-Over}!game.h@{game.\-h}}
+\subsubsection[{print\-Game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Game\-Over (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{int $\ast$}]{continuer, }
+\item[{{\bf Input} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{game_8h_aea20c6ea437379685d22df23af8e15dc}
+affiche le message de game overflow\-\_\-error 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & l'écran de jeu \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{game_8h_aea20c6ea437379685d22df23af8e15dc_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362}{\index{game.\-h@{game.\-h}!print\-Pause@{print\-Pause}}
+\index{print\-Pause@{print\-Pause}!game.h@{game.\-h}}
+\subsubsection[{print\-Pause}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Pause (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{int $\ast$}]{time, }
+\item[{int $\ast$}]{continuer}
+\end{DoxyParamCaption}
+)}}\label{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362}
+Met en pause le jeu 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & l'écran de jeu \\
+\hline
+\mbox{\tt out}  & {\em time} & le temps restant \\
+\hline
+\mbox{\tt in}  & {\em in} & la structure input \\
+\hline
+\mbox{\tt out}  & {\em le} & booléen de main loop de la fonction jouer \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{game_8h_a1bd040efd0195821d1e069d4006ffabf}{\index{game.\-h@{game.\-h}!update\-Speed@{update\-Speed}}
+\index{update\-Speed@{update\-Speed}!game.h@{game.\-h}}
+\subsubsection[{update\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}void update\-Speed (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{speed, }
+\item[{int}]{acceleration}
+\end{DoxyParamCaption}
+)}}\label{game_8h_a1bd040efd0195821d1e069d4006ffabf}
+Met a jour la vitesse 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em float} & la vitesse \\
+\hline
+\mbox{\tt out}  & {\em acceleration} & l'acceleration \\
+\hline
+\end{DoxyParams}

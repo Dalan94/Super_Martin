@@ -1,0 +1,94 @@
+\hypertarget{file_8h}{\section{file.\-h File Reference}
+\label{file_8h}\index{file.\-h@{file.\-h}}
+}
+
+
+Prototypes des fonctions d'acces aux fichiers.  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+Include dependency graph for file.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{file_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{file_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{file_8h_ae6218cf222b5ca17dce1ad7eb75346a9}{open\-File} (char nome\mbox{[}$\,$\mbox{]}, char mode\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{file_8h_a0fca34d72624f611d2cbeac47279bb1f}{close\-File} (F\-I\-L\-E $\ast$ptr\-\_\-fichier)
+\item 
+int \hyperlink{file_8h_ad2924419af4232858df0519818c6fa64}{read\-File\-Size} (F\-I\-L\-E $\ast$ptr\-\_\-fichier)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Prototypes des fonctions d'acces aux fichiers. \begin{DoxyAuthor}{Author}
+Remi B\-E\-R\-T\-H\-O 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+15/03/14 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{file_8h_a0fca34d72624f611d2cbeac47279bb1f}{\index{file.\-h@{file.\-h}!close\-File@{close\-File}}
+\index{close\-File@{close\-File}!file.h@{file.\-h}}
+\subsubsection[{close\-File}]{\setlength{\rightskip}{0pt plus 5cm}int close\-File (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{ptr\-\_\-fichier}
+\end{DoxyParamCaption}
+)}}\label{file_8h_a0fca34d72624f611d2cbeac47279bb1f}
+Ferme le fichier 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$ptr\-\_\-fichier} & le fichier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+entier 0 si tout s'est bien passe, 1 sinon 
+\end{DoxyReturn}
+\hypertarget{file_8h_ae6218cf222b5ca17dce1ad7eb75346a9}{\index{file.\-h@{file.\-h}!open\-File@{open\-File}}
+\index{open\-File@{open\-File}!file.h@{file.\-h}}
+\subsubsection[{open\-File}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ open\-File (
+\begin{DoxyParamCaption}
+\item[{char}]{nom\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{mode\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{file_8h_ae6218cf222b5ca17dce1ad7eb75346a9}
+Ouvre un fichier a partir de son nom (nom\mbox{[}\mbox{]}) et du mode voulu (mode\mbox{[}\mbox{]}) 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em nom\mbox{[}$\,$\mbox{]}} & le nom du fichier \\
+\hline
+\mbox{\tt in}  & {\em mode\mbox{[}$\,$\mbox{]}} & le mode voulu \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+un pointeur sur le fichier ouvert, N\-U\-L\-L s'il y a eut un probleme 
+\end{DoxyReturn}
+\hypertarget{file_8h_ad2924419af4232858df0519818c6fa64}{\index{file.\-h@{file.\-h}!read\-File\-Size@{read\-File\-Size}}
+\index{read\-File\-Size@{read\-File\-Size}!file.h@{file.\-h}}
+\subsubsection[{read\-File\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int read\-File\-Size (
+\begin{DoxyParamCaption}
+\item[{F\-I\-L\-E $\ast$}]{ptr\-\_\-fichier}
+\end{DoxyParamCaption}
+)}}\label{file_8h_ad2924419af4232858df0519818c6fa64}
+Lis la taille du fichier 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$ptr\-\_\-fichier} & le fichier \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+entier ayant la taille du fichier 
+\end{DoxyReturn}

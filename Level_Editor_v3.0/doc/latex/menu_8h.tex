@@ -1,0 +1,70 @@
+\hypertarget{menu_8h}{\section{menu.\-h File Reference}
+\label{menu_8h}\index{menu.\-h@{menu.\-h}}
+}
+
+
+header de \hyperlink{menu_8c}{menu.\-c}  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-ttf.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}const.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}text.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}sound.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}share.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
+Include dependency graph for menu.\-h\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=192pt]{menu_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{menu_8h_a4604196e3bcbd88eb0a7888effc9dc6f}{int {\bfseries menu} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$continuer, \hyperlink{struct_sound}{Sound} $\ast$s)}\label{menu_8h_a4604196e3bcbd88eb0a7888effc9dc6f}
+
+\item 
+Uint32 \hyperlink{menu_8h_a379c27eb17605f99e8d92b6045104ed4}{blink\-Text} (Uint32 interval, void $\ast$param)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+header de \hyperlink{menu_8c}{menu.\-c} \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/02-\/27 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{menu_8h_a379c27eb17605f99e8d92b6045104ed4}{\index{menu.\-h@{menu.\-h}!blink\-Text@{blink\-Text}}
+\index{blink\-Text@{blink\-Text}!menu.h@{menu.\-h}}
+\subsubsection[{blink\-Text}]{\setlength{\rightskip}{0pt plus 5cm}Uint32 blink\-Text (
+\begin{DoxyParamCaption}
+\item[{Uint32}]{interval, }
+\item[{void $\ast$}]{param}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a379c27eb17605f99e8d92b6045104ed4}
+toggle the printing text boolean 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em interval} & the interval between two callback of the function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1000 if the boolean is right, 600 if not 
+\end{DoxyReturn}

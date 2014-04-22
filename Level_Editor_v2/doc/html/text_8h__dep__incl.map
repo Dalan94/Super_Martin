@@ -1,9 +1,0 @@
-<map id="text.h" name="text.h">
-<area shape="rect" id="node3" href="$jeu_8h.html" title="header de jeu.c " alt="" coords="5,89,56,122"/>
-<area shape="rect" id="node7" href="$menu_8h.html" title="header de menu.c " alt="" coords="80,89,144,122"/>
-<area shape="rect" id="node11" href="$menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="168,89,267,122"/>
-<area shape="rect" id="node15" href="$text_8c.html" title="contient les fonction pour afficher du texte à l&#39;écran " alt="" coords="291,89,344,122"/>
-<area shape="rect" id="node5" href="$jeu_8c.html" title="contient les fonction liées au jeu " alt="" coords="5,171,56,205"/>
-<area shape="rect" id="node9" href="$menu_8c.html" title="contient les fonction liées au menu " alt="" coords="80,171,144,205"/>
-<area shape="rect" id="node13" href="$menu__level_8c.html" title="Menu gerant le choix du niveau. " alt="" coords="168,171,267,205"/>
-</map>
