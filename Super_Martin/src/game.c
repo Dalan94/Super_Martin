@@ -188,7 +188,7 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
 
     Sound *s;
     s = createSound();
-    playMusic(s,"sound/chopin1.mp3");
+    playMusic(s,"sound/marche_funebre.mp3");
     soundVolume(s,0);
 
     gameOver = imageLoad("sprites/game-over.jpg");
