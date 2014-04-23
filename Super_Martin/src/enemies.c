@@ -87,11 +87,13 @@ int collisionEnemy(Character *c,list *l,Map *m)
         switch(collisionSprite(c->location,l->current->c->location))
         {
             case 1:
-                if(!c->isNpc && !c->isHurt)
+                if(!c->isNpc)
                 {
-                    c->life -= 50;
-
-                    c->isHurt = 50;
+                    if(!c->isHurt)
+                    {
+                        c->life -= 50;
+                        c->isHurt = 150;
+                    }
 
                     c->countStars -=2;
                     if(c->isRight)
@@ -108,9 +110,9 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     if(!l->current->c->isHurt)
                     {
                         l->current->c->life -= 50;
-
+                        l->current->c->isHurt = 150;
+                    }
                         l->current->c->countStars -=2;
-                        l->current->c->isHurt = 50;
 
                         if(c->isRight)
                         {
@@ -120,7 +122,6 @@ int collisionEnemy(Character *c,list *l,Map *m)
                         {
                             moveCharacterCol(l->current->c,1,0,m);
                         }
-                    }
                 }
                 ret = 1;
                 break;
