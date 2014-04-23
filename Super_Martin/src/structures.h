@@ -4,7 +4,7 @@
 typedef struct
 {
     int isNpc; /*! 1 if a npc, 0 if not*/
-    SDL_Surface *spriteR,*spriteL;
+    SDL_Surface *tile;
 
     SDL_Rect location;
     int saveX,saveY; /*! save the position of the pnj to know if he is blocked at the next loop iteration*/
