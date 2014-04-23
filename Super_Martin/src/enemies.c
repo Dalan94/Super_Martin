@@ -132,6 +132,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     c->dirY = -(JUMP_HEIGHT/2);
                     deleteCurrent(l);
                     ret = 1;
+                    c->countStars -=2;
                 }
                 break;
             case 0: ;
