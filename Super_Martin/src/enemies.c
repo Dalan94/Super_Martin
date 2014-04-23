@@ -93,9 +93,10 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     {
                         c->life -= 50;
                         c->isHurt = 150;
+                        c->countStars -=2;
                     }
 
-                    c->countStars -=2;
+
                     if(c->isRight)
                     {
                         moveCharacterCol(c,1,0,m);
@@ -111,8 +112,9 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     {
                         l->current->c->life -= 50;
                         l->current->c->isHurt = 150;
-                    }
                         l->current->c->countStars -=2;
+                    }
+
 
                         if(c->isRight)
                         {
@@ -132,7 +134,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     c->dirY = -(JUMP_HEIGHT/2);
                     deleteCurrent(l);
                     ret = 1;
-                    c->countStars -=2;
+                    c->countStars +=2;
                 }
                 break;
             case 0: ;

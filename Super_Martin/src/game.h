@@ -39,4 +39,6 @@ void printWin(SDL_Surface *screen,int *continuer,Input *in);
 void updateSpeed(float *speed, int acceleration);
 void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer);
 Uint32 decomptage(Uint32 intervalle,void* parametre);
+void printHUD(SDL_Surface *screen,Character *player,Map *m);
+
 #endif // JEU_H_INCLUDED
