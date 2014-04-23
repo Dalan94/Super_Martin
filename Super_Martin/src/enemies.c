@@ -105,7 +105,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     if(!l->current->c->isHurt)
                     {
                         l->current->c->life -= 50;
-                        l->current->c->countStars -=2;
+                        l->current->c->countStars +=2;
                         l->current->c->isHurt = 150;
                         if(c->isRight)
                         {
