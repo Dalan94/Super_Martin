@@ -19,8 +19,8 @@
  *\param[in] lvel_name le nom du niveau
  */
 
-void play(SDL_Surface *screen, char *level_name){
-
+void play(SDL_Surface *screen, char *level_name)
+{
     int continuer = 1;
     char charLife[5];
 
@@ -127,6 +127,8 @@ void play(SDL_Surface *screen, char *level_name){
         exit(errno);
     }
 
+
+
     while(!in.key[SDLK_ESCAPE] && continuer){
 
         /* récupération des inputs clavier et gestion de leurs auctions*/
@@ -135,17 +137,6 @@ void play(SDL_Surface *screen, char *level_name){
 
         if(in.quit)
             continuer = 0;
-
-        /*if(player->isOnGround && jump)
-            player->isJumping = TAILLE_SAUT;
-        if(!jump)
-            player->isJumping = 0;
-            /* ********* *
-
-        if(!player->isJumping)
-            gravity(player,m,&enemiesList);
-        else
-            jumping(player,m,sound_jump,&enemiesList);*/
 
         /* gestion de la mort*/
         if((player->location.y+player->spriteL->h) >= m->lvl->height*TAILLE_BLOC-1)
@@ -174,7 +165,7 @@ void play(SDL_Surface *screen, char *level_name){
 
         updateSpeed(&speed,acceleration);
 
-        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemiesList);
+        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemiesList,sound_jump);
         moveEnemies(&enemiesList,m,&playerList);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
@@ -185,9 +176,13 @@ void play(SDL_Surface *screen, char *level_name){
         /* ***** */
 
         /*affichage de la vie*/
-        sprintf(charLife,"%d",player->life);
+        sprintf(charLife,"%d %d",player->life,player->isHurt);
         printText(screen,&posLife,charLife,255,100,100,"polices/code.otf",20,1);
         SDL_BlitSurface(heart,NULL,screen,&posHeart);
+        if(player->isHurt>0)
+            player->isHurt--;
+        else
+            player->isHurt = 0;
         /* ****** */
 
         /*affichage du nombre d'étoiles récoltées*/
@@ -298,9 +293,9 @@ void printWin(SDL_Surface *screen,int *continuer,Input *in){
  *\param[in] m la carte
  *\param[in] speed la vitesse de deplacement
  */
-void move(int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l)
+void move(int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l,Sound *jump_sound)
 {
-    int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l);
+    int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l,jump_sound);
     if (move_right && !move_left)
     {
         (*acceleration)++;
@@ -399,3 +394,4 @@ Uint32 decomptage(Uint32 intervalle,void* parametre){
     (*time)--;
     return intervalle;
 }
+
