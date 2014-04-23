@@ -8,21 +8,19 @@
 #include "enemies.h"
 
 /**
- *\fn void createEnemy(char *spR,char *spL,int x,int y, list *l, int x1,int x2)
+ *\fn void createEnemy(char *spR,char *spL,int x,int y, list *l)
  *creates an enemy and adds it to an enemies list
  *\param[in] spR right sprite address
  *\param[in] spL right sprite address
  *\param[in] x enemy's x location
  *\param[in] y enemy's y location
  *\param[out] l enemies list
- *\param[in] x1  the enemy left deplacement limit
- *\param[in] x2  the enemy right deplacement limit
  */
 
-void createEnemy(char *tile,int x,int y, list *l, int x1, int x2)
+void createEnemy(char *tile,int x,int y, list *l)
 {
     Character *e;
-    e = createrCharacter(tile, x, y, x1, x2,1);
+    e = createrCharacter(tile, x, y,1);
     if(e == NULL)
     {
         perror("allocation error");
@@ -160,17 +158,17 @@ void moveEnemies(list *l, Map *m, list *p)
     setOnFirst(l);
     while(!outOfList(l))
     {
-        if(l->current->c->location.x == l->current->c->saveX)
+        if(l->current->c->location.x == l->current->c->saveX || checkFall(l->current->c,m))
             l->current->c->isRight ^= 1;
         l->current->c->saveX = l->current->c->location.x;
 
-        if(l->current->c->isRight && l->current->c->location.x<l->current->c->x2)
+        if(l->current->c->isRight /*&& l->current->c->location.x<l->current->c->x2*/)
            ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL);
 
-        else if(!l->current->c->isRight && l->current->c->location.x>l->current->c->x1)
+        else if(!l->current->c->isRight /*&& l->current->c->location.x>l->current->c->x1*/)
            ret = moveCharacter(l->current->c,1,0,0,m,2,p,NULL);
 
-        else if(l->current->c->location.x <= l->current->c->x1)
+        /*else if(l->current->c->location.x <= l->current->c->x1)
         {
             l->current->c->isRight = 1;
            ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL);
@@ -179,7 +177,7 @@ void moveEnemies(list *l, Map *m, list *p)
         {
         l->current->c->isRight = 0;
           ret =  moveCharacter(l->current->c,1,0,0,m,2,p,NULL);
-        }
+        }*/
 
         if((l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TAILLE_BLOC-1)
             deleteCurrent(l);
@@ -203,6 +201,57 @@ int moveCharacterCol(Character *c,int move_left, int move_right,Map *m)
     return 0;
 }
 
+/**
+ *\fn int checkFall(Character *c,Map *m)
+ *tests if the monster's futur position is over a void tile
+ *\param[in] c the monster/character to be tested
+ *\param[in] m the game map
+ *\return 1 if void tile, 0 if not
+ */
+int checkFall(Character *c,Map *m)
+{
+    int x,y;
+
+    if(!c->isRight)
+    {
+        x = (int)(c->location.x + c->dirX)/TAILLE_BLOC;
+        y = (int)(c->location.y + c->location.h - 1)/TAILLE_BLOC;
+
+        if(y<0)
+            y = 1;
+        if(y > m->lvl->height)
+            y = m->lvl->height;
+        if(x<0)
+            x = 1;
+        if(x> m->lvl->width)
+            x = m->lvl->width;
+
+        if(m->lvl->map[y+1][x] == VOID)
+            return 1;
+        else
+            return 0;
+    }
+    else
+    {
+        x = (int)(c->location.x + c->dirX + c->location.w)/TAILLE_BLOC;
+        y = (int)(c->location.y + c->location.h - 1)/TAILLE_BLOC;
+
+        if(y<=0)
+            y = 1;
+        if(y > m->lvl->height)
+            y = m->lvl->height - 1;
+        if(x<=0)
+            x = 1;
+        if(x>= m->lvl->width)
+            x = m->lvl->width - 1;
+
+        if(m->lvl->map[y+1][x] == VOID)
+            return 1;
+        else
+            return 0;
+    }
+    return 0;
+}
 
 /* ******************************** */
 /* gestion des listes*/

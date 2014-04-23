@@ -18,7 +18,7 @@
  *\param[in] npc 1 if creating a npc, 0 if not
  *\return character structure pointer
  */
-Character *createrCharacter(char *tile,int x, int y, int x1,int x2,int npc)
+Character *createrCharacter(char *tile,int x, int y,int npc)
 {
     Character *c;
     c = (Character *)malloc(sizeof(Character));
@@ -44,10 +44,6 @@ Character *createrCharacter(char *tile,int x, int y, int x1,int x2,int npc)
     c->countStars = 5;
     c->isHurt = 0;
     c->isFalling = 0;
-
-    c->x1 = x1;
-    c->x2 = x2;
-
 
     return c;
 }

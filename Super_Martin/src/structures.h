@@ -18,7 +18,6 @@ typedef struct
     int isHurt; /*! indicate if the character was hurt recently*/
     int isFalling; /*! indicate if the character is falling*/
 
-    int x1,x2; /*! left and right deplacement limits for pnj */
 
 }Character;
 
