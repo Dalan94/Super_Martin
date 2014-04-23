@@ -24,6 +24,9 @@
     #define JUMP_HEIGHT             13
     #define MAX_SPEED               5
     #define IMG_END_SIZE            80
+    #define NB_TILE_MARYO_WIDTH     4
+    #define NB_TILE_MARYO_HEIGHT    2
+
 
 
     #define TILE_MAX 8
