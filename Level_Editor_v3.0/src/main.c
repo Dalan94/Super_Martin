@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     int go = 1;
     int choice=0;
     char level_name[MAX_LENGTH_FILE_NAME];
+    char level_path[MAX_LENGTH_FILE_NAME];
     char tileSet_name[MAX_LENGTH_FILE_NAME];
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
@@ -37,16 +38,21 @@ int main(int argc, char *argv[])
 
         if(menu(screen, &choice, &go))
         {
-            if(!(choice))
+            if(choice == 0)
             {
-                if (menuLevel(screen,level_name))
-                    play(screen,level_name);
-            }
-            else
-            {
-
                 if (menuTileSet(screen,tileSet_name))
                     play(screen, tileSet_name);
+            }
+            else if(choice == 1)
+            {
+
+                if (menuLevel(screen,level_name, level_path))
+                    play(screen,level_name);
+            }
+            else if(choice == 2)
+            {
+                if (menuLevel(screen,level_name, level_path))
+                    deleteMap(screen, level_name, level_path);
             }
         }
 

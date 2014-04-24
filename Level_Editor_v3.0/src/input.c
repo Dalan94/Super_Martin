@@ -24,10 +24,15 @@ void updateEvents(Input* in)
 		{
             case SDL_KEYDOWN:
                 in->key[event.key.keysym.sym] = 1;
+                printf(" keydown : %d\n", in->key[event.key.keysym.sym]);
                 //return 1;
                 break;
             case SDL_KEYUP:
+                if(((event.key.keysym.sym) != SDLK_y) && ((event.key.keysym.sym) != SDLK_n))
+                {
                 in->key[event.key.keysym.sym] = 0;
+                }
+                printf(" keyup : %d\n", in->key[event.key.keysym.sym]);
                 break;
             case SDL_MOUSEBUTTONDOWN :
                 in->mouse[event.button.button] = 1;

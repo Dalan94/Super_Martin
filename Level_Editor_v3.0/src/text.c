@@ -60,6 +60,9 @@ void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r,int g, 
         posText->y = screen->h/2-textSurface->h/2;
     }
 
+    if(posText->x == -1)
+        posText->x = screen->w/2-textSurface->w/2;
+
     SDL_BlitSurface(textSurface, NULL, screen, posText);
 
 
