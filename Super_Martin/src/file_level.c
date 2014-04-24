@@ -9,12 +9,13 @@
  #include "file_level.h"
 
 /*!
- * \fn  Level *openLevel(char *file_name)
- *  Ouvre un fichier map, et le stocke
- * \param[in] file_name le nom du fichier
- * \return un pointeur sur le niveau
+ * \fn  Level *openLevel(char *file_name, list *l)
+ * Open a map file and stock the map and the enemies
+ * \param[in] file_name the map file name
+ * \param[out] l the enemy list to stock the enemies.
+ * \return a pointer on the level structure
  */
-Level *openLevel(char *file_name)
+Level *openLevel(char *file_name,list *l)
  {
     FILE *ptr_file;
     int i,j;
@@ -66,7 +67,15 @@ Level *openLevel(char *file_name)
         fgets((char *)lvl->map[i],lvl->width+1,ptr_file);
         fgets(buffer,TAILLE_BUFFER,ptr_file);
         for (j=0 ; j < lvl->width ; j++)
-            lvl->map[i][j]-=48;
+        {
+            if(lvl->map[i][j]=='E')
+            {
+                createEnemy("sprites/Characters/witch_doctor.png",j*TAILLE_BLOC,(i-1)*TAILLE_BLOC,l);
+                lvl->map[i][j] = VOID;
+            }
+            else
+                lvl->map[i][j]-=48;
+        }
     }
 
      closeFile(ptr_file);

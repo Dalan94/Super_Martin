@@ -42,7 +42,7 @@ void play(SDL_Surface *screen, char *level_name)
     list playerList;
 
     /*définition des ennemis*/
-    list enemiesList;
+    list enemyList;
 
 
 
@@ -70,8 +70,14 @@ void play(SDL_Surface *screen, char *level_name)
     posBack.x=0;
     posBack.y = 0;
 
+    /*initialisation des ennemis*/
+    initList(&enemyList);
+    /*createEnemy("sprites/Characters/witch_doctor.png",18*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList);
+    createEnemy("sprites/Characters/witch_doctor.png",90*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList);
+    createEnemy("sprites/Characters/witch_doctor.png",50*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList);*/
+
     /*initialisation de la carte et du niveau*/
-    m = initMap(screen,level_name);
+    m = initMap(screen,level_name,&enemyList);
 
     /*Gestion de la musique*/
     sound_jump =createSound();
@@ -90,11 +96,8 @@ void play(SDL_Surface *screen, char *level_name)
     initList(&playerList);
     playerList.current = playerList.first = playerList.last = newNode(player,NULL,NULL);
 
-    /*initialisation des ennemis*/
-    initList(&enemiesList);
-    createEnemy("sprites/Characters/witch_doctor.png",18*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList);
-    createEnemy("sprites/Characters/witch_doctor.png",90*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList);
-    createEnemy("sprites/Characters/witch_doctor.png",50*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList);
+
+
 
     SDL_EnableKeyRepeat(100,100); //répétition des touches
 
@@ -142,8 +145,8 @@ void play(SDL_Surface *screen, char *level_name)
 
         updateSpeed(&speed,acceleration);
 
-        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemiesList,sound_jump);
-        moveEnemies(&enemiesList,m,&playerList);
+        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemyList,sound_jump);
+        moveEnemies(&enemyList,m,&playerList);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
@@ -152,7 +155,7 @@ void play(SDL_Surface *screen, char *level_name)
         updateScreenMap(screen,m,m->lvl->tileSet); //blit du niveau
 
         blitCharacter(screen,player,m);
-        blitEnnemies(screen,&enemiesList,m);
+        blitEnnemies(screen,&enemyList,m);
 
         printHUD(screen,player,m);
 

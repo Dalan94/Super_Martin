@@ -26,7 +26,7 @@
 #include "map.h"
 #include "input.h"
 
-#include "enemies.h"
+
 
 /*prototypes*/
 void play(SDL_Surface *screen,char *level_name);

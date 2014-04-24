@@ -88,13 +88,14 @@ void scrolling(Map *m, int direction,float speed){
 }
 
 /**
- *\fn  Map *initMap(SDL_Surface *screen,char * level_name){
+ *\fn  Map *initMap(SDL_Surface *screen,char * level_name,list *l)
  *initialize the map
  *\param[in] screen game screen
  *\param[in] level_name lvl name
  *\return pointer on the map
  */
- Map *initMap(SDL_Surface *screen,char * level_name){
+ Map *initMap(SDL_Surface *screen,char * level_name,list *l)
+ {
     Map *m;
 
     m = (Map *)malloc(sizeof(Map));
@@ -102,7 +103,7 @@ void scrolling(Map *m, int direction,float speed){
         perror("allocation error");
         exit(errno);
     }
-    m->lvl=openLevel(level_name);
+    m->lvl=openLevel(level_name,l);
     m->screenHeight = screen->h;
     m->screenWidth = screen->w;
     m->xScroll = 20;
