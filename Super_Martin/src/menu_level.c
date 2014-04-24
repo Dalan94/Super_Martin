@@ -9,13 +9,13 @@
  #include "menu_level.h"
 
 /**
- *\fn int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound *s)
- *  Menu pour choisr le niveau
- *\param[out] screen l'écran de jeu
- *\param[out] level_name le nom du level que l'on va vouloir lancer
- *\param[in] s la musique de fond
+ *\fn int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *s)
+ *  Menu to choose the lvl
+ *\param[out] screen game screen
+ *\param[out] level_name the name of the level we will want to launch
+ *\param[in] s the menu's music
  */
-int menuLevel(SDL_Surface *screen,char level_name[TAILLE_MAX_NOM_FICHIER],Sound *s)
+int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *s)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;

@@ -45,9 +45,9 @@ Level *openLevel(char *file_name,list *l)
     initLevel(lvl);
 
     fgets(buffer,TAILLE_BUFFER,ptr_file);
-    fgets(lvl->tileSet,TAILLE_MAX_NOM_FICHIER,ptr_file);
-    fgets(lvl->background,TAILLE_MAX_NOM_FICHIER,ptr_file);
-    fgets(lvl->music,TAILLE_MAX_NOM_FICHIER,ptr_file);
+    fgets(lvl->tileSet,MAX_SIZE_FILE_NAME,ptr_file);
+    fgets(lvl->background,MAX_SIZE_FILE_NAME,ptr_file);
+    fgets(lvl->music,MAX_SIZE_FILE_NAME,ptr_file);
 
     /*Enleve le saut de ligne final de tileSet*/
     saut_ligne = strchr(lvl->tileSet, '\n');
@@ -70,7 +70,7 @@ Level *openLevel(char *file_name,list *l)
         {
             if(lvl->map[i][j]=='E')
             {
-                createEnemy("sprites/Characters/witch_doctor.png",j*TAILLE_BLOC,(i-1)*TAILLE_BLOC,l);
+                createEnemy("sprites/Characters/witch_doctor.png",j*TILE_SIZE,(i-1)*TILE_SIZE,l);
                 lvl->map[i][j] = VOID;
             }
             else
@@ -190,7 +190,7 @@ char **readLevelFile(int *nb_lvl)
 
     for (i=0 ; i<*nb_lvl ; i++)
     {
-        if ((level_names[i]=(char *)malloc(TAILLE_MAX_NOM_FICHIER*sizeof(char))) == NULL)
+        if ((level_names[i]=(char *)malloc(MAX_SIZE_FILE_NAME*sizeof(char))) == NULL)
         {
             printf("\nProbleme allocation memoire\n");
             perror("");

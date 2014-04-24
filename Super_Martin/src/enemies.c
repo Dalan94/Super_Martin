@@ -179,7 +179,7 @@ void moveEnemies(list *l, Map *m, list *p)
           ret =  moveCharacter(l->current->c,1,0,0,m,2,p,NULL);
         }*/
 
-        if((l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TAILLE_BLOC-1)
+        if((l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
             deleteCurrent(l);
         next(l);
     }
@@ -214,8 +214,8 @@ int checkFall(Character *c,Map *m)
 
     if(!c->isRight)
     {
-        x = (int)(c->location.x + c->dirX)/TAILLE_BLOC;
-        y = (int)(c->location.y + c->location.h - 1)/TAILLE_BLOC;
+        x = (int)(c->location.x + c->dirX)/TILE_SIZE;
+        y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
 
         if(y<0)
             y = 1;
@@ -233,8 +233,8 @@ int checkFall(Character *c,Map *m)
     }
     else
     {
-        x = (int)(c->location.x + c->dirX + c->location.w)/TAILLE_BLOC;
-        y = (int)(c->location.y + c->location.h - 1)/TAILLE_BLOC;
+        x = (int)(c->location.x + c->dirX + c->location.w)/TILE_SIZE;
+        y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
 
         if(y<=0)
             y = 1;

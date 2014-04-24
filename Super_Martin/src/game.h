@@ -1,7 +1,7 @@
 
 /*!
  * \file game.h
- * \brief header de game.c
+ * \brief game.c header
  * \author Xavier COPONET
  * \date 2014-02-27
  */

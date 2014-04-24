@@ -204,22 +204,22 @@ int collisionMap(SDL_Rect r,Map *m){
     int i,j;
     int xmin,xmax,ymin,ymax;
     SDL_Rect test;
-    test.h = TAILLE_BLOC;
-    test.w = 2*TAILLE_BLOC;
-    if(r.x+r.w > (m->lvl->width+1)*TAILLE_BLOC || r.x < TAILLE_BLOC || r.y+r.h >(m->lvl->height)*TAILLE_BLOC -1 || r.y<0)
+    test.h = TILE_SIZE;
+    test.w = 2*TILE_SIZE;
+    if(r.x+r.w > (m->lvl->width+1)*TILE_SIZE || r.x < TILE_SIZE || r.y+r.h >(m->lvl->height)*TILE_SIZE -1 || r.y<0)
         return 1; //test les limites du monde
 
-    xmin =  (r.x) / TAILLE_BLOC -1;
-    xmax =  (r.x + r.w )  / TAILLE_BLOC ;
-    ymin = (r.y) / TAILLE_BLOC ;
-    ymax =  (r.y + r.h ) / TAILLE_BLOC +1;
+    xmin =  (r.x) / TILE_SIZE -1;
+    xmax =  (r.x + r.w )  / TILE_SIZE ;
+    ymin = (r.y) / TILE_SIZE ;
+    ymax =  (r.y + r.h ) / TILE_SIZE +1;
 
     for(i = xmin ; i< xmax ; i++){
         for (j=ymin ; j< ymax ; j++){
             if(m->lvl->map[j][i] != VOID)
             {
-                test.x = i*TAILLE_BLOC;
-                test.y = j*TAILLE_BLOC;
+                test.x = i*TILE_SIZE;
+                test.y = j*TILE_SIZE;
                 if(collisionSprite(r,test))
                     return 1;
             }

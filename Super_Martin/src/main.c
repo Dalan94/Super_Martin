@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
     int continuer = 1;
 
-    char level_name[TAILLE_MAX_NOM_FICHIER];
+    char level_name[MAX_SIZE_FILE_NAME];
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 

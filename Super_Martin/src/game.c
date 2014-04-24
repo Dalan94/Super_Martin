@@ -72,9 +72,6 @@ void play(SDL_Surface *screen, char *level_name)
 
     /*initialisation des ennemis*/
     initList(&enemyList);
-    /*createEnemy("sprites/Characters/witch_doctor.png",18*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList);
-    createEnemy("sprites/Characters/witch_doctor.png",90*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList);
-    createEnemy("sprites/Characters/witch_doctor.png",50*TAILLE_BLOC,19*TAILLE_BLOC-30,&enemiesList);*/
 
     /*initialisation de la carte et du niveau*/
     m = initMap(screen,level_name,&enemyList);
@@ -92,7 +89,7 @@ void play(SDL_Surface *screen, char *level_name)
     background = imageLoadAlpha(m->lvl->background);
 
     /*initialisation du joueur*/
-    player = createrCharacter("sprites/Characters/maryo.png",5*TAILLE_BLOC,8*TAILLE_BLOC-39,0);
+    player = createrCharacter("sprites/Characters/maryo.png",5*TILE_SIZE,8*TILE_SIZE-39,0);
     initList(&playerList);
     playerList.current = playerList.first = playerList.last = newNode(player,NULL,NULL);
 
@@ -115,7 +112,7 @@ void play(SDL_Surface *screen, char *level_name)
             continuer = 0;
 
         /* gestion de la mort*/
-        if((player->location.y+player->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TAILLE_BLOC-1)
+        if((player->location.y+player->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
             player->life = 0;
         if (old_time != m->lvl->timer_level || !player->life)
         {
@@ -132,7 +129,7 @@ void play(SDL_Surface *screen, char *level_name)
         else
             player->isHurt = 0;
 
-        if((player->location.x)/TAILLE_BLOC >= m->lvl->width - IMG_END_SIZE / TAILLE_BLOC + 1 && continuer)
+        if((player->location.x)/TILE_SIZE >= m->lvl->width - IMG_END_SIZE / TILE_SIZE + 1 && continuer)
             printWin(screen,&continuer,&in);
 
 
@@ -260,9 +257,9 @@ void move(int move_left, int move_right,int jump, Character *player,Map *m,float
 
         {
 
-            if (player->location.x - m->xScroll > m->screenWidth*(50-POURCENTAGE_DEPLACEMENT)/100  && player->location.x - m->xScroll < m->screenWidth*(50 + MARGE_SCROLLING-POURCENTAGE_DEPLACEMENT)/100)
+            if (player->location.x - m->xScroll > m->screenWidth*(50-DEPLACEMENT_POURCENTAGE)/100  && player->location.x - m->xScroll < m->screenWidth*(50 + MARGE_SCROLLING-DEPLACEMENT_POURCENTAGE)/100)
                 scrolling(m,RIGHT,speed);
-            else if (player->location.x - m->xScroll >= m->screenWidth*(50 + MARGE_SCROLLING-POURCENTAGE_DEPLACEMENT)/100 )
+            else if (player->location.x - m->xScroll >= m->screenWidth*(50 + MARGE_SCROLLING-DEPLACEMENT_POURCENTAGE)/100 )
                 scrolling(m,RIGHT,2*speed);
         }
     }
@@ -272,9 +269,9 @@ void move(int move_left, int move_right,int jump, Character *player,Map *m,float
 
         {
 
-            if (player->location.x - m->xScroll < m->screenWidth*(50+POURCENTAGE_DEPLACEMENT)/100 && player->location.x - m->xScroll > m->screenWidth*(50 - MARGE_SCROLLING+POURCENTAGE_DEPLACEMENT)/100)
+            if (player->location.x - m->xScroll < m->screenWidth*(50+DEPLACEMENT_POURCENTAGE)/100 && player->location.x - m->xScroll > m->screenWidth*(50 - MARGE_SCROLLING+DEPLACEMENT_POURCENTAGE)/100)
                 scrolling(m,LEFT,speed);
-            else if (player->location.x - m->xScroll <= m->screenWidth*(50- MARGE_SCROLLING+POURCENTAGE_DEPLACEMENT)/100)
+            else if (player->location.x - m->xScroll <= m->screenWidth*(50- MARGE_SCROLLING+DEPLACEMENT_POURCENTAGE)/100)
                 scrolling(m,LEFT,2*speed);
         }
     }
