@@ -24,15 +24,14 @@ void updateEvents(Input* in)
 		{
             case SDL_KEYDOWN:
                 in->key[event.key.keysym.sym] = 1;
-                printf(" keydown : %d\n", in->key[event.key.keysym.sym]);
-                //return 1;
+                //printf(" keydown : %d\n", in->key[event.key.keysym.sym]);
                 break;
             case SDL_KEYUP:
                 if(((event.key.keysym.sym) != SDLK_y) && ((event.key.keysym.sym) != SDLK_n))
                 {
                 in->key[event.key.keysym.sym] = 0;
                 }
-                printf(" keyup : %d\n", in->key[event.key.keysym.sym]);
+                //printf(" keyup : %d\n", in->key[event.key.keysym.sym]);
                 break;
             case SDL_MOUSEBUTTONDOWN :
                 in->mouse[event.button.button] = 1;
@@ -91,6 +90,10 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
     {
         if(m->xScroll < (m->lvl->width+1)*TILE_SIZE-m->screenWidth)
                 m->xScroll+= 5;
+        else
+        {
+            extendMap(m);
+        }
     }
 
     else if(in->key[SDLK_LEFT])

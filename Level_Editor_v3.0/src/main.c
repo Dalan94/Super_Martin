@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
             {
 
                 if (menuLevel(screen,level_name, level_path))
-                    play(screen,level_name);
+                    play(screen,level_path);
             }
             else if(choice == 2)
             {

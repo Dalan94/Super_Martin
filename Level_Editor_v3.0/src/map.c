@@ -157,7 +157,7 @@ void saveMap(Map *m){
         fprintf(ptr_file_level, "%s\n", level_name_tmp);
     }
 
-    fclose(ptr_file_level);
+    closeFile(ptr_file_level);
     printf("Map %s saved\n", level_name_tmp);
     /*  Write the level in the file */
 
@@ -251,7 +251,7 @@ void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
                 }
             }
             sprintf(deleted, "The map %s has been deleted", map_name);
-            fclose(ptr_file_level);
+            closeFile(ptr_file_level);
             nb_lvl -= 1;
             closeLevelList(level_list,nb_lvl);
             event_appear = 1;
@@ -277,6 +277,34 @@ void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
     }
     SDL_FreeSurface(waiting);
 }
+
+
+/**
+  *\fn void extendMap(Map *m)
+  *Extend the width of a map
+  *\param[out] m The map to extend
+  */
+
+void extendMap(Map *m)
+{
+    int i, j;
+    m->lvl->width += 100;
+
+    for (i=0 ; i<m->lvl->height ; i++)
+    {
+        if ((m->lvl->map[i]=(unsigned char *)realloc(m->lvl->map[i], m->lvl->width*sizeof(unsigned char)+1)) == NULL)
+        {
+            printf("\nProbleme allocation memoire\n");
+            perror("");
+            exit(0);
+        }
+        for(j=m->lvl->width-99 ; j<m->lvl->width; j++)
+        {
+            m->lvl->map[i][j] = 0;
+        }
+    }
+}
+
 
 
 /**
