@@ -23,9 +23,10 @@ void updateScreenMap(SDL_Surface *screen, Map *m,char *tileset, Cursor *cursor);
 void scrolling(Map *m,int direction,float speed);
 Map* initMap(SDL_Surface *screen,char * level_name);
 void saveMap(Map *m);
-void cleanString(const char *buffer, FILE *fp);
-void clean_stdin(void);
+void deleteMap(SDL_Surface *screen, char *map_name, char *map_path);
+void extendMap(Map *m);
 void reinitMap(Map *m);
 void freeMap(Map *m);
-
+void cleanString(const char *buffer, FILE *fp);
+void clean_stdin(void);
 #endif // MAP_H_INCLUDED

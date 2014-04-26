@@ -14,7 +14,7 @@
  *\param[out] screen l'écran de jeu
  *\param[out] level_name le nom du level que l'on va vouloir lancer
  */
-int menuLevel(SDL_Surface *screen,char level_name[MAX_LENGTH_FILE_NAME])
+int menuLevel(SDL_Surface *screen,char level_name[MAX_LENGTH_FILE_NAME], char level_path[MAX_LENGTH_FILE_NAME])
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -73,7 +73,8 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_LENGTH_FILE_NAME])
 
     SDL_FreeSurface(waiting);
 
-    sprintf(level_name,"../Super_Martin/level/%s.lvl",level_names[pos_curseur]);
+    sprintf(level_name,"%s",level_names[pos_curseur]);
+    sprintf(level_path,"../Super_Martin/level/%s.lvl",level_names[pos_curseur]);
 
     closeLevelList(level_names,nb_lvl);
 
