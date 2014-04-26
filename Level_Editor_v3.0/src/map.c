@@ -241,13 +241,13 @@ void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
             }
 
             fseek(ptr_file_level, 0, SEEK_SET);
-            fprintf(ptr_file_level, "%d", nb_lvl-1);
+            fprintf(ptr_file_level, "%d\n", nb_lvl-1);
             for(i = 0; i < nb_lvl ; i++)
             {
                 if(strcmp(map_name, level_list[i]) != 0)
                 {
                 fseek(ptr_file_level, 0, SEEK_END);
-                fprintf(ptr_file_level, "\n%s", level_list[i]);
+                fprintf(ptr_file_level, "%s\n", level_list[i]);
                 }
             }
             sprintf(deleted, "The map %s has been deleted", map_name);
