@@ -157,11 +157,11 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
             if (taille_texte > 60)
                 taille_texte=60;
             posText.y = screen->h / (1+nb_menu) * (i+1) - taille_texte/2;
-            printText(screen,&posText,menu_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
-            if(i == pos_curseur)
+            if(i != pos_curseur)
+                printText(screen,&posText,menu_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
+            else
             {
-                posText.x = 70;
-                printText(screen,&posText,"=>",0,0,0,"polices/ubuntu.ttf",taille_texte,1);
+                printText(screen,&posText,menu_names[i],255,60,30,"polices/ubuntu.ttf",taille_texte,1);
             }
         }
 

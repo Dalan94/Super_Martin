@@ -63,11 +63,11 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
                 taille_texte=60;
             posText.y = screen->h / (1+nb_lvl) * (i+1) - taille_texte/2;
             printText(screen,&posText,level_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
-            if(i == pos_curseur)
-            {
-                posText.x = 70;
-                printText(screen,&posText,"=>",0,0,0,"polices/ubuntu.ttf",taille_texte,1);
-            }
+            if(i != pos_curseur)
+                printText(screen,&posText,level_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
+            else
+                printText(screen,&posText,level_names[i],255,60,30,"polices/ubuntu.ttf",taille_texte,1);
+
         }
 
         SDL_Flip(screen);
