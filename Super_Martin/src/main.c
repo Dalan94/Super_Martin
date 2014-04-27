@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     /*sound*/
     Sound *sound_system;
     sound_system = createSound();
-    soundVolume(sound_system,1,1); /*mute music*/
+    soundVolume(sound_system,1,0); /*mute music*/
     soundVolume(sound_system,0,0); /*mute effects*/
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);

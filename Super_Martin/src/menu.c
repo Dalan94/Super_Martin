@@ -27,6 +27,7 @@ int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     int previous_time=0;
     int current_time=0;
     int event_appear=1;
+    FMOD_BOOL b;
 
 
 
@@ -36,9 +37,9 @@ int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
 
     SDL_TimerID timer; /* Variable pour stocker le numéro du timer */
 
-
-    /*initialisation du systeme audio*/
-    playMusic("sound/Lorena.mp3",sound_sys);
+    FMOD_Channel_IsPlaying(sound_sys->music,&b);
+    if(!b)
+        playMusic("sound/Lorena.mp3",sound_sys);
 
     /* *********************** */
 
