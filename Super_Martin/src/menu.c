@@ -15,7 +15,8 @@
  *\param[out] s sound system
  *\return 1 si la touche entrée a été activée
  */
-int menu(SDL_Surface *screen,int *continuer,Sound *s){
+int menu(SDL_Surface *screen,int *go,Sound *s)
+{
     SDL_Surface *waiting;
     SDL_Rect posWait;
     int printingText = 1;
@@ -51,12 +52,12 @@ int menu(SDL_Surface *screen,int *continuer,Sound *s){
 
 
 
-    while(*continuer && !ret){
-            if(updateEvents(&in))
+    while(*go && !ret){
+            if(updateEvents(&in,go))
                 event_appear = 1;
 
             if(in.key[SDLK_ESCAPE] || in.quit)
-                *continuer = 0;
+                *go = 0;
             if(in.key[SDLK_RETURN])
                 ret = 1;
 

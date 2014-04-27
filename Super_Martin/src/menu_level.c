@@ -15,7 +15,7 @@
  *\param[out] level_name the name of the level we will want to launch
  *\param[in] s the menu's music
  */
-int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *s)
+int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *s,int *go)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -45,7 +45,7 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *s)
 
     while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
     {
-        updateWaitEvents(&in);
+        updateWaitEvents(&in,go);
         keyboardActionMenu(&in,&pos_curseur,&play_lvl,nb_lvl);
 
         waitFPS(&previous_time,&current_time);

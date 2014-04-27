@@ -19,9 +19,9 @@
  *\param[in] lvel_name le nom du niveau
  */
 
-void play(SDL_Surface *screen, char *level_name)
+void play(SDL_Surface *screen, char *level_name,int *go)
 {
-    int continuer = 1;
+
 
     SDL_TimerID timer = NULL;
 
@@ -102,14 +102,14 @@ void play(SDL_Surface *screen, char *level_name)
 
 
 
-    while(!in.key[SDLK_ESCAPE] && continuer){
+    while(!in.key[SDLK_ESCAPE] && *go){
 
         /* récupération des inputs clavier et gestion de leurs auctions*/
-        updateEvents(&in);
+        updateEvents(&in,go);
         keyboardActionGame(&in,&move_left,&move_right,&jump,&pause,player,&acceleration);
 
         if(in.quit)
-            continuer = 0;
+            *go = 0;
 
         /* gestion de la mort*/
         if((player->location.y+player->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
@@ -119,7 +119,7 @@ void play(SDL_Surface *screen, char *level_name)
             if(!(m->lvl->timer_level>0 && player->life))
             {
                 stopSound(music);
-                printGameOver(screen,&continuer,&in);
+                printGameOver(screen,go,&in);
             }
             old_time=m->lvl->timer_level;
         }
@@ -129,13 +129,13 @@ void play(SDL_Surface *screen, char *level_name)
         else
             player->isHurt = 0;
 
-        if((player->location.x)/TILE_SIZE >= m->lvl->width - IMG_END_SIZE / TILE_SIZE + 1 && continuer)
-            printWin(screen,&continuer,&in);
+        if((player->location.x)/TILE_SIZE >= m->lvl->width - IMG_END_SIZE / TILE_SIZE + 1 && *go)
+            printWin(screen,go,&in);
 
 
         if (pause)
         {
-            printPause(screen,&in,&(m->lvl->timer_level),&continuer);
+            printPause(screen,&in,&(m->lvl->timer_level),go);
             pause=0;
         }
 
@@ -181,7 +181,7 @@ void play(SDL_Surface *screen, char *level_name)
  *affiche le message de game overflow_error
  *\param[out] screen l'écran de jeu
  */
-void printGameOver(SDL_Surface *screen,int *continuer,Input *in)
+void printGameOver(SDL_Surface *screen,int *go,Input *in)
 {
     SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
@@ -202,8 +202,8 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in)
 
     SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
 
-    while(!updateWaitEvents(in));
-    *continuer = 0;
+    while(!updateWaitEvents(in,go));
+    *go = 0;
     SDL_FreeSurface(gameOver);
     freeSound(s);
 
@@ -214,7 +214,7 @@ void printGameOver(SDL_Surface *screen,int *continuer,Input *in)
  *affiche le message de reussite du niveau
  *\param[out] screen l'écran de jeu
  */
-void printWin(SDL_Surface *screen,int *continuer,Input *in){
+void printWin(SDL_Surface *screen,int *go,Input *in){
     SDL_Surface *win = NULL;
     SDL_Rect posGame;
 
@@ -233,8 +233,8 @@ void printWin(SDL_Surface *screen,int *continuer,Input *in){
 
     SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
 
-    while(!updateWaitEvents(in));
-    *continuer = 0;
+    while(!updateWaitEvents(in,go));
+    *go = 0;
     SDL_FreeSurface(win);
     freeSound(s);
 
@@ -315,7 +315,7 @@ void updateSpeed(float *speed, int acceleration)
  *\param[in] in la structure input
  *\param[out] le booléen de main loop de la fonction jouer
  */
-void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer)
+void printPause(SDL_Surface *screen, Input *in, int *time, int *go)
 {
     SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
@@ -332,11 +332,12 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer)
     SDL_Flip(screen);
     in->key[SDLK_p] = 0;
 
-    while(!in->key[SDLK_p] && *continuer){
+    while(!in->key[SDLK_p] && *go)
+    {
 
-        updateWaitEvents(in);
+        updateWaitEvents(in,go);
         if(in->quit)
-            *continuer = 0;
+            *go = 0;
 
     }
     SDL_FreeSurface(gameOver);

@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
     SDL_Surface *screen = NULL;
 
-    int continuer = 1;
+    int go = 1;
 
     char level_name[MAX_SIZE_FILE_NAME];
 
@@ -34,13 +34,13 @@ int main(int argc, char *argv[])
 
     SDL_ShowCursor(SDL_DISABLE); //efface la souris
 
-    while (continuer) //main loop
+    while (go) //main loop
     {
 
-        if(menu(screen,&continuer,s))
+        if(menu(screen,&go,s))
         {
-            if (menuLevel(screen,level_name,s))
-                play(screen,level_name);
+            if (menuLevel(screen,level_name,s,&go))
+                play(screen,level_name,&go);
         }
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran

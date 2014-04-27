@@ -15,7 +15,7 @@
  *\return 1 if a key is activated
  */
 
-int updateEvents(Input* in)
+int updateEvents(Input* in,int *go)
 {
 	SDL_Event event;
 	while(SDL_PollEvent(&event))
@@ -31,6 +31,7 @@ int updateEvents(Input* in)
 			break;
         case SDL_QUIT:
             in->quit = 1;
+            *go = 0;
             break;
 		default:
 			break;
@@ -89,7 +90,7 @@ void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *
  *\return 1 if a key is activated
  */
 
-int updateWaitEvents(Input* in)
+int updateWaitEvents(Input* in, int *go)
 {
 	SDL_Event event;
 	SDL_EnableKeyRepeat(100,100);
@@ -106,6 +107,7 @@ int updateWaitEvents(Input* in)
 			break;
         case SDL_QUIT:
             in->quit = 1;
+            *go = 0;
             return 1;
             break;
 		default:

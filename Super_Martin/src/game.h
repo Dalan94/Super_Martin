@@ -29,7 +29,7 @@
 
 
 /*prototypes*/
-void play(SDL_Surface *screen,char *level_name);
+void play(SDL_Surface *screen,char *level_name,int *go);
 void printGameOver(SDL_Surface *screen, int* continuer,Input *in);
 
 void move (int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l,Sound *s);
