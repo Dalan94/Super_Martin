@@ -31,6 +31,7 @@ int updateEvents(Input* in)
 			break;
         case SDL_QUIT:
             in->quit = 1;
+            break;
 		default:
 			break;
 		}
@@ -105,6 +106,8 @@ int updateWaitEvents(Input* in)
 			break;
         case SDL_QUIT:
             in->quit = 1;
+            return 1;
+            break;
 		default:
 			break;
     }

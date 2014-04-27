@@ -181,7 +181,8 @@ void play(SDL_Surface *screen, char *level_name)
  *affiche le message de game overflow_error
  *\param[out] screen l'écran de jeu
  */
-void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
+void printGameOver(SDL_Surface *screen,int *continuer,Input *in)
+{
     SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
 
