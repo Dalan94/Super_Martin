@@ -9,13 +9,13 @@
  #include "menu_level.h"
 
 /**
- *\fn int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *s)
+ *\fn int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys)
  *  Menu to choose the lvl
  *\param[out] screen game screen
  *\param[out] level_name the name of the level we will want to launch
- *\param[in] s the menu's music
+ *\param[in,out] sound_sys the sound system
  */
-int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *s)
+int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -79,7 +79,7 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *s)
 
     closeLevelList(level_names,nb_lvl);
 
-    FMOD_ChannelGroup_Stop(s->channel);
+    stopSound(sound_sys,1);
 
     return play_lvl;
 }

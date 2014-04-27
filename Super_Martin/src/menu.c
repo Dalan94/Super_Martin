@@ -8,14 +8,15 @@
 #include "menu.h"
 
 /**
- *\fn int menu(SDL_Surface *screen)
- *affiche le menu à l'écran
- *\param[out] screen l'écran
- *\param[in,out] continuer main loop validation
- *\param[out] s sound system
- *\return 1 si la touche entrée a été activée
+ *\fn int menu(SDL_Surface *screen,FMOD_SYSTEM *sys)
+ *print the menu on the screen
+ *\param[out] screen the game screen
+ *\param[in,out] go main loop validation
+ *\param[out] sys sound system
+ *\return 1 if the enter key has been pushed
  */
-int menu(SDL_Surface *screen,int *continuer,Sound *s){
+int menu(SDL_Surface *screen,int *go,Sound *sound_sys)
+{
     SDL_Surface *waiting;
     SDL_Rect posWait;
     int printingText = 1;
@@ -26,6 +27,8 @@ int menu(SDL_Surface *screen,int *continuer,Sound *s){
     int event_appear=1;
 
 
+
+
     Input in;
     memset(&in,0,sizeof(in));
 
@@ -33,8 +36,7 @@ int menu(SDL_Surface *screen,int *continuer,Sound *s){
 
 
     /*initialisation du systeme audio*/
-    playMusic(s,"sound/Lorena.mp3");
-    soundVolume(s,0);
+    playMusic("sound/Lorena.mp3",sound_sys);
 
     /* *********************** */
 
@@ -51,12 +53,12 @@ int menu(SDL_Surface *screen,int *continuer,Sound *s){
 
 
 
-    while(*continuer && !ret){
+    while(*go && !ret){
             if(updateEvents(&in))
                 event_appear = 1;
 
             if(in.key[SDLK_ESCAPE] || in.quit)
-                *continuer = 0;
+                *go = 0;
             if(in.key[SDLK_RETURN])
                 ret = 1;
 

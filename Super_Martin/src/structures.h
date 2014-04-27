@@ -2,6 +2,10 @@
 #define STRUCTURES_H_INCLUDED
 #include <SDL/SDL.h>
 
+/**
+ *\struc Character
+ *the game characters : player and npc
+ */
 typedef struct
 {
     int isNpc; /*! 1 if a npc, 0 if not*/
