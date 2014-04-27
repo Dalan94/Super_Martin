@@ -14,6 +14,7 @@
  *\param[out] screen game screen
  *\param[out] level_name the name of the level we will want to launch
  *\param[in,out] sound_sys the sound system
+ *\return 1 if a level has been choosen, 0 if not
  */
 int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys)
 {

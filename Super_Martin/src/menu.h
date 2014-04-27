@@ -28,7 +28,7 @@
 
 
 /*prototypes*/
-int menu(SDL_Surface *screen,int *continuer,Sound *s);
+int titleMenu(SDL_Surface *screen,int *continuer,Sound *s);
 Uint32 blinkText(Uint32 interval, void *param);
 
 
