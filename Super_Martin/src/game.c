@@ -114,9 +114,9 @@ void play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
         {
             if(!(m->lvl->timer_level>0 && player->life))
             {
-
                 stopSound(sound_sys,1);
                 printGameOver(screen,go,&in,sound_sys);
+                break;
             }
             old_time=m->lvl->timer_level;
         }
@@ -128,7 +128,10 @@ void play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
 
 
         if((player->location.x)/TILE_SIZE >= m->lvl->width - IMG_END_SIZE / TILE_SIZE + 1 && *go)
+        {
             printWin(screen,go,&in,sound_sys);
+            break;
+        }
 
         if (pause)
         {
@@ -201,9 +204,11 @@ void printGameOver(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
     SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
 
     while(!updateWaitEvents(in,go));
-    *go = 0;
+    if(in->quit)
+        *go = 0;
     SDL_FreeSurface(gameOver);
     stopSound(sound_sys,1);
+
 }
 
 /**
@@ -234,7 +239,8 @@ void printWin(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
     SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
 
     while(!updateWaitEvents(in,go));
-    *go = 0;
+    if(in->quit)
+        *go = 0;
     SDL_FreeSurface(win);
     stopSound(sound_sys,1);
 }
