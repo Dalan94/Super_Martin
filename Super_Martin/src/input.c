@@ -128,7 +128,7 @@ int updateWaitEvents(Input* in, int *go)
  */
 void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
 {
-    if(in->key[SDLK_ESCAPE] || in->quit)
+    if((in->key[SDLK_ESCAPE] || in->quit) && play_level != NULL)
         (*play_level) = 0;
 
     if(in->key[SDLK_UP])

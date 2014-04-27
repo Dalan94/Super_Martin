@@ -29,12 +29,14 @@
 
 
 /*prototypes*/
-void play(SDL_Surface *screen,char *level_name,int *go);
-void printGameOver(SDL_Surface *screen, int* continuer,Input *in);
+
+void play(SDL_Surface *screen,char *level_name,Sound *sound_sys,int *go);
+void printGameOver(SDL_Surface *screen, int* continuer,Input *in,Sound *sound_sys);
+
 
 void move (int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l,Sound *s);
 
-void printWin(SDL_Surface *screen,int *continuer,Input *in);
+void printWin(SDL_Surface *screen,int *continuer,Input *in,Sound *sound_sys);
 
 void updateSpeed(float *speed, int acceleration);
 void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer);

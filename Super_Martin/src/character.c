@@ -58,12 +58,12 @@ Character *createrCharacter(char *tile,int x, int y,int npc)
  *\param[in] m level map
  *\param[in] speed movement speed
  *\param[in,out] l the enemy list
-
+ *\param[out] sound_sys the sound system
  *\return 1 if character was moved without using the precise movement function, 0 if not
  */
 
 
-int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *sound_jump)
+int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *sound_sys)
 {
     c->dirX = 0;
 
@@ -82,8 +82,7 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     {
         c->dirY = -JUMP_HEIGHT;
         c->isOnGround = 0;
-        playMusicOnce(sound_jump,"sound/jump_big.ogg");
-        soundVolume(sound_jump,0);
+        playShortSound("sound/jump_big.ogg",sound_sys);
     }
 
     if (move_right && !move_left)

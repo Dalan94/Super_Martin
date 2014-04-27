@@ -19,7 +19,9 @@
  *\param[in] lvel_name le nom du niveau
  */
 
-void play(SDL_Surface *screen, char *level_name,int *go)
+
+void play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
+
 {
 
 
@@ -56,9 +58,6 @@ void play(SDL_Surface *screen, char *level_name,int *go)
     int move_left=0;
     int jump = 0;
 
-    /*Sound*/
-    Sound *sound_jump = NULL;
-    Sound *music=NULL;
 
     /*gestion des inputs*/
     Input in;
@@ -77,10 +76,7 @@ void play(SDL_Surface *screen, char *level_name,int *go)
     m = initMap(screen,level_name,&enemyList);
 
     /*Gestion de la musique*/
-    sound_jump =createSound();
-    music=createSound();
-    playMusic(music,m->lvl->music);
-    soundVolume(music,0);
+    playMusic(m->lvl->music,sound_sys);
 
     /*Démarrage du timer */
     timer=SDL_AddTimer(1000,decomptage,&(m->lvl->timer_level));
@@ -118,8 +114,9 @@ void play(SDL_Surface *screen, char *level_name,int *go)
         {
             if(!(m->lvl->timer_level>0 && player->life))
             {
-                stopSound(music);
-                printGameOver(screen,go,&in);
+
+                stopSound(sound_sys,1);
+                printGameOver(screen,go,&in,sound_sys);
             }
             old_time=m->lvl->timer_level;
         }
@@ -129,9 +126,9 @@ void play(SDL_Surface *screen, char *level_name,int *go)
         else
             player->isHurt = 0;
 
-        if((player->location.x)/TILE_SIZE >= m->lvl->width - IMG_END_SIZE / TILE_SIZE + 1 && *go)
-            printWin(screen,go,&in);
 
+        if((player->location.x)/TILE_SIZE >= m->lvl->width - IMG_END_SIZE / TILE_SIZE + 1 && *go)
+            printWin(screen,go,&in,sound_sys);
 
         if (pause)
         {
@@ -142,7 +139,7 @@ void play(SDL_Surface *screen, char *level_name,int *go)
 
         updateSpeed(&speed,acceleration);
 
-        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemyList,sound_jump);
+        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemyList,sound_sys);
         moveEnemies(&enemyList,m,&playerList);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
@@ -165,8 +162,6 @@ void play(SDL_Surface *screen, char *level_name,int *go)
     SDL_Flip(screen);
 
     /*Free*/
-    freeSound(sound_jump);
-    freeSound(music);
     SDL_FreeSurface(background);
     freeMap(m);
     SDL_RemoveTimer(timer);
@@ -177,20 +172,23 @@ void play(SDL_Surface *screen, char *level_name,int *go)
 
 
 /**
- *\fn void printGameOver(SDL_Surface *screen,int *continuer,Input *in)
- *affiche le message de game overflow_error
- *\param[out] screen l'écran de jeu
+ *\fn void printGameOver(SDL_Surface *screen,int *continuer,Input *in,Sound *sound_sys)
+ *print the game over screen and wait until the player press a key
+ *\param[out] screen the game screen
+ *\param[out] go the game function main loop validation
+ *\param[in,out] in the input structure
+ *\param[out] sound_sys the sound system
  */
-void printGameOver(SDL_Surface *screen,int *go,Input *in)
+
+
+
+void printGameOver(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
+
 {
     SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
 
-
-    Sound *s;
-    s = createSound();
-    playMusic(s,"sound/marche_funebre.mp3");
-    soundVolume(s,0);
+    playMusic("sound/Colin_Newcomer_-_Funeral_March__Frederic_Chopin.mp3",sound_sys);
 
     gameOver = imageLoad("sprites/game-over.jpg");
     posGame.x = posGame.y = 0;
@@ -205,23 +203,25 @@ void printGameOver(SDL_Surface *screen,int *go,Input *in)
     while(!updateWaitEvents(in,go));
     *go = 0;
     SDL_FreeSurface(gameOver);
-    freeSound(s);
-
+    stopSound(sound_sys,1);
 }
 
 /**
- *\fn void printWin(SDL_Surface *screen,int *continuer,Input *in)
- *affiche le message de reussite du niveau
- *\param[out] screen l'écran de jeu
+ *\fn void printWin(SDL_Surface *screen,int *continuer,Input *in,Sound *sound_sys)
+ *print the win screen and wait until the player press a key
+ *\param[out] screen the game screen
+ *\param[out] go the game function main loop validation
+ *\param[in,out] in the input structure
+ *\param[out] sound_sys the sound system
  */
-void printWin(SDL_Surface *screen,int *go,Input *in){
+
+void printWin(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
+{
+
     SDL_Surface *win = NULL;
     SDL_Rect posGame;
 
-
-    Sound *s;
-    s = createSound();
-    playMusic(s,"sound/win.mp3");
+    playMusic("sound/win.mp3",sound_sys);
 
     win = imageLoad("sprites/game-over.jpg");
     posGame.x = posGame.y = 0;
@@ -236,12 +236,11 @@ void printWin(SDL_Surface *screen,int *go,Input *in){
     while(!updateWaitEvents(in,go));
     *go = 0;
     SDL_FreeSurface(win);
-    freeSound(s);
-
+    stopSound(sound_sys,1);
 }
 
 /**
- *\fn void move (int move_left, int move_right, Character *player,Map *m, float speed)
+ *\fn void move (int move_left, int move_right, Character *player,Map *m, float speed,Sound *sound_sys)
  *  Deplace le joueur et scrolle l'ecran si besoin
  *\param[in] move_left booleen pour savoir si l'on bouge a gauche
  *\param[in] move_right booleen pour savoir si l'on bouge a droite
@@ -249,9 +248,9 @@ void printWin(SDL_Surface *screen,int *go,Input *in){
  *\param[in] m la carte
  *\param[in] speed la vitesse de deplacement
  */
-void move(int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l,Sound *jump_sound)
+void move(int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l,Sound *sound_sys)
 {
-    int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l,jump_sound);
+    int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l,sound_sys);
     if (move_right && !move_left)
     {
         (*acceleration)++;
