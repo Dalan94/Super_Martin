@@ -124,15 +124,18 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
  */
 int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
 {
+    int ret = 0;
     SDL_Rect futureLocation = c->location;
     futureLocation.x += vx;
 
     futureLocation.y += vy;
 
-
-    if(!collisionMap(futureLocation,m) && !collisionEnemy(c,l,m))
+    ret = collisionMap(futureLocation,m);
+    if((!ret || ret == 2) && !collisionEnemy(c,l,m))
     {
         c->location = futureLocation;
+        if(ret == 2)
+            c->countStars++;
         return 1;
     }
     return 0;
@@ -198,7 +201,7 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
  *determine if there is a collision beteewen a sprite and a "wall" of the map
  *\param[in] r SDL_Rect corresponding to the sprite
  *\param[in] m map
- *\return 1 if there is a collision, 0 if not
+ *\return 1 if there is a collision, 0 if not,2 if collision with star/coin
  */
 int collisionMap(SDL_Rect r,Map *m){
     int i,j;
@@ -221,7 +224,13 @@ int collisionMap(SDL_Rect r,Map *m){
                 test.x = i*TILE_SIZE;
                 test.y = j*TILE_SIZE;
                 if(collisionSprite(r,test))
-                    return 1;
+                    if(m->lvl->map[j][i] != COIN)
+                        return 1;
+                    else
+                    {
+                        m->lvl->map[j][i] = VOID;
+                        return 2;
+                    }
             }
         }
     }

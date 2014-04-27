@@ -31,7 +31,7 @@
     #define TILE_MAX 8
 
 
-    enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3};
+    enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3,COIN=7};
     enum {RIGHT,LEFT,UP,DOWN};
 
 typedef struct{
