@@ -30,6 +30,7 @@
 /*prototypes*/
 int titleMenu(SDL_Surface *screen,int *continuer,Sound *s);
 Uint32 blinkText(Uint32 interval, void *param);
+int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys);
 
 
 #endif // MENU_H

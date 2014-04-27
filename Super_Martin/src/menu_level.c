@@ -16,7 +16,7 @@
  *\param[in,out] sound_sys the sound system
  *\return 1 if a level has been choosen, 0 if not
  */
-int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys)
+int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys,int *go)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;

@@ -133,9 +133,11 @@ void soundVolume(Sound *s,int chan,float volume)
     {
         case 0:
             s->fxVolume = volume;
+            FMOD_Channel_SetVolume(s->fx,volume);
             break;
         case 1:
             s->musicVolume = volume;
+            FMOD_Channel_SetVolume(s->music,volume);
             break;
         default: ;
     }

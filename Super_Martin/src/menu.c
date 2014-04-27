@@ -1,6 +1,6 @@
 /*!
  * \file menu.c
- * \brief contient les fonction liées au menu
+ * \brief containes some functions tied to the title and main menu
  * \author Xavier COPONET
  * \date 2014-02-27
  */
@@ -118,7 +118,7 @@ Uint32 blinkText(Uint32 interval, void *param)
  *\param[out] screen the game screen
  *\param[in,out] go main loop validation
  *\param[out] sys sound system
- *\return the number of the menu whitch is choosen
+ *\return the number of the menu which is choosen, -1 if esc
  */
 int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
 {
@@ -126,8 +126,9 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     SDL_Rect posWait;
     int nb_menu = 2;
     char menu_names[2][MAX_SIZE_FILE_NAME]={"Choose level","Options"};
+    int ret = 1;
     int i;
-    int taille_texte;
+    int text_size;
     int pos_curseur=0;
 
     Input in;
@@ -144,7 +145,7 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
     {
         updateWaitEvents(&in);
-        keyboardActionMenu(&in,&pos_curseur,NULL,nb_menu);
+        keyboardActionMenu(&in,&pos_curseur,&ret,nb_menu);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
@@ -153,15 +154,15 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
         for (i=0 ; i < nb_menu ; i++)
         {
             posText.x = 150;
-            taille_texte=screen->h / nb_menu;
-            if (taille_texte > 60)
-                taille_texte=60;
-            posText.y = screen->h / (1+nb_menu) * (i+1) - taille_texte/2;
+            text_size=screen->h / nb_menu;
+            if (text_size > 60)
+                text_size=60;
+            posText.y = screen->h / (1+nb_menu) * (i+1) - text_size/2;
             if(i != pos_curseur)
-                printText(screen,&posText,menu_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
+                printText(screen,&posText,menu_names[i],0,0,0,"polices/ubuntu.ttf",text_size,1);
             else
             {
-                printText(screen,&posText,menu_names[i],255,60,30,"polices/ubuntu.ttf",taille_texte,1);
+                printText(screen,&posText,menu_names[i],255,60,30,"polices/ubuntu.ttf",text_size,1);
             }
         }
 
@@ -170,5 +171,8 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     }
 
     SDL_FreeSurface(waiting);
+    if(!ret)
+        return -1;
+
     return pos_curseur;
 }

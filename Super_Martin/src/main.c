@@ -10,6 +10,8 @@
 #include "menu.h"
 #include "menu_level.h"
 #include "sound.h"
+#include "menu_option.h"
+#include "menu_level.h"
 
 int main(int argc, char *argv[])
 {
@@ -22,17 +24,17 @@ int main(int argc, char *argv[])
     /*sound*/
     Sound *sound_system;
     sound_system = createSound();
-    soundVolume(sound_system,1,0); /*mute music*/
+    soundVolume(sound_system,1,1); /*mute music*/
     soundVolume(sound_system,0,0); /*mute effects*/
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 
-    /*initialisation de l'écran*/
+    /*initialisation de l'Ã©cran*/
     screen = SDL_SetVideoMode(LARGEUR_FENETRE, HAUTEUR_FENETRE, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 
 
 
-    SDL_WM_SetCaption("Super Martin", NULL); //titre de la fenêtres
+    SDL_WM_SetCaption("Super Martin", NULL); //titre de la fenÃªtres
 
     SDL_ShowCursor(SDL_DISABLE); //efface la souris
 
@@ -41,17 +43,29 @@ int main(int argc, char *argv[])
 
         if(titleMenu(screen,&continuer,sound_system))
         {
-            switch(mainMenu(screen,continuer,sound_system))
+            switch(mainMenu(screen,&continuer,sound_system))
             {
+                case -1:
+                    break;
                 case 0:
-                    if (menuLevel(screen,level_name,sound_system))
+                    if (menuLevel(screen,level_name,sound_system,&continuer))
                         play(screen,level_name,sound_system);
                     break;
+                case 1:
+                    switch(optionMenu(screen,&continuer,sound_system))
+                    {
+                        case -1:
+                            break;
+                        case 0:
+                            soundOptions(screen,&continuer,sound_system);
+                            break;
+                        default:;
+                    }
                 default: ;
             }
         }
 
-        SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
+        SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'Ã©cran
 
         SDL_Flip(screen);
     }
