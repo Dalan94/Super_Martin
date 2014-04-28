@@ -68,7 +68,9 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     c->dirX = 0;
 
     if(c->location.y == c->saveY)
+    {
         c->dirY = 0;
+    }
     c->saveY = c->location.y;
 
     if(jump == 2)
@@ -99,11 +101,12 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     if (c->dirY > 0)
         c->isFalling=1;
 
+
     if(tryMovement(c,c->dirX,c->dirY,m,l))
         return 1;
     presiseMoveCharacter(c,c->dirX,c->dirY,m,l);
 
-    if(c->dirY>0)
+    if(!checkFall(c,m))
     {
         c->isOnGround = 1;
         c->isFalling = 0;
@@ -300,4 +303,70 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l){
     }
 }
 
+/**
+ *\fn int checkFall(Character *c,Map *m)
+ *tests if the character's futur position is over a void tile
+ *\param[in] c the monster/character to be tested
+ *\param[in] m the game map
+ *\return 1 if void tile, 0 if not
+ */
+int checkFall(Character *c,Map *m)
+{
+    int x,y;
 
+    if(!c->isRight)
+    {
+        if(c->isNpc)
+        {
+            x = (int)(c->location.x + c->dirX)/TILE_SIZE;
+            y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
+        }
+        else
+        {
+            x = (int)(c->location.x)/TILE_SIZE;
+            y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
+        }
+
+        if(y<0)
+            y = 1;
+        if(y >= m->lvl->height-1)
+            y = m->lvl->height-2;
+        if(x<0)
+            x = 1;
+        if(x> m->lvl->width)
+            x = m->lvl->width;
+
+        if(m->lvl->map[y+1][x] == VOID)
+            return 1;
+        else
+            return 0;
+    }
+    else
+    {
+        if(c->isNpc)
+        {
+            x = (int)(c->location.x + c->dirX + c->location.w)/TILE_SIZE;
+            y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
+        }
+        else
+        {
+            x = (int)(c->location.x)/TILE_SIZE;
+            y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
+        }
+
+        if(y<=0)
+            y = 1;
+        if(y >= m->lvl->height-1)
+            y = m->lvl->height - 2;
+        if(x<=0)
+            x = 1;
+        if(x>= m->lvl->width)
+            x = m->lvl->width - 1;
+
+        if(m->lvl->map[y+1][x] == VOID)
+            return 1;
+        else
+            return 0;
+    }
+    return 0;
+}

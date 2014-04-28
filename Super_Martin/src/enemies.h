@@ -44,6 +44,5 @@ void blitEnnemies(SDL_Surface *screen, list *l,Map *m);
 int collisionEnemy(Character *c,list *l,Map *m);
 void moveEnemies(list *l, Map *m,list *p);
 int moveCharacterCol(Character *c,int move_left, int move_right,Map *m);
-int checkFall(Character *c,Map *m);
 
 #endif // ENEMIES_H_INCLUDED
