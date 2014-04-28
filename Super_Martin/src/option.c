@@ -16,15 +16,15 @@
 void loadOptions(char confFile[],Sound *soundSys)
 {
     FILE *fl;
-    fl = openFile(confFile,"r");
+    fl = openFile(confFile,"rb");
     if(fl == NULL)
     {
         perror("error while opening the config file");
         exit(errno);
     }
 
-    fscanf(fl,"%f",&soundSys->fxVolume);
-    fscanf(fl,"%f",&soundSys->musicVolume);
+    fread(&soundSys->fxVolume,sizeof(float),1,fl);
+    fread(&soundSys->musicVolume,sizeof(float),1,fl);
 
     closeFile(fl);
 }
@@ -38,14 +38,14 @@ void loadOptions(char confFile[],Sound *soundSys)
 void saveOptions(char confFile[],Sound *soundSys)
 {
     FILE *fl;
-    fl = openFile(confFile,"w");
+    fl = openFile(confFile,"wb");
     if(fl == NULL)
     {
         perror("error while opening the config file");
         exit(errno);
     }
-    fprintf(fl,"%f\n",soundSys->fxVolume);
-    fprintf(fl,"%f\n",soundSys->musicVolume);
+    fwrite(&soundSys->fxVolume,sizeof(float),1,fl);
+    fwrite(&soundSys->musicVolume,sizeof(float),1,fl);
 
     closeFile(fl);
 }
