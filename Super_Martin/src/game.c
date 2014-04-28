@@ -172,7 +172,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
     SDL_RemoveTimer(timer);
 
     free((void *)player);
-    /*freeEnemies(enemiesList);*/ /*!\bug segmentation fault*/
+    freeEnemies(&enemyList);
+    freeEnemies(&playerList);
 
     return ret;
 }

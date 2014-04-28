@@ -42,8 +42,6 @@ void freeEnemies(list *l)
         deleteCurrent(l);
         next(l);
     }
-
-    //free((void *) l);
 }
 
 /**
