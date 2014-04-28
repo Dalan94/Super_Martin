@@ -18,6 +18,7 @@ int main(int argc, char *argv[])
     SDL_Surface *screen = NULL;
 
     int go = 1;
+    int ret,ret1;
 
     char level_name[MAX_SIZE_FILE_NAME];
 
@@ -43,27 +44,28 @@ int main(int argc, char *argv[])
 
         if(titleMenu(screen,&go,sound_system))
         {
-            switch(mainMenu(screen,&go,sound_system))
-            {
-                case -1:
-                    break;
-                case 0:
-                    if (menuLevel(screen,level_name,sound_system,&go))
-                        while(play(screen,level_name,sound_system,&go));
-                    break;
-                case 1:
-                    switch(optionMenu(screen,&go,sound_system))
-                    {
-                        case -1:
-                            break;
-                        case 0:
-                            soundOptions(screen,&go,sound_system);
-                            break;
-                        default:;
-                    }
-                default: ;
-            }
-
+            while((ret1 = mainMenu(screen,&go,sound_system)) != -1)
+                switch(ret1)
+                {
+                    case -1:
+                        break;
+                    case 0:
+                        if (menuLevel(screen,level_name,sound_system,&go))
+                            while(play(screen,level_name,sound_system,&go));
+                        break;
+                    case 1:
+                        while((ret = optionMenu(screen,&go,sound_system)) != -1)
+                            switch(ret)
+                            {
+                                case -1:
+                                    break;
+                                case 0:
+                                    soundOptions(screen,&go,sound_system);
+                                    break;
+                                default:;
+                            }
+                    default: ;
+                }
         }
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
