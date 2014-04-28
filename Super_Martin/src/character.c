@@ -139,10 +139,13 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
     ret = collisionMap(futureLocation,m);
     if((!ret || ret == 2) && !collisionEnemy(c,l,m))
     {
-        if(c->isRight)
-            futureLocation.x -= COLLISION_ADJUSTMENT;
+        if(!c->isNpc)
+        {
+            if(c->isRight)
+                futureLocation.x -= COLLISION_ADJUSTMENT;
+            futureLocation.w += COLLISION_ADJUSTMENT;
+        }
         c->location = futureLocation;
-        c->location.w += COLLISION_ADJUSTMENT;
         if(ret == 2)
             c->countStars++;
         return 1;
