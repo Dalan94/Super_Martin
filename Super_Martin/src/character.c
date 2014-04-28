@@ -7,6 +7,7 @@
 
 #include "character.h"
 
+#define COLLISION_ADJUSTMENT 1
 
 /**
  *\fn Character *createrCharacter(char *spR,char *spL,int x,int y,int npc)
@@ -128,11 +129,28 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
     futureLocation.x += vx;
 
     futureLocation.y += vy;
+    if(!c->isNpc)
+    {
+        if(c->isRight)
+        {
+            futureLocation.x += 9;
+            //futureLocation.w -= COLLISION_ADJUSTMENT;
+        }
+        else
+        {
+           // futureLocation.x -= COLLISION_ADJUSTMENT;
+
+        }
+        futureLocation.w = 15;
+    }
 
     ret = collisionMap(futureLocation,m);
     if((!ret || ret == 2) && !collisionEnemy(c,l,m))
     {
+        if(c->isRight)
+            futureLocation.x -= 9;
         c->location = futureLocation;
+        c->location.w = 26;
         if(ret == 2)
             c->countStars++;
         return 1;
@@ -157,7 +175,8 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
     pos.h = poseTile.h = c->tile->h/NB_TILE_MARYO_HEIGHT;
     pos.w = poseTile.w = c->tile->w/NB_TILE_MARYO_WIDTH;
 
-    switch(c->isRight){
+    switch(c->isRight)
+    {
         case 0:
             poseTile.y = 0;
             break;
@@ -216,8 +235,10 @@ int collisionMap(SDL_Rect r,Map *m){
     ymin = (r.y) / TILE_SIZE ;
     ymax =  (r.y + r.h ) / TILE_SIZE +1;
 
-    for(i = xmin ; i< xmax ; i++){
-        for (j=ymin ; j< ymax ; j++){
+    for(i = xmin ; i< xmax ; i++)
+    {
+        for (j=ymin ; j< ymax ; j++)
+        {
             if(m->lvl->map[j][i] != VOID)
             {
                 test.x = i*TILE_SIZE;
