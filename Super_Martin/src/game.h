@@ -30,7 +30,7 @@
 
 /*prototypes*/
 
-void play(SDL_Surface *screen,char *level_name,Sound *sound_sys,int *go);
+int play(SDL_Surface *screen,char *level_name,Sound *sound_sys,int *go);
 void printGameOver(SDL_Surface *screen, int* continuer,Input *in,Sound *sound_sys);
 
 

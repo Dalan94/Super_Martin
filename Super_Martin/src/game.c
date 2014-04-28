@@ -13,15 +13,15 @@
 
 
 /**
- *\fn void play(SDL_Surface *screen,char *level_name)
- *contient la boucle principale du jeu qui appelle les fonctions
- *\param[in,out] screen L'écran de jeu
- *\param[in] lvel_name le nom du niveau
+ *\fn int play(SDL_Surface *screen,char *level_name)
+ *initialize a game map and contain the main loop for the game
+ *\param[in,out] screen the gamin screen
+ *\param[in] level_name the name of the level to be played
+ *\return 1 if the player dies, 0 if he wins or if he quits the level
  */
 
 
-void play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
-
+int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
 {
 
 
@@ -31,6 +31,7 @@ void play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
     int current_time=0;
     int old_time=201;
     int pause=0;
+    int ret = 0;
 
     int acceleration=0;
     float speed=0;
@@ -116,6 +117,7 @@ void play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
             {
                 stopSound(sound_sys,1);
                 printGameOver(screen,go,&in,sound_sys);
+                ret = 1;
                 break;
             }
             old_time=m->lvl->timer_level;
@@ -171,6 +173,8 @@ void play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
 
     free((void *)player);
     /*freeEnemies(enemiesList);*/ /*!\bug segmentation fault*/
+
+    return ret;
 }
 
 

@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
                     break;
                 case 0:
                     if (menuLevel(screen,level_name,sound_system,&go))
-                        play(screen,level_name,sound_system,&go);
+                        while(play(screen,level_name,sound_system,&go));
                     break;
                 case 1:
                     switch(optionMenu(screen,&go,sound_system))
