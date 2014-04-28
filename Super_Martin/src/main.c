@@ -12,6 +12,7 @@
 #include "sound.h"
 #include "menu_option.h"
 #include "menu_level.h"
+#include "option.h"
 
 int main(int argc, char *argv[])
 {
@@ -25,8 +26,7 @@ int main(int argc, char *argv[])
     /*sound*/
     Sound *sound_system;
     sound_system = createSound();
-    soundVolume(sound_system,1,0); /*mute music*/
-    soundVolume(sound_system,0,0); /*mute effects*/
+    loadOptions(".conf",sound_system);
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 

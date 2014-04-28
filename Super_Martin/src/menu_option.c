@@ -169,6 +169,7 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys)
             default:;
         }
     }
+    saveOptions(".conf",sound_sys);
 
     SDL_FreeSurface(waiting);
 }

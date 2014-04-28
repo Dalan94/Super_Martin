@@ -187,9 +187,6 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
  *\param[in,out] in the input structure
  *\param[out] sound_sys the sound system
  */
-
-
-
 void printGameOver(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
 
 {

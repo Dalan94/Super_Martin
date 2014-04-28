@@ -24,7 +24,9 @@
 #include "share.h"
 #include "image.h"
 #include "input.h"
+#include "option.h"
 
 int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys);
+void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys);
 
 #endif // MENU_OPTION_H_INCLUDED

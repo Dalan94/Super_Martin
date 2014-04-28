@@ -21,8 +21,9 @@ FILE *openFile(char nom[], char mode[])
 
     if ((ptr_fichier=fopen(nom,mode)) == (FILE *) NULL )
     {
-        printf("\nErreur lors de l'ouverture du fichier %s\n",nom);
+        fprintf(stderr,"Erreur lors de l'ouverture du fichier %s",nom);
         perror("");
+
     }
     return ptr_fichier;
 }
