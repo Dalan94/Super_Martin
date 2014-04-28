@@ -26,6 +26,8 @@
     #define NB_TILE_MARYO_WIDTH     4
     #define NB_TILE_MARYO_HEIGHT    2
 
+    #define COLLISION_ADJUSTMENT 9
+
 
 
     #define TILE_MAX 8

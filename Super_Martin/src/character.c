@@ -7,7 +7,6 @@
 
 #include "character.h"
 
-#define COLLISION_ADJUSTMENT 1
 
 /**
  *\fn Character *createrCharacter(char *spR,char *spL,int x,int y,int npc)
@@ -132,25 +131,18 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
     if(!c->isNpc)
     {
         if(c->isRight)
-        {
-            futureLocation.x += 9;
-            //futureLocation.w -= COLLISION_ADJUSTMENT;
-        }
-        else
-        {
-           // futureLocation.x -= COLLISION_ADJUSTMENT;
+            futureLocation.x += COLLISION_ADJUSTMENT;
 
-        }
-        futureLocation.w = 15;
+        futureLocation.w -= COLLISION_ADJUSTMENT;
     }
 
     ret = collisionMap(futureLocation,m);
     if((!ret || ret == 2) && !collisionEnemy(c,l,m))
     {
         if(c->isRight)
-            futureLocation.x -= 9;
+            futureLocation.x -= COLLISION_ADJUSTMENT;
         c->location = futureLocation;
-        c->location.w = 26;
+        c->location.w += COLLISION_ADJUSTMENT;
         if(ret == 2)
             c->countStars++;
         return 1;
