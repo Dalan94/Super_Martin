@@ -421,7 +421,7 @@ void printHUD(SDL_Surface *screen,Character *player,Map *m)
     /* ***** */
 
     /*affichage de la vie*/
-    sprintf(charLife,"%d %d",player->life,player->isHurt);
+    sprintf(charLife,"%d",player->life);
     printText(screen,&posLife,charLife,255,100,100,"polices/code.otf",20,1);
     SDL_BlitSurface(heart,NULL,screen,&posHeart);
 
