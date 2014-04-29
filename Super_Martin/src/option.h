@@ -10,8 +10,9 @@
 
 #include "file.h"
 #include "sound.h"
+#include "structures.h"
 
-void loadOptions(char confFile[],Sound *soundSys);
-void saveOptions(char confFile[],Sound *soundSys);
+void loadOptions(char confFile[],Sound *soundSys,keyConf *kc);
+void saveOptions(char confFile[],Sound *soundSys,keyConf *kc);
 
 #endif // OPTION_H_INCLUDED

@@ -9,6 +9,7 @@
 #include "character.h"
 
 
+
 typedef struct
 {
 	char key[SDLK_LAST];
@@ -17,7 +18,7 @@ typedef struct
 
 /*prototype*/
 int updateEvents(Input* in,int *go);
-void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause,Character *player,int *acceleration);
+void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause,Character *player,int *acceleration,keyConf *kc);
 int updateWaitEvents(Input* in,int *go);
 void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl);
 

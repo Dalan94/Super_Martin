@@ -13,15 +13,16 @@
 
 
 /**
- *\fn int play(SDL_Surface *screen,char *level_name)
+ *\fn int play(SDL_Surface *screen,char *level_name,keyConf *kc)
  *initialize a game map and contain the main loop for the game
  *\param[in,out] screen the gamin screen
  *\param[in] level_name the name of the level to be played
+ *\param[in] kc the keyboard configuration structure
  *\return 1 if the player dies, 0 if he wins or if he quits the level
  */
 
 
-int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
+int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,keyConf *kc)
 {
 
 
@@ -103,7 +104,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go)
 
         /* récupération des inputs clavier et gestion de leurs auctions*/
         updateEvents(&in,go);
-        keyboardActionGame(&in,&move_left,&move_right,&jump,&pause,player,&acceleration);
+        keyboardActionGame(&in,&move_left,&move_right,&jump,&pause,player,&acceleration,kc);
 
         if(in.quit)
             *go = 0;

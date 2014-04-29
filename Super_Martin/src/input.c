@@ -42,7 +42,7 @@ int updateEvents(Input* in,int *go)
 
 
 /**
- *\fn void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration)
+ *\fn void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration,keyConf *kc)
  *perform action command by keyboard action
  *\param[in] in the input structure
  *\param[out] move_left the left movement boolean
@@ -51,34 +51,35 @@ int updateEvents(Input* in,int *go)
  *\param[out] pause the pause boolean
  *\param[in] player the Player
  *\param[in] acceleration the acceleration
+ *\param[in] kc the keyboard configuration structure
  */
-void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration)
+void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration, keyConf *kc)
 {
     /*left move*/
-    if(in->key[SDLK_LEFT] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
+    if(in->key[kc->left] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
         *move_left = 1;
-    if(!in->key[SDLK_LEFT]  && player->isOnGround)
+    if(!in->key[kc->left]  && player->isOnGround)
         *move_left = 0;
 
     /*right move*/
-    if(in->key[SDLK_RIGHT] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
+    if(in->key[kc->right] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
         *move_right = 1;
-    if(!in->key[SDLK_RIGHT] && player->isOnGround)
+    if(!in->key[kc->right] && player->isOnGround)
         *move_right = 0;
 
     /*jump*/
-    if(in->key[SDLK_SPACE] && player->isOnGround)
+    if(in->key[kc->jump] && player->isOnGround)
         *jump = 1;
-    if(!in->key[SDLK_SPACE] && *(jump)==1)
+    if(!in->key[kc->jump] && *(jump)==1)
         *jump = 2;
-    else if(!in->key[SDLK_SPACE] && (*jump==2 || *jump==0))
+    else if(!in->key[kc->jump] && (*jump==2 || *jump==0))
         *jump = 0;
 
         /*pause*/
-    if(in->key[SDLK_p])
+    if(in->key[kc->pause])
         *pause = 1;
 
-    if (!in->key[SDLK_RIGHT] && !in->key[SDLK_LEFT] && player->isOnGround)
+    if (!in->key[kc->right] && !in->key[kc->left] && player->isOnGround)
         *acceleration = 0;
 }
 

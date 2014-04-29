@@ -8,12 +8,13 @@
 #include "option.h"
 
 /**
- *\fn void loadOptions(char confFile[],Sound *soundSys)
+ *\fn void loadOptions(char confFile[],Sound *soundSys,keyConf *kc)
  *load the options from the config file
  *\param[in] confFile the config file path
  *\param[out] soundSys the sound system
+ *\param[out] kc the keyboard configuration structure
  */
-void loadOptions(char confFile[],Sound *soundSys)
+void loadOptions(char confFile[],Sound *soundSys,keyConf *kc)
 {
     FILE *fl;
     fl = openFile(confFile,"rb");
@@ -25,17 +26,19 @@ void loadOptions(char confFile[],Sound *soundSys)
 
     fread(&soundSys->fxVolume,sizeof(float),1,fl);
     fread(&soundSys->musicVolume,sizeof(float),1,fl);
+    fread(kc,sizeof(keyConf),1,fl);
 
     closeFile(fl);
 }
 
 /**
- *\fn void saveOptions(char confFile[],Sound *soundSys)
+ *\fn void saveOptions(char confFile[],Sound *soundSys,keyConf *kc)
  *save the options to the config file
  *\param[in] confFile the config file path
- *\param[out] soundSys the sound system
+ *\param[in] soundSys the sound system
+ *\param[in] kc the keyboard configuration structure
  */
-void saveOptions(char confFile[],Sound *soundSys)
+void saveOptions(char confFile[],Sound *soundSys,keyConf *kc)
 {
     FILE *fl;
     fl = openFile(confFile,"wb");
@@ -46,6 +49,7 @@ void saveOptions(char confFile[],Sound *soundSys)
     }
     fwrite(&soundSys->fxVolume,sizeof(float),1,fl);
     fwrite(&soundSys->musicVolume,sizeof(float),1,fl);
+    fwrite(kc,sizeof(keyConf),1,fl);
 
     closeFile(fl);
 }

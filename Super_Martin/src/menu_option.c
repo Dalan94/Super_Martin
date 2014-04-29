@@ -8,14 +8,15 @@
 #include "menu_option.h"
 
 /**
- *\fn int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
+ *\fn int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,keyConf *kc)
  *print the option menu on the screen
  *\param[out] screen the game screen
  *\param[in,out] go main loop validation
- *\param[out] sys sound system
+ *\param[in,out] sys sound system
+ *\param[in,out] kc the keyboard configuration structure
  *\return the number of the option which is choosen, -1 if esc
  */
-int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
+int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,keyConf *kc)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -67,7 +68,10 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
 
     SDL_FreeSurface(waiting);
     if(!ret)
+    {
+        saveOptions(".conf",sound_sys,kc);
         return -1;
+    }
 
     return pos_curseur;
 }
@@ -169,7 +173,6 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys)
             default:;
         }
     }
-    saveOptions(".conf",sound_sys);
 
     SDL_FreeSurface(waiting);
 }
