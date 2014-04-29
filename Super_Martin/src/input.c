@@ -53,33 +53,33 @@ int updateEvents(Input* in,int *go)
  *\param[in] acceleration the acceleration
  *\param[in] kc the keyboard configuration structure
  */
-void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration, keyConf *kc)
+void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
 {
     /*left move*/
-    if(in->key[kc->left] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
+    if(in->key[kc[0]] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
         *move_left = 1;
-    if(!in->key[kc->left]  && player->isOnGround)
+    if(!in->key[kc[0]]  && player->isOnGround)
         *move_left = 0;
 
     /*right move*/
-    if(in->key[kc->right] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
+    if(in->key[kc[1]] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
         *move_right = 1;
-    if(!in->key[kc->right] && player->isOnGround)
+    if(!in->key[kc[1]] && player->isOnGround)
         *move_right = 0;
 
     /*jump*/
-    if(in->key[kc->jump] && player->isOnGround)
+    if(in->key[kc[2]] && player->isOnGround)
         *jump = 1;
-    if(!in->key[kc->jump] && *(jump)==1)
+    if(!in->key[kc[2]] && *(jump)==1)
         *jump = 2;
-    else if(!in->key[kc->jump] && (*jump==2 || *jump==0))
+    else if(!in->key[kc[2]] && (*jump==2 || *jump==0))
         *jump = 0;
 
         /*pause*/
-    if(in->key[kc->pause])
+    if(in->key[kc[3]])
         *pause = 1;
 
-    if (!in->key[kc->right] && !in->key[kc->left] && player->isOnGround)
+    if (!in->key[kc[1]] && !in->key[kc[0]] && player->isOnGround)
         *acceleration = 0;
 }
 

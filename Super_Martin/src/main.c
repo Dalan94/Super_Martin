@@ -28,14 +28,15 @@ int main(int argc, char *argv[])
     sound_system = createSound();
 
     /*config clavier*/
-    keyConf kc;
+    SDLKey kc[4];
 
     /*chargement des configuration */
-    loadOptions(".conf",sound_system,&kc);
-    /*kc.jump=SDLK_SPACE;
-    kc.left=SDLK_q;
-    kc.right=SDLK_d;
-    kc.pause=SDLK_p;*/
+    loadOptions(".conf",sound_system,kc);
+    /*kc[2]=SDLK_SPACE;
+    kc[0]=SDLK_q;
+    kc[1]=SDLK_RIGHT;
+    kc[3]=SDLK_p;*/
+
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 
@@ -60,16 +61,19 @@ int main(int argc, char *argv[])
                         break;
                     case 0:
                         if (menuLevel(screen,level_name,sound_system,&go))
-                            while(play(screen,level_name,sound_system,&go,&kc));
+                            while(play(screen,level_name,sound_system,&go,kc));
                         break;
                     case 1:
-                        while((ret = optionMenu(screen,&go,sound_system,&kc)) != -1)
+                        while((ret = optionMenu(screen,&go,sound_system,kc)) != -1)
                             switch(ret)
                             {
                                 case -1:
                                     break;
                                 case 0:
                                     soundOptions(screen,&go,sound_system);
+                                    break;
+                                case 1:
+                                    keyBoardOptions(screen,&go,kc);
                                     break;
                                 default:;
                             }

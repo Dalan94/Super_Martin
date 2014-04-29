@@ -57,16 +57,5 @@ typedef struct
      node * last; /*! the list 's last node*/
  }list;
 
-/**
- *\struct keyConf
- *the keyboard configuration
- */
-typedef struct
-{
-    int right; /*! the right movement key */
-    int left; /*! the left movement key */
-    int jump; /*! the jump key */
-    int pause; /*! the pause key */
-}keyConf;
 
 #endif // STRUCTURES_H_INCLUDED

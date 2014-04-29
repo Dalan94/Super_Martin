@@ -22,7 +22,7 @@
  */
 
 
-int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,keyConf *kc)
+int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *kc)
 {
 
 
@@ -334,9 +334,14 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go)
     posGame.x = posGame.y = 0;
     SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
     SDL_BlitSurface(gameOver,NULL,screen,&posGame);
+    SDL_Rect posTex;
+    posTex.x = 394;
+    posTex.y = 180;
 
-
-    printText(screen,NULL,"PAUSE",186,38,18,"polices/manga.ttf",65,1);
+    printText(screen,&posTex,"PAUSE",186,38,18,"polices/manga.ttf",65,1);
+    posTex.x = 295;
+    posTex.y = 260;
+    printText(screen,&posTex,"Press P to resart",186,38,18,"polices/ubuntu.ttf",50,1);
     SDL_Flip(screen);
     in->key[SDLK_p] = 0;
 
