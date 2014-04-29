@@ -138,7 +138,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         if (pause)
         {
-            printPause(screen,&in,&(m->lvl->timer_level),go);
+            printPause(screen,&in,&(m->lvl->timer_level),go,kc);
             pause=0;
         }
 
@@ -316,17 +316,18 @@ void updateSpeed(float *speed, int acceleration)
 }
 
 /**
- *\fn void printPause(SDL_Surface *screen, Input *in, int *time,int *continuer)
+ *\fn void printPause(SDL_Surface *screen, Input *in, int *time,int *go, SDLKey *kc)
  * Met en pause le jeu
  *\param[out] screen l'écran de jeu
  *\param[out] time le temps restant
  *\param[in] in la structure input
- *\param[out] le booléen de main loop de la fonction jouer
+ *\param[out] go le booléen de main loop de la fonction jouer
  */
-void printPause(SDL_Surface *screen, Input *in, int *time, int *go)
+void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
 {
     SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
+    char st[MAX_SIZE_FILE_NAME];
 
     int time_pause=*time;
 
@@ -341,11 +342,12 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go)
     printText(screen,&posTex,"PAUSE",186,38,18,"polices/manga.ttf",65,1);
     posTex.x = 295;
     posTex.y = 260;
-    printText(screen,&posTex,"Press P to resart",186,38,18,"polices/ubuntu.ttf",50,1);
+    sprintf(st,"Press %s to restart",SDL_GetKeyName(kc[3]));
+    printText(screen,&posTex,st,186,38,18,"polices/ubuntu.ttf",50,1);
     SDL_Flip(screen);
-    in->key[SDLK_p] = 0;
+    in->key[kc[3]] = 0;
 
-    while(!in->key[SDLK_p] && *go)
+    while(!in->key[kc[3]] && *go)
     {
 
         updateWaitEvents(in,go);
@@ -356,7 +358,7 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go)
     SDL_FreeSurface(gameOver);
 
     *time=time_pause;
-    in->key[SDLK_p] = 0;
+    in->key[kc[3]] = 0;
 }
 
 Uint32 decomptage(Uint32 intervalle,void* parametre){

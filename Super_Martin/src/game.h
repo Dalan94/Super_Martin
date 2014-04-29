@@ -39,7 +39,7 @@ void move (int move_left, int move_right,int jump, Character *player,Map *m,floa
 void printWin(SDL_Surface *screen,int *continuer,Input *in,Sound *sound_sys);
 
 void updateSpeed(float *speed, int acceleration);
-void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer);
+void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc);
 Uint32 decomptage(Uint32 intervalle,void* parametre);
 void printHUD(SDL_Surface *screen,Character *player,Map *m);
 
