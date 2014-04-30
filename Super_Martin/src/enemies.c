@@ -112,8 +112,10 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     if(!l->current->c->isHurt)
                     {
                         l->current->c->life -= 50;
-                        l->current->c->isHurt = 1150;
+
                         l->current->c->countStars -=2;
+
+                        l->current->c->isHurt = 1150;
                     }
 
 
@@ -129,6 +131,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     }
                     c->isRight ^= 1;
                     c->saveX = c->location.x+10;
+
                 }
                 ret = 1;
                 /*if((c->location.x > l->current->c->location.x && c->isRight && !l->current->c->isRight)
@@ -144,6 +147,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     deleteCurrent(l);
                     ret = 1;
                     c->countStars +=2;
+
                 }
                 break;
 
@@ -495,6 +499,7 @@ Character *deleteCurrent (list *l)
 		return ret;
 	}
 }
+
 
 
 
