@@ -28,7 +28,7 @@
 
     #define COLLISION_ADJUSTMENT 9
 
-
+    #define FRENQUENCY_CHANGE_MOVING        5
 
     #define TILE_MAX 8
 

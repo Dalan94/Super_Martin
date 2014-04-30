@@ -29,6 +29,7 @@ typedef struct
     int countStars; /*! character points with caught stars */
     int isHurt; /*! indicate if the character was hurt recently*/
     int isFalling; /*! indicate if the character is falling*/
+    int moving;/*! indicate the number of moving*/
 
 
 }Character;

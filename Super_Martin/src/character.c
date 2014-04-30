@@ -44,6 +44,7 @@ Character *createrCharacter(char *tile,int x, int y,int npc)
     c->countStars = 5;
     c->isHurt = 0;
     c->isFalling = 0;
+    c->moving=0;
 
     return c;
 }
@@ -168,7 +169,6 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
  */
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
     SDL_Rect pos,poseTile;
-    static char deplacement=1;
 
     pos.y = c->location.y;
     pos.x = c->location.x - m->xScroll;
@@ -195,18 +195,18 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
 
         else
         {
-            if (deplacement < FPS)
+            if (c->moving< FPS/(FRENQUENCY_CHANGE_MOVING  *2))
             {
                 poseTile.x = poseTile.w;
-                deplacement++;
+                c->moving++;
             }
             else
             {
                 poseTile.x = poseTile.w *2;
-                if (deplacement == 2*FPS)
-                    deplacement=0;
+                if (c->moving == FPS/FRENQUENCY_CHANGE_MOVING  )
+                    c->moving=0;
                 else
-                    deplacement ++;
+                    c->moving ++;
             }
         }
     }
