@@ -90,12 +90,14 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     if (move_right && !move_left)
     {
         c->dirX += speed;
-        c->isRight = 1;
+        if(l != NULL)
+            c->isRight = 1;
     }
     if (move_left && !move_right)
     {
         c->dirX -= speed;
-        c->isRight = 0;
+        if(l != NULL)
+            c->isRight = 0;
     }
 
     if (c->dirY > 0)

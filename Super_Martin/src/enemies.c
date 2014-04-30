@@ -73,6 +73,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
 {
 
     int ret = 0;
+    int ret1 = 1;
 
     setOnFirst(l);
     if(l==NULL)
@@ -83,45 +84,57 @@ int collisionEnemy(Character *c,list *l,Map *m)
         switch(collisionSprite(c->location,l->current->c->location))
         {
             case 1:
-                if(!c->isNpc)
+                if(!(c->isNpc))
                 {
                     if(!c->isHurt)
                     {
                         c->life -= 50;
-                        c->isHurt = 50;
+                        c->isHurt = 1150;
                         c->countStars -=2;
                     }
 
 
                     if(c->isRight)
                     {
-                        moveCharacterCol(c,1,0,m);
+                        ret1 = moveCharacterCol(c,1,0,m);
+                        moveCharacterCol(l->current->c,0,1,m);
                     }
                     else
                     {
-                        moveCharacterCol(c,0,1,m);
+                        ret1 = moveCharacterCol(c,0,1,m);
+                        moveCharacterCol(l->current->c,1,0,m);
                     }
+                    l->current->c->isRight ^= 1;
+                    l->current->c->saveX = l->current->c->location.x;
                 }
                 else
                 {
                     if(!l->current->c->isHurt)
                     {
                         l->current->c->life -= 50;
-                        l->current->c->isHurt = 50;
+                        l->current->c->isHurt = 1150;
                         l->current->c->countStars -=2;
                     }
 
 
-                        if(c->isRight)
-                        {
-                            moveCharacterCol(l->current->c,0,1,m);
-                        }
-                        else
-                        {
-                            moveCharacterCol(l->current->c,1,0,m);
-                        }
+                    if(c->isRight)
+                    {
+                        ret1 = moveCharacterCol(l->current->c,0,1,m);
+                        moveCharacterCol(c,1,0,m);
+                    }
+                    else
+                    {
+                        ret1 = moveCharacterCol(l->current->c,1,0,m);
+                        moveCharacterCol(c,0,1,m);
+                    }
+                    c->isRight ^= 1;
+                    c->saveX = c->location.x+10;
                 }
                 ret = 1;
+                /*if((c->location.x > l->current->c->location.x && c->isRight && !l->current->c->isRight)
+                    || (c->location.x < l->current->c->location.x && !c->isRight && l->current->c->isRight))*/
+                /*if(!(c->isRight ^ l->current->c->isRight))
+                    ret = 0;*/
                 break;
 
             case 2:
@@ -133,6 +146,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     c->countStars +=2;
                 }
                 break;
+
             case 0: ;
 
             default: ;
@@ -160,22 +174,11 @@ void moveEnemies(list *l, Map *m, list *p)
             l->current->c->isRight ^= 1;
         l->current->c->saveX = l->current->c->location.x;
 
-        if(l->current->c->isRight /*&& l->current->c->location.x<l->current->c->x2*/)
+        if(l->current->c->isRight)
            ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL);
 
-        else if(!l->current->c->isRight /*&& l->current->c->location.x>l->current->c->x1*/)
+        else if(!l->current->c->isRight)
            ret = moveCharacter(l->current->c,1,0,0,m,2,p,NULL);
-
-        /*else if(l->current->c->location.x <= l->current->c->x1)
-        {
-            l->current->c->isRight = 1;
-           ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL);
-        }
-        else if(l->current->c->location.x >= l->current->c->x2)
-        {
-        l->current->c->isRight = 0;
-          ret =  moveCharacter(l->current->c,1,0,0,m,2,p,NULL);
-        }*/
 
         if((l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
             deleteCurrent(l);
@@ -194,9 +197,11 @@ void moveEnemies(list *l, Map *m, list *p)
 
 int moveCharacterCol(Character *c,int move_left, int move_right,Map *m)
 {
-    moveCharacter(c,move_left,move_right,0,m,50,NULL,NULL);
+    if(!c->isNpc)
+        return moveCharacter(c,move_left,move_right,0,m,50,NULL,NULL);
+    else
+        return moveCharacter(c,move_left,move_right,0,m,5,NULL,NULL);
 
-    return 0;
 }
 
 

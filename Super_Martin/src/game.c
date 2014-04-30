@@ -100,7 +100,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
 
 
-    while(!in.key[SDLK_ESCAPE] && *go){
+    while(!in.key[SDLK_ESCAPE] && *go)
+    {
 
         /* récupération des inputs clavier et gestion de leurs auctions*/
         updateEvents(&in,go);
