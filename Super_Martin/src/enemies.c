@@ -89,7 +89,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     if(!c->isHurt)
                     {
                         c->life -= 50;
-                        c->isHurt = 1150;
+                        c->isHurt = 50;
                         c->countStars -=2;
                     }
 
@@ -115,7 +115,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
 
                         l->current->c->countStars -=2;
 
-                        l->current->c->isHurt = 1150;
+                        l->current->c->isHurt = 50;
                     }
 
 
@@ -134,10 +134,6 @@ int collisionEnemy(Character *c,list *l,Map *m)
 
                 }
                 ret = 1;
-                /*if((c->location.x > l->current->c->location.x && c->isRight && !l->current->c->isRight)
-                    || (c->location.x < l->current->c->location.x && !c->isRight && l->current->c->isRight))*/
-                /*if(!(c->isRight ^ l->current->c->isRight))
-                    ret = 0;*/
                 break;
 
             case 2:
