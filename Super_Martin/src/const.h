@@ -1,6 +1,6 @@
 /*!
  * \file const.h
- * \brief contient les constantes du programme
+ * \brief containe the program constantes
  * \author Xavier COPONET
  * \date 2014-02-27
  */
@@ -8,15 +8,14 @@
 #ifndef CONST_H_INCLUDED
 #define CONST_H_INCLUDED
 
-    #define TAILLE_BLOC             16 // Taille d'un bloc (carré) en pixels
-    #define NB_BLOCS_LARGEUR        60
-    #define NB_BLOCS_HAUTEUR        33
-    #define LARGEUR_FENETRE         TAILLE_BLOC * NB_BLOCS_LARGEUR
-    #define HAUTEUR_FENETRE         TAILLE_BLOC * NB_BLOCS_HAUTEUR
+    #define TILE_SIZE            16 // Taille d'un bloc (carré) en pixels
+
+    #define LARGEUR_FENETRE         960
+    #define HAUTEUR_FENETRE         528
     #define FPS                     60
-    #define TAILLE_MAX_NOM_FICHIER    100
+    #define MAX_SIZE_FILE_NAME      100
     #define MARGE_SCROLLING         2
-    #define POURCENTAGE_DEPLACEMENT 0
+    #define DEPLACEMENT_POURCENTAGE 0
 
 
     #define MAX_FALL_SPEED          10
@@ -27,12 +26,14 @@
     #define NB_TILE_MARYO_WIDTH     4
     #define NB_TILE_MARYO_HEIGHT    2
 
+    #define COLLISION_ADJUSTMENT 9
+
 
 
     #define TILE_MAX 8
 
 
-    enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3};
+    enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3,COIN=7};
     enum {RIGHT,LEFT,UP,DOWN};
 
 typedef struct{
@@ -40,9 +41,9 @@ typedef struct{
     int width;
     int height;
     int timer_level;
-    char tileSet[TAILLE_MAX_NOM_FICHIER];
-    char background[TAILLE_MAX_NOM_FICHIER];
-    char music[TAILLE_MAX_NOM_FICHIER];
+    char tileSet[MAX_SIZE_FILE_NAME];
+    char background[MAX_SIZE_FILE_NAME];
+    char music[MAX_SIZE_FILE_NAME];
 }Level;
 
 typedef struct{

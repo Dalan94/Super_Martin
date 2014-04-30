@@ -18,7 +18,7 @@
  *\param[in] npc 1 if creating a npc, 0 if not
  *\return character structure pointer
  */
-Character *createrCharacter(char *tile,int x, int y, int x1,int x2,int npc)
+Character *createrCharacter(char *tile,int x, int y,int npc)
 {
     Character *c;
     c = (Character *)malloc(sizeof(Character));
@@ -45,10 +45,6 @@ Character *createrCharacter(char *tile,int x, int y, int x1,int x2,int npc)
     c->isHurt = 0;
     c->isFalling = 0;
 
-    c->x1 = x1;
-    c->x2 = x2;
-
-
     return c;
 }
 
@@ -62,17 +58,19 @@ Character *createrCharacter(char *tile,int x, int y, int x1,int x2,int npc)
  *\param[in] m level map
  *\param[in] speed movement speed
  *\param[in,out] l the enemy list
-
+ *\param[out] sound_sys the sound system
  *\return 1 if character was moved without using the precise movement function, 0 if not
  */
 
 
-int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *sound_jump)
+int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *sound_sys)
 {
     c->dirX = 0;
 
     if(c->location.y == c->saveY)
+    {
         c->dirY = 0;
+    }
     c->saveY = c->location.y;
 
     if(jump == 2)
@@ -86,8 +84,7 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     {
         c->dirY = -JUMP_HEIGHT;
         c->isOnGround = 0;
-        playMusicOnce(sound_jump,"sound/jump_big.ogg");
-        soundVolume(sound_jump,0);
+        playShortSound("sound/jump_big.ogg",sound_sys);
     }
 
     if (move_right && !move_left)
@@ -104,11 +101,12 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     if (c->dirY > 0)
         c->isFalling=1;
 
+
     if(tryMovement(c,c->dirX,c->dirY,m,l))
         return 1;
     presiseMoveCharacter(c,c->dirX,c->dirY,m,l);
 
-    if(c->dirY>0)
+    if(!checkFall(c,m))
     {
         c->isOnGround = 1;
         c->isFalling = 0;
@@ -128,15 +126,31 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
  */
 int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
 {
+    int ret = 0;
     SDL_Rect futureLocation = c->location;
     futureLocation.x += vx;
 
     futureLocation.y += vy;
-
-
-    if(!collisionMap(futureLocation,m) && !collisionEnemy(c,l,m))
+    if(!c->isNpc)
     {
+        if(c->isRight)
+            futureLocation.x += COLLISION_ADJUSTMENT;
+
+        futureLocation.w -= COLLISION_ADJUSTMENT;
+    }
+
+    ret = collisionMap(futureLocation,m);
+    if((!ret || ret == 2) && !collisionEnemy(c,l,m))
+    {
+        if(!c->isNpc)
+        {
+            if(c->isRight)
+                futureLocation.x -= COLLISION_ADJUSTMENT;
+            futureLocation.w += COLLISION_ADJUSTMENT;
+        }
         c->location = futureLocation;
+        if(ret == 2)
+            c->countStars++;
         return 1;
     }
     return 0;
@@ -159,7 +173,8 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
     pos.h = poseTile.h = c->tile->h/NB_TILE_MARYO_HEIGHT;
     pos.w = poseTile.w = c->tile->w/NB_TILE_MARYO_WIDTH;
 
-    switch(c->isRight){
+    switch(c->isRight)
+    {
         case 0:
             poseTile.y = 0;
             break;
@@ -202,30 +217,38 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
  *determine if there is a collision beteewen a sprite and a "wall" of the map
  *\param[in] r SDL_Rect corresponding to the sprite
  *\param[in] m map
- *\return 1 if there is a collision, 0 if not
+ *\return 1 if there is a collision, 0 if not,2 if collision with star/coin
  */
 int collisionMap(SDL_Rect r,Map *m){
     int i,j;
     int xmin,xmax,ymin,ymax;
     SDL_Rect test;
-    test.h = TAILLE_BLOC;
-    test.w = 2*TAILLE_BLOC;
-    if(r.x+r.w > (m->lvl->width+1)*TAILLE_BLOC || r.x < TAILLE_BLOC || r.y+r.h >(m->lvl->height)*TAILLE_BLOC -1 || r.y<0)
+    test.h = TILE_SIZE;
+    test.w = 2*TILE_SIZE;
+    if(r.x+r.w > (m->lvl->width+1)*TILE_SIZE || r.x < TILE_SIZE || r.y+r.h >(m->lvl->height)*TILE_SIZE -1 || r.y<0)
         return 1; //test les limites du monde
 
-    xmin =  (r.x) / TAILLE_BLOC -1;
-    xmax =  (r.x + r.w )  / TAILLE_BLOC ;
-    ymin = (r.y) / TAILLE_BLOC ;
-    ymax =  (r.y + r.h ) / TAILLE_BLOC +1;
+    xmin =  (r.x) / TILE_SIZE -1;
+    xmax =  (r.x + r.w )  / TILE_SIZE ;
+    ymin = (r.y) / TILE_SIZE ;
+    ymax =  (r.y + r.h ) / TILE_SIZE +1;
 
-    for(i = xmin ; i< xmax ; i++){
-        for (j=ymin ; j< ymax ; j++){
+    for(i = xmin ; i< xmax ; i++)
+    {
+        for (j=ymin ; j< ymax ; j++)
+        {
             if(m->lvl->map[j][i] != VOID)
             {
-                test.x = i*TAILLE_BLOC;
-                test.y = j*TAILLE_BLOC;
+                test.x = i*TILE_SIZE;
+                test.y = j*TILE_SIZE;
                 if(collisionSprite(r,test))
-                    return 1;
+                    if(m->lvl->map[j][i] != COIN)
+                        return 1;
+                    else
+                    {
+                        m->lvl->map[j][i] = VOID;
+                        return 2;
+                    }
             }
         }
     }
@@ -280,4 +303,70 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l){
     }
 }
 
+/**
+ *\fn int checkFall(Character *c,Map *m)
+ *tests if the character's futur position is over a void tile
+ *\param[in] c the monster/character to be tested
+ *\param[in] m the game map
+ *\return 1 if void tile, 0 if not
+ */
+int checkFall(Character *c,Map *m)
+{
+    int x,y;
 
+    if(!c->isRight)
+    {
+        if(c->isNpc)
+        {
+            x = (int)(c->location.x + c->dirX)/TILE_SIZE;
+            y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
+        }
+        else
+        {
+            x = (int)(c->location.x)/TILE_SIZE;
+            y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
+        }
+
+        if(y<0)
+            y = 1;
+        if(y >= m->lvl->height-1)
+            y = m->lvl->height-2;
+        if(x<0)
+            x = 1;
+        if(x> m->lvl->width)
+            x = m->lvl->width;
+
+        if(m->lvl->map[y+1][x] == VOID)
+            return 1;
+        else
+            return 0;
+    }
+    else
+    {
+        if(c->isNpc)
+        {
+            x = (int)(c->location.x + c->dirX + c->location.w)/TILE_SIZE;
+            y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
+        }
+        else
+        {
+            x = (int)(c->location.x)/TILE_SIZE;
+            y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
+        }
+
+        if(y<=0)
+            y = 1;
+        if(y >= m->lvl->height-1)
+            y = m->lvl->height - 2;
+        if(x<=0)
+            x = 1;
+        if(x>= m->lvl->width)
+            x = m->lvl->width - 1;
+
+        if(m->lvl->map[y+1][x] == VOID)
+            return 1;
+        else
+            return 0;
+    }
+    return 0;
+}

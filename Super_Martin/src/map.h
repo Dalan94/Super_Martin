@@ -21,7 +21,7 @@
 /*prototypes*/
 void updateScreenMap(SDL_Surface *screen, Map *m,char *tileset);
 void scrolling(Map *m,int direction,float speed);
-Map* initMap(SDL_Surface *screen,char * level_name);
+Map* initMap(SDL_Surface *screen,char * level_name, list *l);
 void freeMap(Map *m);
 
 #endif // MAP_H_INCLUDED

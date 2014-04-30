@@ -8,21 +8,19 @@
 #include "enemies.h"
 
 /**
- *\fn void createEnemy(char *spR,char *spL,int x,int y, list *l, int x1,int x2)
+ *\fn void createEnemy(char *spR,char *spL,int x,int y, list *l)
  *creates an enemy and adds it to an enemies list
  *\param[in] spR right sprite address
  *\param[in] spL right sprite address
  *\param[in] x enemy's x location
  *\param[in] y enemy's y location
  *\param[out] l enemies list
- *\param[in] x1  the enemy left deplacement limit
- *\param[in] x2  the enemy right deplacement limit
  */
 
-void createEnemy(char *tile,int x,int y, list *l, int x1, int x2)
+void createEnemy(char *tile,int x,int y, list *l)
 {
     Character *e;
-    e = createrCharacter(tile, x, y, x1, x2,1);
+    e = createrCharacter(tile, x, y,1);
     if(e == NULL)
     {
         perror("allocation error");
@@ -44,8 +42,6 @@ void freeEnemies(list *l)
         deleteCurrent(l);
         next(l);
     }
-
-    //free((void *) l);
 }
 
 /**
@@ -93,9 +89,10 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     {
                         c->life -= 50;
                         c->isHurt = 150;
+                        c->countStars -=2;
                     }
 
-                    c->countStars -=2;
+
                     if(c->isRight)
                     {
                         moveCharacterCol(c,1,0,m);
@@ -114,6 +111,10 @@ int collisionEnemy(Character *c,list *l,Map *m)
                         l->current->c->countStars -=2;
 
                         l->current->c->isHurt = 150;
+<<<<<<< HEAD
+=======
+                        l->current->c->countStars -=2;
+>>>>>>> 7eddda35841f0c80790515556a2c254183c4f9d7
                     }
 
 
@@ -136,7 +137,11 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     c->dirY = -(JUMP_HEIGHT/2);
                     deleteCurrent(l);
                     ret = 1;
+<<<<<<< HEAD
                     l->current->c->countStars +=2;
+=======
+                    c->countStars +=2;
+>>>>>>> 7eddda35841f0c80790515556a2c254183c4f9d7
                 }
                 break;
             case 0: ;
@@ -162,17 +167,17 @@ void moveEnemies(list *l, Map *m, list *p)
     setOnFirst(l);
     while(!outOfList(l))
     {
-        if(l->current->c->location.x == l->current->c->saveX)
+        if(l->current->c->location.x == l->current->c->saveX || checkFall(l->current->c,m))
             l->current->c->isRight ^= 1;
         l->current->c->saveX = l->current->c->location.x;
 
-        if(l->current->c->isRight && l->current->c->location.x<l->current->c->x2)
+        if(l->current->c->isRight /*&& l->current->c->location.x<l->current->c->x2*/)
            ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL);
 
-        else if(!l->current->c->isRight && l->current->c->location.x>l->current->c->x1)
+        else if(!l->current->c->isRight /*&& l->current->c->location.x>l->current->c->x1*/)
            ret = moveCharacter(l->current->c,1,0,0,m,2,p,NULL);
 
-        else if(l->current->c->location.x <= l->current->c->x1)
+        /*else if(l->current->c->location.x <= l->current->c->x1)
         {
             l->current->c->isRight = 1;
            ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL);
@@ -181,9 +186,9 @@ void moveEnemies(list *l, Map *m, list *p)
         {
         l->current->c->isRight = 0;
           ret =  moveCharacter(l->current->c,1,0,0,m,2,p,NULL);
-        }
+        }*/
 
-        if((l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TAILLE_BLOC-1)
+        if((l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
             deleteCurrent(l);
         next(l);
     }

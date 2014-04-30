@@ -157,7 +157,7 @@ void saveMap(Map *m){
         fprintf(ptr_file_level, "%s\n", level_name_tmp);
     }
 
-    fclose(ptr_file_level);
+    closeFile(ptr_file_level);
     printf("Map %s saved\n", level_name_tmp);
     /*  Write the level in the file */
 
@@ -168,6 +168,145 @@ void saveMap(Map *m){
 
     closeLevelList(level_list, level_number);
 }
+/**
+  *\fn void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
+  *Delete a the map file and update the level list file
+  *\param[in,out] screen The screen of the game
+  *\param[in] map_name The name of the map to delete
+  *\param[in] map_path The path to the file of the map to delete
+  */
+
+void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
+{
+    FILE *ptr_file_level;
+    SDL_Surface *waiting;
+    SDL_Rect posWait;
+    int previous_time=0;
+    int current_time=0;
+    int i;
+    int text_size;
+    char confirmation[MAX_LENGTH_FILE_NAME], deleted[MAX_LENGTH_FILE_NAME], pressEnter[MAX_LENGTH_FILE_NAME];
+    char **level_list;
+    int nb_lvl;
+    int event_appear = 0;
+
+    Input in;
+
+    SDL_Rect posText={0,0,0,0};
+    sprintf(confirmation, "%s ? (y/n)", map_name);
+    sprintf(pressEnter, "Press Enter to go back to the menu");
+    sprintf(deleted, " ");
+
+    /*  Waiting screen */
+
+    waiting = imageLoadAlpha("../Super_Martin/sprites/Background/desert_hills_2.png");
+    posWait.x = 0;
+    posWait.y = 0;
+
+    /*  Text size */
+
+    text_size = 40;
+
+    /*  Initialization of the structure input */
+
+    memset(&in,0,sizeof(in));
+
+    while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
+    {
+        updateWaitEvents(&in);
+
+        waitFPS(&previous_time,&current_time);
+
+        SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
+
+        SDL_BlitSurface(waiting, NULL, screen, &posWait);
+        posText.x = -1; // Center the text
+        posText.y = 150;
+        printText(screen, &posText, "Do you really want to delete the map :", 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        posText.x = -1;
+        posText.y = 210;
+        printText(screen, &posText, confirmation, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        updateEvents(&in);
+        if(in.key[SDLK_y])
+        {
+            in.key[SDLK_y] = 0;
+            remove(map_path);
+            level_list = readLevelFile(&nb_lvl);
+            ptr_file_level = fopen("../Super_Martin/level/level", "w+");
+
+            if(ptr_file_level == NULL){
+
+                printf("Failed to open file /level/level\n");
+                exit(1);
+            }
+
+            fseek(ptr_file_level, 0, SEEK_SET);
+            fprintf(ptr_file_level, "%d\n", nb_lvl-1);
+            for(i = 0; i < nb_lvl ; i++)
+            {
+                if(strcmp(map_name, level_list[i]) != 0)
+                {
+                fseek(ptr_file_level, 0, SEEK_END);
+                fprintf(ptr_file_level, "%s\n", level_list[i]);
+                }
+            }
+            sprintf(deleted, "The map %s has been deleted", map_name);
+            closeFile(ptr_file_level);
+            nb_lvl -= 1;
+            closeLevelList(level_list,nb_lvl);
+            event_appear = 1;
+
+        }
+        else if(in.key[SDLK_n])
+        {
+            in.key[SDLK_n] = 0;
+            event_appear = 1;
+        }
+
+        if(event_appear)
+        {
+        posText.x = -1;
+        posText.y = 300;
+        printText(screen, &posText, deleted, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        posText.x = -1;
+        posText.y = 350;
+        printText(screen, &posText, pressEnter, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        }
+
+        SDL_Flip(screen);
+    }
+    SDL_FreeSurface(waiting);
+}
+
+
+/**
+  *\fn void extendMap(Map *m)
+  *Extend the width of a map
+  *\param[out] m The map to extend
+  */
+
+void extendMap(Map *m)
+{
+    int i, j;
+    m->lvl->width += 100;
+
+    for (i=0 ; i<m->lvl->height ; i++)
+    {
+        if ((m->lvl->map[i]=(unsigned char *)realloc(m->lvl->map[i], m->lvl->width*sizeof(unsigned char)+1)) == NULL)
+        {
+            printf("\nProbleme allocation memoire\n");
+            perror("");
+            exit(0);
+        }
+        for(j=m->lvl->width-99 ; j<m->lvl->width; j++)
+        {
+            m->lvl->map[i][j] = 0;
+        }
+    }
+}
+
+
+
 /**
   *\fn void reinitMap(map *m)
   *Fill a map with blank tiles. This function doesn't change the current map file.

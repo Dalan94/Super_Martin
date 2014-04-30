@@ -14,12 +14,14 @@
 #include <string.h>
 #include "file.h"
 #include "const.h"
+#include "structures.h"
+#include "enemies.h"
 
 #define TAILLE_MAX_NB_BLOCS_LARGEUR 5
 #define TAILLE_MAX_NB_BLOCS_HAUTEUR 4
 #define TAILLE_BUFFER 2
 
-Level *openLevel(char *file_name);
+Level *openLevel(char *file_name,list *l);
 void closeLevel(Level *lvl);
 Level *initLevel(Level *lvl);
 void writeLevel(char *file_name, Level *lvl);

@@ -20,19 +20,19 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
     SDL_Rect posTile, posTileSet;
     int i,j,minx,maxx,nbRow;
 
-    posTile.h = posTile.w = posTileSet.h = posTileSet.w = TAILLE_BLOC;
+    posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
 
-    minx = m->xScroll/TAILLE_BLOC-1;
-    maxx = (m->xScroll + m->screenWidth)/TAILLE_BLOC+1;
-    nbRow = m->screenHeight/TAILLE_BLOC;
+    minx = m->xScroll/TILE_SIZE-1;
+    maxx = (m->xScroll + m->screenWidth)/TILE_SIZE+1;
+    nbRow = m->screenHeight/TILE_SIZE;
     tile = imageLoadAlpha(tileset);
 
      for(i=minx;i<maxx;i++){
         for(j=0;j<nbRow;j++){
-            posTile.x = (i+1)*TAILLE_BLOC-m->xScroll;
-            posTile.y = j*TAILLE_BLOC;
-            posTileSet.x = m->lvl->map[j][i] % TILE_MAX * TAILLE_BLOC;
-            posTileSet.y = m->lvl->map[j][i] / TILE_MAX * TAILLE_BLOC;
+            posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+            posTile.y = j*TILE_SIZE;
+            posTileSet.x = m->lvl->map[j][i] % TILE_MAX * TILE_SIZE;
+            posTileSet.y = m->lvl->map[j][i] / TILE_MAX * TILE_SIZE;
 
             if(i>=0 && i<m->lvl->width)
             {
@@ -41,17 +41,17 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
         }
     }
 
-    if (maxx >= m->lvl->width - IMG_END_SIZE / TAILLE_BLOC + 1)
+    if (maxx >= m->lvl->width - IMG_END_SIZE / TILE_SIZE + 1)
     {
         end = imageLoadAlpha("sprites/ending.png");
 
-        posTile.x = (m->lvl->width - IMG_END_SIZE / TAILLE_BLOC + 2)*TAILLE_BLOC - m->xScroll - IMG_END_SIZE/2;
+        posTile.x = (m->lvl->width - IMG_END_SIZE / TILE_SIZE + 2)*TILE_SIZE - m->xScroll - IMG_END_SIZE/2;
         i=0;
-        while (m->lvl->map[i][m->lvl->width- IMG_END_SIZE / TAILLE_BLOC + 1] == 0)
+        while (m->lvl->map[i][m->lvl->width- IMG_END_SIZE / TILE_SIZE + 1] == 0)
             i++;
 
-        if (i*TAILLE_BLOC - IMG_END_SIZE > 0)
-            posTile.y=i*TAILLE_BLOC - IMG_END_SIZE;
+        if (i*TILE_SIZE - IMG_END_SIZE > 0)
+            posTile.y=i*TILE_SIZE - IMG_END_SIZE;
         else
             posTile.y=0;
 
@@ -75,12 +75,12 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
 void scrolling(Map *m, int direction,float speed){
     switch (direction){
         case RIGHT:
-            if(m->xScroll < (m->lvl->width+1)*TAILLE_BLOC-m->screenWidth)
+            if(m->xScroll < (m->lvl->width+1)*TILE_SIZE-m->screenWidth)
                 m->xScroll+= speed;
             break;
 
         case LEFT:
-            if(m->xScroll > TAILLE_BLOC)
+            if(m->xScroll > TILE_SIZE)
                 m->xScroll-= speed;
             break;
         default: ;
@@ -88,13 +88,14 @@ void scrolling(Map *m, int direction,float speed){
 }
 
 /**
- *\fn  Map *initMap(SDL_Surface *screen,char * level_name){
+ *\fn  Map *initMap(SDL_Surface *screen,char * level_name,list *l)
  *initialize the map
  *\param[in] screen game screen
  *\param[in] level_name lvl name
  *\return pointer on the map
  */
- Map *initMap(SDL_Surface *screen,char * level_name){
+ Map *initMap(SDL_Surface *screen,char * level_name,list *l)
+ {
     Map *m;
 
     m = (Map *)malloc(sizeof(Map));
@@ -102,7 +103,7 @@ void scrolling(Map *m, int direction,float speed){
         perror("allocation error");
         exit(errno);
     }
-    m->lvl=openLevel(level_name);
+    m->lvl=openLevel(level_name,l);
     m->screenHeight = screen->h;
     m->screenWidth = screen->w;
     m->xScroll = 20;

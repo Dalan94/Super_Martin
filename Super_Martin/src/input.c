@@ -15,7 +15,7 @@
  *\return 1 if a key is activated
  */
 
-int updateEvents(Input* in)
+int updateEvents(Input* in,int *go)
 {
 	SDL_Event event;
 	while(SDL_PollEvent(&event))
@@ -31,6 +31,8 @@ int updateEvents(Input* in)
 			break;
         case SDL_QUIT:
             in->quit = 1;
+            *go = 0;
+            break;
 		default:
 			break;
 		}
@@ -40,7 +42,7 @@ int updateEvents(Input* in)
 
 
 /**
- *\fn void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration)
+ *\fn void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration,keyConf *kc)
  *perform action command by keyboard action
  *\param[in] in the input structure
  *\param[out] move_left the left movement boolean
@@ -49,34 +51,35 @@ int updateEvents(Input* in)
  *\param[out] pause the pause boolean
  *\param[in] player the Player
  *\param[in] acceleration the acceleration
+ *\param[in] kc the keyboard configuration structure
  */
-void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration)
+void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
 {
     /*left move*/
-    if(in->key[SDLK_LEFT] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
+    if(in->key[kc[0]] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
         *move_left = 1;
-    if(!in->key[SDLK_LEFT]  && player->isOnGround)
+    if(!in->key[kc[0]]  && player->isOnGround)
         *move_left = 0;
 
     /*right move*/
-    if(in->key[SDLK_RIGHT] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
+    if(in->key[kc[1]] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
         *move_right = 1;
-    if(!in->key[SDLK_RIGHT] && player->isOnGround)
+    if(!in->key[kc[1]] && player->isOnGround)
         *move_right = 0;
 
     /*jump*/
-    if(in->key[SDLK_SPACE] && player->isOnGround)
+    if(in->key[kc[2]] && player->isOnGround)
         *jump = 1;
-    if(!in->key[SDLK_SPACE] && *(jump)==1)
+    if(!in->key[kc[2]] && *(jump)==1)
         *jump = 2;
-    else if(!in->key[SDLK_SPACE] && (*jump==2 || *jump==0))
+    else if(!in->key[kc[2]] && (*jump==2 || *jump==0))
         *jump = 0;
 
         /*pause*/
-    if(in->key[SDLK_p])
+    if(in->key[kc[3]])
         *pause = 1;
 
-    if (!in->key[SDLK_RIGHT] && !in->key[SDLK_LEFT] && player->isOnGround)
+    if (!in->key[kc[1]] && !in->key[kc[0]] && player->isOnGround)
         *acceleration = 0;
 }
 
@@ -88,7 +91,7 @@ void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *
  *\return 1 if a key is activated
  */
 
-int updateWaitEvents(Input* in)
+int updateWaitEvents(Input* in, int *go)
 {
 	SDL_Event event;
 	SDL_EnableKeyRepeat(100,100);
@@ -105,6 +108,9 @@ int updateWaitEvents(Input* in)
 			break;
         case SDL_QUIT:
             in->quit = 1;
+            *go = 0;
+            return 1;
+            break;
 		default:
 			break;
     }
@@ -123,7 +129,7 @@ int updateWaitEvents(Input* in)
  */
 void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
 {
-    if(in->key[SDLK_ESCAPE] || in->quit)
+    if((in->key[SDLK_ESCAPE] || in->quit) && play_level != NULL)
         (*play_level) = 0;
 
     if(in->key[SDLK_UP])

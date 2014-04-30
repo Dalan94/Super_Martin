@@ -1,6 +1,18 @@
+/**
+ *\file structures.h
+ *containe the definition of some structures
+ *\author X.COPONET
+ *\date 2014-04-15
+ */
+
 #ifndef STRUCTURES_H_INCLUDED
 #define STRUCTURES_H_INCLUDED
+#include <SDL/SDL.h>
 
+/**
+ *\struc Character
+ *the game characters : player and npc
+ */
 typedef struct
 {
     int isNpc; /*! 1 if a npc, 0 if not*/
@@ -18,7 +30,6 @@ typedef struct
     int isHurt; /*! indicate if the character was hurt recently*/
     int isFalling; /*! indicate if the character is falling*/
 
-    int x1,x2; /*! left and right deplacement limits for pnj */
 
 }Character;
 
@@ -45,7 +56,6 @@ typedef struct
      node * current; /*! the list 's current node*/
      node * last; /*! the list 's last node*/
  }list;
-
 
 
 #endif // STRUCTURES_H_INCLUDED
