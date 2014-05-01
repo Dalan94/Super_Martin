@@ -10,8 +10,8 @@
 
     #define TILE_SIZE            16 // Taille d'un bloc (carré) en pixels
 
-    #define LARGEUR_FENETRE         1280
-    #define HAUTEUR_FENETRE         720
+    #define SCREEN_WIDTH            1280
+    #define SCREEN_HEIGHT           720
     #define FPS                     60
     #define MAX_SIZE_FILE_NAME      100
     #define MARGE_SCROLLING         2

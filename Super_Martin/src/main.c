@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 
     /*initialisation de l'écran*/
-    screen = SDL_SetVideoMode(LARGEUR_FENETRE, HAUTEUR_FENETRE, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
+    screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 
 
 
