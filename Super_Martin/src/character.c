@@ -170,7 +170,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
                 c->countStars++;
                 break;
             case 3:
-                c->dirY = -1.5*JUMP_HEIGHT;
+                c->dirY = -SPRING_HEIGHT;
                 break;
             default:;
         }
