@@ -8,6 +8,7 @@
 #ifndef STRUCTURES_H_INCLUDED
 #define STRUCTURES_H_INCLUDED
 #include <SDL/SDL.h>
+#include "const.h"
 
 /**
  *\struc Character
@@ -58,5 +59,32 @@ typedef struct
      node * last; /*! the list 's last node*/
  }list;
 
+/**
+ *\struct platform
+ a mobile platform
+ */
+typedef struct
+{
+    SDL_Surface *sprite; /*! the platform's sprite */
+    SDL_Rect location; /*! the platform location*/
+
+    int xMin; /*! x low limit for deplacement */
+    int xMax; /*! x hight limit for deplacement */
+    int yMin; /*! y hight limit for deplacement */
+    int yMax; /*! y hight limit for deplacement */
+
+    int type; /*! 0 if horizontal movement, 1 if vertical */
+    int direction; /*! the platform direction */
+}platform;
+
+/**
+ *\struct platformSet
+ *the set of the mobile platform
+ */
+typedef struct
+{
+    platform* tab[NB_PLATFORM_MAX]; /*! the platform set*/
+    int nb; /*! the number of platform */
+}platformSet;
 
 #endif // STRUCTURES_H_INCLUDED

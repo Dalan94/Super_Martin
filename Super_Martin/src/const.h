@@ -33,6 +33,8 @@
 
     #define TILE_MAX 8
 
+    #define NB_PLATFORM_MAX         30
+
 
     enum {VOID=0,COIN=7,SPRING = 9};
     enum {RIGHT,LEFT,UP,DOWN};
