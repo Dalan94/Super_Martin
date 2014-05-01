@@ -33,7 +33,7 @@
     #define TILE_MAX 8
 
 
-    enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3,COIN=7};
+    enum {VOID=0,COIN=7,SPRING = 9};
     enum {RIGHT,LEFT,UP,DOWN};
 
 typedef struct{
@@ -42,6 +42,8 @@ typedef struct{
     int height;
     int timer_level;
     char tileSet[MAX_SIZE_FILE_NAME];
+    char tileSet2[MAX_SIZE_FILE_NAME];
+    int tileSetUse;
     char background[MAX_SIZE_FILE_NAME];
     char music[MAX_SIZE_FILE_NAME];
 }Level;

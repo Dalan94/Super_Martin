@@ -77,6 +77,7 @@ Level *openLevel(char *file_name,list *l)
                 lvl->map[i][j]-=48;
         }
     }
+    lvl->tileSetUse = 0;
 
      closeFile(ptr_file);
 

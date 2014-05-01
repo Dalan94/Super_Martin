@@ -77,6 +77,8 @@ void playMusic(char *file,Sound *s)
 void playShortSound(char *file,Sound *s)
 {
     FMOD_SOUND *sound;
+    if(s == NULL)
+        return;
     /*chargement du fichier son*/
     if(FMOD_System_CreateSound(s->sys, file,
                 FMOD_CREATESAMPLE,

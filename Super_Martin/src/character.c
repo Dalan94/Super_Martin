@@ -67,10 +67,12 @@ Character *createrCharacter(char *tile,int x, int y,int npc)
 int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *sound_sys)
 {
     c->dirX = 0;
+    int ret;
 
     if(c->location.y == c->saveY)
     {
         c->dirY = 0;
+        c->isFalling = 0;
     }
     c->saveY = c->location.y;
 
@@ -78,6 +80,7 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
         c->dirY = -GRAVITY_SPEED*3;
 
     c->dirY+=GRAVITY_SPEED;
+
 
     if(c->dirY >= MAX_FALL_SPEED)
         c->dirY == MAX_FALL_SPEED;
@@ -110,10 +113,11 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     if (c->dirY > 0)
         c->isFalling=1;
 
-
-    if(tryMovement(c,c->dirX,c->dirY,m,l))
+    ret = tryMovement(c,c->dirX,c->dirY,m,l);
+    if(ret == 1)
         return 1;
-    presiseMoveCharacter(c,c->dirX,c->dirY,m,l);
+    if(ret == 0)
+        presiseMoveCharacter(c,c->dirX,c->dirY,m,l);
 
     if(!checkFall(c,m))
     {
@@ -137,6 +141,7 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
 int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
 {
     int ret = 0;
+    int ret1 = 1;
     SDL_Rect futureLocation = c->location;
     futureLocation.x += vx;
 
@@ -150,7 +155,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
     }
 
     ret = collisionMap(futureLocation,m);
-    if((!ret || ret == 2) && !collisionEnemy(c,l,m))
+    if((ret != 1) && !collisionEnemy(c,l,m))
     {
         if(!c->isNpc)
         {
@@ -158,14 +163,95 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
                 futureLocation.x -= COLLISION_ADJUSTMENT;
             futureLocation.w += COLLISION_ADJUSTMENT;
         }
+
+        switch (ret)
+        {
+            case 2:
+                c->countStars++;
+                break;
+            case 3:
+                c->dirY = -1.5*JUMP_HEIGHT;
+                break;
+            default:;
+        }
         c->location = futureLocation;
-        if(ret == 2)
-            c->countStars++;
         return 1;
     }
     return 0;
 }
 
+/**
+ *\fn int collisionMap(SDL_Rect r,Map *m)
+ *determine if there is a collision beteewen a sprite and a "wall" of the map
+ *\param[in] r SDL_Rect corresponding to the sprite
+ *\param[in] m map
+ *\return 1 if there is a collision, 0 if not,2 if collision with star/coin, 3 if spring
+ */
+int collisionMap(SDL_Rect r,Map *m)
+{
+    int i,j;
+    int xmin,xmax,ymin,ymax;
+    SDL_Rect test;
+    test.h = TILE_SIZE;
+    test.w = 2*TILE_SIZE;
+    if(r.x+r.w > (m->lvl->width+1)*TILE_SIZE || r.x < TILE_SIZE || r.y+r.h >(m->lvl->height)*TILE_SIZE -1 || r.y<0)
+        return 1; //test les limites du monde
+
+    xmin =  (r.x) / TILE_SIZE -1;
+    xmax =  (r.x + r.w )  / TILE_SIZE ;
+    ymin = (r.y) / TILE_SIZE ;
+    ymax =  (r.y + r.h ) / TILE_SIZE +1;
+
+    for(i = xmin ; i< xmax ; i++)
+    {
+        for (j=ymin ; j< ymax ; j++)
+        {
+            if(m->lvl->map[j][i] != VOID)
+            {
+                test.x = i*TILE_SIZE;
+                test.y = j*TILE_SIZE;
+                test.h = TILE_SIZE;
+                if(collisionSprite(r,test))
+                    switch(m->lvl->map[j][i])
+                    {
+                        case COIN:
+                            m->lvl->map[j][i] = VOID;
+                            return 2;
+                            break;
+                        case SPRING:
+                            return 3;
+                            break;
+                        default:
+                            return 1;
+                    }
+            }
+        }
+    }
+
+    return 0;
+}
+
+/**
+ *int collisionSprite(SDL_Rect s1, SDL_Rect s2)
+ *determine if there is a collision beteewen two sprites
+ *\param[in] s1 the first sprite
+ *\param[in] s2 the second sprite
+ *\return 1 if there is a collision and s1 is below s2, 2 if there is a collision and s1 is over s2, 0 if there is no collision
+*/
+int collisionSprite(SDL_Rect s1, SDL_Rect s2)
+{
+
+    if((s1.x+s1.w < s2.x)
+            || (s1.x > s2.x+s2.w)
+            || (s1.y+s1.h < s2.y)
+            || (s1.y > s2.y+s2.h)
+     )return 0;
+    if(s1.y+s1.h<=s2.y+10 || s2.y+s2.h<=s1.y+10)
+    {
+        return 2;
+    }
+    return 1;
+}
 
 /**
  *\fn void blitCharacter(SDL_Surface *screen, Character *c, Map *m)
@@ -221,73 +307,6 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
     SDL_BlitSurface(c->tile,&poseTile,screen,&pos);
 }
 
-/**
- *\fn int collisionMap(SDL_Rect r,Map *m)
- *determine if there is a collision beteewen a sprite and a "wall" of the map
- *\param[in] r SDL_Rect corresponding to the sprite
- *\param[in] m map
- *\return 1 if there is a collision, 0 if not,2 if collision with star/coin
- */
-int collisionMap(SDL_Rect r,Map *m){
-    int i,j;
-    int xmin,xmax,ymin,ymax;
-    SDL_Rect test;
-    test.h = TILE_SIZE;
-    test.w = 2*TILE_SIZE;
-    if(r.x+r.w > (m->lvl->width+1)*TILE_SIZE || r.x < TILE_SIZE || r.y+r.h >(m->lvl->height)*TILE_SIZE -1 || r.y<0)
-        return 1; //test les limites du monde
-
-    xmin =  (r.x) / TILE_SIZE -1;
-    xmax =  (r.x + r.w )  / TILE_SIZE ;
-    ymin = (r.y) / TILE_SIZE ;
-    ymax =  (r.y + r.h ) / TILE_SIZE +1;
-
-    for(i = xmin ; i< xmax ; i++)
-    {
-        for (j=ymin ; j< ymax ; j++)
-        {
-            if(m->lvl->map[j][i] != VOID)
-            {
-                test.x = i*TILE_SIZE;
-                test.y = j*TILE_SIZE;
-                if(collisionSprite(r,test))
-                    if(m->lvl->map[j][i] != COIN)
-                        return 1;
-                    else
-                    {
-                        m->lvl->map[j][i] = VOID;
-                        return 2;
-                    }
-            }
-        }
-    }
-
-    return 0;
-}
-
-/**
- *int collisionSprite(SDL_Rect s1, SDL_Rect s2)
- *determine if there is a collision beteewen two sprites
- *\param[in] s1 the first sprite
- *\param[in] s2 the second sprite
- *\return 1 if there is a collision and s1 is below s2, 2 if there is a collision and s1 is over s2, 0 if there is no collision
-*/
-int collisionSprite(SDL_Rect s1, SDL_Rect s2)
-{
-
-    if((s1.x+s1.w < s2.x)
-            || (s1.x > s2.x+s2.w)
-            || (s1.y+s1.h < s2.y)
-            || (s1.y > s2.y+s2.h)
-     )return 0;
-    if(s1.y+s1.h<=s2.y+10 || s2.y+s2.h<=s1.y+10)
-    {
-        return 2;
-    }
-    return 1;
-}
-
-
 
 
 /**
@@ -332,7 +351,7 @@ int checkFall(Character *c,Map *m)
         }
         else
         {
-            x = (int)(c->location.x)/TILE_SIZE;
+            x = (int)((c->location.x)/TILE_SIZE);
             y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
         }
 
