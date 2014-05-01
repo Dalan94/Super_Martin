@@ -43,22 +43,29 @@
 void playMusic(char *file,Sound *s)
 {
     FMOD_SOUND *sound;
-    /*chargement du fichier son*/
-    if(FMOD_System_CreateSound(s->sys, file,
-                FMOD_LOOP_NORMAL|FMOD_SOFTWARE | FMOD_2D | FMOD_CREATESTREAM,
-                0, &sound) != FMOD_OK)
+    FMOD_BOOL b;
+
+    FMOD_Channel_IsPlaying(s->music,&b);
+
+    if(!b)
     {
-        perror("can't read audio file");
-        exit(errno);
+        /*chargement du fichier son*/
+        if(FMOD_System_CreateSound(s->sys, file,
+                    FMOD_LOOP_NORMAL|FMOD_SOFTWARE | FMOD_2D | FMOD_CREATESTREAM,
+                    0, &sound) != FMOD_OK)
+        {
+            perror("can't read audio file");
+            exit(errno);
+        }
+
+        /* On active la répétition de la musique à l'infini */
+        FMOD_Sound_SetLoopCount(sound, -1);
+
+
+        /* On joue la musique */
+        FMOD_System_PlaySound(s->sys,1, sound,0, NULL);
+        FMOD_Channel_SetVolume(s->music,s->musicVolume);
     }
-
-    /* On active la répétition de la musique à l'infini */
-    FMOD_Sound_SetLoopCount(sound, -1);
-
-
-    /* On joue la musique */
-    FMOD_System_PlaySound(s->sys,1, sound,0, NULL);
-    FMOD_Channel_SetVolume(s->music,s->musicVolume);
 }
 
 /**

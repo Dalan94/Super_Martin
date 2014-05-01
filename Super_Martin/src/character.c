@@ -39,7 +39,7 @@ Character *createrCharacter(char *tile,int x, int y,int npc)
 
     c->isRight = 1;
     c->isOnGround = 0;
-    c->isJumping = 0;
+    c->doubleJump = 0;
     c->life = 100;
     c->countStars = 5;
     c->isHurt = 0;
@@ -73,18 +73,24 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     }
     c->saveY = c->location.y;
 
-    if(jump == 2)
+    if(jump == 2 && c->doubleJump != 2)
         c->dirY = -GRAVITY_SPEED*3;
 
     c->dirY+=GRAVITY_SPEED;
+
     if(c->dirY >= MAX_FALL_SPEED)
         c->dirY == MAX_FALL_SPEED;
 
-    if(jump==1 && c->isOnGround)
+    if(jump==1 && (c->isOnGround || c->doubleJump == 1))
     {
         c->dirY = -JUMP_HEIGHT;
-        c->isOnGround = 0;
-        playShortSound("sound/jump_big.ogg",sound_sys);
+        if(c->isOnGround)
+        {
+            playShortSound("sound/jump_big.ogg",sound_sys);
+            c->isOnGround = 0;
+        }
+        else
+            c->doubleJump = 2;
     }
 
     if (move_right && !move_left)
@@ -112,6 +118,7 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     {
         c->isOnGround = 1;
         c->isFalling = 0;
+        c->doubleJump = 0;
     }
 
     return 0;

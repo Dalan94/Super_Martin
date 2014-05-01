@@ -56,22 +56,33 @@ int updateEvents(Input* in,int *go)
 void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
 {
     /*left move*/
-    if(in->key[kc[0]] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
+    if(in->key[kc[0]] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_left = 1;
     if(!in->key[kc[0]]  && player->isOnGround)
         *move_left = 0;
 
     /*right move*/
-    if(in->key[kc[1]] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->isJumping == 0 && player->isOnGround)))
+    if(in->key[kc[1]] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_right = 1;
     if(!in->key[kc[1]] && player->isOnGround)
         *move_right = 0;
 
     /*jump*/
-    if(in->key[kc[2]] && player->isOnGround)
+    if(in->key[kc[2]])
+    {
+         *jump = 1;
+    }
+    /*if(in->key[kc[2]] && player->isOnGround)
+    {
         *jump = 1;
+    }*/
+
     if(!in->key[kc[2]] && *(jump)==1)
+    {
         *jump = 2;
+        if(!player->doubleJump)
+            player->doubleJump = 1;
+    }
     else if(!in->key[kc[2]] && (*jump==2 || *jump==0))
         *jump = 0;
 

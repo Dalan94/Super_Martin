@@ -30,7 +30,7 @@ typedef struct
 /*prototypes*/
 Sound *createSound(void);
 void playMusic(char *file,Sound *s);
-void playMusicOnce(Sound *s, char *file);
+void playShortSound(char *file,Sound *s);
 void freeSound(Sound *s);
 void stopSound(Sound *s,int chan);
 void soundVolume(Sound *s,int chan,float volume);

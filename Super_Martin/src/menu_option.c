@@ -31,6 +31,7 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc)
 
     SDL_Rect posText={0,0,0,0};
 
+
     /*winting screen */
     waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");
     posWait.x = 0;
@@ -237,34 +238,6 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
         {
             chooseKey(screen,&in,key_names[pos_curseur],kc,pos_curseur);
         }
-        /*switch(pos_curseur)
-        {
-            case 0:
-                curVol = sound_sys->fxVolume;
-                if(in.key[SDLK_RIGHT] && !in.key[SDLK_LEFT])
-                    curVol += 0.1;
-                if(!in.key[SDLK_RIGHT] && in.key[SDLK_LEFT])
-                    curVol -= 0.1;
-                if(curVol < 0)
-                    curVol = 0;
-                if(curVol > 1)
-                    curVol = 1;
-                soundVolume(sound_sys,0,curVol);
-                break;
-            case 1:
-                curVol = sound_sys->musicVolume;
-                if(in.key[SDLK_RIGHT] && !in.key[SDLK_LEFT])
-                    curVol += 0.1;
-                if(!in.key[SDLK_RIGHT] && in.key[SDLK_LEFT])
-                    curVol -= 0.1;
-                if(curVol < 0)
-                    curVol = 0;
-                if(curVol > 1)
-                    curVol = 1;
-                soundVolume(sound_sys,1,curVol);
-                break;
-            default:;
-        }*/
     }
 
     SDL_FreeSurface(waiting);

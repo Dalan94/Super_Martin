@@ -172,6 +172,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     SDL_FreeSurface(background);
     freeMap(m);
     SDL_RemoveTimer(timer);
+    stopSound(sound_sys,1);
 
     free((void *)player);
     freeEnemies(&enemyList);

@@ -27,9 +27,6 @@ int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     int previous_time=0;
     int current_time=0;
     int event_appear=1;
-    FMOD_BOOL b;
-
-
 
 
     Input in;
@@ -37,9 +34,7 @@ int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
 
     SDL_TimerID timer; /* Variable pour stocker le numéro du timer */
 
-    FMOD_Channel_IsPlaying(sound_sys->music,&b);
-    if(!b)
-        playMusic("sound/Lorena.mp3",sound_sys);
+    playMusic("sound/Lorena.mp3",sound_sys);
 
     /* *********************** */
 
@@ -138,6 +133,8 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     Input in;
 
     SDL_Rect posText={0,0,0,0};
+
+    playMusic("sound/Lorena.mp3",sound_sys);
 
     /*winting screen */
     waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");
