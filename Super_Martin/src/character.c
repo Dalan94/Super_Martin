@@ -194,7 +194,9 @@ int collisionMap(SDL_Rect r,Map *m)
     SDL_Rect test;
     test.h = TILE_SIZE;
     test.w = 2*TILE_SIZE;
-    if(r.x+r.w > (m->lvl->width+1)*TILE_SIZE || r.x < TILE_SIZE || r.y+r.h >(m->lvl->height)*TILE_SIZE -1 || r.y<0)
+    if(r.y < 0)
+        return 0;
+    if(r.x+r.w > (m->lvl->width+1)*TILE_SIZE || r.x < TILE_SIZE || r.y+r.h >(m->lvl->height)*TILE_SIZE -1)
         return 1; //test les limites du monde
 
     xmin =  (r.x) / TILE_SIZE -1;
