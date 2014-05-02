@@ -41,7 +41,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
     else if(!(strcmp(tileset, "../Super_Martin/sprites/tileSet_Beach.png")))
     {
         x_off = 1.25;
-        y_off = 6.5;
+        y_off = 5.5;
         posTree.h = posTile.h = 104;
         posTree.w = posTile.w = 96;
         tree = imageLoadAlpha("../Super_Martin/sprites/beach_tree.png");
