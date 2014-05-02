@@ -9,11 +9,12 @@
 #define CONST_H_INCLUDED
 
     #define TILE_SIZE               16
-    #define NB_TILES_X              60
-    #define NB_TILES_Y              33
+    #define NB_TILES_X              80
+    #define NB_TILES_Y              45
     #define SCREEN_WIDTH            TILE_SIZE * NB_TILES_X
     #define SCREEN_HEIGHT           TILE_SIZE * NB_TILES_Y
-    #define TILESET_LAST            8
+    #define TILESET_LAST            10
+    #define TILESET_SIZE            10
 
     #define FPS                     60
     #define SCROLLING_MARGIN        2
@@ -24,7 +25,12 @@
     #define TRANS_B                 255
 
 
-    enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3};
+    #define TILE_TREE               10
+    #define TILE_ENEMI              9
+    #define TILE_ROCK               8
+    #define TILE_COIN               7
+
+    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, ENEMY, TREE};
     enum {RIGHT,LEFT,UP,DOWN};
 
 

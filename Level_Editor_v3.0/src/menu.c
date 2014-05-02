@@ -79,17 +79,16 @@ int menu(SDL_Surface *screen,int *choice, int *go)
 
         for (i=0 ; i < nb_options ; i++)
         {
-            posText.x = 150;
+            posText.x = 100;
             text_size=screen->h / nb_options;
             if (text_size > 60)
                 text_size=60;
             posText.y = screen->h / (1+nb_options) * (i+1) - text_size/2;
-            printText(screen,&posText,options[i],0,0,0,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
-            if(i == pos_cursor)
-            {
-                posText.x = 70;
-                printText(screen,&posText,"=>",0,0,0,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
-            }
+
+            if(i != pos_cursor)
+                printText(screen,&posText,options[i],0,0,0,"polices/ubuntu.ttf",text_size,1);
+            else
+                printText(screen,&posText,options[i],255,60,30,"polices/ubuntu.ttf",text_size,1);
         }
 
         SDL_Flip(screen);
@@ -165,17 +164,15 @@ int menuTileSet(SDL_Surface *screen, char tileSet_name[MAX_LENGTH_FILE_NAME])
 
         for (i=0 ; i < nb_tileSet ; i++)
         {
-            posText.x = 150;
+            posText.x = 100;
             text_size=screen->h / (nb_tileSet*2);
             if (text_size > 60)
                 text_size=60;
             posText.y = screen->h / (1+nb_tileSet) * (i+1) - text_size/2;
-            printText(screen,&posText,tileSet_list[i],0,0,0,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
-            if(i == pos_cursor)
-            {
-                posText.x = 70;
-                printText(screen,&posText,"=>",0,0,0,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
-            }
+            if(i != pos_cursor)
+                printText(screen,&posText,tileSet_list[i],0,0,0,"polices/ubuntu.ttf",text_size,1);
+            else
+                printText(screen,&posText,tileSet_list[i],255,60,30,"polices/ubuntu.ttf",text_size,1);
         }
 
         SDL_Flip(screen);

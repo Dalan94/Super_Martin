@@ -10,8 +10,8 @@
 
     #define TILE_SIZE            16 // Taille d'un bloc (carré) en pixels
 
-    #define LARGEUR_FENETRE         960
-    #define HAUTEUR_FENETRE         528
+    #define LARGEUR_FENETRE         1280
+    #define HAUTEUR_FENETRE         720
     #define FPS                     60
     #define MAX_SIZE_FILE_NAME      100
     #define MARGE_SCROLLING         2
@@ -30,10 +30,10 @@
 
     #define FRENQUENCY_CHANGE_MOVING        5
 
-    #define TILE_MAX 8
+    #define TILE_MAX 10
 
 
-    enum {VOID=0, GRASS1=1, GROUND1=2, GREY_WALL=3,COIN=7};
+     enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, ENEMY, TREE};
     enum {RIGHT,LEFT,UP,DOWN};
 
 typedef struct{

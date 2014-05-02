@@ -121,7 +121,23 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
     /*  Addition of a tile at the position of the cursor */
 
     if(in->mouse[SDL_BUTTON_LEFT])
-        m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = cursor->tileID;
+    {
+        switch(cursor->tileID)
+        {
+        case TILE_ENEMI :
+            m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'E';
+            break;
+
+        case TILE_TREE :
+            m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'T';
+            break;
+
+        default :
+            m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = cursor->tileID;
+            break;
+        }
+    }
+
 
 
     /*  Deletion of the tile pointed by the cursor*/
@@ -134,7 +150,22 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
     /*  Copy of the tile pointed by the cursor */
 
     else if(in->mouse[SDL_BUTTON_RIGHT])
-        cursor->tileID = m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1];
+    {
+        switch(m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1])
+        {
+            case 'E' :
+                cursor->tileID = TILE_ENEMI;
+                break;
+
+            case 'T' :
+                cursor->tileID = TILE_TREE;
+                break;
+
+            default :
+                cursor->tileID = m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1];
+                break;
+        }
+    }
 
     /*  Scroll the choice of the current tile */
 
@@ -146,7 +177,6 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
 
             cursor->tileID = TILESET_LAST;
         }
-
         else if(cursor->tileID > TILESET_LAST){
 
             cursor->tileID = 0;
@@ -163,13 +193,29 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
 
             cursor->tileID = TILESET_LAST;
         }
-
         else if(cursor->tileID > TILESET_LAST){
 
             cursor->tileID = 0;
         }
 
         in->mouse[SDL_BUTTON_WHEELUP] = 0;
+    }
+
+    if(in->key[SDLK_e])
+    {
+        cursor->tileID = TILE_ENEMI;
+    }
+    else if(in->key[SDLK_g])
+    {
+        cursor->tileID = 1;
+    }
+    else if(in->key[SDLK_c])
+    {
+        cursor->tileID = TILE_COIN;
+    }
+    else if(in->key[SDLK_r])
+    {
+        cursor->tileID = TILE_ROCK;
     }
 }
 

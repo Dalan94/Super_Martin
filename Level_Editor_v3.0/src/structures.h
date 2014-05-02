@@ -22,7 +22,7 @@ typedef struct
 
     int x;
     int y;
-    int tileID;
+    char tileID;
 }Cursor;
 
 typedef struct{

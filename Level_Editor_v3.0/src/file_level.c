@@ -65,7 +65,10 @@ Level *openLevel(char *file_name)
         fgets((char *)lvl->map[i],lvl->width+1,ptr_file);
         fgets(buffer,TAILLE_BUFFER,ptr_file);
         for (j=0 ; j < lvl->width ; j++)
-            lvl->map[i][j]-=48;
+        {
+            if(lvl->map[i][j] < 65)
+                lvl->map[i][j]-=48;
+        }
     }
 
      closeFile(ptr_file);
@@ -145,7 +148,17 @@ void writeLevel(char *file_name, Level *lvl)
     for (i=0 ; i<adapt->height ; i++)
     {
         for (j=0 ; j<adapt->width ; j++)
-            fprintf(ptr_file,"%hhu",adapt->map[i][j]);
+        {
+            if(adapt->map[i][j] < 65)
+            {
+                fprintf(ptr_file,"%hhu",adapt->map[i][j]);
+            }
+            else
+            {
+                fprintf(ptr_file,"%c",adapt->map[i][j]);
+            }
+        }
+
         fprintf(ptr_file,"\n");
     }
     closeLevel(adapt);
