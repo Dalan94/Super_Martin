@@ -14,7 +14,10 @@
  */
 void initPlatformSet(platformSet *ps)
 {
-    memset(ps->tab,0,NB_PLATFORM_MAX*sizeof(platform));
+    int i;
+    for(i = 0; i<NB_PLATFORM_MAX;i++)
+        ps->tab[i] = NULL;
+
     ps->nb = 0;
 }
 
@@ -30,6 +33,12 @@ void initPlatformSet(platformSet *ps)
 void createPlatform(platformSet *ps,int x1,int y1,int x2, int y2)
 {
     platform *p;
+    if(ps->nb >= NB_PLATFORM_MAX)
+    {
+        fprintf(stderr,"too many platform");
+        exit(EXIT_FAILURE);
+    }
+
     p = (platform *)malloc(sizeof(platform));
     if(p == NULL)
     {
@@ -43,8 +52,8 @@ void createPlatform(platformSet *ps,int x1,int y1,int x2, int y2)
         perror("error while loading platform sprite");
         exit(errno);
     }
-    p->location.x = (x1+x2)/2;
-    p->location.y = (y1+y2)/2;
+    p->location.x = x1;
+    p->location.y = y1;
     p->location.w = p->sprite->w;
     p->location.h = p->sprite->h;
 
@@ -62,4 +71,81 @@ void createPlatform(platformSet *ps,int x1,int y1,int x2, int y2)
         p->type = 0;
         p->direction = RIGHT;
     }
+
+    ps->tab[ps->nb] = p;
+    ps->nb++;
 }
+
+/**
+ *\fn void blitPlatform(SDL_Surface *screen, platformSet *ps, Map *m)
+ *blit the platforms on the game screen
+ *\param[in,out] screen game screen
+ *\param[in,out] ps the platform set
+ *\param[in] m the current level map
+ */
+void blitPlatform(SDL_Surface *screen, platformSet *ps, Map *m)
+{
+    int i;
+    SDL_Rect pos;
+
+    for (i = 0 ; i < ps->nb ; i++)
+    {
+        pos = ps->tab[i]->location;
+        pos.x -= m->xScroll;
+
+        SDL_BlitSurface(ps->tab[i]->sprite,NULL,screen,&pos);
+    }
+}
+
+/**
+ *\fn void movePlatform(Character *c,platformSet *ps,list *l)
+ *moves all the platforms
+ *\param[in,out] c the player
+ *\param[in,out] ps the platform set
+ *\param[in,out] l the enemy list
+ */
+void movePlatform(Character *c,platformSet *ps,list *l)
+{
+    int i;
+
+    for (i = 0 ; i<ps->nb;i++)
+    {
+        moveOnePlatform(c,ps->tab[i],l);
+    }
+}
+
+/**
+ *\fn void moveOnePlatform(Character *c,platform *,list *l)
+ *moves one platforms
+ *\param[in,out] c the player
+ *\param[in,out] p the platform
+ *\param[in,out] l the enemy list
+ */
+void moveOnePlatform(Character *c,platform *p,list *l)
+{
+    if(!p->type)
+    {
+        if(p->location.x <= p->xMin)
+            p->direction = RIGHT;
+        if(p->location.x >=p->xMax)
+            p->direction = LEFT;
+
+        if(p->direction == RIGHT)
+            p->location.x += PLATFORM_SPEED;
+        if(p->direction == LEFT)
+            p->location.x -= PLATFORM_SPEED;
+    }
+    else
+    {
+        if(p->location.y <= p->yMin)
+            p->direction = DOWN;
+        if(p->location.y >=p->yMax)
+            p->direction = UP;
+
+        if(p->direction == DOWN)
+            p->location.y += PLATFORM_SPEED;
+        if(p->direction == UP)
+            p->location.y -= PLATFORM_SPEED;
+    }
+}
+

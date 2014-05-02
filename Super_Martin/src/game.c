@@ -48,7 +48,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     /*définition des ennemis*/
     list enemyList;
 
-
+    /*définition des plateformes*/
+    platformSet ps;
 
     /*définition des surfaces*/
     SDL_Surface *background = NULL;
@@ -73,6 +74,11 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     /*initialisation des ennemis*/
     initList(&enemyList);
+
+    /*initialisation des plateformes */
+    initPlatformSet(&ps);
+    createPlatform(&ps,5*TILE_SIZE,5*TILE_SIZE,5*TILE_SIZE,20*TILE_SIZE);
+    createPlatform(&ps,30*TILE_SIZE,15*TILE_SIZE,50*TILE_SIZE,15*TILE_SIZE);
 
     /*initialisation de la carte et du niveau*/
     m = initMap(screen,level_name,&enemyList);
@@ -149,6 +155,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         move(move_left,move_right,jump,player,m,speed,&acceleration,&enemyList,sound_sys);
         moveEnemies(&enemyList,m,&playerList);
+        movePlatform(player,&ps,&enemyList);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
@@ -156,6 +163,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         updateScreenMap(screen,m); //blit du niveau
 
+        blitPlatform(screen,&ps,m);
         blitCharacter(screen,player,m);
         blitEnnemies(screen,&enemyList,m);
 
