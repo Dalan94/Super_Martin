@@ -35,7 +35,7 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
     SDL_Rect posText={0,0,0,0};
 
     /*winting screen */
-    waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
 
@@ -58,7 +58,7 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
 
         for (i=0 ; i < nb_lvl ; i++)
         {
-            posText.x = 150;
+            posText.x = -1;
             taille_texte=screen->h / nb_lvl;
             if (taille_texte > 60)
                 taille_texte=60;

@@ -37,7 +37,7 @@ int menu(SDL_Surface *screen,int *choice, int *go)
 
     /*  Waiting screen */
 
-    waiting = imageLoadAlpha("../Super_Martin/sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("../Super_Martin/sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
 
@@ -79,7 +79,7 @@ int menu(SDL_Surface *screen,int *choice, int *go)
 
         for (i=0 ; i < nb_options ; i++)
         {
-            posText.x = 100;
+            posText.x = -1;
             text_size=screen->h / nb_options;
             if (text_size > 60)
                 text_size=60;
@@ -121,7 +121,7 @@ int menuTileSet(SDL_Surface *screen, char tileSet_name[MAX_LENGTH_FILE_NAME])
 
     /*  Waiting screen */
 
-    waiting = imageLoadAlpha("../Super_Martin/sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("../Super_Martin/sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
 
@@ -164,7 +164,7 @@ int menuTileSet(SDL_Surface *screen, char tileSet_name[MAX_LENGTH_FILE_NAME])
 
         for (i=0 ; i < nb_tileSet ; i++)
         {
-            posText.x = 100;
+            posText.x = -1;
             text_size=screen->h / (nb_tileSet*2);
             if (text_size > 60)
                 text_size=60;

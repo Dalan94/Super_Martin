@@ -39,7 +39,7 @@ int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     /* *********************** */
 
     /*winting screen */
-    waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
 
@@ -79,7 +79,7 @@ int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
             SDL_BlitSurface(waiting, NULL, screen, &posWait);
 
             if (printingText)
-                printText(screen,NULL,"Press Enter",0,0,0,"polices/sherwood.ttf",65,1); //argument 2 NULL pour centrer le texte
+                printText(screen,NULL,"Press Enter",0,0,0,"polices/sherwood.ttf",80,1); //argument 2 NULL pour centrer le texte
 
             SDL_Flip(screen);
         }
@@ -137,7 +137,7 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     playMusic("sound/Lorena.mp3",sound_sys);
 
     /*winting screen */
-    waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
 
@@ -154,7 +154,7 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
 
         for (i=0 ; i < nb_menu ; i++)
         {
-            posText.x = 150;
+            posText.x = -1;
             text_size=screen->h / nb_menu;
             if (text_size > 60)
                 text_size=60;

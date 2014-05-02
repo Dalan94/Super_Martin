@@ -66,6 +66,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
                 {
                     posTile.x = (i+1-x_off)*TILE_SIZE-m->xScroll;
                     posTile.y = (j-y_off)*TILE_SIZE;
+                    posTree.x = posTree.y = 0;
                     posTile.h = posTree.h;
                     posTile.w = posTree.w;
                     SDL_BlitSurface(tree, &posTree, screen, &posTile);

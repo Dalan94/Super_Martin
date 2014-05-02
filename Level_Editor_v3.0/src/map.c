@@ -312,7 +312,7 @@ void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
 
     /*  Waiting screen */
 
-    waiting = imageLoadAlpha("../Super_Martin/sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("../Super_Martin/sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
 
