@@ -24,8 +24,6 @@
 
 int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *kc)
 {
-
-
     SDL_TimerID timer = NULL;
 
     int previous_time=0;
@@ -77,7 +75,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     /*initialisation des plateformes */
     initPlatformSet(&ps);
-    createPlatform(&ps,5*TILE_SIZE,5*TILE_SIZE,5*TILE_SIZE,20*TILE_SIZE);
+    createPlatform(&ps,5*TILE_SIZE,10*TILE_SIZE,5*TILE_SIZE,20*TILE_SIZE);
     createPlatform(&ps,30*TILE_SIZE,15*TILE_SIZE,50*TILE_SIZE,15*TILE_SIZE);
 
     /*initialisation de la carte et du niveau*/
@@ -153,7 +151,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         updateSpeed(&speed,acceleration);
 
-        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemyList,sound_sys);
+        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemyList,sound_sys,&ps);
         moveEnemies(&enemyList,m,&playerList);
         movePlatform(player,&ps,&enemyList);
 
@@ -186,6 +184,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     free((void *)player);
     freeEnemies(&enemyList);
     freeEnemies(&playerList);
+    freePlatformSet(&ps);
 
     return ret;
 }
@@ -268,9 +267,9 @@ void printWin(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
  *\param[in] m la carte
  *\param[in] speed la vitesse de deplacement
  */
-void move(int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l,Sound *sound_sys)
+void move(int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l,Sound *sound_sys,platformSet *ps)
 {
-    int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l,sound_sys);
+    int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l,sound_sys,ps);
     if (move_right && !move_left)
     {
         (*acceleration)++;

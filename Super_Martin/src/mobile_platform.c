@@ -71,6 +71,7 @@ void createPlatform(platformSet *ps,int x1,int y1,int x2, int y2)
         p->type = 0;
         p->direction = RIGHT;
     }
+    p->characterOn = 0;
 
     ps->tab[ps->nb] = p;
     ps->nb++;
@@ -143,9 +144,60 @@ void moveOnePlatform(Character *c,platform *p,list *l)
             p->direction = UP;
 
         if(p->direction == DOWN)
+        {
             p->location.y += PLATFORM_SPEED;
+            c->location.y += PLATFORM_SPEED;
+        }
         if(p->direction == UP)
+        {
             p->location.y -= PLATFORM_SPEED;
+            c->location.y -= PLATFORM_SPEED;
+        }
     }
+}
+
+/**
+ *\fn int collisionPlatform(Character *c,platformSet *ps)
+ *determine if there is a collision beteewen the player and a mobile platform and deals with
+ *\param[in,out] c the player
+ *\param[in,out] ps the platform set
+ *\return 1 if there is a collision, 0 if not
+ */
+int collisionPlatform(Character *c,platformSet *ps)
+{
+    int i,ret;
+
+    if(ps == NULL || ps->nb == 0)
+        return 0;
+
+    for(i = 0; i<ps->nb;i++)
+    {
+        ret = collisionSprite(c->location,ps->tab[i]->location);
+        if(ret)
+        {
+            if(ret == 2)
+            {
+                ps->tab[i]->characterOn = 1;
+                c->isOnGround = 1;
+                c->isFalling = 0;
+            }
+            return 1;
+        }
+        ps->tab[i]->characterOn = 0;
+    }
+
+    return 0;
+}
+
+/**
+ *\fn void freePlatformSet(platformSet *ps)
+ *free all the platforms
+ *\param[int,out] ps the platform set
+ */
+void freePlatformSet(platformSet *ps)
+{
+    int i;
+    for(i = 0;i<ps->nb;i++)
+        free((void *)ps->tab[i]);
 }
 

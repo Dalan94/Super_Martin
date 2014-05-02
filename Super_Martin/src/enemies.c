@@ -175,10 +175,10 @@ void moveEnemies(list *l, Map *m, list *p)
         l->current->c->saveX = l->current->c->location.x;
 
         if(l->current->c->isRight)
-           ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL);
+           ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL,NULL);
 
         else if(!l->current->c->isRight)
-           ret = moveCharacter(l->current->c,1,0,0,m,2,p,NULL);
+           ret = moveCharacter(l->current->c,1,0,0,m,2,p,NULL,NULL);
 
         if((l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
             deleteCurrent(l);
@@ -198,9 +198,9 @@ void moveEnemies(list *l, Map *m, list *p)
 int moveCharacterCol(Character *c,int move_left, int move_right,Map *m)
 {
     if(!c->isNpc)
-        return moveCharacter(c,move_left,move_right,0,m,50,NULL,NULL);
+        return moveCharacter(c,move_left,move_right,0,m,50,NULL,NULL,NULL);
     else
-        return moveCharacter(c,move_left,move_right,0,m,5,NULL,NULL);
+        return moveCharacter(c,move_left,move_right,0,m,5,NULL,NULL,NULL);
 
 }
 

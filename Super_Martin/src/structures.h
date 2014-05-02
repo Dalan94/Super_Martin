@@ -75,6 +75,8 @@ typedef struct
 
     int type; /*! 0 if horizontal movement, 1 if vertical */
     int direction; /*! the platform direction */
+
+    int characterOn; /*! indicates if a character is on the platform */
 }platform;
 
 /**
