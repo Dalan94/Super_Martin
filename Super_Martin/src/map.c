@@ -70,7 +70,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
                 else if(m->lvl->map[j][i] == 'E')
                 {
                     posTile.x = (i+1)*TILE_SIZE-m->xScroll;
-                    posTile.y = (j-1)*TILE_SIZE;
+                    posTile.y = (j-0.85)*TILE_SIZE;
                     posTileSet.h = posTile.h = 29;
                     posTileSet.w = posTile.w = 35;
                     SDL_BlitSurface(enemy, &posTileSet, screen, &posTile);

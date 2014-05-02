@@ -104,10 +104,10 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
 
     /*  Back-up of the map */
 
-    if(in->key[SDLK_s])
+    if(in->key[SDLK_k])
     {
         saveMap(m);
-        in->key[SDLK_s] = 0;
+        in->key[SDLK_k] = 0;
     }
 
     /*  Reinitialization of the map */
@@ -124,11 +124,11 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
     {
         switch(cursor->tileID)
         {
-        case TILE_ENEMI :
+        case ENEMY :
             m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'E';
             break;
 
-        case TILE_TREE :
+        case TREE :
             m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'T';
             break;
 
@@ -154,11 +154,11 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
         switch(m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1])
         {
             case 'E' :
-                cursor->tileID = TILE_ENEMI;
+                cursor->tileID = ENEMY;
                 break;
 
             case 'T' :
-                cursor->tileID = TILE_TREE;
+                cursor->tileID = TREE;
                 break;
 
             default :
@@ -175,9 +175,9 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
 
         if(cursor->tileID < 0){
 
-            cursor->tileID = TILESET_LAST;
+            cursor->tileID = TILESET_SIZE;
         }
-        else if(cursor->tileID > TILESET_LAST){
+        else if(cursor->tileID > TILESET_SIZE){
 
             cursor->tileID = 0;
         }
@@ -191,9 +191,9 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
 
         if(cursor->tileID < 0){
 
-            cursor->tileID = TILESET_LAST;
+            cursor->tileID = TILESET_SIZE;
         }
-        else if(cursor->tileID > TILESET_LAST){
+        else if(cursor->tileID > TILESET_SIZE){
 
             cursor->tileID = 0;
         }
@@ -203,19 +203,23 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
 
     if(in->key[SDLK_e])
     {
-        cursor->tileID = TILE_ENEMI;
+        cursor->tileID = ENEMY;
     }
     else if(in->key[SDLK_g])
     {
-        cursor->tileID = 1;
+        cursor->tileID = GROUND;
     }
     else if(in->key[SDLK_c])
     {
-        cursor->tileID = TILE_COIN;
+        cursor->tileID = COIN;
     }
     else if(in->key[SDLK_r])
     {
-        cursor->tileID = TILE_ROCK;
+        cursor->tileID = ROCK;
+    }
+    else if(in->key[SDLK_s])
+    {
+        cursor->tileID = SPRING;
     }
 }
 

@@ -13,8 +13,7 @@
     #define NB_TILES_Y              45
     #define SCREEN_WIDTH            TILE_SIZE * NB_TILES_X
     #define SCREEN_HEIGHT           TILE_SIZE * NB_TILES_Y
-    #define TILESET_LAST            10
-    #define TILESET_SIZE            10
+    #define TILESET_SIZE            11
 
     #define FPS                     60
     #define SCROLLING_MARGIN        2
@@ -23,12 +22,6 @@
     #define TRANS_R                 255
     #define TRANS_G                 255
     #define TRANS_B                 255
-
-
-    #define TILE_TREE               10
-    #define TILE_ENEMI              9
-    #define TILE_ROCK               8
-    #define TILE_COIN               7
 
     enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, ENEMY, TREE};
     enum {RIGHT,LEFT,UP,DOWN};

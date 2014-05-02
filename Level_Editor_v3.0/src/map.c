@@ -72,7 +72,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
                 else if(m->lvl->map[j][i] == 'E')
                 {
                     posTile.x = (i+1)*TILE_SIZE-m->xScroll;
-                    posTile.y = (j-1)*TILE_SIZE;
+                    posTile.y = (j-0.85)*TILE_SIZE;
                     posTileSet.h = posTile.h = 29;
                     posTileSet.w = posTile.w = 35;
                     SDL_BlitSurface(enemy, &posTileSet, screen, &posTile);
@@ -92,19 +92,19 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
         }
     }
 
-    if(cursor->tileID == TILE_TREE)
+    if(cursor->tileID == TREE)
     {
-        curs.x = cursor->x - (x_off *TILE_SIZE);
-        curs.y = cursor->y -((y_off-0.5) * TILE_SIZE);
+        curs.x = cursor->x - (x_off * TILE_SIZE);
+        curs.y = cursor->y - (y_off * TILE_SIZE);
         posTree.x = posTree.y = 0;
         posTileSet.h = curs.h = 104;
         posTileSet.w = curs.w = 96;
         SDL_BlitSurface(tree, &posTree, screen, &curs);
     }
-    else if(cursor->tileID == TILE_ENEMI)
+    else if(cursor->tileID == ENEMY)
     {
         curs.x = cursor->x - TILE_SIZE / 2;
-        curs.y = cursor->y - TILE_SIZE;
+        curs.y = cursor->y - 0.85*TILE_SIZE;
         posTileSet.x = posTileSet.y = 0;
         posTileSet.h = curs.h = 29;
         posTileSet.w = curs.w = 35;
