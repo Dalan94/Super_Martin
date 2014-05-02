@@ -132,6 +132,14 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
             m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'T';
             break;
 
+        case FLOWER :
+            m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'P';
+            break;
+
+        case CLOUD :
+            m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'N';
+            break;
+
         default :
             m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = cursor->tileID;
             break;
@@ -159,6 +167,14 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
 
             case 'T' :
                 cursor->tileID = TREE;
+                break;
+
+            case 'P' :
+                cursor->tileID = FLOWER;
+                break;
+
+            case 'N' :
+                cursor->tileID = CLOUD;
                 break;
 
             default :
@@ -205,6 +221,10 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
     {
         cursor->tileID = ENEMY;
     }
+    else if(in->key[SDLK_t])
+    {
+        cursor->tileID = TREE;
+    }
     else if(in->key[SDLK_g])
     {
         cursor->tileID = GROUND;
@@ -220,6 +240,18 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
     else if(in->key[SDLK_s])
     {
         cursor->tileID = SPRING;
+    }
+    else if(in->key[SDLK_f])
+    {
+        cursor->tileID = FLOWER;
+    }
+    else if(in->key[SDLK_n])
+    {
+        cursor->tileID = CLOUD;
+    }
+    else if(in->key[SDLK_b])
+    {
+        cursor->tileID = VOID;
     }
 }
 

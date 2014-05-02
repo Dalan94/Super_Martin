@@ -15,7 +15,7 @@
  *\param[in] tileset lvl tileset
  */
 void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
-    SDL_Surface *tile, *enemy, *tree;
+    SDL_Surface *tile, *enemy, *tree, *cloud, *flower;
     SDL_Surface *end = NULL;
     SDL_Rect posTile, posTileSet, posTree;
     int i,j,minx,maxx,nbRow;
@@ -28,6 +28,9 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
     nbRow = m->screenHeight/TILE_SIZE;
     tile = imageLoadAlpha(tileset);
     enemy = imageLoadAlpha("sprites/Characters/witch_doctor.png");
+    cloud = imageLoadAlpha("sprites/cloud.png");
+    flower = imageLoadAlpha("sprites/flower.png");
+
     if(!(strcmp(tileset, "../Super_Martin/sprites/tileSet_Snow.png")))
     {
         x_off = 1.25;
@@ -75,6 +78,22 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
                     posTileSet.w = posTile.w = 35;
                     SDL_BlitSurface(enemy, &posTileSet, screen, &posTile);
                 }
+                else if(m->lvl->map[j][i] == 'N')
+                {
+                    posTile.x = (i+1-4)*TILE_SIZE-m->xScroll;
+                    posTile.y = (j-2.5)*TILE_SIZE;
+                    posTileSet.h = posTile.h = 80;
+                    posTileSet.w = posTile.w = 144;
+                    SDL_BlitSurface(cloud, &posTileSet, screen, &posTile);
+                }
+                else if(m->lvl->map[j][i] == 'P')
+                {
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = (j-0.9375)*TILE_SIZE;
+                    posTileSet.h = posTile.h = 30;
+                    posTileSet.w = posTile.w = 30;
+                    SDL_BlitSurface(flower, &posTileSet, screen, &posTile);
+                }
                 else
                 {
                     posTile.x = (i+1)*TILE_SIZE-m->xScroll;
@@ -84,8 +103,6 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
                     posTileSet.y = m->lvl->map[j][i] / TILE_MAX * TILE_SIZE;
                     SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
                 }
-
-
             }
         }
     }
@@ -113,6 +130,8 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
     SDL_FreeSurface(tile);
     SDL_FreeSurface(tree);
     SDL_FreeSurface(enemy);
+    SDL_FreeSurface(cloud);
+    SDL_FreeSurface(flower);
 
 }
 
