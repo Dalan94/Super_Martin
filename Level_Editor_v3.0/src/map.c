@@ -210,20 +210,33 @@ void scrolling(Map *m, int direction,float speed){
 /**
   *\fn void saveMap(map *m)
   *Save the map in a new file and update the file 'level' containing the map list
+  *\param[in,out] screen The screen of the game
   *\param[in] m The map to save
   */
 
-void saveMap(Map *m){
+void saveMap(SDL_Surface *screen, Map *m){
 
+    SDL_Surface *screenshot, *screenshot2, *waiting = NULL;
+    SDL_Rect posWait;
     char level_name[MAX_LENGTH_FILE_NAME];
     char level_name_tmp[MAX_LENGTH_FILE_NAME];
+    char tmp[MAX_LENGTH_FILE_NAME];
     FILE *ptr_file_level;
     int level_number;
     char **level_list;
-    int i;
-    char choice;
+    int i, j;
+    char choice = 32;
     int incr;
     int wrong_name = 1;
+    SDL_Rect posText={0,0,0,0};
+    int text_size = 30;
+    int go = 1;
+    int ret = 1;
+
+    Input in;
+
+    memset(&in, 0, sizeof(in));
+
 
     ptr_file_level = fopen("../Super_Martin/level/level", "r+");
 
@@ -234,52 +247,282 @@ void saveMap(Map *m){
     }
 
     level_list = readLevelFile(&level_number);
-    printf("Existing maps :\n");
-    for(i=0;i<level_number;i++)
-        printf("%s\n", level_list[i]);
-    /*  Manage the file name conflicts */
-    while(wrong_name){
 
+    waiting = imageLoad("../Super_Martin/sprites/game-over.jpg");
+    posWait.x = posWait.y = 0;
+    SDL_SetAlpha(waiting, SDL_SRCALPHA, 200);
+    SDL_BlitSurface(waiting,NULL,screen,&posWait);
+
+    posText.x = -1;
+    posText.y = 150;
+    printText(screen, &posText, "Enter the name of the level : ", 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+    SDL_Flip(screen);
+
+    /*  Save the screen to clear the display of the level_name  later */
+
+    screenshot = SDL_DisplayFormatAlpha(screen);
+    SDL_SetAlpha(screenshot, SDL_SRCALPHA, 200);
+    level_name_tmp[0] = 32;
+    screenshot2 = SDL_DisplayFormatAlpha(screen);
+    SDL_SetAlpha(screenshot2, SDL_SRCALPHA, 200);
+
+    /*  Main loop */
+
+    while(wrong_name)
+    {
+        memset(tmp, 0, sizeof(tmp));
+        tmp[0] = ' ';
+        memset(level_name_tmp, 0, sizeof(tmp));
         incr = 1;
         wrong_name = 0;
-        printf("Enter the name of the level : ");
-        fgets(level_name_tmp, sizeof(level_name_tmp), stdin);
-        cleanString(level_name_tmp, stdin);
-        for (i=0 ; i<level_number ; i++)
+
+        i = 0;
+
+        while(go && ret)
         {
-            if (!strcmp(level_name_tmp, level_list[i])){
+            if(in.key[SDLK_ESCAPE])
+            {
+                go = 0;
+                in.key[SDLK_ESCAPE] = 0;
 
-                printf("File already exists. Do you want to continue ? (y/n)");
-                scanf("%c", &choice);
-                if(choice == 'n'){
-                    wrong_name = 1;
-                }else{incr = 0;}
-            clean_stdin();
             }
+            else if(in.key[SDLK_RETURN])
+            {
+                ret = 0;
+                in.key[SDLK_RETURN] = 0;
+            }
+            else
+            {
+                posText.x = -1;
+                posText.y = 150;
+                printText(screen, &posText, "Enter the name of the level : ", 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
 
+                updateWaitEvents(&in);
+
+                /*  Manage the keyboard inputs for the name of the level */
+
+                for(j = SDLK_UNDERSCORE ; j <= SDLK_KP9; j++)
+                {
+                    if(in.key[j])
+                    {
+                        if((in.key[SDLK_CAPSLOCK] || in.key[SDLK_RSHIFT] || in.key[SDLK_LSHIFT]) && j >= SDLK_UNDERSCORE && j <= SDLK_z)
+                        {
+                            level_name_tmp[i] = j-32;
+                            level_name_tmp[i+1] = 0;
+                            in.key[j] = 0;
+
+                        }
+                        else if(j >= SDLK_KP0 && j <= SDLK_KP9)
+                        {
+                            level_name_tmp[i] = j - 208;
+                            in.key[j] = 0;
+                        }
+                        else if(j >= SDLK_UNDERSCORE && j <= SDLK_z)
+                        {
+                        level_name_tmp[i] = j;
+                        level_name_tmp[i+1] = 0;
+                        if(j != SDLK_UNDERSCORE)
+                            in.key[j] = 0;
+                        }
+                    }
+                }
+
+                if(in.key[SDLK_RSHIFT] || in.key[SDLK_LSHIFT])
+                {
+                    if(in.key[224])
+                        level_name_tmp[i]=48;
+                    if(in.key[38])
+                        level_name_tmp[i]=49;
+                    if(in.key[233])
+                        level_name_tmp[i]=50;
+                    if(in.key[34])
+                        level_name_tmp[i]=51;
+                    if(in.key[39])
+                        level_name_tmp[i]=52;
+                    if(in.key[40])
+                        level_name_tmp[i]=53;
+                    if(in.key[45])
+                        level_name_tmp[i]=54;
+                    if(in.key[232])
+                        level_name_tmp[i]=55;
+                    if(in.key[95])
+                        level_name_tmp[i]=56;
+                    if(in.key[231])
+                        level_name_tmp[i]=57;
+                }
+
+                if(level_name_tmp[i] >= 32 && level_name_tmp[i] < SDLK_LAST && i>=0)
+                {
+                    i++;
+                    posText.x = -1;
+                    posText.y = 220;
+
+                    if(i==0)
+                        level_name_tmp[0] = 32;
+
+                    /*  Clear the display of the previous level_name */
+
+                    SDL_BlitSurface(screenshot,NULL,screen,&posWait);
+
+                    printText(screen, &posText, level_name_tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+                }
+
+                else if(in.key[SDLK_BACKSPACE] && i>0)
+                {
+                    i--;
+                    level_name_tmp[i] = 0;
+                    posText.x = -1;
+                    posText.y = 220;
+                    if(i==0)
+                        level_name_tmp[0] = 32;
+
+                    /*  Clear the display of the previous level_name */
+
+                    SDL_BlitSurface(screenshot,NULL,screen,&posWait);
+
+                    /*  Display the new level_name  */
+
+                    printText(screen, &posText, level_name_tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+                    in.key[SDLK_BACKSPACE] = 0;
+                }
+            }
+            SDL_Flip(screen);
+        }
+        ret = 1;
+
+        /*  Manage the file name conflicts */
+
+        for (j=0 ; j<level_number && ret && go; j++)
+        {
+            if (!strcmp(level_name_tmp, level_list[j]))
+            {
+                posText.x = -1;
+                posText.y = 300;
+                text_size = 22;
+                printText(screen, &posText, "File already exists. Do you want to continue ? (y/n)", 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+
+                /*  Save the screen to clear the display of the choice later  */
+
+                screenshot2 = SDL_DisplayFormatAlpha(screen);
+
+                while(go && ret)
+                {
+                    SDL_Flip(screen);
+                    updateWaitEvents(&in);
+                    if(in.key[SDLK_ESCAPE])
+                    {
+                        go = 0;
+                        in.key[SDLK_ESCAPE] = 0;
+
+                    }
+                    else if(in.key[SDLK_RETURN])
+                    {
+                        ret = 0;
+                        in.key[SDLK_RETURN] = 0;
+                    }
+
+                    /*  Manage the keyboard inputs for the choice */
+
+                    else
+                    {
+                        if(in.key[SDLK_BACKSPACE])
+                        {
+                            choice = ' ';
+                            in.key[SDLK_BACKSPACE] = 0;
+                        }
+                        else
+                        {
+
+                            if(in.key[SDLK_n])
+                            {
+                                choice = SDLK_n;
+                                in.key[SDLK_n] = 0;
+                            }
+                            else if(in.key[SDLK_y])
+                            {
+                                choice = SDLK_y;
+                                in.key[SDLK_y] = 0;
+                            }
+
+                        }
+                        posText.x = -1;
+                        posText.y = 370;
+
+                        /*  Clear the display of the previous choice */
+
+                        SDL_BlitSurface(screenshot2,NULL,screen,&posWait);
+                        tmp[0] = choice;
+
+                        /*  Display the new choice */
+                        text_size = 30;
+                        printText(screen, &posText, tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+                    }
+                }
+                if(choice == 'n')
+                {
+                    sprintf(tmp, "Saving aborted  -  Press Enter to continue");
+                    ret = 0;
+                }
+                else
+                {
+                    sprintf(tmp, "Map %s saved  -  Press Enter to continue", level_name_tmp);
+                    incr = 0;
+                    ret = 1;
+                }
+            }
+        }
+        if(choice == ' ' && go)
+        {
+            sprintf(tmp, "Map %s saved  -  Press Enter to continue", level_name_tmp);
+            ret = 1;
+        }
+    }
+
+    /*  Update the file 'level' containing the level list */
+
+    if(go && ret)
+    {
+        fseek(ptr_file_level, 0, SEEK_SET);
+        fprintf(ptr_file_level, "%d", (level_number+incr));
+        fseek(ptr_file_level, 0, SEEK_END);
+        if(incr !=0){
+
+            fprintf(ptr_file_level, "%s\n", level_name_tmp);
+        }
+
+        closeFile(ptr_file_level);
+
+        /*  Write the level in the file */
+
+        sprintf(level_name,"../Super_Martin/level/%s.lvl",level_name_tmp);
+
+
+        writeLevel(level_name, m->lvl);
+    }
+    ret = 1;
+    in.key[SDLK_RETURN] = 0;
+    while(ret && go)
+    {
+        posText.x = -1;
+        posText.y = 500;
+        text_size = 25;
+        printText(screen, &posText, tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+        SDL_Flip(screen);
+        updateWaitEvents(&in);
+        if(in.key[SDLK_RETURN])
+        {
+            ret = 0;
+            in.key[SDLK_RETURN] = 0;
         }
 
     }
-    /*  Update the file 'level' containing the level list */
 
-    fseek(ptr_file_level, 0, SEEK_SET);
-    fprintf(ptr_file_level, "%d", (level_number+incr));
-    fseek(ptr_file_level, 0, SEEK_END);
-    if(incr !=0){
-
-        fprintf(ptr_file_level, "%s\n", level_name_tmp);
-    }
-
-    closeFile(ptr_file_level);
-    printf("Map %s saved\n", level_name_tmp);
-    /*  Write the level in the file */
-
-    sprintf(level_name,"../Super_Martin/level/%s.lvl",level_name_tmp);
-
-
-    writeLevel(level_name, m->lvl);
+    /*  Freeing of allocated spaces */
 
     closeLevelList(level_list, level_number);
+    SDL_FreeSurface(waiting);
+    SDL_FreeSurface(screenshot);
+    SDL_FreeSurface(screenshot2);
 }
 /**
   *\fn void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
@@ -443,24 +686,4 @@ void reinitMap(Map *m){
 void freeMap(Map *m){
     closeLevel(m->lvl);
     free((void *)m);
-}
-
-void cleanString(const char *buffer, FILE *fp)
-{
-    char *p = strchr(buffer,'\n');
-    if (p != NULL)
-        *p = 0;
-    else
-    {
-        int c;
-        while ((c = fgetc(fp)) != '\n' && c != EOF);
-    }
-}
-
-void clean_stdin(void)
-{
-    int c;
-    do {
-        c = getchar();
-    } while (c != '\n' && c != EOF);
 }

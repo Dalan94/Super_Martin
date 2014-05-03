@@ -24,7 +24,7 @@ void updateEvents(Input* in)
 		{
             case SDL_KEYDOWN:
                 in->key[event.key.keysym.sym] = 1;
-                //printf(" keydown : %d\n", in->key[event.key.keysym.sym]);
+                printf(" keydown : %d\n", event.key.keysym.sym);
                 break;
             case SDL_KEYUP:
                 if(((event.key.keysym.sym) != SDLK_y) && ((event.key.keysym.sym) != SDLK_n))
@@ -77,7 +77,7 @@ void updateEvents(Input* in)
  *\param[in,out] m the map to update
  *\param[in,out] cursor the cursor structure
  */
-void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
+void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor)
 {
     /*  Recover the coordinates of the mouse */
 
@@ -106,7 +106,7 @@ void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
 
     if(in->key[SDLK_k])
     {
-        saveMap(m);
+        saveMap(screen, m);
         in->key[SDLK_k] = 0;
     }
 
@@ -272,11 +272,11 @@ int updateWaitEvents(Input* in)
     switch (event.type)
     {
 		case SDL_KEYDOWN:
-			in->key[event.key.keysym.sym] = 1;
+            in->key[event.key.keysym.sym] = 1;
 			return 1;
 			break;
 		case SDL_KEYUP:
-			in->key[event.key.keysym.sym] = 0;
+            in->key[event.key.keysym.sym] = 0;
 			break;
         case SDL_MOUSEBUTTONDOWN :
             in->mouse[event.button.button] = 1;

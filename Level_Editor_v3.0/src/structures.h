@@ -10,7 +10,7 @@
 
  typedef struct
 {
-	char key[SDLK_LAST];
+	char key[323];
 	char mouse[6];
 	int mouseX;
 	int mouseY;
