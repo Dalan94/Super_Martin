@@ -170,7 +170,10 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
                 c->countStars++;
                 break;
             case 3:
-                c->dirY = -SPRING_HEIGHT;
+                if(!c->isNpc)
+                    c->dirY = -SPRING_HEIGHT;
+                else
+                    futureLocation.y -= vy;
                 break;
             default:;
         }

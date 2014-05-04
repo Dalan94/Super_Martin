@@ -26,31 +26,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
     minx = m->xScroll/TILE_SIZE-1;
     maxx = (m->xScroll + m->screenWidth)/TILE_SIZE+1;
     nbRow = m->screenHeight/TILE_SIZE;
-/*<<<<<<< HEAD
-    //if(m->lvl->tileSetUse)
-        tile = imageLoadAlpha(m->lvl->tileSet);
-   // else
-        spring = imageLoadAlpha("sprites/spring1.png");
 
-     for(i=minx;i<maxx;i++)
-     {
-        for(j=0;j<nbRow;j++)
-        {
-            posTile.x = (i+1)*TILE_SIZE-m->xScroll;
-            posTile.y = j*TILE_SIZE;
-            posTileSet.x = m->lvl->map[j][i] % TILE_MAX * TILE_SIZE;
-            posTileSet.y = m->lvl->map[j][i] / TILE_MAX * TILE_SIZE;
-
-            if(i>=0 && i<m->lvl->width)
-            {
-                if(m->lvl->map[j][i] != SPRING)
-                    SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
-                else
-                    if(!m->lvl->tileSetUse)
-                        SDL_BlitSurface(spring,NULL,screen,&posTile);
-                    else
-                        SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
-=======*/
     spring = imageLoadAlpha("sprites/spring1.png");
     tile = imageLoadAlpha(tileset);
     enemy = imageLoadAlpha("sprites/Characters/witch_doctor.png");
