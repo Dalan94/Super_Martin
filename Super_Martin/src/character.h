@@ -55,7 +55,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps);
 void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l,platformSet *ps);
 void jumping(Character *c, Map *m,Sound *jump_sound,list *l);
 int collisionSprite(SDL_Rect s1, SDL_Rect s2);
-int checkFall(Character *c,Map *m);
+int checkFall(Character *c,Map *m,platformSet *ps);
 
 
 

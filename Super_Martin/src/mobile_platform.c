@@ -52,8 +52,8 @@ void createPlatform(platformSet *ps,int x1,int y1,int x2, int y2)
         perror("error while loading platform sprite");
         exit(errno);
     }
-    p->location.x = x1;
-    p->location.y = y1;
+    p->location.x = (x1+x2)/2;
+    p->location.y = (y1);
     p->location.w = p->sprite->w;
     p->location.h = p->sprite->h;
 
@@ -71,7 +71,7 @@ void createPlatform(platformSet *ps,int x1,int y1,int x2, int y2)
         p->type = 0;
         p->direction = RIGHT;
     }
-    p->characterOn = 0;
+
 
     ps->tab[ps->nb] = p;
     ps->nb++;
@@ -146,12 +146,14 @@ void moveOnePlatform(Character *c,platform *p,list *l)
         if(p->direction == DOWN)
         {
             p->location.y += PLATFORM_SPEED;
-            c->location.y += PLATFORM_SPEED;
+            if(c->OnPlatform)
+                c->location.y += PLATFORM_SPEED;
         }
         if(p->direction == UP)
         {
             p->location.y -= PLATFORM_SPEED;
-            c->location.y -= PLATFORM_SPEED;
+            if(c->OnPlatform)
+                c->location.y -= PLATFORM_SPEED;
         }
     }
 }
@@ -163,7 +165,7 @@ void moveOnePlatform(Character *c,platform *p,list *l)
  *\param[in,out] ps the platform set
  *\return 1 if there is a collision, 0 if not
  */
-int collisionPlatform(Character *c,platformSet *ps)
+int collisionPlatform(Character *c,platformSet *ps,SDL_Rect futureLocation)
 {
     int i,ret;
 
@@ -172,18 +174,20 @@ int collisionPlatform(Character *c,platformSet *ps)
 
     for(i = 0; i<ps->nb;i++)
     {
-        ret = collisionSprite(c->location,ps->tab[i]->location);
+        ret = collisionSprite(futureLocation,ps->tab[i]->location);
         if(ret)
         {
             if(ret == 2)
             {
-                ps->tab[i]->characterOn = 1;
-                c->isOnGround = 1;
+                c->OnPlatform = 1;
+               /* c->isOnGround = 1;
                 c->isFalling = 0;
+                c->dirY = 0;*/
+               // c->doubleJump = 0;
             }
             return 1;
         }
-        ps->tab[i]->characterOn = 0;
+        c->OnPlatform = 0;
     }
 
     return 0;

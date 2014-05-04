@@ -16,7 +16,7 @@ void createPlatform(platformSet *ps,int x1,int y1,int x2, int y2);
 void blitPlatform(SDL_Surface *screen, platformSet *ps, Map *m);
 void movePlatform(Character *c,platformSet *ps,list *l);
 void moveOnePlatform(Character *c,platform *p,list *l);
-int collisionPlatform(Character *c,platformSet *ps);
+int collisionPlatform(Character *c,platformSet *ps,SDL_Rect futureLocation);
 void freePlatformSet(platformSet *ps);
 
 #endif // MOBILE_PLATFORM_H_INCLUDED

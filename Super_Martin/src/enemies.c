@@ -146,6 +146,16 @@ int collisionEnemy(Character *c,list *l,Map *m)
 
                 }
                 break;
+            case 3:
+                if(!c->isNpc)
+                {
+                    c->dirY = -(JUMP_HEIGHT/2);
+                    deleteCurrent(l);
+                    ret = 1;
+                    c->countStars +=2;
+
+                }
+                break;
 
             case 0: ;
 
@@ -170,7 +180,7 @@ void moveEnemies(list *l, Map *m, list *p)
     setOnFirst(l);
     while(!outOfList(l))
     {
-        if(l->current->c->location.x == l->current->c->saveX || checkFall(l->current->c,m))
+        if(l->current->c->location.x == l->current->c->saveX || checkFall(l->current->c,m,NULL))
             l->current->c->isRight ^= 1;
         l->current->c->saveX = l->current->c->location.x;
 
