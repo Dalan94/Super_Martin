@@ -31,10 +31,9 @@
 
     #define FRENQUENCY_CHANGE_MOVING        5
 
-    #define TILE_MAX 8
+    #define TILE_MAX 13
 
-
-    enum {VOID=0,COIN=7,SPRING = 9};
+    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, ENEMY, TREE, FLOWER, CLOUD};
     enum {RIGHT,LEFT,UP,DOWN};
 
 typedef struct{

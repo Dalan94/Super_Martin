@@ -15,37 +15,150 @@
  *\param[in] tileset lvl tileset
  */
 void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor){
-    SDL_Surface *tile;
-    SDL_Rect posTile, posTileSet, curs;
+    SDL_Surface *tile, *enemy, *tree, *flower, *cloud;
+    SDL_Rect posTile, posTileSet, posTree, curs;
     int i,j,minx,maxx,nbRow;
+    float y_off, x_off;
 
     posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
+    //posTileSet.x = posTileSet.y = posTree.x = posTree.y = 0;
 
     minx = m->xScroll/TILE_SIZE-1;
     maxx = (m->xScroll + m->screenWidth)/TILE_SIZE+1;
     nbRow = m->screenHeight/TILE_SIZE;
 
     tile = imageLoadAlpha(tileset);
+    enemy = imageLoadAlpha("../Super_Martin/sprites/Characters/witch_doctor.png");
+    cloud = imageLoadAlpha("../Super_Martin/sprites/cloud.png");
+    flower = imageLoadAlpha("../Super_Martin/sprites/flower.png");
+
+    if(!(strcmp(tileset, "../Super_Martin/sprites/tileSet_Snow.png")))
+    {
+        x_off = 1.25;
+        y_off = 5.5;
+        posTree.h = posTile.h = 104;
+        posTree.w = posTile.w = 55;
+        tree = imageLoadAlpha("../Super_Martin/sprites/snow_tree.png");
+    }
+    else if(!(strcmp(tileset, "../Super_Martin/sprites/tileSet_Beach.png")))
+    {
+        x_off = 1.25;
+        y_off = 5.5;
+        posTree.h = posTile.h = 104;
+        posTree.w = posTile.w = 96;
+        tree = imageLoadAlpha("../Super_Martin/sprites/beach_tree.png");
+    }
+    else
+    {
+        x_off = 2;
+        y_off = 1.85;
+        posTree.h = posTile.h = 65;
+        posTree.w = posTile.w = 96;
+        tree = imageLoadAlpha("../Super_Martin/sprites/grassland_tree.png");
+
+    }
 
      for(i=minx;i<maxx;i++){
         for(j=0;j<nbRow;j++){
-            posTile.x = (i+1)*TILE_SIZE-m->xScroll;
-            posTile.y = j*TILE_SIZE;
-            posTileSet.x = m->lvl->map[j][i] % TILESET_LAST * TILE_SIZE;
-            posTileSet.y = m->lvl->map[j][i] / TILESET_LAST * TILE_SIZE;
 
             if(i>=0 && i<m->lvl->width)
             {
-                SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
+                if(m->lvl->map[j][i] == 'T')
+                {
+                    posTile.x = (i+1-x_off)*TILE_SIZE-m->xScroll;
+                    posTile.y = (j-y_off)*TILE_SIZE;
+                    posTree.x = posTree.y = 0;
+                    posTile.h = posTree.h;
+                    posTile.w = posTree.w;
+                    SDL_BlitSurface(tree, &posTree, screen, &posTile);
+                }
+                else if(m->lvl->map[j][i] == 'E')
+                {
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = (j-0.85)*TILE_SIZE;
+                    posTileSet.h = posTile.h = 29;
+                    posTileSet.w = posTile.w = 35;
+                    SDL_BlitSurface(enemy, &posTileSet, screen, &posTile);
+                }
+                else if(m->lvl->map[j][i] == 'N')
+                {
+                    posTile.x = (i+1-4)*TILE_SIZE-m->xScroll;
+                    posTile.y = (j-2.5)*TILE_SIZE;
+                    posTileSet.h = posTile.h = 80;
+                    posTileSet.w = posTile.w = 144;
+                    SDL_BlitSurface(cloud, &posTileSet, screen, &posTile);
+                }
+                else if(m->lvl->map[j][i] == 'P')
+                {
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = (j-0.9375)*TILE_SIZE;
+                    posTileSet.h = posTile.h = 30;
+                    posTileSet.w = posTile.w = 30;
+                    SDL_BlitSurface(flower, &posTileSet, screen, &posTile);
+                }
+                else
+                {
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = j*TILE_SIZE;
+                    posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
+                    posTileSet.x = m->lvl->map[j][i] % TILESET_SIZE * TILE_SIZE;
+                    posTileSet.y = m->lvl->map[j][i] / TILESET_SIZE * TILE_SIZE;
+                    SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
+                }
             }
         }
     }
-    curs.x = cursor->x;
-    curs.y = cursor->y;
-    posTileSet.y = cursor->tileID / TILESET_LAST * TILE_SIZE;
-    posTileSet.x = cursor->tileID % TILESET_LAST * TILE_SIZE;
-    SDL_BlitSurface(tile,&posTileSet,screen,&curs);
+
+    if(cursor->tileID == TREE)
+    {
+        curs.x = cursor->x - (x_off * TILE_SIZE);
+        curs.y = cursor->y - (y_off * TILE_SIZE);
+        posTree.x = posTree.y = 0;
+        posTileSet.h = curs.h = 104;
+        posTileSet.w = curs.w = 96;
+        SDL_BlitSurface(tree, &posTree, screen, &curs);
+    }
+    else if(cursor->tileID == ENEMY)
+    {
+        curs.x = cursor->x - TILE_SIZE / 2;
+        curs.y = cursor->y - 0.85*TILE_SIZE;
+        posTileSet.x = posTileSet.y = 0;
+        posTileSet.h = curs.h = 29;
+        posTileSet.w = curs.w = 35;
+        SDL_BlitSurface(enemy, &posTileSet, screen, &curs);
+    }
+    else if(cursor->tileID == FLOWER)
+    {
+        curs.x = cursor->x - TILE_SIZE / 2;
+        curs.y = cursor->y - 0.9375*TILE_SIZE;
+        posTileSet.x = posTileSet.y = 0;
+        posTileSet.h = curs.h = 30;
+        posTileSet.w = curs.w = 30;
+        SDL_BlitSurface(flower, &posTileSet, screen, &curs);
+    }
+    else if(cursor->tileID == CLOUD)
+    {
+        curs.x = cursor->x - 4 * TILE_SIZE;
+        curs.y = cursor->y - 2.5 * TILE_SIZE;
+        posTileSet.x = posTileSet.y = 0;
+        posTileSet.h = curs.h = 80;
+        posTileSet.w = curs.w = 144;
+        SDL_BlitSurface(cloud, &posTileSet, screen, &curs);
+    }
+    else
+    {
+        curs.x = cursor->x;
+        curs.y = cursor->y;
+        curs.h = curs.w = TILE_SIZE;
+        posTileSet.y = cursor->tileID / TILESET_SIZE * TILE_SIZE;
+        posTileSet.x = cursor->tileID % TILESET_SIZE * TILE_SIZE;
+        SDL_BlitSurface(tile,&posTileSet,screen,&curs);
+    }
     SDL_FreeSurface(tile);
+    SDL_FreeSurface(tree);
+    SDL_FreeSurface(enemy);
+    SDL_FreeSurface(cloud);
+    SDL_FreeSurface(flower);
 
 }
 
@@ -97,20 +210,33 @@ void scrolling(Map *m, int direction,float speed){
 /**
   *\fn void saveMap(map *m)
   *Save the map in a new file and update the file 'level' containing the map list
+  *\param[in,out] screen The screen of the game
   *\param[in] m The map to save
   */
 
-void saveMap(Map *m){
+void saveMap(SDL_Surface *screen, Map *m){
 
+    SDL_Surface *screenshot, *screenshot2, *waiting = NULL;
+    SDL_Rect posWait;
     char level_name[MAX_LENGTH_FILE_NAME];
     char level_name_tmp[MAX_LENGTH_FILE_NAME];
+    char tmp[MAX_LENGTH_FILE_NAME];
     FILE *ptr_file_level;
     int level_number;
     char **level_list;
-    int i;
-    char choice;
+    int i, j;
+    char choice = 32;
     int incr;
     int wrong_name = 1;
+    SDL_Rect posText={0,0,0,0};
+    int text_size = 30;
+    int go = 1;
+    int ret = 1;
+
+    Input in;
+
+    memset(&in, 0, sizeof(in));
+
 
     ptr_file_level = fopen("../Super_Martin/level/level", "r+");
 
@@ -121,52 +247,282 @@ void saveMap(Map *m){
     }
 
     level_list = readLevelFile(&level_number);
-    printf("Existing maps :\n");
-    for(i=0;i<level_number;i++)
-        printf("%s\n", level_list[i]);
-    /*  Manage the file name conflicts */
-    while(wrong_name){
 
+    waiting = imageLoad("../Super_Martin/sprites/game-over.jpg");
+    posWait.x = posWait.y = 0;
+    SDL_SetAlpha(waiting, SDL_SRCALPHA, 200);
+    SDL_BlitSurface(waiting,NULL,screen,&posWait);
+
+    posText.x = -1;
+    posText.y = 150;
+    printText(screen, &posText, "Enter the name of the level : ", 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+    SDL_Flip(screen);
+
+    /*  Save the screen to clear the display of the level_name  later */
+
+    screenshot = SDL_DisplayFormatAlpha(screen);
+    SDL_SetAlpha(screenshot, SDL_SRCALPHA, 200);
+    level_name_tmp[0] = 32;
+    screenshot2 = SDL_DisplayFormatAlpha(screen);
+    SDL_SetAlpha(screenshot2, SDL_SRCALPHA, 200);
+
+    /*  Main loop */
+
+    while(wrong_name)
+    {
+        memset(tmp, 0, sizeof(tmp));
+        tmp[0] = ' ';
+        memset(level_name_tmp, 0, sizeof(tmp));
         incr = 1;
         wrong_name = 0;
-        printf("Enter the name of the level : ");
-        fgets(level_name_tmp, sizeof(level_name_tmp), stdin);
-        cleanString(level_name_tmp, stdin);
-        for (i=0 ; i<level_number ; i++)
+
+        i = 0;
+
+        while(go && ret)
         {
-            if (!strcmp(level_name_tmp, level_list[i])){
+            if(in.key[SDLK_ESCAPE])
+            {
+                go = 0;
+                in.key[SDLK_ESCAPE] = 0;
 
-                printf("File already exists. Do you want to continue ? (y/n)");
-                scanf("%c", &choice);
-                if(choice == 'n'){
-                    wrong_name = 1;
-                }else{incr = 0;}
-            clean_stdin();
             }
+            else if(in.key[SDLK_RETURN])
+            {
+                ret = 0;
+                in.key[SDLK_RETURN] = 0;
+            }
+            else
+            {
+                posText.x = -1;
+                posText.y = 150;
+                printText(screen, &posText, "Enter the name of the level : ", 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
 
+                updateWaitEvents(&in);
+
+                /*  Manage the keyboard inputs for the name of the level */
+
+                for(j = SDLK_UNDERSCORE ; j <= SDLK_KP9; j++)
+                {
+                    if(in.key[j])
+                    {
+                        if((in.key[SDLK_CAPSLOCK] || in.key[SDLK_RSHIFT] || in.key[SDLK_LSHIFT]) && j >= SDLK_UNDERSCORE && j <= SDLK_z)
+                        {
+                            level_name_tmp[i] = j-32;
+                            level_name_tmp[i+1] = 0;
+                            in.key[j] = 0;
+
+                        }
+                        else if(j >= SDLK_KP0 && j <= SDLK_KP9)
+                        {
+                            level_name_tmp[i] = j - 208;
+                            in.key[j] = 0;
+                        }
+                        else if(j >= SDLK_UNDERSCORE && j <= SDLK_z)
+                        {
+                        level_name_tmp[i] = j;
+                        level_name_tmp[i+1] = 0;
+                        if(j != SDLK_UNDERSCORE)
+                            in.key[j] = 0;
+                        }
+                    }
+                }
+
+                if(in.key[SDLK_RSHIFT] || in.key[SDLK_LSHIFT])
+                {
+                    if(in.key[224])
+                        level_name_tmp[i]=48;
+                    if(in.key[38])
+                        level_name_tmp[i]=49;
+                    if(in.key[233])
+                        level_name_tmp[i]=50;
+                    if(in.key[34])
+                        level_name_tmp[i]=51;
+                    if(in.key[39])
+                        level_name_tmp[i]=52;
+                    if(in.key[40])
+                        level_name_tmp[i]=53;
+                    if(in.key[45])
+                        level_name_tmp[i]=54;
+                    if(in.key[232])
+                        level_name_tmp[i]=55;
+                    if(in.key[95])
+                        level_name_tmp[i]=56;
+                    if(in.key[231])
+                        level_name_tmp[i]=57;
+                }
+
+                if(level_name_tmp[i] >= 32 && level_name_tmp[i] < SDLK_LAST && i>=0)
+                {
+                    i++;
+                    posText.x = -1;
+                    posText.y = 220;
+
+                    if(i==0)
+                        level_name_tmp[0] = 32;
+
+                    /*  Clear the display of the previous level_name */
+
+                    SDL_BlitSurface(screenshot,NULL,screen,&posWait);
+
+                    printText(screen, &posText, level_name_tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+                }
+
+                else if(in.key[SDLK_BACKSPACE] && i>0)
+                {
+                    i--;
+                    level_name_tmp[i] = 0;
+                    posText.x = -1;
+                    posText.y = 220;
+                    if(i==0)
+                        level_name_tmp[0] = 32;
+
+                    /*  Clear the display of the previous level_name */
+
+                    SDL_BlitSurface(screenshot,NULL,screen,&posWait);
+
+                    /*  Display the new level_name  */
+
+                    printText(screen, &posText, level_name_tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+                    in.key[SDLK_BACKSPACE] = 0;
+                }
+            }
+            SDL_Flip(screen);
+        }
+        ret = 1;
+
+        /*  Manage the file name conflicts */
+
+        for (j=0 ; j<level_number && ret && go; j++)
+        {
+            if (!strcmp(level_name_tmp, level_list[j]))
+            {
+                posText.x = -1;
+                posText.y = 300;
+                text_size = 22;
+                printText(screen, &posText, "File already exists. Do you want to continue ? (y/n)", 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+
+                /*  Save the screen to clear the display of the choice later  */
+
+                screenshot2 = SDL_DisplayFormatAlpha(screen);
+
+                while(go && ret)
+                {
+                    SDL_Flip(screen);
+                    updateWaitEvents(&in);
+                    if(in.key[SDLK_ESCAPE])
+                    {
+                        go = 0;
+                        in.key[SDLK_ESCAPE] = 0;
+
+                    }
+                    else if(in.key[SDLK_RETURN])
+                    {
+                        ret = 0;
+                        in.key[SDLK_RETURN] = 0;
+                    }
+
+                    /*  Manage the keyboard inputs for the choice */
+
+                    else
+                    {
+                        if(in.key[SDLK_BACKSPACE])
+                        {
+                            choice = ' ';
+                            in.key[SDLK_BACKSPACE] = 0;
+                        }
+                        else
+                        {
+
+                            if(in.key[SDLK_n])
+                            {
+                                choice = SDLK_n;
+                                in.key[SDLK_n] = 0;
+                            }
+                            else if(in.key[SDLK_y])
+                            {
+                                choice = SDLK_y;
+                                in.key[SDLK_y] = 0;
+                            }
+
+                        }
+                        posText.x = -1;
+                        posText.y = 370;
+
+                        /*  Clear the display of the previous choice */
+
+                        SDL_BlitSurface(screenshot2,NULL,screen,&posWait);
+                        tmp[0] = choice;
+
+                        /*  Display the new choice */
+                        text_size = 30;
+                        printText(screen, &posText, tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+                    }
+                }
+                if(choice == 'n')
+                {
+                    sprintf(tmp, "Saving aborted  -  Press Enter to continue");
+                    ret = 0;
+                }
+                else
+                {
+                    sprintf(tmp, "Map %s saved  -  Press Enter to continue", level_name_tmp);
+                    incr = 0;
+                    ret = 1;
+                }
+            }
+        }
+        if(choice == ' ' && go)
+        {
+            sprintf(tmp, "Map %s saved  -  Press Enter to continue", level_name_tmp);
+            ret = 1;
+        }
+    }
+
+    /*  Update the file 'level' containing the level list */
+
+    if(go && ret)
+    {
+        fseek(ptr_file_level, 0, SEEK_SET);
+        fprintf(ptr_file_level, "%d", (level_number+incr));
+        fseek(ptr_file_level, 0, SEEK_END);
+        if(incr !=0){
+
+            fprintf(ptr_file_level, "%s\n", level_name_tmp);
+        }
+
+        closeFile(ptr_file_level);
+
+        /*  Write the level in the file */
+
+        sprintf(level_name,"../Super_Martin/level/%s.lvl",level_name_tmp);
+
+
+        writeLevel(level_name, m->lvl);
+    }
+    ret = 1;
+    in.key[SDLK_RETURN] = 0;
+    while(ret && go)
+    {
+        posText.x = -1;
+        posText.y = 500;
+        text_size = 25;
+        printText(screen, &posText, tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+        SDL_Flip(screen);
+        updateWaitEvents(&in);
+        if(in.key[SDLK_RETURN])
+        {
+            ret = 0;
+            in.key[SDLK_RETURN] = 0;
         }
 
     }
-    /*  Update the file 'level' containing the level list */
 
-    fseek(ptr_file_level, 0, SEEK_SET);
-    fprintf(ptr_file_level, "%d", (level_number+incr));
-    fseek(ptr_file_level, 0, SEEK_END);
-    if(incr !=0){
-
-        fprintf(ptr_file_level, "%s\n", level_name_tmp);
-    }
-
-    closeFile(ptr_file_level);
-    printf("Map %s saved\n", level_name_tmp);
-    /*  Write the level in the file */
-
-    sprintf(level_name,"../Super_Martin/level/%s.lvl",level_name_tmp);
-
-
-    writeLevel(level_name, m->lvl);
+    /*  Freeing of allocated spaces */
 
     closeLevelList(level_list, level_number);
+    SDL_FreeSurface(waiting);
+    SDL_FreeSurface(screenshot);
+    SDL_FreeSurface(screenshot2);
 }
 /**
   *\fn void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
@@ -199,7 +555,7 @@ void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
 
     /*  Waiting screen */
 
-    waiting = imageLoadAlpha("../Super_Martin/sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("../Super_Martin/sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
 
@@ -330,24 +686,4 @@ void reinitMap(Map *m){
 void freeMap(Map *m){
     closeLevel(m->lvl);
     free((void *)m);
-}
-
-void cleanString(const char *buffer, FILE *fp)
-{
-    char *p = strchr(buffer,'\n');
-    if (p != NULL)
-        *p = 0;
-    else
-    {
-        int c;
-        while ((c = fgetc(fp)) != '\n' && c != EOF);
-    }
-}
-
-void clean_stdin(void)
-{
-    int c;
-    do {
-        c = getchar();
-    } while (c != '\n' && c != EOF);
 }

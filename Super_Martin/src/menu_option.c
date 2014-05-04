@@ -33,7 +33,7 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc)
 
 
     /*winting screen */
-    waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
 
@@ -100,7 +100,7 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys)
     SDL_Rect posText={0,0,0,0};
 
     /*winting screen */
-    waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
 
@@ -201,7 +201,7 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
     SDL_Rect posText={0,0,0,0};
 
     /*winting screen */
-    waiting = imageLoadAlpha("sprites/Background/desert_hills_2.png");
+    waiting = imageLoadAlpha("sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
 

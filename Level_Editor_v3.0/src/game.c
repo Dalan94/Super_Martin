@@ -76,7 +76,7 @@ void play(SDL_Surface *screen, char *level_name){
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
         SDL_BlitSurface(background,NULL,screen,&posBack);
-        keyboardActionGame(&in,m,cursor);
+        keyboardActionGame(screen, &in,m,cursor);
         updateScreenMap(screen,m, m->lvl->tileSet, cursor);
 
         SDL_Flip(screen);

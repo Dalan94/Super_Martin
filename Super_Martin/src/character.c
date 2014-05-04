@@ -208,7 +208,7 @@ int collisionMap(SDL_Rect r,Map *m)
     {
         for (j=ymin ; j< ymax ; j++)
         {
-            if(m->lvl->map[j][i] != VOID)
+            if(m->lvl->map[j][i] != VOID  && m->lvl->map[j][i]<65)
             {
                 test.x = i*TILE_SIZE;
                 test.y = j*TILE_SIZE;

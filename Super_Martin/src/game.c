@@ -154,7 +154,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
-        updateScreenMap(screen,m); //blit du niveau
+        updateScreenMap(screen,m, m->lvl->tileSet); //blit du niveau
 
         blitCharacter(screen,player,m);
         blitEnnemies(screen,&enemyList,m);

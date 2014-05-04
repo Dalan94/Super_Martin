@@ -73,7 +73,7 @@ Level *openLevel(char *file_name,list *l)
                 createEnemy("sprites/Characters/witch_doctor.png",j*TILE_SIZE,(i-1)*TILE_SIZE,l);
                 lvl->map[i][j] = VOID;
             }
-            else
+            else if(lvl->map[i][j] < 65)
                 lvl->map[i][j]-=48;
         }
     }
