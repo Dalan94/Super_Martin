@@ -24,7 +24,7 @@ int menu(SDL_Surface *screen,int *choice, int *go)
     int previous_time=0;
     int current_time=0;
     int select=1;
-    int nb_options=3;
+    int nb_options=4;
     char **options;
     int i;
     int text_size;
@@ -58,6 +58,7 @@ int menu(SDL_Surface *screen,int *choice, int *go)
         }
     }
 
+    strcpy(options[3],  "Controls");
     strcpy(options[2],  "Delete a map");
     strcpy(options[1], "Edit a map");
     strcpy(options[0],  "New map");

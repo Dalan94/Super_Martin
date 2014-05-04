@@ -213,7 +213,59 @@ void scrolling(Map *m, int direction,float speed){
   *\param[in,out] screen The screen of the game
   *\param[in] m The map to save
   */
+void displayHelp(SDL_Surface *screen, SDLKey *kc)
+{
+    SDL_Surface *waiting;
+    SDL_Rect posWait;
+    int i, ret = 0, nb_key = 14;
+    int text_size;
+    char key_names[14][MAX_LENGTH_FILE_NAME]={"Left","Right","Save","Reset", "Enemy", "Tree", "Flower", "Cloud", "Ground", "Coin", "Rock", "Spring", "Blank", "Help"};
+    char key[MAX_LENGTH_FILE_NAME];
 
+
+    Input in;
+
+    SDL_Rect posText={0,0,0,0};
+
+    /*winting screen */
+    waiting = imageLoad("../Super_Martin/sprites/game-over.jpg");
+    posWait.x = posWait.y = 0;
+    SDL_SetAlpha(waiting, SDL_SRCALPHA, 200);
+    SDL_BlitSurface(waiting,NULL,screen,&posWait);
+    memset(&in,0,sizeof(in));
+
+
+
+    while(!ret)
+    {
+        updateWaitEvents(&in);
+        if(in.key[SDLK_ESCAPE] || in.key[SDLK_RETURN] || in.key[kc[13]] || in.quit)
+            ret = 1;
+        for (i=0 ; i < nb_key ; i++)
+        {
+
+            text_size= (screen->h -300)/ (min(nb_key, OPTIONS_PER_COLUMN));
+            if (text_size > 35)
+                text_size=35;
+            if(i>=OPTIONS_PER_COLUMN)
+            {
+                posText.x = 680;
+                posText.y = 150 +screen->h / (1.5*(1+OPTIONS_PER_COLUMN)) * (i+1-OPTIONS_PER_COLUMN) - text_size;
+            }
+            else
+            {
+                posText.x = 300;
+                posText.y = 150 + screen->h / (1.5*(1+min(OPTIONS_PER_COLUMN, nb_key))) * (i+1) - text_size;
+            }
+
+            sprintf(key,"%s : %s",key_names[i],SDL_GetKeyName(kc[i]));
+            printText(screen,&posText,key,255,60,30,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
+        }
+
+        SDL_Flip(screen);
+        ;
+    }
+}
 void saveMap(SDL_Surface *screen, Map *m){
 
     SDL_Surface *screenshot, *screenshot2, *waiting = NULL;
@@ -664,12 +716,12 @@ void extendMap(Map *m)
 
 
 /**
-  *\fn void reinitMap(map *m)
+  *\fn void resetMap(map *m)
   *Fill a map with blank tiles. This function doesn't change the current map file.
   *\param[in,out] m The map to reinit
   */
 
-void reinitMap(Map *m){
+void resetMap(Map *m){
 
     int i,j;
     for(i=0 ; i < m->lvl->height ; i++)

@@ -19,7 +19,7 @@
  *\param[in] lvel_name le nom du niveau
  */
 
-void play(SDL_Surface *screen, char *level_name){
+void play(SDL_Surface *screen, char *level_name, SDLKey *kc){
 
     int go = 1;
 
@@ -76,7 +76,7 @@ void play(SDL_Surface *screen, char *level_name){
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
         SDL_BlitSurface(background,NULL,screen,&posBack);
-        keyboardActionGame(screen, &in,m,cursor);
+        keyboardActionGame(screen, &in,m,cursor, kc);
         updateScreenMap(screen,m, m->lvl->tileSet, cursor);
 
         SDL_Flip(screen);

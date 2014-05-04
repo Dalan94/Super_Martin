@@ -10,6 +10,8 @@
 #include "menu.h"
 #include "menu_level.h"
 #include "sound.h"
+#include "menu_option.h"
+#include "option.h"
 
 int main(int argc, char *argv[])
 {
@@ -20,13 +22,13 @@ int main(int argc, char *argv[])
     char level_name[MAX_LENGTH_FILE_NAME];
     char level_path[MAX_LENGTH_FILE_NAME];
     char tileSet_name[MAX_LENGTH_FILE_NAME];
-
+    SDLKey kc[13];
+    loadOptions(".conf",kc);
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 
     /*  Initialization of the screen */
 
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
-
 
     /*  Setting of the window title */
 
@@ -41,18 +43,22 @@ int main(int argc, char *argv[])
             if(choice == 0)
             {
                 if (menuTileSet(screen,tileSet_name))
-                    play(screen, tileSet_name);
+                    play(screen, tileSet_name, kc);
             }
             else if(choice == 1)
             {
 
                 if (menuLevel(screen,level_name, level_path))
-                    play(screen,level_path);
+                    play(screen,level_path, kc);
             }
             else if(choice == 2)
             {
                 if (menuLevel(screen,level_name, level_path))
                     deleteMap(screen, level_name, level_path);
+            }
+            else if(choice == 3)
+            {
+                    keyBoardOptions(screen, &go, kc);
             }
         }
 

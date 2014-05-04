@@ -27,7 +27,7 @@
 #include "input.h"
 
 /*prototypes*/
-void play(SDL_Surface *screen,char *level_name);
+void play(SDL_Surface *screen,char *level_name, SDLKey *kc);
 void printGameOver(SDL_Surface *screen, int* continuer,Input *in);
 void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer);
 Uint32 decomptage(Uint32 intervalle,void* parametre);

@@ -71,13 +71,14 @@ void updateEvents(Input* in)
 
 
 /**
- *\fn void keyboardActionGame(Input *in, Map *m, Cursor *cursor)
+ *\fn void keyboardActionGame(Input *in, Map *m, Cursor *cursor, SDLKey *kc)
  *perform action command by keyboard action
  *\param[in,out] in the input structure
  *\param[in,out] m the map to update
  *\param[in,out] cursor the cursor structure
+ *\param[in] kc the keyboard bindings
  */
-void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor)
+void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, SDLKey *kc)
 {
     /*  Recover the coordinates of the mouse */
 
@@ -86,7 +87,7 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor)
 
     /*  Horizontal scrolling */
 
-    if(in->key[SDLK_RIGHT])
+    if(in->key[kc[1]])
     {
         if(m->xScroll < (m->lvl->width+1)*TILE_SIZE-m->screenWidth)
                 m->xScroll+= 5;
@@ -96,7 +97,7 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor)
         }
     }
 
-    else if(in->key[SDLK_LEFT])
+    else if(in->key[kc[2]])
     {
         if(m->xScroll > TILE_SIZE)
                 m->xScroll-= 5;
@@ -104,18 +105,18 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor)
 
     /*  Back-up of the map */
 
-    if(in->key[SDLK_k])
+    if(in->key[kc[2]])
     {
         saveMap(screen, m);
-        in->key[SDLK_k] = 0;
+        in->key[kc[2]] = 0;
     }
 
     /*  Reinitialization of the map */
 
-    else if(in->key[SDLK_DELETE])
+    else if(in->key[kc[3]])
     {
-        reinitMap(m);
-        in->key[SDLK_DELETE] = 0;
+        resetMap(m);
+        in->key[kc[3]] = 0;
     }
 
     /*  Addition of a tile at the position of the cursor */
@@ -217,41 +218,46 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor)
         in->mouse[SDL_BUTTON_WHEELUP] = 0;
     }
 
-    if(in->key[SDLK_e])
+    if(in->key[kc[4]])
     {
         cursor->tileID = ENEMY;
     }
-    else if(in->key[SDLK_t])
+    else if(in->key[kc[5]])
     {
         cursor->tileID = TREE;
     }
-    else if(in->key[SDLK_g])
+    else if(in->key[kc[8]])
     {
         cursor->tileID = GROUND;
     }
-    else if(in->key[SDLK_c])
+    else if(in->key[kc[9]])
     {
         cursor->tileID = COIN;
     }
-    else if(in->key[SDLK_r])
+    else if(in->key[kc[10]])
     {
         cursor->tileID = ROCK;
     }
-    else if(in->key[SDLK_s])
+    else if(in->key[kc[11]])
     {
         cursor->tileID = SPRING;
     }
-    else if(in->key[SDLK_f])
+    else if(in->key[kc[6]])
     {
         cursor->tileID = FLOWER;
     }
-    else if(in->key[SDLK_n])
+    else if(in->key[kc[7]])
     {
         cursor->tileID = CLOUD;
     }
-    else if(in->key[SDLK_b])
+    else if(in->key[kc[12]])
     {
         cursor->tileID = VOID;
+    }
+    else if(in->key[kc[13]])
+    {
+        in->key[kc[13]] = 0;
+        displayHelp(screen, kc);
     }
 }
 
@@ -297,14 +303,14 @@ int updateWaitEvents(Input* in)
  *\fn void keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
  *perform action command by keyboard action
  *\param[in] in the input structure
- *\param[out] cursorPos cursor position
+ *\param[out] cursorPos the cursor position
  *\param[out] select boolean about selecting the option or quit to title screen
  *\param[in] nb_options the number of options of the menu
 
  */
 int keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
 {
-    if(in->key[SDLK_ESCAPE] || in->quit)
+    if((in->key[SDLK_ESCAPE] || in->quit) && select != NULL)
         (*select) = 0;
 
     if(in->key[SDLK_UP])
@@ -318,6 +324,21 @@ int keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
         (*cursorPos)++;
         if(*cursorPos >= nb_options)
             (*cursorPos) = 0;
+    }
+    if(nb_options > OPTIONS_PER_COLUMN)
+    {
+        if(in->key[SDLK_RIGHT] && *cursorPos < OPTIONS_PER_COLUMN)
+        {
+            (*cursorPos) += OPTIONS_PER_COLUMN;
+            if(*cursorPos >= nb_options)
+                (*cursorPos) = nb_options-1;
+        }
+        if(in->key[SDLK_LEFT] && *cursorPos >= OPTIONS_PER_COLUMN)
+        {
+            (*cursorPos) -= OPTIONS_PER_COLUMN;
+            if(*cursorPos < 0)
+                (*cursorPos) = 0;
+        }
     }
     return *cursorPos;
 }
