@@ -75,7 +75,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     /*initialisation des plateformes */
     initPlatformSet(&ps);
-    createPlatform(&ps,5*TILE_SIZE,5*TILE_SIZE,5*TILE_SIZE,20*TILE_SIZE);
+    createPlatform(&ps,5*TILE_SIZE,5*TILE_SIZE,5*TILE_SIZE,22*TILE_SIZE);
     createPlatform(&ps,20*TILE_SIZE,15*TILE_SIZE,50*TILE_SIZE,15*TILE_SIZE);
 
     /*initialisation de la carte et du niveau*/

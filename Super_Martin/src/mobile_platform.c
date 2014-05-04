@@ -125,6 +125,9 @@ void movePlatform(Character *c,platformSet *ps,list *l)
  */
 void moveOnePlatform(Character *c,platform *p,list *l,int nb)
 {
+    SDL_Rect futur;
+    futur = p->location;
+
     if(!p->type)
     {
         if(p->location.x <= p->xMin)
@@ -136,13 +139,17 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb)
         {
             p->location.x += PLATFORM_SPEED;
             if(c->OnPlatform == nb)
-                c->location.x += PLATFORM_SPEED;
+                c->location.x += PLATFORM_SPEED; //déplacement si perso sur platform
+            else if(collisionSprite(futur,c->location)==1)
+                c->location.x += PLATFORM_SPEED; //déplacement si perso devant plateforme
         }
         if(p->direction == LEFT)
         {
             p->location.x -= PLATFORM_SPEED;
             if(c->OnPlatform == nb)
                 c->location.x -= PLATFORM_SPEED;
+            else if(collisionSprite(futur,c->location)==1)
+                c->location.x -= PLATFORM_SPEED; //déplacement si perso devant plateforme
         }
 
         if(c->OnPlatform == nb)
@@ -157,14 +164,12 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb)
 
         if(p->direction == DOWN)
         {
-            /*if(c->OnPlatform)
-                c->location.y += PLATFORM_SPEED;*/
             p->location.y += PLATFORM_SPEED;
+            if(collisionSprite(futur,c->location)==1)
+                c->location.y = p->location.y+p->location.h; //déplacement si perso sous plateforme
         }
         if(p->direction == UP)
         {
-            /*if(c->OnPlatform)
-                c->location.y -= PLATFORM_SPEED;*/
             p->location.y -= PLATFORM_SPEED;
         }
         if(c->OnPlatform == nb)
@@ -195,9 +200,6 @@ int collisionPlatform(Character *c,platformSet *ps,SDL_Rect futureLocation)
             if(ret == 2)
             {
                 c->OnPlatform = i;
-                /*c->isOnGround = 1;
-                c->isFalling = 0;
-                c->doubleJump = 0;*/
                 c->dirY = 0;
             }
             return 1;
