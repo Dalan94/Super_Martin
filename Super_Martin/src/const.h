@@ -25,7 +25,7 @@
     #define IMG_END_SIZE            80
     #define NB_TILE_MARYO_WIDTH     4
     #define NB_TILE_MARYO_HEIGHT    2
-    #define SPRING_HEIGHT           20
+    #define SPRING_HEIGHT           22
 
     #define COLLISION_ADJUSTMENT 9
 

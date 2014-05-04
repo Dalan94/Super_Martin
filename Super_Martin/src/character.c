@@ -171,7 +171,11 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
                 break;
             case 3:
                 if(!c->isNpc)
+                {
                     c->dirY = -SPRING_HEIGHT;
+                    c->isOnGround = 0;
+                    c->doubleJump = 2;
+                }
                 else
                     futureLocation.y -= vy;
                 break;
