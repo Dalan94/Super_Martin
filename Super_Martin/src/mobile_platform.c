@@ -111,18 +111,19 @@ void movePlatform(Character *c,platformSet *ps,list *l)
 
     for (i = 0 ; i<ps->nb;i++)
     {
-        moveOnePlatform(c,ps->tab[i],l);
+        moveOnePlatform(c,ps->tab[i],l,i);
     }
 }
 
 /**
- *\fn void moveOnePlatform(Character *c,platform *,list *l)
+ *\fn void moveOnePlatform(Character *c,platform *,list *l,int nb)
  *moves one platforms
  *\param[in,out] c the player
  *\param[in,out] p the platform
  *\param[in,out] l the enemy list
+ *\param[in] the number of the platform which is moved
  */
-void moveOnePlatform(Character *c,platform *p,list *l)
+void moveOnePlatform(Character *c,platform *p,list *l,int nb)
 {
     if(!p->type)
     {
@@ -135,6 +136,9 @@ void moveOnePlatform(Character *c,platform *p,list *l)
             p->location.x += PLATFORM_SPEED;
         if(p->direction == LEFT)
             p->location.x -= PLATFORM_SPEED;
+
+        if(c->OnPlatform == nb)
+            c->location.y = p->location.y - c->location.h-1;
     }
     else
     {
@@ -145,16 +149,18 @@ void moveOnePlatform(Character *c,platform *p,list *l)
 
         if(p->direction == DOWN)
         {
+            /*if(c->OnPlatform)
+                c->location.y += PLATFORM_SPEED;*/
             p->location.y += PLATFORM_SPEED;
-            if(c->OnPlatform)
-                c->location.y += PLATFORM_SPEED;
         }
         if(p->direction == UP)
         {
+            /*if(c->OnPlatform)
+                c->location.y -= PLATFORM_SPEED;*/
             p->location.y -= PLATFORM_SPEED;
-            if(c->OnPlatform)
-                c->location.y -= PLATFORM_SPEED;
         }
+        if(c->OnPlatform == nb)
+            c->location.y = p->location.y - c->location.h-1;
     }
 }
 
@@ -163,6 +169,7 @@ void moveOnePlatform(Character *c,platform *p,list *l)
  *determine if there is a collision beteewen the player and a mobile platform and deals with
  *\param[in,out] c the player
  *\param[in,out] ps the platform set
+ *\param[in] futurLocation the tryMovement variabla to test the future position
  *\return 1 if there is a collision, 0 if not
  */
 int collisionPlatform(Character *c,platformSet *ps,SDL_Rect futureLocation)
@@ -179,15 +186,15 @@ int collisionPlatform(Character *c,platformSet *ps,SDL_Rect futureLocation)
         {
             if(ret == 2)
             {
-                c->OnPlatform = 1;
-               /* c->isOnGround = 1;
+                c->OnPlatform = i;
+                /*c->isOnGround = 1;
                 c->isFalling = 0;
-                c->dirY = 0;*/
-               // c->doubleJump = 0;
+                c->doubleJump = 0;*/
+                c->dirY = 0;
             }
             return 1;
         }
-        c->OnPlatform = 0;
+        c->OnPlatform = -1;
     }
 
     return 0;

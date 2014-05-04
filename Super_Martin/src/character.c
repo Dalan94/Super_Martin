@@ -9,7 +9,7 @@
 
 
 /**
- *\fn Character *createrCharacter(char *spR,char *spL,int x,int y,int npc)
+ *\fn Character *createCharacter(char *spR,char *spL,int x,int y,int npc)
  *create a character
  *\param[in] spR right sprite address
  *\param[in] spL right sprite address
@@ -18,7 +18,7 @@
  *\param[in] npc 1 if creating a npc, 0 if not
  *\return character structure pointer
  */
-Character *createrCharacter(char *tile,int x, int y,int npc)
+Character *createCharacter(char *tile,int x, int y,int npc)
 {
     Character *c;
     c = (Character *)malloc(sizeof(Character));
@@ -46,7 +46,7 @@ Character *createrCharacter(char *tile,int x, int y,int npc)
     c->isFalling = 0;
     c->moving=0;
 
-    c->OnPlatform = 0;
+    c->OnPlatform = -1;
 
     return c;
 }
@@ -113,8 +113,7 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
             c->isRight = 0;
     }
 
-    if (c->dirY > 0)
-        c->isFalling=1;
+    c->isFalling=1;
 
     ret = tryMovement(c,c->dirX,c->dirY,m,l,ps);
     if(ret == 1)
@@ -302,16 +301,23 @@ int checkFall(Character *c,Map *m,platformSet *ps)
 {
     int x,y;
     int i;
-    if(ps != NULL)
+    /*if(ps != NULL)
         for(i = 0;i<ps->nb;i++)
             if(c->location.y+c->location.h<=ps->tab[i]->location.y+5
                 && c->location.y+c->location.h>=ps->tab[i]->location.y-5
                 && c->location.x>=ps->tab[i]->location.x
                 && c->location.x<=ps->tab[i]->location.x+ps->tab[i]->location.w)
-                    return 0;
+                    return 0;*/
 
     if(!c->isRight)
     {
+        if(ps != NULL)
+            for(i = 0;i<ps->nb;i++)
+                if(c->location.y+c->location.h<=ps->tab[i]->location.y+50
+                    && c->location.y+c->location.h>=ps->tab[i]->location.y-50
+                    && c->location.x>=ps->tab[i]->location.x
+                    && c->location.x<=ps->tab[i]->location.x+ps->tab[i]->location.w)
+                        return 0;
         if(c->isNpc)
         {
             x = (int)(c->location.x + c->dirX)/TILE_SIZE;
@@ -339,6 +345,13 @@ int checkFall(Character *c,Map *m,platformSet *ps)
     }
     else
     {
+        if(ps != NULL)
+            for(i = 0;i<ps->nb;i++)
+                if(c->location.y+c->location.h<=ps->tab[i]->location.y+50
+                    && c->location.y+c->location.h>=ps->tab[i]->location.y-50
+                    && c->location.x+c->location.w>=ps->tab[i]->location.x
+                    && c->location.x+c->location.w<=ps->tab[i]->location.x+ps->tab[i]->location.w)
+                        return 0;
         if(c->isNpc)
         {
             x = (int)(c->location.x + c->dirX + c->location.w)/TILE_SIZE;

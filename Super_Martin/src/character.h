@@ -46,7 +46,7 @@
 
 /*prototypes*/
 int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *s,platformSet *ps);
-Character *createrCharacter(char *tile,int x, int y,int npc);
+Character *createCharacter(char *tile,int x, int y,int npc);
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 
 void gravity(Character *c, Map *m,list *l);

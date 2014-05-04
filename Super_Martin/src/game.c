@@ -75,7 +75,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     /*initialisation des plateformes */
     initPlatformSet(&ps);
-    createPlatform(&ps,5*TILE_SIZE,2*TILE_SIZE,5*TILE_SIZE,20*TILE_SIZE);
+    createPlatform(&ps,5*TILE_SIZE,5*TILE_SIZE,5*TILE_SIZE,20*TILE_SIZE);
     createPlatform(&ps,20*TILE_SIZE,15*TILE_SIZE,50*TILE_SIZE,15*TILE_SIZE);
 
     /*initialisation de la carte et du niveau*/
@@ -91,7 +91,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     background = imageLoadAlpha(m->lvl->background);
 
     /*initialisation du joueur*/
-    player = createrCharacter("sprites/Characters/maryo.png",5*TILE_SIZE,8*TILE_SIZE-39,0);
+    player = createCharacter("sprites/Characters/maryo.png",5*TILE_SIZE,8*TILE_SIZE-39,0);
     initList(&playerList);
     playerList.current = playerList.first = playerList.last = newNode(player,NULL,NULL);
 
@@ -151,9 +151,9 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         updateSpeed(&speed,acceleration);
 
+        movePlatform(player,&ps,&enemyList);
         move(move_left,move_right,jump,player,m,speed,&acceleration,&enemyList,sound_sys,&ps);
         moveEnemies(&enemyList,m,&playerList);
-        movePlatform(player,&ps,&enemyList);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 

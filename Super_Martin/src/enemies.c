@@ -20,7 +20,7 @@
 void createEnemy(char *tile,int x,int y, list *l)
 {
     Character *e;
-    e = createrCharacter(tile, x, y,1);
+    e = createCharacter(tile, x, y,1);
     if(e == NULL)
     {
         perror("allocation error");

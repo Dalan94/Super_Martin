@@ -32,7 +32,7 @@ typedef struct
     int isFalling; /*! indicate if the character is falling*/
     int moving;/*! indicate the number of moving*/
 
-    int OnPlatform; /*! indicates if the character is on a platform */
+    int OnPlatform; /*! indicates if the character is on the platform number x, -1 if not on a platform */
 
 
 }Character;
