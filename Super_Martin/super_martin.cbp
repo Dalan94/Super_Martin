@@ -83,6 +83,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/menu_option.h" />
+		<Unit filename="src/mobile_platform.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/mobile_platform.h" />
 		<Unit filename="src/option.c">
 			<Option compilerVar="CC" />
 		</Unit>

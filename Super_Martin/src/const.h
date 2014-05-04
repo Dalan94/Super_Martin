@@ -34,6 +34,11 @@
     #define TILE_MAX 13
 
     enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, ENEMY, TREE, FLOWER, CLOUD};
+
+    #define NB_PLATFORM_MAX         30
+    #define PLATFORM_SPEED          1
+
+
     enum {RIGHT,LEFT,UP,DOWN};
 
 typedef struct{

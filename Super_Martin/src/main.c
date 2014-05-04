@@ -32,11 +32,6 @@ int main(int argc, char *argv[])
 
     /*chargement des configuration */
     loadOptions(".conf",sound_system,kc);
-    /*kc[2]=SDLK_SPACE;
-    kc[0]=SDLK_q;
-    kc[1]=SDLK_RIGHT;
-    kc[3]=SDLK_p;*/
-
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 

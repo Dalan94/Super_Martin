@@ -23,6 +23,7 @@
 
 #include "image.h"
 #include "enemies.h"
+#include "mobile_platform.h"
 
 
 
@@ -44,17 +45,17 @@
 
 
 /*prototypes*/
-int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *s);
-Character *createrCharacter(char *tile,int x, int y,int npc);
+int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *s,platformSet *ps);
+Character *createCharacter(char *tile,int x, int y,int npc);
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
-int collisionMap(SDL_Rect r,Map *m);
+
 void gravity(Character *c, Map *m,list *l);
 void movementVector(int direction, int *vx, int *vy,float speed);
-int tryMovement(Character *c,int vx,int vy,Map *m,list *l);
-void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l);
+int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps);
+void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l,platformSet *ps);
 void jumping(Character *c, Map *m,Sound *jump_sound,list *l);
 int collisionSprite(SDL_Rect s1, SDL_Rect s2);
-int checkFall(Character *c,Map *m);
+int checkFall(Character *c,Map *m,platformSet *ps);
 
 
 

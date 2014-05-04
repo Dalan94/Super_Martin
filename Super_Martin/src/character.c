@@ -9,7 +9,7 @@
 
 
 /**
- *\fn Character *createrCharacter(char *spR,char *spL,int x,int y,int npc)
+ *\fn Character *createCharacter(char *spR,char *spL,int x,int y,int npc)
  *create a character
  *\param[in] spR right sprite address
  *\param[in] spL right sprite address
@@ -18,7 +18,7 @@
  *\param[in] npc 1 if creating a npc, 0 if not
  *\return character structure pointer
  */
-Character *createrCharacter(char *tile,int x, int y,int npc)
+Character *createCharacter(char *tile,int x, int y,int npc)
 {
     Character *c;
     c = (Character *)malloc(sizeof(Character));
@@ -46,6 +46,8 @@ Character *createrCharacter(char *tile,int x, int y,int npc)
     c->isFalling = 0;
     c->moving=0;
 
+    c->OnPlatform = -1;
+
     return c;
 }
 
@@ -64,7 +66,7 @@ Character *createrCharacter(char *tile,int x, int y,int npc)
  */
 
 
-int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *sound_sys)
+int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *sound_sys,platformSet *ps)
 {
     c->dirX = 0;
     int ret;
@@ -73,6 +75,8 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
     {
         c->dirY = 0;
         c->isFalling = 0;
+        /*if(!c->doubleJump)
+            c->isOnGround = 1;*/
     }
     c->saveY = c->location.y;
 
@@ -80,7 +84,6 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
         c->dirY = -GRAVITY_SPEED*3;
 
     c->dirY+=GRAVITY_SPEED;
-
 
     if(c->dirY >= MAX_FALL_SPEED)
         c->dirY == MAX_FALL_SPEED;
@@ -110,16 +113,15 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
             c->isRight = 0;
     }
 
-    if (c->dirY > 0)
-        c->isFalling=1;
+    c->isFalling=1;
 
-    ret = tryMovement(c,c->dirX,c->dirY,m,l);
+    ret = tryMovement(c,c->dirX,c->dirY,m,l,ps);
     if(ret == 1)
         return 1;
     if(ret == 0)
-        presiseMoveCharacter(c,c->dirX,c->dirY,m,l);
+        presiseMoveCharacter(c,c->dirX,c->dirY,m,l,ps);
 
-    if(!checkFall(c,m))
+    if(!checkFall(c,m,ps))
     {
         c->isOnGround = 1;
         c->isFalling = 0;
@@ -138,7 +140,7 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
  *\param[in] m the map the character is on
  *\return 1 if the character can be moved, 0 if not
  */
-int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
+int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps)
 {
     int ret = 0;
     int ret1 = 1;
@@ -155,7 +157,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
     }
 
     ret = collisionMap(futureLocation,m);
-    if((ret != 1) && !collisionEnemy(c,l,m))
+    if((ret != 1) && !collisionEnemy(c,l,m) && (collisionPlatform(c,ps,futureLocation)!=1))
     {
         if(!c->isNpc)
         {
@@ -187,58 +189,6 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l)
     return 0;
 }
 
-/**
- *\fn int collisionMap(SDL_Rect r,Map *m)
- *determine if there is a collision beteewen a sprite and a "wall" of the map
- *\param[in] r SDL_Rect corresponding to the sprite
- *\param[in] m map
- *\return 1 if there is a collision, 0 if not,2 if collision with star/coin, 3 if spring
- */
-int collisionMap(SDL_Rect r,Map *m)
-{
-    int i,j;
-    int xmin,xmax,ymin,ymax;
-    SDL_Rect test;
-    test.h = TILE_SIZE;
-    test.w = 2*TILE_SIZE;
-    if(r.y < 0)
-        return 0;
-    if(r.x+r.w > (m->lvl->width+1)*TILE_SIZE || r.x < TILE_SIZE || r.y+r.h >(m->lvl->height)*TILE_SIZE -1)
-        return 1; //test les limites du monde
-
-    xmin =  (r.x) / TILE_SIZE -1;
-    xmax =  (r.x + r.w )  / TILE_SIZE ;
-    ymin = (r.y) / TILE_SIZE ;
-    ymax =  (r.y + r.h ) / TILE_SIZE +1;
-
-    for(i = xmin ; i< xmax ; i++)
-    {
-        for (j=ymin ; j< ymax ; j++)
-        {
-            if(m->lvl->map[j][i] != VOID  && m->lvl->map[j][i]<65)
-            {
-                test.x = i*TILE_SIZE;
-                test.y = j*TILE_SIZE;
-                test.h = TILE_SIZE;
-                if(collisionSprite(r,test))
-                    switch(m->lvl->map[j][i])
-                    {
-                        case COIN:
-                            m->lvl->map[j][i] = VOID;
-                            return 2;
-                            break;
-                        case SPRING:
-                            return 3;
-                            break;
-                        default:
-                            return 1;
-                    }
-            }
-        }
-    }
-
-    return 0;
-}
 
 /**
  *int collisionSprite(SDL_Rect s1, SDL_Rect s2)
@@ -254,11 +204,14 @@ int collisionSprite(SDL_Rect s1, SDL_Rect s2)
             || (s1.x > s2.x+s2.w)
             || (s1.y+s1.h < s2.y)
             || (s1.y > s2.y+s2.h)
-     )return 0;
-    if(s1.y+s1.h<=s2.y+10 || s2.y+s2.h<=s1.y+10)
+     )
+        return 0;
+    if(s1.y+s1.h<s2.y+10)
     {
         return 2;
     }
+    if(s2.y+s2.h<s1.y+10)
+        return 3;
     return 1;
 }
 
@@ -269,7 +222,8 @@ int collisionSprite(SDL_Rect s1, SDL_Rect s2)
  *\param[in] c the character
  *\param[in] m game map
  */
-void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
+void blitCharacter(SDL_Surface *screen, Character *c,Map *m)
+{
     SDL_Rect pos,poseTile;
 
     pos.y = c->location.y;
@@ -326,16 +280,19 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m){
  *\param[in] vx the horizontal component of the movement vector
  *\param[in] vy the vertical component of the movement vector
  */
-void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l){
+void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l,platformSet *ps)
+{
     int i,j;
 
-    for(i = 0 ; i < ABS(vx) ; i++){
+    for(i = 0 ; i < ABS(vx) ; i++)
+    {
 
-            if(!tryMovement(c,SGN(vx),0,m,l))
+            if(!tryMovement(c,SGN(vx),0,m,l,ps))
                 break;
     }
-    for(j = 0 ; j < ABS(vy) ; j++){
-        if(!tryMovement(c,0,SGN(vy),m,l))
+    for(j = 0 ; j < ABS(vy) ; j++)
+    {
+        if(!tryMovement(c,0,SGN(vy),m,l,ps))
                 break;
     }
 }
@@ -347,12 +304,27 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l){
  *\param[in] m the game map
  *\return 1 if void tile, 0 if not
  */
-int checkFall(Character *c,Map *m)
+int checkFall(Character *c,Map *m,platformSet *ps)
 {
     int x,y;
+    int i;
+    /*if(ps != NULL)
+        for(i = 0;i<ps->nb;i++)
+            if(c->location.y+c->location.h<=ps->tab[i]->location.y+5
+                && c->location.y+c->location.h>=ps->tab[i]->location.y-5
+                && c->location.x>=ps->tab[i]->location.x
+                && c->location.x<=ps->tab[i]->location.x+ps->tab[i]->location.w)
+                    return 0;*/
 
     if(!c->isRight)
     {
+        if(ps != NULL)
+            for(i = 0;i<ps->nb;i++)
+                if(c->location.y+c->location.h<=ps->tab[i]->location.y+50
+                    && c->location.y+c->location.h>=ps->tab[i]->location.y-50
+                    && c->location.x>=ps->tab[i]->location.x
+                    && c->location.x<=ps->tab[i]->location.x+ps->tab[i]->location.w)
+                        return 0;
         if(c->isNpc)
         {
             x = (int)(c->location.x + c->dirX)/TILE_SIZE;
@@ -380,6 +352,13 @@ int checkFall(Character *c,Map *m)
     }
     else
     {
+        if(ps != NULL)
+            for(i = 0;i<ps->nb;i++)
+                if(c->location.y+c->location.h<=ps->tab[i]->location.y+50
+                    && c->location.y+c->location.h>=ps->tab[i]->location.y-50
+                    && c->location.x+c->location.w>=ps->tab[i]->location.x
+                    && c->location.x+c->location.w<=ps->tab[i]->location.x+ps->tab[i]->location.w)
+                        return 0;
         if(c->isNpc)
         {
             x = (int)(c->location.x + c->dirX + c->location.w)/TILE_SIZE;

@@ -172,13 +172,15 @@ void scrolling(Map *m, int direction,float speed){
 }
 
 /**
- *\fn  Map *initMap(SDL_Surface *screen,char * level_name,list *l)
+ *\fn  Map *initMap(SDL_Surface *screen,char * level_name,list *l,platformSet *ps)
  *initialize the map
  *\param[in] screen game screen
  *\param[in] level_name lvl name
+ *\param[out] l the enemy list that stocks the enemies
+ *\param[out] ps the platform set for the mobile platforms
  *\return pointer on the map
  */
- Map *initMap(SDL_Surface *screen,char * level_name,list *l)
+ Map *initMap(SDL_Surface *screen,char * level_name,list *l,platformSet *ps)
  {
     Map *m;
 
@@ -187,7 +189,7 @@ void scrolling(Map *m, int direction,float speed){
         perror("allocation error");
         exit(errno);
     }
-    m->lvl=openLevel(level_name,l);
+    m->lvl=openLevel(level_name,l,ps);
     m->screenHeight = screen->h;
     m->screenWidth = screen->w;
     m->xScroll = 20;
@@ -203,4 +205,57 @@ void scrolling(Map *m, int direction,float speed){
 void freeMap(Map *m){
     closeLevel(m->lvl);
     free((void *)m);
+}
+
+/**
+ *\fn int collisionMap(SDL_Rect r,Map *m)
+ *determine if there is a collision beteewen a sprite and a "wall" of the map
+ *\param[in] r SDL_Rect corresponding to the sprite
+ *\param[in] m map
+ *\return 1 if there is a collision, 0 if not,2 if collision with star/coin, 3 if spring
+ */
+int collisionMap(SDL_Rect r,Map *m)
+{
+    int i,j;
+    int xmin,xmax,ymin,ymax;
+    SDL_Rect test;
+    test.h = TILE_SIZE;
+    test.w = 2*TILE_SIZE;
+    if(r.y < 0)
+        return 0;
+    if(r.x+r.w > (m->lvl->width+1)*TILE_SIZE || r.x < TILE_SIZE || r.y+r.h >(m->lvl->height)*TILE_SIZE -1)
+        return 1; //test les limites du monde
+
+    xmin =  (r.x) / TILE_SIZE -1;
+    xmax =  (r.x + r.w )  / TILE_SIZE ;
+    ymin = (r.y) / TILE_SIZE ;
+    ymax =  (r.y + r.h ) / TILE_SIZE +1;
+
+    for(i = xmin ; i< xmax ; i++)
+    {
+        for (j=ymin ; j< ymax ; j++)
+        {
+            if(m->lvl->map[j][i] != VOID && m->lvl->map[j][i]<65)
+            {
+                test.x = i*TILE_SIZE;
+                test.y = j*TILE_SIZE;
+                test.h = TILE_SIZE;
+                if(collisionSprite(r,test))
+                    switch(m->lvl->map[j][i])
+                    {
+                        case COIN:
+                            m->lvl->map[j][i] = VOID;
+                            return 2;
+                            break;
+                        case SPRING:
+                            return 3;
+                            break;
+                        default:
+                            return 1;
+                    }
+            }
+        }
+    }
+
+    return 0;
 }

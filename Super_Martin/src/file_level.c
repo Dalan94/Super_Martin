@@ -9,19 +9,23 @@
  #include "file_level.h"
 
 /*!
- * \fn  Level *openLevel(char *file_name, list *l)
+ * \fn  Level *openLevel(char *file_name, list *l,platformSet *ps)
  * Open a map file and stock the map and the enemies
  * \param[in] file_name the map file name
  * \param[out] l the enemy list to stock the enemies.
+ * \param[out] ps the platform set for mobile platforms
  * \return a pointer on the level structure
  */
-Level *openLevel(char *file_name,list *l)
+Level *openLevel(char *file_name,list *l,platformSet *ps)
  {
     FILE *ptr_file;
     int i,j;
     char buffer[TAILLE_BUFFER];
     Level *lvl;
     char *saut_ligne;
+
+    SDL_Rect vert[NB_PLATFORM_MAX], horiz[NB_PLATFORM_MAX];
+    SDL_Rect mark;
 
     if ((lvl=(Level *)malloc(sizeof(Level))) == NULL)
     {
@@ -62,19 +66,37 @@ Level *openLevel(char *file_name,list *l)
     saut_ligne = strchr(lvl->music, '\n');
         *saut_ligne = 0;
 
+    for(i = 0 ; i<NB_PLATFORM_MAX ; i++)
+    {
+        vert[i].x = vert[i].y = horiz[i].x = horiz[i].y = -1;
+    }
+
     for(i=0 ; i < lvl->height ; i++)
     {
         fgets((char *)lvl->map[i],lvl->width+1,ptr_file);
         fgets(buffer,TAILLE_BUFFER,ptr_file);
         for (j=0 ; j < lvl->width ; j++)
         {
-            if(lvl->map[i][j]=='E')
+            switch(lvl->map[i][j])
             {
-                createEnemy("sprites/Characters/witch_doctor.png",j*TILE_SIZE,(i-1)*TILE_SIZE,l);
-                lvl->map[i][j] = VOID;
+                case 'E':
+                    createEnemy("sprites/Characters/witch_doctor.png",j*TILE_SIZE,(i-1)*TILE_SIZE,l);
+                    lvl->map[i][j] = VOID;
+                    break;
+                case 'A':
+                    mark.y = i*TILE_SIZE;
+                    mark.x = j*TILE_SIZE;
+                    platformMap(ps,vert,mark,1);
+                    lvl->map[i][j] = VOID;
+                    break;
+                case 'B':
+                    mark.y = i*TILE_SIZE;
+                    mark.x = j*TILE_SIZE;
+                    platformMap(ps,horiz,mark,0);
+                    lvl->map[i][j] = VOID;
+                default:
+                    lvl->map[i][j]-=48;
             }
-            else if(lvl->map[i][j] < 65)
-                lvl->map[i][j]-=48;
         }
     }
     lvl->tileSetUse = 0;

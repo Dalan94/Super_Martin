@@ -20,7 +20,7 @@
 void createEnemy(char *tile,int x,int y, list *l)
 {
     Character *e;
-    e = createrCharacter(tile, x, y,1);
+    e = createCharacter(tile, x, y,1);
     if(e == NULL)
     {
         perror("allocation error");
@@ -146,6 +146,16 @@ int collisionEnemy(Character *c,list *l,Map *m)
 
                 }
                 break;
+            case 3:
+                if(!c->isNpc)
+                {
+                    c->dirY = -(JUMP_HEIGHT/2);
+                    deleteCurrent(l);
+                    ret = 1;
+                    c->countStars +=2;
+
+                }
+                break;
 
             case 0: ;
 
@@ -170,15 +180,15 @@ void moveEnemies(list *l, Map *m, list *p)
     setOnFirst(l);
     while(!outOfList(l))
     {
-        if(l->current->c->location.x == l->current->c->saveX || checkFall(l->current->c,m))
+        if(l->current->c->location.x == l->current->c->saveX || checkFall(l->current->c,m,NULL))
             l->current->c->isRight ^= 1;
         l->current->c->saveX = l->current->c->location.x;
 
         if(l->current->c->isRight)
-           ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL);
+           ret = moveCharacter(l->current->c,0,1,0,m,2,p,NULL,NULL);
 
         else if(!l->current->c->isRight)
-           ret = moveCharacter(l->current->c,1,0,0,m,2,p,NULL);
+           ret = moveCharacter(l->current->c,1,0,0,m,2,p,NULL,NULL);
 
         if((l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
             deleteCurrent(l);
@@ -198,9 +208,9 @@ void moveEnemies(list *l, Map *m, list *p)
 int moveCharacterCol(Character *c,int move_left, int move_right,Map *m)
 {
     if(!c->isNpc)
-        return moveCharacter(c,move_left,move_right,0,m,50,NULL,NULL);
+        return moveCharacter(c,move_left,move_right,0,m,50,NULL,NULL,NULL);
     else
-        return moveCharacter(c,move_left,move_right,0,m,5,NULL,NULL);
+        return moveCharacter(c,move_left,move_right,0,m,5,NULL,NULL,NULL);
 
 }
 

@@ -24,8 +24,6 @@
 
 int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *kc)
 {
-
-
     SDL_TimerID timer = NULL;
 
     int previous_time=0;
@@ -48,7 +46,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     /*définition des ennemis*/
     list enemyList;
 
-
+    /*définition des plateformes*/
+    platformSet ps;
 
     /*définition des surfaces*/
     SDL_Surface *background = NULL;
@@ -74,8 +73,11 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     /*initialisation des ennemis*/
     initList(&enemyList);
 
+    /*initialisation des plateformes */
+    initPlatformSet(&ps);
+
     /*initialisation de la carte et du niveau*/
-    m = initMap(screen,level_name,&enemyList);
+    m = initMap(screen,level_name,&enemyList,&ps);
 
     /*Gestion de la musique*/
     playMusic(m->lvl->music,sound_sys);
@@ -87,7 +89,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     background = imageLoadAlpha(m->lvl->background);
 
     /*initialisation du joueur*/
-    player = createrCharacter("sprites/Characters/maryo.png",5*TILE_SIZE,8*TILE_SIZE-39,0);
+    player = createCharacter("sprites/Characters/maryo.png",5*TILE_SIZE,8*TILE_SIZE-39,0);
     initList(&playerList);
     playerList.current = playerList.first = playerList.last = newNode(player,NULL,NULL);
 
@@ -147,7 +149,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         updateSpeed(&speed,acceleration);
 
-        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemyList,sound_sys);
+        movePlatform(player,&ps,&enemyList);
+        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemyList,sound_sys,&ps);
         moveEnemies(&enemyList,m,&playerList);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
@@ -156,6 +159,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         updateScreenMap(screen,m, m->lvl->tileSet); //blit du niveau
 
+        blitPlatform(screen,&ps,m);
         blitCharacter(screen,player,m);
         blitEnnemies(screen,&enemyList,m);
 
@@ -178,6 +182,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     free((void *)player);
     freeEnemies(&enemyList);
     freeEnemies(&playerList);
+    freePlatformSet(&ps);
 
     return ret;
 }
@@ -260,9 +265,9 @@ void printWin(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
  *\param[in] m la carte
  *\param[in] speed la vitesse de deplacement
  */
-void move(int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l,Sound *sound_sys)
+void move(int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l,Sound *sound_sys,platformSet *ps)
 {
-    int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l,sound_sys);
+    int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l,sound_sys,ps);
     if (move_right && !move_left)
     {
         (*acceleration)++;
