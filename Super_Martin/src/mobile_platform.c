@@ -133,9 +133,17 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb)
             p->direction = LEFT;
 
         if(p->direction == RIGHT)
+        {
             p->location.x += PLATFORM_SPEED;
+            if(c->OnPlatform == nb)
+                c->location.x += PLATFORM_SPEED;
+        }
         if(p->direction == LEFT)
+        {
             p->location.x -= PLATFORM_SPEED;
+            if(c->OnPlatform == nb)
+                c->location.x -= PLATFORM_SPEED;
+        }
 
         if(c->OnPlatform == nb)
             c->location.y = p->location.y - c->location.h-1;
