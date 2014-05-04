@@ -19,4 +19,6 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb);
 int collisionPlatform(Character *c,platformSet *ps,SDL_Rect futureLocation);
 void freePlatformSet(platformSet *ps);
 
+void platformMap(platformSet *ps, SDL_Rect array[],SDL_Rect mark,int vert);
+
 #endif // MOBILE_PLATFORM_H_INCLUDED

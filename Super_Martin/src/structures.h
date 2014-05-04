@@ -59,7 +59,7 @@ typedef struct
      node * first; /*! the list's first node*/
      node * current; /*! the list 's current node*/
      node * last; /*! the list 's last node*/
- }list;
+}list;
 
 /**
  *\struct platform

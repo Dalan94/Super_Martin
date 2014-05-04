@@ -100,13 +100,15 @@ void scrolling(Map *m, int direction,float speed){
 }
 
 /**
- *\fn  Map *initMap(SDL_Surface *screen,char * level_name,list *l)
+ *\fn  Map *initMap(SDL_Surface *screen,char * level_name,list *l,platformSet *ps)
  *initialize the map
  *\param[in] screen game screen
  *\param[in] level_name lvl name
+ *\param[out] l the enemy list that stocks the enemies
+ *\param[out] ps the platform set for the mobile platforms
  *\return pointer on the map
  */
- Map *initMap(SDL_Surface *screen,char * level_name,list *l)
+ Map *initMap(SDL_Surface *screen,char * level_name,list *l,platformSet *ps)
  {
     Map *m;
 
@@ -115,7 +117,7 @@ void scrolling(Map *m, int direction,float speed){
         perror("allocation error");
         exit(errno);
     }
-    m->lvl=openLevel(level_name,l);
+    m->lvl=openLevel(level_name,l,ps);
     m->screenHeight = screen->h;
     m->screenWidth = screen->w;
     m->xScroll = 20;

@@ -222,3 +222,39 @@ void freePlatformSet(platformSet *ps)
         free((void *)ps->tab[i]);
 }
 
+/* ************************************** */
+/* Gestion des .lvl pour les plateformes  */
+/* ************************************** */
+
+/**
+ *\fn void platformMap(platformSet *ps, SDL_Rect array[],SDL_Rect mark,int vert)
+ *takes a limit mark for a vertical deplacement platform and creates a new platform if finds another
+ *limit mark which match it, stocks it if doesn't find another limit mark
+ *\param[out] ps the platform set
+ *\param[in,out] array the array that stocks the limit marks
+ *\param[in] mark the mark which has to be dealt with
+ *\param[in] vert indicates if vertical movement(1) plarform or horizontal (0)
+ */
+void platformMap(platformSet *ps, SDL_Rect array[],SDL_Rect mark,int vert)
+{
+    int i;
+    for (i=0;i<NB_PLATFORM_MAX;i++)
+    {
+        if((vert && array[i].x == mark.x) || (!vert && array[i].y == mark.y)) //borne correspondante trouvée
+        {
+            createPlatform(ps,array[i].x,array[i].y,mark.x,mark.y);
+            array[i].x = array[i].y = -1;
+            return ;
+        }
+    }
+    for ( i = 0;i<NB_PLATFORM_MAX;i++) //pas de borne correspondante trouvée
+    {
+        if(array[i].x==-1 && array[i].y == -1)// rien à cet emplacement
+        {
+            array[i] = mark;
+            return ;
+        }
+    }
+}
+
+

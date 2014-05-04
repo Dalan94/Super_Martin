@@ -21,7 +21,7 @@
 /*prototypes*/
 void updateScreenMap(SDL_Surface *screen, Map *m);
 void scrolling(Map *m,int direction,float speed);
-Map* initMap(SDL_Surface *screen,char * level_name, list *l);
+Map* initMap(SDL_Surface *screen,char * level_name, list *l,platformSet *ps);
 void freeMap(Map *m);
 int collisionMap(SDL_Rect r,Map *m);
 
