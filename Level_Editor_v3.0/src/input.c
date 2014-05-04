@@ -24,7 +24,6 @@ void updateEvents(Input* in)
 		{
             case SDL_KEYDOWN:
                 in->key[event.key.keysym.sym] = 1;
-                printf(" keydown : %d\n", event.key.keysym.sym);
                 break;
             case SDL_KEYUP:
                 if(((event.key.keysym.sym) != SDLK_y) && ((event.key.keysym.sym) != SDLK_n))
@@ -133,6 +132,14 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
             m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'T';
             break;
 
+        case PLATFORMV :
+            m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'A';
+            break;
+
+        case PLATFORMH :
+            m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'B';
+            break;
+
         case FLOWER :
             m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'P';
             break;
@@ -169,6 +176,15 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
             case 'T' :
                 cursor->tileID = TREE;
                 break;
+
+            case 'A' :
+                cursor->tileID = PLATFORMV;
+                break;
+
+            case 'B' :
+                cursor->tileID = PLATFORMH;
+                break;
+
 
             case 'P' :
                 cursor->tileID = FLOWER;
@@ -256,7 +272,11 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
     }
     else if(in->key[kc[13]])
     {
-        in->key[kc[13]] = 0;
+        cursor->tileID = PLATFORMH;
+    }
+    else if(in->key[kc[14]])
+    {
+        in->key[kc[14]] = 0;
         displayHelp(screen, kc);
     }
 }

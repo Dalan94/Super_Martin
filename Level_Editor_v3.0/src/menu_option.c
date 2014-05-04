@@ -85,8 +85,8 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
-    int nb_key = 14;
-    char key_names[14][MAX_LENGTH_FILE_NAME]={"Left","Right","Save","Reset", "Enemy", "Tree", "Flower", "Cloud", "Ground", "Coin", "Rock", "Spring", "Blank", "Help"};
+    int nb_key = 15;
+    char key_names[15][MAX_LENGTH_FILE_NAME]={"Left","Right","Save","Reset", "Enemy", "Tree", "Flower", "Cloud", "Ground", "Coin", "Rock", "Spring", "Blank", "Platform", "Help"};
     int i, ret =1;
     int text_size;
     int pos_curseur=0;

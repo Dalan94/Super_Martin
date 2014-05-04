@@ -15,7 +15,7 @@
  *\param[in] tileset lvl tileset
  */
 void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor){
-    SDL_Surface *tile, *enemy, *tree, *flower, *cloud;
+    SDL_Surface *tile, *enemy, *tree, *flower, *cloud, *platform, *platformH, *platformV;
     SDL_Rect posTile, posTileSet, posTree, curs;
     int i,j,minx,maxx,nbRow;
     float y_off, x_off;
@@ -31,6 +31,9 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
     enemy = imageLoadAlpha("../Super_Martin/sprites/Characters/witch_doctor.png");
     cloud = imageLoadAlpha("../Super_Martin/sprites/cloud.png");
     flower = imageLoadAlpha("../Super_Martin/sprites/flower.png");
+    platform = imageLoadAlpha("../Super_Martin/sprites/moving_platform.png");
+    platformH = imageLoadAlpha("../Super_Martin/sprites/platformH.png");
+    platformV = imageLoadAlpha("../Super_Martin/sprites/platformV.png");
 
     if(!(strcmp(tileset, "../Super_Martin/sprites/tileSet_Snow.png")))
     {
@@ -80,6 +83,14 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
                     posTileSet.w = posTile.w = 35;
                     SDL_BlitSurface(enemy, &posTileSet, screen, &posTile);
                 }
+                else if(m->lvl->map[j][i] == 'A' || m->lvl->map[j][i] == 'B')
+                {
+                    posTile.x = (i)*TILE_SIZE-m->xScroll;
+                    posTile.y = (j-0.85)*TILE_SIZE;
+                    posTileSet.h = posTile.h = 16;
+                    posTileSet.w = posTile.w = 64;
+                    SDL_BlitSurface(platform, &posTileSet, screen, &posTile);
+                }
                 else if(m->lvl->map[j][i] == 'N')
                 {
                     posTile.x = (i+1-4)*TILE_SIZE-m->xScroll;
@@ -126,6 +137,24 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
         posTileSet.h = curs.h = 29;
         posTileSet.w = curs.w = 35;
         SDL_BlitSurface(enemy, &posTileSet, screen, &curs);
+    }
+    else if(cursor->tileID == PLATFORMV)
+    {
+        curs.x = cursor->x - 2.2 * TILE_SIZE;
+        curs.y = cursor->y - 2 * TILE_SIZE;
+        posTileSet.x = posTileSet.y = 0;
+        posTileSet.h = curs.h = 64;
+        posTileSet.w = curs.w = 80;
+        SDL_BlitSurface(platformV, &posTileSet, screen, &curs);
+    }
+    else if(cursor->tileID == PLATFORMH)
+    {
+        curs.x = cursor->x - 1.2 * TILE_SIZE;
+        curs.y = cursor->y - 2 * TILE_SIZE;
+        posTileSet.x = posTileSet.y = 0;
+        posTileSet.h = curs.h = 32;
+        posTileSet.w = curs.w = 64;
+        SDL_BlitSurface(platformH, &posTileSet, screen, &curs);
     }
     else if(cursor->tileID == FLOWER)
     {
@@ -217,9 +246,9 @@ void displayHelp(SDL_Surface *screen, SDLKey *kc)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
-    int i, ret = 0, nb_key = 14;
+    int i, ret = 0, nb_key = 15;
     int text_size;
-    char key_names[14][MAX_LENGTH_FILE_NAME]={"Left","Right","Save","Reset", "Enemy", "Tree", "Flower", "Cloud", "Ground", "Coin", "Rock", "Spring", "Blank", "Help"};
+    char key_names[15][MAX_LENGTH_FILE_NAME]={"Left","Right","Save","Reset", "Enemy", "Tree", "Flower", "Cloud", "Ground", "Coin", "Rock", "Spring", "Blank", "Platform", "Help"};
     char key[MAX_LENGTH_FILE_NAME];
 
 
@@ -227,7 +256,8 @@ void displayHelp(SDL_Surface *screen, SDLKey *kc)
 
     SDL_Rect posText={0,0,0,0};
 
-    /*winting screen */
+    /*  waiting screen */
+
     waiting = imageLoad("../Super_Martin/sprites/game-over.jpg");
     posWait.x = posWait.y = 0;
     SDL_SetAlpha(waiting, SDL_SRCALPHA, 200);
@@ -239,7 +269,7 @@ void displayHelp(SDL_Surface *screen, SDLKey *kc)
     while(!ret)
     {
         updateWaitEvents(&in);
-        if(in.key[SDLK_ESCAPE] || in.key[SDLK_RETURN] || in.key[kc[13]] || in.quit)
+        if(in.key[SDLK_ESCAPE] || in.key[SDLK_RETURN] || in.key[kc[14]] || in.quit)
             ret = 1;
         for (i=0 ; i < nb_key ; i++)
         {
@@ -263,7 +293,6 @@ void displayHelp(SDL_Surface *screen, SDLKey *kc)
         }
 
         SDL_Flip(screen);
-        ;
     }
 }
 void saveMap(SDL_Surface *screen, Map *m){
