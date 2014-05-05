@@ -22,6 +22,9 @@
 void updateScreenMap(SDL_Surface *screen, Map *m,char *tileset, Cursor *cursor);
 void scrolling(Map *m,int direction,float speed);
 Map* initMap(SDL_Surface *screen,char * level_name);
+void fillLine(Map *m, int line, int column, char tileID);
+void fillColumn(Map *m, int line, int column, char tileID);
+void fillRect(Map *m, int line, int column, char tileID);
 void displayHelp(SDL_Surface *screen, SDLKey *kc);
 void saveMap(SDL_Surface *screen, Map *m);
 void deleteMap(SDL_Surface *screen, char *map_name, char *map_path);

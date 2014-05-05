@@ -14,7 +14,7 @@
     #define SCREEN_WIDTH            TILE_SIZE * NB_TILES_X
     #define SCREEN_HEIGHT           TILE_SIZE * NB_TILES_Y
     #define TILESET_SIZE            16
-    #define OPTIONS_PER_COLUMN      8
+    #define OPTIONS_PER_COLUMN      7
     #define FPS                     60
     #define SCROLLING_MARGIN        2
     #define MAX_LENGTH_FILE_NAME    100

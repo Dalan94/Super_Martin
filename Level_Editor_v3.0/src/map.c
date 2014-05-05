@@ -236,19 +236,78 @@ void scrolling(Map *m, int direction,float speed){
     return m;
  }
 
+
+void fillLine(Map *m, int line, int column, char tileID)
+{
+    int i = column;
+    if(tileID == VOID || tileID == GROUND+1 || tileID == GROUND+4)
+    {
+        while(i < NB_TILES_X && (m->lvl->map[line][i] == VOID || m->lvl->map[line][i] == GROUND+1 || m->lvl->map[line][i] == GROUND+4 || m->lvl->map[line][i] == tileID))
+        {
+            m->lvl->map[line][i] = tileID;
+            i++;
+        }
+        i = column;
+        while(i >= 0 && (m->lvl->map[line][i] == VOID || m->lvl->map[line][i] == GROUND+1 || m->lvl->map[line][i] == GROUND+4 || m->lvl->map[line][i] == tileID))
+        {
+            m->lvl->map[line][i] = tileID;
+            i--;
+        }
+    }
+}
+
+void fillColumn(Map *m, int line, int column, char tileID)
+{
+    int i = line;
+    if(tileID == VOID || (tileID != GROUND && tileID != GROUND+2 && tileID < COIN))
+    {
+        while(i < NB_TILES_Y && (m->lvl->map[i][column] == VOID || m->lvl->map[i][column] == tileID || (m->lvl->map[i][column] > GROUND+2 && m->lvl->map[i][column] < COIN)))
+        {
+            m->lvl->map[i][column] = tileID;
+            i++;
+        }
+        i = line;
+        while(i >= 0 && (m->lvl->map[i][column] == VOID || m->lvl->map[i][column] == tileID || (m->lvl->map[i][column] > GROUND+2 && m->lvl->map[i][column] < COIN)))
+        {
+            m->lvl->map[i][column] = tileID;
+            i--;
+        }
+    }
+}
+
+void fillRect(Map *m, int line, int column, char tileID)
+{
+    int i = line;
+    if(tileID == VOID || tileID == GROUND+4)
+    {
+        while(i < NB_TILES_Y && (m->lvl->map[i][column] == VOID || m->lvl->map[i][column] == GROUND+4))
+        {
+            fillLine(m, i, column, tileID);
+            i++;
+        }
+        i = line;
+        while(i >= 0 && (m->lvl->map[i][column] == VOID || m->lvl->map[i][column] == GROUND+4))
+        {
+            fillLine(m, i, column, tileID);
+            i--;
+        }
+    }
+}
+
 /**
-  *\fn void saveMap(map *m)
-  *Save the map in a new file and update the file 'level' containing the map list
+  *\fn void displayHelp(SDL_Surface *screen, SDLKey *kc)
+  *Display the list of keybindings on the screen
   *\param[in,out] screen The screen of the game
-  *\param[in] m The map to save
+  *\param[in] kc The array containing the keybindings
   */
+
 void displayHelp(SDL_Surface *screen, SDLKey *kc)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
-    int i, ret = 0, nb_key = 15;
+    int i, ret = 0, nb_key = 18;
     int text_size;
-    char key_names[15][MAX_LENGTH_FILE_NAME]={"Left","Right","Save","Reset", "Enemy", "Tree", "Flower", "Cloud", "Ground", "Coin", "Rock", "Spring", "Blank", "Platform", "Help"};
+    char key_names[18][MAX_LENGTH_FILE_NAME]={"Left","Right","Save","Reset", "Enemy", "Tree", "Flower", "Cloud", "Ground", "Coin", "Rock", "Spring", "Blank", "Platform", "Help", "Fill Line", "Fill Column", "Fill Rect"};
     char key[MAX_LENGTH_FILE_NAME];
 
 
@@ -277,24 +336,53 @@ void displayHelp(SDL_Surface *screen, SDLKey *kc)
             text_size= (screen->h -300)/ (min(nb_key, OPTIONS_PER_COLUMN));
             if (text_size > 35)
                 text_size=35;
-            if(i>=OPTIONS_PER_COLUMN)
+            if(i>= 2*OPTIONS_PER_COLUMN)
             {
-                posText.x = 680;
+                posText.x = 750;
+                posText.y = 150 +screen->h / (1.5*(1+OPTIONS_PER_COLUMN)) * (i+1-2*OPTIONS_PER_COLUMN) - text_size;
+            }
+            else if(i>=OPTIONS_PER_COLUMN)
+            {
+                posText.x = 450;
                 posText.y = 150 +screen->h / (1.5*(1+OPTIONS_PER_COLUMN)) * (i+1-OPTIONS_PER_COLUMN) - text_size;
             }
             else
             {
-                posText.x = 300;
+                posText.x = 150;
                 posText.y = 150 + screen->h / (1.5*(1+min(OPTIONS_PER_COLUMN, nb_key))) * (i+1) - text_size;
             }
 
-            sprintf(key,"%s : %s",key_names[i],SDL_GetKeyName(kc[i]));
+            switch(i)
+            {
+                case 15 :
+                    sprintf(key,"%s : CTRL + left click",key_names[i]);
+                    break;
+                case 16 :
+                    sprintf(key,"%s : SHIFT + left click",key_names[i]);
+                    break;
+                case 17 :
+                    sprintf(key,"%s : SPACE + left click",key_names[i]);
+                    break;
+                default :
+                    sprintf(key,"%s : %s",key_names[i],SDL_GetKeyName(kc[i]));
+                    break;
+            }
+
+
             printText(screen,&posText,key,255,60,30,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
         }
 
         SDL_Flip(screen);
     }
 }
+
+/**
+  *\fn void saveMap(SDL_Surface *screen, map *m)
+  *Save the map in a new file and update the file 'level' containing the map list
+  *\param[in,out] screen The screen of the game
+  *\param[in] m The map to save
+  */
+
 void saveMap(SDL_Surface *screen, Map *m){
 
     SDL_Surface *screenshot, *screenshot2, *waiting = NULL;

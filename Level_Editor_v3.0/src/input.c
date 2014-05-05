@@ -154,6 +154,27 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
         }
     }
 
+    if(in->key[SDLK_SPACE])
+    {
+        if(in->mouse[SDL_BUTTON_LEFT])
+        {
+        fillRect(m, cursor->y / TILE_SIZE, ((m->xScroll + cursor->x) / TILE_SIZE)-1, cursor->tileID );
+        }
+    }
+    else if(in->key[SDLK_RCTRL] || in->key[SDLK_LCTRL])
+    {
+        if(in->mouse[SDL_BUTTON_LEFT])
+        {
+        fillLine(m, cursor->y / TILE_SIZE, ((m->xScroll + cursor->x) / TILE_SIZE)-1, cursor->tileID );
+        }
+    }
+    else if(in->key[SDLK_RSHIFT] || in->key[SDLK_LSHIFT])
+    {
+        if(in->mouse[SDL_BUTTON_LEFT])
+        {
+        fillColumn(m, cursor->y / TILE_SIZE, ((m->xScroll + cursor->x) / TILE_SIZE)-1, cursor->tileID );
+        }
+    }
 
 
     /*  Deletion of the tile pointed by the cursor*/
