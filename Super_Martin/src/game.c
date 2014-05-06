@@ -108,7 +108,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         /* récupération des inputs clavier et gestion de leurs auctions*/
         updateEvents(&in,go);
-        keyboardActionGame(&in,&move_left,&move_right,&jump,&pause,player,&acceleration,kc);
+        inputActionGame(&in,&move_left,&move_right,&jump,&pause,player,&acceleration,kc);
 
         if(in.quit)
             *go = 0;
@@ -346,12 +346,13 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
     SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
     SDL_BlitSurface(gameOver,NULL,screen,&posGame);
     SDL_Rect posTex;
-    posTex.x = 394;
-    posTex.y = 180;
+    //posTex.x = 394;
+    posTex.x = -1;
+    posTex.y = screen->h/2 - 100;
 
     printText(screen,&posTex,"PAUSE",186,38,18,"polices/manga.ttf",65,1);
-    posTex.x = 295;
-    posTex.y = 260;
+    posTex.x = -1;
+    posTex.y = screen->h/2 + 100;
     sprintf(st,"Press %s to restart",SDL_GetKeyName(kc[3]));
     printText(screen,&posTex,st,186,38,18,"polices/ubuntu.ttf",50,1);
     SDL_Flip(screen);

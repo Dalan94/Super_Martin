@@ -45,7 +45,7 @@ void initInput(Input *in);
 void initJoystick(Input *in);
 void freeInput(Input *in);
 int updateEvents(Input* in,int *go);
-void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause,Character *player,int *acceleration,SDLKey *kc);
+void inputActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause,Character *player,int *acceleration,SDLKey *kc);
 int updateWaitEvents(Input* in,int *go);
 void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl);
 

@@ -75,7 +75,7 @@ void initJoystick(Input *in)
         exit(errno);
     }
     for(i = 0; i<ret ; i++)
-        in->hat[i] = 0;
+        in->hat[i] = SDL_HAT_CENTERED;
 
 }
 
@@ -153,8 +153,8 @@ int updateEvents(Input* in,int *go)
 
 
 /**
- *\fn void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration,keyConf *kc)
- *perform action command by keyboard action
+ *\fn void inputActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration,keyConf *kc)
+ *perform action command by keyboard or joystick action
  *\param[in] in the input structure
  *\param[out] move_left the left movement boolean
  *\param[out] move_right the right movement boolean
@@ -164,19 +164,20 @@ int updateEvents(Input* in,int *go)
  *\param[in] acceleration the acceleration
  *\param[in] kc the keyboard configuration structure
  */
-void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
+void inputActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
 {
     /*left move*/
-    if((in->key[kc[0]]) && (player->dirY < (-JUMP_HEIGHT + 7)
-                || (player->doubleJump == 0 && player->isOnGround)))
+    if((in->key[kc[0]] || in->hat[0] == SDL_HAT_LEFT) &&
+    (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_left = 1;
-    if((!in->key[kc[0]] ) && player->isOnGround)
+    if(!(in->key[kc[0]] || in->hat[0]==SDL_HAT_LEFT) && player->isOnGround)
         *move_left = 0;
 
     /*right move*/
-    if(in->key[kc[1]] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
+    if((in->key[kc[1]] || in->hat[0] == SDL_HAT_RIGHT)
+            && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_right = 1;
-    if(!in->key[kc[1]] && player->isOnGround)
+    if(!(in->key[kc[1]] || in->hat[0]==SDL_HAT_RIGHT) && player->isOnGround)
         *move_right = 0;
 
     /*jump*/
@@ -198,7 +199,8 @@ void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *
     if(in->key[kc[3]] || in->button[7])
         *pause = 1;
 
-    if (!in->key[kc[1]] && !in->key[kc[0]] && player->isOnGround)
+    if ((!in->key[kc[1]] && !in->key[kc[0]]
+        && !in->hat[0]==SDL_HAT_LEFT) && player->isOnGround)
         *acceleration = 0;
 }
 
@@ -267,11 +269,12 @@ int updateWaitEvents(Input* in, int *go)
             *go = 0;
             break;
 		default:
+            return 0;
 			break;
 
     }
 
-	return 0;
+	return 1;
 }
 
 /**
