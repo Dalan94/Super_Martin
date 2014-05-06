@@ -59,8 +59,9 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     int move_left=0;
     int jump = 0;
 
-    //memset(&in->key,0,sizeof(char)*SDLK_LAST);
-    initInput(in);
+    memset(&in->key,0,sizeof(char)*SDLK_LAST);
+    if(in->isJoystick)
+        initInput(in);
 
     //effacer l'écran
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
@@ -91,14 +92,9 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     initList(&playerList);
     playerList.current = playerList.first = playerList.last = newNode(player,NULL,NULL);
 
-
-
-
     SDL_EnableKeyRepeat(100,100); //répétition des touches
 
     current_time=previous_time=SDL_GetTicks();
-
-
 
     while(!in->key[SDLK_ESCAPE] && *go && !in->isJoystick|!in->button[BACK])
     {

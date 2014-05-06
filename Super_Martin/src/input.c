@@ -90,13 +90,12 @@ void initJoystick(Input *in)
  */
 void freeInput(Input *in)
 {
-    if(in->joystick != NULL)
+    if(in->isJoystick)
     {
         free((void *)in->axes);
         free((void *)in->button);
         free((void *)in->hat);
         SDL_JoystickClose(in->joystick);
-        //free((void *)in->joy);
     }
 }
 
@@ -172,8 +171,8 @@ int updateEvents(Input* in,int *go)
 void inputActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
 {
     /*left move*/
-    if((in->key[kc[0]] || in->isJoystick&(in->hat[0] == SDL_HAT_LEFT)) &&
-    (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
+    if((in->key[kc[0]] || in->isJoystick&(in->hat[0] == SDL_HAT_LEFT))
+            && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_left = 1;
     if(!(in->key[kc[0]] || in->isJoystick&(in->hat[0]==SDL_HAT_LEFT)) && player->isOnGround)
         *move_left = 0;
