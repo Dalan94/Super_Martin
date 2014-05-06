@@ -12,13 +12,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
-
+#include "input.h"
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_ttf.h>
 
 
 void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r,int g, int b, char *font,int ptSize,int mode);
+void captureText(SDL_Surface *screen, SDL_Rect posText,char *text, int text_length, int r, int g, int b, char *font, int text_size,  int *go);
 
 
 #endif // TEXT_H
