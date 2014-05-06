@@ -39,7 +39,7 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
     posWait.x = 0;
     posWait.y = 0;
 
-    level_names=readLevelFile(&nb_lvl);
+    level_names=readLevelFile("level/level", &nb_lvl);
 
 
 

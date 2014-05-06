@@ -119,7 +119,7 @@ Uint32 blinkText(Uint32 interval, void *param)
  *\param[out] sys sound system
  *\return the number of the menu which is choosen, -1 if esc
  */
-int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
+int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys, char *player_name)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -143,8 +143,12 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
 
     memset(&in,0,sizeof(in));
 
+
+
     while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
     {
+
+
         updateWaitEvents(&in,go);
         keyboardActionMenu(&in,&pos_curseur,&ret,nb_menu);
 
@@ -166,7 +170,9 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
                 printText(screen,&posText,menu_names[i],255,60,30,"polices/ubuntu.ttf",text_size,1);
             }
         }
-
+        posText.x = -1;
+        posText.y = 680;
+        printText(screen, &posText, player_name, 0, 0, 0, "polices/PressStart2P.ttf", 30, 1);
         SDL_Flip(screen);
 
     }
@@ -176,4 +182,99 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
         return -1;
 
     return pos_curseur;
+}
+
+/**
+ *\fn int menuPlayers(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *sound_sys)
+ *  Menu to choose the player
+ *\param[out] screen game screen
+ *\param[out] player_name the name of the current player
+ *\param[in,out] go main loop validation
+ *\param[in,out] sound_sys the sound system
+ *\return 2 if the option NewPlayer has been choosen, 1 if a player has been choosen, -1 if esc
+ */
+
+int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *go, Sound *sound_sys)
+{
+
+    SDL_Surface *waiting;
+    SDL_Rect posWait;
+    int previous_time=0;
+    int current_time=0;
+    int choose_player=1;
+    int nb_players;
+    char **player_names;
+    int i;
+    int text_size;
+    int pos_cursor=0;
+
+    Input in;
+
+    SDL_Rect posText={0,0,0,0};
+
+    /*winting screen */
+    waiting = imageLoadAlpha("sprites/Background/menu_background.png");
+    posWait.x = 0;
+    posWait.y = 0;
+
+    player_names=readLevelFile( "save/players", &nb_players);
+    //nb_players += 1;
+
+    sprintf(player_names[nb_players-1], "New player");
+
+    memset(&in,0,sizeof(in));
+
+    while(*go && !in.key[SDLK_RETURN])
+    {
+        updateWaitEvents(&in,NULL);
+        if(in.key[SDLK_ESCAPE])
+        {
+            choose_player = -1;
+            *go = 0;
+        }
+        else
+        {
+            keyboardActionMenu(&in,&pos_cursor,&choose_player, nb_players);
+
+            waitFPS(&previous_time,&current_time);
+
+            SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
+
+            SDL_BlitSurface(waiting, NULL, screen, &posWait);
+
+            for (i=0 ; i < nb_players ; i++)
+            {
+                posText.x = -1;
+                text_size=screen->h / (nb_players+1);
+                if (text_size > 60)
+                    text_size=60;
+                posText.y = screen->h / (1+nb_players) * (i+1) - text_size/2;
+                printText(screen,&posText,player_names[i],0,0,0,"polices/ubuntu.ttf",text_size,1);
+                if(i != pos_cursor)
+                    printText(screen,&posText,player_names[i],0,0,0,"polices/ubuntu.ttf",text_size,1);
+                else
+                    printText(screen,&posText,player_names[i],255,60,30,"polices/ubuntu.ttf",text_size,1);
+
+            }
+
+            SDL_Flip(screen);
+        }
+    }
+
+    SDL_FreeSurface(waiting);
+
+    if(!(strcmp("New player", player_names[pos_cursor])))
+    {
+        choose_player = 2;
+    }
+    else
+    {
+        sprintf(player_name, player_names[pos_cursor]);
+    }
+
+    closeLevelList(player_names,nb_players);
+
+    stopSound(sound_sys,1);
+
+    return choose_player;
 }

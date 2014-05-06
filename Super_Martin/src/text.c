@@ -72,9 +72,9 @@ void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r,int g, 
 
 }
 
-void captureText(SDL_Surface *screen, SDL_Rect posText,char *text, int text_length, int r, int g, int b, char *font, int text_size,  int *go)
+void captureText(SDL_Surface *screen, SDL_Rect posText,char *text, int text_length, int r, int g, int b, char *font, int text_size,  int *go, int *ret)
 {
-    int i = 0, j, posX = posText.x, posY = posText.y, ret=1;
+    int i = 0, j, posX = posText.x, posY = posText.y;
     SDL_Surface *screenshot;
     SDL_Rect posWait;
 
@@ -84,7 +84,7 @@ void captureText(SDL_Surface *screen, SDL_Rect posText,char *text, int text_leng
     Input in;
     memset(&in, 0, sizeof(in));
 
-    while(*go && ret)
+    while(*go && !(*ret))
     {
         updateWaitEvents(&in, NULL);
         if(in.key[SDLK_ESCAPE])
@@ -95,7 +95,7 @@ void captureText(SDL_Surface *screen, SDL_Rect posText,char *text, int text_leng
         }
         else if(in.key[SDLK_RETURN])
         {
-            ret = 0;
+            *ret = 1;
             in.key[SDLK_RETURN] = 0;
         }
         else

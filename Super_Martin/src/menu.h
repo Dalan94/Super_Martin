@@ -28,9 +28,9 @@
 
 
 /*prototypes*/
-int titleMenu(SDL_Surface *screen,int *continuer,Sound *s);
+int titleMenu(SDL_Surface *screen,int *go,Sound *s);
 Uint32 blinkText(Uint32 interval, void *param);
-int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys);
-
+int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys, char *player_name);
+int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *go, Sound *sound_sys);
 
 #endif // MENU_H

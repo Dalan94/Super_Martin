@@ -13,15 +13,17 @@
 #include "menu_option.h"
 #include "menu_level.h"
 #include "option.h"
+#include "player.h"
 
 int main(int argc, char *argv[])
 {
     SDL_Surface *screen = NULL;
 
     int go = 1;
-    int ret,ret1;
+    int ret,ret1, ret2 = 0, ret3;
 
     char level_name[MAX_SIZE_FILE_NAME];
+    char player_name[MAX_SIZE_FILE_NAME];
 
     /*sound*/
     Sound *sound_system;
@@ -49,31 +51,53 @@ int main(int argc, char *argv[])
 
         if(titleMenu(screen,&go,sound_system))
         {
-            while((ret1 = mainMenu(screen,&go,sound_system)) != -1)
-                switch(ret1)
+            while( (ret3 = menuPlayers(screen, player_name, &go, sound_system)) != -1)
+            {
+                switch(ret3)
                 {
                     case -1:
                         break;
-                    case 0:
-                        if (menuLevel(screen,level_name,sound_system,&go))
-                            while(play(screen,level_name,sound_system,&go,kc));
-                        break;
-                    case 1:
-                        while((ret = optionMenu(screen,&go,sound_system,kc)) != -1)
-                            switch(ret)
+                    case 2  :
+                        ret2 = newPlayer(screen, player_name, sound_system, &go);
+                        if(ret2 == 1);
+                        else
+                            break;
+
+                    case 1  :
+
+                        while((ret1 = mainMenu(screen,&go,sound_system, player_name)) != -1)
+                        {
+                            switch(ret1)
                             {
                                 case -1:
                                     break;
                                 case 0:
-                                    soundOptions(screen,&go,sound_system);
+                                    if (menuLevel(screen,level_name,sound_system,&go))
+                                        while(play(screen,level_name,sound_system,&go,kc));
                                     break;
                                 case 1:
-                                    keyBoardOptions(screen,&go,kc);
-                                    break;
-                                default:;
+                                    while((ret = optionMenu(screen,&go,sound_system,kc)) != -1)
+                                        switch(ret)
+                                        {
+                                            case -1:
+                                                break;
+                                            case 0:
+                                                soundOptions(screen,&go,sound_system);
+                                                break;
+                                            case 1:
+                                                keyBoardOptions(screen,&go,kc);
+                                                break;
+                                            default:;
+                                        }
+                                default: ;
                             }
-                    default: ;
+                        }
+
+                    default : ;
+
                 }
+            }
+
         }
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran

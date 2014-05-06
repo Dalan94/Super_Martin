@@ -130,29 +130,29 @@ int updateWaitEvents(Input* in, int *go)
 }
 
 /**
- *\fn void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
+ *\fn void keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
  *perform action command by keyboard action
  *\param[in] in the input structure
  *\param[out] cursorPos cursor position
- *\param[out] play_level boolean about playing the level or quit to title screen
- *\param[in] nb_lvl the number of levels
+ *\param[out] select boolean about selecting the current option
+ *\param[in] nb_options the number of options
 
  */
-void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
+void keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
 {
-    if((in->key[SDLK_ESCAPE] || in->quit) && play_level != NULL)
-        (*play_level) = 0;
+    if((in->key[SDLK_ESCAPE] || in->quit) && select != NULL)
+        (*select) = 0;
 
     if(in->key[SDLK_UP])
     {
         (*cursorPos)--;
         if(*cursorPos < 0)
-            (*cursorPos) = nb_lvl-1;
+            (*cursorPos) = nb_options-1;
     }
     if(in->key[SDLK_DOWN])
     {
         (*cursorPos)++;
-        if(*cursorPos >= nb_lvl)
+        if(*cursorPos >= nb_options)
             (*cursorPos) = 0;
     }
 }
