@@ -385,23 +385,23 @@ void displayHelp(SDL_Surface *screen, SDLKey *kc)
 
 void saveMap(SDL_Surface *screen, Map *m){
 
-    SDL_Surface *screenshot, *screenshot2, *waiting = NULL;
+    SDL_Surface /* *screenshot,*/ *screenshot2, *waiting = NULL;
     SDL_Rect posWait;
     char level_name[MAX_LENGTH_FILE_NAME];
     char level_name_tmp[MAX_LENGTH_FILE_NAME];
+    char choice[1];
     char tmp[MAX_LENGTH_FILE_NAME];
     FILE *ptr_file_level;
     int level_number;
     char **level_list;
     int i, j;
-    char choice = 32;
     int incr;
     int wrong_name = 1;
     SDL_Rect posText={0,0,0,0};
     int text_size = 30;
     int go = 1;
     int ret = 1;
-
+    choice[0]= 32;
     Input in;
 
     memset(&in, 0, sizeof(in));
@@ -429,8 +429,6 @@ void saveMap(SDL_Surface *screen, Map *m){
 
     /*  Save the screen to clear the display of the level_name  later */
 
-    screenshot = SDL_DisplayFormatAlpha(screen);
-    SDL_SetAlpha(screenshot, SDL_SRCALPHA, 200);
     level_name_tmp[0] = 32;
     screenshot2 = SDL_DisplayFormatAlpha(screen);
     SDL_SetAlpha(screenshot2, SDL_SRCALPHA, 200);
@@ -445,118 +443,11 @@ void saveMap(SDL_Surface *screen, Map *m){
         incr = 1;
         wrong_name = 0;
 
-        i = 0;
+        posText.x = -1;
+        posText.y = 220;
 
-        while(go && ret)
-        {
-            if(in.key[SDLK_ESCAPE])
-            {
-                go = 0;
-                in.key[SDLK_ESCAPE] = 0;
+        captureText(screen, posText, level_name_tmp, MAX_LENGTH_FILE_NAME, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, &go);
 
-            }
-            else if(in.key[SDLK_RETURN])
-            {
-                ret = 0;
-                in.key[SDLK_RETURN] = 0;
-            }
-            else
-            {
-                posText.x = -1;
-                posText.y = 150;
-                printText(screen, &posText, "Enter the name of the level : ", 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
-
-                updateWaitEvents(&in);
-
-                /*  Manage the keyboard inputs for the name of the level */
-
-                for(j = SDLK_UNDERSCORE ; j <= SDLK_KP9; j++)
-                {
-                    if(in.key[j])
-                    {
-                        if((in.key[SDLK_CAPSLOCK] || in.key[SDLK_RSHIFT] || in.key[SDLK_LSHIFT]) && j >= SDLK_UNDERSCORE && j <= SDLK_z)
-                        {
-                            level_name_tmp[i] = j-32;
-                            level_name_tmp[i+1] = 0;
-                            in.key[j] = 0;
-
-                        }
-                        else if(j >= SDLK_KP0 && j <= SDLK_KP9)
-                        {
-                            level_name_tmp[i] = j - 208;
-                            in.key[j] = 0;
-                        }
-                        else if(j >= SDLK_UNDERSCORE && j <= SDLK_z)
-                        {
-                        level_name_tmp[i] = j;
-                        level_name_tmp[i+1] = 0;
-                        if(j != SDLK_UNDERSCORE)
-                            in.key[j] = 0;
-                        }
-                    }
-                }
-
-                if(in.key[SDLK_RSHIFT] || in.key[SDLK_LSHIFT])
-                {
-                    if(in.key[224])
-                        level_name_tmp[i]=48;
-                    if(in.key[38])
-                        level_name_tmp[i]=49;
-                    if(in.key[233])
-                        level_name_tmp[i]=50;
-                    if(in.key[34])
-                        level_name_tmp[i]=51;
-                    if(in.key[39])
-                        level_name_tmp[i]=52;
-                    if(in.key[40])
-                        level_name_tmp[i]=53;
-                    if(in.key[45])
-                        level_name_tmp[i]=54;
-                    if(in.key[232])
-                        level_name_tmp[i]=55;
-                    if(in.key[95])
-                        level_name_tmp[i]=56;
-                    if(in.key[231])
-                        level_name_tmp[i]=57;
-                }
-
-                if(level_name_tmp[i] >= 32 && level_name_tmp[i] < SDLK_LAST && i>=0)
-                {
-                    i++;
-                    posText.x = -1;
-                    posText.y = 220;
-
-                    if(i==0)
-                        level_name_tmp[0] = 32;
-
-                    /*  Clear the display of the previous level_name */
-
-                    SDL_BlitSurface(screenshot,NULL,screen,&posWait);
-
-                    printText(screen, &posText, level_name_tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
-                }
-
-                else if(in.key[SDLK_BACKSPACE] && i>0)
-                {
-                    i--;
-                    level_name_tmp[i] = 0;
-                    posText.x = -1;
-                    posText.y = 220;
-                    if(i==0)
-                        level_name_tmp[0] = 32;
-
-                    /*  Clear the display of the previous level_name */
-
-                    SDL_BlitSurface(screenshot,NULL,screen,&posWait);
-
-                    /*  Display the new level_name  */
-
-                    printText(screen, &posText, level_name_tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
-                    in.key[SDLK_BACKSPACE] = 0;
-                }
-            }
-            SDL_Flip(screen);
-        }
         ret = 1;
 
         /*  Manage the file name conflicts */
@@ -574,65 +465,17 @@ void saveMap(SDL_Surface *screen, Map *m){
 
                 screenshot2 = SDL_DisplayFormatAlpha(screen);
 
-                while(go && ret)
-                {
-                    SDL_Flip(screen);
-                    updateWaitEvents(&in);
-                    if(in.key[SDLK_ESCAPE])
-                    {
-                        go = 0;
-                        in.key[SDLK_ESCAPE] = 0;
+                posText.x = -1;
+                posText.y = 370;
 
-                    }
-                    else if(in.key[SDLK_RETURN])
-                    {
-                        ret = 0;
-                        in.key[SDLK_RETURN] = 0;
-                    }
+                captureText(screen, posText, choice, 1, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, &go);
 
-                    /*  Manage the keyboard inputs for the choice */
-
-                    else
-                    {
-                        if(in.key[SDLK_BACKSPACE])
-                        {
-                            choice = ' ';
-                            in.key[SDLK_BACKSPACE] = 0;
-                        }
-                        else
-                        {
-
-                            if(in.key[SDLK_n])
-                            {
-                                choice = SDLK_n;
-                                in.key[SDLK_n] = 0;
-                            }
-                            else if(in.key[SDLK_y])
-                            {
-                                choice = SDLK_y;
-                                in.key[SDLK_y] = 0;
-                            }
-
-                        }
-                        posText.x = -1;
-                        posText.y = 370;
-
-                        /*  Clear the display of the previous choice */
-
-                        SDL_BlitSurface(screenshot2,NULL,screen,&posWait);
-                        tmp[0] = choice;
-
-                        /*  Display the new choice */
-                        text_size = 30;
-                        printText(screen, &posText, tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
-                    }
-                }
-                if(choice == 'n')
+                if(choice[0] == 'n')
                 {
                     sprintf(tmp, "Saving aborted  -  Press Enter to continue");
                     ret = 0;
                 }
-                else
+                else if(choice[0] == 'y')
                 {
                     sprintf(tmp, "Map %s saved  -  Press Enter to continue", level_name_tmp);
                     incr = 0;
@@ -640,7 +483,7 @@ void saveMap(SDL_Surface *screen, Map *m){
                 }
             }
         }
-        if(choice == ' ' && go)
+        if(choice[0] == ' ' && go)
         {
             sprintf(tmp, "Map %s saved  -  Press Enter to continue", level_name_tmp);
             ret = 1;
@@ -651,6 +494,8 @@ void saveMap(SDL_Surface *screen, Map *m){
 
     if(go && ret)
     {
+        fseek(ptr_file_level, 0, SEEK_SET);
+        fscanf(ptr_file_level, "%d", &level_number);
         fseek(ptr_file_level, 0, SEEK_SET);
         fprintf(ptr_file_level, "%d", (level_number+incr));
         fseek(ptr_file_level, 0, SEEK_END);
@@ -690,7 +535,6 @@ void saveMap(SDL_Surface *screen, Map *m){
 
     closeLevelList(level_list, level_number);
     SDL_FreeSurface(waiting);
-    SDL_FreeSurface(screenshot);
     SDL_FreeSurface(screenshot2);
 }
 /**
