@@ -16,7 +16,7 @@
  *\return 1 if the enter key has been pushed
  */
 
-int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
+int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys,Input *in)
 
 {
     SDL_Surface *waiting;
@@ -29,8 +29,8 @@ int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     int event_appear=1;
 
 
-    Input in;
-    memset(&in,0,sizeof(in));
+    //Input in;
+    //memset(&in,0,sizeof(in));
 
     SDL_TimerID timer; /* Variable pour stocker le numéro du timer */
 
@@ -49,16 +49,17 @@ int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     /*appel du timer*/
     timer = SDL_AddTimer(1000,blinkText,&printingText); /* Démarrage du timer */
 
+    initInput(in); //initilisation des inputs
 
+    while(*go && !ret)
+    {
 
-    while(*go && !ret){
-
-            if(updateEvents(&in,go))
+            if(updateEvents(in,go))
                 event_appear = 1;
 
-            if(in.key[SDLK_ESCAPE] || in.quit)
+            if(in->key[SDLK_ESCAPE] || in->quit || in->isJoystick&in->button[BACK])
                 *go = 0;
-            if(in.key[SDLK_RETURN])
+            if(in->key[SDLK_RETURN] || in->isJoystick&(in->button[A] || in->button[START]))
                 ret = 1;
 
 
@@ -104,7 +105,8 @@ Uint32 blinkText(Uint32 interval, void *param)
 
     *printingText ^= 1;
 
-    if(*printingText){
+    if(*printingText)
+    {
         return 1000;
     }
 
@@ -119,7 +121,7 @@ Uint32 blinkText(Uint32 interval, void *param)
  *\param[out] sys sound system
  *\return the number of the menu which is choosen, -1 if esc
  */
-int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
+int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,Input *in)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -130,7 +132,6 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     int text_size;
     int pos_curseur=0;
 
-    Input in;
 
     SDL_Rect posText={0,0,0,0};
 
@@ -141,13 +142,14 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     posWait.x = 0;
     posWait.y = 0;
 
-    //memset(&in,0,sizeof(in));
-    initInput(&in);
+    memset(&in->key,0,SDLK_LAST*sizeof(char));
+    if(in->isJoystick)
+        initInput(in);
 
-    while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
+    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN] && (!in->isJoystick|!(in->button[A] || in->button[BACK])))
     {
-        updateWaitEvents(&in,go);
-        keyboardActionMenu(&in,&pos_curseur,&ret,nb_menu);
+        updateWaitEvents(in,go);
+        inputActionMenu(in,&pos_curseur,&ret,nb_menu);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 

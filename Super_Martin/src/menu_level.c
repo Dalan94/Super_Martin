@@ -17,20 +17,19 @@
  *\return 1 if a level has been choosen, 0 if not
  */
 
-int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys,int *go)
+int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys,int *go,Input *in)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
     int previous_time=0;
     int current_time=0;
-    int play_lvl=1;
+    int play_lvl = 1;
     int nb_lvl;
     char **level_names;
     int i;
     int taille_texte;
     int pos_curseur=0;
 
-    Input in;
 
     SDL_Rect posText={0,0,0,0};
 
@@ -41,13 +40,14 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
 
     level_names=readLevelFile(&nb_lvl);
 
-    initInput(&in);
-    //memset(&in,0,sizeof(in));
+    memset(&in->key,0,SDLK_LAST*sizeof(char));
+    if(in->isJoystick)
+        initInput(in);
 
-    while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
+    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN] && !in->isJoystick|!(in->button[A] || in->button[BACK]))
     {
-        updateWaitEvents(&in,go);
-        keyboardActionMenu(&in,&pos_curseur,&play_lvl,nb_lvl);
+        updateWaitEvents(in,go);
+        inputActionMenu(in,&pos_curseur,&play_lvl,nb_lvl);
 
         waitFPS(&previous_time,&current_time);
 

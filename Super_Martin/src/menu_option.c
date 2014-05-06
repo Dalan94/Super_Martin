@@ -16,7 +16,7 @@
  *\param[in,out] kc the keyboard configuration structure
  *\return the number of the option which is choosen, -1 if esc
  */
-int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc)
+int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc,Input *in)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -27,8 +27,6 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc)
     int pos_curseur=0;
 
 
-    Input in;
-
     SDL_Rect posText={0,0,0,0};
 
 
@@ -37,12 +35,15 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc)
     posWait.x = 0;
     posWait.y = 0;
 
-    memset(&in,0,sizeof(in));
+    memset(&in->key,0,SDLK_LAST*sizeof(char));
+    if(in->isJoystick)
+        initInput(in);
 
-    while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
+    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN]
+           && !in->isJoystick|!(in->button[A] || in->button[BACK]))
     {
-        updateWaitEvents(&in,go);
-        keyboardActionMenu(&in,&pos_curseur,&ret,nb_option);
+        updateWaitEvents(in,go);
+        inputActionMenu(in,&pos_curseur,&ret,nb_option);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
@@ -84,7 +85,7 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc)
  *\param[in,out] go main loop validation
  *\param[in,out] sys sound system
  */
-void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys)
+void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys, Input *in)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait,value;
@@ -95,7 +96,6 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys)
     int pos_curseur=0;
     float curVol;
 
-    Input in;
 
     SDL_Rect posText={0,0,0,0};
 
@@ -104,12 +104,14 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys)
     posWait.x = 0;
     posWait.y = 0;
 
-    memset(&in,0,sizeof(in));
+    memset(&in->key,0,SDLK_LAST*sizeof(char));
+    if(in->isJoystick)
+        initInput(in);
 
-    while(!in.key[SDLK_ESCAPE] && !in.quit)
+    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->isJoystick|!in->button[BACK])
     {
-        updateWaitEvents(&in,go);
-        keyboardActionMenu(&in,&pos_curseur,NULL,nb_option);
+        updateWaitEvents(in,go);
+        inputActionMenu(in,&pos_curseur,NULL,nb_option);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
@@ -149,9 +151,9 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys)
         {
             case 0:
                 curVol = sound_sys->fxVolume;
-                if(in.key[SDLK_RIGHT] && !in.key[SDLK_LEFT])
+                if(in->key[SDLK_RIGHT] && !in->key[SDLK_LEFT])
                     curVol += 0.1;
-                if(!in.key[SDLK_RIGHT] && in.key[SDLK_LEFT])
+                if(!in->key[SDLK_RIGHT] && in->key[SDLK_LEFT])
                     curVol -= 0.1;
                 if(curVol < 0)
                     curVol = 0;
@@ -161,9 +163,9 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys)
                 break;
             case 1:
                 curVol = sound_sys->musicVolume;
-                if(in.key[SDLK_RIGHT] && !in.key[SDLK_LEFT])
+                if(in->key[SDLK_RIGHT] && !in->key[SDLK_LEFT])
                     curVol += 0.1;
-                if(!in.key[SDLK_RIGHT] && in.key[SDLK_LEFT])
+                if(!in->key[SDLK_RIGHT] && in->key[SDLK_LEFT])
                     curVol -= 0.1;
                 if(curVol < 0)
                     curVol = 0;
@@ -185,18 +187,17 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys)
  *\param[in,out] go main loop validation
  *\param[in,out] kc the keyboard config structure
  */
-void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
+void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
     int nb_key = 4;
     char key_names[4][MAX_SIZE_FILE_NAME]={"Left","Right","Jump","Pause"};
-    int i;
+    int i,j;
     int text_size;
     int pos_curseur=0;
-    char key[MAX_SIZE_FILE_NAME];
+    char key[MAX_SIZE_FILE_NAME],st[MAX_SIZE_FILE_NAME];
 
-    Input in;
 
     SDL_Rect posText={0,0,0,0};
 
@@ -205,13 +206,14 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
     posWait.x = 0;
     posWait.y = 0;
 
-    initInput(&in);
-    //memset(&in,0,sizeof(in));
+    memset(&in->key,0,SDLK_LAST*sizeof(char));
+    if(in->isJoystick)
+        initInput(in);
 
-    while(!in.key[SDLK_ESCAPE] && !in.quit)
+    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->isJoystick|!in->button[BACK])
     {
-        updateWaitEvents(&in,go);
-        keyboardActionMenu(&in,&pos_curseur,NULL,nb_key);
+        updateWaitEvents(in,go);
+        inputActionMenu(in,&pos_curseur,NULL,nb_key);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
@@ -225,7 +227,14 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
                 text_size=60;
             posText.y = screen->h / (1+nb_key) * (i+1) - text_size/2;
 
-            sprintf(key,"%s : %s",key_names[i],SDL_GetKeyName(kc[i]));
+            sprintf(st,"%s",SDL_GetKeyName(kc[i]));
+            for(j=0;j<strlen(st);j++)
+            {
+                st[j]-=32;
+                if(st[j]<0)
+                    st[j]=0;
+            }
+            sprintf(key,"%s : %s",key_names[i],st);
 
             if(i != pos_curseur)
                 printText(screen,&posText,key,0,0,0,"polices/ubuntu.ttf",text_size,1);
@@ -235,9 +244,9 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
 
         SDL_Flip(screen);
 
-        if(in.key[SDLK_RETURN])
+        if(in->key[SDLK_RETURN])
         {
-            chooseKey(screen,&in,key_names[pos_curseur],kc,pos_curseur);
+            chooseKey(screen,in,key_names[pos_curseur],kc,pos_curseur);
         }
     }
 
@@ -273,10 +282,10 @@ void chooseKey(SDL_Surface *screen,Input *in,char *action,SDLKey *kc,int nb)
 
     SDL_Delay(1500);
 
-    memset(in,0,sizeof(in));
+    memset(&in->key,0,sizeof(char)*SDLK_LAST);
 
     while(!updateWaitEvents(in,NULL));
-    for(;i<SDLK_LAST;i++)
+    for(i=0;i<SDLK_LAST;i++)
     {
         if(in->key[i])
         {

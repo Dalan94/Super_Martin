@@ -40,11 +40,13 @@ void initJoystick(Input *in)
         perror("error while opening the joystick");
         exit(errno);
     }
-
     if(strcmp("Microsoft X-Box 360 pad",SDL_JoystickName(0)))
     {
         in->isJoystick = 0;
+        SDL_JoystickEventState(SDL_IGNORE);
+        return;
     }
+
 
     in->isJoystick = 1;
     ret = SDL_JoystickNumAxes(in->joystick);
@@ -76,6 +78,8 @@ void initJoystick(Input *in)
     }
     for(i = 0; i<ret ; i++)
         in->hat[i] = SDL_HAT_CENTERED;
+
+
 
 }
 
@@ -114,7 +118,6 @@ int updateEvents(Input* in,int *go)
 		/* **** Keyboard **** */
 		case SDL_KEYDOWN:
 			in->key[event.key.keysym.sym] = 1;
-			return 1;
 			break;
 		case SDL_KEYUP:
 			in->key[event.key.keysym.sym] = 0;
@@ -139,16 +142,18 @@ int updateEvents(Input* in,int *go)
             in->hat[event.jhat.hat] = event.jhat.value;
             break;
 
+
         /* ****************** */
         case SDL_QUIT:
             in->quit = 1;
             *go = 0;
             break;
 		default:
+            return 0;
 			break;
 		}
 	}
-	return 0;
+	return 1;
 }
 
 
@@ -167,40 +172,40 @@ int updateEvents(Input* in,int *go)
 void inputActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
 {
     /*left move*/
-    if((in->key[kc[0]] || in->hat[0] == SDL_HAT_LEFT) &&
+    if((in->key[kc[0]] || in->isJoystick&(in->hat[0] == SDL_HAT_LEFT)) &&
     (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_left = 1;
-    if(!(in->key[kc[0]] || in->hat[0]==SDL_HAT_LEFT) && player->isOnGround)
+    if(!(in->key[kc[0]] || in->isJoystick&(in->hat[0]==SDL_HAT_LEFT)) && player->isOnGround)
         *move_left = 0;
 
     /*right move*/
-    if((in->key[kc[1]] || in->hat[0] == SDL_HAT_RIGHT)
+    if((in->key[kc[1]] || in->isJoystick&(in->hat[0] == SDL_HAT_RIGHT))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_right = 1;
-    if(!(in->key[kc[1]] || in->hat[0]==SDL_HAT_RIGHT) && player->isOnGround)
+    if(!(in->key[kc[1]] || in->isJoystick&(in->hat[0]==SDL_HAT_RIGHT)) && player->isOnGround)
         *move_right = 0;
 
     /*jump*/
-    if(in->key[kc[2]] || in->button[A])
+    if(in->key[kc[2]] || in->isJoystick&in->button[A])
     {
          *jump = 1;
     }
 
-    if((!in->key[kc[2]] && !in->button[A]) && *(jump)==1)
+    if((!in->key[kc[2]] && !in->isJoystick|!in->button[A]) && *(jump)==1)
     {
         *jump = 2;
         if(!player->doubleJump)
             player->doubleJump = 1;
     }
-    else if((!in->key[kc[2]] && !in->button[A]) && (*jump==2 || *jump==0))
+    else if((!in->key[kc[2]] && !in->isJoystick|!in->button[A]) && (*jump==2 || *jump==0))
         *jump = 0;
 
         /*pause*/
-    if(in->key[kc[3]] || in->button[START])
+    if(in->key[kc[3]] || in->isJoystick&in->button[START])
         *pause = 1;
 
     if ((!in->key[kc[1]] && !in->key[kc[0]]
-        && !in->hat[0]==SDL_HAT_LEFT) && player->isOnGround)
+        &&  in->isJoystick&(in->hat[0] == SDL_HAT_CENTERED)) && player->isOnGround)
         *acceleration = 0;
 }
 
@@ -220,28 +225,13 @@ int updateWaitEvents(Input* in, int *go)
 
     switch (event.type)
     {
-//		case SDL_KEYDOWN:
-//			in->key[event.key.keysym.sym] = 1;
-//			return 1;
-//			break;
-//		case SDL_KEYUP:
-//			in->key[event.key.keysym.sym] = 0;
-//			break;
-//        case SDL_QUIT:
-//            in->quit = 1;
-//            *go = 0;
-//            return 1;
-//            break;
-//		default:
-//			break;
-//
         /* **** Keyboard **** */
 		case SDL_KEYDOWN:
 			in->key[event.key.keysym.sym] = 1;
-			return 1;
 			break;
 		case SDL_KEYUP:
 			in->key[event.key.keysym.sym] = 0;
+            return 0;
 			break;
 
         /* **** Joystick **** */
@@ -251,6 +241,7 @@ int updateWaitEvents(Input* in, int *go)
             break;
         case SDL_JOYBUTTONUP:
             in->button[event.jbutton.button] = 0;
+            return 0;
             break;
 
             /* axes */
@@ -261,6 +252,7 @@ int updateWaitEvents(Input* in, int *go)
             /* hats */
         case SDL_JOYHATMOTION:
             in->hat[event.jhat.hat] = event.jhat.value;
+            //SDL_Delay(100);
             break;
 
         /* ****************** */
@@ -278,7 +270,7 @@ int updateWaitEvents(Input* in, int *go)
 }
 
 /**
- *\fn void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
+ *\fn void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
  *perform action command by keyboard action
  *\param[in] in the input structure
  *\param[out] cursorPos cursor position
@@ -286,21 +278,23 @@ int updateWaitEvents(Input* in, int *go)
  *\param[in] nb_lvl the number of levels
 
  */
-void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
+void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
 {
-    if((in->key[SDLK_ESCAPE] || in->quit) && play_level != NULL)
+    if((in->key[SDLK_ESCAPE] || in->quit || in->isJoystick&in->button[BACK]) && play_level != NULL)
         (*play_level) = 0;
 
-    if(in->key[SDLK_UP])
+    if(in->key[SDLK_UP] || in->isJoystick&(in->hat[0] == SDL_HAT_UP))
     {
         (*cursorPos)--;
         if(*cursorPos < 0)
             (*cursorPos) = nb_lvl-1;
+        //SDL_Delay(100);
     }
-    if(in->key[SDLK_DOWN])
+    if(in->key[SDLK_DOWN] || in->isJoystick&(in->hat[0] == SDL_HAT_DOWN))
     {
         (*cursorPos)++;
         if(*cursorPos >= nb_lvl)
             (*cursorPos) = 0;
+       // SDL_Delay(100);
     }
 }

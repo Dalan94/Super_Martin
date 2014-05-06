@@ -23,7 +23,7 @@
 #include "image.h"
 #include "input.h"
 
-int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *s,int *go);
+int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *s,int *go,Input *in);
 
 
 #endif // MENU_LEVEL_H_INCLUDED

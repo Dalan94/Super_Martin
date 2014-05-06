@@ -32,6 +32,9 @@ int main(int argc, char *argv[])
     /*config clavier*/
     SDLKey kc[4];
 
+    /*input*/
+    Input in;
+
     /*chargement des configuration */
     loadOptions(".conf",sound_system,kc);
 
@@ -40,7 +43,7 @@ int main(int argc, char *argv[])
     /*initialisation de l'écran*/
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 
-
+    initInput(&in);
 
     SDL_WM_SetCaption("Super Martin", NULL); //titre de la fenêtres
 
@@ -62,28 +65,28 @@ int main(int argc, char *argv[])
     while (go) //main loop
     {
 
-        if(titleMenu(screen,&go,sound_system))
+        if(titleMenu(screen,&go,sound_system,&in))
         {
-            while((ret1 = mainMenu(screen,&go,sound_system)) != -1)
+            while((ret1 = mainMenu(screen,&go,sound_system,&in)) != -1)
                 switch(ret1)
                 {
                     case -1:
                         break;
                     case 0:
-                        if (menuLevel(screen,level_name,sound_system,&go))
-                            while(play(screen,level_name,sound_system,&go,kc));
+                        if (menuLevel(screen,level_name,sound_system,&go,&in))
+                            while(play(screen,level_name,sound_system,&go,kc,&in));
                         break;
                     case 1:
-                        while((ret = optionMenu(screen,&go,sound_system,kc)) != -1)
+                        while((ret = optionMenu(screen,&go,sound_system,kc,&in)) != -1)
                             switch(ret)
                             {
                                 case -1:
                                     break;
                                 case 0:
-                                    soundOptions(screen,&go,sound_system);
+                                    soundOptions(screen,&go,sound_system,&in);
                                     break;
                                 case 1:
-                                    keyBoardOptions(screen,&go,kc);
+                                    keyBoardOptions(screen,&go,kc,&in);
                                     break;
                                 default:;
                             }
@@ -100,6 +103,7 @@ int main(int argc, char *argv[])
     freeSound(sound_system);
 
     //SDL_JoystickClose(joystick);
+    freeInput(&in);
     SDL_Quit();
 
     return EXIT_SUCCESS;

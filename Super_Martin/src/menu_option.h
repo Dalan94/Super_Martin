@@ -26,7 +26,8 @@
 #include "input.h"
 #include "option.h"
 
-int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc);
-void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys);
+int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc,Input *in);
+void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys,Input *in);
+void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in);
 
 #endif // MENU_OPTION_H_INCLUDED

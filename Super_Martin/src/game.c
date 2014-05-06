@@ -22,7 +22,7 @@
  */
 
 
-int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *kc)
+int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *kc,Input *in)
 {
     SDL_TimerID timer = NULL;
 
@@ -59,11 +59,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     int move_left=0;
     int jump = 0;
 
-
-    /*gestion des inputs*/
-    Input in;
-    //memset(&in,0,sizeof(in));
-    initInput(&in);
+    //memset(&in->key,0,sizeof(char)*SDLK_LAST);
+    initInput(in);
 
     //effacer l'écran
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
@@ -103,14 +100,14 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
 
 
-    while(!in.key[SDLK_ESCAPE] && *go)
+    while(!in->key[SDLK_ESCAPE] && *go && !in->isJoystick|!in->button[BACK])
     {
 
         /* récupération des inputs clavier et gestion de leurs auctions*/
-        updateEvents(&in,go);
-        inputActionGame(&in,&move_left,&move_right,&jump,&pause,player,&acceleration,kc);
+        updateEvents(in,go);
+        inputActionGame(in,&move_left,&move_right,&jump,&pause,player,&acceleration,kc);
 
-        if(in.quit)
+        if(in->quit)
             *go = 0;
 
         /* gestion de la mort*/
@@ -121,7 +118,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
             if(!(m->lvl->timer_level>0 && player->life))
             {
                 stopSound(sound_sys,1);
-                printGameOver(screen,go,&in,sound_sys);
+                printGameOver(screen,go,in,sound_sys);
                 ret = 1;
                 break;
             }
@@ -137,13 +134,13 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         if((player->location.x)/TILE_SIZE >= m->lvl->width - IMG_END_SIZE / TILE_SIZE + 1 && *go)
         {
-            printWin(screen,go,&in,sound_sys);
+            printWin(screen,go,in,sound_sys);
             break;
         }
 
         if (pause)
         {
-            printPause(screen,&in,&(m->lvl->timer_level),go,kc);
+            printPause(screen,in,&(m->lvl->timer_level),go,kc);
             pause=0;
         }
 
@@ -184,7 +181,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     freeEnemies(&enemyList);
     freeEnemies(&playerList);
     freePlatformSet(&ps);
-    freeInput(&in);
+
 
     return ret;
 }
@@ -357,9 +354,12 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
     printText(screen,&posTex,st,186,38,18,"polices/ubuntu.ttf",50,1);
     SDL_Flip(screen);
 
-    in->button[START] = in->key[kc[3]] = 0;
 
-    while(!(in->key[kc[3]] || in->button[START])&& *go)
+    in->key[kc[3]] = 0;
+    if(in->isJoystick)
+        in->button[START] = 0;
+
+    while(!(in->key[kc[3]] || in->isJoystick&in->button[START]) && *go)
     {
 
         updateWaitEvents(in,go);
@@ -370,7 +370,9 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
     SDL_FreeSurface(gameOver);
 
     *time=time_pause;
-    in->button[START] = in->key[kc[3]] = 0;
+    if(in->isJoystick)
+        in->button[START] = 0;
+    in->key[kc[3]] = 0;
 }
 
 Uint32 decomptage(Uint32 intervalle,void* parametre){

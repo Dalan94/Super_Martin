@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <errno.h>
 
-#include "SDL/SDL_joystick.h"
 #include "character.h"
 
 /**
@@ -15,7 +14,7 @@
  */
 typedef enum
 {
-    A = 0,B,X,Y,START = 7
+    A = 0,B,X,Y,BACK = 6,START,
 }joyButton;
 
 /**
@@ -27,7 +26,7 @@ typedef struct
 	char key[SDLK_LAST]; /*! all the keyboard keys : 1 the key is pushed, 0 isn't */
 	int quit; /*! is 1 is the SDL_QUIT event happens */
 
-    int isJoystick;
+    int isJoystick; /*! indicate if there is a joystick plugged in */
 	SDL_Joystick *joystick; /*! the joystick */
 	char *button; /*! all the joystick buttons : 1 the button is pushed, 0 isn't */
     int *axes; /*! the joystick axes value : between -32768 and 32767 */
@@ -43,6 +42,6 @@ void freeInput(Input *in);
 int updateEvents(Input* in,int *go);
 void inputActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause,Character *player,int *acceleration,SDLKey *kc);
 int updateWaitEvents(Input* in,int *go);
-void keyboardActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl);
+void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl);
 
 #endif // INPUT_H_INCLUDED
