@@ -141,7 +141,8 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys)
     posWait.x = 0;
     posWait.y = 0;
 
-    memset(&in,0,sizeof(in));
+    //memset(&in,0,sizeof(in));
+    initInput(&in);
 
     while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
     {

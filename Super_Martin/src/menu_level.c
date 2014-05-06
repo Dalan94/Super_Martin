@@ -41,9 +41,8 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
 
     level_names=readLevelFile(&nb_lvl);
 
-
-
-    memset(&in,0,sizeof(in));
+    initInput(&in);
+    //memset(&in,0,sizeof(in));
 
     while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
     {

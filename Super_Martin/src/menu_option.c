@@ -205,7 +205,8 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
     posWait.x = 0;
     posWait.y = 0;
 
-    memset(&in,0,sizeof(in));
+    initInput(&in);
+    //memset(&in,0,sizeof(in));
 
     while(!in.key[SDLK_ESCAPE] && !in.quit)
     {

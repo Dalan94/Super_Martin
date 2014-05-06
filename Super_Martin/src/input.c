@@ -181,22 +181,22 @@ void inputActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pau
         *move_right = 0;
 
     /*jump*/
-    if(in->key[kc[2]] || in->button[0])
+    if(in->key[kc[2]] || in->button[A])
     {
          *jump = 1;
     }
 
-    if((!in->key[kc[2]] && !in->button[0]) && *(jump)==1)
+    if((!in->key[kc[2]] && !in->button[A]) && *(jump)==1)
     {
         *jump = 2;
         if(!player->doubleJump)
             player->doubleJump = 1;
     }
-    else if((!in->key[kc[2]] && !in->button[0]) && (*jump==2 || *jump==0))
+    else if((!in->key[kc[2]] && !in->button[A]) && (*jump==2 || *jump==0))
         *jump = 0;
 
         /*pause*/
-    if(in->key[kc[3]] || in->button[7])
+    if(in->key[kc[3]] || in->button[START])
         *pause = 1;
 
     if ((!in->key[kc[1]] && !in->key[kc[0]]

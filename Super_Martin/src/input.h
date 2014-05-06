@@ -10,17 +10,13 @@
 #include "character.h"
 
 /**
- *\struct Joystick
- *joystick input structure
+ *\enum joyButton
+ *the joystick's button
  */
-//typedef struct
-//{
-//
-//    char *button; /*! all the joystick buttons : 1 the button is pushed, 0 isn't */
-//    int *axes; /*! the axes value : between -32768 and 32767 */
-//    int *hat; /*! the hats value : SDL_HAT_CENTERED, SDL_HAT_UP, SDL_HAT_RIGHT,
-//                SDL_HAT_DOWN, SDL_HAT_LEFT, SDL_HAT_RIGHTUP, SDL_HAT_RIGHTDOWN, SDL_HAT_LEFTUP, SDL_HAT_LEFTDOWN*/
-//}Joystick;
+typedef enum
+{
+    A = 0,B,X,Y,START = 7
+}joyButton;
 
 /**
  *\struct Input

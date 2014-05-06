@@ -356,9 +356,10 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
     sprintf(st,"Press %s to restart",SDL_GetKeyName(kc[3]));
     printText(screen,&posTex,st,186,38,18,"polices/ubuntu.ttf",50,1);
     SDL_Flip(screen);
-    in->button[7] = in->key[kc[3]] = 0;
 
-    while(!(in->key[kc[3]] || in->button[7])&& *go)
+    in->button[START] = in->key[kc[3]] = 0;
+
+    while(!(in->key[kc[3]] || in->button[START])&& *go)
     {
 
         updateWaitEvents(in,go);
@@ -369,7 +370,7 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
     SDL_FreeSurface(gameOver);
 
     *time=time_pause;
-    in->button[7] = in->key[kc[3]] = 0;
+    in->button[START] = in->key[kc[3]] = 0;
 }
 
 Uint32 decomptage(Uint32 intervalle,void* parametre){
