@@ -1,16 +1,104 @@
 /*!
  *\file input.c
- *\brief
+ *\brief the funtions to deal with the player inputs
  *\author Xavier COPONET
  *\date 2014-03-18
  */
 
 #include "input.h"
+#include "SDL/SDL_joystick.h"
 
+/**
+ *\fn void initInput(Input *in)
+ * initialize the input structure
+ *\param[out] in the input structure to be initialized
+ */
+void initInput(Input *in)
+{
+    int i;
+
+    for(i = 0; i<SDLK_LAST ; i++)
+        in->key[i] = 0;
+
+    in->quit = 0;
+
+    initJoystick(in);
+}
+
+/**
+ *\fn void initJoystick(Joystick *joy)
+ * initialize the joystic fiels of the input structure
+ *\param[out] joy the joystick input structure to be initialized
+ */
+void initJoystick(Input *in)
+{
+    int i;
+    int ret;
+    in->joystick = SDL_JoystickOpen(0);
+    if(in->joystick == NULL)
+    {
+        perror("error while opening the joystick");
+        exit(errno);
+    }
+
+    if(strcmp("Microsoft X-Box 360 pad",SDL_JoystickName(0)))
+    {
+        in->isJoystick = 0;
+    }
+
+    in->isJoystick = 1;
+    ret = SDL_JoystickNumAxes(in->joystick);
+    in->axes = (int *)malloc(sizeof(int)*ret);
+    if(in->axes == NULL)
+    {
+        perror("allocation error");
+        exit(errno);
+    }
+    for(i = 0; i<ret ; i++)
+        in->axes[i] = 0;
+
+    ret = SDL_JoystickNumButtons(in->joystick);
+    in->button = (char *)malloc(sizeof(char)*ret);
+    if(in->button == NULL)
+    {
+        perror("allocation error");
+        exit(errno);
+    }
+    for(i = 0; i<ret ; i++)
+        in->button[i] = 0;
+
+    ret = SDL_JoystickNumHats(in->joystick);
+    in->hat = (int *)malloc(sizeof(char)*ret);
+    if(in->hat == NULL)
+    {
+        perror("allocation error");
+        exit(errno);
+    }
+    for(i = 0; i<ret ; i++)
+        in->hat[i] = 0;
+
+}
+
+/**
+ *\fn void freeInput(Input *in)
+ * free the input structure
+ *\param[out] in the input structure
+ */
+void freeInput(Input *in)
+{
+    if(in->joystick != NULL)
+    {
+        free((void *)in->axes);
+        free((void *)in->button);
+        free((void *)in->hat);
+        SDL_JoystickClose(in->joystick);
+        //free((void *)in->joy);
+    }
+}
 
 /**
  *\fn int updateEvents(Input* in)
- *recuperate keyboard input with a SDL_PollEvent
+ *recuperate keyboard/joystick input with a SDL_PollEvent
  *\param[out] in the input structure
  *\return 1 if a key is activated
  */
@@ -22,6 +110,8 @@ int updateEvents(Input* in,int *go)
 	{
 		switch (event.type)
 		{
+
+		/* **** Keyboard **** */
 		case SDL_KEYDOWN:
 			in->key[event.key.keysym.sym] = 1;
 			return 1;
@@ -29,6 +119,27 @@ int updateEvents(Input* in,int *go)
 		case SDL_KEYUP:
 			in->key[event.key.keysym.sym] = 0;
 			break;
+
+        /* **** Joystick **** */
+            /* buttons */
+        case SDL_JOYBUTTONDOWN:
+            in->button[event.jbutton.button] = 1;
+            break;
+        case SDL_JOYBUTTONUP:
+            in->button[event.jbutton.button] = 0;
+            break;
+
+            /* axes */
+        case SDL_JOYAXISMOTION:
+            in->axes[event.jaxis.axis] = event.jaxis.value;
+            break;
+
+            /* hats */
+        case SDL_JOYHATMOTION:
+            in->hat[event.jhat.hat] = event.jhat.value;
+            break;
+
+        /* ****************** */
         case SDL_QUIT:
             in->quit = 1;
             *go = 0;
@@ -56,9 +167,10 @@ int updateEvents(Input* in,int *go)
 void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
 {
     /*left move*/
-    if(in->key[kc[0]] && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
+    if((in->key[kc[0]]) && (player->dirY < (-JUMP_HEIGHT + 7)
+                || (player->doubleJump == 0 && player->isOnGround)))
         *move_left = 1;
-    if(!in->key[kc[0]]  && player->isOnGround)
+    if((!in->key[kc[0]] ) && player->isOnGround)
         *move_left = 0;
 
     /*right move*/
@@ -68,26 +180,22 @@ void keyboardActionGame(Input *in,int *move_left,int *move_right,int *jump,int *
         *move_right = 0;
 
     /*jump*/
-    if(in->key[kc[2]])
+    if(in->key[kc[2]] || in->button[0])
     {
          *jump = 1;
     }
-    /*if(in->key[kc[2]] && player->isOnGround)
-    {
-        *jump = 1;
-    }*/
 
-    if(!in->key[kc[2]] && *(jump)==1)
+    if((!in->key[kc[2]] && !in->button[0]) && *(jump)==1)
     {
         *jump = 2;
         if(!player->doubleJump)
             player->doubleJump = 1;
     }
-    else if(!in->key[kc[2]] && (*jump==2 || *jump==0))
+    else if((!in->key[kc[2]] && !in->button[0]) && (*jump==2 || *jump==0))
         *jump = 0;
 
         /*pause*/
-    if(in->key[kc[3]])
+    if(in->key[kc[3]] || in->button[7])
         *pause = 1;
 
     if (!in->key[kc[1]] && !in->key[kc[0]] && player->isOnGround)
@@ -110,6 +218,22 @@ int updateWaitEvents(Input* in, int *go)
 
     switch (event.type)
     {
+//		case SDL_KEYDOWN:
+//			in->key[event.key.keysym.sym] = 1;
+//			return 1;
+//			break;
+//		case SDL_KEYUP:
+//			in->key[event.key.keysym.sym] = 0;
+//			break;
+//        case SDL_QUIT:
+//            in->quit = 1;
+//            *go = 0;
+//            return 1;
+//            break;
+//		default:
+//			break;
+//
+        /* **** Keyboard **** */
 		case SDL_KEYDOWN:
 			in->key[event.key.keysym.sym] = 1;
 			return 1;
@@ -117,13 +241,34 @@ int updateWaitEvents(Input* in, int *go)
 		case SDL_KEYUP:
 			in->key[event.key.keysym.sym] = 0;
 			break;
+
+        /* **** Joystick **** */
+            /* buttons */
+        case SDL_JOYBUTTONDOWN:
+            in->button[event.jbutton.button] = 1;
+            break;
+        case SDL_JOYBUTTONUP:
+            in->button[event.jbutton.button] = 0;
+            break;
+
+            /* axes */
+        case SDL_JOYAXISMOTION:
+            in->axes[event.jaxis.axis] = event.jaxis.value;
+            break;
+
+            /* hats */
+        case SDL_JOYHATMOTION:
+            in->hat[event.jhat.hat] = event.jhat.value;
+            break;
+
+        /* ****************** */
         case SDL_QUIT:
             in->quit = 1;
             *go = 0;
-            return 1;
             break;
 		default:
 			break;
+
     }
 
 	return 0;

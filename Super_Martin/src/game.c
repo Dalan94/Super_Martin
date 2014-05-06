@@ -62,7 +62,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     /*gestion des inputs*/
     Input in;
-    memset(&in,0,sizeof(in));
+    //memset(&in,0,sizeof(in));
+    initInput(&in);
 
     //effacer l'écran
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
@@ -183,6 +184,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     freeEnemies(&enemyList);
     freeEnemies(&playerList);
     freePlatformSet(&ps);
+    freeInput(&in);
 
     return ret;
 }
@@ -353,9 +355,9 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
     sprintf(st,"Press %s to restart",SDL_GetKeyName(kc[3]));
     printText(screen,&posTex,st,186,38,18,"polices/ubuntu.ttf",50,1);
     SDL_Flip(screen);
-    in->key[kc[3]] = 0;
+    in->button[7] = in->key[kc[3]] = 0;
 
-    while(!in->key[kc[3]] && *go)
+    while(!(in->key[kc[3]] || in->button[7])&& *go)
     {
 
         updateWaitEvents(in,go);
@@ -366,7 +368,7 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
     SDL_FreeSurface(gameOver);
 
     *time=time_pause;
-    in->key[kc[3]] = 0;
+    in->button[7] = in->key[kc[3]] = 0;
 }
 
 Uint32 decomptage(Uint32 intervalle,void* parametre){

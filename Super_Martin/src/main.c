@@ -4,7 +4,6 @@
  *\date 2014-02-27
  */
 
-
 #include "game.h"
 #include "const.h"
 #include "menu.h"
@@ -13,6 +12,7 @@
 #include "menu_option.h"
 #include "menu_level.h"
 #include "option.h"
+#include "input.h"
 
 int main(int argc, char *argv[])
 {
@@ -20,6 +20,8 @@ int main(int argc, char *argv[])
 
     int go = 1;
     int ret,ret1;
+    int i;
+    //SDL_Joystick *joystick; // on crée le joystick
 
     char level_name[MAX_SIZE_FILE_NAME];
 
@@ -33,7 +35,7 @@ int main(int argc, char *argv[])
     /*chargement des configuration */
     loadOptions(".conf",sound_system,kc);
 
-    SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
+    SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER|SDL_INIT_JOYSTICK);
 
     /*initialisation de l'écran*/
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
@@ -43,6 +45,19 @@ int main(int argc, char *argv[])
     SDL_WM_SetCaption("Super Martin", NULL); //titre de la fenêtres
 
     SDL_ShowCursor(SDL_DISABLE); //efface la souris
+
+
+//    joystick = SDL_JoystickOpen(0); // on l'assigne au numéro 0
+//
+//    printf("\nIl y a %d joysticks.\n",SDL_NumJoysticks()); // on écrit combien il y a de joysticks
+//    for(i=0;i<SDL_NumJoysticks();i++)
+//        printf("Nom du joystick numero %d : %s\n",i,SDL_JoystickName(i)); // on écrit les noms des joysticks
+//
+//    printf("Nombre de boutons : %d\n",SDL_JoystickNumButtons(joystick)); // nombre de boutons
+//    printf("Nombre d'axes : %d\n",SDL_JoystickNumAxes(joystick)); // nombre d'axes
+//    printf("Nombre de chapeaux : %d\n",SDL_JoystickNumHats(joystick)); // nombre de chapeaux
+//    printf("Nombre de trackballs : %d\n",SDL_JoystickNumBalls(joystick)); // nombre de trackballs*/
+
 
     while (go) //main loop
     {
@@ -84,7 +99,8 @@ int main(int argc, char *argv[])
 
     freeSound(sound_system);
 
+    //SDL_JoystickClose(joystick);
     SDL_Quit();
 
-    return 0;
+    return EXIT_SUCCESS;
 }
