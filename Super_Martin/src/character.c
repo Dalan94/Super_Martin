@@ -66,17 +66,26 @@ Character *createCharacter(char *tile,int x, int y,int npc)
  */
 
 
-int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l,Sound *sound_sys,platformSet *ps)
+int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m,float* speed,list *l,Sound *sound_sys,platformSet *ps)
 {
     c->dirX = 0;
     int ret;
+    float s;
+    if(move_left < 2 && move_right < 2)
+        s = *speed;
+    else
+    {
+        if(move_right < 2)
+            s = move_left;
+        if(move_left < 2)
+            s = move_right;
+    }
+    *speed = s;
 
     if(c->location.y == c->saveY)
     {
         c->dirY = 0;
         c->isFalling = 0;
-        /*if(!c->doubleJump)
-            c->isOnGround = 1;*/
     }
     c->saveY = c->location.y;
 
@@ -102,13 +111,13 @@ int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,flo
 
     if (move_right && !move_left)
     {
-        c->dirX += speed;
+        c->dirX += s;
         if(l != NULL)
             c->isRight = 1;
     }
     if (move_left && !move_right)
     {
-        c->dirX -= speed;
+        c->dirX -= s;
         if(l != NULL)
             c->isRight = 0;
     }

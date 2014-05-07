@@ -55,8 +55,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
 
     /*Gestion des mouvements*/
-    int move_right=0;
-    int move_left=0;
+    float move_right=0;
+    float move_left=0;
     int jump = 0;
 
     memset(&in->key,0,sizeof(char)*SDLK_LAST);
@@ -144,7 +144,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
         updateSpeed(&speed,acceleration);
 
         movePlatform(player,&ps,&enemyList);
-        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemyList,sound_sys,&ps);
+        move(move_left,move_right,jump,player,m,&speed,&acceleration,&enemyList,sound_sys,&ps);
         moveEnemies(&enemyList,m,&playerList);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
@@ -260,7 +260,7 @@ void printWin(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
  *\param[in] m la carte
  *\param[in] speed la vitesse de deplacement
  */
-void move(int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l,Sound *sound_sys,platformSet *ps)
+void move(float move_left, float move_right,int jump, Character *player,Map *m,float *speed, int *acceleration,list *l,Sound *sound_sys,platformSet *ps)
 {
     int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l,sound_sys,ps);
     if (move_right && !move_left)
@@ -270,9 +270,9 @@ void move(int move_left, int move_right,int jump, Character *player,Map *m,float
         {
 
             if (player->location.x - m->xScroll > m->screenWidth*(50-DEPLACEMENT_POURCENTAGE)/100  && player->location.x - m->xScroll < m->screenWidth*(50 + MARGE_SCROLLING-DEPLACEMENT_POURCENTAGE)/100)
-                scrolling(m,RIGHT,speed);
+                scrolling(m,RIGHT,*speed);
             else if (player->location.x - m->xScroll >= m->screenWidth*(50 + MARGE_SCROLLING-DEPLACEMENT_POURCENTAGE)/100 )
-                scrolling(m,RIGHT,2*speed);
+                scrolling(m,RIGHT,2*(*speed));
         }
     }
     if (move_left && !move_right)
@@ -282,9 +282,9 @@ void move(int move_left, int move_right,int jump, Character *player,Map *m,float
         {
 
             if (player->location.x - m->xScroll < m->screenWidth*(50+DEPLACEMENT_POURCENTAGE)/100 && player->location.x - m->xScroll > m->screenWidth*(50 - MARGE_SCROLLING+DEPLACEMENT_POURCENTAGE)/100)
-                scrolling(m,LEFT,speed);
+                scrolling(m,LEFT,*speed);
             else if (player->location.x - m->xScroll <= m->screenWidth*(50- MARGE_SCROLLING+DEPLACEMENT_POURCENTAGE)/100)
-                scrolling(m,LEFT,2*speed);
+                scrolling(m,LEFT,2*(*speed));
         }
     }
 }

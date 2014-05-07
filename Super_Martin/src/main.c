@@ -57,10 +57,14 @@ int main(int argc, char *argv[])
 //        printf("Nom du joystick numero %d : %s\n",i,SDL_JoystickName(i)); // on écrit les noms des joysticks
 //
 //    printf("Nombre de boutons : %d\n",SDL_JoystickNumButtons(joystick)); // nombre de boutons
-//    printf("Nombre d'axes : %d\n",SDL_JoystickNumAxes(joystick)); // nombre d'axes
+//    printf("Nombre d'axes : %d\n",SDL_JoystickNumAxes(in.joystick)); // nombre d'axes
 //    printf("Nombre de chapeaux : %d\n",SDL_JoystickNumHats(joystick)); // nombre de chapeaux
 //    printf("Nombre de trackballs : %d\n",SDL_JoystickNumBalls(joystick)); // nombre de trackballs*/
-
+//    while(1)
+//    {
+//        SDL_JoystickUpdate();
+//        printf("%d\n",SDL_JoystickGetAxis(in.joystick,0));
+//    }
 
     while (go) //main loop
     {
@@ -102,7 +106,6 @@ int main(int argc, char *argv[])
 
     freeSound(sound_system);
 
-    //SDL_JoystickClose(joystick);
     freeInput(&in);
     SDL_Quit();
 

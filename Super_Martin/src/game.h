@@ -35,7 +35,7 @@ int play(SDL_Surface *screen,char *level_name,Sound *sound_sys,int *go,SDLKey *k
 void printGameOver(SDL_Surface *screen, int* continuer,Input *in,Sound *sound_sys);
 
 
-void move (int move_left, int move_right,int jump, Character *player,Map *m,float speed, int *acceleration,list *l,Sound *s,platformSet *ps);
+void move (float move_left, float move_right,int jump, Character *player,Map *m,float* speed, int *acceleration,list *l,Sound *s,platformSet *ps);
 
 void printWin(SDL_Surface *screen,int *continuer,Input *in,Sound *sound_sys);
 

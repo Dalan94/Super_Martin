@@ -171,22 +171,29 @@ int updateEvents(Input* in,int *go)
  *\param[in] acceleration the acceleration
  *\param[in] kc the keyboard configuration structure
  */
-void inputActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
+void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
 {
     /*left move*/
     if((in->key[kc[0]] || in->isJoystick&(in->hat[0] == SDL_HAT_LEFT))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_left = 1;
-    if(!(in->key[kc[0]] || in->isJoystick&(in->hat[0]==SDL_HAT_LEFT)) && player->isOnGround)
+    if(!(in->key[kc[0]] || in->isJoystick&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-3000)) && player->isOnGround)
         *move_left = 0;
+    if(in->axes[0] < - 3000)
+    {
+        *move_left = ABS(in->axes[0])*MAX_SPEED/32000;
+    }
 
     /*right move*/
     if((in->key[kc[1]] || in->isJoystick&(in->hat[0] == SDL_HAT_RIGHT))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_right = 1;
-    if(!(in->key[kc[1]] || in->isJoystick&(in->hat[0]==SDL_HAT_RIGHT)) && player->isOnGround)
+    if(!(in->key[kc[1]] || in->isJoystick&(in->hat[0]==SDL_HAT_RIGHT && in->axes[0]<3000)) && player->isOnGround)
         *move_right = 0;
-
+    if(in->axes[0] > 3000)
+    {
+        *move_right = ABS(in->axes[0])*MAX_SPEED/32000;
+    }
     /*jump*/
     if(in->key[kc[2]] || in->isJoystick&in->button[A])
     {
