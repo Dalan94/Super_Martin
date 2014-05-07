@@ -51,7 +51,7 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 
 void gravity(Character *c, Map *m,list *l);
 void movementVector(int direction, int *vx, int *vy,float speed);
-int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps);
+int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound *sound_sys);
 void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l,platformSet *ps);
 void jumping(Character *c, Map *m,Sound *jump_sound,list *l);
 int collisionSprite(SDL_Rect s1, SDL_Rect s2);

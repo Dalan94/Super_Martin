@@ -124,7 +124,7 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
 
     c->isFalling=1;
 
-    ret = tryMovement(c,c->dirX,c->dirY,m,l,ps);
+    ret = tryMovement(c,c->dirX,c->dirY,m,l,ps,sound_sys);
     if(ret == 1)
         return 1;
     if(ret == 0)
@@ -149,7 +149,7 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
  *\param[in] m the map the character is on
  *\return 1 if the character can be moved, 0 if not
  */
-int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps)
+int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound *sound_sys)
 {
     int ret = 0;
     int ret1 = 1;
@@ -186,6 +186,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps)
                     c->dirY = -SPRING_HEIGHT;
                     c->isOnGround = 0;
                     c->doubleJump = 2;
+                    playShortSound("sound/spring.wav",sound_sys);
                 }
                 else
                     futureLocation.y -= vy;
@@ -296,12 +297,12 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l,platformSe
     for(i = 0 ; i < ABS(vx) ; i++)
     {
 
-            if(!tryMovement(c,SGN(vx),0,m,l,ps))
+            if(!tryMovement(c,SGN(vx),0,m,l,ps,NULL))
                 break;
     }
     for(j = 0 ; j < ABS(vy) ; j++)
     {
-        if(!tryMovement(c,0,SGN(vy),m,l,ps))
+        if(!tryMovement(c,0,SGN(vy),m,l,ps,NULL))
                 break;
     }
 }
