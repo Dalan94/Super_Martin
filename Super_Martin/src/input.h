@@ -32,7 +32,7 @@ typedef struct
     int *axes; /*! the joystick axes value : between -32768 and 32767 */
     int *hat; /*! the  joystick hats value : SDL_HAT_CENTERED, SDL_HAT_UP, SDL_HAT_RIGHT,
                 SDL_HAT_DOWN, SDL_HAT_LEFT, SDL_HAT_RIGHTUP, SDL_HAT_RIGHTDOWN, SDL_HAT_LEFTUP, SDL_HAT_LEFTDOWN*/
-    int hatMoved; /*! indicates if the hat num 0 has been moved during the last updateEvent */
+    int hatMoved; /*! indicates if a hat has been moved during the last updateEvent */
 
 } Input;
 

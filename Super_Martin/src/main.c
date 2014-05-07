@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 //    while(1)
 //    {
 //        SDL_JoystickUpdate();
-//        printf("%d\n",SDL_JoystickGetAxis(in.joystick,0));
+//        printf("%d\n",SDL_JoystickGetAxis(in.joystick,1));
 //    }
 
     while (go) //main loop
