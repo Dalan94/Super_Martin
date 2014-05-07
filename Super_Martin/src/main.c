@@ -52,23 +52,6 @@ int main(int argc, char *argv[])
 
     SDL_ShowCursor(SDL_DISABLE); //efface la souris
 
-
-//    joystick = SDL_JoystickOpen(0); // on l'assigne au numéro 0
-//
-//    printf("\nIl y a %d joysticks.\n",SDL_NumJoysticks()); // on écrit combien il y a de joysticks
-//    for(i=0;i<SDL_NumJoysticks();i++)
-//        printf("Nom du joystick numero %d : %s\n",i,SDL_JoystickName(i)); // on écrit les noms des joysticks
-//
-//    printf("Nombre de boutons : %d\n",SDL_JoystickNumButtons(joystick)); // nombre de boutons
-//    printf("Nombre d'axes : %d\n",SDL_JoystickNumAxes(in.joystick)); // nombre d'axes
-//    printf("Nombre de chapeaux : %d\n",SDL_JoystickNumHats(joystick)); // nombre de chapeaux
-//    printf("Nombre de trackballs : %d\n",SDL_JoystickNumBalls(joystick)); // nombre de trackballs*/
-//    while(1)
-//    {
-//        SDL_JoystickUpdate();
-//        printf("%d\n",SDL_JoystickGetAxis(in.joystick,1));
-//    }
-
     while (go) //main loop
     {
 
