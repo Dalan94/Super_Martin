@@ -162,6 +162,7 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,Input *in)
             if (text_size > 60)
                 text_size=60;
             posText.y = screen->h / (1+nb_menu) * (i+1) - text_size/2;
+            posText.x = -1;
             if(i != pos_curseur)
                 printText(screen,&posText,menu_names[i],0,0,0,"polices/ubuntu.ttf",text_size,1);
             else

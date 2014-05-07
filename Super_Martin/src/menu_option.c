@@ -51,7 +51,7 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc,Input *in
 
         for (i=0 ; i < nb_option ; i++)
         {
-            posText.x = 150;
+            posText.x = -1;
             text_size=screen->h / nb_option;
             if (text_size > 60)
                 text_size=60;
@@ -226,6 +226,7 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in)
             if (text_size > 60)
                 text_size=60;
             posText.y = screen->h / (1+nb_key) * (i+1) - text_size/2;
+            posText.x = -1;
 
             sprintf(st,"%s",SDL_GetKeyName(kc[i]));
 
