@@ -14,7 +14,7 @@
  *\param[out] soundSys the sound system
  *\param[out] kc the keyboard configuration structure
  */
-void loadOptions(char confFile[],Sound *soundSys,SDLKey *kc)
+void loadOptions(char confFile[],Sound *soundSys,SDLKey *kc,Input *in)
 {
     FILE *fl;
     fl = openFile(confFile,"rb");
@@ -27,6 +27,7 @@ void loadOptions(char confFile[],Sound *soundSys,SDLKey *kc)
     fread(&soundSys->fxVolume,sizeof(float),1,fl);
     fread(&soundSys->musicVolume,sizeof(float),1,fl);
     fread(kc,sizeof(SDLKey),4,fl);
+    fread(&in->useJoystick,sizeof(int),1,fl);
 
     closeFile(fl);
 }
@@ -38,7 +39,7 @@ void loadOptions(char confFile[],Sound *soundSys,SDLKey *kc)
  *\param[in] soundSys the sound system
  *\param[in] kc the keyboard configuration structure
  */
-void saveOptions(char confFile[],Sound *soundSys,SDLKey *kc)
+void saveOptions(char confFile[],Sound *soundSys,SDLKey *kc,Input *in)
 {
     FILE *fl;
     fl = openFile(confFile,"wb");
@@ -50,6 +51,7 @@ void saveOptions(char confFile[],Sound *soundSys,SDLKey *kc)
     fwrite(&soundSys->fxVolume,sizeof(float),1,fl);
     fwrite(&soundSys->musicVolume,sizeof(float),1,fl);
     fwrite(kc,sizeof(SDLKey),4,fl);
+    fwrite(&in->useJoystick,sizeof(int),1,fl);
 
     closeFile(fl);
 }

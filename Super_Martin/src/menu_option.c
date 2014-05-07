@@ -71,7 +71,7 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc,Input *in
     SDL_FreeSurface(waiting);
     if(!ret)
     {
-        saveOptions(".conf",sound_sys,kc);
+        saveOptions(".conf",sound_sys,kc,in);
         return -1;
     }
 
@@ -191,8 +191,8 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
-    int nb_key = 4;
-    char key_names[4][MAX_SIZE_FILE_NAME]={"Left","Right","Jump","Pause"};
+    int nb_key = 5;
+    char key_names[5][MAX_SIZE_FILE_NAME]={"Left","Right","Jump","Pause","Joystick"};
     int i,j;
     int text_size;
     int pos_curseur=0;
@@ -228,25 +228,48 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in)
             posText.y = screen->h / (1+nb_key) * (i+1) - text_size/2;
 
             sprintf(st,"%s",SDL_GetKeyName(kc[i]));
+
+            /* gestion de l'utilisation de la manette */
+            if(i == 4 && in->useJoystick)
+            {
+                sprintf(st,"on");
+            }
+            if(i == 4 && !in->useJoystick)
+            {
+                sprintf(st,"off");
+            }
+
+            /* passer le nom des touches en majuscule */
             for(j=0;j<strlen(st);j++)
             {
                 st[j]-=32;
                 if(st[j]<0)
                     st[j]=0;
             }
-            sprintf(key,"%s : %s",key_names[i],st);
 
+                /* imprimer la ligne à l'écran*/
+            sprintf(key,"%s : %s",key_names[i],st);
             if(i != pos_curseur)
-                printText(screen,&posText,key,0,0,0,"polices/ubuntu.ttf",text_size,1);
+            {
+                if(i == 4 && !in->isJoystick)
+                    printText(screen,&posText,key,117,117,117,"polices/ubuntu.ttf",text_size,1);
+                else
+                    printText(screen,&posText,key,0,0,0,"polices/ubuntu.ttf",text_size,1);
+            }
             else
                 printText(screen,&posText,key,255,60,30,"polices/ubuntu.ttf",text_size,1);
+                /* ******* */
         }
 
         SDL_Flip(screen);
 
-        if(in->key[SDLK_RETURN])
+        if(in->key[SDLK_RETURN] || in->button[A])
         {
-            chooseKey(screen,in,key_names[pos_curseur],kc,pos_curseur);
+            if(pos_curseur != 4)
+                chooseKey(screen,in,key_names[pos_curseur],kc,pos_curseur); //choisir la touche
+            else
+                if(in->isJoystick)
+                    in->useJoystick ^= 1; // si joystick, toggle l'indicatrice d'utilisation du joystick
         }
     }
 

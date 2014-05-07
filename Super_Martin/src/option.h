@@ -13,8 +13,8 @@
 #include "structures.h"
 #include "input.h"
 
-void loadOptions(char confFile[],Sound *soundSys,SDLKey *kc);
-void saveOptions(char confFile[],Sound *soundSys,SDLKey *kc);
+void loadOptions(char confFile[],Sound *soundSys,SDLKey *kc,Input *in);
+void saveOptions(char confFile[],Sound *soundSys,SDLKey *kc,Input *in);
 
 void chooseKey(SDL_Surface *screen,Input *in,char *action,SDLKey *kc,int nb);
 

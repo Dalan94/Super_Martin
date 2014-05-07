@@ -27,6 +27,7 @@ typedef struct
 	int quit; /*! is 1 is the SDL_QUIT event happens */
 
     int isJoystick; /*! indicate if there is a joystick plugged in */
+    int useJoystick; /*! indicate if the joystick is willing to be used */
 	SDL_Joystick *joystick; /*! the joystick */
 	char *button; /*! all the joystick buttons : 1 the button is pushed, 0 isn't */
     int *axes; /*! the joystick axes value : between -32768 and 32767 */

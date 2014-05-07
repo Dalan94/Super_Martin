@@ -82,8 +82,6 @@ void initJoystick(Input *in)
     for(i = 0; i<ret ; i++)
         in->hat[i] = SDL_HAT_CENTERED;
 
-
-
 }
 
 /**

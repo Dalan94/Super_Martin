@@ -62,6 +62,9 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     memset(&in->key,0,sizeof(char)*SDLK_LAST);
     if(in->isJoystick)
         initInput(in);
+    loadOptions(".conf",sound_sys,kc,in);
+    if(!in->useJoystick)
+        SDL_JoystickEventState(SDL_IGNORE);
 
     //effacer l'écran
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
