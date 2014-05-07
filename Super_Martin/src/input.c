@@ -179,7 +179,7 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
         *move_left = 1;
     if(!(in->key[kc[0]] || in->isJoystick&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-3000)) && player->isOnGround)
         *move_left = 0;
-    if(in->axes[0] < - 3000)
+    if(in->isJoystick&(in->axes[0] < - 3000))
     {
         *move_left = ABS(in->axes[0])*MAX_SPEED/32000;
     }
@@ -190,7 +190,7 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
         *move_right = 1;
     if(!(in->key[kc[1]] || in->isJoystick&(in->hat[0]==SDL_HAT_RIGHT && in->axes[0]<3000)) && player->isOnGround)
         *move_right = 0;
-    if(in->axes[0] > 3000)
+    if(in->isJoystick&in->axes[0] > 3000)
     {
         *move_right = ABS(in->axes[0])*MAX_SPEED/32000;
     }
