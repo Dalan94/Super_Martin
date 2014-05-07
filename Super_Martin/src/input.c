@@ -34,6 +34,9 @@ void initJoystick(Input *in)
 {
     int i;
     int ret;
+
+    in->hatMoved = 0;
+
     in->joystick = SDL_JoystickOpen(0);
     if(in->joystick == NULL)
     {
@@ -219,7 +222,12 @@ void inputActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pau
 int updateWaitEvents(Input* in, int *go)
 {
 	SDL_Event event;
-	SDL_EnableKeyRepeat(100,100);
+	//SDL_EnableKeyRepeat(100,100);
+    if(in->isJoystick && in->hatMoved)
+    {
+        while (SDL_PollEvent (&event));
+        in->hatMoved = 0;
+    }
 	SDL_WaitEvent(&event);
 
     switch (event.type)
@@ -251,7 +259,7 @@ int updateWaitEvents(Input* in, int *go)
             /* hats */
         case SDL_JOYHATMOTION:
             in->hat[event.jhat.hat] = event.jhat.value;
-            //SDL_Delay(100);
+            in->hatMoved = 1;
             break;
 
         /* ****************** */
@@ -264,7 +272,6 @@ int updateWaitEvents(Input* in, int *go)
 			break;
 
     }
-
 	return 1;
 }
 
