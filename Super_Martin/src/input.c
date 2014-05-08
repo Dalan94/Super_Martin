@@ -230,9 +230,9 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
         if(!ps->projectileThrown)
         {
             if(player->isRight)
-                createProjectile(ps,RIGHT,player->location.x+player->location.w+15,player->location.y+player->location.h/2);
+                createProjectile(ps,RIGHT,player->location.x+player->location.w+1,player->location.y+player->location.h/2);
             else
-                createProjectile(ps,LEFT,player->location.x-15,player->location.y+player->location.h/2);
+                createProjectile(ps,LEFT,player->location.x-1,player->location.y+player->location.h/2);
             ps->projectileThrown = 1;
         }
     }

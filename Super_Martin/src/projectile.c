@@ -151,6 +151,10 @@ void moveOneProjectile(Map *m,projectileSet *ps,list *l,int nb)
     else
         p->location.x -= PROJECTILE_SPEED;
 
+    if(collisionMap(p->location,m) == 1)
+        /*if the pojectile is in collision with the map, it is deleted */
+        deleteProjectile(ps,nb);
+
     if(p->location.x < m->xScroll || p->location.x > m->xScroll+m->screenWidth)
         /*if the projectile gets out of the screen, it is deleted*/
         deleteProjectile(ps,nb);
