@@ -91,6 +91,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/option.h" />
+		<Unit filename="src/projectile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/projectile.h" />
 		<Unit filename="src/share.c">
 			<Option compilerVar="CC" />
 		</Unit>

@@ -33,21 +33,21 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
     cloud = imageLoadAlpha("sprites/cloud.png");
     flower = imageLoadAlpha("sprites/flower.png");
 
-    if(!(strcmp(tileset, "../Super_Martin/sprites/tileSet_Snow.png")))
+    if(!(strcmp(tileset, "sprites/tileSet_Snow.png")))
     {
         x_off = 1.25;
         y_off = 5.5;
         posTree.h = posTile.h = 104;
         posTree.w = posTile.w = 55;
-        tree = imageLoadAlpha("../Super_Martin/sprites/snow_tree.png");
+        tree = imageLoadAlpha("sprites/snow_tree.png");
     }
-    else if(!(strcmp(tileset, "../Super_Martin/sprites/tileSet_Beach.png")))
+    else if(!(strcmp(tileset, "sprites/tileSet_Beach.png")))
     {
         x_off = 1.25;
         y_off = 5.5;
         posTree.h = posTile.h = 104;
         posTree.w = posTile.w = 96;
-        tree = imageLoadAlpha("../Super_Martin/sprites/beach_tree.png");
+        tree = imageLoadAlpha("sprites/beach_tree.png");
     }
     else
     {
@@ -55,7 +55,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
         y_off = 1.85;
         posTree.h = posTile.h = 65;
         posTree.w = posTile.w = 96;
-        tree = imageLoadAlpha("../Super_Martin/sprites/grassland_tree.png");
+        tree = imageLoadAlpha("sprites/grassland_tree.png");
 
     }
 

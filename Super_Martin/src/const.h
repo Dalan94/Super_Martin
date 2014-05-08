@@ -39,7 +39,7 @@
 
     #define NB_KEY                  6
 
-    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, ENEMY, TREE, FLOWER, CLOUD};
+    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, ENEMY, TREE='T', FLOWER='P', CLOUD='N'};
 
     enum {RIGHT,LEFT,UP,DOWN};
 
