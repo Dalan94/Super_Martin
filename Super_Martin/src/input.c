@@ -36,9 +36,15 @@ void initJoystick(Input *in)
     int ret;
 
     in->hatMoved = 0;
+    if(!SDL_NumJoysticks())
+    {
+        in->isJoystick = 0;
+        SDL_JoystickEventState(SDL_IGNORE);
+        return ;
+    }
 
     in->joystick = SDL_JoystickOpen(0);
-    if(in->joystick == NULL)
+    if(in->joystick == NULL )
     {
         perror("error while opening the joystick");
         exit(errno);
@@ -172,28 +178,28 @@ int updateEvents(Input* in,int *go)
 void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
 {
     /*left move*/
-    if((in->key[kc[0]] || in->isJoystick&(in->hat[0] == SDL_HAT_LEFT))
+    if((in->key[kc[0]] || in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_left = 1;
-    if(!(in->key[kc[0]] || in->isJoystick&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-3000)) && player->isOnGround)
+    if(!(in->key[kc[0]] || in->isJoystick&&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-3000)) && player->isOnGround)
         *move_left = 0;
-    if(in->isJoystick&(in->axes[0] < - 3000))
+    if(in->isJoystick&&(in->axes[0] < - 3000))
     {
         *move_left = ABS(in->axes[0])*MAX_SPEED/32000;
     }
 
     /*right move*/
-    if((in->key[kc[1]] || in->isJoystick&(in->hat[0] == SDL_HAT_RIGHT))
+    if((in->key[kc[1]] || in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_right = 1;
-    if(!(in->key[kc[1]] || in->isJoystick&(in->hat[0]==SDL_HAT_RIGHT && in->axes[0]<3000)) && player->isOnGround)
+    if(!(in->key[kc[1]] || in->isJoystick&&(in->hat[0]==SDL_HAT_RIGHT && in->axes[0]<3000)) && player->isOnGround)
         *move_right = 0;
-    if(in->isJoystick&in->axes[0] > 3000)
+    if(in->isJoystick&&in->axes[0] > 3000)
     {
         *move_right = ABS(in->axes[0])*MAX_SPEED/32000;
     }
     /*jump*/
-    if(in->key[kc[2]] || in->isJoystick&in->button[A])
+    if(in->key[kc[2]] || in->isJoystick&&in->button[A])
     {
          *jump = 1;
     }
@@ -208,11 +214,11 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
         *jump = 0;
 
         /*pause*/
-    if(in->key[kc[3]] || in->isJoystick&in->button[START])
+    if(in->key[kc[3]] || in->isJoystick&&in->button[START])
         *pause = 1;
 
     if ((!in->key[kc[1]] && !in->key[kc[0]]
-        &&  in->isJoystick&(in->hat[0] == SDL_HAT_CENTERED)) && player->isOnGround)
+        &&  in->isJoystick&&(in->hat[0] == SDL_HAT_CENTERED)) && player->isOnGround)
         *acceleration = 0;
 }
 
@@ -294,14 +300,14 @@ void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
     if((in->key[SDLK_ESCAPE] || in->quit || in->isJoystick&in->button[BACK]) && play_level != NULL)
         (*play_level) = 0;
 
-    if(in->key[SDLK_UP] || in->isJoystick&(in->hat[0] == SDL_HAT_UP))
+    if(in->key[SDLK_UP] || in->isJoystick&&(in->hat[0] == SDL_HAT_UP))
     {
         (*cursorPos)--;
         if(*cursorPos < 0)
             (*cursorPos) = nb_lvl-1;
         //SDL_Delay(100);
     }
-    if(in->key[SDLK_DOWN] || in->isJoystick&(in->hat[0] == SDL_HAT_DOWN))
+    if(in->key[SDLK_DOWN] || in->isJoystick&&(in->hat[0] == SDL_HAT_DOWN))
     {
         (*cursorPos)++;
         if(*cursorPos >= nb_lvl)

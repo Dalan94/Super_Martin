@@ -41,12 +41,14 @@ int main(int argc, char *argv[])
 
     /*initialisation de l'écran*/
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
+     //printf("blbla %d",SDL_NumJoysticks());
 
     initInput(&in);
 
     /*chargement des configuration */
     loadOptions(".conf",sound_system,kc,&in);
     //in.useJoystick = 1;
+
 
     SDL_WM_SetCaption("Super Martin", NULL); //titre de la fenêtres
 
