@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     sound_system = createSound();
 
     /*config clavier*/
-    SDLKey kc[4];
+    SDLKey kc[NB_KEY-1];
 
     /*input*/
     Input in;
@@ -47,7 +47,6 @@ int main(int argc, char *argv[])
 
     /*chargement des configuration */
     loadOptions(".conf",sound_system,kc,&in);
-    //in.useJoystick = 1;
 
 
     SDL_WM_SetCaption("Super Martin", NULL); //titre de la fenêtres

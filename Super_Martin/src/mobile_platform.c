@@ -116,7 +116,7 @@ void movePlatform(Character *c,platformSet *ps,list *l)
 }
 
 /**
- *\fn void moveOnePlatform(Character *c,platform *,list *l,int nb)
+ *\fn void moveOnePlatform(Character *c,platform *p,list *l,int nb)
  *moves one platforms
  *\param[in,out] c the player
  *\param[in,out] p the platform

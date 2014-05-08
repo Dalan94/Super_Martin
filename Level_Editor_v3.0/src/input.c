@@ -96,7 +96,7 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
         }
     }
 
-    else if(in->key[kc[2]])
+    else if(in->key[kc[0]])
     {
         if(m->xScroll > TILE_SIZE)
                 m->xScroll-= 5;

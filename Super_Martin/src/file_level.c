@@ -95,7 +95,8 @@ Level *openLevel(char *file_name,list *l,platformSet *ps)
                     platformMap(ps,horiz,mark,0);
                     lvl->map[i][j] = VOID;
                 default:
-                    lvl->map[i][j]-=48;
+                    if(lvl->map[i][j]<65)
+                        lvl->map[i][j]-= 48;
             }
         }
     }

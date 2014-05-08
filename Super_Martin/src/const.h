@@ -13,35 +13,38 @@
     #define SCREEN_WIDTH            1280
     #define SCREEN_HEIGHT           720
     #define FPS                     60
+
     #define MAX_SIZE_FILE_NAME      100
+
     #define MARGE_SCROLLING         2
     #define DEPLACEMENT_POURCENTAGE 0
-
-
     #define MAX_FALL_SPEED          10
     #define GRAVITY_SPEED           1
     #define JUMP_HEIGHT             13
     #define MAX_SPEED               5
+    #define SPRING_HEIGHT           22
+    #define COLLISION_ADJUSTMENT 9
+
     #define IMG_END_SIZE            80
     #define NB_TILE_MARYO_WIDTH     4
     #define NB_TILE_MARYO_HEIGHT    2
-    #define SPRING_HEIGHT           22
-
-    #define COLLISION_ADJUSTMENT 9
-
-    #define FRENQUENCY_CHANGE_MOVING        5
-
     #define TILE_MAX 13
-
-    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, ENEMY, TREE, FLOWER, CLOUD};
+    #define FRENQUENCY_CHANGE_MOVING        5
 
     #define NB_PLATFORM_MAX         30
     #define PLATFORM_SPEED          1
 
+    #define NB_PROJECTILE_MAX       3
+    #define PROJECTILE_SPEED        10
+
+    #define NB_KEY                  6
+
+    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, ENEMY, TREE='T', FLOWER='P', CLOUD='N'};
 
     enum {RIGHT,LEFT,UP,DOWN};
 
-typedef struct{
+typedef struct
+{
     unsigned char**map;
     int width;
     int height;
@@ -53,7 +56,8 @@ typedef struct{
     char music[MAX_SIZE_FILE_NAME];
 }Level;
 
-typedef struct{
+typedef struct
+{
     Level *lvl;
     int xScroll;
     int screenWidth,screenHeight;
