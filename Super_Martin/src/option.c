@@ -26,7 +26,7 @@ void loadOptions(char confFile[],Sound *soundSys,SDLKey *kc,Input *in)
 
     fread(&soundSys->fxVolume,sizeof(float),1,fl);
     fread(&soundSys->musicVolume,sizeof(float),1,fl);
-    fread(kc,sizeof(SDLKey),4,fl);
+    fread(kc,sizeof(SDLKey),NB_KEY-1,fl);
     fread(&in->useJoystick,sizeof(int),1,fl);
 
     closeFile(fl);
@@ -50,7 +50,7 @@ void saveOptions(char confFile[],Sound *soundSys,SDLKey *kc,Input *in)
     }
     fwrite(&soundSys->fxVolume,sizeof(float),1,fl);
     fwrite(&soundSys->musicVolume,sizeof(float),1,fl);
-    fwrite(kc,sizeof(SDLKey),4,fl);
+    fwrite(kc,sizeof(SDLKey),NB_KEY-1,fl);
     fwrite(&in->useJoystick,sizeof(int),1,fl);
 
     closeFile(fl);

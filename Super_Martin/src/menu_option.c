@@ -191,8 +191,8 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
-    int nb_key = 5;
-    char key_names[5][MAX_SIZE_FILE_NAME]={"Left","Right","Jump","Pause","Joystick"};
+    int nb_key = NB_KEY;
+    char key_names[NB_KEY][MAX_SIZE_FILE_NAME]={"Left","Right","Jump","Pause","Hammer","Joystick"};
     int i,j;
     int text_size;
     int pos_curseur=0;
@@ -230,17 +230,17 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in)
 
             sprintf(st,"%s",SDL_GetKeyName(kc[i]));
 
-            /* gestion de l'utilisation de la manette */
-            if(i == 4 && in->useJoystick)
+            /* joystick gestion*/
+            if(i == NB_KEY-1 && in->useJoystick)
             {
                 sprintf(st,"on");
             }
-            if(i == 4 && !in->useJoystick)
+            if(i == NB_KEY-1 && !in->useJoystick)
             {
                 sprintf(st,"off");
             }
 
-            /* passer le nom des touches en majuscule */
+            /* Key name in capital letter */
             for(j=0;j<strlen(st);j++)
             {
                 st[j]-=32;
@@ -248,11 +248,11 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in)
                     st[j]=0;
             }
 
-                /* imprimer la ligne à l'écran*/
+                /* print the row on the screen*/
             sprintf(key,"%s : %s",key_names[i],st);
             if(i != pos_curseur)
             {
-                if(i == 4 && !in->isJoystick)
+                if(i == NB_KEY-1 && !in->isJoystick)
                     printText(screen,&posText,key,117,117,117,"polices/ubuntu.ttf",text_size,1);
                 else
                     printText(screen,&posText,key,0,0,0,"polices/ubuntu.ttf",text_size,1);
@@ -264,9 +264,9 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in)
 
         SDL_Flip(screen);
 
-        if(in->key[SDLK_RETURN] || in->button[A])
+        if(in->key[SDLK_RETURN] || in->isJoystick&in->button[A])
         {
-            if(pos_curseur != 4)
+            if(pos_curseur != NB_KEY-1)
                 chooseKey(screen,in,key_names[pos_curseur],kc,pos_curseur); //choisir la touche
             else
                 if(in->isJoystick)

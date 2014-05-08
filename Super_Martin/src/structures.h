@@ -90,4 +90,26 @@ typedef struct
     int nb; /*! the number of platform */
 }platformSet;
 
+/**
+ *\struct projectile
+ *a projectile structure
+ */
+typedef struct
+{
+    SDL_Surface *sprite; /*! the platform's sprite */
+    SDL_Rect location; /*! the platform location*/
+
+    int direction; /*! the platform direction */
+}projectile;
+
+/**
+ *\struct projectileSet
+ *the set of the projectiles
+ */
+typedef struct
+{
+    projectile* tab[NB_PROJECTILE_MAX]; /*! the projectile set*/
+    int nb; /*! the number of projectiles on the map */
+}projectileSet;
+
 #endif // STRUCTURES_H_INCLUDED
