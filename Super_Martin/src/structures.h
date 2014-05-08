@@ -34,6 +34,8 @@ typedef struct
 
     int OnPlatform; /*! indicates if the character is on the platform number x, -1 if not on a platform */
 
+    int nbProjectile; /*! indicates the number of projectiles the character has */
+
 
 }Character;
 

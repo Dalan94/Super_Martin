@@ -48,6 +48,8 @@ Character *createCharacter(char *tile,int x, int y,int npc)
 
     c->OnPlatform = -1;
 
+    c->nbProjectile = 3;
+
     return c;
 }
 

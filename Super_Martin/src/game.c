@@ -417,10 +417,16 @@ void printHUD(SDL_Surface *screen,Character *player,Map *m)
     SDL_Surface *watch;
     SDL_Rect posWatch = {10,10,0,0};
 
+    /* hammer gestion */
+    char charCountHammer[5];
+    SDL_Surface *hammer = NULL;
+    SDL_Rect posHam = {10,screen->h-50,0,0}, posCountHam = {50,screen->h-50,0,0};
+
     /*sprites loading*/
     heart = imageLoadAlpha("sprites/Heart.png");
     watch = imageLoadAlpha("sprites/watch.png");
     stars = imageLoadAlpha("sprites/stars.png");
+    hammer = imageLoadAlpha("sprites/ico_hammer.png");
      if(stars == NULL)
     {
         perror("error while loading stars sprite");
@@ -438,9 +444,16 @@ void printHUD(SDL_Surface *screen,Character *player,Map *m)
         perror("error while loading watch sprite");
         exit(errno);
     }
-    sprintf(charTime,"%d",m->lvl->timer_level);
+
+    if(hammer == NULL)
+    {
+        perror("error while loading hammer sprite");
+        exit(errno);
+    }
+
 
     /*affichage temps*/
+    sprintf(charTime,"%d",m->lvl->timer_level);
     printText(screen,&posTime,charTime,0,0,0,"polices/code.otf",20,0);
     SDL_BlitSurface(watch,NULL,screen,&posWatch);
     /* ***** */
@@ -455,8 +468,14 @@ void printHUD(SDL_Surface *screen,Character *player,Map *m)
     printText(screen,&posCountStars,charCountStars,0,0,0,"polices/code.otf",20,1);
     SDL_BlitSurface(stars,NULL,screen,&posStars);
 
+    /* print hammer */
+    sprintf(charCountHammer,"%d",player->nbProjectile);
+    printText(screen,&posCountHam,charCountHammer,0,0,0,"polices/code.otf",40,1);
+    SDL_BlitSurface(hammer,NULL,screen,&posHam);
+
     SDL_FreeSurface(heart);
     SDL_FreeSurface(watch);
     SDL_FreeSurface(stars);
+    SDL_FreeSurface(hammer);
 
 }

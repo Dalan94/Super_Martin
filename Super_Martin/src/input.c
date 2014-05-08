@@ -225,7 +225,7 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
         *acceleration = 0;
 
         /* projectiles */
-    if((in->key[kc[H]]))
+    if((in->key[kc[H]]) && player->nbProjectile > 0)
     {
         if(!ps->projectileThrown)
         {
@@ -233,7 +233,10 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
                 createProjectile(ps,RIGHT,player->location.x+player->location.w+1,player->location.y+player->location.h/2-11);
             else
                 createProjectile(ps,LEFT,player->location.x-1,player->location.y+player->location.h/2-11);
+
             ps->projectileThrown = 1;
+            if(--player->nbProjectile <= 0)
+                player->nbProjectile = 0;
         }
     }
     else
