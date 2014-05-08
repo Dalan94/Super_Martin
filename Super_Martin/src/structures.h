@@ -110,6 +110,7 @@ typedef struct
 {
     projectile* tab[NB_PROJECTILE_MAX]; /*! the projectile set*/
     int nb; /*! the number of projectiles on the map */
+    int projectileThrown; /*! indicates if a projectile has been thrown and the key wasn't released yet */
 }projectileSet;
 
 #endif // STRUCTURES_H_INCLUDED

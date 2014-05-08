@@ -26,6 +26,7 @@
 #include "map.h"
 #include "input.h"
 #include "mobile_platform.h"
+#include "projectile.h"
 
 
 

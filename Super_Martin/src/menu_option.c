@@ -264,7 +264,7 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in)
 
         SDL_Flip(screen);
 
-        if(in->key[SDLK_RETURN] || in->isJoystick&in->button[A])
+        if(in->key[SDLK_RETURN] || in->isJoystick&&in->button[A])
         {
             if(pos_curseur != NB_KEY-1)
                 chooseKey(screen,in,key_names[pos_curseur],kc,pos_curseur); //choisir la touche

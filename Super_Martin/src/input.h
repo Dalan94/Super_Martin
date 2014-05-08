@@ -42,7 +42,7 @@ void initInput(Input *in);
 void initJoystick(Input *in);
 void freeInput(Input *in);
 int updateEvents(Input* in,int *go);
-void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int *pause,Character *player,int *acceleration,SDLKey *kc);
+void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int *pause,Character *player,int *acceleration,SDLKey *kc,projectileSet *ps);
 int updateWaitEvents(Input* in,int *go);
 void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl);
 

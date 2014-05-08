@@ -7,6 +7,7 @@
 
 #include "input.h"
 #include "SDL/SDL_joystick.h"
+#include "projectile.h"
 
 /**
  *\fn void initInput(Input *in)
@@ -164,7 +165,7 @@ int updateEvents(Input* in,int *go)
 
 
 /**
- *\fn void inputActionGame(Input *in,int *move_left,int *move_right,int *jump,int *pause, Character *player, int *acceleration,keyConf *kc)
+ *\fn void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int *pause, Character *player, int *acceleration,SDLKey *kc,projectileSet *ps)
  *perform action command by keyboard or joystick action
  *\param[in] in the input structure
  *\param[out] move_left the left movement boolean
@@ -174,14 +175,15 @@ int updateEvents(Input* in,int *go)
  *\param[in] player the Player
  *\param[in] acceleration the acceleration
  *\param[in] kc the keyboard configuration structure
+ *\param[out] ps the projectile set
  */
-void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc)
+void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc,projectileSet *ps)
 {
     /*left move*/
-    if((in->key[kc[0]] || in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT))
+    if((in->key[kc[L]] || in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_left = 1;
-    if(!(in->key[kc[0]] || in->isJoystick&&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-3000)) && player->isOnGround)
+    if(!(in->key[kc[L]] || in->isJoystick&&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-3000)) && player->isOnGround)
         *move_left = 0;
     if(in->isJoystick&&(in->axes[0] < - 3000))
     {
@@ -189,37 +191,53 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     }
 
     /*right move*/
-    if((in->key[kc[1]] || in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT))
+    if((in->key[kc[R]] || in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_right = 1;
-    if(!(in->key[kc[1]] || in->isJoystick&&(in->hat[0]==SDL_HAT_RIGHT && in->axes[0]<3000)) && player->isOnGround)
+    if(!(in->key[kc[R]] || in->isJoystick&&(in->hat[0]==SDL_HAT_RIGHT && in->axes[0]<3000)) && player->isOnGround)
         *move_right = 0;
     if(in->isJoystick&&in->axes[0] > 3000)
     {
         *move_right = ABS(in->axes[0])*MAX_SPEED/32000;
     }
     /*jump*/
-    if(in->key[kc[2]] || in->isJoystick&&in->button[A])
+    if(in->key[kc[J]] || in->isJoystick&&in->button[A])
     {
          *jump = 1;
     }
 
-    if((!in->key[kc[2]] && !in->isJoystick|!in->button[A]) && *(jump)==1)
+    if((!in->key[kc[J]] && !in->isJoystick|!in->button[A]) && *(jump)==1)
     {
         *jump = 2;
         if(!player->doubleJump)
             player->doubleJump = 1;
     }
-    else if((!in->key[kc[2]] && !in->isJoystick|!in->button[A]) && (*jump==2 || *jump==0))
+    else if((!in->key[kc[J]] && !in->isJoystick|!in->button[A]) && (*jump==2 || *jump==0))
         *jump = 0;
 
         /*pause*/
     if(in->key[kc[3]] || in->isJoystick&&in->button[START])
         *pause = 1;
 
-    if ((!in->key[kc[1]] && !in->key[kc[0]]
+        /*acceleration*/
+    if ((!in->key[kc[R]] && !in->key[kc[L]]
         &&  in->isJoystick&&(in->hat[0] == SDL_HAT_CENTERED)) && player->isOnGround)
         *acceleration = 0;
+
+        /* projectiles */
+    if((in->key[kc[H]]))
+    {
+        if(!ps->projectileThrown)
+        {
+            if(player->isRight)
+                createProjectile(ps,RIGHT,player->location.x+player->location.w+15,player->location.y+player->location.h/2);
+            else
+                createProjectile(ps,LEFT,player->location.x-15,player->location.y+player->location.h/2);
+            ps->projectileThrown = 1;
+        }
+    }
+    else
+        ps->projectileThrown = 0;
 }
 
 

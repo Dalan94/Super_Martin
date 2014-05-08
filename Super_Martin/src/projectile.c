@@ -19,6 +19,7 @@ void initProjSet(projectileSet *projSet)
         projSet->tab[i] = NULL;
 
     projSet->nb = 0;
+    projSet->projectileThrown = 0;
 }
 
 /**
@@ -72,7 +73,7 @@ void createProjectile(projectileSet *projSet, int dir, int x, int y)
     p->location.h = p->sprite->h;
 
     projSet->tab[projSet->nb] = p;
-    projSet++;
+    projSet->nb++;
 }
 
 /**
@@ -83,10 +84,13 @@ void createProjectile(projectileSet *projSet, int dir, int x, int y)
  */
 void deleteProjectile(projectileSet *ps,int nb)
 {
+    int i;
     free((void *) ps->tab[nb]);
-    if(nb<ps->nb-1)
-        ps->tab[nb] = ps->tab[nb+1];
-    free((void *) ps->tab[nb+1]);
+
+    for(i = nb; i<NB_PROJECTILE_MAX;i++)
+    {
+        ps->tab[i] = ps->tab[i+1];
+    }
     ps->nb--;
 }
 
@@ -124,7 +128,7 @@ void moveProjectiles(Map *m,projectileSet *ps,list *l)
 
     for (i = 0 ; i<ps->nb;i++)
     {
-        moveOnePlatform(m,ps->tab[i],l,i);
+        moveOneProjectile(m,ps,l,i);
     }
 }
 

@@ -43,6 +43,8 @@
 
     enum {RIGHT,LEFT,UP,DOWN};
 
+    enum {L=0,R,J,P,H};
+
 typedef struct
 {
     unsigned char**map;

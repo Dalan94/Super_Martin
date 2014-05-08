@@ -49,6 +49,9 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     /*définition des plateformes*/
     platformSet ps;
 
+    /* projectile set declaration */
+    projectileSet pjs;
+
     /*définition des surfaces*/
     SDL_Surface *background = NULL;
     SDL_Rect posBack;
@@ -78,6 +81,9 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     /*initialisation des plateformes */
     initPlatformSet(&ps);
 
+    /* projectile set initialization */
+    initProjSet(&pjs);
+
     /*initialisation de la carte et du niveau*/
     m = initMap(screen,level_name,&enemyList,&ps);
 
@@ -104,7 +110,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         /* récupération des inputs clavier et gestion de leurs auctions*/
         updateEvents(in,go);
-        inputActionGame(in,&move_left,&move_right,&jump,&pause,player,&acceleration,kc);
+        inputActionGame(in,&move_left,&move_right,&jump,&pause,player,&acceleration,kc,&pjs);
 
         if(in->quit)
             *go = 0;
@@ -143,24 +149,30 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
             pause=0;
         }
 
-
-        updateSpeed(&speed,acceleration);
-
+            /* update the game objects position */
         movePlatform(player,&ps,&enemyList);
+        updateSpeed(&speed,acceleration);
         move(move_left,move_right,jump,player,m,&speed,&acceleration,&enemyList,sound_sys,&ps);
+        moveProjectiles(m,&pjs,&enemyList);
         moveEnemies(&enemyList,m,&playerList);
+            /* ******************************** */
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
+            /* print all the game components */
         SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
 
         updateScreenMap(screen,m, m->lvl->tileSet); //blit du niveau
 
+                /* game objets */
         blitPlatform(screen,&ps,m);
         blitCharacter(screen,player,m);
+        blitProjectile(screen,&pjs,m);
         blitEnnemies(screen,&enemyList,m);
+                /* ******** */
 
-        printHUD(screen,player,m);
+        printHUD(screen,player,m); //HUD
+            /* ******************************* */
 
         waitFPS(&previous_time,&current_time);
 
