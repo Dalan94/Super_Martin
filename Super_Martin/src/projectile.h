@@ -20,6 +20,6 @@ void deleteProjectile(projectileSet *ps,int nb);
 void blitProjectile(SDL_Surface *screen, projectileSet *ps, Map *m);
 
 void moveProjectiles(Map *m,projectileSet *ps,list *l);
-void moveOneProjectile(Map *m,projectileSet *ps,list *l,int nb);
+void moveOneProjectile(Map *m,projectileSet *ps,list *enemyList,int nb);
 
 #endif // PROJECTILE_H_INCLUDED

@@ -193,6 +193,9 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
                 else
                     futureLocation.y -= vy;
                 break;
+            case 4:
+                c->nbProjectile++;
+                break;
             default:;
         }
         c->location = futureLocation;

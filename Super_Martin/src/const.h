@@ -34,12 +34,12 @@
     #define NB_PLATFORM_MAX         30
     #define PLATFORM_SPEED          1
 
-    #define NB_PROJECTILE_MAX       3
+    #define NB_PROJECTILE_MAX       30
     #define PROJECTILE_SPEED        10
 
     #define NB_KEY                  6
 
-    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, ENEMY, TREE='T', FLOWER='P', CLOUD='N'};
+    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, HAMMER, ENEMY, TREE='T', FLOWER='P', CLOUD='N'};
 
     enum {RIGHT,LEFT,UP,DOWN};
 

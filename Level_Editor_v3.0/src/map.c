@@ -112,8 +112,16 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
                     posTile.x = (i+1)*TILE_SIZE-m->xScroll;
                     posTile.y = j*TILE_SIZE;
                     posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
-                    posTileSet.x = m->lvl->map[j][i] % TILESET_SIZE * TILE_SIZE;
-                    posTileSet.y = m->lvl->map[j][i] / TILESET_SIZE * TILE_SIZE;
+                    if(m->lvl->map[j][i] == 'C')
+                    {
+                        posTileSet.x = 10 % TILESET_SIZE * TILE_SIZE;
+                        posTileSet.y = 10 / TILESET_SIZE * TILE_SIZE;
+                    }
+                    else
+                    {
+                        posTileSet.x = m->lvl->map[j][i] % TILESET_SIZE * TILE_SIZE;
+                        posTileSet.y = m->lvl->map[j][i] / TILESET_SIZE * TILE_SIZE;
+                    }
                     SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
                 }
             }

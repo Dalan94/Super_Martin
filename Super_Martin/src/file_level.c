@@ -94,6 +94,9 @@ Level *openLevel(char *file_name,list *l,platformSet *ps)
                     mark.x = j*TILE_SIZE;
                     platformMap(ps,horiz,mark,0);
                     lvl->map[i][j] = VOID;
+                case 'C':
+                    lvl->map[i][j] = 10;
+                    break;
                 default:
                     if(lvl->map[i][j]<65)
                         lvl->map[i][j]-= 48;

@@ -121,15 +121,15 @@ void blitProjectile(SDL_Surface *screen, projectileSet *ps, Map *m)
  *moves all the projectiles
  *\param[in,out] m the game map
  *\param[in,out] ps the projectile set
- *\param[in,out] l the enemy list
+ *\param[in,out] enemyList the enemy list
  */
-void moveProjectiles(Map *m,projectileSet *ps,list *l)
+void moveProjectiles(Map *m,projectileSet *ps,list *enemyList)
 {
     int i;
 
     for (i = 0 ; i<ps->nb;i++)
     {
-        moveOneProjectile(m,ps,l,i);
+        moveOneProjectile(m,ps,enemyList,i);
     }
 }
 

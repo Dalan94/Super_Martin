@@ -250,6 +250,10 @@ int collisionMap(SDL_Rect r,Map *m)
                         case SPRING:
                             return 3;
                             break;
+                        case HAMMER:
+                            m->lvl->map[j][i] = VOID;
+                            return 4;
+                            break;
                         default:
                             return 1;
                     }
