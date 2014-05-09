@@ -91,6 +91,24 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
                     posTileSet.w = posTile.w = 64;
                     SDL_BlitSurface(platform, &posTileSet, screen, &posTile);
                 }
+                else if(m->lvl->map[j][i] == 'H')
+                {
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = j*TILE_SIZE;
+                    posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
+                    posTileSet.x = HEART % TILESET_SIZE * TILE_SIZE;
+                    posTileSet.y = HEART / TILESET_SIZE * TILE_SIZE;
+                    SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
+                }
+                else if(m->lvl->map[j][i] == 'L')
+                {
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = j*TILE_SIZE;
+                    posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
+                    posTileSet.x = ADDLIFE % TILESET_SIZE * TILE_SIZE;
+                    posTileSet.y = ADDLIFE / TILESET_SIZE * TILE_SIZE;
+                    SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
+                }
                 else if(m->lvl->map[j][i] == 'N')
                 {
                     posTile.x = (i+1-4)*TILE_SIZE-m->xScroll;
@@ -237,18 +255,19 @@ void scrolling(Map *m, int direction,float speed){
  }
 
 
+
 void fillLine(Map *m, int line, int column, char tileID)
 {
     int i = column;
     if(tileID == VOID || tileID == GROUND+1 || tileID == GROUND+4)
     {
-        while(i < NB_TILES_X && (m->lvl->map[line][i] == VOID || m->lvl->map[line][i] == GROUND+1 || m->lvl->map[line][i] == GROUND+4 || m->lvl->map[line][i] == tileID))
+        while(i < ((m->xScroll + m->screenWidth)/(TILE_SIZE)) && (m->lvl->map[line][i] == VOID || m->lvl->map[line][i] == GROUND+1 || m->lvl->map[line][i] == GROUND+4 || m->lvl->map[line][i] == tileID))
         {
             m->lvl->map[line][i] = tileID;
             i++;
         }
         i = column;
-        while(i >= 0 && (m->lvl->map[line][i] == VOID || m->lvl->map[line][i] == GROUND+1 || m->lvl->map[line][i] == GROUND+4 || m->lvl->map[line][i] == tileID))
+        while(i >= m->xScroll/TILE_SIZE && (m->lvl->map[line][i] == VOID || m->lvl->map[line][i] == GROUND+1 || m->lvl->map[line][i] == GROUND+4 || m->lvl->map[line][i] == tileID))
         {
             m->lvl->map[line][i] = tileID;
             i--;
@@ -385,14 +404,16 @@ void displayHelp(SDL_Surface *screen, SDLKey *kc)
 
 void saveMap(SDL_Surface *screen, Map *m){
 
-    SDL_Surface /* *screenshot,*/ *screenshot2, *waiting = NULL;
+    SDL_Surface *waiting = NULL;
     SDL_Rect posWait;
     char level_name[MAX_LENGTH_FILE_NAME];
     char level_name_tmp[MAX_LENGTH_FILE_NAME];
     char choice[1];
     char tmp[MAX_LENGTH_FILE_NAME];
+    char tmp2[MAX_LENGTH_FILE_NAME];
     FILE *ptr_file_level;
     int level_number;
+    int nb_lvl;
     char **level_list;
     int i, j;
     int incr;
@@ -400,23 +421,17 @@ void saveMap(SDL_Surface *screen, Map *m){
     SDL_Rect posText={0,0,0,0};
     int text_size = 30;
     int go = 1;
-    int ret = 1;
+    int ret = 1, ret2 = 0;
     choice[0]= 32;
     Input in;
 
     memset(&in, 0, sizeof(in));
 
 
-    ptr_file_level = fopen("../Super_Martin/level/level", "r+");
 
-    if(ptr_file_level == NULL){
-
-        printf("Failed to open file /level/level\n");
-        exit(1);
-    }
 
     level_list = readLevelFile(&level_number);
-
+    nb_lvl = level_number;
     waiting = imageLoad("../Super_Martin/sprites/game-over.jpg");
     posWait.x = posWait.y = 0;
     SDL_SetAlpha(waiting, SDL_SRCALPHA, 200);
@@ -430,8 +445,6 @@ void saveMap(SDL_Surface *screen, Map *m){
     /*  Save the screen to clear the display of the level_name  later */
 
     level_name_tmp[0] = 32;
-    screenshot2 = SDL_DisplayFormatAlpha(screen);
-    SDL_SetAlpha(screenshot2, SDL_SRCALPHA, 200);
 
     /*  Main loop */
 
@@ -461,10 +474,6 @@ void saveMap(SDL_Surface *screen, Map *m){
                 text_size = 22;
                 printText(screen, &posText, "File already exists. Do you want to continue ? (y/n)", 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
 
-                /*  Save the screen to clear the display of the choice later  */
-
-                screenshot2 = SDL_DisplayFormatAlpha(screen);
-
                 posText.x = -1;
                 posText.y = 370;
 
@@ -489,20 +498,69 @@ void saveMap(SDL_Surface *screen, Map *m){
             ret = 1;
         }
     }
-
+    nb_lvl += incr;
     /*  Update the file 'level' containing the level list */
 
     if(go && ret)
     {
+        memset(tmp2, 0, sizeof(tmp2));
+        tmp2[0] = ' ';
+        ptr_file_level = fopen("../Super_Martin/level/level", "w+");
+        choice[0] = ' ';
+        if(ptr_file_level == NULL)
+        {
+            printf("Failed to open file /level/level\n");
+            exit(1);
+        }
         fseek(ptr_file_level, 0, SEEK_SET);
-        fscanf(ptr_file_level, "%d", &level_number);
-        fseek(ptr_file_level, 0, SEEK_SET);
-        fprintf(ptr_file_level, "%d", (level_number+incr));
-        fseek(ptr_file_level, 0, SEEK_END);
-        if(incr !=0){
+        fprintf(ptr_file_level, "%d\n", nb_lvl);
+        while((choice[0] <= 0 || choice[0]>= 10))
+        {
+            posText.x = -1;
+            posText.y = 420;
+            text_size = 25;
+            sprintf(tmp2, "Choose the position in the map list for %s :", level_name_tmp);
+            printText(screen, &posText, tmp2, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+            posText.x = -1;
+            posText.y = 470;
+            captureText(screen, posText, choice, 1, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, &go);
+            choice[0] -= 48;
+        }
 
+        for(i = 0 ; i <= nb_lvl ; )
+        {
+            fseek(ptr_file_level, 0, SEEK_END);
+            if(i== (choice[0]-1) && ret)
+            {
+
+
+                /*if(strcmp(level_name_tmp, level_list[i]) != 0)
+                    fprintf(ptr_file_level, "%s\n", level_list[i]);*/
+                fprintf(ptr_file_level, "%s\n", level_name_tmp);
+                ret=0;
+            }
+            else if(i<nb_lvl-1 && strcmp(level_name_tmp, level_list[i+ret2]) != 0)
+            {
+                fprintf(ptr_file_level, "%s\n", level_list[i+ret2]);
+                i++;
+            }
+            else if(i<nb_lvl-1 && strcmp(level_name_tmp, level_list[i]) == 0)
+            {
+                fprintf(ptr_file_level, "%s\n", level_list[i+1]);
+                ret2 = 1;
+                i++;
+            }
+            else
+                i++;
+
+
+        }
+        if(choice[0] > (nb_lvl))
+        {
+            fseek(ptr_file_level, 0, SEEK_END);
             fprintf(ptr_file_level, "%s\n", level_name_tmp);
         }
+
 
         closeFile(ptr_file_level);
 
@@ -518,7 +576,7 @@ void saveMap(SDL_Surface *screen, Map *m){
     while(ret && go)
     {
         posText.x = -1;
-        posText.y = 500;
+        posText.y = 520;
         text_size = 25;
         printText(screen, &posText, tmp, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
         SDL_Flip(screen);
@@ -535,7 +593,6 @@ void saveMap(SDL_Surface *screen, Map *m){
 
     closeLevelList(level_list, level_number);
     SDL_FreeSurface(waiting);
-    SDL_FreeSurface(screenshot2);
 }
 /**
   *\fn void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)

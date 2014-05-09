@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     char level_name[MAX_LENGTH_FILE_NAME];
     char level_path[MAX_LENGTH_FILE_NAME];
     char tileSet_name[MAX_LENGTH_FILE_NAME];
-    SDLKey kc[13];
+    SDLKey kc[17];
     loadOptions(".conf",kc);
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 

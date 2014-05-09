@@ -123,8 +123,8 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys, char *player_name)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
-    int nb_menu = 2;
-    char menu_names[2][MAX_SIZE_FILE_NAME]={"Choose level","Options"};
+    int nb_menu = 3;
+    char menu_names[3][MAX_SIZE_FILE_NAME]={"Start", "Save", "Options"};
     int ret = 1;
     int i;
     int text_size;
@@ -269,7 +269,7 @@ int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *
     }
     else
     {
-        sprintf(player_name, player_names[pos_cursor]);
+        sprintf(player_name, "%s", player_names[pos_cursor]);
     }
 
     closeLevelList(player_names,nb_players);

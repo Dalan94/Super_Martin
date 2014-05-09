@@ -26,7 +26,9 @@ typedef struct
     int isRight; /*! indicate the character's diraction (1 right, 0 left)*/
     int isOnGround; /*! indicate if the character is on the ground*/
     int doubleJump; /*! 0 when not jumping, 1 if made 1 jump (ie can make a double jump), 2 if have made double jump*/
-    int life; /*! character life, 100 when full life, 0 when dead*/
+    int hp; /*! character life, 100 when full life, 0 when dead*/
+    int hpMax;
+    int nbLifes;
     int countStars; /*! character points with caught stars */
     int isHurt; /*! indicate if the character was hurt recently*/
     int isFalling; /*! indicate if the character is falling*/
@@ -36,6 +38,20 @@ typedef struct
 
 
 }Character;
+
+/**
+ *\struc Player
+ *The player
+ */
+
+typedef struct
+{
+    char name[MAX_SIZE_FILE_NAME];
+    int levelMax;
+    int hpMax;
+    int nbLifes;
+    int nbCoins;
+} Player;
 
 /**
  *\struct node

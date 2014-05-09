@@ -26,7 +26,7 @@ void loadOptions(char confFile[],SDLKey *kc)
 
     //fread(&soundSys->fxVolume,sizeof(float),1,fl);
     //fread(&soundSys->musicVolume,sizeof(float),1,fl);
-    fread(kc,sizeof(SDLKey),15,fl);
+    fread(kc,sizeof(SDLKey),17,fl);
 
     closeFile(fl);
 }
@@ -49,7 +49,7 @@ void saveOptions(char confFile[],SDLKey *kc)
     }
     //fwrite(&soundSys->fxVolume,sizeof(float),1,fl);
     //fwrite(&soundSys->musicVolume,sizeof(float),1,fl);
-    fwrite(kc,sizeof(SDLKey),15,fl);
+    fwrite(kc,sizeof(SDLKey),17,fl);
 
     closeFile(fl);
 }

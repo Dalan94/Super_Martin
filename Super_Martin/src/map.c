@@ -15,7 +15,7 @@
  */
 
 void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
-    SDL_Surface *tile, *enemy, *tree, *cloud, *flower, *spring;
+    SDL_Surface *tile, *tree, *cloud, *flower, *spring;// *heart, *addLife;
     SDL_Surface *end = NULL;
     SDL_Rect posTile, posTileSet, posTree;
     int i,j,minx,maxx,nbRow;
@@ -29,7 +29,6 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
 
     spring = imageLoadAlpha("sprites/spring1.png");
     tile = imageLoadAlpha(tileset);
-    enemy = imageLoadAlpha("sprites/Characters/witch_doctor.png");
     cloud = imageLoadAlpha("sprites/cloud.png");
     flower = imageLoadAlpha("sprites/flower.png");
 
@@ -39,7 +38,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
         y_off = 5.5;
         posTree.h = posTile.h = 104;
         posTree.w = posTile.w = 55;
-        tree = imageLoadAlpha("../Super_Martin/sprites/snow_tree.png");
+        tree = imageLoadAlpha("sprites/snow_tree.png");
     }
     else if(!(strcmp(tileset, "../Super_Martin/sprites/tileSet_Beach.png")))
     {
@@ -47,7 +46,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
         y_off = 5.5;
         posTree.h = posTile.h = 104;
         posTree.w = posTile.w = 96;
-        tree = imageLoadAlpha("../Super_Martin/sprites/beach_tree.png");
+        tree = imageLoadAlpha("sprites/beach_tree.png");
     }
     else
     {
@@ -55,7 +54,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
         y_off = 1.85;
         posTree.h = posTile.h = 65;
         posTree.w = posTile.w = 96;
-        tree = imageLoadAlpha("../Super_Martin/sprites/grassland_tree.png");
+        tree = imageLoadAlpha("sprites/grassland_tree.png");
 
     }
 
@@ -75,14 +74,6 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
                     posTile.w = posTree.w;
                     SDL_BlitSurface(tree, &posTree, screen, &posTile);
                 }
-                else if(m->lvl->map[j][i] == 'E')
-                {
-                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
-                    posTile.y = (j-0.85)*TILE_SIZE;
-                    posTileSet.h = posTile.h = 29;
-                    posTileSet.w = posTile.w = 35;
-                    SDL_BlitSurface(enemy, &posTileSet, screen, &posTile);
-                }
                 else if(m->lvl->map[j][i] == 'N')
                 {
                     posTile.x = (i+1-4)*TILE_SIZE-m->xScroll;
@@ -98,6 +89,24 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
                     posTileSet.h = posTile.h = 30;
                     posTileSet.w = posTile.w = 30;
                     SDL_BlitSurface(flower, &posTileSet, screen, &posTile);
+                }
+                else if(m->lvl->map[j][i] == 'H')
+                {
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = j*TILE_SIZE;
+                    posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
+                    posTileSet.x = HEART % TILE_MAX * TILE_SIZE;
+                    posTileSet.y = HEART / TILE_MAX * TILE_SIZE;
+                    SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
+                }
+                else if(m->lvl->map[j][i] == 'L')
+                {
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = j*TILE_SIZE;
+                    posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
+                    posTileSet.x = ADDLIFE % TILE_MAX * TILE_SIZE;
+                    posTileSet.y = ADDLIFE / TILE_MAX * TILE_SIZE;
+                    SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
                 }
                 else
                 {
@@ -143,9 +152,10 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
 
     SDL_FreeSurface(tile);
     SDL_FreeSurface(tree);
-    SDL_FreeSurface(enemy);
     SDL_FreeSurface(cloud);
     SDL_FreeSurface(flower);
+    //SDL_FreeSurface(heart);
+   // SDL_FreeSurface(addLife);
 
 }
 
@@ -235,7 +245,7 @@ int collisionMap(SDL_Rect r,Map *m)
     {
         for (j=ymin ; j< ymax ; j++)
         {
-            if(m->lvl->map[j][i] != VOID && m->lvl->map[j][i]<65)
+            if(m->lvl->map[j][i] != VOID && (m->lvl->map[j][i]< 'A' || m->lvl->map[j][i] == 'L' || m->lvl->map[j][i] == 'H'))
             {
                 test.x = i*TILE_SIZE;
                 test.y = j*TILE_SIZE;
@@ -249,6 +259,14 @@ int collisionMap(SDL_Rect r,Map *m)
                             break;
                         case SPRING:
                             return 3;
+                            break;
+                        case 'H' :
+                            m->lvl->map[j][i] = VOID;
+                            return 4;
+                            break;
+                        case 'L' :
+                            m->lvl->map[j][i] = VOID;
+                            return 5;
                             break;
                         default:
                             return 1;

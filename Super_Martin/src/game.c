@@ -18,11 +18,11 @@
  *\param[in,out] screen the gamin screen
  *\param[in] level_name the name of the level to be played
  *\param[in] kc the keyboard configuration structure
- *\return 1 if the player dies, 0 if he wins or if he quits the level
+ *\return 1 if the maryo dies, 0 if he wins or if he quits the level
  */
 
 
-int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *kc)
+int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *kc, Player *player, char player_name[MAX_SIZE_FILE_NAME], int currentLevel, int nb_lvl)
 {
     SDL_TimerID timer = NULL;
 
@@ -40,8 +40,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     Map *m;
 
     /*définition du joueur*/
-    Character *player;
-    list playerList;
+    Character *maryo;
+    list maryoList;
 
     /*définition des ennemis*/
     list enemyList;
@@ -59,7 +59,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     int move_left=0;
     int jump = 0;
 
-
+    if(player->nbLifes < 0)
+        loadPlayer("save/.save", player_name, player);
     /*gestion des inputs*/
     Input in;
     memset(&in,0,sizeof(in));
@@ -69,6 +70,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     posBack.x=0;
     posBack.y = 0;
+
 
     /*initialisation des ennemis*/
     initList(&enemyList);
@@ -89,9 +91,9 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     background = imageLoadAlpha(m->lvl->background);
 
     /*initialisation du joueur*/
-    player = createCharacter("sprites/Characters/maryo.png",5*TILE_SIZE,8*TILE_SIZE-39,0);
-    initList(&playerList);
-    playerList.current = playerList.first = playerList.last = newNode(player,NULL,NULL);
+    maryo = createCharacter("sprites/Characters/maryo.png",5*TILE_SIZE,8*TILE_SIZE-39,0, player->hpMax, player->nbCoins, player->nbLifes);
+    initList(&maryoList);
+    maryoList.current = maryoList.first = maryoList.last = newNode(maryo,NULL,NULL);
 
 
 
@@ -107,35 +109,51 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         /* récupération des inputs clavier et gestion de leurs auctions*/
         updateEvents(&in,go);
-        keyboardActionGame(&in,&move_left,&move_right,&jump,&pause,player,&acceleration,kc);
+        keyboardActionGame(&in,&move_left,&move_right,&jump,&pause,maryo,&acceleration,kc);
 
         if(in.quit)
             *go = 0;
 
         /* gestion de la mort*/
-        if((player->location.y+player->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
-            player->life = 0;
-        if (old_time != m->lvl->timer_level || !player->life)
+        if((maryo->location.y+maryo->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
+            maryo->hp = 0;
+        if (old_time != m->lvl->timer_level || !maryo->hp)
         {
-            if(!(m->lvl->timer_level>0 && player->life))
+            if(!(m->lvl->timer_level>0 && maryo->hp))
             {
                 stopSound(sound_sys,1);
+                player->nbLifes--;
                 printGameOver(screen,go,&in,sound_sys);
-                ret = 1;
+                if(player->nbLifes >= 0)
+                    ret = 1;
+
+                else
+                    ret = 0;
                 break;
             }
             old_time=m->lvl->timer_level;
             m->lvl->tileSetUse ^= 1;
         }
 
-        if(player->isHurt>0)
-            player->isHurt--;
+        if(maryo->isHurt>0)
+            maryo->isHurt--;
         else
-            player->isHurt = 0;
+            maryo->isHurt = 0;
 
 
-        if((player->location.x)/TILE_SIZE >= m->lvl->width - IMG_END_SIZE / TILE_SIZE + 1 && *go)
+        if((maryo->location.x)/TILE_SIZE >= m->lvl->width - IMG_END_SIZE / TILE_SIZE + 1 && *go)
         {
+
+            player->hpMax = maryo->hpMax;
+            player->nbLifes = maryo->nbLifes;
+            if(player->levelMax == currentLevel)
+            {
+                player->nbCoins = maryo->countStars;
+                if(player->levelMax < (nb_lvl))
+                    player->levelMax += 1;
+                savePlayer("save/.save", player_name, player);
+            }
+
             printWin(screen,go,&in,sound_sys);
             break;
         }
@@ -149,9 +167,9 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         updateSpeed(&speed,acceleration);
 
-        movePlatform(player,&ps,&enemyList);
-        move(move_left,move_right,jump,player,m,speed,&acceleration,&enemyList,sound_sys,&ps);
-        moveEnemies(&enemyList,m,&playerList);
+        movePlatform(maryo,&ps,&enemyList);
+        move(move_left,move_right,jump,maryo,m,speed,&acceleration,&enemyList,sound_sys,&ps);
+        moveEnemies(&enemyList,m,&maryoList);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
 
@@ -160,10 +178,10 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
         updateScreenMap(screen,m, m->lvl->tileSet); //blit du niveau
 
         blitPlatform(screen,&ps,m);
-        blitCharacter(screen,player,m);
+        blitCharacter(screen,maryo,m);
         blitEnnemies(screen,&enemyList,m);
 
-        printHUD(screen,player,m);
+        printHUD(screen,maryo,m);
 
         waitFPS(&previous_time,&current_time);
 
@@ -179,9 +197,9 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     SDL_RemoveTimer(timer);
     stopSound(sound_sys,1);
 
-    free((void *)player);
+    free((void *)maryo);
     freeEnemies(&enemyList);
-    freeEnemies(&playerList);
+    freeEnemies(&maryoList);
     freePlatformSet(&ps);
 
     return ret;
@@ -385,9 +403,10 @@ Uint32 decomptage(Uint32 intervalle,void* parametre){
 void printHUD(SDL_Surface *screen,Character *player,Map *m)
 {
     /*life gestion*/
-    char charLife[5];
+    char charLife[2];
+    char charHp[5];
     SDL_Surface *heart = NULL;
-    SDL_Rect posHeart = {screen->w-105,10,0,0},posLife = {screen->w-70,10,0,0};
+    SDL_Rect posHeart = {screen->w-105,10,0,0},posHP = {screen->w-70,10,0,0}, posLife = {screen->w-130,10,0,0};
 
     /*stars gestion*/
     char charCountStars[5];
@@ -429,8 +448,10 @@ void printHUD(SDL_Surface *screen,Character *player,Map *m)
     /* ***** */
 
     /*affichage de la vie*/
-    sprintf(charLife,"%d",player->life);
+    sprintf(charLife,"%d",player->nbLifes);
     printText(screen,&posLife,charLife,255,100,100,"polices/code.otf",20,1);
+    sprintf(charHp,"%d",player->hp);
+    printText(screen,&posHP,charHp,255,100,100,"polices/code.otf",20,1);
     SDL_BlitSurface(heart,NULL,screen,&posHeart);
 
     /*affichage du nombre d'étoiles récoltées*/

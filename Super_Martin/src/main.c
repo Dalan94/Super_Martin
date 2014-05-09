@@ -20,11 +20,11 @@ int main(int argc, char *argv[])
     SDL_Surface *screen = NULL;
 
     int go = 1;
-    int ret,ret1, ret2 = 0, ret3;
+    int ret,ret1, ret2 = 0, ret3, ret4;
 
     char level_name[MAX_SIZE_FILE_NAME];
     char player_name[MAX_SIZE_FILE_NAME];
-
+    int nb_lvl;
     /*sound*/
     Sound *sound_system;
     sound_system = createSound();
@@ -36,6 +36,14 @@ int main(int argc, char *argv[])
     loadOptions(".conf",sound_system,kc);
 
     SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
+
+    Player *current_player;
+
+
+   /* current_player->levelMax = 3;
+    current_player->hpMax = 150;
+    current_player->nbCoins = 90;
+    current_player->nbLifes = 3;
 
     /*initialisation de l'écran*/
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
@@ -49,8 +57,11 @@ int main(int argc, char *argv[])
     while (go) //main loop
     {
 
+
+
         if(titleMenu(screen,&go,sound_system))
         {
+
             while( (ret3 = menuPlayers(screen, player_name, &go, sound_system)) != -1)
             {
                 switch(ret3)
@@ -64,18 +75,27 @@ int main(int argc, char *argv[])
                             break;
 
                     case 1  :
-
+                        loadPlayer("save/.save", player_name, current_player);
                         while((ret1 = mainMenu(screen,&go,sound_system, player_name)) != -1)
                         {
+
                             switch(ret1)
                             {
                                 case -1:
                                     break;
                                 case 0:
-                                    if (menuLevel(screen,level_name,sound_system,&go))
-                                        while(play(screen,level_name,sound_system,&go,kc));
+                                    while( (ret4 = menuLevel(screen,level_name,sound_system, player_name, current_player, &go, &nb_lvl)) != -1)
+                                    {
+                                        while(play(screen,level_name,sound_system,&go,kc, current_player, player_name, ret4+1, nb_lvl));
+                                    }
                                     break;
-                                case 1:
+
+                                case 1 :
+                                    save(screen, "save/.save", player_name, current_player, &go);
+                                    loadPlayer("save/.save", player_name, current_player);
+                                    break;
+
+                                case 2 :
                                     while((ret = optionMenu(screen,&go,sound_system,kc)) != -1)
                                         switch(ret)
                                         {
