@@ -20,7 +20,7 @@
 void createEnemy(char *tile,int x,int y, list *l)
 {
     Character *e;
-    e = createCharacter(tile, x, y,1);
+    e = createCharacter(tile, x, y,1, 0, 0, 0);
     if(e == NULL)
     {
         perror("allocation error");
@@ -88,9 +88,8 @@ int collisionEnemy(Character *c,list *l,Map *m)
                 {
                     if(!c->isHurt)
                     {
-                        c->life -= 50;
+                        c->hp -= 50;
                         c->isHurt = 50;
-                        c->countStars -=2;
                     }
 
 
@@ -111,9 +110,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
                 {
                     if(!l->current->c->isHurt)
                     {
-                        l->current->c->life -= 50;
-
-                        l->current->c->countStars -=2;
+                        l->current->c->hp -= 50;
 
                         l->current->c->isHurt = 50;
                     }
@@ -142,8 +139,6 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     c->dirY = -(JUMP_HEIGHT/2);
                     deleteCurrent(l);
                     ret = 1;
-                    c->countStars +=2;
-
                 }
                 break;
             case 3:
@@ -152,8 +147,6 @@ int collisionEnemy(Character *c,list *l,Map *m)
                     c->dirY = -(JUMP_HEIGHT/2);
                     deleteCurrent(l);
                     ret = 1;
-                    c->countStars +=2;
-
                 }
                 break;
 

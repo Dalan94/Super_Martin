@@ -19,12 +19,11 @@
 #include "file_level.h"
 #include "share.h"
 
-#include "sound.h"
-
+#include "structures.h"
 #include "image.h"
 #include "enemies.h"
 #include "mobile_platform.h"
-
+#include "sound.h"
 
 
 //#include "character_list.h"
@@ -41,12 +40,14 @@
  */
 #define ABS(X) ((((X)<0)?(-(X)):(X)))
 
-#include "structures.h"
+
 
 
 /*prototypes*/
+
 int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m,float* speed,list *l,Sound *s,platformSet *ps);
-Character *createCharacter(char *tile,int x, int y,int npc);
+Character *createCharacter(char *tile,int x, int y,int npc, int nbProjectile, int nbCoins, int nbLifes);
+
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 
 void gravity(Character *c, Map *m,list *l);

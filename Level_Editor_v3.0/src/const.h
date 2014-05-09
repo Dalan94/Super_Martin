@@ -13,8 +13,8 @@
     #define NB_TILES_Y              45
     #define SCREEN_WIDTH            TILE_SIZE * NB_TILES_X
     #define SCREEN_HEIGHT           TILE_SIZE * NB_TILES_Y
-    #define TILESET_SIZE            16
-    #define OPTIONS_PER_COLUMN      7
+    #define TILESET_SIZE            18
+    #define OPTIONS_PER_COLUMN      9
     #define FPS                     60
     #define SCROLLING_MARGIN        2
     #define MAX_LENGTH_FILE_NAME    100
@@ -25,7 +25,9 @@
 
     #define min(a,b) (a<=b?a:b)
 
-    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, HAMMER, ENEMY, TREE, FLOWER, CLOUD, PLATFORMV, PLATFORMH};
+
+    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, HAMMER, HEART, ADDLIFE, ENEMY, TREE, FLOWER, CLOUD, PLATFORMV, PLATFORMH};
+
     enum {RIGHT,LEFT,UP,DOWN};
 
 

@@ -18,7 +18,7 @@
  *\param[in] npc 1 if creating a npc, 0 if not
  *\return character structure pointer
  */
-Character *createCharacter(char *tile,int x, int y,int npc)
+Character *createCharacter(char *tile,int x, int y,int npc, int nbProjectile, int nbCoins, int nbLifes)
 {
     Character *c;
     c = (Character *)malloc(sizeof(Character));
@@ -40,15 +40,14 @@ Character *createCharacter(char *tile,int x, int y,int npc)
     c->isRight = 1;
     c->isOnGround = 0;
     c->doubleJump = 0;
-    c->life = 100;
-    c->countStars = 5;
+    c->countStars = nbCoins;
+    c->nbLifes = nbLifes;
+    c->hp = 100;
+    c->nbProjectile = nbProjectile;
     c->isHurt = 0;
     c->isFalling = 0;
     c->moving=0;
-
     c->OnPlatform = -1;
-
-    c->nbProjectile = 3;
 
     return c;
 }
@@ -155,6 +154,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
 {
     int ret = 0;
     int ret1 = 1;
+    int coins = c->countStars/100;
     SDL_Rect futureLocation = c->location;
     futureLocation.x += vx;
 
@@ -181,6 +181,11 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
         {
             case 2:
                 c->countStars++;
+                if((c->countStars / 100) > coins)
+                {
+                    c->nbLifes++;
+                    coins++;
+                }
                 break;
             case 3:
                 if(!c->isNpc)
@@ -195,6 +200,12 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
                 break;
             case 4:
                 c->nbProjectile++;
+
+            case 5 :
+                c->hp += 50;
+                break;
+            case 6 :
+
                 break;
             default:;
         }

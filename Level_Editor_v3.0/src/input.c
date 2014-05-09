@@ -151,6 +151,14 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
             m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'C';
             break;
 
+        case HEART :
+            m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'H';
+            break;
+
+        case ADDLIFE :
+            m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'L';
+            break;
+
         default :
             m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = cursor->tileID;
             break;
@@ -221,6 +229,14 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
                 cursor->tileID = HAMMER;
                 break;
 
+            case 'H' :
+                cursor->tileID = HEART;
+                break;
+
+            case 'L' :
+                cursor->tileID = ADDLIFE;
+                break;
+
             default :
                 cursor->tileID = m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1];
                 break;
@@ -284,6 +300,18 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
     else if(in->key[kc[11]])
     {
         cursor->tileID = SPRING;
+    }
+    else if(in->key[kc[17]])
+    {
+        cursor->tileID = HAMMER;
+    }
+    else if(in->key[kc[15]])
+    {
+        cursor->tileID = HEART;
+    }
+    else if(in->key[kc[16]])
+    {
+        cursor->tileID = ADDLIFE;
     }
     else if(in->key[kc[6]])
     {

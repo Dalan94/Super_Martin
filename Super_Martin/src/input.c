@@ -308,15 +308,20 @@ int updateWaitEvents(Input* in, int *go)
 }
 
 /**
+<<<<<<< HEAD
  *\fn void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
+=======
+ *\fn void keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
+>>>>>>> save
  *perform action command by keyboard action
  *\param[in] in the input structure
  *\param[out] cursorPos cursor position
- *\param[out] play_level boolean about playing the level or quit to title screen
- *\param[in] nb_lvl the number of levels
+ *\param[out] select boolean about selecting the current option
+ *\param[in] nb_options the number of options
 
  */
-void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
+
+void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_options)
 {
     if((in->key[SDLK_ESCAPE] || in->quit || in->isJoystick&in->button[BACK]) && play_level != NULL)
         (*play_level) = 0;
@@ -325,13 +330,15 @@ void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
     {
         (*cursorPos)--;
         if(*cursorPos < 0)
-            (*cursorPos) = nb_lvl-1;
+
+            (*cursorPos) = nb_options-1;
         //SDL_Delay(100);
+
     }
     if(in->key[SDLK_DOWN] || in->isJoystick&&(in->hat[0] == SDL_HAT_DOWN))
     {
         (*cursorPos)++;
-        if(*cursorPos >= nb_lvl)
+        if(*cursorPos >= nb_options)
             (*cursorPos) = 0;
        // SDL_Delay(100);
     }

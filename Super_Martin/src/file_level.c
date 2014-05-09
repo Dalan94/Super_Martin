@@ -94,11 +94,12 @@ Level *openLevel(char *file_name,list *l,platformSet *ps)
                     mark.x = j*TILE_SIZE;
                     platformMap(ps,horiz,mark,0);
                     lvl->map[i][j] = VOID;
+                    break;
                 case 'C':
-                    lvl->map[i][j] = 10;
+                    lvl->map[i][j] = HAMMER;
                     break;
                 default:
-                    if(lvl->map[i][j]<65)
+                    if(lvl->map[i][j] < 65)
                         lvl->map[i][j]-= 48;
             }
         }
@@ -193,13 +194,13 @@ void writeLevel(char *file_name, Level *lvl)
  * \param[out] nb_lvl le nombre de niveau
  * \return un pointeur sur la liste des niveaux cree
  */
-char **readLevelFile(int *nb_lvl)
+char **readLevelFile(char *file_path, int *nb_lvl)
 {
     char **level_names;
     FILE *ptr_file;
     int i;
 
-    ptr_file=openFile("level/level","r");
+    ptr_file=openFile(file_path,"r");
     if (ptr_file == NULL)
      {
         printf("\nErreur : Le fichier n'a pas pu etre lu.\n");

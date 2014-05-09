@@ -17,14 +17,15 @@
  *\return 1 if a level has been choosen, 0 if not
  */
 
-int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys,int *go,Input *in)
+
+int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys, char player_name[MAX_SIZE_FILE_NAME], Player *player, int *go, int *nb_lvl, Input *in)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
     int previous_time=0;
     int current_time=0;
-    int play_lvl = 1;
-    int nb_lvl;
+    int play_lvl=1;
+
     char **level_names;
     int i;
     int taille_texte;
@@ -38,8 +39,7 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
     posWait.x = 0;
     posWait.y = 0;
 
-    level_names=readLevelFile(&nb_lvl);
-
+    level_names=readLevelFile("level/level", nb_lvl);
     memset(&in->key,0,SDLK_LAST*sizeof(char));
     if(in->isJoystick)
         initInput(in);
@@ -47,27 +47,36 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
     while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN] && !in->isJoystick|!(in->button[A] || in->button[BACK]))
     {
         updateWaitEvents(in,go);
-        inputActionMenu(in,&pos_curseur,&play_lvl,nb_lvl);
-
-        waitFPS(&previous_time,&current_time);
-
-        SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
-
-        SDL_BlitSurface(waiting, NULL, screen, &posWait);
-
-        for (i=0 ; i < nb_lvl ; i++)
+        if(in->key[SDLK_ESCAPE])
+            return -1;
+        else
         {
-            posText.x = -1;
-            taille_texte=screen->h / nb_lvl;
-            if (taille_texte > 60)
-                taille_texte=60;
-            posText.y = screen->h / (1+nb_lvl) * (i+1) - taille_texte/2;
-            printText(screen,&posText,level_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
-            if(i != pos_curseur)
-                printText(screen,&posText,level_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
-            else
-                printText(screen,&posText,level_names[i],255,60,30,"polices/ubuntu.ttf",taille_texte,1);
+            inputActionMenu(in,&pos_curseur,&play_lvl,min(player->levelMax, *nb_lvl));
 
+            waitFPS(&previous_time,&current_time);
+
+            SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
+
+            SDL_BlitSurface(waiting, NULL, screen, &posWait);
+
+            if(pos_curseur>=0)
+            {
+                for (i=0 ; i < min(player->levelMax, *nb_lvl) ; i++)
+                {
+
+                    posText.x = -1;
+                    taille_texte=screen->h / *nb_lvl;
+                    if (taille_texte > 60)
+                        taille_texte=60;
+                    posText.y = screen->h / (1+*nb_lvl) * (i+1) - taille_texte/2;
+                    printText(screen,&posText,level_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
+                    if(i != pos_curseur)
+                        printText(screen,&posText,level_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
+                    else
+                        printText(screen,&posText,level_names[i],255,60,30,"polices/ubuntu.ttf",taille_texte,1);
+
+                }
+            }
         }
 
         SDL_Flip(screen);
@@ -75,12 +84,14 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
     }
 
     SDL_FreeSurface(waiting);
+    if(in->quit)
+        return -1;
+    if(pos_curseur>=0)
+        sprintf(level_name,"level/%s.lvl",level_names[pos_curseur]);
 
-    sprintf(level_name,"level/%s.lvl",level_names[pos_curseur]);
-
-    closeLevelList(level_names,nb_lvl);
+    closeLevelList(level_names,*nb_lvl);
 
     stopSound(sound_sys,1);
 
-    return play_lvl;
+    return pos_curseur;
 }

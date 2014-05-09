@@ -8,7 +8,7 @@
 #ifndef CONST_H_INCLUDED
 #define CONST_H_INCLUDED
 
-    #define TILE_SIZE            16 // Taille d'un bloc (carré) en pixels
+    #define TILE_SIZE               16 // Taille d'un bloc (carré) en pixels
 
     #define SCREEN_WIDTH            1280
     #define SCREEN_HEIGHT           720
@@ -23,12 +23,13 @@
     #define JUMP_HEIGHT             13
     #define MAX_SPEED               5
     #define SPRING_HEIGHT           22
+
     #define COLLISION_ADJUSTMENT 9
 
     #define IMG_END_SIZE            80
     #define NB_TILE_MARYO_WIDTH     4
     #define NB_TILE_MARYO_HEIGHT    2
-    #define TILE_MAX 13
+    #define TILE_MAX                18
     #define FRENQUENCY_CHANGE_MOVING        5
 
     #define NB_PLATFORM_MAX         30
@@ -37,9 +38,14 @@
     #define NB_PROJECTILE_MAX       30
     #define PROJECTILE_SPEED        10
 
-    #define NB_KEY                  6
+    #define NB_KEY                  18
 
-    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, HAMMER, ENEMY, TREE='T', FLOWER='P', CLOUD='N'};
+    #define FRENQUENCY_CHANGE_MOVING 5
+
+    enum {VOID=0, GROUND, COIN=7, ROCK, SPRING, HAMMER, HEART, ADDLIFE, ENEMY, TREE, FLOWER, CLOUD};
+
+
+    #define min(a,b) (a<=b?a:b)
 
     enum {RIGHT,LEFT,UP,DOWN};
 

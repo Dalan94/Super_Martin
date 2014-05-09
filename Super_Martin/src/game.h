@@ -27,12 +27,13 @@
 #include "input.h"
 #include "mobile_platform.h"
 #include "projectile.h"
+#include "player.h"
 
 
 
 /*prototypes*/
 
-int play(SDL_Surface *screen,char *level_name,Sound *sound_sys,int *go,SDLKey *kc,Input *in);
+int play(SDL_Surface *screen,char *level_name,Sound *sound_sys,int *go,SDLKey *kc, Input *in, Player *player, char player_name[MAX_SIZE_FILE_NAME], int currentLevel, int nb_lvl);
 void printGameOver(SDL_Surface *screen, int* continuer,Input *in,Sound *sound_sys);
 
 

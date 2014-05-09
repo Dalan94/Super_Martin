@@ -16,6 +16,7 @@
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_ttf.h>
 #include "const.h"
+#include "structures.h"
 #include "file_level.h"
 #include "share.h"
 #include "text.h"
@@ -23,7 +24,6 @@
 #include "image.h"
 #include "input.h"
 
-int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *s,int *go,Input *in);
-
+int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys, char player_name[MAX_SIZE_FILE_NAME], Player *player, int *go, int *nb_lvl, Input *in);
 
 #endif // MENU_LEVEL_H_INCLUDED
