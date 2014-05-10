@@ -183,7 +183,7 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     if((in->key[kc[L]] || in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_left = 1;
-    if(!(in->key[kc[L]] || in->isJoystick&&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-3000)) && player->isOnGround)
+    if((!(in->key[kc[L]] || in->isJoystick&&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-3000)) && player->isOnGround)||player->wallJump == 3)
         *move_left = 0;
     if(in->isJoystick&&(in->axes[0] < - 3000))
     {
@@ -194,7 +194,7 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     if((in->key[kc[R]] || in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_right = 1;
-    if(!(in->key[kc[R]] || in->isJoystick&&(in->hat[0]==SDL_HAT_RIGHT && in->axes[0]<3000)) && player->isOnGround)
+    if((!(in->key[kc[R]] || in->isJoystick&&(in->hat[0]==SDL_HAT_RIGHT && in->axes[0]<3000)) && player->isOnGround)|| player->wallJump == 3)
         *move_right = 0;
     if(in->isJoystick&&in->axes[0] > 3000)
     {
@@ -205,6 +205,10 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     {
          *jump = 1;
     }
+    if((in->key[kc[J]] ) && player->wallJump == 1)
+        *jump = 3;
+    if((in->key[kc[J]] ) && player->wallJump == 2)
+        *jump = 4;
 
     if((!in->key[kc[J]] && !in->isJoystick|!in->button[A]) && *(jump)==1)
     {
@@ -212,7 +216,7 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
         if(!player->doubleJump)
             player->doubleJump = 1;
     }
-    else if((!in->key[kc[J]] && !in->isJoystick|!in->button[A]) && (*jump==2 || *jump==0))
+    else if((!in->key[kc[J]] && !in->isJoystick|!in->button[A]) && (*jump==2 || *jump==0 || *jump == 3 || *jump == 4))
         *jump = 0;
 
         /*pause*/

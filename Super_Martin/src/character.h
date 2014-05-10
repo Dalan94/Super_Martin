@@ -57,6 +57,7 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l,platformSe
 void jumping(Character *c, Map *m,Sound *jump_sound,list *l);
 int collisionSprite(SDL_Rect s1, SDL_Rect s2);
 int checkFall(Character *c,Map *m,platformSet *ps);
+int checkWall(Character *c,Map *m);
 
 
 

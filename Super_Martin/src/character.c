@@ -40,6 +40,8 @@ Character *createCharacter(char *tile,int x, int y,int npc, int nbProjectile, in
     c->isRight = 1;
     c->isOnGround = 0;
     c->doubleJump = 0;
+    c->wallJump = 0;
+
     c->countStars = nbCoins;
     c->nbLifes = nbLifes;
     c->hp = 100;
@@ -93,12 +95,30 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
     if(jump == 2 && c->doubleJump != 2)
         c->dirY = -GRAVITY_SPEED*3;
 
+
     c->dirY+=GRAVITY_SPEED;
 
     if(c->dirY >= MAX_FALL_SPEED)
         c->dirY == MAX_FALL_SPEED;
 
-    if(jump==1 && (c->isOnGround || c->doubleJump == 1))
+
+        /*left*/
+    if (move_right && !move_left)
+    {
+        c->dirX += s;
+        if(l != NULL)
+            c->isRight = 1;
+    }
+        /* right*/
+    if (move_left && !move_right)
+    {
+        c->dirX -= s;
+        if(l != NULL)
+            c->isRight = 0;
+    }
+
+    /* jump */
+    if(jump==1 && (c->isOnGround /*|| c->doubleJump == 1*/))
     {
         c->dirY = -JUMP_HEIGHT;
         if(c->isOnGround)
@@ -109,19 +129,33 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
         else
             c->doubleJump = 2;
     }
+    if(c->wallJump == 4)
+    {
+        c->dirX = -5;
+        c->isRight = 0;
+        if(checkWall(c,m) == 1)
+            c->wallJump = 0;
+    }
+    if(c->wallJump == 5)
+    {
+        c->dirX = 5;
+        c->isRight = 1;
+        if(checkWall(c,m) == 2)
+            c->wallJump = 0;
+    }
+    if(jump == 3)
+    {
+        c->dirY = -JUMP_HEIGHT;
+        c->wallJump = 4;
+        c->isOnGround = 0;
+    }
+    if(jump == 4)
+    {
+        c->dirY = -JUMP_HEIGHT;
+        c->wallJump = 5;
+        c->isOnGround = 0;
+    }
 
-    if (move_right && !move_left)
-    {
-        c->dirX += s;
-        if(l != NULL)
-            c->isRight = 1;
-    }
-    if (move_left && !move_right)
-    {
-        c->dirX -= s;
-        if(l != NULL)
-            c->isRight = 0;
-    }
 
     c->isFalling=1;
 
@@ -131,11 +165,17 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
     if(ret == 0)
         presiseMoveCharacter(c,c->dirX,c->dirY,m,l,ps);
 
+    if(checkWall(c,m)&&c->dirX > 0 && c->wallJump <= 3 && checkFall(c,m,ps))
+        c->wallJump = 1;
+    if(checkWall(c,m)&&c->dirX < 0 && c->wallJump <= 3 && checkFall(c,m,ps))
+        c->wallJump = 2;
+
     if(!checkFall(c,m,ps))
     {
         c->isOnGround = 1;
         c->isFalling = 0;
         c->doubleJump = 0;
+        c->wallJump = 0;
     }
 
     return 0;
@@ -325,24 +365,75 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l,platformSe
     }
 }
 
+
+ /**
+ *\fn int checkWall(Character *c,Map *m)
+ *tests if the character's futur position is next to a wall tile
+ *\param[in] c the monster/character to be tested
+ *\param[in] m the game map
+ *\return 1 if wall tile, 0 if not
+ */
+int checkWall(Character *c,Map *m)
+{
+    int x,y;
+    int i;
+
+    if(!c->isRight)
+    {
+
+        x = (int)((c->location.x-2)/TILE_SIZE);
+        y = (int)(c->location.y + 1)/TILE_SIZE;
+
+
+        if(y<0)
+            y = 1;
+        if(y >= m->lvl->height-1)
+            y = m->lvl->height-2;
+        if(x<0)
+            x = 1;
+        if(x> m->lvl->width)
+            x = m->lvl->width;
+
+        if(m->lvl->map[y][x-1] != VOID && m->lvl->map[y][x] < 65)
+            return 1;
+        else
+            return 0;
+    }
+    else
+    {
+        x = (int)(c->location.x)/TILE_SIZE;
+        y = (int)(c->location.y + 1)/TILE_SIZE;
+
+
+        if(y<=0)
+            y = 1;
+        if(y >= m->lvl->height-1)
+            y = m->lvl->height - 2;
+        if(x<=0)
+            x = 1;
+        if(x>= m->lvl->width)
+            x = m->lvl->width - 1;
+
+        if(m->lvl->map[y][x+1] != VOID && m->lvl->map[y][x+1]<65)
+            return 2;
+        else
+            return 0;
+    }
+    return 0;
+}
+
 /**
- *\fn int checkFall(Character *c,Map *m)
+ *\fn int checkFall(Character *c,Map *m,platformSet *ps)
  *tests if the character's futur position is over a void tile
  *\param[in] c the monster/character to be tested
  *\param[in] m the game map
+ *\param[in] ps the platform set
  *\return 1 if void tile, 0 if not
  */
 int checkFall(Character *c,Map *m,platformSet *ps)
 {
     int x,y;
     int i;
-    /*if(ps != NULL)
-        for(i = 0;i<ps->nb;i++)
-            if(c->location.y+c->location.h<=ps->tab[i]->location.y+5
-                && c->location.y+c->location.h>=ps->tab[i]->location.y-5
-                && c->location.x>=ps->tab[i]->location.x
-                && c->location.x<=ps->tab[i]->location.x+ps->tab[i]->location.w)
-                    return 0;*/
 
     if(!c->isRight)
     {

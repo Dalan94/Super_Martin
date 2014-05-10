@@ -26,6 +26,8 @@ typedef struct
     int isRight; /*! indicate the character's diraction (1 right, 0 left)*/
     int isOnGround; /*! indicate if the character is on the ground*/
     int doubleJump; /*! 0 when not jumping, 1 if made 1 jump (ie can make a double jump), 2 if have made double jump*/
+    int wallJump; /*! indicates if can do wall jump, 0 don't, 1 wall at right, 2 wall at left */
+
     int hp; /*! character life, 100 when full life, 0 when dead*/
     int hpMax;
     int nbLifes;
