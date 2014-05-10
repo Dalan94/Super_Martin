@@ -185,7 +185,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
                 if((c->countStars) > 100)
                 {
                     c->nbLifes++;
-                    coins = 0;
+                    //coins = 0;
                     c->countStars = 0;
                 }
                 break;
