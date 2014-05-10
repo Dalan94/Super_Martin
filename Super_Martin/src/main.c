@@ -59,6 +59,7 @@ int main(int argc, char *argv[])
 
     /*chargement des configuration */
     loadOptions(".conf",sound_system,kc,&in);
+    in.useJoystick = 1;
 
 
     SDL_WM_SetCaption("Super Martin", NULL); //titre de la fenêtres

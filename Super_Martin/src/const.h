@@ -38,7 +38,7 @@
     #define NB_PROJECTILE_MAX       30
     #define PROJECTILE_SPEED        10
 
-    #define NB_KEY                  18
+    #define NB_KEY                  6
 
     #define FRENQUENCY_CHANGE_MOVING 5
 

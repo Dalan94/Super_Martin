@@ -63,7 +63,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     float move_left=0;
     int jump = 0;
 
-    memset(&in->key,0,sizeof(char)*SDLK_LAST);
+    memset(in->key,0,sizeof(char)*SDLK_LAST);
     if(in->isJoystick)
         initInput(in);
     loadOptions(".conf",sound_sys,kc,in);
