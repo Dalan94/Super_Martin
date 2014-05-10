@@ -22,6 +22,7 @@ void initInput(Input *in)
         in->key[i] = 0;
 
     in->quit = 0;
+    in->space = 0;
 
     initJoystick(in);
 }
@@ -205,9 +206,9 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     {
          *jump = 1;
     }
-    if((in->key[kc[J]] ) && player->wallJump == 1)
+    if((in->key[kc[J]] ) && player->wallJump == 1 && in->key[kc[R]] && !in->space)
         *jump = 3;
-    if((in->key[kc[J]] ) && player->wallJump == 2)
+    if((in->key[kc[J]] ) && player->wallJump == 2 && in->key[kc[L]] && !in->space)
         *jump = 4;
 
     if((!in->key[kc[J]] && !in->isJoystick|!in->button[A]) && *(jump)==1)
@@ -245,6 +246,11 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     }
     else
         ps->projectileThrown = 0;
+
+    if(in->key[SDLK_SPACE])
+        in->space = 1;
+    else
+        in->space = 0;
 }
 
 

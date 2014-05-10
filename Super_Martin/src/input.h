@@ -24,6 +24,8 @@ typedef enum
 typedef struct
 {
 	char key[SDLK_LAST]; /*! all the keyboard keys : 1 the key is pushed, 0 isn't */
+	int space;
+
 	int quit; /*! is 1 is the SDL_QUIT event happens */
 
     int isJoystick; /*! indicate if there is a joystick plugged in */
