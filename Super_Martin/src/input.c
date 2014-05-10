@@ -206,9 +206,11 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     {
          *jump = 1;
     }
-    if((in->key[kc[J]] ) && player->wallJump == 1 && in->key[kc[R]] && !in->space)
+    if((in->key[kc[J]] || in->isJoystick&&in->button[A]) && player->wallJump == 1
+        && (in->key[kc[R]] || in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT || in->axes[0] > 3000))  && !in->space)
         *jump = 3;
-    if((in->key[kc[J]] ) && player->wallJump == 2 && in->key[kc[L]] && !in->space)
+    if((in->key[kc[J]] || in->isJoystick&&in->button[A]) && player->wallJump == 2
+        && (in->key[kc[L]] || in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT || in->axes[0] < -3000)) && !in->space)
         *jump = 4;
 
     if((!in->key[kc[J]] && !in->isJoystick|!in->button[A]) && *(jump)==1)
@@ -247,7 +249,7 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     else
         ps->projectileThrown = 0;
 
-    if(in->key[SDLK_SPACE])
+    if(in->key[SDLK_SPACE] || in->isJoystick&&in->button[A])
         in->space = 1;
     else
         in->space = 0;
