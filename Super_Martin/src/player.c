@@ -13,6 +13,7 @@ int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,
     FILE *ptr_file_player;
     char choice[1];
     int res;
+    char path[MAX_SIZE_FILE_NAME];
 
     ptr_file_player = fopen("save/players", "r+");
 
@@ -134,6 +135,8 @@ int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,
             in.key[SDLK_RETURN] = 0;
         }
     }
+    sprintf(path,"touch configuration/%s.conf",player_name);
+    system(path);
     return res;
 }
 

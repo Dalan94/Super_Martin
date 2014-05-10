@@ -27,7 +27,11 @@
 #include "option.h"
 
 int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc,Input *in);
+
 void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys,Input *in);
-void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in);
+
+void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in,char *player_name);
+void chooseKey(SDL_Surface *screen,Input *in,char *action,SDLKey *kc,int nb);
+
 
 #endif // MENU_OPTION_H_INCLUDED

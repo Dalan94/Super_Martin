@@ -53,13 +53,11 @@ int main(int argc, char *argv[])
 
     /*initialisation de l'écran*/
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
-     //printf("blbla %d",SDL_NumJoysticks());
 
     initInput(&in);
 
     /*chargement des configuration */
-    loadOptions(".conf",sound_system,kc,&in);
-    in.useJoystick = 1;
+    loadSoundOptions("configuration/sound.conf",sound_system);
 
 
     SDL_WM_SetCaption("Super Martin", NULL); //titre de la fenêtres
@@ -86,6 +84,7 @@ int main(int argc, char *argv[])
 
                     case 1  :
                         loadPlayer("save/.save", player_name, current_player);
+                        loadInputOptions(player_name,kc,&in);
                         while((ret1 = mainMenu(screen,&go,sound_system, player_name, &in)) != -1)
                         {
                             switch(ret1)
@@ -115,7 +114,7 @@ int main(int argc, char *argv[])
                                                 soundOptions(screen,&go,sound_system, &in);
                                                 break;
                                             case 1:
-                                                keyBoardOptions(screen,&go,kc,&in);
+                                                keyBoardOptions(screen,&go,kc,&in,player_name);
                                                 break;
                                             default:;
                                         }

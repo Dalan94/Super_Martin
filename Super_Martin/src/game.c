@@ -66,9 +66,11 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     memset(in->key,0,sizeof(char)*SDLK_LAST);
     if(in->isJoystick)
         initInput(in);
-    loadOptions(".conf",sound_sys,kc,in);
+    //loadOptions(".conf",sound_sys,kc,in);
+
     if(!in->useJoystick)
         SDL_JoystickEventState(SDL_IGNORE);
+
     if(player->nbLifes < 0)
         loadPlayer("save/.save", player_name, player);
     /*gestion des inputs*/

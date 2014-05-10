@@ -70,10 +70,7 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc,Input *in
 
     SDL_FreeSurface(waiting);
     if(!ret)
-    {
-        saveOptions(".conf",sound_sys,kc,in);
         return -1;
-    }
 
     return pos_curseur;
 }
@@ -177,17 +174,21 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys, Input *in)
         }
     }
 
+    saveSoundOptions("configuration/sound.conf",sound_sys);
+
+
     SDL_FreeSurface(waiting);
 }
 
 /**
- *\fn void keyboardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
+ *\fn void keyboardOptions(SDL_Surface *screen,int *go,SDLKey *kc,char *player_name)
  *print the keyboard options and deals with the user choises
  *\param[out] screen the game screen
  *\param[in,out] go main loop validation
  *\param[in,out] kc the keyboard config structure
+ *\param[in] player_name the current player name
  */
-void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in)
+void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in,char *player_name)
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
@@ -275,6 +276,7 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in)
     }
 
     SDL_FreeSurface(waiting);
+    saveInputOptions(player_name,kc,in);
 }
 
 /**
