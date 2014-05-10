@@ -44,10 +44,10 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
     if(in->isJoystick)
         initInput(in);
 
-    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN] && !in->isJoystick|!(in->button[A] || in->button[BACK]))
+    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN] && !in->isJoystick||!(in->button[A] || in->button[BACK]))
     {
         updateWaitEvents(in,go);
-        if(in->key[SDLK_ESCAPE])
+        if(in->key[SDLK_ESCAPE] || in->button[BACK]&&in->isJoystick)
             return -1;
         else
         {
