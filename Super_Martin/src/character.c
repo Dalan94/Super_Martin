@@ -118,7 +118,7 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
     }
 
     /* jump */
-    if(jump==1 && (c->isOnGround /*|| c->doubleJump == 1*/))
+    if(jump==1 && (c->isOnGround || c->doubleJump == 1))
     {
         c->dirY = -JUMP_HEIGHT;
         if(c->isOnGround)
