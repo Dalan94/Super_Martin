@@ -35,16 +35,18 @@ void freeProjectileSet(projectileSet *ps)
 }
 
 /**
- *\fn void createProjectile(projectileSet *projSet, int dir, int x, int y)
+ *\fn void createProjectile(projectileSet *projSet, int dir, int x, int y, int fromNPC)
  *creates a projectile and adds it to the projectile set
  *\param[in,out] projSet the projectile set
  *\param[in] dir the projectile's direction
  *\param[in] x the start absciss coordinate of the projectile
  *\param[in] y the start ordinate coordinate of the projectile
+ *\param[in] fromNPC indicates if from npc or not
 */
-void createProjectile(projectileSet *projSet, int dir, int x, int y)
+void createProjectile(projectileSet *projSet,char *pathSprite,int dir, int x, int y, int fromNPC)
 {
     projectile* p;
+    char path[MAX_SIZE_FILE_NAME];
 
     if(projSet->nb >= NB_PROJECTILE_MAX)
         return ; //si trop de projectiles, il ne se passe rien
@@ -56,9 +58,15 @@ void createProjectile(projectileSet *projSet, int dir, int x, int y)
         exit(errno);
     }
     if(dir == RIGHT)
-        p->sprite = imageLoadAlpha("sprites/hammerR.png");
+    {
+        sprintf(path,"sprites/%sR.png",pathSprite);
+        p->sprite = imageLoadAlpha(path);
+    }
     else
-        p->sprite = imageLoadAlpha("sprites/hammerL.png");
+    {
+        sprintf(path,"sprites/%sL.png",pathSprite);
+        p->sprite = imageLoadAlpha(path);
+    }
 
     if(p->sprite == NULL)
     {
@@ -71,6 +79,8 @@ void createProjectile(projectileSet *projSet, int dir, int x, int y)
     p->location.y = y;
     p->location.w = p->sprite->w;
     p->location.h = p->sprite->h;
+
+    p->fromNPC = fromNPC;
 
     projSet->tab[projSet->nb] = p;
     projSet->nb++;
@@ -117,32 +127,34 @@ void blitProjectile(SDL_Surface *screen, projectileSet *ps, Map *m)
 }
 
 /**
- *\fn void moveProjectiles(Map *m,projectileSet *ps,list *l)
+ *\fn void moveProjectiles(Charactere *c,Map *m,projectileSet *ps,list *l)
  *moves all the projectiles
+ *\param[in,out] c the player
  *\param[in,out] m the game map
  *\param[in,out] ps the projectile set
  *\param[in,out] enemyList the enemy list
  */
-void moveProjectiles(Map *m,projectileSet *ps,list *enemyList)
+void moveProjectiles(Character *c,Map *m,projectileSet *ps,list *enemyList)
 {
     int i;
 
     for (i = 0 ; i<ps->nb;i++)
     {
-        moveOneProjectile(m,ps,enemyList,i);
+        moveOneProjectile(c,m,ps,enemyList,i);
     }
 }
 
 
 /**
- *\fn void moveOneProjectile(Map *m,projectileSet *ps,list *l,int nb)
+ *\fn void moveOneProjectile(Character *c,Map *m,projectileSet *ps,list *l,int nb)
  *moves one projectile
+ *\param[in,out] c the player
  *\param[in,out] m the game map
  *\param[in,out] ps the projectileSet
  *\param[in,out] l the enemy list
  *\param[in] the number of the projectile which is moved
  */
-void moveOneProjectile(Map *m,projectileSet *ps,list *l,int nb)
+void moveOneProjectile(Character *c,Map *m,projectileSet *ps,list *l,int nb)
 {
     projectile *p = ps->tab[nb];
     if(p->direction == RIGHT)
@@ -157,16 +169,32 @@ void moveOneProjectile(Map *m,projectileSet *ps,list *l,int nb)
         deleteProjectile(ps,nb);
 
     /* projectile collision with enemies */
-    setOnFirst(l);
-    while(!outOfList(l))
+    if(!p->fromNPC)
     {
-        if(collisionSprite(p->location,l->current->c->location))
+        setOnFirst(l);
+        while(!outOfList(l))
         {
-            deleteCurrent(l);
-            deleteProjectile(ps,nb);
-            break;
+            if(collisionSprite(p->location,l->current->c->location))
+            {
+                deleteCurrent(l);
+                deleteProjectile(ps,nb);
+                break;
+            }
+            next(l);
         }
-        next(l);
+    }
+    else
+    {
+        if(collisionSprite(c->location,p->location) == 2)
+        {
+            c->dirY = -JUMP_HEIGHT;
+            deleteProjectile(ps,nb);
+        }
+        else if(collisionSprite(c->location,p->location) != 0)
+        {
+            c->hp -= 50;
+            deleteProjectile(ps,nb);
+        }
     }
 
     if(collisionMap(p->location,m) == 1)

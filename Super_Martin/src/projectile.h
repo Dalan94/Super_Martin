@@ -15,11 +15,11 @@
 /* prototypes */
 void initProjSet(projectileSet *projSet);
 void freeProjectileSet(projectileSet *ps);
-void createProjectile(projectileSet *projSet, int dir, int x, int y);
+void createProjectile(projectileSet *projSet, char *pathSprite,int dir, int x, int y, int fromNPC);
 void deleteProjectile(projectileSet *ps,int nb);
 void blitProjectile(SDL_Surface *screen, projectileSet *ps, Map *m);
 
-void moveProjectiles(Map *m,projectileSet *ps,list *l);
-void moveOneProjectile(Map *m,projectileSet *ps,list *enemyList,int nb);
+void moveProjectiles(Character *c,Map *m,projectileSet *ps,list *l);
+void moveOneProjectile(Character *c,Map *m,projectileSet *ps,list *enemyList,int nb);
 
 #endif // PROJECTILE_H_INCLUDED
