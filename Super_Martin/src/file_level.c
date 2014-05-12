@@ -80,7 +80,7 @@ Level *openLevel(char *file_name,list *l,platformSet *ps)
             switch(lvl->map[i][j])
             {
                 case 'E':
-                    createEnemy("sprites/Characters/witch_doctor.png",j*TILE_SIZE,(i-1)*TILE_SIZE,l);
+                    createEnemy("sprites/Characters/witch_doctor.png",j*TILE_SIZE,(i-1)*TILE_SIZE,l,1);
                     lvl->map[i][j] = VOID;
                     break;
                 case 'A':
@@ -98,6 +98,16 @@ Level *openLevel(char *file_name,list *l,platformSet *ps)
                 case 'C':
                     lvl->map[i][j] = HAMMER;
                     break;
+
+                case 'F': // left rocket
+                    lvl->map[i][j] = CANON_L;
+                    createEnemy(NULL,j*TILE_SIZE,(i-1)*TILE_SIZE,l,2);
+                    break;
+                case 'G': // right rocket
+                    lvl->map[i][j] = CANON_R;
+                    createEnemy(NULL,j*TILE_SIZE,(i-1)*TILE_SIZE,l,3);
+                    break;
+
                 default:
                     if(lvl->map[i][j] < 65)
                         lvl->map[i][j]-= 48;

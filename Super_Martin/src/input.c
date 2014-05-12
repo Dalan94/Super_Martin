@@ -237,9 +237,9 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
         if(!ps->projectileThrown)
         {
             if(player->isRight)
-                createProjectile(ps,RIGHT,player->location.x+player->location.w+1,player->location.y+player->location.h/2-11);
+                createProjectile(ps,"hammer",RIGHT,player->location.x+player->location.w+1,player->location.y+player->location.h/2-11,0);
             else
-                createProjectile(ps,LEFT,player->location.x-1,player->location.y+player->location.h/2-11);
+                createProjectile(ps,"hammer",LEFT,player->location.x-1,player->location.y+player->location.h/2-11,0);
 
             ps->projectileThrown = 1;
             if(--player->nbProjectile <= 0)
@@ -320,11 +320,7 @@ int updateWaitEvents(Input* in, int *go)
 }
 
 /**
-<<<<<<< HEAD
  *\fn void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
-=======
- *\fn void keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
->>>>>>> save
  *perform action command by keyboard action
  *\param[in] in the input structure
  *\param[out] cursorPos cursor position
@@ -344,14 +340,11 @@ void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_options)
         if(*cursorPos < 0)
 
             (*cursorPos) = nb_options-1;
-        //SDL_Delay(100);
-
     }
     if(in->key[SDLK_DOWN] || in->isJoystick&&(in->hat[0] == SDL_HAT_DOWN))
     {
         (*cursorPos)++;
         if(*cursorPos >= nb_options)
             (*cursorPos) = 0;
-       // SDL_Delay(100);
     }
 }

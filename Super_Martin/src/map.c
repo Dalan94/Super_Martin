@@ -14,8 +14,9 @@
  *\param[in] Map *m The map
  */
 
-void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
-    SDL_Surface *tile, *tree, *cloud, *flower, *spring;// *heart, *addLife;
+void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset)
+{
+    SDL_Surface *tile, *tree, *cloud, *flower, *spring, *canon;
     SDL_Surface *end = NULL;
     SDL_Rect posTile, posTileSet, posTree;
     int i,j,minx,maxx,nbRow;
@@ -31,6 +32,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
     tile = imageLoadAlpha(tileset);
     cloud = imageLoadAlpha("sprites/cloud.png");
     flower = imageLoadAlpha("sprites/flower.png");
+    canon = imageLoadAlpha(("sprites/canon.png"));
 
     if(!(strcmp(tileset, "sprites/tileSet_Snow.png")))
     {
@@ -58,67 +60,80 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset){
 
     }
 
+    if(tree == NULL || spring == NULL || tile == NULL || cloud == NULL || flower == NULL || canon == NULL )
+    {
+        perror("error while loading a sprite");
+        exit(errno);
+    }
+
      for(i=minx;i<maxx;i++)
      {
         for(j=0;j<nbRow;j++)
         {
-
             if(i>=0 && i<m->lvl->width)
             {
-                if(m->lvl->map[j][i] == 'T')
+                switch(m->lvl->map[j][i])
                 {
+                case 'T':
                     posTile.x = (i+1-x_off)*TILE_SIZE-m->xScroll;
                     posTile.y = (j-y_off)*TILE_SIZE;
                     posTree.x = posTree.y = 0;
                     posTile.h = posTree.h;
                     posTile.w = posTree.w;
                     SDL_BlitSurface(tree, &posTree, screen, &posTile);
-                }
-                else if(m->lvl->map[j][i] == 'N')
-                {
+                    break;
+                case 'N':
                     posTile.x = (i+1-4)*TILE_SIZE-m->xScroll;
                     posTile.y = (j-2.5)*TILE_SIZE;
                     posTileSet.h = posTile.h = 80;
                     posTileSet.w = posTile.w = 144;
                     SDL_BlitSurface(cloud, &posTileSet, screen, &posTile);
-                }
-                else if(m->lvl->map[j][i] == 'P')
-                {
+                    break;
+                case 'P':
                     posTile.x = (i+1)*TILE_SIZE-m->xScroll;
                     posTile.y = (j-0.9375)*TILE_SIZE;
                     posTileSet.h = posTile.h = 30;
                     posTileSet.w = posTile.w = 30;
                     SDL_BlitSurface(flower, &posTileSet, screen, &posTile);
-                }
-                else if(m->lvl->map[j][i] == 'H')
-                {
+                    break;
+                case 'H':
                     posTile.x = (i+1)*TILE_SIZE-m->xScroll;
                     posTile.y = j*TILE_SIZE;
                     posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
                     posTileSet.x = HEART % TILE_MAX * TILE_SIZE;
                     posTileSet.y = HEART / TILE_MAX * TILE_SIZE;
                     SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
-                }
-                else if(m->lvl->map[j][i] == 'L')
-                {
+                    break;
+                case 'L':
                     posTile.x = (i+1)*TILE_SIZE-m->xScroll;
                     posTile.y = j*TILE_SIZE;
                     posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
                     posTileSet.x = ADDLIFE % TILE_MAX * TILE_SIZE;
                     posTileSet.y = ADDLIFE / TILE_MAX * TILE_SIZE;
                     SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
-                }
-                else if(m->lvl->map[j][i] == 'C')
-                {
+                    break;
+                case 'C':
                     posTile.x = (i+1)*TILE_SIZE-m->xScroll;
                     posTile.y = j*TILE_SIZE;
                     posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
                     posTileSet.x = HAMMER % TILE_MAX * TILE_SIZE;
                     posTileSet.y = HAMMER / TILE_MAX * TILE_SIZE;
                     SDL_BlitSurface(tile,&posTileSet,screen,&posTile);
-                }
-                else
-                {
+                    break;
+                case CANON_L:
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = j*TILE_SIZE;
+                    posTile.h = posTile.w = TILE_SIZE;
+                    SDL_BlitSurface(canon,NULL,screen,&posTile);
+                    break;
+                case CANON_R:
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = j*TILE_SIZE;
+                    posTile.h = posTile.w = TILE_SIZE;
+                    SDL_BlitSurface(canon,NULL,screen,&posTile);
+                    break;
+
+                default:
                     posTile.x = (i+1)*TILE_SIZE-m->xScroll;
                     posTile.y = j*TILE_SIZE;
                     posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
@@ -221,7 +236,8 @@ void scrolling(Map *m, int direction,float speed){
   *free memory allocated to the map
   *\param[in,out] m the map
   */
-void freeMap(Map *m){
+void freeMap(Map *m)
+{
     closeLevel(m->lvl);
     free((void *)m);
 }

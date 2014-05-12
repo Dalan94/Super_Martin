@@ -25,13 +25,14 @@
 
 int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *kc, Input *in, Player *player, char player_name[MAX_SIZE_FILE_NAME], int currentLevel, int nb_lvl)
 {
-    SDL_TimerID timer = NULL;
+    SDL_TimerID timer = NULL, timer1 = NULL;
 
     int previous_time=0;
     int current_time=0;
     int old_time=201;
     int pause=0;
     int ret = 0;
+    int launch = 1;
 
     int acceleration=0;
     float speed=0;
@@ -66,7 +67,6 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     memset(in->key,0,sizeof(char)*SDLK_LAST);
     if(in->isJoystick)
         initInput(in);
-    //loadOptions(".conf",sound_sys,kc,in);
 
     if(!in->useJoystick)
         SDL_JoystickEventState(SDL_IGNORE);
@@ -99,6 +99,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     /*Démarrage du timer */
     timer=SDL_AddTimer(1000,decomptage,&(m->lvl->timer_level));
+    timer=SDL_AddTimer(5000,rocketLaunch,&launch);
 
     /*chargement de l'arrière plan*/
     background = imageLoadAlpha(m->lvl->background);
@@ -177,8 +178,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
         movePlatform(maryo,&ps,&enemyList);
         updateSpeed(&speed,acceleration);
         move(move_left,move_right,jump,maryo,m,&speed,&acceleration,&enemyList,sound_sys,&ps);
-        moveProjectiles(m,&pjs,&enemyList);
-        moveEnemies(&enemyList,m,&maryoList);
+        moveProjectiles(maryo,m,&pjs,&enemyList);
+        moveEnemies(&enemyList,m,&maryoList,&pjs,&launch);
             /* ******************************** */
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
@@ -410,10 +411,20 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
     in->key[kc[3]] = 0;
 }
 
-Uint32 decomptage(Uint32 intervalle,void* parametre){
+Uint32 decomptage(Uint32 intervalle,void* parametre)
+{
     int *time = parametre;
     (*time)--;
     return intervalle;
+}
+
+Uint32 rocketLaunch(Uint32 intervalle,void* parametre)
+{
+    int *launch = parametre;
+    *launch ^= 1;
+//    if(*launch)
+//        return 1;
+    return 5000;
 }
 
 /**

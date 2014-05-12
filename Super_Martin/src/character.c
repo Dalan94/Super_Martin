@@ -28,10 +28,17 @@ Character *createCharacter(char *tile,int x, int y,int npc, int nbProjectile, in
     }
     c->isNpc = npc;
 
-    c->tile = imageLoadAlpha(tile);
+    if(tile != NULL)
+    {
+        c->tile = imageLoadAlpha(tile);
+        c->location.h = c->tile->h/NB_TILE_MARYO_HEIGHT;
+        c->location.w = c->tile->w/NB_TILE_MARYO_WIDTH;
+    }
+    else
+        c->tile = NULL;
 
-    c->location.h = c->tile->h/NB_TILE_MARYO_HEIGHT;
-    c->location.w = c->tile->w/NB_TILE_MARYO_WIDTH;
+//    c->location.h = c->tile->h/NB_TILE_MARYO_HEIGHT;
+//    c->location.w = c->tile->w/NB_TILE_MARYO_WIDTH;
     c->saveY=c->location.y = y;
     c->saveX = c->location.x = x;
 
@@ -193,7 +200,7 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
 int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound *sound_sys)
 {
     int ret = 0;
-    int ret1 = 1;
+    int ret1 = 0;
     int coins = c->countStars/100;
     SDL_Rect futureLocation = c->location;
     futureLocation.x += vx;
@@ -263,7 +270,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
  *determine if there is a collision beteewen two sprites
  *\param[in] s1 the first sprite
  *\param[in] s2 the second sprite
- *\return 1 if there is a collision and s1 is below s2, 2 if there is a collision and s1 is over s2, 0 if there is no collision
+ *\return 3 if there is a collision and s1 is below s2, 2 if there is a collision and s1 is over s2, 0 if there is no collision
 */
 int collisionSprite(SDL_Rect s1, SDL_Rect s2)
 {

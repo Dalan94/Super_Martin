@@ -39,10 +39,10 @@
  Character *deleteCurrent(list * l);
 
 
-void createEnemy(char *tile,int x,int y, list *l);
+void createEnemy(char *tile,int x,int y, list *l,int type);
 void blitEnnemies(SDL_Surface *screen, list *l,Map *m);
 int collisionEnemy(Character *c,list *l,Map *m);
-void moveEnemies(list *l, Map *m,list *p);
+void moveEnemies(list *l, Map *m,list *p,projectileSet *ps, int *lanch);
 int moveCharacterCol(Character *c,int move_left, int move_right,Map *m);
 
 #endif // ENEMIES_H_INCLUDED

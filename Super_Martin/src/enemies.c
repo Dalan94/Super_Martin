@@ -8,19 +8,20 @@
 #include "enemies.h"
 
 /**
- *\fn void createEnemy(char *spR,char *spL,int x,int y, list *l)
+ *\fn void createEnemy(char *spR,char *spL,int x,int y, list *l,int type)
  *creates an enemy and adds it to an enemies list
  *\param[in] spR right sprite address
  *\param[in] spL right sprite address
  *\param[in] x enemy's x location
  *\param[in] y enemy's y location
  *\param[out] l enemies list
+ *\param[in] type the type of enemy
  */
 
-void createEnemy(char *tile,int x,int y, list *l)
+void createEnemy(char *tile,int x,int y, list *l, int type)
 {
     Character *e;
-    e = createCharacter(tile, x, y,1, 0, 0, 0);
+    e = createCharacter(tile, x, y,type, 0, 0, 0);
     if(e == NULL)
     {
         perror("allocation error");
@@ -57,7 +58,8 @@ void blitEnnemies(SDL_Surface *screen, list *l,Map *m)
 
     while(!outOfList(l))
     {
-        blitCharacter(screen,l->current->c,m);
+        if(l->current->c->isNpc != 2 && l->current->c->isNpc != 3)
+            blitCharacter(screen,l->current->c,m);
         next(l);
     }
 }
@@ -81,78 +83,84 @@ int collisionEnemy(Character *c,list *l,Map *m)
 
     while(!outOfList(l))
     {
-        switch(collisionSprite(c->location,l->current->c->location))
+        if(l->current->c->isNpc != 2 && l->current->c->isNpc != 3)
         {
-            case 1:
-                if(!(c->isNpc))
-                {
-                    if(!c->isHurt)
+            switch(collisionSprite(c->location,l->current->c->location))
+            {
+                case 1:
+                    if(!(c->isNpc))
                     {
-                        c->hp -= 50;
-                        c->isHurt = 50;
-                    }
+                        if(!c->isHurt && l->current->c->isNpc != 2)
+                        {
+                            c->hp -= 50;
+                            c->isHurt = 50;
+                        }
 
-
-                    if(c->isRight)
-                    {
-                        ret1 = moveCharacterCol(c,1,0,m);
-                        moveCharacterCol(l->current->c,0,1,m);
-                    }
-                    else
-                    {
-                        ret1 = moveCharacterCol(c,0,1,m);
-                        moveCharacterCol(l->current->c,1,0,m);
-                    }
-                    l->current->c->isRight ^= 1;
-                    l->current->c->saveX = l->current->c->location.x;
-                }
-                else
-                {
-                    if(!l->current->c->isHurt)
-                    {
-                        l->current->c->hp -= 50;
-
-                        l->current->c->isHurt = 50;
-                    }
-
-
-                    if(c->isRight)
-                    {
-                        ret1 = moveCharacterCol(l->current->c,0,1,m);
-                        moveCharacterCol(c,1,0,m);
+                        if(l->current->c->isNpc != 2)
+                        {
+                            if(c->isRight)
+                            {
+                                ret1 = moveCharacterCol(c,1,0,m);
+                                moveCharacterCol(l->current->c,0,1,m);
+                            }
+                            else
+                            {
+                                ret1 = moveCharacterCol(c,0,1,m);
+                                moveCharacterCol(l->current->c,1,0,m);
+                            }
+                            l->current->c->isRight ^= 1;
+                            l->current->c->saveX = l->current->c->location.x;
+                        }
                     }
                     else
                     {
-                        ret1 = moveCharacterCol(l->current->c,1,0,m);
-                        moveCharacterCol(c,0,1,m);
+                        if(!l->current->c->isHurt && l->current->c->isNpc != 2)
+                        {
+                            l->current->c->hp -= 50;
+
+                            l->current->c->isHurt = 50;
+                        }
+
+                        if(l->current->c->isNpc != 2)
+                        {
+                        if(c->isRight)
+                            {
+                                ret1 = moveCharacterCol(l->current->c,0,1,m);
+                                moveCharacterCol(c,1,0,m);
+                            }
+                            else
+                            {
+                                ret1 = moveCharacterCol(l->current->c,1,0,m);
+                                moveCharacterCol(c,0,1,m);
+                            }
+                            c->isRight ^= 1;
+                            c->saveX = c->location.x+10;
+                        }
                     }
-                    c->isRight ^= 1;
-                    c->saveX = c->location.x+10;
-
-                }
-                ret = 1;
-                break;
-
-            case 2:
-                if(!c->isNpc)
-                {
-                    c->dirY = -(JUMP_HEIGHT/2);
-                    deleteCurrent(l);
                     ret = 1;
-                }
-                break;
-            case 3:
-                if(!c->isNpc)
-                {
-                    c->dirY = -(JUMP_HEIGHT/2);
-                    deleteCurrent(l);
-                    ret = 1;
-                }
-                break;
+                    break;
 
-            case 0: ;
+                case 2:
+                    if(!c->isNpc && l->current->c->isNpc != 2)
+                    {
+                        c->dirY = -(JUMP_HEIGHT/2);
+                        deleteCurrent(l);
+                        ret = 1;
+                    }
+                    break;
+                case 3:
+                    if(!c->isNpc && l->current->c->isNpc != 2)
+                    {
+                        c->dirY = -(JUMP_HEIGHT/2);
+                        deleteCurrent(l);
+                        ret = 1;
+                    }
+                    break;
 
-            default: ;
+                case 0: ;
+
+                default: ;
+            }
         }
         next(l);
     }
@@ -162,12 +170,15 @@ int collisionEnemy(Character *c,list *l,Map *m)
 
 
 /**
- *\fn void moveEnemies(list *l, Map *m)
+ *\fn void moveEnemies(list *l, Map *m, list *p,projectilSet *ps, int launch)
  *make the enemies moving
  *\param[in,out] l the enemy list
  *\param[in] m the game map
+ *\param[in,out] p the player list
+ *\param[out] ps the projectile set
+ *\param[in] launch if 1, canons can fire an rocket
  */
-void moveEnemies(list *l, Map *m, list *p)
+void moveEnemies(list *l, Map *m, list *p,projectileSet *ps,int *launch)
 {
     int ret = 0;
     float s;
@@ -175,20 +186,42 @@ void moveEnemies(list *l, Map *m, list *p)
     setOnFirst(l);
     while(!outOfList(l))
     {
-        if(l->current->c->location.x == l->current->c->saveX || checkFall(l->current->c,m,NULL))
-            l->current->c->isRight ^= 1;
-        l->current->c->saveX = l->current->c->location.x;
+        switch(l->current->c->isNpc)
+        {
+            case 2:
+                if(*launch)
+                {
+                    createProjectile(ps,"rocket",LEFT,l->current->c->location.x,l->current->c->location.y+16,1);
+                }
+                break;
+            case 3:
+                if(*launch)
+                {
+                    createProjectile(ps,"rocket",RIGHT,l->current->c->location.x+32,l->current->c->location.y+16,1);
+                }
+                break;
+            default:
+                if(l->current->c->location.x == l->current->c->saveX || checkFall(l->current->c,m,NULL))
+                    l->current->c->isRight ^= 1;
+                l->current->c->saveX = l->current->c->location.x;
 
-        if(l->current->c->isRight)
-           ret = moveCharacter(l->current->c,0,1,0,m,&s,p,NULL,NULL);
+                if(l->current->c->isRight)
+                    ret = moveCharacter(l->current->c,0,1,0,m,&s,p,NULL,NULL);
 
-        else if(!l->current->c->isRight)
-           ret = moveCharacter(l->current->c,1,0,0,m,&s,p,NULL,NULL);
+                else if(!l->current->c->isRight)
+                    ret = moveCharacter(l->current->c,1,0,0,m,&s,p,NULL,NULL);
+                break;
+        }
 
-        if((l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
+
+
+        if((l->current->c->isNpc != 2 && l->current->c->isNpc != 3) &&
+            (l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
             deleteCurrent(l);
         next(l);
     }
+    if(*launch)
+        *launch = 0;
 }
 
 /**
