@@ -15,7 +15,7 @@
  *\param[in] tileset lvl tileset
  */
 void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor){
-    SDL_Surface *tile, *enemy, *tree, *flower, *cloud, *platform, *platformH, *platformV;
+    SDL_Surface *tile, *enemy, *tree, *flower, *cloud, *platform, *platformH, *platformV, *canonL,*canonR;
     SDL_Rect posTile, posTileSet, posTree, curs;
     int i,j,minx,maxx,nbRow;
     float y_off, x_off;
@@ -34,6 +34,8 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
     platform = imageLoadAlpha("../Super_Martin/sprites/moving_platform.png");
     platformH = imageLoadAlpha("../Super_Martin/sprites/platformH.png");
     platformV = imageLoadAlpha("../Super_Martin/sprites/platformV.png");
+    canonR = imageLoadAlpha("sprites/canonR.png");
+    canonL = imageLoadAlpha("sprites/canonL.png");
 
     if(!(strcmp(tileset, "../Super_Martin/sprites/tileSet_Snow.png")))
     {
@@ -125,6 +127,20 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
                     posTileSet.w = posTile.w = 30;
                     SDL_BlitSurface(flower, &posTileSet, screen, &posTile);
                 }
+                else if(m->lvl->map[j][i] == 'F')
+                {
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = j*TILE_SIZE;
+                    posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
+                    SDL_BlitSurface(canonL, NULL, screen, &posTile);
+                }
+                else if(m->lvl->map[j][i] == 'G')
+                {
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = j*TILE_SIZE;
+                    posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
+                    SDL_BlitSurface(canonR, NULL, screen, &posTile);
+                }
                 else
                 {
                     posTile.x = (i+1)*TILE_SIZE-m->xScroll;
@@ -200,6 +216,20 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
         posTileSet.w = curs.w = 144;
         SDL_BlitSurface(cloud, &posTileSet, screen, &curs);
     }
+    else if(cursor->tileID == CANON_L)
+    {
+        curs.x = cursor->x;
+        curs.y = cursor->y;
+        curs.h = curs.w = TILE_SIZE;
+        SDL_BlitSurface(canonL, NULL, screen, &curs);
+    }
+    else if(cursor->tileID == CANON_R)
+    {
+        curs.x = cursor->x;
+        curs.y = cursor->y;
+        curs.h = curs.w = TILE_SIZE;
+        SDL_BlitSurface(canonR, NULL, screen, &curs);
+    }
     else
     {
         curs.x = cursor->x;
@@ -214,6 +244,8 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
     SDL_FreeSurface(enemy);
     SDL_FreeSurface(cloud);
     SDL_FreeSurface(flower);
+    SDL_FreeSurface(canonL);
+    SDL_FreeSurface(canonR);
 
 }
 

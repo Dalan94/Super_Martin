@@ -178,6 +178,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset)
     SDL_FreeSurface(tree);
     SDL_FreeSurface(cloud);
     SDL_FreeSurface(flower);
+    SDL_FreeSurface(canon);
     //SDL_FreeSurface(heart);
    // SDL_FreeSurface(addLife);
 
