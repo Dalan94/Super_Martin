@@ -51,7 +51,7 @@ void initJoystick(Input *in)
         perror("error while opening the joystick");
         exit(errno);
     }
-    if(strcmp("Microsoft X-Box 360 pad",SDL_JoystickName(0)))
+    if(!strcmp("applesmc",SDL_JoystickName(0)))
     {
         in->isJoystick = 0;
         SDL_JoystickEventState(SDL_IGNORE);
