@@ -152,6 +152,10 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Inp
     while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN] && (!in->isJoystick||!(in->button[A] || in->button[BACK])))
     {
         updateWaitEvents(in,go);
+        if(in->key[SDLK_ESCAPE] || (in->isJoystick&&(in->button[BACK] )))
+        {
+            return -1;
+        }
         inputActionMenu(in,&pos_curseur,&ret,nb_menu);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
@@ -228,13 +232,12 @@ int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *
     while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN] && (!in->isJoystick||!(in->button[A] || in->button[BACK])))
     {
         updateWaitEvents(in,go);
-       /* if(in->key[SDLK_ESCAPE] || (!in->isJoystick|!(in->button[BACK] )))
+        if(in->key[SDLK_ESCAPE] || (in->isJoystick&&(in->button[BACK] )))
         {
             choose_player = -1;
-            *go = 0;
         }
         else
-        {*/
+        {
             inputActionMenu(in,&pos_cursor,&choose_player, nb_players);
 
             waitFPS(&previous_time,&current_time);
@@ -259,7 +262,7 @@ int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *
             }
 
             SDL_Flip(screen);
-        //}
+        }
     }
 
     SDL_FreeSurface(waiting);

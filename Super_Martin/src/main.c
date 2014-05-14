@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
         if(titleMenu(screen,&go,sound_system, &in))
         {
 
-            while( (ret3 = menuPlayers(screen, player_name, &go, sound_system, &in)) != -1)
+            while( (ret3 = menuPlayers(screen, player_name, &go, sound_system, &in)) != -1 && go)
             {
                 switch(ret3)
                 {
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
                     case 1  :
                         loadPlayer("save/.save", player_name, current_player);
                         loadInputOptions(player_name,kc,&in);
-                        while((ret1 = mainMenu(screen,&go,sound_system, player_name, &in)) != -1)
+                        while((ret1 = mainMenu(screen,&go,sound_system, player_name, &in)) != -1 && go)
                         {
                             switch(ret1)
                             {
@@ -93,9 +93,9 @@ int main(int argc, char *argv[])
                                     break;
                                 case 0:
 
-                                    while( (ret4 = menuLevel(screen,level_name,sound_system, player_name, current_player, &go, &nb_lvl, &in)) != -1)
+                                    while( (ret4 = menuLevel(screen,level_name,sound_system, player_name, current_player, &go, &nb_lvl, &in)) != -1 && go)
                                     {
-                                        while(play(screen,level_name,sound_system,&go,kc, &in, current_player, player_name, ret4+1, nb_lvl));
+                                        while(play(screen,level_name,sound_system,&go,kc, &in, current_player, player_name, ret4+1, nb_lvl) && go);
                                     }
                                     break;
 
@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
                                     break;
 
                                 case 2 :
-                                    while((ret = optionMenu(screen,&go,sound_system,kc, &in)) != -1)
+                                    while((ret = optionMenu(screen,&go,sound_system,kc, &in)) != -1 && go)
                                         switch(ret)
                                         {
                                             case -1:
