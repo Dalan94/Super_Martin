@@ -277,7 +277,6 @@ int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *
 
     closeLevelList(player_names,nb_players);
 
-    stopSound(sound_sys,1);
 
     return choose_player;
 }
