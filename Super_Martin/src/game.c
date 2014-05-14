@@ -114,7 +114,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     current_time=previous_time=SDL_GetTicks();
 
-    while(!in->key[SDLK_ESCAPE] && *go && !in->isJoystick|!in->button[BACK])
+    while(!in->key[SDLK_ESCAPE] && *go && (!in->isJoystick||!in->button[BACK]))
     {
 
         /* récupération des inputs clavier et gestion de leurs auctions*/

@@ -40,7 +40,7 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc,Input *in
         initInput(in);
 
     while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN]
-           && !in->isJoystick|!(in->button[A] || in->button[BACK]))
+           && (!in->isJoystick||!(in->button[A] || in->button[BACK])))
     {
         updateWaitEvents(in,go);
         inputActionMenu(in,&pos_curseur,&ret,nb_option);
@@ -105,7 +105,7 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys, Input *in)
     if(in->isJoystick)
         initInput(in);
 
-    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->isJoystick|!in->button[BACK])
+    while(!in->key[SDLK_ESCAPE] && !in->quit && (!in->isJoystick||!in->button[BACK]))
     {
         updateWaitEvents(in,go);
         inputActionMenu(in,&pos_curseur,NULL,nb_option);
@@ -160,9 +160,9 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys, Input *in)
                 break;
             case 1:
                 curVol = sound_sys->musicVolume;
-                if((in->key[SDLK_RIGHT] && !in->key[SDLK_LEFT]) || in->isJoystick&(in->hat[0] == SDL_HAT_RIGHT) )
+                if((in->key[SDLK_RIGHT] && !in->key[SDLK_LEFT]) || in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT) )
                     curVol += 0.1;
-                if((!in->key[SDLK_RIGHT] && in->key[SDLK_LEFT]) || in->isJoystick&(in->hat[0] == SDL_HAT_LEFT))
+                if((!in->key[SDLK_RIGHT] && in->key[SDLK_LEFT]) || in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT))
                     curVol -= 0.1;
                 if(curVol < 0)
                     curVol = 0;
@@ -211,7 +211,7 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in,char *play
     if(in->isJoystick)
         initInput(in);
 
-    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->isJoystick|!in->button[BACK])
+    while(!in->key[SDLK_ESCAPE] && !in->quit && (!in->isJoystick||!in->button[BACK]))
     {
         updateWaitEvents(in,go);
         inputActionMenu(in,&pos_curseur,NULL,nb_key);

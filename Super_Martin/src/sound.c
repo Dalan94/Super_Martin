@@ -44,6 +44,7 @@ void playMusic(char *file,Sound *s)
 {
     FMOD_SOUND *sound;
     FMOD_BOOL b;
+    int index;
 
     FMOD_Channel_IsPlaying(s->music,&b);
 
@@ -63,8 +64,11 @@ void playMusic(char *file,Sound *s)
 
 
         /* On joue la musique */
-        FMOD_System_PlaySound(s->sys,1, sound,0, NULL);
+        FMOD_Channel_GetIndex(s->music,&index);
+        FMOD_System_PlaySound(s->sys,index, sound,0, NULL);
         FMOD_Channel_SetVolume(s->music,s->musicVolume);
+
+
     }
 }
 

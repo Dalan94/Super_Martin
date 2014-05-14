@@ -213,13 +213,13 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
         && (in->key[kc[L]] || in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT || in->axes[0] < -3000)) && !in->space)
         *jump = 4;
 
-    if((!in->key[kc[J]] && !in->isJoystick|!in->button[A]) && *(jump)==1)
+    if((!in->key[kc[J]] && (!in->isJoystick||!in->button[A])) && *(jump)==1)
     {
         *jump = 2;
         if(!player->doubleJump)
             player->doubleJump = 1;
     }
-    else if((!in->key[kc[J]] && !in->isJoystick|!in->button[A]) && (*jump==2 || *jump==0 || *jump == 3 || *jump == 4))
+    else if((!in->key[kc[J]] && (!in->isJoystick||!in->button[A])) && (*jump==2 || *jump==0 || *jump == 3 || *jump == 4))
         *jump = 0;
 
         /*pause*/
@@ -331,7 +331,7 @@ int updateWaitEvents(Input* in, int *go)
 
 void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_options)
 {
-    if((in->key[SDLK_ESCAPE] || in->quit || in->isJoystick&in->button[BACK]) && play_level != NULL)
+    if((in->key[SDLK_ESCAPE] || in->quit || in->isJoystick&&in->button[BACK]) && play_level != NULL)
         (*play_level) = 0;
 
     if(in->key[SDLK_UP] || in->isJoystick&&(in->hat[0] == SDL_HAT_UP))

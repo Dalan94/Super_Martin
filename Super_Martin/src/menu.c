@@ -57,9 +57,9 @@ int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys,Input *in)
             if(updateEvents(in,go))
                 event_appear = 1;
 
-            if(in->key[SDLK_ESCAPE] || in->quit || in->isJoystick&in->button[BACK])
+            if(in->key[SDLK_ESCAPE] || in->quit || in->isJoystick&&in->button[BACK])
                 *go = 0;
-            if(in->key[SDLK_RETURN] || in->isJoystick&(in->button[A] || in->button[START]))
+            if(in->key[SDLK_RETURN] || in->isJoystick&&(in->button[A] || in->button[START]))
                 ret = 1;
 
 
@@ -134,7 +134,9 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Inp
     int pos_curseur=0;
 
 
+
     SDL_Rect posText={0,0,0,0};
+
 
     playMusic("sound/Lorena.mp3",sound_sys);
 
@@ -147,7 +149,7 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Inp
     if(in->isJoystick)
         initInput(in);
 
-    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN] && (!in->isJoystick|!(in->button[A] || in->button[BACK])))
+    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN] && (!in->isJoystick||!(in->button[A] || in->button[BACK])))
     {
         updateWaitEvents(in,go);
         inputActionMenu(in,&pos_curseur,&ret,nb_menu);
@@ -223,7 +225,7 @@ int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *
     if(in->isJoystick)
         initInput(in);
 
-    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN] && (!in->isJoystick|!(in->button[A] || in->button[BACK])))
+    while(!in->key[SDLK_ESCAPE] && !in->quit && !in->key[SDLK_RETURN] && (!in->isJoystick||!(in->button[A] || in->button[BACK])))
     {
         updateWaitEvents(in,go);
        /* if(in->key[SDLK_ESCAPE] || (!in->isJoystick|!(in->button[BACK] )))
