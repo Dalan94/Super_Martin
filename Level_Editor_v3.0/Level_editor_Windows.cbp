@@ -2,27 +2,23 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="Super_Martin_Level_Editor" />
+		<Option title="Super Martin Level Editor" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/super_martin" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/monpremierjeu" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option projectLinkerOptionsRelation="1" />
+				<Option use_console_runner="0" />
 				<Compiler>
-					<Add option="-Wall" />
 					<Add option="-g" />
 				</Compiler>
-				<Linker>
-					<Add option="-lSDLmain -lSDL -lSDL_image -lSDL_ttf -lfmod" />
-				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="super_martin_level_editor" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release" />
+				<Option object_output="." />
 				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
@@ -33,8 +29,19 @@
 				</Linker>
 			</Target>
 		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="../Librairie Windows/include" />
+		</Compiler>
 		<Linker>
-			<Add option="-lSDLmain -lSDL -lSDL_image -lSDL_ttf -lfmod" />
+			<Add library="mingw32" />
+			<Add library="libSDLmain" />
+			<Add library="libSDL.dll" />
+			<Add library="SDL_image" />
+			<Add library="SDL_ttf" />
+			<Add library="libfmodex" />
+			<Add library="libfmodexL" />
+			<Add directory="../Librairie Windows/lib" />
 		</Linker>
 		<Unit filename="src/const.h" />
 		<Unit filename="src/file.c">
@@ -95,8 +102,9 @@
 		<Unit filename="src/text.h" />
 		<Extensions>
 			<code_completion />
-			<debugger />
 			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

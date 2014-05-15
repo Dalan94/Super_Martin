@@ -3,6 +3,7 @@
 
 #include "const.h"
 #include "structures.h"
+#include "map.h"
 
 void updateEvents(Input* in);
 void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, SDLKey *kc);

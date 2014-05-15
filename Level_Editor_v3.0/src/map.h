@@ -17,6 +17,9 @@
 #include <SDL/SDL_image.h>
 #include "image.h"
 #include "file_level.h"
+#include "input.h"
+#include "text.h"
+#include "share.h"
 
 /*prototypes*/
 void updateScreenMap(SDL_Surface *screen, Map *m,char *tileset, Cursor *cursor);

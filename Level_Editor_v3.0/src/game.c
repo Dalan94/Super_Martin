@@ -40,8 +40,6 @@ void play(SDL_Surface *screen, char *level_name, SDLKey *kc){
 
     SDL_Surface *background = NULL;
     SDL_Rect posBack;
-    SDL_Surface *watch;
-    SDL_Rect posWatch = {10,10,0,0};
 
     /*  Cleaning of the screen */
 
