@@ -232,7 +232,7 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
         *acceleration = 0;
 
         /* projectiles */
-    if((in->key[kc[H]] || in->isJoystick&&in->button[X]) && player->nbProjectile > 0)
+    if((in->key[kc[H]] || in->isJoystick&&in->button[R1]) && player->nbProjectile > 0)
     {
         if(!ps->projectileThrown)
         {
