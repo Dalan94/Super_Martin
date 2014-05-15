@@ -136,7 +136,7 @@ int main(int argc, char *argv[])
 
 
     freeSound(sound_system);
-
+    free((void*)current_player);
     freeInput(&in);
     SDL_Quit();
 

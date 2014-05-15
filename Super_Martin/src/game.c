@@ -395,7 +395,7 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
     if(in->isJoystick)
         in->button[START] = 0;
 
-    while(!(in->key[kc[3]] || in->isJoystick&in->button[START]) && *go)
+    while(!(in->key[kc[3]] || in->isJoystick&&in->button[START]) && *go)
     {
 
         updateWaitEvents(in,go);
