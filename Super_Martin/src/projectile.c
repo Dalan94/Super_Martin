@@ -97,11 +97,12 @@ void deleteProjectile(projectileSet *ps,int nb)
     int i;
     free((void *) ps->tab[nb]);
 
-    for(i = nb; i<NB_PROJECTILE_MAX;i++)
+    for(i = nb; i<ps->nb;i++)
     {
         ps->tab[i] = ps->tab[i+1];
     }
     ps->tab[NB_PROJECTILE_MAX-1] = NULL;
+
     ps->nb--;
 }
 

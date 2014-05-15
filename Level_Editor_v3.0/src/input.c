@@ -166,6 +166,9 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
         case CANON_R :
             m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'G';
             break;
+        case CANON_B :
+            m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = 'D';
+            break;
 
         default :
             m->lvl->map[cursor->y / TILE_SIZE][((m->xScroll + cursor->x) / TILE_SIZE)-1] = cursor->tileID;
@@ -249,6 +252,9 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
                 break;
             case 'G' :
                 cursor->tileID = CANON_R;
+                break;
+            case 'D' :
+                cursor->tileID = CANON_B;
                 break;
 
             default :
