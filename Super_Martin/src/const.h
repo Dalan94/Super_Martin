@@ -37,6 +37,7 @@
 
     #define NB_PROJECTILE_MAX       30
     #define PROJECTILE_SPEED        10
+    #define FRENQUENCY_ROCKET_LAUNCH 2000
 
     #define NB_KEY                  6
 

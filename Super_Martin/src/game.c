@@ -99,7 +99,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     /*Démarrage du timer */
     timer=SDL_AddTimer(1000,decomptage,&(m->lvl->timer_level));
-    timer=SDL_AddTimer(5000,rocketLaunch,&launch);
+    timer=SDL_AddTimer(FRENQUENCY_ROCKET_LAUNCH,rocketLaunch,&launch);
 
     /*chargement de l'arrière plan*/
     background = imageLoadAlpha(m->lvl->background);
@@ -422,9 +422,8 @@ Uint32 rocketLaunch(Uint32 intervalle,void* parametre)
 {
     int *launch = parametre;
     *launch ^= 1;
-//    if(*launch)
-//        return 1;
-    return 5000;
+
+    return intervalle;
 }
 
 /**
