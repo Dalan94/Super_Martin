@@ -65,13 +65,13 @@ void createPlatform(platformSet *ps,int x1,int y1,int x2, int y2)
     {
         p->type = 1;
         p->direction = DOWN;
-        p->speed = (y2-y1)/80;
+        p->speed = (y2-y1)/100;
     }
     if(y1 == y2)
     {
         p->type = 0;
         p->direction = RIGHT;
-        p->speed = (x2-x1)/80;
+        p->speed = (x2-x1)/100;
     }
 
 
