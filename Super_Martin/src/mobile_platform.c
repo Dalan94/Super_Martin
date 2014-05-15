@@ -65,11 +65,13 @@ void createPlatform(platformSet *ps,int x1,int y1,int x2, int y2)
     {
         p->type = 1;
         p->direction = DOWN;
+        p->speed = (y2-y1)/80;
     }
     if(y1 == y2)
     {
         p->type = 0;
         p->direction = RIGHT;
+        p->speed = (x2-x1)/80;
     }
 
 
@@ -139,24 +141,24 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m)
 
         if(p->direction == RIGHT)
         {
-            p->location.x += PLATFORM_SPEED;
+            p->location.x += p->speed;
             if(c->OnPlatform == nb)
-                c->location.x += PLATFORM_SPEED; //déplacement si perso sur platform
+                c->location.x += p->speed; //déplacement si perso sur platform
             else if(collisionSprite(futur,c->location)==1)
             {
-                c->location.x += PLATFORM_SPEED; //déplacement si perso devant plateforme
+                c->location.x += p->speed; //déplacement si perso devant plateforme
                  if(checkWall(c,m))
                     c->hp = 0;
             }
         }
         if(p->direction == LEFT)
         {
-            p->location.x -= PLATFORM_SPEED;
+            p->location.x -= p->speed;
             if(c->OnPlatform == nb)
-                c->location.x -= PLATFORM_SPEED;
+                c->location.x -= p->speed;
             else if(collisionSprite(futur,c->location)==1)
             {
-                c->location.x -= PLATFORM_SPEED; //déplacement si perso devant plateforme
+                c->location.x -= p->speed; //déplacement si perso devant plateforme
                 if(checkWall(c,m))
                     c->hp = 0;
             }
@@ -174,7 +176,7 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m)
 
         if(p->direction == DOWN)
         {
-            p->location.y += PLATFORM_SPEED;
+            p->location.y += p->speed;
             if(collisionSprite(futur,c->location)==1)
             {
                 c->location.y = p->location.y+p->location.h; //déplacement si perso sous plateforme
@@ -184,7 +186,7 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m)
         }
         if(p->direction == UP)
         {
-            p->location.y -= PLATFORM_SPEED;
+            p->location.y -= p->speed;
         }
         if(c->OnPlatform == nb)
             c->location.y = p->location.y - c->location.h-1;
