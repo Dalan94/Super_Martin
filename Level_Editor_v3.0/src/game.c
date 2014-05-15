@@ -63,15 +63,15 @@ void play(SDL_Surface *screen, char *level_name, SDLKey *kc){
     SDL_EnableKeyRepeat(100,100);
 
 
-    while(!in.key[SDLK_ESCAPE] && go){
+    while(go){
 
         /*  Recovery and management of inputs */
 
         updateEvents(&in);
 
 
-        if(in.quit)
-            go = 0;
+        if(in.key[SDLK_ESCAPE] || in.quit)
+            printContinue(screen, &in, &go);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
@@ -165,4 +165,47 @@ Uint32 decomptage(Uint32 intervalle,void* parametre){
     int *time = parametre;
     (*time)--;
     return intervalle;
+}
+
+void printContinue(SDL_Surface *screen, Input *in, int *go)
+{
+    SDL_Surface *Continue = NULL;
+    SDL_Rect posContinue, posText;
+
+    Continue = IMG_Load("../Super_Martin/sprites/game-over.jpg");
+    posContinue.x = posContinue.y = 0;
+    SDL_SetAlpha(Continue, SDL_SRCALPHA, 200);
+    SDL_BlitSurface(Continue,NULL,screen,&posContinue);
+    char choice[1];
+    int text_size;
+    *go = 2;
+
+    posText.x = -1;
+    posText.y = 300;
+    text_size = 30;
+    printText(screen, &posText, "Do you really want to quit ? (y/n)", 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
+    SDL_Flip(screen);
+
+    while(*go > 1)
+    {
+        updateWaitEvents(in);
+
+
+        posText.x = -1;
+        posText.y = 370;
+
+        captureText(screen, posText, choice, 1, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, go);
+
+        if(choice[0] == 'n')
+        {
+            *go = 1;
+        }
+        else if(choice[0] == 'y')
+        {
+            *go = 0;
+        }
+        SDL_Flip(screen);
+    }
+
+    SDL_FreeSurface(Continue);
 }

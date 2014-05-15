@@ -106,7 +106,7 @@ void captureText(SDL_Surface *screen, SDL_Rect posText,char *text, int text_leng
             {
                 if(in.key[j])
                 {
-                    if((in.key[SDLK_CAPSLOCK] || in.key[SDLK_RSHIFT] || in.key[SDLK_LSHIFT]) && j >= SDLK_UNDERSCORE && j <= SDLK_z)
+                    if((in.key[SDLK_CAPSLOCK] || in.key[SDLK_RSHIFT] || in.key[SDLK_LSHIFT]) && j > SDLK_UNDERSCORE && j <= SDLK_z)
                     {
                         text[i] = j-32;
                         text[i+1] = 0;

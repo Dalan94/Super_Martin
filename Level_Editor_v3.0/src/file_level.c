@@ -244,7 +244,7 @@ Level *adaptSizeLevel(Level *lvl)
     adapt_lvl->height=lvl->height;
     adapt_lvl->width = end;
     strcpy(adapt_lvl->music,lvl->music);
-    adapt_lvl->timer_level=lvl->timer_level;
+    adapt_lvl->timer_level=end/5;
     strcpy(adapt_lvl->background,lvl->background);
     strcpy(adapt_lvl->tileSet,lvl->tileSet);
     initLevel(adapt_lvl);

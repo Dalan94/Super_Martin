@@ -467,9 +467,6 @@ void saveMap(SDL_Surface *screen, Map *m){
 
     memset(&in, 0, sizeof(in));
 
-
-
-
     level_list = readLevelFile(&level_number);
     nb_lvl = level_number;
     waiting = imageLoad("../Super_Martin/sprites/game-over.jpg");
@@ -558,7 +555,7 @@ void saveMap(SDL_Surface *screen, Map *m){
         {
             posText.x = -1;
             posText.y = 420;
-            text_size = 25;
+            text_size = 22;
             sprintf(tmp2, "Choose the position in the map list for %s :", level_name_tmp);
             printText(screen, &posText, tmp2, 186, 38, 18, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
             posText.x = -1;
@@ -764,7 +761,7 @@ void extendMap(Map *m)
             perror("");
             exit(0);
         }
-        for(j=m->lvl->width-99 ; j<m->lvl->width; j++)
+        for(j=m->lvl->width-99 ; j<=m->lvl->width; j++)
         {
             m->lvl->map[i][j] = 0;
         }

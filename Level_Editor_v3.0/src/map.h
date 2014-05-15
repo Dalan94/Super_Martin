@@ -29,6 +29,7 @@ void displayHelp(SDL_Surface *screen, SDLKey *kc);
 void saveMap(SDL_Surface *screen, Map *m);
 void deleteMap(SDL_Surface *screen, char *map_name, char *map_path);
 void extendMap(Map *m);
+void printContinue(SDL_Surface *screen, Input *in, int *go);
 void resetMap(Map *m);
 void freeMap(Map *m);
 #endif // MAP_H_INCLUDED
