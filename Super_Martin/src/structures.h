@@ -98,6 +98,7 @@ typedef struct
 
     int type; /*! 0 if horizontal movement, 1 if vertical */
     int direction; /*! the platform direction */
+    int speed; /*! platform speed */
 
 }platform;
 

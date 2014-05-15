@@ -184,7 +184,7 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
         c->doubleJump = 0;
         c->wallJump = 0;
     }
-    else if(c->location.y == c->saveY && !c->wallJump)
+     if(c->location.y == c->saveY /*&& !c->wallJump*/)
     {
         c->isFalling = 0;
         c->isOnGround = 1;

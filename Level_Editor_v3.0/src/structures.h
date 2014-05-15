@@ -25,7 +25,8 @@ typedef struct
     char tileID;
 }Cursor;
 
-typedef struct{
+typedef struct
+{
     unsigned char**map;
     int width;
     int height;

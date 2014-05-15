@@ -14,7 +14,7 @@
  */
 typedef enum
 {
-    A = 0,B,X,Y,BACK = 6,START
+    A = 0,B,X,Y,R1=5,BACK = 6,START
 }joyButton;
 
 /**
