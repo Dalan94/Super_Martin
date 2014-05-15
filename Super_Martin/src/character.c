@@ -184,6 +184,12 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
         c->doubleJump = 0;
         c->wallJump = 0;
     }
+    else if(c->location.y == c->saveY && !c->wallJump)
+    {
+        c->isFalling = 0;
+        c->isOnGround = 1;
+        c->doubleJump = 0;
+    }
 
     return 0;
 }
@@ -389,7 +395,7 @@ int checkWall(Character *c,Map *m)
     {
 
         x = (int)((c->location.x-2)/TILE_SIZE);
-        y = (int)(c->location.y + 1)/TILE_SIZE;
+        y = (int)(c->location.y + TILE_SIZE)/TILE_SIZE;
 
 
         if(y<0)
@@ -409,7 +415,7 @@ int checkWall(Character *c,Map *m)
     else
     {
         x = (int)(c->location.x)/TILE_SIZE;
-        y = (int)(c->location.y + 1)/TILE_SIZE;
+        y = (int)(c->location.y + TILE_SIZE)/TILE_SIZE;
 
 
         if(y<=0)
@@ -458,7 +464,7 @@ int checkFall(Character *c,Map *m,platformSet *ps)
         }
         else
         {
-            x = (int)((c->location.x)/TILE_SIZE);
+            x = (int)((c->location.x+c->location.w/2)/TILE_SIZE);
             y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
         }
 
@@ -492,7 +498,7 @@ int checkFall(Character *c,Map *m,platformSet *ps)
         }
         else
         {
-            x = (int)(c->location.x)/TILE_SIZE;
+            x = (int)(c->location.x/*+c->location.w/2*/)/TILE_SIZE;
             y = (int)(c->location.y + c->location.h - 1)/TILE_SIZE;
         }
 

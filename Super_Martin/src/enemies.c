@@ -238,12 +238,12 @@ int moveCharacterCol(Character *c,int move_left, int move_right,Map *m)
     float s;
     if(!c->isNpc)
     {
-        s = 50;
+        s = 25;
         return moveCharacter(c,move_left,move_right,0,m,&s,NULL,NULL,NULL);
     }
     else
     {
-        s = 5;
+        s =  5;
         return moveCharacter(c,move_left,move_right,0,m,&s,NULL,NULL,NULL);
     }
 
