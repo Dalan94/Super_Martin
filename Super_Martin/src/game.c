@@ -175,7 +175,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
         }
 
             /* update the game objects position */
-        movePlatform(maryo,&ps,&enemyList);
+        movePlatform(maryo,&ps,&enemyList,m);
         updateSpeed(&speed,acceleration);
         move(move_left,move_right,jump,maryo,m,&speed,&acceleration,&enemyList,sound_sys,&ps);
         moveProjectiles(maryo,m,&pjs,&enemyList);

@@ -99,31 +99,33 @@ void blitPlatform(SDL_Surface *screen, platformSet *ps, Map *m)
 }
 
 /**
- *\fn void movePlatform(Character *c,platformSet *ps,list *l)
+ *\fn void movePlatform(Character *c,platformSet *ps,list *l, Map *m)
  *moves all the platforms
  *\param[in,out] c the player
  *\param[in,out] ps the platform set
  *\param[in,out] l the enemy list
+ *\param[in] m the game map
  */
-void movePlatform(Character *c,platformSet *ps,list *l)
+void movePlatform(Character *c,platformSet *ps,list *l,Map *m)
 {
     int i;
 
     for (i = 0 ; i<ps->nb;i++)
     {
-        moveOnePlatform(c,ps->tab[i],l,i);
+        moveOnePlatform(c,ps->tab[i],l,i,m);
     }
 }
 
 /**
- *\fn void moveOnePlatform(Character *c,platform *p,list *l,int nb)
+ *\fn void moveOnePlatform(Character *c,platform *p,list *l,int nb, Map *m)
  *moves one platforms
  *\param[in,out] c the player
  *\param[in,out] p the platform
  *\param[in,out] l the enemy list
  *\param[in] the number of the platform which is moved
+ *\param[in] m the game map
  */
-void moveOnePlatform(Character *c,platform *p,list *l,int nb)
+void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m)
 {
     SDL_Rect futur;
     futur = p->location;
@@ -166,7 +168,11 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb)
         {
             p->location.y += PLATFORM_SPEED;
             if(collisionSprite(futur,c->location)==1)
+            {
                 c->location.y = p->location.y+p->location.h; //déplacement si perso sous plateforme
+                if(!checkFall(c,m,NULL)) //if character stuck between a platform and the ground, kill him
+                    c->hp = 0;
+            }
         }
         if(p->direction == UP)
         {
