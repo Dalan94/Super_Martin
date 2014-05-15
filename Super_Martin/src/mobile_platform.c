@@ -143,7 +143,11 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m)
             if(c->OnPlatform == nb)
                 c->location.x += PLATFORM_SPEED; //déplacement si perso sur platform
             else if(collisionSprite(futur,c->location)==1)
+            {
                 c->location.x += PLATFORM_SPEED; //déplacement si perso devant plateforme
+                 if(checkWall(c,m))
+                    c->hp = 0;
+            }
         }
         if(p->direction == LEFT)
         {
@@ -151,7 +155,11 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m)
             if(c->OnPlatform == nb)
                 c->location.x -= PLATFORM_SPEED;
             else if(collisionSprite(futur,c->location)==1)
+            {
                 c->location.x -= PLATFORM_SPEED; //déplacement si perso devant plateforme
+                if(checkWall(c,m))
+                    c->hp = 0;
+            }
         }
 
         if(c->OnPlatform == nb)
