@@ -9,6 +9,7 @@
 #define ENEMIES_H_INCLUDED
 
 #include "character.h"
+#include "projectile.h"
 #include "const.h"
 #include "structures.h"
 
@@ -40,6 +41,7 @@
 
 
 void createEnemy(char *tile,int x,int y, list *l,int type);
+void freeEnemies(list *l);
 void blitEnnemies(SDL_Surface *screen, list *l,Map *m);
 int collisionEnemy(Character *c,list *l,Map *m);
 void moveEnemies(list *l, Map *m,list *p,projectileSet *ps, int *lanch);

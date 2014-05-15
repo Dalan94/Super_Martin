@@ -22,7 +22,6 @@ int main(int argc, char *argv[])
     SDL_Surface *screen = NULL;
 
     int go = 1;
-    int i;
     //SDL_Joystick *joystick; // on crée le joystick
     int ret,ret1, ret2 = 0, ret3, ret4;
 

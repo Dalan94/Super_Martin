@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="monpremierjeu" />
+		<Option title="Super Martin" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
@@ -43,7 +43,15 @@
 			<Add library="libfmodexL" />
 			<Add directory="../Librairie Windows/lib" />
 		</Linker>
+		<Unit filename="src/character.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/character.h" />
 		<Unit filename="src/const.h" />
+		<Unit filename="src/enemies.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/enemies.h" />
 		<Unit filename="src/file.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -64,7 +72,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/input.h" />
-		<Unit filename="src/jeu.h" />
 		<Unit filename="src/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -80,10 +87,26 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/menu_level.h" />
+		<Unit filename="src/menu_option.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/menu_option.h" />
+		<Unit filename="src/mobile_platform.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/mobile_platform.h" />
+		<Unit filename="src/option.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/option.h" />
 		<Unit filename="src/player.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/player.h" />
+		<Unit filename="src/projectile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/projectile.h" />
 		<Unit filename="src/share.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -92,6 +115,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/sound.h" />
+		<Unit filename="src/structures.h" />
 		<Unit filename="src/text.c">
 			<Option compilerVar="CC" />
 		</Unit>

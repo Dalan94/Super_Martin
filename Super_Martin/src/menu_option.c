@@ -148,9 +148,9 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys, Input *in)
         {
             case 0:
                 curVol = sound_sys->fxVolume;
-                if((in->key[SDLK_RIGHT] && !in->key[SDLK_LEFT]) || in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT) )
+                if((in->key[SDLK_RIGHT] && !in->key[SDLK_LEFT]) || (in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT)))
                     curVol += 0.1;
-                if((!in->key[SDLK_RIGHT] && in->key[SDLK_LEFT]) || in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT))
+                if((!in->key[SDLK_RIGHT] && in->key[SDLK_LEFT]) || (in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT)))
                     curVol -= 0.1;
                 if(curVol < 0)
                     curVol = 0;
@@ -160,9 +160,9 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys, Input *in)
                 break;
             case 1:
                 curVol = sound_sys->musicVolume;
-                if((in->key[SDLK_RIGHT] && !in->key[SDLK_LEFT]) || in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT) )
+                if((in->key[SDLK_RIGHT] && !in->key[SDLK_LEFT]) || (in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT)))
                     curVol += 0.1;
-                if((!in->key[SDLK_RIGHT] && in->key[SDLK_LEFT]) || in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT))
+                if((!in->key[SDLK_RIGHT] && in->key[SDLK_LEFT]) || (in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT)))
                     curVol -= 0.1;
                 if(curVol < 0)
                     curVol = 0;
@@ -265,7 +265,7 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in,char *play
 
         SDL_Flip(screen);
 
-        if(in->key[SDLK_RETURN] || in->isJoystick&&in->button[A])
+        if(in->key[SDLK_RETURN] || (in->isJoystick&&in->button[A]))
         {
             if(pos_curseur != NB_KEY-1)
                 chooseKey(screen,in,key_names[pos_curseur],kc,pos_curseur); //choisir la touche
