@@ -108,6 +108,11 @@ Level *openLevel(char *file_name,list *l,platformSet *ps)
                     createEnemy(NULL,j*TILE_SIZE,(i-1)*TILE_SIZE,l,3);
                     break;
 
+                case 'D':
+                    lvl->map[i][j] = CANON_B;
+                    createEnemy(NULL,j*TILE_SIZE,(i-1)*TILE_SIZE,l,4);
+                    break;
+
                 default:
                     if(lvl->map[i][j] < 65)
                         lvl->map[i][j]-= 48;

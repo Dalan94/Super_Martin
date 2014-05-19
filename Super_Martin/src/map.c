@@ -132,6 +132,12 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset)
                     posTile.h = posTile.w = TILE_SIZE;
                     SDL_BlitSurface(canon,NULL,screen,&posTile);
                     break;
+                case CANON_B:
+                    posTile.x = (i+1)*TILE_SIZE-m->xScroll;
+                    posTile.y = j*TILE_SIZE;
+                    posTile.h = posTile.w = TILE_SIZE;
+                    SDL_BlitSurface(canon,NULL,screen,&posTile);
+                    break;
 
                 default:
                     posTile.x = (i+1)*TILE_SIZE-m->xScroll;

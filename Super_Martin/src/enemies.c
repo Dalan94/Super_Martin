@@ -58,7 +58,7 @@ void blitEnnemies(SDL_Surface *screen, list *l,Map *m)
 
     while(!outOfList(l))
     {
-        if(l->current->c->isNpc != 2 && l->current->c->isNpc != 3)
+        if(l->current->c->isNpc != 2 && l->current->c->isNpc != 3 && l->current->c->isNpc != 4)
             blitCharacter(screen,l->current->c,m);
         next(l);
     }
@@ -200,6 +200,13 @@ void moveEnemies(list *l, Map *m, list *p,projectileSet *ps,int *launch)
                     createProjectile(ps,"rocket",RIGHT,l->current->c->location.x+32,l->current->c->location.y+16,1);
                 }
                 break;
+            case 4:
+                if(*launch)
+                {
+                    createProjectile(ps,"rocket",RIGHT,l->current->c->location.x+32,l->current->c->location.y+16,1);
+                    createProjectile(ps,"rocket",LEFT,l->current->c->location.x,l->current->c->location.y+16,1);
+                }
+                break;
             default:
                 if(l->current->c->location.x == l->current->c->saveX || checkFall(l->current->c,m,NULL))
                     l->current->c->isRight ^= 1;
@@ -215,7 +222,7 @@ void moveEnemies(list *l, Map *m, list *p,projectileSet *ps,int *launch)
 
 
 
-        if((l->current->c->isNpc != 2 && l->current->c->isNpc != 3) &&
+        if((l->current->c->isNpc != 2 && l->current->c->isNpc != 3 && l->current->c->isNpc != 4) &&
             (l->current->c->location.y + l->current->c->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
             deleteCurrent(l);
         next(l);
