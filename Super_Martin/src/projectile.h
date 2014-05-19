@@ -10,6 +10,7 @@
 
 #include "structures.h"
 #include "image.h"
+#include "enemies.h"
 #include <errno.h>
 
 /* prototypes */

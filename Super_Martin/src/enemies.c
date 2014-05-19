@@ -75,7 +75,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
 {
 
     int ret = 0;
-    int ret1 = 1;
+    //int ret1 = 1;
 
     setOnFirst(l);
     if(l==NULL)

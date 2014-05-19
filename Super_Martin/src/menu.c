@@ -57,9 +57,9 @@ int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys,Input *in)
             if(updateEvents(in,go))
                 event_appear = 1;
 
-            if(in->key[SDLK_ESCAPE] || in->quit || in->isJoystick&&in->button[BACK])
+            if(in->key[SDLK_ESCAPE] || in->quit || (in->isJoystick&&in->button[BACK]))
                 *go = 0;
-            if(in->key[SDLK_RETURN] || in->isJoystick&&(in->button[A] || in->button[START]))
+            if(in->key[SDLK_RETURN] || (in->isJoystick&&(in->button[A] || in->button[START])))
                 ret = 1;
 
 

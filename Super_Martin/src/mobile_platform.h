@@ -10,6 +10,7 @@
 
 #include "structures.h"
 #include "image.h"
+#include "character.h"
 
 void initPlatformSet(platformSet *ps);
 void createPlatform(platformSet *ps,int x1,int y1,int x2, int y2);

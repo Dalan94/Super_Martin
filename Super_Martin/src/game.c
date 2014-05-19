@@ -25,7 +25,7 @@
 
 int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *kc, Input *in, Player *player, char player_name[MAX_SIZE_FILE_NAME], int currentLevel, int nb_lvl)
 {
-    SDL_TimerID timer = NULL, timer1 = NULL;
+    SDL_TimerID timer = NULL;
 
     int previous_time=0;
     int current_time=0;
@@ -302,7 +302,7 @@ void printWin(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
  */
 void move(float move_left, float move_right,int jump, Character *player,Map *m,float *speed, int *acceleration,list *l,Sound *sound_sys,platformSet *ps)
 {
-    int ret = moveCharacter(player,move_left,move_right,jump,m,speed,l,sound_sys,ps);
+    moveCharacter(player,move_left,move_right,jump,m,speed,l,sound_sys,ps);
     if (move_right && !move_left)
     {
         (*acceleration)++;
@@ -395,7 +395,7 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
     if(in->isJoystick)
         in->button[START] = 0;
 
-    while(!(in->key[kc[3]] || in->isJoystick&&in->button[START]) && *go)
+    while(!(in->key[kc[3]] || (in->isJoystick&&in->button[START])) && *go)
     {
 
         updateWaitEvents(in,go);

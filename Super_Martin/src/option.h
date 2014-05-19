@@ -16,8 +16,8 @@
 void loadSoundOptions(char confFile[],Sound *soundSys);
 void saveSoundOptions(char confFile[],Sound *soundSys);
 
-void saveSoundOptions(char confFile[],Sound *soundSys);
 void loadInputOptions(char player_name[],SDLKey *kc,Input *in);
+void saveInputOptions(char player_name[],SDLKey *kc, Input *in);
 
 
 #endif // OPTION_H_INCLUDED

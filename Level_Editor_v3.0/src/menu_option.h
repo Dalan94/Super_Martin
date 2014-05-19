@@ -29,6 +29,7 @@
 
 
 int menuOptions(SDL_Surface *screen,int *go, SDLKey *kc);
+void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc);
 
 
 #endif // MENU_OPTION_H_INCLUDED
