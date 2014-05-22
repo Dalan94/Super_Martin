@@ -11,7 +11,7 @@
 void initPlatformSet(platformSet *ps)
 {
     int i;
-    for(i = 0; i<NB_PLATFORM_MAX;i++)
+    for(i = 0; i<MAX_NB_PLATFORM;i++)
         ps->tab[i] = NULL;
 
     ps->nb = 0;
@@ -21,7 +21,7 @@ void initPlatformSet(platformSet *ps)
 void createPlatform(platformSet *ps,int x1,int y1,int x2, int y2)
 {
     platform *p;
-    if(ps->nb >= NB_PLATFORM_MAX)
+    if(ps->nb >= MAX_NB_PLATFORM)
     {
         fprintf(stderr,"too many platform");
         exit(EXIT_FAILURE);
@@ -206,7 +206,7 @@ void freePlatformSet(platformSet *ps)
 void platformMap(platformSet *ps, SDL_Rect array[],SDL_Rect mark,int vert)
 {
     int i;
-    for (i=0;i<NB_PLATFORM_MAX;i++)
+    for (i=0;i<MAX_NB_PLATFORM;i++)
     {
         if((vert && array[i].x == mark.x) || (!vert && array[i].y == mark.y)) //borne correspondante trouvée
         {
@@ -215,7 +215,7 @@ void platformMap(platformSet *ps, SDL_Rect array[],SDL_Rect mark,int vert)
             return ;
         }
     }
-    for ( i = 0;i<NB_PLATFORM_MAX;i++) //pas de borne correspondante trouvée
+    for ( i = 0;i<MAX_NB_PLATFORM;i++) //pas de borne correspondante trouvée
     {
         if(array[i].x==-1 && array[i].y == -1)// rien à cet emplacement
         {

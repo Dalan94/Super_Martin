@@ -1,6 +1,6 @@
 /*!
  * \file    share.h
- * \brief   Gestion des fichiers de carte
+ * \brief   share.c header
  * \author  Remi BERTHO
  * \date    15/03/14
  * \version 1.0

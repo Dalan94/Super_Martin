@@ -1,6 +1,6 @@
 /*!
  *\file enemies.c
- *\brief  containe enemies gestion function
+ *\brief  contain enemies gestion function
  *\author Xavier COPONET
  *\date 2014-04-14
 */
@@ -48,7 +48,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
 {
 
     int ret = 0;
-    int ret1 = 1;
+    //int ret1 = 1;
 
     setOnFirst(l);
     if(l==NULL)
@@ -73,12 +73,12 @@ int collisionEnemy(Character *c,list *l,Map *m)
                         {
                             if(c->isRight)
                             {
-                                ret1 = moveCharacterCol(c,1,0,m);
+                                moveCharacterCol(c,1,0,m);
                                 moveCharacterCol(l->current->c,0,1,m);
                             }
                             else
                             {
-                                ret1 = moveCharacterCol(c,0,1,m);
+                                moveCharacterCol(c,0,1,m);
                                 moveCharacterCol(l->current->c,1,0,m);
                             }
                             l->current->c->isRight ^= 1;
@@ -98,12 +98,12 @@ int collisionEnemy(Character *c,list *l,Map *m)
                         {
                         if(c->isRight)
                             {
-                                ret1 = moveCharacterCol(l->current->c,0,1,m);
+                                moveCharacterCol(l->current->c,0,1,m);
                                 moveCharacterCol(c,1,0,m);
                             }
                             else
                             {
-                                ret1 = moveCharacterCol(l->current->c,1,0,m);
+                                moveCharacterCol(l->current->c,1,0,m);
                                 moveCharacterCol(c,0,1,m);
                             }
                             c->isRight ^= 1;
@@ -145,7 +145,7 @@ int collisionEnemy(Character *c,list *l,Map *m)
 
 void moveEnemies(list *l, Map *m, list *p,projectileSet *ps,int *launch)
 {
-    int ret = 0;
+
     float s;
     s = 2;
     setOnFirst(l);
@@ -178,10 +178,10 @@ void moveEnemies(list *l, Map *m, list *p,projectileSet *ps,int *launch)
                 l->current->c->saveX = l->current->c->location.x;
 
                 if(l->current->c->isRight)
-                    ret = moveCharacter(l->current->c,0,1,0,m,&s,p,NULL,NULL);
+                    moveCharacter(l->current->c,0,1,0,m,&s,p,NULL,NULL);
 
                 else if(!l->current->c->isRight)
-                    ret = moveCharacter(l->current->c,1,0,0,m,&s,p,NULL,NULL);
+                    moveCharacter(l->current->c,1,0,0,m,&s,p,NULL,NULL);
                 break;
         }
 

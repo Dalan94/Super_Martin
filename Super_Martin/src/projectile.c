@@ -11,7 +11,7 @@
 void initProjSet(projectileSet *projSet)
 {
     int i;
-    for(i = 0; i<NB_PROJECTILE_MAX;i++)
+    for(i = 0; i<MAX_NB_PROJECTILE;i++)
         projSet->tab[i] = NULL;
 
     projSet->nb = 0;
@@ -32,7 +32,7 @@ void createProjectile(projectileSet *projSet,char *pathSprite,int dir, int x, in
     projectile* p;
     char path[MAX_SIZE_FILE_NAME];
 
-    if(projSet->nb >= NB_PROJECTILE_MAX)
+    if(projSet->nb >= MAX_NB_PROJECTILE)
         return ; //si trop de projectiles, il ne se passe rien
 
     p = (projectile *)malloc(sizeof(projectile));
@@ -80,7 +80,7 @@ void deleteProjectile(projectileSet *ps,int nb)
     {
         ps->tab[i] = ps->tab[i+1];
     }
-    ps->tab[NB_PROJECTILE_MAX-1] = NULL;
+    ps->tab[MAX_NB_PROJECTILE-1] = NULL;
 
     ps->nb--;
 }

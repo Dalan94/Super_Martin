@@ -42,9 +42,6 @@
 #define ABS(X) ((((X)<0)?(-(X)):(X)))
 
 
-
-
-/*prototypes*/
 /**
  *\fn int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float *speed,list *l, Sound *sound_sys,platformSet *ps)
  *move player according to the direction

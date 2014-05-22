@@ -82,9 +82,6 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
 
     c->dirY+=GRAVITY_SPEED;
 
-//    if(c->dirY >= MAX_FALL_SPEED)
-//        c->dirY = MAX_FALL_SPEED;
-
 
         /*left*/
     if (move_right && !move_left)
