@@ -8,16 +8,7 @@
 #include "character.h"
 
 
-/**
- *\fn Character *createCharacter(char *spR,char *spL,int x,int y,int npc)
- *create a character
- *\param[in] spR right sprite address
- *\param[in] spL right sprite address
- *\param[in] x character's x location
- *\param[in] y character's y location
- *\param[in] npc 1 if creating a npc, 0 if not
- *\return character structure pointer
- */
+
 Character *createCharacter(char *tile,int x, int y,int npc, int nbProjectile, int nbCoins, int nbLifes)
 {
     Character *c;
@@ -61,20 +52,6 @@ Character *createCharacter(char *tile,int x, int y,int npc, int nbProjectile, in
     return c;
 }
 
-/**
- *\fn int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float speed,list *l)
- *move player according to the direction
- *\param[in,out] c the character
- *\param[in] move_left indicates if must go to the left
- *\param[in] move_right indicates if must go to the right
- *\param[in] jump indicates if must jump
- *\param[in] m level map
- *\param[in] speed movement speed
- *\param[in,out] l the enemy list
- *\param[out] sound_sys the sound system
- *\return 1 if character was moved without using the precise movement function, 0 if not
- */
-
 
 int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m,float* speed,list *l,Sound *sound_sys,platformSet *ps)
 {
@@ -106,7 +83,7 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
     c->dirY+=GRAVITY_SPEED;
 
     if(c->dirY >= MAX_FALL_SPEED)
-        c->dirY == MAX_FALL_SPEED;
+        c->dirY = MAX_FALL_SPEED;
 
 
         /*left*/
@@ -194,15 +171,6 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
     return 0;
 }
 
-/**
- *\fn int tryMovement(Character *c,int vx,in vy,Map *m)
- *try to move a character
- *\param[in,out] c the character
- *\param[in] vx the horizontal component of the movement vector
- *\param[in] vy the vertical component of the movement vector
- *\param[in] m the map the character is on
- *\return 1 if the character can be moved, 0 if not
- */
 int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound *sound_sys)
 {
     int ret = 0;
@@ -269,14 +237,6 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
     return 0;
 }
 
-
-/**
- *int collisionSprite(SDL_Rect s1, SDL_Rect s2)
- *determine if there is a collision beteewen two sprites
- *\param[in] s1 the first sprite
- *\param[in] s2 the second sprite
- *\return 3 if there is a collision and s1 is below s2, 2 if there is a collision and s1 is over s2, 0 if there is no collision
-*/
 int collisionSprite(SDL_Rect s1, SDL_Rect s2)
 {
 
@@ -295,13 +255,7 @@ int collisionSprite(SDL_Rect s1, SDL_Rect s2)
     return 1;
 }
 
-/**
- *\fn void blitCharacter(SDL_Surface *screen, Character *c, Map *m)
- *blit the character
- *\param[in,out] screen game screen
- *\param[in] c the character
- *\param[in] m game map
- */
+
 void blitCharacter(SDL_Surface *screen, Character *c,Map *m)
 {
     SDL_Rect pos,poseTile;
@@ -350,16 +304,6 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m)
     SDL_BlitSurface(c->tile,&poseTile,screen,&pos);
 }
 
-
-
-/**
- *\fn void presiseMoveCharacter(Charactere *c, int vx,int vy, Map m*)
- *make a more presise move of a character if he can still move but the distance between it and the obstacle is less than its speed
- *\param[in,out] c the charactere
- *\param[in] m the map
- *\param[in] vx the horizontal component of the movement vector
- *\param[in] vy the vertical component of the movement vector
- */
 void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l,platformSet *ps)
 {
     int i,j;
@@ -377,14 +321,6 @@ void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l,platformSe
     }
 }
 
-
- /**
- *\fn int checkWall(Character *c,Map *m)
- *tests if the character's futur position is next to a wall tile
- *\param[in] c the monster/character to be tested
- *\param[in] m the game map
- *\return 1 if wall tile, 0 if not
- */
 int checkWall(Character *c,Map *m)
 {
     int x,y;
@@ -433,14 +369,6 @@ int checkWall(Character *c,Map *m)
     return 0;
 }
 
-/**
- *\fn int checkFall(Character *c,Map *m,platformSet *ps)
- *tests if the character's futur position is over a void tile
- *\param[in] c the monster/character to be tested
- *\param[in] m the game map
- *\param[in] ps the platform set
- *\return 1 if void tile, 0 if not
- */
 int checkFall(Character *c,Map *m,platformSet *ps)
 {
     int x,y;

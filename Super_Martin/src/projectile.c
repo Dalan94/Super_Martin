@@ -1,17 +1,13 @@
 /**
  *\file projectile.c
- *\brief containes the functions to deal with the projectiles
+ *\brief contains the functions to deal with the projectiles
  *\author X.COPONET
  *\date 2014-05-08
 */
 
 #include "projectile.h"
 
-/**
- *\fn void initProjSet(projectileSet *projSet)
- *initialize a projectile set
- *\param[out] projSet the projectile set to be initialized
- */
+
 void initProjSet(projectileSet *projSet)
 {
     int i;
@@ -22,11 +18,7 @@ void initProjSet(projectileSet *projSet)
     projSet->projectileThrown = 0;
 }
 
-/**
- *\fn void freeProjectileSet(projectileSet *ps)
- *free all the projectiles
- *\param[int,out] ps the projectile set
- */
+
 void freeProjectileSet(projectileSet *ps)
 {
     int i;
@@ -34,15 +26,7 @@ void freeProjectileSet(projectileSet *ps)
         free((void *)ps->tab[i]);
 }
 
-/**
- *\fn void createProjectile(projectileSet *projSet, int dir, int x, int y, int fromNPC)
- *creates a projectile and adds it to the projectile set
- *\param[in,out] projSet the projectile set
- *\param[in] dir the projectile's direction
- *\param[in] x the start absciss coordinate of the projectile
- *\param[in] y the start ordinate coordinate of the projectile
- *\param[in] fromNPC indicates if from npc or not
-*/
+
 void createProjectile(projectileSet *projSet,char *pathSprite,int dir, int x, int y, int fromNPC)
 {
     projectile* p;
@@ -86,12 +70,7 @@ void createProjectile(projectileSet *projSet,char *pathSprite,int dir, int x, in
     projSet->nb++;
 }
 
-/**
- *\fn void deleteProjectile(projectileSet *ps,int nb)
- *delete a projectile
- *\param[out] ps the projectile Set
- *\param[in] nb the number of the projectile which has to be deleted
- */
+
 void deleteProjectile(projectileSet *ps,int nb)
 {
     int i;
@@ -106,13 +85,7 @@ void deleteProjectile(projectileSet *ps,int nb)
     ps->nb--;
 }
 
-/**
- *\fn void blitProjectile(SDL_Surface *screen, projectileSet *ps, Map *m)
- *blit the projectiles on the game screen
- *\param[in,out] screen game screen
- *\param[in,out] projSet the projectile set
- *\param[in] m the current level map
- */
+
 void blitProjectile(SDL_Surface *screen, projectileSet *ps, Map *m)
 {
     int i;
@@ -127,14 +100,7 @@ void blitProjectile(SDL_Surface *screen, projectileSet *ps, Map *m)
     }
 }
 
-/**
- *\fn void moveProjectiles(Charactere *c,Map *m,projectileSet *ps,list *l)
- *moves all the projectiles
- *\param[in,out] c the player
- *\param[in,out] m the game map
- *\param[in,out] ps the projectile set
- *\param[in,out] enemyList the enemy list
- */
+
 void moveProjectiles(Character *c,Map *m,projectileSet *ps,list *enemyList)
 {
     int i;
@@ -146,15 +112,7 @@ void moveProjectiles(Character *c,Map *m,projectileSet *ps,list *enemyList)
 }
 
 
-/**
- *\fn void moveOneProjectile(Character *c,Map *m,projectileSet *ps,list *l,int nb)
- *moves one projectile
- *\param[in,out] c the player
- *\param[in,out] m the game map
- *\param[in,out] ps the projectileSet
- *\param[in,out] l the enemy list
- *\param[in] the number of the projectile which is moved
- */
+
 void moveOneProjectile(Character *c,Map *m,projectileSet *ps,list *l,int nb)
 {
     projectile *p = ps->tab[nb];

@@ -53,7 +53,7 @@ typedef struct
 {
     char name[MAX_SIZE_FILE_NAME];
     int levelMax;
-    int nbProjectile;;
+    int nbProjectile;
     int nbLifes;
     int nbCoins;
 } Player;

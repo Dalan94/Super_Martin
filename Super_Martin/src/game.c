@@ -10,19 +10,6 @@
 #include "game.h"
 
 
-
-
-/**
- *\fn int play(SDL_Surface *screen,char *level_name,keyConf *kc)
- *initialize a game map and contain the main loop for the game
- *\param[in,out] screen the gamin screen
- *\param[in] level_name the name of the level to be played
- *\param[in] kc the keyboard configuration structure
- *\return 1 if the maryo dies, 0 if he wins or if he quits the level
- */
-
-
-
 int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *kc, Input *in, Player *player, char player_name[MAX_SIZE_FILE_NAME], int currentLevel, int nb_lvl)
 {
     SDL_TimerID timer = NULL;
@@ -38,28 +25,28 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     float speed=0;
 
 
-    /*définition du niveau*/
+    /*level definition*/
     Map *m;
 
-    /*définition du joueur*/
+    /*player definition*/
     Character *maryo;
     list maryoList;
 
-    /*définition des ennemis*/
+    /*enemies definition*/
     list enemyList;
 
-    /*définition des plateformes*/
+    /*platforms definition*/
     platformSet ps;
 
     /* projectile set declaration */
     projectileSet pjs;
 
-    /*définition des surfaces*/
+    /*surfaces definition */
     SDL_Surface *background = NULL;
     SDL_Rect posBack;
 
 
-    /*Gestion des mouvements*/
+    /*movement gestion*/
     float move_right=0;
     float move_left=0;
     int jump = 0;
@@ -73,19 +60,19 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     if(player->nbLifes < 0)
         loadPlayer("save/.save", player_name, player);
-    /*gestion des inputs*/
+    /*nputs input*/
 
-    //effacer l'écran
+    //clear screen
     SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 255, 255, 255));
 
     posBack.x=0;
     posBack.y = 0;
 
 
-    /*initialisation des ennemis*/
+    /*enemies initalization*/
     initList(&enemyList);
 
-    /*initialisation des plateformes */
+    /*platform initalization */
     initPlatformSet(&ps);
 
     /* projectile set initialization */
@@ -94,30 +81,30 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     /*initialisation de la carte et du niveau*/
     m = initMap(screen,level_name,&enemyList,&ps);
 
-    /*Gestion de la musique*/
+    /*music gestion*/
     playMusic(m->lvl->music,sound_sys);
 
-    /*Démarrage du timer */
-    timer=SDL_AddTimer(1000,decomptage,&(m->lvl->timer_level));
+    /*timers starting */
+    timer=SDL_AddTimer(1000,decrement,&(m->lvl->timer_level));
     timer=SDL_AddTimer(FRENQUENCY_ROCKET_LAUNCH,rocketLaunch,&launch);
 
-    /*chargement de l'arrière plan*/
+    /*background loading*/
     background = imageLoadAlpha(m->lvl->background);
 
-    /*initialisation du joueur*/
+    /*player initalization*/
 
     maryo = createCharacter("sprites/Characters/maryo.png",5*TILE_SIZE,8*TILE_SIZE-39,0, player->nbProjectile, player->nbCoins, player->nbLifes);
     initList(&maryoList);
     maryoList.current = maryoList.first = maryoList.last = newNode(maryo,NULL,NULL);
 
-    SDL_EnableKeyRepeat(100,100); //répétition des touches
+    SDL_EnableKeyRepeat(100,100); //key repetition
 
     current_time=previous_time=SDL_GetTicks();
 
     while(!in->key[SDLK_ESCAPE] && *go && (!in->isJoystick||!in->button[BACK]))
     {
 
-        /* récupération des inputs clavier et gestion de leurs auctions*/
+        /* player inputs gestion*/
 
         updateEvents(in,go);
         inputActionGame(in,&move_left,&move_right,&jump,&pause,maryo,&acceleration,kc,&pjs);
@@ -125,9 +112,10 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
         if(in->quit)
             *go = 0;
 
-        /* gestion de la mort*/
+        /* death gestion*/
         if((maryo->location.y+maryo->tile->h/NB_TILE_MARYO_HEIGHT) >= m->lvl->height*TILE_SIZE-1)
             maryo->hp = 0;
+
         if (old_time != m->lvl->timer_level || !maryo->hp)
         {
             if(!(m->lvl->timer_level>0 && maryo->hp))
@@ -146,12 +134,14 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
             m->lvl->tileSetUse ^= 1;
         }
 
+        /* player imunity to damage gestion */
         if(maryo->isHurt>0)
             maryo->isHurt--;
         else
             maryo->isHurt = 0;
 
 
+        /* level end and saving player stats gestion */
         if((maryo->location.x)/TILE_SIZE >= m->lvl->width - IMG_END_SIZE / TILE_SIZE + 1 && *go)
         {
             player->nbProjectile = maryo->nbProjectile;
@@ -168,6 +158,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
             break;
         }
 
+        /* pause gstion */
         if (pause)
         {
             printPause(screen,in,&(m->lvl->timer_level),go,kc);
@@ -182,26 +173,26 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
         moveEnemies(&enemyList,m,&maryoList,&pjs,&launch);
             /* ******************************** */
 
-        SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
+        SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //clean screen
 
             /* print all the game components */
-        SDL_BlitSurface(background,NULL,screen,&posBack); // blit du background
+        SDL_BlitSurface(background,NULL,screen,&posBack); // background blit
 
-        updateScreenMap(screen,m, m->lvl->tileSet); //blit du niveau
+        updateScreenMap(screen,m, m->lvl->tileSet); //level blit
 
-                /* game objets */
+                /* game objets blit*/
         blitPlatform(screen,&ps,m);
         blitCharacter(screen,maryo,m);
         blitProjectile(screen,&pjs,m);
-        blitEnnemies(screen,&enemyList,m);
+        blitEnemies(screen,&enemyList,m);
                 /* ******** */
 
-        printHUD(screen,maryo,m); //HUD
+        printHUD(screen,maryo,m); // print HUD
             /* ******************************* */
 
-        waitFPS(&previous_time,&current_time);
+        waitFPS(&previous_time,&current_time); //fps
 
-        SDL_Flip(screen);//affichage de l'écran
+        SDL_Flip(screen);//screen flipping
     } //while
 
     SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
@@ -223,14 +214,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 }
 
 
-/**
- *\fn void printGameOver(SDL_Surface *screen,int *continuer,Input *in,Sound *sound_sys)
- *print the game over screen and wait until the player press a key
- *\param[out] screen the game screen
- *\param[out] go the game function main loop validation
- *\param[in,out] in the input structure
- *\param[out] sound_sys the sound system
- */
+
 void printGameOver(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
 
 {
@@ -247,7 +231,7 @@ void printGameOver(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
     printText(screen,NULL,"GAME OVER",186,38,18,"polices/manga.ttf",65,1);
     SDL_Flip(screen);
 
-    SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
+    SDL_Delay(1500);  //pause to avoid to quit the screen immediatly if the player uses a key when he dies
 
     while(!updateWaitEvents(in,go));
     if(in->quit)
@@ -257,14 +241,7 @@ void printGameOver(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
 
 }
 
-/**
- *\fn void printWin(SDL_Surface *screen,int *continuer,Input *in,Sound *sound_sys)
- *print the win screen and wait until the player press a key
- *\param[out] screen the game screen
- *\param[out] go the game function main loop validation
- *\param[in,out] in the input structure
- *\param[out] sound_sys the sound system
- */
+
 
 void printWin(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
 {
@@ -282,7 +259,7 @@ void printWin(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
     printText(screen,NULL,"YOU WIN !",186,38,18,"polices/sherwood.ttf",65,1);
     SDL_Flip(screen);
 
-    SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
+    SDL_Delay(1500); //pause to avoid to quit the screen immediatly if the player uses a key when he wins
 
     while(!updateWaitEvents(in,go));
     if(in->quit)
@@ -291,15 +268,7 @@ void printWin(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
     stopSound(sound_sys,1);
 }
 
-/**
- *\fn void move (int move_left, int move_right, Character *player,Map *m, float speed,Sound *sound_sys)
- *  Deplace le joueur et scrolle l'ecran si besoin
- *\param[in] move_left booleen pour savoir si l'on bouge a gauche
- *\param[in] move_right booleen pour savoir si l'on bouge a droite
- *\param[in] player le joueur
- *\param[in] m la carte
- *\param[in] speed la vitesse de deplacement
- */
+
 void move(float move_left, float move_right,int jump, Character *player,Map *m,float *speed, int *acceleration,list *l,Sound *sound_sys,platformSet *ps)
 {
     moveCharacter(player,move_left,move_right,jump,m,speed,l,sound_sys,ps);
@@ -329,12 +298,7 @@ void move(float move_left, float move_right,int jump, Character *player,Map *m,f
     }
 }
 
-/**
- *\fn void updateSpeed(float *speed, int acceleration)
- * Met a jour la vitesse
- *\param[out] float la vitesse
- *\param[out] acceleration l'acceleration
- */
+
 void updateSpeed(float *speed, int acceleration)
 {
     switch(acceleration)
@@ -358,14 +322,7 @@ void updateSpeed(float *speed, int acceleration)
     }
 }
 
-/**
- *\fn void printPause(SDL_Surface *screen, Input *in, int *time,int *go, SDLKey *kc)
- * Met en pause le jeu
- *\param[out] screen l'écran de jeu
- *\param[out] time le temps restant
- *\param[in] in la structure input
- *\param[out] go le booléen de main loop de la fonction jouer
- */
+
 void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
 {
     SDL_Surface *gameOver = NULL;
@@ -411,11 +368,12 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
     in->key[kc[3]] = 0;
 }
 
-Uint32 decomptage(Uint32 intervalle,void* parametre)
+
+Uint32 decrement(Uint32 interval,void* parameter)
 {
-    int *time = parametre;
+    int *time = parameter;
     (*time)--;
-    return intervalle;
+    return interval;
 }
 
 Uint32 rocketLaunch(Uint32 intervalle,void* parametre)
@@ -426,13 +384,6 @@ Uint32 rocketLaunch(Uint32 intervalle,void* parametre)
     return intervalle;
 }
 
-/**
- *\fn void printHUD(SDL_Surface *screen,Character *player,Map *m)
- *print the player HUD on the screen
- *\param[in,out] screen the game screen
- *\param[in] player the player
- *\param[in] m the game map
- */
 void printHUD(SDL_Surface *screen,Character *player,Map *m)
 {
     /*life gestion*/

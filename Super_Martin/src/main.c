@@ -22,7 +22,6 @@ int main(int argc, char *argv[])
     SDL_Surface *screen = NULL;
 
     int go = 1;
-    //SDL_Joystick *joystick; // on crée le joystick
     int ret,ret1, ret2 = 0, ret3, ret4;
 
     char level_name[MAX_SIZE_FILE_NAME];
@@ -32,7 +31,7 @@ int main(int argc, char *argv[])
     Sound *sound_system;
     sound_system = createSound();
 
-    /*config clavier*/
+    /*keyboard config*/
     SDLKey kc[NB_KEY-1];
 
     /*input*/
@@ -50,18 +49,18 @@ int main(int argc, char *argv[])
     current_player->nbLifes = 3;
 
 
-    /*initialisation de l'écran*/
+    /*screen initialization*/
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 
     initInput(&in);
 
-    /*chargement des configuration */
+    /*configurations loading */
     loadSoundOptions("configuration/sound.conf",sound_system);
 
 
-    SDL_WM_SetCaption("Super Martin", NULL); //titre de la fenêtres
+    SDL_WM_SetCaption("Super Martin", NULL); //window name
 
-    SDL_ShowCursor(SDL_DISABLE); //efface la souris
+    SDL_ShowCursor(SDL_DISABLE); //delete the mouse
 
     while (go) //main loop
     {
@@ -128,7 +127,7 @@ int main(int argc, char *argv[])
 
         }
 
-        SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //effacer l'écran
+        SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //clear screen
 
         SDL_Flip(screen);
     }

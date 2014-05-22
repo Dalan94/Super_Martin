@@ -9,11 +9,7 @@
 #include "SDL/SDL_joystick.h"
 #include "projectile.h"
 
-/**
- *\fn void initInput(Input *in)
- * initialize the input structure
- *\param[out] in the input structure to be initialized
- */
+
 void initInput(Input *in)
 {
     int i;
@@ -27,11 +23,7 @@ void initInput(Input *in)
     initJoystick(in);
 }
 
-/**
- *\fn void initJoystick(Joystick *joy)
- * initialize the joystic fiels of the input structure
- *\param[out] joy the joystick input structure to be initialized
- */
+
 void initJoystick(Input *in)
 {
     int i;
@@ -92,11 +84,7 @@ void initJoystick(Input *in)
 
 }
 
-/**
- *\fn void freeInput(Input *in)
- * free the input structure
- *\param[out] in the input structure
- */
+
 void freeInput(Input *in)
 {
     if(in->isJoystick)
@@ -108,12 +96,7 @@ void freeInput(Input *in)
     }
 }
 
-/**
- *\fn int updateEvents(Input* in)
- *recuperate keyboard/joystick input with a SDL_PollEvent
- *\param[out] in the input structure
- *\return 1 if a key is activated
- */
+
 
 int updateEvents(Input* in,int *go)
 {
@@ -165,19 +148,7 @@ int updateEvents(Input* in,int *go)
 }
 
 
-/**
- *\fn void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int *pause, Character *player, int *acceleration,SDLKey *kc,projectileSet *ps)
- *perform action command by keyboard or joystick action
- *\param[in] in the input structure
- *\param[out] move_left the left movement boolean
- *\param[out] move_right the right movement boolean
- *\param[out] jump the jump boolean
- *\param[out] pause the pause boolean
- *\param[in] player the Player
- *\param[in] acceleration the acceleration
- *\param[in] kc the keyboard configuration structure
- *\param[out] ps the projectile set
- */
+
 void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int *pause, Character *player, int *acceleration, SDLKey *kc,projectileSet *ps)
 {
     /*left move*/
@@ -256,13 +227,6 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
 }
 
 
-/**
- *\fn int updateWaitEvents(Input* in)
- *recuperate keyboard input with a SDL_WaitEvent
- *\param[out] in the input structure
- *\return 1 if a key is activated
- */
-
 int updateWaitEvents(Input* in, int *go)
 {
 	SDL_Event event;
@@ -319,15 +283,7 @@ int updateWaitEvents(Input* in, int *go)
 	return 1;
 }
 
-/**
- *\fn void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
- *perform action command by keyboard action
- *\param[in] in the input structure
- *\param[out] cursorPos cursor position
- *\param[out] select boolean about selecting the current option
- *\param[in] nb_options the number of options
 
- */
 
 void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_options)
 {
