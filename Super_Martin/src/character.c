@@ -82,8 +82,8 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
 
     c->dirY+=GRAVITY_SPEED;
 
-    if(c->dirY >= MAX_FALL_SPEED)
-        c->dirY = MAX_FALL_SPEED;
+//    if(c->dirY >= MAX_FALL_SPEED)
+//        c->dirY = MAX_FALL_SPEED;
 
 
         /*left*/
@@ -341,7 +341,7 @@ int checkWall(Character *c,Map *m)
         if(x> m->lvl->width)
             x = m->lvl->width;
 
-        if(m->lvl->map[y][x-1] != VOID && m->lvl->map[y][x] < 65)
+        if((m->lvl->map[y][x-1] != VOID && m->lvl->map[y][x-1] < 65) || (m->lvl->map[y+1][x-1] != VOID && m->lvl->map[y+1][x-1] < 65))
             return 1;
         else
             return 0;
@@ -361,7 +361,7 @@ int checkWall(Character *c,Map *m)
         if(x>= m->lvl->width)
             x = m->lvl->width - 1;
 
-        if(m->lvl->map[y][x+1] != VOID && m->lvl->map[y][x+1]<65)
+        if((m->lvl->map[y][x+2] != VOID && m->lvl->map[y][x+2]<65) || (m->lvl->map[y+1][x+3] != VOID && m->lvl->map[y+1][x+3]<65))
             return 2;
         else
             return 0;

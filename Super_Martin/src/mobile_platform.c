@@ -111,7 +111,7 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m)
             p->location.x += p->speed;
             if(c->OnPlatform == nb)
                 c->location.x += p->speed; //déplacement si perso sur platform
-            else if(collisionSprite(futur,c->location)==1)
+            else if(collisionSprite(p->location,c->location)==1)
             {
                 c->location.x += p->speed; //déplacement si perso devant plateforme
                  if(checkWall(c,m))
@@ -123,7 +123,7 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m)
             p->location.x -= p->speed;
             if(c->OnPlatform == nb)
                 c->location.x -= p->speed;
-            else if(collisionSprite(futur,c->location)==1)
+            else if(collisionSprite(p->location,c->location)==1)
             {
                 c->location.x -= p->speed; //déplacement si perso devant plateforme
                 if(checkWall(c,m))
@@ -199,7 +199,7 @@ void freePlatformSet(platformSet *ps)
 }
 
 /* ************************************** */
-/* Gestion des .lvl pour les plateformes  */
+/* file level gestion for platforms       */
 /* ************************************** */
 
 

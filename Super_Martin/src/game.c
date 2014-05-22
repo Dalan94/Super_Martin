@@ -118,7 +118,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
         if (old_time != m->lvl->timer_level || !maryo->hp)
         {
-            if(!(m->lvl->timer_level>0 && maryo->hp))
+            if(!(m->lvl->timer_level>0 && maryo->hp>0))
             {
                 stopSound(sound_sys,1);
                 player->nbLifes--;
