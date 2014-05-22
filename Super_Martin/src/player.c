@@ -1,3 +1,11 @@
+/*!
+ * \file    player.c
+ * \brief   Management of the player system
+ * \author  Glenn HERROU
+ * \date    06/05/14
+ * \version 1.0
+ */
+
 #include "player.h"
 
 int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,int *go)
@@ -243,6 +251,7 @@ int savePlayer(char fileSave[MAX_SIZE_FILE_NAME], char player_name[MAX_SIZE_FILE
     return 1;
 }
 
+
 void save(SDL_Surface *screen, char fileSave[MAX_SIZE_FILE_NAME], char player_name[MAX_SIZE_FILE_NAME], Player *player, int *go)
 {
     SDL_Rect posText, posWait;
@@ -252,7 +261,6 @@ void save(SDL_Surface *screen, char fileSave[MAX_SIZE_FILE_NAME], char player_na
     int ret = 0;
     Input in;
     memset(&in, 0, sizeof(in));
-    //sprintf(player->name,"%s", player_name);
     choice[0]= 32;
     waiting = imageLoadAlpha("sprites/Background/menu_background.png");
     posWait.x = 0;

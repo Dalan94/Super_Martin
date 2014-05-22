@@ -1,6 +1,6 @@
 /*!
  * \file    share.h
- * \brief   Gestion des fichiers de carte
+ * \brief   share.c header
  * \author  Remi BERTHO
  * \date    15/03/14
  * \version 1.0
@@ -14,10 +14,11 @@
 
 /**
  *\fn void waitFPS(int *previous_time, int *current_time)
- *  Permet d'attendre le temps necessaire pour avoir le nombre de PFS souhaité
- *\param[in,out] previous_time le temps precedent
- *\param[in,out] previous_time le temps actuel
+ *Function managing the fps rate
+ *\param[in,out] previous_time The previous time
+ *\param[in,out] current_time The current time
  */
+
 void waitFPS(int *previous_time,int *current_time);
 
 #endif

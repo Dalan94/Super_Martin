@@ -8,7 +8,7 @@
 #ifndef CONST_H_INCLUDED
 #define CONST_H_INCLUDED
 
-    #define TILE_SIZE               16 // Taille d'un bloc (carré) en pixels
+    #define TILE_SIZE               16
 
     #define SCREEN_WIDTH            1280
     #define SCREEN_HEIGHT           720
@@ -18,7 +18,6 @@
 
     #define MARGE_SCROLLING         2
     #define DEPLACEMENT_POURCENTAGE 0
-    #define MAX_FALL_SPEED          10
     #define GRAVITY_SPEED           1
     #define JUMP_HEIGHT             13
     #define MAX_SPEED               5
@@ -32,10 +31,10 @@
     #define TILE_MAX                18
     #define FRENQUENCY_CHANGE_MOVING        5
 
-    #define NB_PLATFORM_MAX         30
+    #define MAX_NB_PLATFORM         30
     #define PLATFORM_SPEED          1
 
-    #define NB_PROJECTILE_MAX       30
+    #define MAX_NB_PROJECTILE      30
     #define PROJECTILE_SPEED        10
     #define FRENQUENCY_ROCKET_LAUNCH 2000
 

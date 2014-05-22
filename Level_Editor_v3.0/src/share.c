@@ -1,4 +1,12 @@
-#include "share.h"
+/*!
+ * \file    share.c
+ * \brief   Management of FPS rate
+ * \author  Remi BERTHO
+ * \date    15/03/14
+ * \version 1.0
+ */
+
+ #include "share.h"
 
 void waitFPS(int *previous_time, int *current_time)
 {

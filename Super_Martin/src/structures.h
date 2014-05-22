@@ -51,7 +51,6 @@ typedef struct
 
 typedef struct
 {
-    char name[MAX_SIZE_FILE_NAME];
     int levelMax;
     int nbProjectile;
     int nbLifes;
@@ -108,7 +107,7 @@ typedef struct
  */
 typedef struct
 {
-    platform* tab[NB_PLATFORM_MAX]; /*! the platform set*/
+    platform* tab[MAX_NB_PLATFORM]; /*! the platform set*/
     int nb; /*! the number of platform */
 }platformSet;
 
@@ -132,7 +131,7 @@ typedef struct
  */
 typedef struct
 {
-    projectile* tab[NB_PROJECTILE_MAX]; /*! the projectile set*/
+    projectile* tab[MAX_NB_PROJECTILE]; /*! the projectile set*/
     int nb; /*! the number of projectiles on the map */
     int projectileThrown; /*! indicates if a projectile has been thrown by the player and the key wasn't released yet */
 }projectileSet;

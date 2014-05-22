@@ -15,9 +15,9 @@ Level *openLevel(char *file_name,list *l,platformSet *ps)
     int i,j;
     char buffer[TAILLE_BUFFER];
     Level *lvl;
-    char *saut_ligne;
+    char *cleaning;
 
-    SDL_Rect vert[NB_PLATFORM_MAX], horiz[NB_PLATFORM_MAX];
+    SDL_Rect vert[MAX_NB_PLATFORM], horiz[MAX_NB_PLATFORM];
     SDL_Rect mark;
 
     if ((lvl=(Level *)malloc(sizeof(Level))) == NULL)
@@ -46,20 +46,17 @@ Level *openLevel(char *file_name,list *l,platformSet *ps)
     fgets(lvl->background,MAX_SIZE_FILE_NAME,ptr_file);
     fgets(lvl->music,MAX_SIZE_FILE_NAME,ptr_file);
 
-    /*Enleve le saut de ligne final de tileSet*/
-    saut_ligne = strchr(lvl->tileSet, '\n');
-        *saut_ligne = 0;
+    /*  Cleaning the strings    */
+     cleaning = strchr(lvl->tileSet, '\n');
+        *cleaning = 0;
 
+     cleaning = strchr(lvl->background, '\n');
+        *cleaning = 0;
 
-    /*Enleve le saut de ligne final de background*/
-    saut_ligne = strchr(lvl->background, '\n');
-        *saut_ligne = 0;
+     cleaning = strchr(lvl->music, '\n');
+        *cleaning = 0;
 
-    /*Enleve le saut de ligne final de sound*/
-    saut_ligne = strchr(lvl->music, '\n');
-        *saut_ligne = 0;
-
-    for(i = 0 ; i<NB_PLATFORM_MAX ; i++)
+    for(i = 0 ; i<MAX_NB_PLATFORM ; i++)
     {
         vert[i].x = vert[i].y = horiz[i].x = horiz[i].y = -1;
     }
