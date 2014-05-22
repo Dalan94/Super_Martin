@@ -1,21 +1,12 @@
 /**
  *\file menu_option.c
- *\brief containe the option menu functions
- *\author X.COPONET
+ *\brief contain the option menu functions
+ *\author Xavier COPONET
  *\date 2014-04-27
 */
 
 #include "menu_option.h"
 
-/**
- *\fn int menuOptions(SDL_Surface *screen,int *go,Sound *sound_sys,keyConf *kc)
- *print the option menu on the screen
- *\param[out] screen the game screen
- *\param[in,out] go main loop validation
- *\param[in,out] sys sound system
- *\param[in,out] kc the keyboard configuration structure
- *\return the number of the option which is choosen, -1 if esc
- */
 int menuOptions(SDL_Surface *screen,int *go,SDLKey *kc)
 {
     SDL_Surface *waiting;
@@ -32,7 +23,7 @@ int menuOptions(SDL_Surface *screen,int *go,SDLKey *kc)
     SDL_Rect posText={0,0,0,0};
 
 
-    /*winting screen */
+    /*waiting screen */
     waiting = imageLoadAlpha("../Super_Martin/sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
@@ -73,14 +64,6 @@ int menuOptions(SDL_Surface *screen,int *go,SDLKey *kc)
     return pos_curseur;
 }
 
-
-/**
- *\fn void keyboardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
- *print the keyboard options and deals with the user choises
- *\param[out] screen the game screen
- *\param[in,out] go main loop validation
- *\param[in,out] kc the keyboard config structure
- */
 void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
 {
     SDL_Surface *waiting;
@@ -154,16 +137,6 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
     SDL_FreeSurface(waiting);
 }
 
-/**
- *\fn void chooseKey(SDL_Surface *screen,Input *in,char *action,SDLKey *kc,int nb)
- *print the message asking the player to choose a key and wait until the player press a key and deals with this key
- *\param[out] screen the game screen
- *\param[in,out] in the input structure
- *\param[in] action the action which the key has to be choosen
- *\param[out] kc the keyboard configuration
- *\param[in] nb the number of the action
- */
-
 void chooseKey(SDL_Surface *screen,Input *in,char *action,SDLKey *kc,int nb)
 {
 
@@ -183,7 +156,7 @@ void chooseKey(SDL_Surface *screen,Input *in,char *action,SDLKey *kc,int nb)
 
     SDL_Delay(1500);
 
-    memset(in,0,sizeof(in));
+    memset(in,0,sizeof(Input));
 
     while(!updateWaitEvents(in));
     for(;i<SDLK_LAST;i++)

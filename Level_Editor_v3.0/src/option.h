@@ -9,13 +9,25 @@
 #define OPTION_H_INCLUDED
 
 #include "file.h"
-#include "sound.h"
 #include "structures.h"
 #include "input.h"
 
-void loadOptions(char confFile[],SDLKey *kc);
-void saveOptions(char confFile[],SDLKey *kc);
+/**
+ *\fn void loadOptions(char confFile[],Sound *soundSys,keyConf *kc)
+ *Load the options from the config file
+ *\param[in] confFile the config file path
+ *\param[out] kc the keyboard configuration structure
+ */
 
-void chooseKey(SDL_Surface *screen,Input *in,char *action,SDLKey *kc,int nb);
+void loadOptions(char confFile[],SDLKey *kc);
+
+/**
+ *\fn void saveOptions(char confFile[],keyConf *kc)
+ *save the options to the config file
+ *\param[in] confFile the config file path
+ *\param[in] kc the keyboard configuration structure
+ */
+
+void saveOptions(char confFile[],SDLKey *kc);
 
 #endif // OPTION_H_INCLUDED

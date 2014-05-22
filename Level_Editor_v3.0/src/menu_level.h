@@ -1,8 +1,8 @@
 /*!
  * \file    menu_level.h
- * \brief   Menu gerant le choix du niveau
- * \author  Remi BERTHO
- * \date    15/03/14
+ * \brief   menu_level.c header
+ * \author  Remi BERTHO, Glenn HERROU
+ * \date    2014-05-10
  * \version 2.0
  */
 
@@ -19,9 +19,16 @@
 #include "file_level.h"
 #include "share.h"
 #include "text.h"
-#include "sound.h"
 #include "image.h"
 #include "input.h"
+
+/**
+ *\fn int menuLevel(SDL_Surface *screen,char level_name[MAX_LENGTH_FILE_NAME], char level_path[MAX_LENGTH_FILE_NAME])
+ * Display the level menu on the screen
+ *\param[out] screen The screen of the game
+ *\param[out] level_name The level name
+ *\param[out] level_path The level file path
+ */
 
 int menuLevel(SDL_Surface *screen,char level_name[MAX_LENGTH_FILE_NAME], char level_path[MAX_LENGTH_FILE_NAME]);
 

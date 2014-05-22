@@ -1,18 +1,12 @@
 /*!
  * \file image.c
- * \brief contient les fonction liées aux images
+ * \brief Contain the functions managing the images
  * \author Rémi BERTHO
  * \date 2014-02-27
  */
 
 #include "image.h"
 
-/**
- *\fn SDL_Surface *imageLoad(char * file_name)
- * Charge une image
- *\param[in] file_name le nom du fichier
- *\return un pointeur sur une SDL_Surface
- */
 SDL_Surface *imageLoad(char * file_name)
 {
     SDL_Surface *temp = NULL;
@@ -37,12 +31,6 @@ SDL_Surface *imageLoad(char * file_name)
     return res;
 }
 
-/**
- *\fn SDL_Surface *imageLoadAlpha(char * file_name)
- * Charge une image
- *\param[in] file_name le nom du fichier
- *\return un pointeur sur une SDL_Surface
- */
 SDL_Surface *imageLoadAlpha(char * file_name)
 {
     SDL_Surface *temp = NULL;
@@ -50,15 +38,17 @@ SDL_Surface *imageLoadAlpha(char * file_name)
 
     temp=IMG_Load(file_name);
 
-    if(temp == NULL){
-        perror("couldn't load background sprite");
+    if(temp == NULL)
+    {
+        perror("couldn't load sprite");
         exit(errno);
     }
 
     res=SDL_DisplayFormatAlpha(temp);
 
-    if(res == NULL){
-        perror("couldn't load background sprite");
+    if(res == NULL)
+    {
+        perror("couldn't load sprite");
         exit(errno);
     }
 
