@@ -1,23 +1,12 @@
+
 /*!
  * \file game.c
- * \brief contient les fonction liées au jeu
- * \author Xavier COPONET
- * \date 2014-02-27
+ * \brief Contain the main functions of the game
+ * \author Xavier COPONET, Glenn HERROU
+ * \date 2014-05-15
  */
-
-
 
 #include "game.h"
-
-
-
-
-/**
- *\fn void play(SDL_Surface *screen,char *level_name)
- *contient la boucle principale du jeu qui appelle les fonctions
- *\param[in,out] screen L'écran de jeu
- *\param[in] lvel_name le nom du niveau
- */
 
 void play(SDL_Surface *screen, char *level_name, SDLKey *kc){
 
@@ -69,7 +58,7 @@ void play(SDL_Surface *screen, char *level_name, SDLKey *kc){
 
 
         if(in.key[SDLK_ESCAPE] || in.quit)
-            printContinue(screen, &in, &go);
+            printConfirmation(screen, &in, &go);
 
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
 
@@ -89,83 +78,7 @@ void play(SDL_Surface *screen, char *level_name, SDLKey *kc){
     freeMap(m);
 }
 
-
-/**
- *\fn void printGameOver(SDL_Surface *screen,int *continuer,Input *in)
- *affiche le message de game overflow_error
- *\param[out] screen l'écran de jeu
- */
-void printGameOver(SDL_Surface *screen,int *continuer,Input *in){
-    SDL_Surface *gameOver = NULL;
-    SDL_Rect posGame;
-
-
-    Sound *s;
-    s = createSound();
-    playMusic(s,"../Super_Martin/sound/chopin1.mp3");
-
-    gameOver = IMG_Load("../Super_Martin/sprites/game-over.jpg");
-    posGame.x = posGame.y = 0;
-    SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
-    SDL_BlitSurface(gameOver,NULL,screen,&posGame);
-
-    printText(screen,NULL,"GAME OVER",186,38,18,"polices/manga.ttf",65,1);
-    SDL_Flip(screen);
-
-    SDL_Delay(1500); //pause pour éviter de quitter l'écran instantanément si joueur appuit sur une touche lors de sa mort
-
-//    while(!updateEvents(in));
-    *continuer = 0;
-    SDL_FreeSurface(gameOver);
-    freeSound(s);
-
-}
-
-/**
- *\fn void printPause(SDL_Surface *screen, Input *in, int *time,int *continuer)
- * Met en pause le jeu
- *\param[out] screen l'écran de jeu
- *\param[out] time le temps restant
- *\param[in] in la structure input
- *\param[out] le booléen de main loop de la fonction jouer
- */
-void printPause(SDL_Surface *screen, Input *in, int *time, int *continuer)
-{
-    SDL_Surface *gameOver = NULL;
-    SDL_Rect posGame;
-
-    int time_pause=*time;
-
-    gameOver = IMG_Load("../Super_Martin/sprites/game-over.jpg");
-    posGame.x = posGame.y = 0;
-    SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
-    SDL_BlitSurface(gameOver,NULL,screen,&posGame);
-
-
-    printText(screen,NULL,"PAUSE",186,38,18,"../Super_Martin/polices/manga.ttf",65,1);
-    SDL_Flip(screen);
-    in->key[SDLK_p] = 0;
-
-    while(!in->key[SDLK_p] && *continuer){
-
-        updateEvents(in);
-        if(in->quit)
-            *continuer = 0;
-
-    }
-    SDL_FreeSurface(gameOver);
-
-    *time=time_pause;
-    in->key[SDLK_p] = 0;
-}
-
-Uint32 decomptage(Uint32 intervalle,void* parametre){
-    int *time = parametre;
-    (*time)--;
-    return intervalle;
-}
-
-void printContinue(SDL_Surface *screen, Input *in, int *go)
+void printConfirmation(SDL_Surface *screen, Input *in, int *go)
 {
     SDL_Surface *Continue = NULL;
     SDL_Rect posContinue, posText;
@@ -187,7 +100,6 @@ void printContinue(SDL_Surface *screen, Input *in, int *go)
     while(*go > 1)
     {
         updateWaitEvents(in);
-
 
         posText.x = -1;
         posText.y = 370;

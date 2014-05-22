@@ -44,7 +44,7 @@ int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,
     while(wrong_player)
     {
         memset(tmp, 0, sizeof(tmp));
-        memset(player_name, 0, sizeof(player_name));
+        memset(player_name, 0, sizeof(Player));
         incr = 1;
         wrong_player = 0;
         while(*go && !ret)

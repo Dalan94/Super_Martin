@@ -1,19 +1,13 @@
 /*!
  * \file    menu_level.c
- * \brief   Menu gerant le choix du niveau
- * \author  Remi BERTHO
- * \date    15/03/14
- * \version 2.0 (implémentation de la gestion des event)
+ * \brief   Contain the level menu management
+ * \author  Remi BERTHO, Glenn HERROU
+ * \date    2014-05-10
+ * \version 2.0
  */
 
  #include "menu_level.h"
 
-/**
- *\fn int menuLevel(SDL_Surface *screen,char level_name[MAX_LENGTH_FILE_NAME])
- *  Menu pour choisr le niveau
- *\param[out] screen l'écran de jeu
- *\param[out] level_name le nom du level que l'on va vouloir lancer
- */
 int menuLevel(SDL_Surface *screen,char level_name[MAX_LENGTH_FILE_NAME], char level_path[MAX_LENGTH_FILE_NAME])
 {
     SDL_Surface *waiting;

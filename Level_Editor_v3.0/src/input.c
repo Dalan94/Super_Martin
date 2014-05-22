@@ -7,14 +7,6 @@
 
 #include "input.h"
 
-
-/**
- *\fn int updateEvents(Input* in)
- *recuperate keyboard input with a SDL_PollEvent
- *\param[out] in the input structure
- *\return 1 if a key is activated
- */
-
 void updateEvents(Input* in)
 {
 	SDL_Event event;
@@ -64,19 +56,8 @@ void updateEvents(Input* in)
 
     in->mouseX *= TILE_SIZE;
     in->mouseY *= TILE_SIZE;
-
-	//return 0;
 }
 
-
-/**
- *\fn void keyboardActionGame(Input *in, Map *m, Cursor *cursor, SDLKey *kc)
- *perform action command by keyboard action
- *\param[in,out] in the input structure
- *\param[in,out] m the map to update
- *\param[in,out] cursor the cursor structure
- *\param[in] kc the keyboard bindings
- */
 void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, SDLKey *kc)
 {
     /*  Recover the coordinates of the mouse */
@@ -197,7 +178,6 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
         fillColumn(m, cursor->y / TILE_SIZE, ((m->xScroll + cursor->x) / TILE_SIZE)-1, cursor->tileID );
         }
     }
-
 
     /*  Deletion of the tile pointed by the cursor*/
 
@@ -356,14 +336,6 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
     }
 }
 
-
-/**
- *\fn int updateWaitEvents(Input* in)
- *recuperate keyboard input with a SDL_WaitEvent
- *\param[out] in the input structure
- *\return 1 if a key is activated
- */
-
 int updateWaitEvents(Input* in)
 {
 	SDL_Event event;
@@ -394,15 +366,6 @@ int updateWaitEvents(Input* in)
 	return 0;
 }
 
-/**
- *\fn void keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
- *perform action command by keyboard action
- *\param[in] in the input structure
- *\param[out] cursorPos the cursor position
- *\param[out] select boolean about selecting the option or quit to title screen
- *\param[in] nb_options the number of options of the menu
-
- */
 int keyboardActionMenu(Input *in,int *cursorPos,int *select,int nb_options)
 {
     if((in->key[SDLK_ESCAPE] || in->quit) && select != NULL)

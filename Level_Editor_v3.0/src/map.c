@@ -1,19 +1,12 @@
 /*!
  * \file map.c
- * \brief loading and displaying the map
- * \author Xavier COPONET
- * \date 2014-03-18
+ * \brief Management of the map
+ * \author Xavier COPONET, Glenn HERROU
+ * \date 2014-05-18
  */
 
 #include "map.h"
 
-/**
- *\fn void updateScreenMap(SDL_Surface *screen, Map *m,char *tileset)
- *update and display the map
- *\param[in,out] screen of the game
- *\param[in] Map *m The map
- *\param[in] tileset lvl tileset
- */
 void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor){
     SDL_Surface *tile, *enemy, *tree, *flower, *cloud, *platform, *platformH, *platformV, *canonL,*canonR,*canonB;
     SDL_Rect posTile, posTileSet, posTree, curs;
@@ -21,7 +14,6 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
     float y_off, x_off;
 
     posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
-    //posTileSet.x = posTileSet.y = posTree.x = posTree.y = 0;
 
     minx = m->xScroll/TILE_SIZE-1;
     maxx = (m->xScroll + m->screenWidth)/TILE_SIZE+1;
@@ -265,36 +257,7 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
 
 }
 
-/**
- *\fn void scrolling(Map *m,int direction,float speed)
- *scroll the map
- *\param[in,out] map the lvl
- *\param[in] direction scrolling direction
- *\param[in] speed scrolling speed
- */
-void scrolling(Map *m, int direction,float speed){
-    switch (direction){
-        case RIGHT:
-            if(m->xScroll < (m->lvl->width+1)*TILE_SIZE-m->screenWidth)
-                m->xScroll+= speed;
-            break;
-
-        case LEFT:
-            if(m->xScroll > TILE_SIZE)
-                m->xScroll-= speed;
-            break;
-        default: ;
-    }
-}
-
-/**
- *\fn  Map *initMap(SDL_Surface *screen,char * level_name){
- *initialize the map
- *\param[in] screen game screen
- *\param[in] level_name lvl name
- *\return pointer on the map
- */
- Map *initMap(SDL_Surface *screen,char * level_name){
+Map *initMap(SDL_Surface *screen,char *level_name){
     Map *m;
 
     m = (Map *)malloc(sizeof(Map));
@@ -309,8 +272,6 @@ void scrolling(Map *m, int direction,float speed){
 
     return m;
  }
-
-
 
 void fillLine(Map *m, int line, int column, char tileID)
 {
@@ -368,13 +329,6 @@ void fillRect(Map *m, int line, int column, char tileID)
         }
     }
 }
-
-/**
-  *\fn void displayHelp(SDL_Surface *screen, SDLKey *kc)
-  *Display the list of keybindings on the screen
-  *\param[in,out] screen The screen of the game
-  *\param[in] kc The array containing the keybindings
-  */
 
 void displayHelp(SDL_Surface *screen, SDLKey *kc)
 {
@@ -450,13 +404,6 @@ void displayHelp(SDL_Surface *screen, SDLKey *kc)
         SDL_Flip(screen);
     }
 }
-
-/**
-  *\fn void saveMap(SDL_Surface *screen, map *m)
-  *Save the map in a new file and update the file 'level' containing the map list
-  *\param[in,out] screen The screen of the game
-  *\param[in] m The map to save
-  */
 
 void saveMap(SDL_Surface *screen, Map *m){
 
@@ -647,13 +594,6 @@ void saveMap(SDL_Surface *screen, Map *m){
     closeLevelList(level_list, level_number);
     SDL_FreeSurface(waiting);
 }
-/**
-  *\fn void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
-  *Delete a the map file and update the level list file
-  *\param[in,out] screen The screen of the game
-  *\param[in] map_name The name of the map to delete
-  *\param[in] map_path The path to the file of the map to delete
-  */
 
 void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
 {
@@ -757,13 +697,6 @@ void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
     SDL_FreeSurface(waiting);
 }
 
-
-/**
-  *\fn void extendMap(Map *m)
-  *Extend the width of a map
-  *\param[out] m The map to extend
-  */
-
 void extendMap(Map *m)
 {
     int i, j;
@@ -784,14 +717,6 @@ void extendMap(Map *m)
     }
 }
 
-
-
-/**
-  *\fn void resetMap(map *m)
-  *Fill a map with blank tiles. This function doesn't change the current map file.
-  *\param[in,out] m The map to reinit
-  */
-
 void resetMap(Map *m){
 
     int i,j;
@@ -801,11 +726,7 @@ void resetMap(Map *m){
             m->lvl->map[i][j]=0;
     }
 }
- /**
-  *\fn void freeMap(map *m)
-  *free memory allocated to the map
-  *\param[in,out] m the map
-  */
+
 void freeMap(Map *m){
     closeLevel(m->lvl);
     free((void *)m);

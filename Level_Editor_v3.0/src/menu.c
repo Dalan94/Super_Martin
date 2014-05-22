@@ -1,21 +1,11 @@
 /*!
  * \file menu.c
- * \brief contient les fonction liées au menu
+ * \brief Contain the main menu management
  * \author Glenn HERROU
  * \date 2014-04-20
  */
 
 #include "menu.h"
-
-/**
- *\fn int menu(SDL_Surface *screen, int *choice, int *go)
- *Display the menu on the screen
- *\param[out] screen l'écran
- *\param[out] choice the option selected
- *\param[out] go the main loop validation
- *\return 1 if an option has been selected
- */
-
 
 int menu(SDL_Surface *screen,int *choice, int *go)
 {

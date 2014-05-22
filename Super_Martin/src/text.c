@@ -1,25 +1,13 @@
 /*!
  * \file text.c
- * \brief contient les fonction pour afficher du texte à l'écran
- * \author Xavier COPONET
- * \date 2014-02-27
+ * \brief Management of the display of text on the screen
+ * \author Xavier COPONET, Glenn HERROU
+ * \date 2014-04-27
  */
 
 #include "text.h"
 
-/**
- *\fn void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r,int g, int b, char *font,int ptSize,int mode)
- *affiche le texte sur l'écran à la position donnée
- *\param[out] screen L'écran
- *\param[in] posText La position du texte à afficher ; si NULL, centré en largeur et hauteur
- *\param[in] text Le texte à afficher
- *\param[in] int r red value
- *\param[in] int g green value
- *\param[in] int b blue value
- *\param[in] font L'adresse de la police d'affichage (.ttf)
- *\param[in] ptSize la taille du texte à afficher
- *\param[in] mode Le mode d'écriture : 0 (Solid), 1 (Blended)
- */
+
 void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r,int g, int b, char *font,int ptSize,int mode)
 {
 
