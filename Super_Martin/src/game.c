@@ -20,6 +20,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     int pause=0;
     int ret = 0;
     int launch = 1;
+    int death=0;
 
     int acceleration=0;
     float speed=0;
@@ -101,7 +102,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     current_time=previous_time=SDL_GetTicks();
 
-    while(!in->key[SDLK_ESCAPE] && *go && (!in->isJoystick||!in->button[BACK]))
+    while(!in->key[SDLK_ESCAPE] && *go && !death && (!in->isJoystick||!in->button[BACK]))
     {
 
         /* player inputs gestion*/
@@ -128,7 +129,8 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
                 else
                     ret = 0;
-                break;
+                //break;
+                death=1;
             }
             old_time=m->lvl->timer_level;
             m->lvl->tileSetUse ^= 1;
@@ -218,12 +220,11 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 void printGameOver(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
 
 {
-    SDL_Surface *gameOver = NULL;
     SDL_Rect posGame;
 
     playMusic("sound/Colin_Newcomer_-_Funeral_March__Frederic_Chopin.mp3",sound_sys);
 
-    gameOver = imageLoad("sprites/game-over.jpg");
+    SDL_Surface *gameOver = imageLoad("sprites/game-over.jpg");
     posGame.x = posGame.y = 0;
     SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
     SDL_BlitSurface(gameOver,NULL,screen,&posGame);

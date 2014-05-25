@@ -135,6 +135,7 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Inp
         updateWaitEvents(in,go);
         if(in->key[SDLK_ESCAPE] || (in->isJoystick&&(in->button[BACK] )))
         {
+            SDL_FreeSurface(waiting);
             return -1;
         }
         inputActionMenu(in,&pos_curseur,&ret,nb_menu);
@@ -251,7 +252,6 @@ int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *
         return -1;
 
     closeLevelList(player_names,nb_players);
-
 
     return choose_player;
 }

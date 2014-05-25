@@ -38,7 +38,10 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
     {
         updateWaitEvents(in,go);
         if(in->key[SDLK_ESCAPE] || (in->isJoystick&&in->button[BACK]))
+        {
+            SDL_FreeSurface(waiting);
             return -1;
+        }
         else
         {
             inputActionMenu(in,&pos_curseur,&play_lvl,min(player->levelMax, *nb_lvl));
