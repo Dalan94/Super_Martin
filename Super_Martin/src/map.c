@@ -227,7 +227,7 @@ void freeMap(Map *m)
 }
 
 
-int collisionMap(SDL_Rect r,Map *m)
+int collisionMap(SDL_Rect r,Map *m, int type)
 {
     int i,j;
     int xmin,xmax,ymin,ymax;
@@ -257,7 +257,8 @@ int collisionMap(SDL_Rect r,Map *m)
                     switch(m->lvl->map[j][i])
                     {
                         case COIN:
-                            m->lvl->map[j][i] = VOID;
+                            if(!type)
+                                m->lvl->map[j][i] = VOID;
                             return 2;
                             break;
                         case SPRING:
@@ -265,16 +266,19 @@ int collisionMap(SDL_Rect r,Map *m)
                             break;
 
                         case HAMMER:
-                            m->lvl->map[j][i] = VOID;
+                            if(!type)
+                                m->lvl->map[j][i] = VOID;
                             return 4;
                             break;
 
                         case 'H' :
-                            m->lvl->map[j][i] = VOID;
+                            if(!type)
+                                m->lvl->map[j][i] = VOID;
                             return 5;
                             break;
                         case 'L' :
-                            m->lvl->map[j][i] = VOID;
+                            if(!type)
+                                m->lvl->map[j][i] = VOID;
                             return 6;
                             break;
 

@@ -184,7 +184,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
         futureLocation.w -= COLLISION_ADJUSTMENT;
     }
 
-    ret = collisionMap(futureLocation,m);
+    ret = collisionMap(futureLocation,m,0);
     if((ret != 1) && !collisionEnemy(c,l,m) && (collisionPlatform(c,ps,futureLocation)!=1))
     {
         if(!c->isNpc)
@@ -322,11 +322,15 @@ int checkWall(Character *c,Map *m)
 {
     int x,y;
 
+    if(c->location.x < 10)
+            return 0; //test les limites du monde
+
     if(!c->isRight)
     {
 
         x = (int)((c->location.x-2)/TILE_SIZE);
         y = (int)(c->location.y + TILE_SIZE)/TILE_SIZE;
+
 
 
         if(y<0)
@@ -347,7 +351,6 @@ int checkWall(Character *c,Map *m)
     {
         x = (int)(c->location.x)/TILE_SIZE;
         y = (int)(c->location.y + TILE_SIZE)/TILE_SIZE;
-
 
         if(y<=0)
             y = 1;

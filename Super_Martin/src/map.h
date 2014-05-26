@@ -57,12 +57,13 @@ Map* initMap(SDL_Surface *screen,char * level_name, list *l,platformSet *ps);
 void freeMap(Map *m);
 
 /**
- *\fn int collisionMap(SDL_Rect r,Map *m)
+ *\fn int collisionMap(SDL_Rect r,Map *m, int type)
  *determine if there is a collision beteewen a sprite and a "wall" of the map
  *\param[in] r SDL_Rect corresponding to the sprite
  *\param[in] m map
+ *\param[in] type 0 if not a projectile
  *\return 1 if there is a collision, 0 if not,2 if collision with star/coin, 3 if spring
  */
-int collisionMap(SDL_Rect r,Map *m);
+int collisionMap(SDL_Rect r,Map *m, int type);
 
 #endif // MAP_H_INCLUDED

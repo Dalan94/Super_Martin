@@ -156,7 +156,7 @@ void moveOneProjectile(Character *c,Map *m,projectileSet *ps,list *l,int nb)
         }
     }
 
-    if(collisionMap(p->location,m) == 1)
+    if(collisionMap(p->location,m,1) == 1)
         /*if the pojectile is in collision with the map, it is deleted */
         deleteProjectile(ps,nb);
 }
