@@ -1,13 +1,15 @@
 var searchData=
 [
-  ['image_2ec',['image.c',['../image_8c.html',1,'']]],
-  ['image_2eh',['image.h',['../image_8h.html',1,'']]],
-  ['imageload',['imageLoad',['../image_8c.html#a9862daea48ad8bfd1d3a0c401a9f5210',1,'imageLoad(char *file_name):&#160;image.c'],['../image_8h.html#aa53e98f2ff3d527d25b36023ea7f9d56',1,'imageLoad(char *file_name):&#160;image.c']]],
-  ['imageloadalpha',['imageLoadAlpha',['../image_8c.html#a569b068180b77bf2d44cf580322c68ad',1,'imageLoadAlpha(char *file_name):&#160;image.c'],['../image_8h.html#a469cf40e18cf579993e349b4393a2876',1,'imageLoadAlpha(char *file_name):&#160;image.c']]],
-  ['initlevel',['initLevel',['../file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707',1,'file_level.c']]],
-  ['initmap',['initMap',['../map_8c.html#aa69680b270233f1a2b9f2e3eccf96863',1,'initMap(SDL_Surface *screen, char *level_name):&#160;map.c'],['../map_8h.html#a92c61ecb670c1960ed8bff4819485094',1,'initMap(SDL_Surface *screen, char *level_name):&#160;map.c']]],
-  ['input',['Input',['../struct_input.html',1,'']]],
-  ['input_2ec',['input.c',['../input_8c.html',1,'']]],
-  ['isjumping',['isJumping',['../struct_character.html#a6a61db42178df20e0afd7a5b65412735',1,'Character']]],
-  ['isonground',['isOnGround',['../struct_character.html#aa4061d19d285d0ef281f333dee8f9a00',1,'Character']]]
+  ['file_2ec',['file.c',['../file_8c.html',1,'']]],
+  ['file_2eh',['file.h',['../file_8h.html',1,'']]],
+  ['file_5flevel_2eh',['file_level.h',['../file__level_8h.html',1,'']]],
+  ['first',['first',['../enemies_8c.html#a0f5c139f75d0a54b38c0d33e1bc22223',1,'first(list *l):&#160;enemies.c'],['../enemies_8h.html#a0f5c139f75d0a54b38c0d33e1bc22223',1,'first(list *l):&#160;enemies.c']]],
+  ['freeenemies',['freeEnemies',['../enemies_8c.html#a766e049c933ace6a69ba1e7c3fab142c',1,'freeEnemies(list *l):&#160;enemies.c'],['../enemies_8h.html#a766e049c933ace6a69ba1e7c3fab142c',1,'freeEnemies(list *l):&#160;enemies.c']]],
+  ['freeinput',['freeInput',['../input_8c.html#a473359e91c8f9f7bf41b58df1dd8436b',1,'input.c']]],
+  ['freeplatformset',['freePlatformSet',['../mobile__platform_8c.html#abe296b52d937fe5ebce22fb3682101bc',1,'freePlatformSet(platformSet *ps):&#160;mobile_platform.c'],['../mobile__platform_8h.html#abe296b52d937fe5ebce22fb3682101bc',1,'freePlatformSet(platformSet *ps):&#160;mobile_platform.c']]],
+  ['freeprojectileset',['freeProjectileSet',['../projectile_8c.html#a81ffa52ab74595ba47d07efa3455a4ee',1,'freeProjectileSet(projectileSet *ps):&#160;projectile.c'],['../projectile_8h.html#a81ffa52ab74595ba47d07efa3455a4ee',1,'freeProjectileSet(projectileSet *ps):&#160;projectile.c']]],
+  ['freesound',['freeSound',['../sound_8c.html#acc13f1ac1e0bac5afe39405869772a08',1,'freeSound(Sound *s):&#160;sound.c'],['../sound_8h.html#acc13f1ac1e0bac5afe39405869772a08',1,'freeSound(Sound *s):&#160;sound.c']]],
+  ['fromnpc',['fromNPC',['../structprojectile.html#a130dff78b354d57d5b6dadcad3e597ef',1,'projectile']]],
+  ['fx',['fx',['../struct_sound.html#a259d72174e26b5bb58146484cd54c1c8',1,'Sound']]],
+  ['fxvolume',['fxVolume',['../struct_sound.html#aedb4246a8bbae1c53f2f29572674b054',1,'Sound']]]
 ];

@@ -1,4 +1,4 @@
 <map id="menu.h" name="menu.h">
-<area shape="rect" id="node3" href="$main_8c.html" title="main.c" alt="" coords="5,89,67,122"/>
-<area shape="rect" id="node5" href="$menu_8c.html" title="contient les fonction liées au menu " alt="" coords="91,89,155,122"/>
+<area shape="rect" id="node2" href="$main_8c.html" title="main.c" alt="" coords="5,80,67,107"/>
+<area shape="rect" id="node3" href="$menu_8c.html" title="contains some functions tied to the title and main menu " alt="" coords="91,80,156,107"/>
 </map>

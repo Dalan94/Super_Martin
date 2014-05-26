@@ -90,25 +90,29 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>header de <a class="el" href="text_8c.html" title="contient les fonction pour afficher du texte à l&#39;écran ">text.c</a>  
+<p><a class="el" href="text_8c.html" title="Management of the display of text on the screen. ">text.c</a> header  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br/>
 <code>#include &lt;stdio.h&gt;</code><br/>
 <code>#include &lt;errno.h&gt;</code><br/>
+<code>#include &quot;<a class="el" href="structures_8h_source.html">structures.h</a>&quot;</code><br/>
 <code>#include &lt;SDL/SDL.h&gt;</code><br/>
 <code>#include &lt;SDL/SDL_image.h&gt;</code><br/>
 <code>#include &lt;SDL/SDL_ttf.h&gt;</code><br/>
+<code>#include &quot;input.h&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for text.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="text_8h__incl.png" border="0" usemap="#text_8h" alt=""/></div>
+<map name="text_8h" id="text_8h">
+<area shape="rect" id="node5" href="structures_8h.html" title="structures.h" alt="" coords="1427,528,1517,555"/><area shape="rect" id="node10" href="input_8h_source.html" title="input.h" alt="" coords="771,80,832,107"/><area shape="rect" id="node7" href="const_8h.html" title="containe the program constantes " alt="" coords="1506,603,1571,629"/><area shape="rect" id="node11" href="character_8h.html" title="header de character.c " alt="" coords="1183,155,1269,181"/><area shape="rect" id="node12" href="file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1083,304,1167,331"/><area shape="rect" id="node15" href="enemies_8h.html" title="enemies.c header " alt="" coords="1464,379,1545,405"/><area shape="rect" id="node17" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="995,528,1063,555"/><area shape="rect" id="node18" href="mobile__platform_8h.html" title="mobile_platform.c header " alt="" coords="1315,379,1440,405"/><area shape="rect" id="node19" href="share_8h.html" title="share.c header " alt="" coords="1739,528,1804,555"/><area shape="rect" id="node20" href="map_8h.html" title="map.c header " alt="" coords="828,229,885,256"/><area shape="rect" id="node21" href="sound_8h.html" title="header de sound.c " alt="" coords="246,528,313,555"/><area shape="rect" id="node14" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="491,528,541,555"/><area shape="rect" id="node16" href="projectile_8h.html" title="projectile.c header " alt="" coords="1365,453,1451,480"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="text_8h__dep__incl.png" border="0" usemap="#text_8hdep" alt=""/></div>
 <map name="text_8hdep" id="text_8hdep">
-<area shape="rect" id="node3" href="game_8h.html" title="header de game.c " alt="" coords="48,89,112,122"/><area shape="rect" id="node9" href="menu_8h.html" title="header de menu.c " alt="" coords="136,89,200,122"/><area shape="rect" id="node14" href="menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="224,89,323,122"/><area shape="rect" id="node19" href="text_8c.html" title="contient les fonction pour afficher du texte à l&#39;écran " alt="" coords="347,89,400,122"/><area shape="rect" id="node5" href="game_8c.html" title="contient les fonction liées au jeu " alt="" coords="5,171,69,205"/><area shape="rect" id="node7" href="main_8c.html" title="main.c" alt="" coords="93,171,155,205"/><area shape="rect" id="node12" href="menu_8c.html" title="contient les fonction liées au menu " alt="" coords="179,171,243,205"/><area shape="rect" id="node17" href="menu__level_8c.html" title="Menu gerant le choix du niveau. " alt="" coords="267,171,365,205"/></map>
+<area shape="rect" id="node2" href="game_8h.html" title="game.c header " alt="" coords="5,155,69,181"/><area shape="rect" id="node5" href="player_8h.html" title="player.c header " alt="" coords="129,80,196,107"/><area shape="rect" id="node7" href="menu_8h.html" title="header de menu.c " alt="" coords="266,80,331,107"/><area shape="rect" id="node9" href="menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="356,80,455,107"/><area shape="rect" id="node11" href="menu__option_8h.html" title="menu_option.h" alt="" coords="501,80,608,107"/><area shape="rect" id="node13" href="text_8c.html" title="Management of the display of text on the screen. " alt="" coords="633,80,687,107"/><area shape="rect" id="node3" href="game_8c.html" title="contient les fonction liées au jeu " alt="" coords="5,229,69,256"/><area shape="rect" id="node4" href="main_8c.html" title="main.c" alt="" coords="221,229,283,256"/><area shape="rect" id="node6" href="player_8c.html" title="Management of the player system. " alt="" coords="146,155,213,181"/><area shape="rect" id="node8" href="menu_8c.html" title="contains some functions tied to the title and main menu " alt="" coords="290,155,355,181"/><area shape="rect" id="node10" href="menu__level_8c.html" title="level choose menu " alt="" coords="431,155,529,181"/><area shape="rect" id="node12" href="menu__option_8c.html" title="contains the option menu functions " alt="" coords="604,155,711,181"/></map>
 </div>
 </div>
 <p><a href="text_8h_source.html">Go to the source code of this file.</a></p>
@@ -117,12 +121,120 @@ This graph shows which files directly or indirectly include this file:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a1bd80be1aff6fe5303bdd5aa80161da3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8h.html#a1bd80be1aff6fe5303bdd5aa80161da3">printText</a> (SDL_Surface *screen, SDL_Rect *posText, char *text, int r, int g, int b, char *font, int ptSize, int mode)</td></tr>
 <tr class="separator:a1bd80be1aff6fe5303bdd5aa80161da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a458f74becdf9be4cb93716d0393dbae7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8h.html#a458f74becdf9be4cb93716d0393dbae7">captureText</a> (SDL_Surface *screen, SDL_Rect posText, char *text, int text_length, int r, int g, int b, char *font, int text_size, int *go, int *ret)</td></tr>
+<tr class="separator:a458f74becdf9be4cb93716d0393dbae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>header de <a class="el" href="text_8c.html" title="contient les fonction pour afficher du texte à l&#39;écran ">text.c</a> </p>
-<dl class="section author"><dt>Author</dt><dd>Xavier COPONET </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2014-02-27 </dd></dl>
+<div class="textblock"><p><a class="el" href="text_8c.html" title="Management of the display of text on the screen. ">text.c</a> header </p>
+<dl class="section author"><dt>Author</dt><dd>Xavier COPONET, Glenn HERROU </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2014-04-27 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a458f74becdf9be4cb93716d0393dbae7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void captureText </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>screen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>posText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>text_length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>text_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>go</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ret</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Capture the text corresponding to the keyboard inputs and display it on the screen at the given position </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>The screen of the game </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">posText</td><td>The position of the text. If NULL, the text is centered </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">text</td><td>The text to display </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>r red value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>g green value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>b blue value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>The path to the font file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptSize</td><td>The text size </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>The writing mode : 0 (Solid), 1 (Blended) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">go</td><td>The main loop validation </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ret</td><td>The press return indicator </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="text_8h_a458f74becdf9be4cb93716d0393dbae7_cgraph.png" border="0" usemap="#text_8h_a458f74becdf9be4cb93716d0393dbae7_cgraph" alt=""/></div>
+<map name="text_8h_a458f74becdf9be4cb93716d0393dbae7_cgraph" id="text_8h_a458f74becdf9be4cb93716d0393dbae7_cgraph">
+<area shape="rect" id="node2" href="input_8c.html#adf8840e198ccba8364c2d051b700a690" title="updateWaitEvents" alt="" coords="145,5,274,32"/><area shape="rect" id="node3" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="173,56,246,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a1bd80be1aff6fe5303bdd5aa80161da3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -188,18 +300,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>affiche le texte sur l'écran à la position donnée </p>
+<p>Display the given text on the screen, at the given position </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>L'écran </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">posText</td><td>La position du texte à afficher ; si NULL, centré en largeur et hauteur </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>Le texte à afficher </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>The screen of the game </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">posText</td><td>The position of the text. If NULL, the text is centered </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>The text to display </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>r red value </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>g green value </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>b blue value </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>L'adresse de la police d'affichage (.ttf) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ptSize</td><td>la taille du texte à afficher </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>Le mode d'écriture : 0 (Solid), 1 (Blended) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>The path to the font file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptSize</td><td>The text size </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>The writing mode : 0 (Solid), 1 (Blended) </td></tr>
   </table>
   </dd>
 </dl>
@@ -209,7 +321,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 26 2014 17:03:29 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

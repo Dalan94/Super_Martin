@@ -143,8 +143,9 @@ int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,
             in.key[SDLK_RETURN] = 0;
         }
     }
-    sprintf(path,"touch configuration/%s.conf",player_name);
-    system(path);
+    sprintf(path,"configuration/%s.conf",player_name);
+    closeFile(openFile(path,"w"));
+    SDL_FreeSurface(waiting);
     return res;
 }
 

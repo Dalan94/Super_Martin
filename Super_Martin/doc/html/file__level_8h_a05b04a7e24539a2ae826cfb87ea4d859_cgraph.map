@@ -1,0 +1,8 @@
+<map id="openLevel" name="openLevel">
+<area shape="rect" id="node2" href="$file_8c.html#ab763060cbdd57fdb704871d896fc492a" title="openFile" alt="" coords="149,5,219,32"/>
+<area shape="rect" id="node3" href="$file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707" title="initLevel" alt="" coords="149,56,219,83"/>
+<area shape="rect" id="node4" href="$mobile__platform_8c.html#a31e2f2a28818722c75562e1eee0f5816" title="platformMap" alt="" coords="137,107,231,133"/>
+<area shape="rect" id="node7" href="$file_8c.html#adf55ac6bc5d81f94b54e4c8ea554f884" title="closeFile" alt="" coords="147,157,221,184"/>
+<area shape="rect" id="node5" href="$mobile__platform_8c.html#a80f6ef761da399b6c8d919464dc48d7e" title="createPlatform" alt="" coords="280,107,387,133"/>
+<area shape="rect" id="node6" href="$image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="435,107,554,133"/>
+</map>

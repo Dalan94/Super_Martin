@@ -56,3 +56,14 @@ SDL_Surface *imageLoadAlpha(char * file_name)
 
     return res;
 }
+
+void blitColor(Uint32 red, Uint32 green,Uint32 blue, int alpha,SDL_Surface *screen)
+{
+    SDL_Rect pos;
+    SDL_Surface *surface = SDL_CreateRGBSurface(SDL_SRCALPHA | SDL_HWSURFACE | SDL_SRCCOLORKEY,SCREEN_WIDTH,SCREEN_HEIGHT,8,0,0,0,0);
+    SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, red, green, blue));
+    pos.x = pos.y = 0;
+    SDL_SetAlpha(surface, SDL_SRCALPHA, alpha);
+    SDL_BlitSurface(surface,NULL,screen,&pos);
+    SDL_FreeSurface(surface);
+}

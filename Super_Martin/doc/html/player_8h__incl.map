@@ -1,8 +1,16 @@
 <map id="player.h" name="player.h">
-<area shape="rect" id="node3" href="$const_8h.html" title="contient les constantes du programme " alt="" coords="247,171,311,205"/>
-<area shape="rect" id="node15" href="$file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="132,89,215,122"/>
-<area shape="rect" id="node27" href="$share_8h.html" title="Gestion des fichiers de carte. " alt="" coords="332,89,396,122"/>
-<area shape="rect" id="node31" href="$sound_8h.html" title="header de sound.c " alt="" coords="804,171,871,205"/>
-<area shape="rect" id="node38" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="471,89,538,122"/>
-<area shape="rect" id="node21" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="122,171,172,205"/>
+<area shape="rect" id="node8" href="$const_8h.html" title="containe the program constantes " alt="" coords="165,453,229,480"/>
+<area shape="rect" id="node9" href="$structures_8h.html" title="structures.h" alt="" coords="475,379,565,405"/>
+<area shape="rect" id="node10" href="$file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1022,80,1105,107"/>
+<area shape="rect" id="node15" href="$share_8h.html" title="share.c header " alt="" coords="195,304,260,331"/>
+<area shape="rect" id="node17" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="990,379,1057,405"/>
+<area shape="rect" id="node19" href="$sound_8h.html" title="header de sound.c " alt="" coords="1867,379,1935,405"/>
+<area shape="rect" id="node22" href="$text_8h.html" title="text.c header " alt="" coords="1677,80,1731,107"/>
+<area shape="rect" id="node23" href="$input_8h_source.html" title="input.h" alt="" coords="1605,155,1667,181"/>
+<area shape="rect" id="node11" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="1640,379,1691,405"/>
+<area shape="rect" id="node13" href="$enemies_8h.html" title="enemies.c header " alt="" coords="944,155,1025,181"/>
+<area shape="rect" id="node18" href="$mobile__platform_8h.html" title="mobile_platform.c header " alt="" coords="691,304,816,331"/>
+<area shape="rect" id="node14" href="$character_8h.html" title="header de character.c " alt="" coords="942,229,1028,256"/>
+<area shape="rect" id="node21" href="$projectile_8h.html" title="projectile.c header " alt="" coords="1043,304,1128,331"/>
+<area shape="rect" id="node16" href="$map_8h.html" title="map.c header " alt="" coords="1203,304,1260,331"/>
 </map>

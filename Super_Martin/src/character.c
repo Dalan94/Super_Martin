@@ -52,6 +52,12 @@ Character *createCharacter(char *tile,int x, int y,int npc, int nbProjectile, in
     return c;
 }
 
+void freeCharacters(Character *c)
+{
+    SDL_FreeSurface(c->tile);
+    free(c);
+}
+
 
 int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m,float* speed,list *l,Sound *sound_sys,platformSet *ps)
 {

@@ -202,15 +202,15 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
     /*Free*/
     SDL_FreeSurface(background);
+    freeCharacters(maryo);
     freeMap(m);
     SDL_RemoveTimer(timer);
     stopSound(sound_sys,1);
 
-    free((void *)maryo);
     freeEnemies(&enemyList);
     freeEnemies(&maryoList);
     freePlatformSet(&ps);
-
+    freeProjectileSet(&pjs);
 
     return ret;
 }
@@ -220,24 +220,18 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 void printGameOver(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
 
 {
-    SDL_Rect posGame;
-
     playMusic("sound/Colin_Newcomer_-_Funeral_March__Frederic_Chopin.mp3",sound_sys);
 
-    SDL_Surface *gameOver = imageLoad("sprites/game-over.jpg");
-    posGame.x = posGame.y = 0;
-    SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
-    SDL_BlitSurface(gameOver,NULL,screen,&posGame);
+    blitColor(0,0,0,200,screen);
 
     printText(screen,NULL,"GAME OVER",186,38,18,"polices/manga.ttf",65,1);
     SDL_Flip(screen);
 
-    SDL_Delay(1500);  //pause to avoid to quit the screen immediatly if the player uses a key when he dies
+    SDL_Delay(1500);  //pause to avoid to quit the screen immediately if the player uses a key when he dies
 
     while(!updateWaitEvents(in,go));
     if(in->quit)
         *go = 0;
-    SDL_FreeSurface(gameOver);
     stopSound(sound_sys,1);
 
 }
@@ -246,26 +240,18 @@ void printGameOver(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
 
 void printWin(SDL_Surface *screen,int *go,Input *in,Sound *sound_sys)
 {
-
-    SDL_Surface *win = NULL;
-    SDL_Rect posGame;
-
     playMusic("sound/win.mp3",sound_sys);
 
-    win = imageLoad("sprites/game-over.jpg");
-    posGame.x = posGame.y = 0;
-    SDL_SetAlpha(win, SDL_SRCALPHA, 200);
-    SDL_BlitSurface(win,NULL,screen,&posGame);
+    blitColor(0,0,0,200,screen);
 
     printText(screen,NULL,"YOU WIN !",186,38,18,"polices/sherwood.ttf",65,1);
     SDL_Flip(screen);
 
-    SDL_Delay(1500); //pause to avoid to quit the screen immediatly if the player uses a key when he wins
+    SDL_Delay(1500); //pause to avoid to quit the screen immediately if the player uses a key when he wins
 
     while(!updateWaitEvents(in,go));
     if(in->quit)
         *go = 0;
-    SDL_FreeSurface(win);
     stopSound(sound_sys,1);
 }
 
@@ -326,16 +312,12 @@ void updateSpeed(float *speed, int acceleration)
 
 void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
 {
-    SDL_Surface *gameOver = NULL;
-    SDL_Rect posGame;
     char st[MAX_SIZE_FILE_NAME];
 
     int time_pause=*time;
 
-    gameOver = imageLoad("sprites/game-over.jpg");
-    posGame.x = posGame.y = 0;
-    SDL_SetAlpha(gameOver, SDL_SRCALPHA, 200);
-    SDL_BlitSurface(gameOver,NULL,screen,&posGame);
+    blitColor(0,0,0,200,screen);
+
     SDL_Rect posTex;
     //posTex.x = 394;
     posTex.x = -1;
@@ -361,7 +343,6 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
             *go = 0;
 
     }
-    SDL_FreeSurface(gameOver);
 
     *time=time_pause;
     if(in->isJoystick)
@@ -387,57 +368,36 @@ Uint32 rocketLaunch(Uint32 intervalle,void* parametre)
 
 void printHUD(SDL_Surface *screen,Character *player,Map *m)
 {
+    static SDL_Surface *stars,*watch,*hammer,*heart;
+    static int already_load=0;
+
+    if (already_load == 0)
+    {
+            /*sprites loading*/
+        heart = imageLoadAlpha("sprites/Heart.png");
+        watch = imageLoadAlpha("sprites/watch.png");
+        stars = imageLoadAlpha("sprites/stars.png");
+        hammer = imageLoadAlpha("sprites/ico_hammer.png");
+        already_load =1;
+    }
+
     /*life gestion*/
     char charLife[2];
     char charHp[5];
-    SDL_Surface *heart = NULL;
     SDL_Rect posHeart = {screen->w-105,10,0,0},posHP = {screen->w-70,10,0,0}, posLife = {screen->w-130,10,0,0};
 
     /*stars gestion*/
     char charCountStars[5];
-    SDL_Surface *stars = NULL;
     SDL_Rect posStars ={screen->w/2,3,0,0}, posCountStars ={screen->w/2+40,10,0,0};
 
     /*time gestion*/
     char charTime[5];
     SDL_Rect posTime={40,10,0,0};
-    SDL_Surface *watch;
     SDL_Rect posWatch = {10,10,0,0};
 
     /* hammer gestion */
     char charCountHammer[5];
-    SDL_Surface *hammer = NULL;
     SDL_Rect posHam = {10,screen->h-50,0,0}, posCountHam = {50,screen->h-50,0,0};
-
-    /*sprites loading*/
-    heart = imageLoadAlpha("sprites/Heart.png");
-    watch = imageLoadAlpha("sprites/watch.png");
-    stars = imageLoadAlpha("sprites/stars.png");
-    hammer = imageLoadAlpha("sprites/ico_hammer.png");
-     if(stars == NULL)
-    {
-        perror("error while loading stars sprite");
-        exit(errno);
-    }
-
-    if(heart == NULL)
-    {
-        perror("error while loading heart sprite");
-        exit(errno);
-    }
-
-    if(watch == NULL)
-    {
-        perror("error while loading watch sprite");
-        exit(errno);
-    }
-
-    if(hammer == NULL)
-    {
-        perror("error while loading hammer sprite");
-        exit(errno);
-    }
-
 
     /*affichage temps*/
     sprintf(charTime,"%d",m->lvl->timer_level);
@@ -462,9 +422,9 @@ void printHUD(SDL_Surface *screen,Character *player,Map *m)
     printText(screen,&posCountHam,charCountHammer,0,0,0,"polices/code.otf",40,1);
     SDL_BlitSurface(hammer,NULL,screen,&posHam);
 
-    SDL_FreeSurface(heart);
+    /*SDL_FreeSurface(heart);
     SDL_FreeSurface(watch);
     SDL_FreeSurface(stars);
-    SDL_FreeSurface(hammer);
+    SDL_FreeSurface(hammer);*/
 
 }

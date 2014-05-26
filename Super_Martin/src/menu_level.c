@@ -10,7 +10,7 @@
 
 int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys, char player_name[MAX_SIZE_FILE_NAME], Player *player, int *go, int *nb_lvl, Input *in)
 {
-    SDL_Surface *waiting;
+    SDL_Surface *waiting=NULL;
     SDL_Rect posWait;
     int previous_time=0;
     int current_time=0;

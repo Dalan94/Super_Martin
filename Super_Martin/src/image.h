@@ -32,5 +32,16 @@ SDL_Surface *imageLoad(char * file_name);
  */
 SDL_Surface *imageLoadAlpha(char * file_name);
 
+/**
+ *\fn void blitColor(Uint32 red, Uint32 green,Uint32 blue, int alpha,SDL_Surface *screen);
+ * Blit a color on the screen
+ *\param[in] red the red of the color
+ *\param[in] green the green of the color
+ *\param[in] blue the blue of the color
+ *\param[in] alpha the transparency of the image file
+ *\param[in] screen the screen
+ */
+void blitColor(Uint32 red, Uint32 green,Uint32 blue, int alpha,SDL_Surface *screen);
+
 #endif // IMAGE_H_INCLUDED
 

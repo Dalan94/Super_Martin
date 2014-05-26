@@ -12,7 +12,7 @@
 int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys,Input *in)
 
 {
-    SDL_Surface *waiting;
+    SDL_Surface *waiting=NULL;
     SDL_Rect posWait;
     int printingText = 1;
     int previous_printing_text=0;
@@ -105,7 +105,7 @@ Uint32 blinkText(Uint32 interval, void *param)
 
 int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Input *in)
 {
-    SDL_Surface *waiting;
+    SDL_Surface *waiting=NULL;
     SDL_Rect posWait;
     int nb_menu = 3;
     char menu_names[3][MAX_SIZE_FILE_NAME]={"Start", "Save", "Options"};
@@ -121,7 +121,7 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Inp
 
     playMusic("sound/Lorena.mp3",sound_sys);
 
-    /*winting screen */
+    /*waiting screen */
     waiting = imageLoadAlpha("sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
@@ -177,7 +177,7 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Inp
 int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *go, Sound *sound_sys, Input *in)
 {
 
-    SDL_Surface *waiting;
+    SDL_Surface *waiting=NULL;
     SDL_Rect posWait;
     int previous_time=0;
     int current_time=0;
