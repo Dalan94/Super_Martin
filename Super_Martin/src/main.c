@@ -43,12 +43,6 @@ int main(int argc, char *argv[])
 
     current_player = (Player *)malloc(sizeof(Player));
 
-    current_player->levelMax = 8;
-    //current_player->hpMax = 150;
-    current_player->nbCoins = 90;
-    current_player->nbLifes = 3;
-
-
     /*screen initialization*/
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 
@@ -76,7 +70,15 @@ int main(int argc, char *argv[])
                     case 2  :
                         ret2 = newPlayer(screen, player_name, sound_system, &go);
                         if(ret2 == 1)
-                            save(screen, "save/.save", player_name, current_player, &go);
+                        {
+                            current_player->levelMax = 1;
+                            current_player->nbCoins = 0;
+                            current_player->nbLifes = 3;
+                            current_player->nbProjectile = 5;
+                            savePlayer("save/.save", player_name, current_player);
+                            loadInputOptions("default",kc,&in);
+                            saveInputOptions(player_name, kc, &in);
+                        }
                         else
                             break;
 
