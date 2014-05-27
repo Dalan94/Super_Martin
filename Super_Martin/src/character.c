@@ -75,15 +75,20 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
     }
     *speed = s;
 
+
+
     if(c->location.y == c->saveY)
     {
         c->dirY = 0;
         c->isFalling = 0;
     }
+
+
     c->saveY = c->location.y;
 
     if(jump == 2 && c->doubleJump != 2)
         c->dirY = -GRAVITY_SPEED*3;
+
 
 
     c->dirY+=GRAVITY_SPEED;
@@ -167,7 +172,7 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
      if(c->location.y == c->saveY /*&& !c->wallJump*/)
     {
         c->isFalling = 0;
-        c->isOnGround = 1;
+        //c->isOnGround = 1;
         c->doubleJump = 0;
     }
 

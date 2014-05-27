@@ -178,7 +178,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
         SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255)); //clean screen
 
             /* print all the game components */
-        SDL_BlitSurface(background,NULL,screen,&posBack); // background blit
+              SDL_BlitSurface(background,NULL,screen,&posBack); // background blit
 
         updateScreenMap(screen,m, m->lvl->tileSet); //level blit
 
