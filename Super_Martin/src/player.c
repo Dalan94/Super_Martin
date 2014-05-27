@@ -69,6 +69,7 @@ int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,
                 captureText(screen, posText, player_name, MAX_SIZE_FILE_NAME, 0, 0, 0, "polices/PressStart2P.ttf", text_size, go, &ret);
             }
         }
+        text_size = 20;
         ret = 0;
         for(i = 0; !ret && *go && i < nb_players-1; i++)
         {
@@ -76,19 +77,17 @@ int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,
             {
                 posText.x = -1;
                 posText.y = 380;
-                text_size = 20;
+
                 sprintf(tmp, "%s already exists. Do you want to continue (y/n) ?", player_name);
                 printText(screen, &posText, tmp, 0, 0, 0, "polices/PressStart2P.ttf", text_size, 1);
                 posText.x = -1;
                 posText.y = 420;
-                text_size = 20;
                 sprintf(tmp, "The progression of %s will be erased ", player_name);
                 printText(screen, &posText, tmp, 0, 0, 0, "polices/PressStart2P.ttf", text_size, 1);
 
                 SDL_Flip(screen);
                 posText.x = -1;
                 posText.y = 480;
-                text_size = 30;
                 captureText(screen, posText, choice, 1, 0, 0, 0, "polices/PressStart2P.ttf", text_size, go, &ret);
 
                 if(choice[0] == 'n')
@@ -133,7 +132,6 @@ int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,
     {
         posText.x = -1;
         posText.y = 530;
-        text_size = 25;
         printText(screen, &posText, tmp, 0, 0, 0, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
         SDL_Flip(screen);
         updateWaitEvents(&in, NULL);
@@ -216,7 +214,6 @@ int savePlayer(char fileSave[MAX_SIZE_FILE_NAME], char player_name[MAX_SIZE_FILE
         exit(0);
     }
     fseek(ptr_file_save, 0, SEEK_SET);
-    //fread(tmp, sizeof(player_name), 1, ptr_file_save);
     while( !nameFound && go == 1  )
     {
         memset(tmp, 0, MAX_SIZE_FILE_NAME);
@@ -237,7 +234,6 @@ int savePlayer(char fileSave[MAX_SIZE_FILE_NAME], char player_name[MAX_SIZE_FILE
     }
     if(!nameFound)
     {
-        //fseek(ptr_file_save, 0, SEEK_END);
         fwrite(tmp_player, MAX_SIZE_FILE_NAME, 1, ptr_file_save);
 
     }
@@ -306,6 +302,108 @@ void save(SDL_Surface *screen, char fileSave[MAX_SIZE_FILE_NAME], char player_na
             ret = 1;
             in.key[SDLK_RETURN] = 0;
         }
+    }
+    SDL_FreeSurface(waiting);
+}
+
+void deletePlayer(SDL_Surface *screen, char fileSave[MAX_SIZE_FILE_NAME], char player_name[MAX_SIZE_FILE_NAME])
+{
+    FILE *ptr_file_save;
+    SDL_Surface *waiting;
+    SDL_Rect posWait;
+    int previous_time=0;
+    int current_time=0;
+    int i;
+    int text_size;
+    char confirmation[MAX_SIZE_FILE_NAME], deleted[MAX_SIZE_FILE_NAME], pressEnter[MAX_SIZE_FILE_NAME], playerPath[MAX_SIZE_FILE_NAME];
+    char **player_list;
+    int nb_player;
+    int event_appear = 0;
+    sprintf(playerPath, "configuration/%s.conf", player_name);
+    Input in;
+
+    SDL_Rect posText={0,0,0,0};
+    sprintf(confirmation, "%s ? (y/n)", player_name);
+    sprintf(pressEnter, "Press Enter to go back to the menu");
+    sprintf(deleted, " ");
+
+    /*  Waiting screen */
+
+    waiting = imageLoadAlpha("../Super_Martin/sprites/Background/menu_background.png");
+    posWait.x = 0;
+    posWait.y = 0;
+
+    /*  Text size */
+
+    text_size = 40;
+
+    /*  Initialization of the structure input */
+
+    memset(&in,0,sizeof(in));
+
+    while(!in.key[SDLK_ESCAPE] && !in.quit && !in.key[SDLK_RETURN])
+    {
+        updateWaitEvents(&in, NULL);
+
+        waitFPS(&previous_time,&current_time);
+
+        SDL_FillRect(screen,NULL,SDL_MapRGB(screen->format,255,255,255));
+
+        SDL_BlitSurface(waiting, NULL, screen, &posWait);
+        posText.x = -1; // Center the text
+        posText.y = 150;
+        printText(screen, &posText, "Do you really want to delete the player :", 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        posText.x = -1;
+        posText.y = 210;
+        printText(screen, &posText, confirmation, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        updateEvents(&in, NULL);
+        if(in.key[SDLK_y])
+        {
+            in.key[SDLK_y] = 0;
+            remove(playerPath);
+            player_list = readLevelFile("save/players", &nb_player);
+            ptr_file_save = fopen("save/players", "w+");
+
+            if(ptr_file_save == NULL){
+
+                fprintf(stderr, "Failed to open file /save/players\n");
+                exit(1);
+            }
+
+            fseek(ptr_file_save, 0, SEEK_SET);
+            fprintf(ptr_file_save, "%d\n", nb_player-1);
+            for(i = 0; i < nb_player-1 ; i++)
+            {
+                if(strcmp(player_name, player_list[i]) != 0)
+                {
+                fseek(ptr_file_save, 0, SEEK_END);
+                fprintf(ptr_file_save, "%s\n", player_list[i]);
+                }
+            }
+            sprintf(deleted, "The player %s has been deleted", player_name);
+            closeFile(ptr_file_save);
+            nb_player -= 1;
+            closeLevelList(player_list,nb_player);
+            event_appear = 1;
+
+        }
+        else if(in.key[SDLK_n])
+        {
+            in.key[SDLK_n] = 0;
+            event_appear = 1;
+        }
+
+        if(event_appear)
+        {
+            posText.x = -1;
+            posText.y = 300;
+            printText(screen, &posText, deleted, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+            posText.x = -1;
+            posText.y = 350;
+            printText(screen, &posText, pressEnter, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        }
+
+        SDL_Flip(screen);
     }
     SDL_FreeSurface(waiting);
 }

@@ -107,8 +107,8 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Inp
 {
     SDL_Surface *waiting;
     SDL_Rect posWait;
-    int nb_menu = 3;
-    char menu_names[3][MAX_SIZE_FILE_NAME]={"Start", "Save", "Options"};
+    int nb_menu = 4;
+    char menu_names[4][MAX_SIZE_FILE_NAME]={"Start", "Save", "Options", "Delete player"};
     int ret = 1;
     int i;
     int text_size;

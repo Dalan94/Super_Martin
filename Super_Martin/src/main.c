@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
                     case 1  :
                         loadPlayer("save/.save", player_name, current_player);
                         loadInputOptions(player_name,kc,&in);
-                        while((ret1 = mainMenu(screen,&go,sound_system, player_name, &in)) != -1 && go)
+                        while(go && (ret1 = mainMenu(screen,&go,sound_system, player_name, &in)) != -1)
                         {
                             switch(ret1)
                             {
@@ -106,6 +106,7 @@ int main(int argc, char *argv[])
 
                                 case 2 :
                                     while((ret = optionMenu(screen,&go,sound_system,kc, &in)) != -1 && go)
+                                    {
                                         switch(ret)
                                         {
                                             case -1:
@@ -118,9 +119,19 @@ int main(int argc, char *argv[])
                                                 break;
                                             default:;
                                         }
+                                    }
+                                    break;
+
+                                case 3 :
+                                    deletePlayer(screen, "save/players", player_name);
+                                    go = 0;
+                                    break;
+
                                 default: ;
                             }
                         }
+                        go = 1;
+                        break;
 
                     default : ;
 
