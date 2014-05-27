@@ -11,8 +11,8 @@
 
 void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset)
 {
-    static SDL_Surface *tile, *cloud, *flower, *spring, *canon;
-    SDL_Surface *end, *tree = NULL;
+    static SDL_Surface  *cloud, *flower, *spring, *canon;
+    SDL_Surface *tile,*end, *tree = NULL;
     SDL_Rect posTile, posTileSet, posTree;
     int i,j,minx,maxx,nbRow;
     float x_off, y_off;
@@ -27,12 +27,13 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset)
     if (already_load == 0)
     {
         spring = imageLoadAlpha("sprites/spring1.png");
-        tile = imageLoadAlpha(tileset);
+
         cloud = imageLoadAlpha("sprites/cloud.png");
         flower = imageLoadAlpha("sprites/flower.png");
         canon = imageLoadAlpha(("sprites/canon.png"));
         already_load =1;
     }
+    tile = imageLoadAlpha(tileset);
 
     if(!(strcmp(tileset, "sprites/tileSet_Snow.png")))
     {
@@ -181,8 +182,8 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset)
     }
 
     SDL_FreeSurface(tree);
-    /*SDL_FreeSurface(tile);
-    SDL_FreeSurface(cloud);
+    SDL_FreeSurface(tile);
+    /*SDL_FreeSurface(cloud);
     SDL_FreeSurface(flower);
     SDL_FreeSurface(canon);
     SDL_FreeSurface(spring);*/
@@ -265,8 +266,10 @@ int collisionMap(SDL_Rect r,Map *m, int type)
                     {
                         case COIN:
                             if(!type)
+                            {
                                 m->lvl->map[j][i] = VOID;
-                            return 2;
+                                return 2;
+                            }
                             break;
                         case SPRING:
                             return 3;

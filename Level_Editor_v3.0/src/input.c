@@ -248,11 +248,13 @@ void keyboardActionGame(SDL_Surface *screen, Input *in, Map *m, Cursor *cursor, 
     {
         cursor->tileID--;
 
-        if(cursor->tileID < 0){
+        if(cursor->tileID < 0)
+        {
 
             cursor->tileID = TILESET_SIZE;
         }
-        else if(cursor->tileID > TILESET_SIZE){
+        else if(cursor->tileID > TILESET_SIZE)
+        {
 
             cursor->tileID = 0;
         }

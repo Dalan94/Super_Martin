@@ -50,7 +50,8 @@ void play(SDL_Surface *screen, char *level_name, SDLKey *kc){
     SDL_EnableKeyRepeat(100,100);
 
 
-    while(go){
+    while(go)
+    {
 
         /*  Recovery and management of inputs */
 
@@ -121,5 +122,5 @@ void printConfirmation(SDL_Surface *screen, Input *in, int *go)
         }
         SDL_Flip(screen);
     }
-    SDL_FreeSurface(Continue);
+   // SDL_FreeSurface(Continue);
 }

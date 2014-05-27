@@ -182,6 +182,7 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
 int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound *sound_sys)
 {
     int ret = 0;
+    int t;
     int coins = c->countStars/100;
     SDL_Rect futureLocation = c->location;
     futureLocation.x += vx;
@@ -195,7 +196,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
         futureLocation.w -= COLLISION_ADJUSTMENT;
     }
 
-    ret = collisionMap(futureLocation,m,0);
+    ret = collisionMap(futureLocation,m,c->isNpc);
     if((ret != 1) && !collisionEnemy(c,l,m) && (collisionPlatform(c,ps,futureLocation)!=1))
     {
         if(!c->isNpc)
@@ -213,7 +214,6 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
                 if((c->countStars) > 100)
                 {
                     c->nbLifes++;
-                    //coins = 0;
                     c->countStars = 0;
                 }
                 break;
