@@ -86,23 +86,148 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Input Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="input_8h_source.html">input.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:afc4eabd057bd0061b56de4005f5ecbb8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc4eabd057bd0061b56de4005f5ecbb8"></a>
 char&#160;</td><td class="memItemRight" valign="bottom"><b>key</b> [SDLK_LAST]</td></tr>
 <tr class="separator:afc4eabd057bd0061b56de4005f5ecbb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab05991ed532329184893692211b355fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#ab05991ed532329184893692211b355fa">space</a></td></tr>
+<tr class="separator:ab05991ed532329184893692211b355fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2896431d6a80cd39b3d24b40237612ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2896431d6a80cd39b3d24b40237612ee"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
 <tr class="separator:a2896431d6a80cd39b3d24b40237612ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a163e08d0d19093f658f448710f8e3c49"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#a163e08d0d19093f658f448710f8e3c49">isJoystick</a></td></tr>
+<tr class="separator:a163e08d0d19093f658f448710f8e3c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66b84ad51037935b993fc2b860b15cb6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#a66b84ad51037935b993fc2b860b15cb6">useJoystick</a></td></tr>
+<tr class="separator:a66b84ad51037935b993fc2b860b15cb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe6c6b426f70a21df07c64227b2c337"><td class="memItemLeft" align="right" valign="top">SDL_Joystick *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#a5fe6c6b426f70a21df07c64227b2c337">joystick</a></td></tr>
+<tr class="separator:a5fe6c6b426f70a21df07c64227b2c337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f901d4dc1179ea534cb9e5cce0a260b"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#a7f901d4dc1179ea534cb9e5cce0a260b">button</a></td></tr>
+<tr class="separator:a7f901d4dc1179ea534cb9e5cce0a260b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2fe71f7c5edeaa9fc2676be4a93499a"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#ae2fe71f7c5edeaa9fc2676be4a93499a">axes</a></td></tr>
+<tr class="separator:ae2fe71f7c5edeaa9fc2676be4a93499a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1c8c264ad7cfee584093b1479c03f75"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#ab1c8c264ad7cfee584093b1479c03f75">hat</a></td></tr>
+<tr class="separator:ab1c8c264ad7cfee584093b1479c03f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7cf3c53ae2105eec18ce989dd3ddae0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#af7cf3c53ae2105eec18ce989dd3ddae0">hatMoved</a></td></tr>
+<tr class="separator:af7cf3c53ae2105eec18ce989dd3ddae0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>the global input structure </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="ae2fe71f7c5edeaa9fc2676be4a93499a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* axes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>all the joystick buttons : 1 the button is pushed, 0 isn't </p>
+
+</div>
+</div>
+<a class="anchor" id="a7f901d4dc1179ea534cb9e5cce0a260b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* button</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>the joystick </p>
+
+</div>
+</div>
+<a class="anchor" id="ab1c8c264ad7cfee584093b1479c03f75"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* hat</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>the joystick axes value : between -32768 and 32767 </p>
+
+</div>
+</div>
+<a class="anchor" id="af7cf3c53ae2105eec18ce989dd3ddae0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hatMoved</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>the joystick hats value : SDL_HAT_CENTERED, SDL_HAT_UP, SDL_HAT_RIGHT, SDL_HAT_DOWN, SDL_HAT_LEFT, SDL_HAT_RIGHTUP, SDL_HAT_RIGHTDOWN, SDL_HAT_LEFTUP, SDL_HAT_LEFTDOWN </p>
+
+</div>
+</div>
+<a class="anchor" id="a163e08d0d19093f658f448710f8e3c49"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int isJoystick</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>is 1 is the SDL_QUIT event happens </p>
+
+</div>
+</div>
+<a class="anchor" id="a5fe6c6b426f70a21df07c64227b2c337"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Joystick* joystick</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>indicate if the joystick is willing to be used </p>
+
+</div>
+</div>
+<a class="anchor" id="ab05991ed532329184893692211b355fa"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int space</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>all the keyboard keys : 1 the key is pushed, 0 isn't </p>
+
+</div>
+</div>
+<a class="anchor" id="a66b84ad51037935b993fc2b860b15cb6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int useJoystick</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>indicate if there is a joystick plugged in </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li><a class="el" href="input_8h_source.html">input.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 26 2014 17:03:29 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

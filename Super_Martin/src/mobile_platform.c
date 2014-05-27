@@ -75,7 +75,7 @@ void blitPlatform(SDL_Surface *screen, platformSet *ps, Map *m)
 
     for (i = 0 ; i < ps->nb ; i++)
     {
-        pos = ps->tab[i]->location;
+         pos = ps->tab[i]->location;
         pos.x -= m->xScroll;
 
         SDL_BlitSurface(ps->tab[i]->sprite,NULL,screen,&pos);
@@ -195,7 +195,10 @@ void freePlatformSet(platformSet *ps)
 {
     int i;
     for(i = 0;i<ps->nb;i++)
+    {
+        SDL_FreeSurface(ps->tab[i]->sprite);
         free((void *)ps->tab[i]);
+    }
 }
 
 /* ************************************** */

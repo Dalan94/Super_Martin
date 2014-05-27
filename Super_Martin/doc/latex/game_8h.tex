@@ -3,7 +3,7 @@
 }
 
 
-header de \hyperlink{game_8c}{game.\-c}  
+\hyperlink{game_8c}{game.\-c} header  
 
 
 {\ttfamily \#include $<$stdlib.\-h$>$}\\*
@@ -15,12 +15,17 @@ header de \hyperlink{game_8c}{game.\-c}
 {\ttfamily \#include \char`\"{}text.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}sound.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}share.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}player.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}character.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}file\-\_\-level.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}map.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
-Include dependency graph for game.\-h\-:\nopagebreak
+{\ttfamily \#include \char`\"{}mobile\-\_\-platform.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}projectile.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}player.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}enemies.\-h\char`\"{}}\\*
+Include dependency graph for game.\-h\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -37,24 +42,31 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{game_8h_ae342e4b762af0d52f4ee914643441426}{play} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name)
-\item 
-void \hyperlink{game_8h_aea20c6ea437379685d22df23af8e15dc}{print\-Game\-Over} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$continuer, \hyperlink{struct_input}{Input} $\ast$in)
-\item 
-\hypertarget{game_8h_a7f2f239253453097bfecb9a7e0f28934}{void {\bfseries move} (int move\-\_\-left, int move\-\_\-right, \hyperlink{struct_character}{Character} $\ast$player, \hyperlink{struct_map}{Map} $\ast$m, float speed, int $\ast$acceleration)}\label{game_8h_a7f2f239253453097bfecb9a7e0f28934}
+\hypertarget{game_8h_aea08c0605d515d9e9c5fcc88663c3fa2}{int {\bfseries play} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name, \hyperlink{struct_sound}{Sound} $\ast$sound\-\_\-sys, int $\ast$go, S\-D\-L\-Key $\ast$kc, \hyperlink{struct_input}{Input} $\ast$in, \hyperlink{struct_player}{Player} $\ast$player, char player\-\_\-name\mbox{[}M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, int current\-Level, int nb\-\_\-lvl)}\label{game_8h_aea08c0605d515d9e9c5fcc88663c3fa2}
 
+\item 
+void \hyperlink{game_8h_adae4d652153fc1973038f8073df66b89}{print\-Game\-Over} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$continuer, \hyperlink{struct_input}{Input} $\ast$in, \hyperlink{struct_sound}{Sound} $\ast$sound\-\_\-sys)
+\item 
+\hypertarget{game_8h_a03a9197607ed3c3c46768d86b3b216b1}{void {\bfseries move} (float move\-\_\-left, float move\-\_\-right, int jump, \hyperlink{struct_character}{Character} $\ast$player, \hyperlink{struct_map}{Map} $\ast$m, float $\ast$speed, int $\ast$acceleration, \hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_sound}{Sound} $\ast$s, \hyperlink{structplatform_set}{platform\-Set} $\ast$ps)}\label{game_8h_a03a9197607ed3c3c46768d86b3b216b1}
+
+\item 
+void \hyperlink{game_8h_af08350c6f071e9e60d3ffcc614faa42a}{print\-Win} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$continuer, \hyperlink{struct_input}{Input} $\ast$in, \hyperlink{struct_sound}{Sound} $\ast$sound\-\_\-sys)
 \item 
 void \hyperlink{game_8h_a1bd040efd0195821d1e069d4006ffabf}{update\-Speed} (float $\ast$speed, int acceleration)
 \item 
-void \hyperlink{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362}{print\-Pause} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_input}{Input} $\ast$in, int $\ast$time, int $\ast$continuer)
+void \hyperlink{game_8h_a5688d390454ad442f9bc28935bce297d}{print\-Pause} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_input}{Input} $\ast$in, int $\ast$time, int $\ast$go, S\-D\-L\-Key $\ast$kc)
 \item 
-\hypertarget{game_8h_ad16d857230b785e820b9b497b50b7fff}{Uint32 {\bfseries decomptage} (Uint32 intervalle, void $\ast$parametre)}\label{game_8h_ad16d857230b785e820b9b497b50b7fff}
+Uint32 \hyperlink{game_8h_a374bb292364714613d2c0c7da867efdc}{decrement} (Uint32 intervalle, void $\ast$parametre)
+\item 
+\hypertarget{game_8h_a5b79afb47244f5a415a0deedcaef0c6e}{Uint32 {\bfseries rocket\-Launch} (Uint32 intervalle, void $\ast$parametre)}\label{game_8h_a5b79afb47244f5a415a0deedcaef0c6e}
 
+\item 
+void \hyperlink{game_8h_a17a1049e60b67d4314b6b5e27cee5e56}{print\-H\-U\-D} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_character}{Character} $\ast$player, \hyperlink{struct_map}{Map} $\ast$m)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-header de \hyperlink{game_8c}{game.\-c} \begin{DoxyAuthor}{Author}
+\hyperlink{game_8c}{game.\-c} header \begin{DoxyAuthor}{Author}
 Xavier C\-O\-P\-O\-N\-E\-T 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
@@ -63,85 +75,154 @@ Xavier C\-O\-P\-O\-N\-E\-T
 
 
 \subsection{Function Documentation}
-\hypertarget{game_8h_ae342e4b762af0d52f4ee914643441426}{\index{game.\-h@{game.\-h}!play@{play}}
-\index{play@{play}!game.h@{game.\-h}}
-\subsubsection[{play}]{\setlength{\rightskip}{0pt plus 5cm}void play (
+\hypertarget{game_8h_a374bb292364714613d2c0c7da867efdc}{\index{game.\-h@{game.\-h}!decrement@{decrement}}
+\index{decrement@{decrement}!game.h@{game.\-h}}
+\subsubsection[{decrement}]{\setlength{\rightskip}{0pt plus 5cm}Uint32 decrement (
 \begin{DoxyParamCaption}
-\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
-\item[{char $\ast$}]{level\-\_\-name}
+\item[{Uint32}]{interval, }
+\item[{void $\ast$}]{parameter}
 \end{DoxyParamCaption}
-)}}\label{game_8h_ae342e4b762af0d52f4ee914643441426}
-contient la boucle principale du jeu qui appelle les fonctions 
+)}}\label{game_8h_a374bb292364714613d2c0c7da867efdc}
+the callback function to decrement the time indicator 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in,out}  & {\em screen} & L'écran de jeu \\
+\mbox{\tt in}  & {\em interval} & the interval between two calls of the function \\
 \hline
-\mbox{\tt in}  & {\em lvel\-\_\-name} & le nom du niveau \\
+\mbox{\tt out}  & {\em parameter} & the time indicator \\
 \hline
 \end{DoxyParams}
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=550pt]{game_8h_ae342e4b762af0d52f4ee914643441426_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{game_8h_aea20c6ea437379685d22df23af8e15dc}{\index{game.\-h@{game.\-h}!print\-Game\-Over@{print\-Game\-Over}}
+\begin{DoxyReturn}{Returns}
+the interval between two calls of the function 
+\end{DoxyReturn}
+\hypertarget{game_8h_adae4d652153fc1973038f8073df66b89}{\index{game.\-h@{game.\-h}!print\-Game\-Over@{print\-Game\-Over}}
 \index{print\-Game\-Over@{print\-Game\-Over}!game.h@{game.\-h}}
 \subsubsection[{print\-Game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Game\-Over (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
-\item[{int $\ast$}]{continuer, }
-\item[{{\bf Input} $\ast$}]{in}
+\item[{int $\ast$}]{go, }
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{{\bf Sound} $\ast$}]{sound\-\_\-sys}
 \end{DoxyParamCaption}
-)}}\label{game_8h_aea20c6ea437379685d22df23af8e15dc}
-affiche le message de game overflow\-\_\-error 
+)}}\label{game_8h_adae4d652153fc1973038f8073df66b89}
+print the game over screen and wait until the player press a key 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em screen} & l'écran de jeu \\
+\mbox{\tt out}  & {\em screen} & the game screen \\
+\hline
+\mbox{\tt out}  & {\em go} & the game function main loop validation \\
+\hline
+\mbox{\tt in,out}  & {\em in} & the input structure \\
+\hline
+\mbox{\tt out}  & {\em sound\-\_\-sys} & the sound system \\
 \hline
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=278pt]{game_8h_aea20c6ea437379685d22df23af8e15dc_cgraph}
+\includegraphics[width=298pt]{game_8h_adae4d652153fc1973038f8073df66b89_cgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362}{\index{game.\-h@{game.\-h}!print\-Pause@{print\-Pause}}
+\hypertarget{game_8h_a17a1049e60b67d4314b6b5e27cee5e56}{\index{game.\-h@{game.\-h}!print\-H\-U\-D@{print\-H\-U\-D}}
+\index{print\-H\-U\-D@{print\-H\-U\-D}!game.h@{game.\-h}}
+\subsubsection[{print\-H\-U\-D}]{\setlength{\rightskip}{0pt plus 5cm}void print\-H\-U\-D (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf Character} $\ast$}]{player, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{game_8h_a17a1049e60b67d4314b6b5e27cee5e56}
+print the player H\-U\-D on the screen 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & the game screen \\
+\hline
+\mbox{\tt in}  & {\em player} & the player \\
+\hline
+\mbox{\tt in}  & {\em m} & the game map \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{game_8h_a17a1049e60b67d4314b6b5e27cee5e56_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{game_8h_a5688d390454ad442f9bc28935bce297d}{\index{game.\-h@{game.\-h}!print\-Pause@{print\-Pause}}
 \index{print\-Pause@{print\-Pause}!game.h@{game.\-h}}
 \subsubsection[{print\-Pause}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Pause (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
 \item[{{\bf Input} $\ast$}]{in, }
 \item[{int $\ast$}]{time, }
-\item[{int $\ast$}]{continuer}
+\item[{int $\ast$}]{go, }
+\item[{S\-D\-L\-Key $\ast$}]{kc}
 \end{DoxyParamCaption}
-)}}\label{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362}
-Met en pause le jeu 
+)}}\label{game_8h_a5688d390454ad442f9bc28935bce297d}
+print the pause screen and wait until the player press the pause key 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em screen} & l'écran de jeu \\
+\mbox{\tt out}  & {\em screen} & the game screen \\
 \hline
-\mbox{\tt out}  & {\em time} & le temps restant \\
+\mbox{\tt out}  & {\em go} & the game function main loop validation \\
 \hline
-\mbox{\tt in}  & {\em in} & la structure input \\
+\mbox{\tt in,out}  & {\em in} & the input structure \\
 \hline
-\mbox{\tt out}  & {\em le} & booléen de main loop de la fonction jouer \\
+\mbox{\tt out}  & {\em sound\-\_\-sys} & the sound system \\
+\hline
+\mbox{\tt in}  & {\em time} & the current time of the level \\
+\hline
+\mbox{\tt in}  & {\em kc} & the keyboard configuration \\
 \hline
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=258pt]{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362_cgraph}
+\includegraphics[width=278pt]{game_8h_a5688d390454ad442f9bc28935bce297d_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{game_8h_af08350c6f071e9e60d3ffcc614faa42a}{\index{game.\-h@{game.\-h}!print\-Win@{print\-Win}}
+\index{print\-Win@{print\-Win}!game.h@{game.\-h}}
+\subsubsection[{print\-Win}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Win (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{int $\ast$}]{go, }
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{{\bf Sound} $\ast$}]{sound\-\_\-sys}
+\end{DoxyParamCaption}
+)}}\label{game_8h_af08350c6f071e9e60d3ffcc614faa42a}
+print the win screen and wait until the player press a key 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & the game screen \\
+\hline
+\mbox{\tt out}  & {\em go} & the game function main loop validation \\
+\hline
+\mbox{\tt in,out}  & {\em in} & the input structure \\
+\hline
+\mbox{\tt out}  & {\em sound\-\_\-sys} & the sound system \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{game_8h_af08350c6f071e9e60d3ffcc614faa42a_cgraph}
 \end{center}
 \end{figure}
 
@@ -154,10 +235,10 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{int}]{acceleration}
 \end{DoxyParamCaption}
 )}}\label{game_8h_a1bd040efd0195821d1e069d4006ffabf}
-Met a jour la vitesse 
+update the player speed in correlation with its acceleration 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em float} & la vitesse \\
+\mbox{\tt out}  & {\em float} & the player speed \\
 \hline
-\mbox{\tt out}  & {\em acceleration} & l'acceleration \\
+\mbox{\tt out}  & {\em acceleration} & the player acceleration \\
 \hline
 \end{DoxyParams}

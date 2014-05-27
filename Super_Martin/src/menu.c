@@ -12,7 +12,7 @@
 int titleMenu(SDL_Surface *screen,int *go,Sound *sound_sys,Input *in)
 
 {
-    SDL_Surface *waiting;
+    SDL_Surface *waiting=NULL;
     SDL_Rect posWait;
     int printingText = 1;
     int previous_printing_text=0;
@@ -105,7 +105,7 @@ Uint32 blinkText(Uint32 interval, void *param)
 
 int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Input *in)
 {
-    SDL_Surface *waiting;
+    SDL_Surface *waiting=NULL;
     SDL_Rect posWait;
     int nb_menu = 4;
     char menu_names[4][MAX_SIZE_FILE_NAME]={"Start", "Save", "Options", "Delete player"};
@@ -121,7 +121,7 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Inp
 
     playMusic("sound/Lorena.mp3",sound_sys);
 
-    /*winting screen */
+    /*waiting screen */
     waiting = imageLoadAlpha("sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
@@ -148,15 +148,15 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Inp
         {
             posText.x = -1;
             text_size=screen->h / nb_menu;
-            if (text_size > 60)
-                text_size=60;
-            posText.y = screen->h / (1+nb_menu) * (i+1) - text_size/2;
+            if (text_size > 30)
+                text_size = 30;
+            posText.y = 150 + (screen->h - 350) / (1+nb_menu) * (i+1) - text_size/2;
             posText.x = -1;
             if(i != pos_curseur)
-                printText(screen,&posText,menu_names[i],0,0,0,"polices/ubuntu.ttf",text_size,1);
+                printText(screen,&posText,menu_names[i],0,0,0,"polices/PressStart2P.ttf",text_size,1);
             else
             {
-                printText(screen,&posText,menu_names[i],255,60,30,"polices/ubuntu.ttf",text_size,1);
+                printText(screen,&posText,menu_names[i],255,60,30,"polices/PressStart2P.ttf",text_size,1);
             }
         }
         posText.x = -1;
@@ -177,7 +177,7 @@ int mainMenu(SDL_Surface *screen,int *go,Sound *sound_sys,char *player_name, Inp
 int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *go, Sound *sound_sys, Input *in)
 {
 
-    SDL_Surface *waiting;
+    SDL_Surface *waiting=NULL;
     SDL_Rect posWait;
     int previous_time=0;
     int current_time=0;
@@ -189,7 +189,7 @@ int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *
     int pos_cursor=0;
     SDL_Rect posText={0,0,0,0};
 
-    /*winting screen */
+    /*waiting screen */
     waiting = imageLoadAlpha("sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
@@ -223,14 +223,14 @@ int menuPlayers(SDL_Surface *screen, char player_name[MAX_SIZE_FILE_NAME], int *
             {
                 posText.x = -1;
                 text_size=screen->h / (nb_players+1);
-                if (text_size > 60)
-                    text_size=60;
-                posText.y = screen->h / (1+nb_players) * (i+1) - text_size/2;
-                printText(screen,&posText,player_names[i],0,0,0,"polices/ubuntu.ttf",text_size,1);
+                if (text_size > 30)
+                    text_size = 30;
+                posText.y = 150 + (screen->h - 350) / (1+nb_players) * (i+1) - text_size/2;
+                printText(screen,&posText,player_names[i],0,0,0,"polices/PressStart2P.ttf",text_size,1);
                 if(i != pos_cursor)
-                    printText(screen,&posText,player_names[i],0,0,0,"polices/ubuntu.ttf",text_size,1);
+                    printText(screen,&posText,player_names[i],0,0,0,"polices/PressStart2P.ttf",text_size,1);
                 else
-                    printText(screen,&posText,player_names[i],255,60,30,"polices/ubuntu.ttf",text_size,1);
+                    printText(screen,&posText,player_names[i],255,60,30,"polices/PressStart2P.ttf",text_size,1);
 
             }
 

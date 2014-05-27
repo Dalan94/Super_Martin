@@ -10,7 +10,7 @@
 
 int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys, char player_name[MAX_SIZE_FILE_NAME], Player *player, int *go, int *nb_lvl, Input *in)
 {
-    SDL_Surface *waiting;
+    SDL_Surface *waiting=NULL;
     SDL_Rect posWait;
     int previous_time=0;
     int current_time=0;
@@ -58,15 +58,15 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
                 {
 
                     posText.x = -1;
-                    taille_texte=screen->h / *nb_lvl;
-                    if (taille_texte > 60)
-                        taille_texte=60;
-                    posText.y = screen->h / (1+*nb_lvl) * (i+1) - taille_texte/2;
-                    printText(screen,&posText,level_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
+                    taille_texte=screen->h / min(player->levelMax, *nb_lvl);
+                    if (taille_texte > 30)
+                        taille_texte=30;
+                    posText.y = 150 + (screen->h - 350) / (1+min(player->levelMax, *nb_lvl)) * (i+1) - taille_texte/2;
+                    printText(screen,&posText,level_names[i],0,0,0,"polices/PressStart2P.ttf",taille_texte,1);
                     if(i != pos_curseur)
-                        printText(screen,&posText,level_names[i],0,0,0,"polices/ubuntu.ttf",taille_texte,1);
+                        printText(screen,&posText,level_names[i],0,0,0,"polices/PressStart2P.ttf",taille_texte,1);
                     else
-                        printText(screen,&posText,level_names[i],255,60,30,"polices/ubuntu.ttf",taille_texte,1);
+                        printText(screen,&posText,level_names[i],255,60,30,"polices/PressStart2P.ttf",taille_texte,1);
 
                 }
             }

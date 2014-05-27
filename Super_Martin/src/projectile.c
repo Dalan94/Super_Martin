@@ -74,6 +74,8 @@ void createProjectile(projectileSet *projSet,char *pathSprite,int dir, int x, in
 void deleteProjectile(projectileSet *ps,int nb)
 {
     int i;
+
+    SDL_FreeSurface(ps->tab[nb]->sprite);
     free((void *) ps->tab[nb]);
 
     for(i = nb; i<ps->nb;i++)
@@ -125,7 +127,10 @@ void moveOneProjectile(Character *c,Map *m,projectileSet *ps,list *l,int nb)
 
     if(p->location.x < m->xScroll || p->location.x > m->xScroll+m->screenWidth)
         /*if the projectile gets out of the screen, it is deleted*/
+    {
         deleteProjectile(ps,nb);
+        return;
+    }
 
     /* projectile collision with enemies */
     if(!p->fromNPC)
@@ -137,6 +142,7 @@ void moveOneProjectile(Character *c,Map *m,projectileSet *ps,list *l,int nb)
             {
                 deleteCurrent(l);
                 deleteProjectile(ps,nb);
+                return;
                 break;
             }
             next(l);
@@ -148,15 +154,17 @@ void moveOneProjectile(Character *c,Map *m,projectileSet *ps,list *l,int nb)
         {
             c->dirY = -JUMP_HEIGHT;
             deleteProjectile(ps,nb);
+            return;
         }
         else if(collisionSprite(c->location,p->location) != 0)
         {
             c->hp -= 50;
             deleteProjectile(ps,nb);
+            return;
         }
     }
 
-    if(collisionMap(p->location,m) == 1)
+    if(collisionMap(p->location,m,1) == 1)
         /*if the pojectile is in collision with the map, it is deleted */
         deleteProjectile(ps,nb);
 }

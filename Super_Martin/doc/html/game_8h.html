@@ -90,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>header de <a class="el" href="game_8c.html" title="contient les fonction liées au jeu ">game.c</a>  
+<p><a class="el" href="game_8c.html" title="contient les fonction liées au jeu ">game.c</a> header  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br/>
 <code>#include &lt;stdio.h&gt;</code><br/>
@@ -101,17 +101,21 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="text_8h_source.html">text.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="sound_8h_source.html">sound.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="share_8h_source.html">share.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="character_8h_source.html">character.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="file__level_8h_source.html">file_level.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="image_8h_source.html">image.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="map_8h_source.html">map.h</a>&quot;</code><br/>
 <code>#include &quot;input.h&quot;</code><br/>
+<code>#include &quot;<a class="el" href="mobile__platform_8h_source.html">mobile_platform.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="projectile_8h_source.html">projectile.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="player_8h_source.html">player.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="enemies_8h_source.html">enemies.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for game.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="game_8h__incl.png" border="0" usemap="#game_8h" alt=""/></div>
 <map name="game_8h" id="game_8h">
-<area shape="rect" id="node13" href="const_8h.html" title="contient les constantes du programme " alt="" coords="1312,337,1376,370"/><area shape="rect" id="node15" href="text_8h.html" title="header de text.c " alt="" coords="248,254,301,287"/><area shape="rect" id="node24" href="sound_8h.html" title="header de sound.c " alt="" coords="1575,337,1641,370"/><area shape="rect" id="node31" href="share_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1143,254,1207,287"/><area shape="rect" id="node35" href="player_8h.html" title="header de player.c " alt="" coords="1033,171,1100,205"/><area shape="rect" id="node43" href="file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="743,254,825,287"/><area shape="rect" id="node57" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="900,254,967,287"/><area shape="rect" id="node67" href="map_8h.html" title="header de map.c " alt="" coords="685,171,744,205"/><area shape="rect" id="node76" href="input_8h_source.html" title="input.h" alt="" coords="1375,89,1436,122"/><area shape="rect" id="node49" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="973,337,1024,370"/></map>
+<area shape="rect" id="node7" href="const_8h.html" title="containe the program constantes " alt="" coords="2527,752,2592,779"/><area shape="rect" id="node8" href="text_8h.html" title="text.c header " alt="" coords="1457,155,1511,181"/><area shape="rect" id="node11" href="input_8h_source.html" title="input.h" alt="" coords="764,229,825,256"/><area shape="rect" id="node12" href="character_8h.html" title="header de character.c " alt="" coords="1667,304,1753,331"/><area shape="rect" id="node13" href="file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1925,453,2008,480"/><area shape="rect" id="node16" href="enemies_8h.html" title="enemies.c header " alt="" coords="2187,528,2268,555"/><area shape="rect" id="node17" href="projectile_8h.html" title="projectile.c header " alt="" coords="2105,603,2191,629"/><area shape="rect" id="node18" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="1321,677,1388,704"/><area shape="rect" id="node19" href="mobile__platform_8h.html" title="mobile_platform.c header " alt="" coords="1643,528,1768,555"/><area shape="rect" id="node20" href="share_8h.html" title="share.c header " alt="" coords="2375,379,2440,405"/><area shape="rect" id="node21" href="map_8h.html" title="map.c header " alt="" coords="1069,379,1127,405"/><area shape="rect" id="node22" href="sound_8h.html" title="header de sound.c " alt="" coords="449,379,516,405"/><area shape="rect" id="node24" href="player_8h.html" title="player.c header " alt="" coords="1835,80,1903,107"/><area shape="rect" id="node9" href="structures_8h.html" title="structures.h" alt="" coords="2103,677,2193,704"/><area shape="rect" id="node15" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="701,677,752,704"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -125,41 +129,48 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae342e4b762af0d52f4ee914643441426"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#ae342e4b762af0d52f4ee914643441426">play</a> (SDL_Surface *screen, char *level_name)</td></tr>
-<tr class="separator:ae342e4b762af0d52f4ee914643441426"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea20c6ea437379685d22df23af8e15dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#aea20c6ea437379685d22df23af8e15dc">printGameOver</a> (SDL_Surface *screen, int *continuer, <a class="el" href="struct_input.html">Input</a> *in)</td></tr>
-<tr class="separator:aea20c6ea437379685d22df23af8e15dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f2f239253453097bfecb9a7e0f28934"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7f2f239253453097bfecb9a7e0f28934"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>move</b> (int move_left, int move_right, <a class="el" href="struct_character.html">Character</a> *player, <a class="el" href="struct_map.html">Map</a> *m, float speed, int *acceleration)</td></tr>
-<tr class="separator:a7f2f239253453097bfecb9a7e0f28934"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea08c0605d515d9e9c5fcc88663c3fa2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea08c0605d515d9e9c5fcc88663c3fa2"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>play</b> (SDL_Surface *screen, char *level_name, <a class="el" href="struct_sound.html">Sound</a> *sound_sys, int *go, SDLKey *kc, <a class="el" href="struct_input.html">Input</a> *in, <a class="el" href="struct_player.html">Player</a> *player, char player_name[MAX_SIZE_FILE_NAME], int currentLevel, int nb_lvl)</td></tr>
+<tr class="separator:aea08c0605d515d9e9c5fcc88663c3fa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae4d652153fc1973038f8073df66b89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#adae4d652153fc1973038f8073df66b89">printGameOver</a> (SDL_Surface *screen, int *continuer, <a class="el" href="struct_input.html">Input</a> *in, <a class="el" href="struct_sound.html">Sound</a> *sound_sys)</td></tr>
+<tr class="separator:adae4d652153fc1973038f8073df66b89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03a9197607ed3c3c46768d86b3b216b1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a03a9197607ed3c3c46768d86b3b216b1"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>move</b> (float move_left, float move_right, int jump, <a class="el" href="struct_character.html">Character</a> *player, <a class="el" href="struct_map.html">Map</a> *m, float *speed, int *acceleration, <a class="el" href="structlist.html">list</a> *l, <a class="el" href="struct_sound.html">Sound</a> *s, <a class="el" href="structplatform_set.html">platformSet</a> *ps)</td></tr>
+<tr class="separator:a03a9197607ed3c3c46768d86b3b216b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af08350c6f071e9e60d3ffcc614faa42a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#af08350c6f071e9e60d3ffcc614faa42a">printWin</a> (SDL_Surface *screen, int *continuer, <a class="el" href="struct_input.html">Input</a> *in, <a class="el" href="struct_sound.html">Sound</a> *sound_sys)</td></tr>
+<tr class="separator:af08350c6f071e9e60d3ffcc614faa42a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bd040efd0195821d1e069d4006ffabf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a1bd040efd0195821d1e069d4006ffabf">updateSpeed</a> (float *speed, int acceleration)</td></tr>
 <tr class="separator:a1bd040efd0195821d1e069d4006ffabf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e2c9afdbc98faa067cc4b9d304f4362"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a1e2c9afdbc98faa067cc4b9d304f4362">printPause</a> (SDL_Surface *screen, <a class="el" href="struct_input.html">Input</a> *in, int *time, int *continuer)</td></tr>
-<tr class="separator:a1e2c9afdbc98faa067cc4b9d304f4362"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad16d857230b785e820b9b497b50b7fff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad16d857230b785e820b9b497b50b7fff"></a>
-Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>decomptage</b> (Uint32 intervalle, void *parametre)</td></tr>
-<tr class="separator:ad16d857230b785e820b9b497b50b7fff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5688d390454ad442f9bc28935bce297d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a5688d390454ad442f9bc28935bce297d">printPause</a> (SDL_Surface *screen, <a class="el" href="struct_input.html">Input</a> *in, int *time, int *go, SDLKey *kc)</td></tr>
+<tr class="separator:a5688d390454ad442f9bc28935bce297d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a374bb292364714613d2c0c7da867efdc"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a374bb292364714613d2c0c7da867efdc">decrement</a> (Uint32 intervalle, void *parametre)</td></tr>
+<tr class="separator:a374bb292364714613d2c0c7da867efdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b79afb47244f5a415a0deedcaef0c6e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5b79afb47244f5a415a0deedcaef0c6e"></a>
+Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>rocketLaunch</b> (Uint32 intervalle, void *parametre)</td></tr>
+<tr class="separator:a5b79afb47244f5a415a0deedcaef0c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17a1049e60b67d4314b6b5e27cee5e56"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="game_8h.html#a17a1049e60b67d4314b6b5e27cee5e56">printHUD</a> (SDL_Surface *screen, <a class="el" href="struct_character.html">Character</a> *player, <a class="el" href="struct_map.html">Map</a> *m)</td></tr>
+<tr class="separator:a17a1049e60b67d4314b6b5e27cee5e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>header de <a class="el" href="game_8c.html" title="contient les fonction liées au jeu ">game.c</a> </p>
+<div class="textblock"><p><a class="el" href="game_8c.html" title="contient les fonction liées au jeu ">game.c</a> header </p>
 <dl class="section author"><dt>Author</dt><dd>Xavier COPONET </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2014-02-27 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="ae342e4b762af0d52f4ee914643441426"></a>
+<a class="anchor" id="a374bb292364714613d2c0c7da867efdc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void play </td>
+          <td class="memname">Uint32 decrement </td>
           <td>(</td>
-          <td class="paramtype">SDL_Surface *&#160;</td>
-          <td class="paramname"><em>screen</em>, </td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>interval</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>level_name</em>&#160;</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>parameter</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -168,27 +179,19 @@ Uint32&#160;</td><td class="memItemRight" valign="bottom"><b>decomptage</b> (Uin
         </tr>
       </table>
 </div><div class="memdoc">
-<p>contient la boucle principale du jeu qui appelle les fonctions </p>
+<p>the callback function to decrement the time indicator </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">screen</td><td>L'écran de jeu </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">lvel_name</td><td>le nom du niveau </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">interval</td><td>the interval between two calls of the function </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">parameter</td><td>the time indicator </td></tr>
   </table>
   </dd>
 </dl>
-
-<p><div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="game_8h_ae342e4b762af0d52f4ee914643441426_cgraph.png" border="0" usemap="#game_8h_ae342e4b762af0d52f4ee914643441426_cgraph" alt=""/></div>
-<map name="game_8h_ae342e4b762af0d52f4ee914643441426_cgraph" id="game_8h_ae342e4b762af0d52f4ee914643441426_cgraph">
-<area shape="rect" id="node3" href="map_8c.html#aa69680b270233f1a2b9f2e3eccf96863" title="initMap" alt="" coords="143,61,207,94"/><area shape="rect" id="node13" href="sound_8c.html#a3b1e12665aed7169d8efdb2cc611184e" title="createSound" alt="" coords="309,126,403,159"/><area shape="rect" id="node15" href="sound_8c.html#a3af6fda5716d5f42846d0ccc01d5e2ca" title="playMusic" alt="" coords="316,201,396,234"/><area shape="rect" id="node17" href="sound_8c.html#a63831c086cacea9358f5c86bebbfb288" title="soundVolume" alt="" coords="125,482,224,515"/><area shape="rect" id="node19" href="image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="297,589,415,622"/><area shape="rect" id="node21" href="player_8c.html#a3638b65ca0405b3a93824dbd7c6bad98" title="createrCharacter" alt="" coords="116,589,233,622"/><area shape="rect" id="node24" href="input_8c.html#a96302a81fac34b8c2bfa2add1a03d802" title="updateEvents" alt="" coords="305,265,407,298"/><area shape="rect" id="node26" href="input_8c.html#a02a609bb8821ffe9d5719858775e6f0c" title="keyboardActionGame" alt="" coords="101,701,248,734"/><area shape="rect" id="node28" href="sound_8c.html#ac3737f55b80ac35471d115d0304e8bc3" title="stopSound" alt="" coords="133,757,216,790"/><area shape="rect" id="node30" href="game_8c.html#aea20c6ea437379685d22df23af8e15dc" title="printGameOver" alt="" coords="120,269,229,302"/><area shape="rect" id="node34" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="320,377,392,410"/><area shape="rect" id="node37" href="sound_8c.html#acc13f1ac1e0bac5afe39405869772a08" title="freeSound" alt="" coords="316,321,396,354"/><area shape="rect" id="node39" href="game_8c.html#a1e2c9afdbc98faa067cc4b9d304f4362" title="printPause" alt="" coords="133,375,216,409"/><area shape="rect" id="node43" href="game_8c.html#a1bd040efd0195821d1e069d4006ffabf" title="updateSpeed" alt="" coords="125,813,224,846"/><area shape="rect" id="node46" href="player_8c.html#a3c4b84a9d7123af243336f3540d2ae83" title="blitCharacter" alt="" coords="127,869,223,902"/><area shape="rect" id="node48" href="map_8c.html#afc8482e2afe6f96b7d6cb6ce3fc7081c" title="updateScreenMap" alt="" coords="112,645,237,678"/><area shape="rect" id="node51" href="share_8h.html#a6e428694268169eee69c8f07827e72de" title="waitFPS" alt="" coords="139,925,211,958"/><area shape="rect" id="node5" href="file__level_8h.html#a149f2e0878473ca6968717a39c119639" title="openLevel" alt="" coords="316,61,396,94"/><area shape="rect" id="node7" href="file_8c.html#a8f17d8993e6de59936122f7c8ef4e37b" title="openFile" alt="" coords="467,5,536,38"/><area shape="rect" id="node9" href="file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707" title="initLevel" alt="" coords="467,61,536,94"/><area shape="rect" id="node11" href="file_8c.html#a0fca34d72624f611d2cbeac47279bb1f" title="closeFile" alt="" coords="464,117,539,150"/></map>
-</div>
-</p>
+<dl class="section return"><dt>Returns</dt><dd>the interval between two calls of the function </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="aea20c6ea437379685d22df23af8e15dc"></a>
+<a class="anchor" id="adae4d652153fc1973038f8073df66b89"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -202,13 +205,19 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>continuer</em>, </td>
+          <td class="paramname"><em>go</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="struct_input.html">Input</a> *&#160;</td>
-          <td class="paramname"><em>in</em>&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_sound.html">Sound</a> *&#160;</td>
+          <td class="paramname"><em>sound_sys</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -217,10 +226,13 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>affiche le message de game overflow_error </p>
+<p>print the game over screen and wait until the player press a key </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>l'écran de jeu </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>the game screen </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">go</td><td>the game function main loop validation </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>the input structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sound_sys</td><td>the sound system </td></tr>
   </table>
   </dd>
 </dl>
@@ -228,15 +240,65 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="game_8h_aea20c6ea437379685d22df23af8e15dc_cgraph.png" border="0" usemap="#game_8h_aea20c6ea437379685d22df23af8e15dc_cgraph" alt=""/></div>
-<map name="game_8h_aea20c6ea437379685d22df23af8e15dc_cgraph" id="game_8h_aea20c6ea437379685d22df23af8e15dc_cgraph">
-<area shape="rect" id="node3" href="sound_8c.html#a3b1e12665aed7169d8efdb2cc611184e" title="createSound" alt="" coords="171,5,264,38"/><area shape="rect" id="node5" href="sound_8c.html#a3af6fda5716d5f42846d0ccc01d5e2ca" title="playMusic" alt="" coords="177,61,257,94"/><area shape="rect" id="node7" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="181,117,253,150"/><area shape="rect" id="node9" href="input_8c.html#a96302a81fac34b8c2bfa2add1a03d802" title="updateEvents" alt="" coords="167,173,268,206"/><area shape="rect" id="node11" href="sound_8c.html#acc13f1ac1e0bac5afe39405869772a08" title="freeSound" alt="" coords="177,229,257,262"/></map>
+<div class="center"><img src="game_8h_adae4d652153fc1973038f8073df66b89_cgraph.png" border="0" usemap="#game_8h_adae4d652153fc1973038f8073df66b89_cgraph" alt=""/></div>
+<map name="game_8h_adae4d652153fc1973038f8073df66b89_cgraph" id="game_8h_adae4d652153fc1973038f8073df66b89_cgraph">
+<area shape="rect" id="node2" href="sound_8c.html#a4c981aed72c43f6f824e5ad4ad6e2b68" title="playMusic" alt="" coords="190,5,271,32"/><area shape="rect" id="node3" href="image_8c.html#a9862daea48ad8bfd1d3a0c401a9f5210" title="imageLoad" alt="" coords="188,56,273,83"/><area shape="rect" id="node4" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="194,107,267,133"/><area shape="rect" id="node5" href="input_8c.html#adf8840e198ccba8364c2d051b700a690" title="updateWaitEvents" alt="" coords="166,157,295,184"/><area shape="rect" id="node6" href="sound_8c.html#a18be184fe7f93acf424e2fb881c92218" title="stopSound" alt="" coords="189,208,273,235"/></map>
 </div>
 </p>
 
 </div>
 </div>
-<a class="anchor" id="a1e2c9afdbc98faa067cc4b9d304f4362"></a>
+<a class="anchor" id="a17a1049e60b67d4314b6b5e27cee5e56"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printHUD </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>screen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_character.html">Character</a> *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_map.html">Map</a> *&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>print the player HUD on the screen </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">screen</td><td>the game screen </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>the player </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">m</td><td>the game map </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="game_8h_a17a1049e60b67d4314b6b5e27cee5e56_cgraph.png" border="0" usemap="#game_8h_a17a1049e60b67d4314b6b5e27cee5e56_cgraph" alt=""/></div>
+<map name="game_8h_a17a1049e60b67d4314b6b5e27cee5e56_cgraph" id="game_8h_a17a1049e60b67d4314b6b5e27cee5e56_cgraph">
+<area shape="rect" id="node2" href="image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="131,5,250,32"/><area shape="rect" id="node3" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="154,56,227,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a5688d390454ad442f9bc28935bce297d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -262,7 +324,13 @@ Here is the call graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>continuer</em>&#160;</td>
+          <td class="paramname"><em>go</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDLKey *&#160;</td>
+          <td class="paramname"><em>kc</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -271,13 +339,15 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Met en pause le jeu </p>
+<p>print the pause screen and wait until the player press the pause key </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>l'écran de jeu </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">time</td><td>le temps restant </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>la structure input </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">le</td><td>booléen de main loop de la fonction jouer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>the game screen </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">go</td><td>the game function main loop validation </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>the input structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sound_sys</td><td>the sound system </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>the current time of the level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kc</td><td>the keyboard configuration </td></tr>
   </table>
   </dd>
 </dl>
@@ -285,9 +355,66 @@ Here is the call graph for this function:</div>
 <p><div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="game_8h_a1e2c9afdbc98faa067cc4b9d304f4362_cgraph.png" border="0" usemap="#game_8h_a1e2c9afdbc98faa067cc4b9d304f4362_cgraph" alt=""/></div>
-<map name="game_8h_a1e2c9afdbc98faa067cc4b9d304f4362_cgraph" id="game_8h_a1e2c9afdbc98faa067cc4b9d304f4362_cgraph">
-<area shape="rect" id="node3" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="155,5,227,38"/><area shape="rect" id="node5" href="input_8c.html#a96302a81fac34b8c2bfa2add1a03d802" title="updateEvents" alt="" coords="140,61,241,94"/></map>
+<div class="center"><img src="game_8h_a5688d390454ad442f9bc28935bce297d_cgraph.png" border="0" usemap="#game_8h_a5688d390454ad442f9bc28935bce297d_cgraph" alt=""/></div>
+<map name="game_8h_a5688d390454ad442f9bc28935bce297d_cgraph" id="game_8h_a5688d390454ad442f9bc28935bce297d_cgraph">
+<area shape="rect" id="node2" href="image_8c.html#a9862daea48ad8bfd1d3a0c401a9f5210" title="imageLoad" alt="" coords="161,5,247,32"/><area shape="rect" id="node3" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="167,56,241,83"/><area shape="rect" id="node4" href="input_8c.html#adf8840e198ccba8364c2d051b700a690" title="updateWaitEvents" alt="" coords="139,107,269,133"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="af08350c6f071e9e60d3ffcc614faa42a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void printWin </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>screen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>go</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_input.html">Input</a> *&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_sound.html">Sound</a> *&#160;</td>
+          <td class="paramname"><em>sound_sys</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>print the win screen and wait until the player press a key </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>the game screen </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">go</td><td>the game function main loop validation </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>the input structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sound_sys</td><td>the sound system </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="game_8h_af08350c6f071e9e60d3ffcc614faa42a_cgraph.png" border="0" usemap="#game_8h_af08350c6f071e9e60d3ffcc614faa42a_cgraph" alt=""/></div>
+<map name="game_8h_af08350c6f071e9e60d3ffcc614faa42a_cgraph" id="game_8h_af08350c6f071e9e60d3ffcc614faa42a_cgraph">
+<area shape="rect" id="node2" href="sound_8c.html#a4c981aed72c43f6f824e5ad4ad6e2b68" title="playMusic" alt="" coords="150,5,231,32"/><area shape="rect" id="node3" href="image_8c.html#a9862daea48ad8bfd1d3a0c401a9f5210" title="imageLoad" alt="" coords="148,56,233,83"/><area shape="rect" id="node4" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="154,107,227,133"/><area shape="rect" id="node5" href="input_8c.html#adf8840e198ccba8364c2d051b700a690" title="updateWaitEvents" alt="" coords="126,157,255,184"/><area shape="rect" id="node6" href="sound_8c.html#a18be184fe7f93acf424e2fb881c92218" title="stopSound" alt="" coords="149,208,233,235"/></map>
 </div>
 </p>
 
@@ -316,11 +443,11 @@ Here is the call graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Met a jour la vitesse </p>
+<p>update the player speed in correlation with its acceleration </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">float</td><td>la vitesse </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">acceleration</td><td>l'acceleration </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">float</td><td>the player speed </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">acceleration</td><td>the player acceleration </td></tr>
   </table>
   </dd>
 </dl>
@@ -330,7 +457,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 26 2014 17:03:28 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

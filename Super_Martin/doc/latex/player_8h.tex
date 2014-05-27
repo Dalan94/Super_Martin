@@ -3,220 +3,170 @@
 }
 
 
-header de \hyperlink{player_8c}{player.\-c}  
+\hyperlink{player_8c}{player.\-c} header  
 
 
-{\ttfamily \#include \char`\"{}const.\-h\char`\"{}}\\*
-{\ttfamily \#include $<$stdlib.\-h$>$}\\*
 {\ttfamily \#include $<$stdio.\-h$>$}\\*
-{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
 {\ttfamily \#include $<$S\-D\-L/\-S\-D\-L.\-h$>$}\\*
 {\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-ttf.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}const.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}structures.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}file\-\_\-level.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}share.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}text.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}sound.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
-Include dependency graph for player.\-h\-:\nopagebreak
+{\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
+Include dependency graph for player.\-h\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{player_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{player_8h__dep__incl}
+\includegraphics[width=249pt]{player_8h__dep__incl}
 \end{center}
 \end{figure}
-\subsection*{Data Structures}
-\begin{DoxyCompactItemize}
-\item 
-struct \hyperlink{struct_character}{Character}
-\end{DoxyCompactItemize}
-\subsection*{Macros}
-\begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{player_8h_a3af35b2f3ecf099e959f98d3aaa558a5}{S\-G\-N}(X)~(((X)==0)?(0)\-:(((X)$<$0)?(-\/1)\-:(1)))
-\item 
-\#define \hyperlink{player_8h_adefab4344518e9d35a80d87c20c0fa48}{A\-B\-S}(X)~((((X)$<$0)?(-\/(X))\-:(X)))
-\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{struct_character}{Character} $\ast$ \hyperlink{player_8h_a8157b7870fc8049298ca3ca227ca7a02}{creater\-Character} (char $\ast$sp\-R, char $\ast$sp\-L)
+int \hyperlink{player_8h_a4d30b7faab667544df4847e535dfc6e3}{new\-Player} (S\-D\-L\-\_\-\-Surface $\ast$screen, char player\-\_\-name\mbox{[}M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, \hyperlink{struct_sound}{Sound} $\ast$s, int $\ast$go)
 \item 
-int \hyperlink{player_8h_ad717798dc37cc831c64a304e0c901637}{move\-Character} (\hyperlink{struct_character}{Character} $\ast$c, int direction, \hyperlink{struct_map}{Map} $\ast$m, float speed)
+void \hyperlink{player_8h_a8330f47dea4a7c01a97ecef3607c3448}{load\-Player} (char file\-Save\mbox{[}M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, char player\-\_\-name\mbox{[}M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, \hyperlink{struct_player}{Player} $\ast$player)
 \item 
-void \hyperlink{player_8h_a3c4b84a9d7123af243336f3540d2ae83}{blit\-Character} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m)
+int \hyperlink{player_8h_ac02b9148199bc3334b6c7149789c946c}{save\-Player} (char file\-Save\mbox{[}M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, char player\-\_\-name\mbox{[}M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, \hyperlink{struct_player}{Player} $\ast$player)
 \item 
-int \hyperlink{player_8h_a74592844d979355c6b83af0bda7ce14f}{collision\-Sprite} (S\-D\-L\-\_\-\-Rect r, \hyperlink{struct_map}{Map} $\ast$m)
-\item 
-\hypertarget{player_8h_a2230f7e5ceb772e3c5ca205fa1f9105d}{void {\bfseries gravity} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m, S\-D\-L\-\_\-\-Surface $\ast$screen)}\label{player_8h_a2230f7e5ceb772e3c5ca205fa1f9105d}
-
-\item 
-void \hyperlink{player_8h_a3ae2e15eb2f82dd33309de7d4b76ef86}{movement\-Vector} (int direction, int $\ast$vx, int $\ast$vy, int speed, \hyperlink{struct_character}{Character} $\ast$c)
-\item 
-\hypertarget{player_8h_af1ffd9c64aecf5738c80049d4156ca90}{int {\bfseries try\-Movement} (\hyperlink{struct_character}{Character} $\ast$c, int vx, int vy, \hyperlink{struct_map}{Map} $\ast$m)}\label{player_8h_af1ffd9c64aecf5738c80049d4156ca90}
-
-\item 
-\hypertarget{player_8h_acc4b88f793f3273b22dc205902d38815}{void {\bfseries presise\-Move\-Character} (\hyperlink{struct_character}{Character} $\ast$c, int vx, int vy, \hyperlink{struct_map}{Map} $\ast$m)}\label{player_8h_acc4b88f793f3273b22dc205902d38815}
-
-\item 
-\hypertarget{player_8h_adc09c260c7770798940f614b20cd472a}{void {\bfseries jumping} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m, \hyperlink{struct_sound}{Sound} $\ast$jump\-\_\-sound)}\label{player_8h_adc09c260c7770798940f614b20cd472a}
-
+void \hyperlink{player_8h_a5bb0205907acbfde9bc8a6935e9da97e}{save} (S\-D\-L\-\_\-\-Surface $\ast$screen, char file\-Save\mbox{[}M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, char player\-\_\-name\mbox{[}M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, \hyperlink{struct_player}{Player} $\ast$player, int $\ast$go)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-header de \hyperlink{player_8c}{player.\-c} \begin{DoxyAuthor}{Author}
-Xavier C\-O\-P\-O\-N\-E\-T 
+\hyperlink{player_8c}{player.\-c} header \begin{DoxyAuthor}{Author}
+Glenn H\-E\-R\-R\-O\-U 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-2014-\/02-\/27 
+06/05/14 
 \end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
 
-
-\subsection{Macro Definition Documentation}
-\hypertarget{player_8h_adefab4344518e9d35a80d87c20c0fa48}{\index{player.\-h@{player.\-h}!A\-B\-S@{A\-B\-S}}
-\index{A\-B\-S@{A\-B\-S}!player.h@{player.\-h}}
-\subsubsection[{A\-B\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-B\-S(
-\begin{DoxyParamCaption}
-\item[{}]{X}
-\end{DoxyParamCaption}
-)~((((X)$<$0)?(-\/(X))\-:(X)))}}\label{player_8h_adefab4344518e9d35a80d87c20c0fa48}
-X absolute value \hypertarget{player_8h_a3af35b2f3ecf099e959f98d3aaa558a5}{\index{player.\-h@{player.\-h}!S\-G\-N@{S\-G\-N}}
-\index{S\-G\-N@{S\-G\-N}!player.h@{player.\-h}}
-\subsubsection[{S\-G\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-G\-N(
-\begin{DoxyParamCaption}
-\item[{}]{X}
-\end{DoxyParamCaption}
-)~(((X)==0)?(0)\-:(((X)$<$0)?(-\/1)\-:(1)))}}\label{player_8h_a3af35b2f3ecf099e959f98d3aaa558a5}
-X sign 
 
 \subsection{Function Documentation}
-\hypertarget{player_8h_a3c4b84a9d7123af243336f3540d2ae83}{\index{player.\-h@{player.\-h}!blit\-Character@{blit\-Character}}
-\index{blit\-Character@{blit\-Character}!player.h@{player.\-h}}
-\subsubsection[{blit\-Character}]{\setlength{\rightskip}{0pt plus 5cm}void blit\-Character (
+\hypertarget{player_8h_a8330f47dea4a7c01a97ecef3607c3448}{\index{player.\-h@{player.\-h}!load\-Player@{load\-Player}}
+\index{load\-Player@{load\-Player}!player.h@{player.\-h}}
+\subsubsection[{load\-Player}]{\setlength{\rightskip}{0pt plus 5cm}void load\-Player (
+\begin{DoxyParamCaption}
+\item[{char}]{file\-Save\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{char}]{player\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{{\bf Player} $\ast$}]{player}
+\end{DoxyParamCaption}
+)}}\label{player_8h_a8330f47dea4a7c01a97ecef3607c3448}
+Load the progression of the given player from the binary file named file\-Save 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em file\-Save} & The path to the binary file containing the progression of each player \\
+\hline
+\mbox{\tt in}  & {\em player\-\_\-name} & The name of the current player \\
+\hline
+\mbox{\tt out}  & {\em player} & The player structure where the progression will be loaded \\
+\hline
+\end{DoxyParams}
+\hypertarget{player_8h_a4d30b7faab667544df4847e535dfc6e3}{\index{player.\-h@{player.\-h}!new\-Player@{new\-Player}}
+\index{new\-Player@{new\-Player}!player.h@{player.\-h}}
+\subsubsection[{new\-Player}]{\setlength{\rightskip}{0pt plus 5cm}int new\-Player (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
-\item[{{\bf Character} $\ast$}]{c, }
-\item[{{\bf Map} $\ast$}]{m}
+\item[{char}]{player\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{{\bf Sound} $\ast$}]{s, }
+\item[{int $\ast$}]{go}
 \end{DoxyParamCaption}
-)}}\label{player_8h_a3c4b84a9d7123af243336f3540d2ae83}
-blit le personnage à l'écran 
+)}}\label{player_8h_a4d30b7faab667544df4847e535dfc6e3}
+Display the interface to create a new player 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in,out}  & {\em screen} & L'écran \\
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
 \hline
-\mbox{\tt in}  & {\em c} & Le personnage \\
+\mbox{\tt out}  & {\em player\-\_\-name} & The name of the new player \\
 \hline
-\mbox{\tt in}  & {\em m} & la carte du jeu \\
+\mbox{\tt out}  & {\em s} & the sound system \\
 \hline
-\end{DoxyParams}
-\hypertarget{player_8h_a74592844d979355c6b83af0bda7ce14f}{\index{player.\-h@{player.\-h}!collision\-Sprite@{collision\-Sprite}}
-\index{collision\-Sprite@{collision\-Sprite}!player.h@{player.\-h}}
-\subsubsection[{collision\-Sprite}]{\setlength{\rightskip}{0pt plus 5cm}int collision\-Sprite (
-\begin{DoxyParamCaption}
-\item[{S\-D\-L\-\_\-\-Rect}]{r, }
-\item[{{\bf Map} $\ast$}]{m}
-\end{DoxyParamCaption}
-)}}\label{player_8h_a74592844d979355c6b83af0bda7ce14f}
-détermine s'il y a collision entre une sprite et le décor 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em r} & le S\-D\-L\-\_\-\-Rect correspondant à la sprite \\
-\hline
-\mbox{\tt in}  & {\em m} & la carte contenant le décor \\
+\mbox{\tt out}  & {\em go} & the main loop validation \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-1 s'il y a collision ou si en dehors du monde, 0 sinon 
-\end{DoxyReturn}
-\hypertarget{player_8h_a8157b7870fc8049298ca3ca227ca7a02}{\index{player.\-h@{player.\-h}!creater\-Character@{creater\-Character}}
-\index{creater\-Character@{creater\-Character}!player.h@{player.\-h}}
-\subsubsection[{creater\-Character}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Character}$\ast$ creater\-Character (
-\begin{DoxyParamCaption}
-\item[{char $\ast$}]{sp\-R, }
-\item[{char $\ast$}]{sp\-L}
-\end{DoxyParamCaption}
-)}}\label{player_8h_a8157b7870fc8049298ca3ca227ca7a02}
-créer un personnage 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em sp\-R} & l'adresse de la sprite droite \\
-\hline
-\mbox{\tt in}  & {\em sp\-L} & l'adresse de la sprite gauche \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-le pointeur sur la structure créée 
+1 if a new player has been created, 0 otherwise 
 \end{DoxyReturn}
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=296pt]{player_8h_a8157b7870fc8049298ca3ca227ca7a02_cgraph}
+\includegraphics[width=350pt]{player_8h_a4d30b7faab667544df4847e535dfc6e3_cgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{player_8h_ad717798dc37cc831c64a304e0c901637}{\index{player.\-h@{player.\-h}!move\-Character@{move\-Character}}
-\index{move\-Character@{move\-Character}!player.h@{player.\-h}}
-\subsubsection[{move\-Character}]{\setlength{\rightskip}{0pt plus 5cm}int move\-Character (
+\hypertarget{player_8h_a5bb0205907acbfde9bc8a6935e9da97e}{\index{player.\-h@{player.\-h}!save@{save}}
+\index{save@{save}!player.h@{player.\-h}}
+\subsubsection[{save}]{\setlength{\rightskip}{0pt plus 5cm}void save (
 \begin{DoxyParamCaption}
-\item[{{\bf Character} $\ast$}]{c, }
-\item[{int}]{direction, }
-\item[{{\bf Map} $\ast$}]{m, }
-\item[{float}]{speed}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char}]{file\-Save\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{char}]{player\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{{\bf Player} $\ast$}]{player, }
+\item[{int $\ast$}]{go}
 \end{DoxyParamCaption}
-)}}\label{player_8h_ad717798dc37cc831c64a304e0c901637}
-déplace le personnage selon la direction 
+)}}\label{player_8h_a5bb0205907acbfde9bc8a6935e9da97e}
+Display the interface to save the player progression 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in,out}  & {\em c} & Le personnage \\
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
 \hline
-\mbox{\tt in}  & {\em direction} & La direction du déplacement \\
+\mbox{\tt in}  & {\em file\-Save} & The path to the binary file containing the progression of each player \\
 \hline
-\mbox{\tt in}  & {\em m} & la carte sur laquelle le personnage se déplace \\
+\mbox{\tt in}  & {\em player\-\_\-name} & The name of the current player \\
 \hline
-\mbox{\tt in}  & {\em speed} & la vitesse de déplacement \\
+\mbox{\tt out}  & {\em player} & The player structure where the progression is stored \\
+\hline
+\mbox{\tt out}  & {\em go} & The main loop validation \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-1 si le personnage a pu se deplacer normalement, 0 s'il a fallut affiner 
-\end{DoxyReturn}
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=290pt]{player_8h_ad717798dc37cc831c64a304e0c901637_cgraph}
+\includegraphics[width=350pt]{player_8h_a5bb0205907acbfde9bc8a6935e9da97e_cgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{player_8h_a3ae2e15eb2f82dd33309de7d4b76ef86}{\index{player.\-h@{player.\-h}!movement\-Vector@{movement\-Vector}}
-\index{movement\-Vector@{movement\-Vector}!player.h@{player.\-h}}
-\subsubsection[{movement\-Vector}]{\setlength{\rightskip}{0pt plus 5cm}void movement\-Vector (
+\hypertarget{player_8h_ac02b9148199bc3334b6c7149789c946c}{\index{player.\-h@{player.\-h}!save\-Player@{save\-Player}}
+\index{save\-Player@{save\-Player}!player.h@{player.\-h}}
+\subsubsection[{save\-Player}]{\setlength{\rightskip}{0pt plus 5cm}int save\-Player (
 \begin{DoxyParamCaption}
-\item[{int}]{direction, }
-\item[{int $\ast$}]{vx, }
-\item[{int $\ast$}]{vy, }
-\item[{int}]{speed, }
-\item[{{\bf Character} $\ast$}]{c}
+\item[{char}]{file\-Save\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{char}]{player\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{{\bf Player} $\ast$}]{player}
 \end{DoxyParamCaption}
-)}}\label{player_8h_a3ae2e15eb2f82dd33309de7d4b76ef86}
-create a movement vector 
+)}}\label{player_8h_ac02b9148199bc3334b6c7149789c946c}
+Save the progression of the given player in the binary file named file\-Save 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em direction} & The movement's direction \\
+\mbox{\tt in}  & {\em file\-Save} & The path to the binary file containing the progression of each player \\
 \hline
-\mbox{\tt out}  & {\em vx} & the horizontal component of the vector \\
+\mbox{\tt in}  & {\em player\-\_\-name} & The name of the current player \\
 \hline
-\mbox{\tt out}  & {\em vy} & the vertical component of the vector \\
-\hline
-\mbox{\tt in}  & {\em speed} & the speed of the move \\
-\hline
-\mbox{\tt out}  & {\em c} & the \hyperlink{struct_character}{Character} you have to move \\
+\mbox{\tt out}  & {\em player} & The player structure where the progression is stored \\
 \hline
 \end{DoxyParams}

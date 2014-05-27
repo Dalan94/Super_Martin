@@ -52,6 +52,12 @@ Character *createCharacter(char *tile,int x, int y,int npc, int nbProjectile, in
     return c;
 }
 
+void freeCharacters(Character *c)
+{
+    SDL_FreeSurface(c->tile);
+    free(c);
+}
+
 
 int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m,float* speed,list *l,Sound *sound_sys,platformSet *ps)
 {
@@ -69,15 +75,20 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
     }
     *speed = s;
 
+
+
     if(c->location.y == c->saveY)
     {
         c->dirY = 0;
         c->isFalling = 0;
     }
+
+
     c->saveY = c->location.y;
 
     if(jump == 2 && c->doubleJump != 2)
         c->dirY = -GRAVITY_SPEED*3;
+
 
 
     c->dirY+=GRAVITY_SPEED;
@@ -161,7 +172,7 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
      if(c->location.y == c->saveY /*&& !c->wallJump*/)
     {
         c->isFalling = 0;
-        c->isOnGround = 1;
+        //c->isOnGround = 1;
         c->doubleJump = 0;
     }
 
@@ -184,7 +195,7 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
         futureLocation.w -= COLLISION_ADJUSTMENT;
     }
 
-    ret = collisionMap(futureLocation,m);
+    ret = collisionMap(futureLocation,m,0);
     if((ret != 1) && !collisionEnemy(c,l,m) && (collisionPlatform(c,ps,futureLocation)!=1))
     {
         if(!c->isNpc)
@@ -322,11 +333,15 @@ int checkWall(Character *c,Map *m)
 {
     int x,y;
 
+    if(c->location.x < 10)
+            return 0; //test les limites du monde
+
     if(!c->isRight)
     {
 
         x = (int)((c->location.x-2)/TILE_SIZE);
         y = (int)(c->location.y + TILE_SIZE)/TILE_SIZE;
+
 
 
         if(y<0)
@@ -347,7 +362,6 @@ int checkWall(Character *c,Map *m)
     {
         x = (int)(c->location.x)/TILE_SIZE;
         y = (int)(c->location.y + TILE_SIZE)/TILE_SIZE;
-
 
         if(y<=0)
             y = 1;

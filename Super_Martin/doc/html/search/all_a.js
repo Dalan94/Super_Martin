@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['play',['play',['../game_8c.html#ae342e4b762af0d52f4ee914643441426',1,'play(SDL_Surface *screen, char *level_name):&#160;game.c'],['../game_8h.html#ae342e4b762af0d52f4ee914643441426',1,'play(SDL_Surface *screen, char *level_name):&#160;game.c']]],
-  ['player_2ec',['player.c',['../player_8c.html',1,'']]],
-  ['player_2eh',['player.h',['../player_8h.html',1,'']]],
-  ['playmusic',['playMusic',['../sound_8c.html#a3af6fda5716d5f42846d0ccc01d5e2ca',1,'playMusic(Sound *s, char *file):&#160;sound.c'],['../sound_8h.html#a3af6fda5716d5f42846d0ccc01d5e2ca',1,'playMusic(Sound *s, char *file):&#160;sound.c']]],
-  ['playmusiconce',['playMusicOnce',['../sound_8c.html#a5378cbd0e1d0bfeaa823df1a8ea215f3',1,'playMusicOnce(Sound *s, char *file):&#160;sound.c'],['../sound_8h.html#a5378cbd0e1d0bfeaa823df1a8ea215f3',1,'playMusicOnce(Sound *s, char *file):&#160;sound.c']]],
-  ['printgameover',['printGameOver',['../game_8c.html#aea20c6ea437379685d22df23af8e15dc',1,'printGameOver(SDL_Surface *screen, int *continuer, Input *in):&#160;game.c'],['../game_8h.html#aea20c6ea437379685d22df23af8e15dc',1,'printGameOver(SDL_Surface *screen, int *continuer, Input *in):&#160;game.c']]],
-  ['printpause',['printPause',['../game_8c.html#a1e2c9afdbc98faa067cc4b9d304f4362',1,'printPause(SDL_Surface *screen, Input *in, int *time, int *continuer):&#160;game.c'],['../game_8h.html#a1e2c9afdbc98faa067cc4b9d304f4362',1,'printPause(SDL_Surface *screen, Input *in, int *time, int *continuer):&#160;game.c']]],
-  ['printtext',['printText',['../text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3',1,'printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r, int g, int b, char *font, int ptSize, int mode):&#160;text.c'],['../text_8h.html#a1bd80be1aff6fe5303bdd5aa80161da3',1,'printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r, int g, int b, char *font, int ptSize, int mode):&#160;text.c']]]
+  ['last',['last',['../structlist.html#a1e751cb2643f0c20321d5b233e4fdf65',1,'list::last()'],['../enemies_8c.html#a86d339159e440962ce42347b99e07625',1,'last(list *l):&#160;enemies.c'],['../enemies_8h.html#a86d339159e440962ce42347b99e07625',1,'last(list *l):&#160;enemies.c']]],
+  ['level',['Level',['../struct_level.html',1,'']]],
+  ['list',['list',['../structlist.html',1,'']]],
+  ['loadinputoptions',['loadInputOptions',['../option_8c.html#a7f505e8b70cf0674aac99379c7b0a3ce',1,'loadInputOptions(char player_name[], SDLKey *kc, Input *in):&#160;option.c'],['../option_8h.html#a7f505e8b70cf0674aac99379c7b0a3ce',1,'loadInputOptions(char player_name[], SDLKey *kc, Input *in):&#160;option.c']]],
+  ['loadplayer',['loadPlayer',['../player_8c.html#a8330f47dea4a7c01a97ecef3607c3448',1,'loadPlayer(char fileSave[MAX_SIZE_FILE_NAME], char player_name[MAX_SIZE_FILE_NAME], Player *player):&#160;player.c'],['../player_8h.html#a8330f47dea4a7c01a97ecef3607c3448',1,'loadPlayer(char fileSave[MAX_SIZE_FILE_NAME], char player_name[MAX_SIZE_FILE_NAME], Player *player):&#160;player.c']]],
+  ['loadsoundoptions',['loadSoundOptions',['../option_8c.html#a82de9e33ffe49578aedcb1796c2a524c',1,'loadSoundOptions(char confFile[], Sound *soundSys):&#160;option.c'],['../option_8h.html#a82de9e33ffe49578aedcb1796c2a524c',1,'loadSoundOptions(char confFile[], Sound *soundSys):&#160;option.c']]],
+  ['location',['location',['../struct_character.html#a08e7ab1c2395b84bea7ca13eb99bac60',1,'Character::location()'],['../structplatform.html#a08e7ab1c2395b84bea7ca13eb99bac60',1,'platform::location()'],['../structprojectile.html#a08e7ab1c2395b84bea7ca13eb99bac60',1,'projectile::location()']]]
 ];

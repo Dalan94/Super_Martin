@@ -96,32 +96,41 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="file_8h.html">file.h</a>&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="const_8h.html">const.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define TAILLE_MAX_NB_BLOCS_LARGEUR 5</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TAILLE_MAX_NB_BLOCS_HAUTEUR 4</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TAILLE_BUFFER 2</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="struct_level.html">Level</a> *<a class="code" href="file__level_8h.html#a149f2e0878473ca6968717a39c119639">openLevel</a>(<span class="keywordtype">char</span> *file_name);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="file__level_8h.html#a38020f30305d2344cdf39d06c7e8768e">closeLevel</a>(<a class="code" href="struct_level.html">Level</a> *lvl);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="struct_level.html">Level</a> *<a class="code" href="file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707">initLevel</a>(<a class="code" href="struct_level.html">Level</a> *lvl);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="file__level_8h.html#aa22f94cc3689a4c98d553ff300c32bc9">writeLevel</a>(<span class="keywordtype">char</span> *file_name, <a class="code" href="struct_level.html">Level</a> *lvl);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">char</span> **<a class="code" href="file__level_8h.html#af646d7df8d540e24e2acc84fc3ea3ad3">readLevelFile</a>(<span class="keywordtype">int</span> *nb_lvl);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> <a class="code" href="file__level_8h.html#a3fafc12e3c322fc5a8166f7fb323bfe6">closeLevelList</a>(<span class="keywordtype">char</span> **level_names, <span class="keywordtype">int</span> nb_lvl);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif // FILE_MAP_H_INCLUDED</span></div>
-<div class="ttc" id="file__level_8h_html_a38020f30305d2344cdf39d06c7e8768e"><div class="ttname"><a href="file__level_8h.html#a38020f30305d2344cdf39d06c7e8768e">closeLevel</a></div><div class="ttdeci">void closeLevel(Level *lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:78</div></div>
-<div class="ttc" id="file__level_8h_html_a149f2e0878473ca6968717a39c119639"><div class="ttname"><a href="file__level_8h.html#a149f2e0878473ca6968717a39c119639">openLevel</a></div><div class="ttdeci">Level * openLevel(char *file_name)</div><div class="ttdef"><b>Definition:</b> file_level.c:17</div></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="structures_8h.html">structures.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="enemies_8h.html">enemies.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="mobile__platform_8h.html">mobile_platform.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#define TAILLE_MAX_NB_BLOCS_LARGEUR 5</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TAILLE_MAX_NB_BLOCS_HAUTEUR 4</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define TAILLE_BUFFER 2</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<a class="code" href="struct_level.html">Level</a> *<a class="code" href="file__level_8h.html#a05b04a7e24539a2ae826cfb87ea4d859">openLevel</a>(<span class="keywordtype">char</span> *file_name,<a class="code" href="structlist.html">list</a> *l,<a class="code" href="structplatform_set.html">platformSet</a> *ps);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">void</span> <a class="code" href="file__level_8h.html#a38020f30305d2344cdf39d06c7e8768e">closeLevel</a>(<a class="code" href="struct_level.html">Level</a> *lvl);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<a class="code" href="struct_level.html">Level</a> *<a class="code" href="file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707">initLevel</a>(<a class="code" href="struct_level.html">Level</a> *lvl);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">char</span> **readLevelFile(<span class="keywordtype">char</span> *file_path, <span class="keywordtype">int</span> *nb_lvl);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keywordtype">void</span> <a class="code" href="file__level_8h.html#a3fafc12e3c322fc5a8166f7fb323bfe6">closeLevelList</a>(<span class="keywordtype">char</span> **level_names, <span class="keywordtype">int</span> nb_lvl);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif // FILE_MAP_H_INCLUDED</span></div>
+<div class="ttc" id="file__level_8h_html_a38020f30305d2344cdf39d06c7e8768e"><div class="ttname"><a href="file__level_8h.html#a38020f30305d2344cdf39d06c7e8768e">closeLevel</a></div><div class="ttdeci">void closeLevel(Level *lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:122</div></div>
+<div class="ttc" id="mobile__platform_8h_html"><div class="ttname"><a href="mobile__platform_8h.html">mobile_platform.h</a></div><div class="ttdoc">mobile_platform.c header </div></div>
 <div class="ttc" id="file_8h_html"><div class="ttname"><a href="file_8h.html">file.h</a></div><div class="ttdoc">Prototypes des fonctions d&#39;acces aux fichiers. </div></div>
-<div class="ttc" id="file__level_8h_html_af646d7df8d540e24e2acc84fc3ea3ad3"><div class="ttname"><a href="file__level_8h.html#af646d7df8d540e24e2acc84fc3ea3ad3">readLevelFile</a></div><div class="ttdeci">char ** readLevelFile(int *nb_lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:151</div></div>
-<div class="ttc" id="file__level_8h_html_a1749fb3f97d8b947c393f8eac9d29707"><div class="ttname"><a href="file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707">initLevel</a></div><div class="ttdeci">Level * initLevel(Level *lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:94</div></div>
-<div class="ttc" id="file__level_8h_html_aa22f94cc3689a4c98d553ff300c32bc9"><div class="ttname"><a href="file__level_8h.html#aa22f94cc3689a4c98d553ff300c32bc9">writeLevel</a></div><div class="ttdeci">void writeLevel(char *file_name, Level *lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:124</div></div>
-<div class="ttc" id="const_8h_html"><div class="ttname"><a href="const_8h.html">const.h</a></div><div class="ttdoc">contient les constantes du programme </div></div>
-<div class="ttc" id="struct_level_html"><div class="ttname"><a href="struct_level.html">Level</a></div><div class="ttdef"><b>Definition:</b> const.h:28</div></div>
-<div class="ttc" id="file__level_8h_html_a3fafc12e3c322fc5a8166f7fb323bfe6"><div class="ttname"><a href="file__level_8h.html#a3fafc12e3c322fc5a8166f7fb323bfe6">closeLevelList</a></div><div class="ttdeci">void closeLevelList(char **level_names, int nb_lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:199</div></div>
+<div class="ttc" id="structures_8h_html"><div class="ttname"><a href="structures_8h.html">structures.h</a></div></div>
+<div class="ttc" id="structplatform_set_html"><div class="ttname"><a href="structplatform_set.html">platformSet</a></div><div class="ttdef"><b>Definition:</b> structures.h:108</div></div>
+<div class="ttc" id="file__level_8h_html_a1749fb3f97d8b947c393f8eac9d29707"><div class="ttname"><a href="file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707">initLevel</a></div><div class="ttdeci">Level * initLevel(Level *lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:133</div></div>
+<div class="ttc" id="const_8h_html"><div class="ttname"><a href="const_8h.html">const.h</a></div><div class="ttdoc">containe the program constantes </div></div>
+<div class="ttc" id="struct_level_html"><div class="ttname"><a href="struct_level.html">Level</a></div><div class="ttdef"><b>Definition:</b> const.h:54</div></div>
+<div class="ttc" id="structlist_html"><div class="ttname"><a href="structlist.html">list</a></div><div class="ttdef"><b>Definition:</b> structures.h:77</div></div>
+<div class="ttc" id="enemies_8h_html"><div class="ttname"><a href="enemies_8h.html">enemies.h</a></div><div class="ttdoc">enemies.c header </div></div>
+<div class="ttc" id="file__level_8h_html_a05b04a7e24539a2ae826cfb87ea4d859"><div class="ttname"><a href="file__level_8h.html#a05b04a7e24539a2ae826cfb87ea4d859">openLevel</a></div><div class="ttdeci">Level * openLevel(char *file_name, list *l, platformSet *ps)</div><div class="ttdef"><b>Definition:</b> file_level.c:12</div></div>
+<div class="ttc" id="file__level_8h_html_a3fafc12e3c322fc5a8166f7fb323bfe6"><div class="ttname"><a href="file__level_8h.html#a3fafc12e3c322fc5a8166f7fb323bfe6">closeLevelList</a></div><div class="ttdeci">void closeLevelList(char **level_names, int nb_lvl)</div><div class="ttdef"><b>Definition:</b> file_level.c:201</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 26 2014 17:03:28 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

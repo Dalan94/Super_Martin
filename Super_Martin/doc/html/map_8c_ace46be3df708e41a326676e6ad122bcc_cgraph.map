@@ -1,0 +1,9 @@
+<map id="initMap" name="initMap">
+<area shape="rect" id="node2" href="$file__level_8h.html#a05b04a7e24539a2ae826cfb87ea4d859" title="openLevel" alt="" coords="118,81,199,108"/>
+<area shape="rect" id="node3" href="$file_8c.html#ab763060cbdd57fdb704871d896fc492a" title="openFile" alt="" coords="261,5,331,32"/>
+<area shape="rect" id="node4" href="$file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707" title="initLevel" alt="" coords="261,56,331,83"/>
+<area shape="rect" id="node5" href="$mobile__platform_8c.html#a31e2f2a28818722c75562e1eee0f5816" title="platformMap" alt="" coords="249,107,343,133"/>
+<area shape="rect" id="node8" href="$file_8c.html#adf55ac6bc5d81f94b54e4c8ea554f884" title="closeFile" alt="" coords="259,157,333,184"/>
+<area shape="rect" id="node6" href="$mobile__platform_8c.html#a80f6ef761da399b6c8d919464dc48d7e" title="createPlatform" alt="" coords="392,107,499,133"/>
+<area shape="rect" id="node7" href="$image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="547,107,666,133"/>
+</map>

@@ -386,6 +386,7 @@ Character *deleteLast (list *l)
 		l->last = l->last->previous;
 		l->last->next = NULL;
 		ret=n->c;
+		SDL_FreeSurface(n->c->tile);
 		free((void *) n);
 		return ret;
 	}

@@ -1,0 +1,261 @@
+\hypertarget{mobile__platform_8c}{\section{mobile\-\_\-platform.\-c File Reference}
+\label{mobile__platform_8c}\index{mobile\-\_\-platform.\-c@{mobile\-\_\-platform.\-c}}
+}
+
+
+contains the functions to deal with the mobile platforms  
+
+
+{\ttfamily \#include \char`\"{}mobile\-\_\-platform.\-h\char`\"{}}\\*
+Include dependency graph for mobile\-\_\-platform.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mobile__platform_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mobile__platform_8c_a09006b91697e96a244887fee7ca2359e}{init\-Platform\-Set} (\hyperlink{structplatform_set}{platform\-Set} $\ast$ps)
+\item 
+void \hyperlink{mobile__platform_8c_a80f6ef761da399b6c8d919464dc48d7e}{create\-Platform} (\hyperlink{structplatform_set}{platform\-Set} $\ast$ps, int x1, int y1, int x2, int y2)
+\item 
+void \hyperlink{mobile__platform_8c_a0fe4404fc8e5a9fe0df8e1cc18b91c2a}{blit\-Platform} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{structplatform_set}{platform\-Set} $\ast$ps, \hyperlink{struct_map}{Map} $\ast$m)
+\item 
+void \hyperlink{mobile__platform_8c_ac7f7be766f936d9c7d3cb08eaa9bddb7}{move\-Platform} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{structplatform_set}{platform\-Set} $\ast$ps, \hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_map}{Map} $\ast$m)
+\item 
+void \hyperlink{mobile__platform_8c_a6ac70abaaa74c1b175932c48efc38aaf}{move\-One\-Platform} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{structplatform}{platform} $\ast$p, \hyperlink{structlist}{list} $\ast$l, int nb, \hyperlink{struct_map}{Map} $\ast$m)
+\item 
+int \hyperlink{mobile__platform_8c_a9bf410713b80221b6c138ba58a6fcb37}{collision\-Platform} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{structplatform_set}{platform\-Set} $\ast$ps, S\-D\-L\-\_\-\-Rect future\-Location)
+\item 
+void \hyperlink{mobile__platform_8c_abe296b52d937fe5ebce22fb3682101bc}{free\-Platform\-Set} (\hyperlink{structplatform_set}{platform\-Set} $\ast$ps)
+\item 
+void \hyperlink{mobile__platform_8c_a31e2f2a28818722c75562e1eee0f5816}{platform\-Map} (\hyperlink{structplatform_set}{platform\-Set} $\ast$ps, S\-D\-L\-\_\-\-Rect array\mbox{[}$\,$\mbox{]}, S\-D\-L\-\_\-\-Rect mark, int vert)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contains the functions to deal with the mobile platforms \begin{DoxyAuthor}{Author}
+X.\-C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/05-\/01 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{mobile__platform_8c_a0fe4404fc8e5a9fe0df8e1cc18b91c2a}{\index{mobile\-\_\-platform.\-c@{mobile\-\_\-platform.\-c}!blit\-Platform@{blit\-Platform}}
+\index{blit\-Platform@{blit\-Platform}!mobile_platform.c@{mobile\-\_\-platform.\-c}}
+\subsubsection[{blit\-Platform}]{\setlength{\rightskip}{0pt plus 5cm}void blit\-Platform (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf platform\-Set} $\ast$}]{ps, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{mobile__platform_8c_a0fe4404fc8e5a9fe0df8e1cc18b91c2a}
+blit the platforms on the game screen 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & game screen \\
+\hline
+\mbox{\tt in,out}  & {\em ps} & the platform set \\
+\hline
+\mbox{\tt in}  & {\em m} & the current level map \\
+\hline
+\end{DoxyParams}
+\hypertarget{mobile__platform_8c_a9bf410713b80221b6c138ba58a6fcb37}{\index{mobile\-\_\-platform.\-c@{mobile\-\_\-platform.\-c}!collision\-Platform@{collision\-Platform}}
+\index{collision\-Platform@{collision\-Platform}!mobile_platform.c@{mobile\-\_\-platform.\-c}}
+\subsubsection[{collision\-Platform}]{\setlength{\rightskip}{0pt plus 5cm}int collision\-Platform (
+\begin{DoxyParamCaption}
+\item[{{\bf Character} $\ast$}]{c, }
+\item[{{\bf platform\-Set} $\ast$}]{ps, }
+\item[{S\-D\-L\-\_\-\-Rect}]{future\-Location}
+\end{DoxyParamCaption}
+)}}\label{mobile__platform_8c_a9bf410713b80221b6c138ba58a6fcb37}
+determine if there is a collision beteewen the player and a mobile platform and deals with 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em c} & the player \\
+\hline
+\mbox{\tt in,out}  & {\em ps} & the platform set \\
+\hline
+\mbox{\tt in}  & {\em futur\-Location} & the try\-Movement variabla to test the future position \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if there is a collision, 0 if not 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{mobile__platform_8c_a9bf410713b80221b6c138ba58a6fcb37_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mobile__platform_8c_a80f6ef761da399b6c8d919464dc48d7e}{\index{mobile\-\_\-platform.\-c@{mobile\-\_\-platform.\-c}!create\-Platform@{create\-Platform}}
+\index{create\-Platform@{create\-Platform}!mobile_platform.c@{mobile\-\_\-platform.\-c}}
+\subsubsection[{create\-Platform}]{\setlength{\rightskip}{0pt plus 5cm}void create\-Platform (
+\begin{DoxyParamCaption}
+\item[{{\bf platform\-Set} $\ast$}]{ps, }
+\item[{int}]{x1, }
+\item[{int}]{y1, }
+\item[{int}]{x2, }
+\item[{int}]{y2}
+\end{DoxyParamCaption}
+)}}\label{mobile__platform_8c_a80f6ef761da399b6c8d919464dc48d7e}
+creates of new platform and adds it to the platform set 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em ps} & the platform set \\
+\hline
+\mbox{\tt in}  & {\em x1} & the x low limit for deplacement \\
+\hline
+\mbox{\tt in}  & {\em x2} & the x high limit for deplacement \\
+\hline
+\mbox{\tt in}  & {\em y1} & the y low limit for deplacement \\
+\hline
+\mbox{\tt in}  & {\em y2} & the y high limit for deplacement \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{mobile__platform_8c_a80f6ef761da399b6c8d919464dc48d7e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mobile__platform_8c_abe296b52d937fe5ebce22fb3682101bc}{\index{mobile\-\_\-platform.\-c@{mobile\-\_\-platform.\-c}!free\-Platform\-Set@{free\-Platform\-Set}}
+\index{free\-Platform\-Set@{free\-Platform\-Set}!mobile_platform.c@{mobile\-\_\-platform.\-c}}
+\subsubsection[{free\-Platform\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Platform\-Set (
+\begin{DoxyParamCaption}
+\item[{{\bf platform\-Set} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}}\label{mobile__platform_8c_abe296b52d937fe5ebce22fb3682101bc}
+free all the platforms 
+\begin{DoxyParams}{Parameters}
+{\em int,out\mbox{]}} & ps the platform set \\
+\hline
+\end{DoxyParams}
+\hypertarget{mobile__platform_8c_a09006b91697e96a244887fee7ca2359e}{\index{mobile\-\_\-platform.\-c@{mobile\-\_\-platform.\-c}!init\-Platform\-Set@{init\-Platform\-Set}}
+\index{init\-Platform\-Set@{init\-Platform\-Set}!mobile_platform.c@{mobile\-\_\-platform.\-c}}
+\subsubsection[{init\-Platform\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Platform\-Set (
+\begin{DoxyParamCaption}
+\item[{{\bf platform\-Set} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}}\label{mobile__platform_8c_a09006b91697e96a244887fee7ca2359e}
+initialize a platform set 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em ps} & the platform set to be initialized \\
+\hline
+\end{DoxyParams}
+\hypertarget{mobile__platform_8c_a6ac70abaaa74c1b175932c48efc38aaf}{\index{mobile\-\_\-platform.\-c@{mobile\-\_\-platform.\-c}!move\-One\-Platform@{move\-One\-Platform}}
+\index{move\-One\-Platform@{move\-One\-Platform}!mobile_platform.c@{mobile\-\_\-platform.\-c}}
+\subsubsection[{move\-One\-Platform}]{\setlength{\rightskip}{0pt plus 5cm}void move\-One\-Platform (
+\begin{DoxyParamCaption}
+\item[{{\bf Character} $\ast$}]{c, }
+\item[{{\bf platform} $\ast$}]{p, }
+\item[{{\bf list} $\ast$}]{l, }
+\item[{int}]{nb, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{mobile__platform_8c_a6ac70abaaa74c1b175932c48efc38aaf}
+moves one platforms 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em c} & the player \\
+\hline
+\mbox{\tt in,out}  & {\em p} & the platform \\
+\hline
+\mbox{\tt in,out}  & {\em l} & the enemy list \\
+\hline
+\mbox{\tt in}  & {\em the} & number of the platform which is moved \\
+\hline
+\mbox{\tt in}  & {\em m} & the game map \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{mobile__platform_8c_a6ac70abaaa74c1b175932c48efc38aaf_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mobile__platform_8c_ac7f7be766f936d9c7d3cb08eaa9bddb7}{\index{mobile\-\_\-platform.\-c@{mobile\-\_\-platform.\-c}!move\-Platform@{move\-Platform}}
+\index{move\-Platform@{move\-Platform}!mobile_platform.c@{mobile\-\_\-platform.\-c}}
+\subsubsection[{move\-Platform}]{\setlength{\rightskip}{0pt plus 5cm}void move\-Platform (
+\begin{DoxyParamCaption}
+\item[{{\bf Character} $\ast$}]{c, }
+\item[{{\bf platform\-Set} $\ast$}]{ps, }
+\item[{{\bf list} $\ast$}]{l, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{mobile__platform_8c_ac7f7be766f936d9c7d3cb08eaa9bddb7}
+moves all the platforms 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em c} & the player \\
+\hline
+\mbox{\tt in,out}  & {\em ps} & the platform set \\
+\hline
+\mbox{\tt in,out}  & {\em l} & the enemy list \\
+\hline
+\mbox{\tt in}  & {\em m} & the game map \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mobile__platform_8c_ac7f7be766f936d9c7d3cb08eaa9bddb7_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{mobile__platform_8c_a31e2f2a28818722c75562e1eee0f5816}{\index{mobile\-\_\-platform.\-c@{mobile\-\_\-platform.\-c}!platform\-Map@{platform\-Map}}
+\index{platform\-Map@{platform\-Map}!mobile_platform.c@{mobile\-\_\-platform.\-c}}
+\subsubsection[{platform\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void platform\-Map (
+\begin{DoxyParamCaption}
+\item[{{\bf platform\-Set} $\ast$}]{ps, }
+\item[{S\-D\-L\-\_\-\-Rect}]{array\mbox{[}$\,$\mbox{]}, }
+\item[{S\-D\-L\-\_\-\-Rect}]{mark, }
+\item[{int}]{vert}
+\end{DoxyParamCaption}
+)}}\label{mobile__platform_8c_a31e2f2a28818722c75562e1eee0f5816}
+takes a limit mark for a vertical deplacement platform and creates a new platform if finds another limit mark which match it, stocks it if doesn't find another limit mark 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em ps} & the platform set \\
+\hline
+\mbox{\tt in,out}  & {\em array} & the array that stocks the limit marks \\
+\hline
+\mbox{\tt in}  & {\em mark} & the mark which has to be dealt with \\
+\hline
+\mbox{\tt in}  & {\em vert} & indicates if vertical movement(1) plarform or horizontal (0) \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mobile__platform_8c_a31e2f2a28818722c75562e1eee0f5816_cgraph}
+\end{center}
+\end{figure}
+
+

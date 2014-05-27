@@ -1,0 +1,5 @@
+<map id="moveOnePlatform" name="moveOnePlatform">
+<area shape="rect" id="node2" href="$character_8c.html#a7b6d5ab652a57c5d6ffbaea628164402" title="collisionSprite" alt="" coords="182,5,285,32"/>
+<area shape="rect" id="node3" href="$character_8c.html#a81dc963e2a308d0e3e627b7652aa7489" title="checkWall" alt="" coords="192,56,275,83"/>
+<area shape="rect" id="node4" href="$character_8c.html#aea69b279f0dc778dde496ea610f1aa82" title="checkFall" alt="" coords="194,107,273,133"/>
+</map>

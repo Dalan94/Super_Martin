@@ -1,0 +1,9 @@
+<map id="menuPlayers" name="menuPlayers">
+<area shape="rect" id="node2" href="$image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="158,5,277,32"/>
+<area shape="rect" id="node3" href="$input_8c.html#ad630e59ba080f6bbde9d4e1de45b126c" title="initInput" alt="" coords="183,56,251,83"/>
+<area shape="rect" id="node4" href="$input_8c.html#adf8840e198ccba8364c2d051b700a690" title="updateWaitEvents" alt="" coords="153,107,282,133"/>
+<area shape="rect" id="node5" href="$input_8c.html#aa6bee0b289cdccb4873683ffeaadc78e" title="inputActionMenu" alt="" coords="158,157,277,184"/>
+<area shape="rect" id="node6" href="$share_8c.html#a6e428694268169eee69c8f07827e72de" title="waitFPS" alt="" coords="181,208,253,235"/>
+<area shape="rect" id="node7" href="$text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="181,259,254,285"/>
+<area shape="rect" id="node8" href="$file__level_8h.html#a3fafc12e3c322fc5a8166f7fb323bfe6" title="closeLevelList" alt="" coords="165,309,270,336"/>
+</map>

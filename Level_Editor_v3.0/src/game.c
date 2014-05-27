@@ -80,10 +80,15 @@ void play(SDL_Surface *screen, char *level_name, SDLKey *kc){
 
 void printConfirmation(SDL_Surface *screen, Input *in, int *go)
 {
-    SDL_Surface *Continue = NULL;
+    SDL_Surface *Continue=NULL;
     SDL_Rect posContinue, posText;
 
     Continue = IMG_Load("../Super_Martin/sprites/game-over.jpg");
+    if(Continue == NULL)
+    {
+        perror("error while loading sprite");
+        exit(errno);
+    }
     posContinue.x = posContinue.y = 0;
     SDL_SetAlpha(Continue, SDL_SRCALPHA, 200);
     SDL_BlitSurface(Continue,NULL,screen,&posContinue);
@@ -116,6 +121,5 @@ void printConfirmation(SDL_Surface *screen, Input *in, int *go)
         }
         SDL_Flip(screen);
     }
-
     SDL_FreeSurface(Continue);
 }

@@ -3,7 +3,7 @@
 }
 
 
-header de \hyperlink{map_8c}{map.\-c}  
+\hyperlink{map_8c}{map.\-c} header  
 
 
 {\ttfamily \#include $<$stdlib.\-h$>$}\\*
@@ -13,36 +13,40 @@ header de \hyperlink{map_8c}{map.\-c}
 {\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
 {\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}file\-\_\-level.\-h\char`\"{}}\\*
-Include dependency graph for map.\-h\-:\nopagebreak
+Include dependency graph for map.\-h\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{map_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=222pt]{map_8h__dep__incl}
+\includegraphics[width=350pt]{map_8h__dep__incl}
 \end{center}
 \end{figure}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{map_8h_afc8482e2afe6f96b7d6cb6ce3fc7081c}{update\-Screen\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_map}{Map} $\ast$m, char $\ast$tileset)
+void \hyperlink{map_8h_af619e544195a93ceefc21d2bea802747}{update\-Screen\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_map}{Map} $\ast$m, char $\ast$tile\-Set)
 \item 
 void \hyperlink{map_8h_a6f031e5ad35ada9038d3a72a56053760}{scrolling} (\hyperlink{struct_map}{Map} $\ast$m, int direction, float speed)
 \item 
-\hyperlink{struct_map}{Map} $\ast$ \hyperlink{map_8h_a92c61ecb670c1960ed8bff4819485094}{init\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name)
+\hyperlink{struct_map}{Map} $\ast$ \hyperlink{map_8h_a4e2ce263b91d4c8915e26d5792e10747}{init\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name, \hyperlink{structlist}{list} $\ast$l, \hyperlink{structplatform_set}{platform\-Set} $\ast$ps)
 \item 
 \hypertarget{map_8h_ac8d4dd6fc80c79d9cb5899684740d074}{void {\bfseries free\-Map} (\hyperlink{struct_map}{Map} $\ast$m)}\label{map_8h_ac8d4dd6fc80c79d9cb5899684740d074}
 
+\item 
+int \hyperlink{map_8h_ae32a40e3748534ab093e499dec3bccbd}{collision\-Map} (S\-D\-L\-\_\-\-Rect r, \hyperlink{struct_map}{Map} $\ast$m)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-header de \hyperlink{map_8c}{map.\-c} \begin{DoxyAuthor}{Author}
+\hyperlink{map_8c}{map.\-c} header \begin{DoxyAuthor}{Author}
 Xavier C\-O\-P\-O\-N\-E\-T 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
@@ -51,31 +55,68 @@ Xavier C\-O\-P\-O\-N\-E\-T
 
 
 \subsection{Function Documentation}
-\hypertarget{map_8h_a92c61ecb670c1960ed8bff4819485094}{\index{map.\-h@{map.\-h}!init\-Map@{init\-Map}}
+\hypertarget{map_8h_ae32a40e3748534ab093e499dec3bccbd}{\index{map.\-h@{map.\-h}!collision\-Map@{collision\-Map}}
+\index{collision\-Map@{collision\-Map}!map.h@{map.\-h}}
+\subsubsection[{collision\-Map}]{\setlength{\rightskip}{0pt plus 5cm}int collision\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Rect}]{r, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{map_8h_ae32a40e3748534ab093e499dec3bccbd}
+determine if there is a collision beteewen a sprite and a \char`\"{}wall\char`\"{} of the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em r} & S\-D\-L\-\_\-\-Rect corresponding to the sprite \\
+\hline
+\mbox{\tt in}  & {\em m} & map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if there is a collision, 0 if not,2 if collision with star/coin, 3 if spring 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{map_8h_ae32a40e3748534ab093e499dec3bccbd_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8h_a4e2ce263b91d4c8915e26d5792e10747}{\index{map.\-h@{map.\-h}!init\-Map@{init\-Map}}
 \index{init\-Map@{init\-Map}!map.h@{map.\-h}}
 \subsubsection[{init\-Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map}$\ast$ init\-Map (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
-\item[{char $\ast$}]{level\-\_\-name}
+\item[{char $\ast$}]{level\-\_\-name, }
+\item[{{\bf list} $\ast$}]{l, }
+\item[{{\bf platform\-Set} $\ast$}]{ps}
 \end{DoxyParamCaption}
-)}}\label{map_8h_a92c61ecb670c1960ed8bff4819485094}
-initialise la carte 
+)}}\label{map_8h_a4e2ce263b91d4c8915e26d5792e10747}
+initialize the map 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em screen} & l'écran de jeu \\
+\mbox{\tt in}  & {\em screen} & game screen \\
 \hline
-\mbox{\tt in}  & {\em level\-\_\-name} & le nom du niveau \\
+\mbox{\tt in}  & {\em level\-\_\-name} & lvl name \\
+\hline
+\mbox{\tt out}  & {\em l} & the enemy list that stocks the enemies \\
+\hline
+\mbox{\tt out}  & {\em ps} & the platform set for the mobile platforms \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-un pointeur sur la carte initialisée 
+pointer on the map 
 \end{DoxyReturn}
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=318pt]{map_8h_a92c61ecb670c1960ed8bff4819485094_cgraph}
+\includegraphics[width=350pt]{map_8h_a4e2ce263b91d4c8915e26d5792e10747_cgraph}
 \end{center}
 \end{figure}
 
@@ -89,16 +130,16 @@ Here is the call graph for this function\-:\nopagebreak
 \item[{float}]{speed}
 \end{DoxyParamCaption}
 )}}\label{map_8h_a6f031e5ad35ada9038d3a72a56053760}
-effectue un scrolling 
+scroll the map 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in,out}  & {\em map} & Le niveau à gérer \\
+\mbox{\tt in,out}  & {\em map} & the lvl \\
 \hline
-\mbox{\tt in}  & {\em direction} & La direction de scrolling \\
+\mbox{\tt in}  & {\em direction} & scrolling direction \\
 \hline
-\mbox{\tt in}  & {\em speed} & la vitesse de scrolling \\
+\mbox{\tt in}  & {\em speed} & scrolling speed \\
 \hline
 \end{DoxyParams}
-\hypertarget{map_8h_afc8482e2afe6f96b7d6cb6ce3fc7081c}{\index{map.\-h@{map.\-h}!update\-Screen\-Map@{update\-Screen\-Map}}
+\hypertarget{map_8h_af619e544195a93ceefc21d2bea802747}{\index{map.\-h@{map.\-h}!update\-Screen\-Map@{update\-Screen\-Map}}
 \index{update\-Screen\-Map@{update\-Screen\-Map}!map.h@{map.\-h}}
 \subsubsection[{update\-Screen\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void update\-Screen\-Map (
 \begin{DoxyParamCaption}
@@ -106,23 +147,24 @@ effectue un scrolling
 \item[{{\bf Map} $\ast$}]{m, }
 \item[{char $\ast$}]{tileset}
 \end{DoxyParamCaption}
-)}}\label{map_8h_afc8482e2afe6f96b7d6cb6ce3fc7081c}
-met à jour l'écran avec les données de la carte (ignore les personnages) 
+)}}\label{map_8h_af619e544195a93ceefc21d2bea802747}
+update and display the map 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in,out}  & {\em screen} & of the game \\
+\mbox{\tt in,out}  & {\em game} & screen \\
 \hline
 \mbox{\tt in}  & {\em \hyperlink{struct_map}{Map}} & $\ast$m The map \\
 \hline
-\mbox{\tt in}  & {\em tileset} & lvl tileset \\
+\mbox{\tt in}  & {\em tileset} & the level tileset \\
 \hline
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=302pt]{map_8h_afc8482e2afe6f96b7d6cb6ce3fc7081c_cgraph}
+\includegraphics[width=302pt]{map_8h_af619e544195a93ceefc21d2bea802747_cgraph}
 \end{center}
 \end{figure}
 

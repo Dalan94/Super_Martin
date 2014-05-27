@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['updateevents',['updateEvents',['../input_8c.html#a96302a81fac34b8c2bfa2add1a03d802',1,'input.c']]],
-  ['updatescreenmap',['updateScreenMap',['../map_8c.html#afc8482e2afe6f96b7d6cb6ce3fc7081c',1,'updateScreenMap(SDL_Surface *screen, Map *m, char *tileset):&#160;map.c'],['../map_8h.html#afc8482e2afe6f96b7d6cb6ce3fc7081c',1,'updateScreenMap(SDL_Surface *screen, Map *m, char *tileset):&#160;map.c']]],
-  ['updatespeed',['updateSpeed',['../game_8c.html#a1bd040efd0195821d1e069d4006ffabf',1,'updateSpeed(float *speed, int acceleration):&#160;game.c'],['../game_8h.html#a1bd040efd0195821d1e069d4006ffabf',1,'updateSpeed(float *speed, int acceleration):&#160;game.c']]],
-  ['updatewaitevents',['updateWaitEvents',['../input_8c.html#ad3310b398fa046500863c183fd4468e6',1,'input.c']]]
+  ['openfile',['openFile',['../file_8c.html#ab763060cbdd57fdb704871d896fc492a',1,'openFile(char name[], char mode[]):&#160;file.c'],['../file_8h.html#a279d2082dd2ddcdbbce81da176f135b4',1,'openFile(char name[], char mode[]):&#160;file.c']]],
+  ['openlevel',['openLevel',['../file__level_8h.html#a05b04a7e24539a2ae826cfb87ea4d859',1,'file_level.c']]],
+  ['outoflist',['outOfList',['../enemies_8c.html#a7774be61944dce2ae021e0e4442b4515',1,'outOfList(list *l):&#160;enemies.c'],['../enemies_8h.html#a7774be61944dce2ae021e0e4442b4515',1,'outOfList(list *l):&#160;enemies.c']]]
 ];

@@ -11,14 +11,19 @@ Gestion des fichiers de carte.
 {\ttfamily \#include $<$string.\-h$>$}\\*
 {\ttfamily \#include \char`\"{}file.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}const.\-h\char`\"{}}\\*
-Include dependency graph for file\-\_\-level.\-h\-:\nopagebreak
+{\ttfamily \#include \char`\"{}structures.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}enemies.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}mobile\-\_\-platform.\-h\char`\"{}}\\*
+Include dependency graph for file\-\_\-level.\-h\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=339pt]{file__level_8h__incl}
+\includegraphics[width=350pt]{file__level_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -40,15 +45,14 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{struct_level}{Level} $\ast$ \hyperlink{file__level_8h_a149f2e0878473ca6968717a39c119639}{open\-Level} (char $\ast$file\-\_\-name)
+\hyperlink{struct_level}{Level} $\ast$ \hyperlink{file__level_8h_a05b04a7e24539a2ae826cfb87ea4d859}{open\-Level} (char $\ast$file\-\_\-name, \hyperlink{structlist}{list} $\ast$l, \hyperlink{structplatform_set}{platform\-Set} $\ast$ps)
 \item 
 void \hyperlink{file__level_8h_a38020f30305d2344cdf39d06c7e8768e}{close\-Level} (\hyperlink{struct_level}{Level} $\ast$lvl)
 \item 
 \hyperlink{struct_level}{Level} $\ast$ \hyperlink{file__level_8h_a1749fb3f97d8b947c393f8eac9d29707}{init\-Level} (\hyperlink{struct_level}{Level} $\ast$lvl)
 \item 
-void \hyperlink{file__level_8h_aa22f94cc3689a4c98d553ff300c32bc9}{write\-Level} (char $\ast$file\-\_\-name, \hyperlink{struct_level}{Level} $\ast$lvl)
-\item 
-char $\ast$$\ast$ \hyperlink{file__level_8h_af646d7df8d540e24e2acc84fc3ea3ad3}{read\-Level\-File} (int $\ast$nb\-\_\-lvl)
+\hypertarget{file__level_8h_ad0e6f3889cea3bf75de57060534d5760}{char $\ast$$\ast$ {\bfseries read\-Level\-File} (char $\ast$file\-\_\-path, int $\ast$nb\-\_\-lvl)}\label{file__level_8h_ad0e6f3889cea3bf75de57060534d5760}
+
 \item 
 void \hyperlink{file__level_8h_a3fafc12e3c322fc5a8166f7fb323bfe6}{close\-Level\-List} (char $\ast$$\ast$level\-\_\-names, int nb\-\_\-lvl)
 \end{DoxyCompactItemize}
@@ -74,9 +78,9 @@ Remi B\-E\-R\-T\-H\-O
 \item[{{\bf Level} $\ast$}]{lvl}
 \end{DoxyParamCaption}
 )}}\label{file__level_8h_a38020f30305d2344cdf39d06c7e8768e}
-Ferme un niveau 
+close a level freeing its allocated memory 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em lvl} & le niveau \\
+\mbox{\tt out}  & {\em lvl} & the level to be closed \\
 \hline
 \end{DoxyParams}
 \hypertarget{file__level_8h_a3fafc12e3c322fc5a8166f7fb323bfe6}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!close\-Level\-List@{close\-Level\-List}}
@@ -87,11 +91,11 @@ Ferme un niveau
 \item[{int}]{nb\-\_\-lvl}
 \end{DoxyParamCaption}
 )}}\label{file__level_8h_a3fafc12e3c322fc5a8166f7fb323bfe6}
-Desalloue la liste des noms de niveau 
+desallocate the level name list 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in,out}  & {\em level\-\_\-names} & la liste des noms de niveau \\
+\mbox{\tt in,out}  & {\em level\-\_\-names} & level name list \\
 \hline
-\mbox{\tt in}  & {\em nb\-\_\-lvl} & le nombre de niveau \\
+\mbox{\tt in}  & {\em nb\-\_\-lvl} & number of level \\
 \hline
 \end{DoxyParams}
 \hypertarget{file__level_8h_a1749fb3f97d8b947c393f8eac9d29707}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!init\-Level@{init\-Level}}
@@ -101,88 +105,43 @@ Desalloue la liste des noms de niveau
 \item[{{\bf Level} $\ast$}]{lvl}
 \end{DoxyParamCaption}
 )}}\label{file__level_8h_a1749fb3f97d8b947c393f8eac9d29707}
-Initialise un niveau en supposant que sa largeur et sa hauteur sont deja dans le niveau 
+Initialize a level assuming its width and height fields are already set 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em lvl} & le niveau \\
+\mbox{\tt out}  & {\em lvl} & the level \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-un pointeur sur le niveau 
+a pointer on the level structure 
 \end{DoxyReturn}
-\hypertarget{file__level_8h_a149f2e0878473ca6968717a39c119639}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!open\-Level@{open\-Level}}
+\hypertarget{file__level_8h_a05b04a7e24539a2ae826cfb87ea4d859}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!open\-Level@{open\-Level}}
 \index{open\-Level@{open\-Level}!file_level.h@{file\-\_\-level.\-h}}
 \subsubsection[{open\-Level}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Level}$\ast$ open\-Level (
 \begin{DoxyParamCaption}
-\item[{char $\ast$}]{file\-\_\-name}
-\end{DoxyParamCaption}
-)}}\label{file__level_8h_a149f2e0878473ca6968717a39c119639}
-Ouvre un fichier map, et le stocke 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em file\-\_\-name} & le nom du fichier \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-un pointeur sur le niveau 
-\end{DoxyReturn}
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=234pt]{file__level_8h_a149f2e0878473ca6968717a39c119639_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{file__level_8h_af646d7df8d540e24e2acc84fc3ea3ad3}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!read\-Level\-File@{read\-Level\-File}}
-\index{read\-Level\-File@{read\-Level\-File}!file_level.h@{file\-\_\-level.\-h}}
-\subsubsection[{read\-Level\-File}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ read\-Level\-File (
-\begin{DoxyParamCaption}
-\item[{int $\ast$}]{nb\-\_\-lvl}
-\end{DoxyParamCaption}
-)}}\label{file__level_8h_af646d7df8d540e24e2acc84fc3ea3ad3}
-Lis le fichier level 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em nb\-\_\-lvl} & le nombre de niveau \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-un pointeur sur la liste des niveaux cree 
-\end{DoxyReturn}
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=246pt]{file__level_8h_af646d7df8d540e24e2acc84fc3ea3ad3_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{file__level_8h_aa22f94cc3689a4c98d553ff300c32bc9}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!write\-Level@{write\-Level}}
-\index{write\-Level@{write\-Level}!file_level.h@{file\-\_\-level.\-h}}
-\subsubsection[{write\-Level}]{\setlength{\rightskip}{0pt plus 5cm}void write\-Level (
-\begin{DoxyParamCaption}
 \item[{char $\ast$}]{file\-\_\-name, }
-\item[{{\bf Level} $\ast$}]{lvl}
+\item[{{\bf list} $\ast$}]{l, }
+\item[{{\bf platform\-Set} $\ast$}]{ps}
 \end{DoxyParamCaption}
-)}}\label{file__level_8h_aa22f94cc3689a4c98d553ff300c32bc9}
-Ecrit le niveau dans un fichier 
+)}}\label{file__level_8h_a05b04a7e24539a2ae826cfb87ea4d859}
+Open a map file and stock the map and the enemies 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em lvl} & le niveau \\
+\mbox{\tt in}  & {\em file\-\_\-name} & the map file name \\
 \hline
-\mbox{\tt in}  & {\em file\-\_\-name} & le nom du fichier \\
+\mbox{\tt out}  & {\em l} & the enemy list to stock the enemies. \\
+\hline
+\mbox{\tt out}  & {\em ps} & the platform set for mobile platforms \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer on the level structure 
+\end{DoxyReturn}
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=234pt]{file__level_8h_aa22f94cc3689a4c98d553ff300c32bc9_cgraph}
+\includegraphics[width=350pt]{file__level_8h_a05b04a7e24539a2ae826cfb87ea4d859_cgraph}
 \end{center}
 \end{figure}
 

@@ -12,7 +12,7 @@ int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,
 {
     SDL_Surface *waiting;
     SDL_Rect posText, posWait;
-    int text_size = 40;
+    int text_size = 25;
     int i, incr, ret = 0;
     int wrong_player = 1;
     int nb_players;
@@ -65,29 +65,29 @@ int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,
             else
             {
                 posText.x = -1;
-                posText.y = 280;
+                posText.y = 250;
                 captureText(screen, posText, player_name, MAX_SIZE_FILE_NAME, 0, 0, 0, "polices/PressStart2P.ttf", text_size, go, &ret);
             }
         }
-        text_size = 20;
+        text_size = 23;
         ret = 0;
         for(i = 0; !ret && *go && i < nb_players-1; i++)
         {
             if(!(strcmp(player_name, player_list[i])))
             {
                 posText.x = -1;
-                posText.y = 380;
+                posText.y = 300;
 
                 sprintf(tmp, "%s already exists. Do you want to continue (y/n) ?", player_name);
                 printText(screen, &posText, tmp, 0, 0, 0, "polices/PressStart2P.ttf", text_size, 1);
                 posText.x = -1;
-                posText.y = 420;
+                posText.y = 350;
                 sprintf(tmp, "The progression of %s will be erased ", player_name);
                 printText(screen, &posText, tmp, 0, 0, 0, "polices/PressStart2P.ttf", text_size, 1);
 
                 SDL_Flip(screen);
                 posText.x = -1;
-                posText.y = 480;
+                posText.y = 400;
                 captureText(screen, posText, choice, 1, 0, 0, 0, "polices/PressStart2P.ttf", text_size, go, &ret);
 
                 if(choice[0] == 'n')
@@ -131,7 +131,7 @@ int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,
     while(!ret && *go)
     {
         posText.x = -1;
-        posText.y = 530;
+        posText.y = 450;
         printText(screen, &posText, tmp, 0, 0, 0, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
         SDL_Flip(screen);
         updateWaitEvents(&in, NULL);
@@ -141,8 +141,9 @@ int newPlayer(SDL_Surface *screen,char player_name[MAX_SIZE_FILE_NAME],Sound *s,
             in.key[SDLK_RETURN] = 0;
         }
     }
-    sprintf(path,"touch configuration/%s.conf",player_name);
-    system(path);
+    sprintf(path,"configuration/%s.conf",player_name);
+    closeFile(openFile(path,"w"));
+    SDL_FreeSurface(waiting);
     return res;
 }
 
@@ -335,7 +336,7 @@ void deletePlayer(SDL_Surface *screen, char fileSave[MAX_SIZE_FILE_NAME], char p
 
     /*  Text size */
 
-    text_size = 40;
+    text_size = 25;
 
     /*  Initialization of the structure input */
 
@@ -351,11 +352,11 @@ void deletePlayer(SDL_Surface *screen, char fileSave[MAX_SIZE_FILE_NAME], char p
 
         SDL_BlitSurface(waiting, NULL, screen, &posWait);
         posText.x = -1; // Center the text
-        posText.y = 150;
-        printText(screen, &posText, "Do you really want to delete the player :", 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        posText.y = 250;
+        printText(screen, &posText, "Do you really want to delete the player :", 0, 0, 0, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
         posText.x = -1;
-        posText.y = 210;
-        printText(screen, &posText, confirmation, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        posText.y = 300;
+        printText(screen, &posText, confirmation, 0, 0, 0, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
         updateEvents(&in, NULL);
         if(in.key[SDLK_y])
         {
@@ -396,11 +397,11 @@ void deletePlayer(SDL_Surface *screen, char fileSave[MAX_SIZE_FILE_NAME], char p
         if(event_appear)
         {
             posText.x = -1;
-            posText.y = 300;
-            printText(screen, &posText, deleted, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+            posText.y = 400;
+            printText(screen, &posText, deleted, 0, 0, 0, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
             posText.x = -1;
-            posText.y = 350;
-            printText(screen, &posText, pressEnter, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+            posText.y = 450;
+            printText(screen, &posText, pressEnter, 0, 0, 0, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
         }
 
         SDL_Flip(screen);

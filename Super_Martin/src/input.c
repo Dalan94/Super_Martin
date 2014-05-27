@@ -183,6 +183,8 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     if((in->key[kc[J]] || (in->isJoystick&&in->button[A])) && player->wallJump == 2
         && (in->key[kc[L]] || (in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT || in->axes[0] < -3000))) && !in->space)
         *jump = 4;
+    if((player->location.x < 17 && *jump >0 ))
+        *jump = 0;
 
     if((!in->key[kc[J]] && (!in->isJoystick||!in->button[A])) && *(jump)==1)
     {
