@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Super Martin: menu.h File Reference</title>
+<title>Super Martin Level Editor: menu.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Super Martin
+   <div id="projectname">Super Martin Level Editor
    </div>
   </td>
  </tr>
@@ -90,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>header de <a class="el" href="menu_8c.html" title="contient les fonction liées au menu ">menu.c</a>  
+<p>header de <a class="el" href="menu_8c.html" title="Contain the main menu management. ">menu.c</a>  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br/>
 <code>#include &lt;stdio.h&gt;</code><br/>
@@ -100,55 +100,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;SDL/SDL_ttf.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="const_8h_source.html">const.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="text_8h_source.html">text.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="sound_8h_source.html">sound.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="share_8h_source.html">share.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="image_8h_source.html">image.h</a>&quot;</code><br/>
 <code>#include &quot;input.h&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for menu.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="menu_8h__incl.png" border="0" usemap="#menu_8h" alt=""/></div>
-<map name="menu_8h" id="menu_8h">
-<area shape="rect" id="node15" href="const_8h.html" title="contient les constantes du programme " alt="" coords="997,337,1061,370"/><area shape="rect" id="node17" href="text_8h.html" title="header de text.c " alt="" coords="299,254,352,287"/><area shape="rect" id="node25" href="sound_8h.html" title="header de sound.c " alt="" coords="1400,337,1467,370"/><area shape="rect" id="node32" href="share_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1048,254,1112,287"/><area shape="rect" id="node36" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="603,254,669,287"/><area shape="rect" id="node44" href="input_8h_source.html" title="input.h" alt="" coords="785,89,847,122"/><area shape="rect" id="node50" href="player_8h.html" title="header de player.c " alt="" coords="927,171,993,205"/><area shape="rect" id="node58" href="file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1187,254,1269,287"/><area shape="rect" id="node64" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="1136,337,1187,370"/></map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="menu_8h__dep__incl.png" border="0" usemap="#menu_8hdep" alt=""/></div>
-<map name="menu_8hdep" id="menu_8hdep">
-<area shape="rect" id="node3" href="main_8c.html" title="main.c" alt="" coords="5,89,67,122"/><area shape="rect" id="node5" href="menu_8c.html" title="contient les fonction liées au menu " alt="" coords="91,89,155,122"/></map>
-</div>
 </div>
 <p><a href="menu_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4604196e3bcbd88eb0a7888effc9dc6f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4604196e3bcbd88eb0a7888effc9dc6f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>menu</b> (SDL_Surface *screen, int *continuer, <a class="el" href="struct_sound.html">Sound</a> *s)</td></tr>
-<tr class="separator:a4604196e3bcbd88eb0a7888effc9dc6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a379c27eb17605f99e8d92b6045104ed4"><td class="memItemLeft" align="right" valign="top">Uint32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a379c27eb17605f99e8d92b6045104ed4">blinkText</a> (Uint32 interval, void *param)</td></tr>
-<tr class="separator:a379c27eb17605f99e8d92b6045104ed4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b210afb32784dfdf07bd2d4ef25e0bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a9b210afb32784dfdf07bd2d4ef25e0bc">menu</a> (SDL_Surface *screen, int *choice, int *go)</td></tr>
+<tr class="separator:a9b210afb32784dfdf07bd2d4ef25e0bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e385684b2e6cc22168f98525f3693d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="menu_8h.html#a2e385684b2e6cc22168f98525f3693d8">menuTileSet</a> (SDL_Surface *screen, char tileSet_name[<a class="el" href="const_8h.html#a9620725a4f8ab39e0912adede7cb347f">MAX_LENGTH_FILE_NAME</a>])</td></tr>
+<tr class="separator:a2e385684b2e6cc22168f98525f3693d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>header de <a class="el" href="menu_8c.html" title="contient les fonction liées au menu ">menu.c</a> </p>
+<div class="textblock"><p>header de <a class="el" href="menu_8c.html" title="Contain the main menu management. ">menu.c</a> </p>
 <dl class="section author"><dt>Author</dt><dd>Xavier COPONET </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2014-02-27 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a379c27eb17605f99e8d92b6045104ed4"></a>
+<a class="anchor" id="a9b210afb32784dfdf07bd2d4ef25e0bc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Uint32 blinkText </td>
+          <td class="memname">int menu </td>
           <td>(</td>
-          <td class="paramtype">Uint32&#160;</td>
-          <td class="paramname"><em>interval</em>, </td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>screen</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>param</em>&#160;</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>choice</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>go</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -157,21 +147,76 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>menu</b> (SDL_Surface 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>toggle the printing text boolean </p>
+<p>Display the menu on the screen </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">interval</td><td>the interval between two callback of the function </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>the screen of the game </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">choice</td><td>the option selected </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">go</td><td>the main loop validation </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1000 if the boolean is right, 600 if not </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if an option has been selected </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="menu_8h_a9b210afb32784dfdf07bd2d4ef25e0bc_cgraph.png" border="0" usemap="#menu_8h_a9b210afb32784dfdf07bd2d4ef25e0bc_cgraph" alt=""/></div>
+<map name="menu_8h_a9b210afb32784dfdf07bd2d4ef25e0bc_cgraph" id="menu_8h_a9b210afb32784dfdf07bd2d4ef25e0bc_cgraph">
+<area shape="rect" id="node2" href="image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="122,5,241,32"/><area shape="rect" id="node3" href="input_8c.html#ad3310b398fa046500863c183fd4468e6" title="updateWaitEvents" alt="" coords="117,56,246,83"/><area shape="rect" id="node4" href="input_8c.html#aac9044909637f02a277d101651e126a7" title="keyboardActionMenu" alt="" coords="109,107,253,133"/><area shape="rect" id="node5" href="share_8c.html#a6e428694268169eee69c8f07827e72de" title="waitFPS" alt="" coords="145,157,217,184"/><area shape="rect" id="node6" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="145,208,218,235"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e385684b2e6cc22168f98525f3693d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int menuTileSet </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>screen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>tileSet_name</em>[MAX_LENGTH_FILE_NAME]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Display the tileset menu on the screen </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>the screen of the game </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tileSet_name</td><td>The name of the tileSet selected </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if a tileset has been selected </dd></dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="menu_8h_a2e385684b2e6cc22168f98525f3693d8_cgraph.png" border="0" usemap="#menu_8h_a2e385684b2e6cc22168f98525f3693d8_cgraph" alt=""/></div>
+<map name="menu_8h_a2e385684b2e6cc22168f98525f3693d8_cgraph" id="menu_8h_a2e385684b2e6cc22168f98525f3693d8_cgraph">
+<area shape="rect" id="node2" href="image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="162,5,281,32"/><area shape="rect" id="node3" href="input_8c.html#ad3310b398fa046500863c183fd4468e6" title="updateWaitEvents" alt="" coords="157,56,286,83"/><area shape="rect" id="node4" href="input_8c.html#aac9044909637f02a277d101651e126a7" title="keyboardActionMenu" alt="" coords="149,107,293,133"/><area shape="rect" id="node5" href="share_8c.html#a6e428694268169eee69c8f07827e72de" title="waitFPS" alt="" coords="185,157,257,184"/><area shape="rect" id="node6" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="185,208,258,235"/></map>
+</div>
+</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 21:35:36 for Super Martin Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

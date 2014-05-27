@@ -26,6 +26,5 @@ var searchData=
   ['spring_5fheight',['SPRING_HEIGHT',['../const_8h.html#a5428d8bf17c0f4fe436dd5d3008a64fb',1,'const.h']]],
   ['sprite',['sprite',['../structplatform.html#a1c7252614a33238e51edd3bbd5fa08c5',1,'platform::sprite()'],['../structprojectile.html#a1c7252614a33238e51edd3bbd5fa08c5',1,'projectile::sprite()']]],
   ['stopsound',['stopSound',['../sound_8c.html#a18be184fe7f93acf424e2fb881c92218',1,'stopSound(Sound *s, int chan):&#160;sound.c'],['../sound_8h.html#a18be184fe7f93acf424e2fb881c92218',1,'stopSound(Sound *s, int chan):&#160;sound.c']]],
-  ['structures_2eh',['structures.h',['../structures_8h.html',1,'']]],
-  ['sys',['sys',['../struct_sound.html#ae043bb23ee313709e1c605dd6c06d317',1,'Sound']]]
+  ['structures_2eh',['structures.h',['../structures_8h.html',1,'']]]
 ];

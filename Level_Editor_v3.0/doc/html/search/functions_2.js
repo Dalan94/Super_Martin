@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['freesound',['freeSound',['../sound_8c.html#acc13f1ac1e0bac5afe39405869772a08',1,'freeSound(Sound *s):&#160;sound.c'],['../sound_8h.html#acc13f1ac1e0bac5afe39405869772a08',1,'freeSound(Sound *s):&#160;sound.c']]]
+  ['deletemap',['deleteMap',['../map_8c.html#a282d563a5925d1581f1c291480d429c6',1,'deleteMap(SDL_Surface *screen, char *map_name, char *map_path):&#160;map.c'],['../map_8h.html#a282d563a5925d1581f1c291480d429c6',1,'deleteMap(SDL_Surface *screen, char *map_name, char *map_path):&#160;map.c']]],
+  ['displayhelp',['displayHelp',['../map_8c.html#a7a6108fe5abfab806adec1371905007f',1,'displayHelp(SDL_Surface *screen, SDLKey *kc):&#160;map.c'],['../map_8h.html#a7a6108fe5abfab806adec1371905007f',1,'displayHelp(SDL_Surface *screen, SDLKey *kc):&#160;map.c']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['scrolling',['scrolling',['../map_8c.html#a6f031e5ad35ada9038d3a72a56053760',1,'scrolling(Map *m, int direction, float speed):&#160;map.c'],['../map_8h.html#a6f031e5ad35ada9038d3a72a56053760',1,'scrolling(Map *m, int direction, float speed):&#160;map.c']]],
-  ['soundvolume',['soundVolume',['../sound_8c.html#a63831c086cacea9358f5c86bebbfb288',1,'soundVolume(Sound *s, float volume):&#160;sound.c'],['../sound_8h.html#a63831c086cacea9358f5c86bebbfb288',1,'soundVolume(Sound *s, float volume):&#160;sound.c']]],
-  ['stopsound',['stopSound',['../sound_8c.html#ac3737f55b80ac35471d115d0304e8bc3',1,'stopSound(Sound *s):&#160;sound.c'],['../sound_8h.html#ac3737f55b80ac35471d115d0304e8bc3',1,'stopSound(Sound *s):&#160;sound.c']]]
+  ['openfile',['openFile',['../file_8c.html#ab763060cbdd57fdb704871d896fc492a',1,'openFile(char name[], char mode[]):&#160;file.c'],['../file_8h.html#ae6218cf222b5ca17dce1ad7eb75346a9',1,'openFile(char nome[], char mode[]):&#160;file.c']]],
+  ['openlevel',['openLevel',['../file__level_8c.html#a3933e20f86523f60b0c0da935f1b8846',1,'openLevel(char *file_name):&#160;file_level.c'],['../file__level_8h.html#a149f2e0878473ca6968717a39c119639',1,'openLevel(char *file_name):&#160;file_level.c']]]
 ];

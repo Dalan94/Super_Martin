@@ -1,7 +1,0 @@
-<map id="map.c" name="map.c">
-<area shape="rect" id="node3" href="$map_8h.html" title="header de map.c " alt="" coords="492,89,551,122"/>
-<area shape="rect" id="node15" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="488,171,555,205"/>
-<area shape="rect" id="node24" href="$file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="169,171,252,205"/>
-<area shape="rect" id="node22" href="$const_8h.html" title="contient les constantes du programme " alt="" coords="213,254,277,287"/>
-<area shape="rect" id="node30" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="352,254,403,287"/>
-</map>

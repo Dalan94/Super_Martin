@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['keyboardactiongame',['keyboardActionGame',['../input_8c.html#a02a609bb8821ffe9d5719858775e6f0c',1,'input.c']]],
-  ['keyboardactionmenu',['keyboardActionMenu',['../input_8c.html#af272764fd4eba51f28af6b9b56273b37',1,'input.c']]]
+  ['game_2ec',['game.c',['../game_8c.html',1,'']]],
+  ['game_2eh',['game.h',['../game_8h.html',1,'']]]
 ];

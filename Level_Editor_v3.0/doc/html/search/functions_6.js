@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['openfile',['openFile',['../file_8c.html#a8f17d8993e6de59936122f7c8ef4e37b',1,'openFile(char nom[], char mode[]):&#160;file.c'],['../file_8h.html#ae6218cf222b5ca17dce1ad7eb75346a9',1,'openFile(char nome[], char mode[]):&#160;file.c']]],
-  ['openlevel',['openLevel',['../file__level_8h.html#a149f2e0878473ca6968717a39c119639',1,'file_level.c']]]
+  ['keyboardactiongame',['keyboardActionGame',['../input_8c.html#a0f2aa7e2cd7674e43532893e4f2802e8',1,'input.c']]],
+  ['keyboardactionmenu',['keyboardActionMenu',['../input_8c.html#aac9044909637f02a277d101651e126a7',1,'input.c']]],
+  ['keyboardoptions',['keyBoardOptions',['../menu__option_8c.html#aec745341a7cdd39be0329420a1dccc43',1,'keyBoardOptions(SDL_Surface *screen, int *go, SDLKey *kc):&#160;menu_option.c'],['../menu__option_8h.html#aec745341a7cdd39be0329420a1dccc43',1,'keyBoardOptions(SDL_Surface *screen, int *go, SDLKey *kc):&#160;menu_option.c']]]
 ];

@@ -1,4 +1,4 @@
-\hypertarget{menu_8h}{\section{menu.\-h File Reference}
+\hypertarget{menu_8h}{\subsection{menu.\-h File Reference}
 \label{menu_8h}\index{menu.\-h@{menu.\-h}}
 }
 
@@ -14,35 +14,19 @@ header de \hyperlink{menu_8c}{menu.\-c}
 {\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-ttf.\-h$>$}\\*
 {\ttfamily \#include \char`\"{}const.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}text.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}sound.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}share.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
-Include dependency graph for menu.\-h\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{menu_8h__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=192pt]{menu_8h__dep__incl}
-\end{center}
-\end{figure}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{menu_8h_a4604196e3bcbd88eb0a7888effc9dc6f}{int {\bfseries menu} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$continuer, \hyperlink{struct_sound}{Sound} $\ast$s)}\label{menu_8h_a4604196e3bcbd88eb0a7888effc9dc6f}
-
+int \hyperlink{menu_8h_a9b210afb32784dfdf07bd2d4ef25e0bc}{menu} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$choice, int $\ast$go)
 \item 
-Uint32 \hyperlink{menu_8h_a379c27eb17605f99e8d92b6045104ed4}{blink\-Text} (Uint32 interval, void $\ast$param)
+int \hyperlink{menu_8h_a2e385684b2e6cc22168f98525f3693d8}{menu\-Tile\-Set} (S\-D\-L\-\_\-\-Surface $\ast$screen, char tile\-Set\-\_\-name\mbox{[}\hyperlink{const_8h_a9620725a4f8ab39e0912adede7cb347f}{M\-A\-X\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]})
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 header de \hyperlink{menu_8c}{menu.\-c} \begin{DoxyAuthor}{Author}
 Xavier C\-O\-P\-O\-N\-E\-T 
 \end{DoxyAuthor}
@@ -51,20 +35,67 @@ Xavier C\-O\-P\-O\-N\-E\-T
 \end{DoxyDate}
 
 
-\subsection{Function Documentation}
-\hypertarget{menu_8h_a379c27eb17605f99e8d92b6045104ed4}{\index{menu.\-h@{menu.\-h}!blink\-Text@{blink\-Text}}
-\index{blink\-Text@{blink\-Text}!menu.h@{menu.\-h}}
-\subsubsection[{blink\-Text}]{\setlength{\rightskip}{0pt plus 5cm}Uint32 blink\-Text (
+\subsubsection{Function Documentation}
+\hypertarget{menu_8h_a9b210afb32784dfdf07bd2d4ef25e0bc}{\index{menu.\-h@{menu.\-h}!menu@{menu}}
+\index{menu@{menu}!menu.h@{menu.\-h}}
+\paragraph[{menu}]{\setlength{\rightskip}{0pt plus 5cm}int menu (
 \begin{DoxyParamCaption}
-\item[{Uint32}]{interval, }
-\item[{void $\ast$}]{param}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{int $\ast$}]{choice, }
+\item[{int $\ast$}]{go}
 \end{DoxyParamCaption}
-)}}\label{menu_8h_a379c27eb17605f99e8d92b6045104ed4}
-toggle the printing text boolean 
+)}}\label{menu_8h_a9b210afb32784dfdf07bd2d4ef25e0bc}
+Display the menu on the screen 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em interval} & the interval between two callback of the function \\
+\mbox{\tt out}  & {\em screen} & the screen of the game \\
+\hline
+\mbox{\tt out}  & {\em choice} & the option selected \\
+\hline
+\mbox{\tt out}  & {\em go} & the main loop validation \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-1000 if the boolean is right, 600 if not 
+1 if an option has been selected 
 \end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{menu_8h_a9b210afb32784dfdf07bd2d4ef25e0bc_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{menu_8h_a2e385684b2e6cc22168f98525f3693d8}{\index{menu.\-h@{menu.\-h}!menu\-Tile\-Set@{menu\-Tile\-Set}}
+\index{menu\-Tile\-Set@{menu\-Tile\-Set}!menu.h@{menu.\-h}}
+\paragraph[{menu\-Tile\-Set}]{\setlength{\rightskip}{0pt plus 5cm}int menu\-Tile\-Set (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char}]{tile\-Set\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-L\-E\-N\-G\-T\-H\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{menu_8h_a2e385684b2e6cc22168f98525f3693d8}
+Display the tileset menu on the screen 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & the screen of the game \\
+\hline
+\mbox{\tt out}  & {\em tile\-Set\-\_\-name} & The name of the tile\-Set selected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if a tileset has been selected 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{menu_8h_a2e385684b2e6cc22168f98525f3693d8_cgraph}
+\end{center}
+\end{figure}
+
+

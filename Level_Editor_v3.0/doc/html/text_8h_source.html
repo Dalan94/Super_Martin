@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Super Martin: text.h Source File</title>
+<title>Super Martin Level Editor: text.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Super Martin
+   <div id="projectname">Super Martin Level Editor
    </div>
   </td>
  </tr>
@@ -95,21 +95,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;errno.h&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;structures.h&quot;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;SDL/SDL.h&gt;</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;SDL/SDL_image.h&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;SDL/SDL_ttf.h&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;input.h&quot;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">void</span> <a class="code" href="text_8h.html#a1bd80be1aff6fe5303bdd5aa80161da3">printText</a>(SDL_Surface *screen, SDL_Rect *posText, <span class="keywordtype">char</span> *text, <span class="keywordtype">int</span> r,<span class="keywordtype">int</span> g, <span class="keywordtype">int</span> b, <span class="keywordtype">char</span> *font,<span class="keywordtype">int</span> ptSize,<span class="keywordtype">int</span> mode);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif // TEXT_H</span></div>
-<div class="ttc" id="text_8h_html_a1bd80be1aff6fe5303bdd5aa80161da3"><div class="ttname"><a href="text_8h.html#a1bd80be1aff6fe5303bdd5aa80161da3">printText</a></div><div class="ttdeci">void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r, int g, int b, char *font, int ptSize, int mode)</div><div class="ttdef"><b>Definition:</b> text.c:23</div></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="text_8h.html#a1bd80be1aff6fe5303bdd5aa80161da3">printText</a>(SDL_Surface *screen, SDL_Rect *posText, <span class="keywordtype">char</span> *text, <span class="keywordtype">int</span> r,<span class="keywordtype">int</span> g, <span class="keywordtype">int</span> b, <span class="keywordtype">char</span> *font,<span class="keywordtype">int</span> ptSize,<span class="keywordtype">int</span> mode);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">void</span> <a class="code" href="text_8h.html#abd63f9d237bb4bc462d33c00802cd7b9">captureText</a>(SDL_Surface *screen, SDL_Rect posText,<span class="keywordtype">char</span> *text, <span class="keywordtype">int</span> text_length, <span class="keywordtype">int</span> r, <span class="keywordtype">int</span> g, <span class="keywordtype">int</span> b, <span class="keywordtype">char</span> *font, <span class="keywordtype">int</span> text_size,  <span class="keywordtype">int</span> *go);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#endif // TEXT_H</span></div>
+<div class="ttc" id="text_8h_html_a1bd80be1aff6fe5303bdd5aa80161da3"><div class="ttname"><a href="text_8h.html#a1bd80be1aff6fe5303bdd5aa80161da3">printText</a></div><div class="ttdeci">void printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r, int g, int b, char *font, int ptSize, int mode)</div><div class="ttdef"><b>Definition:</b> text.c:10</div></div>
+<div class="ttc" id="text_8h_html_abd63f9d237bb4bc462d33c00802cd7b9"><div class="ttname"><a href="text_8h.html#abd63f9d237bb4bc462d33c00802cd7b9">captureText</a></div><div class="ttdeci">void captureText(SDL_Surface *screen, SDL_Rect posText, char *text, int text_length, int r, int g, int b, char *font, int text_size, int *go)</div><div class="ttdef"><b>Definition:</b> text.c:64</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 21:35:36 for Super Martin Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

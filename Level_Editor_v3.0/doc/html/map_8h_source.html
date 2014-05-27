@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Super Martin: map.h Source File</title>
+<title>Super Martin Level Editor: map.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Super Martin
+   <div id="projectname">Super Martin Level Editor
    </div>
   </td>
  </tr>
@@ -99,24 +99,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &lt;SDL/SDL_image.h&gt;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="image_8h.html">image.h</a>&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="file__level_8h.html">file_level.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*prototypes*/</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#afc8482e2afe6f96b7d6cb6ce3fc7081c">updateScreenMap</a>(SDL_Surface *screen, <a class="code" href="struct_map.html">Map</a> *m,<span class="keywordtype">char</span> *tileset);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#a6f031e5ad35ada9038d3a72a56053760">scrolling</a>(<a class="code" href="struct_map.html">Map</a> *m,<span class="keywordtype">int</span> direction,<span class="keywordtype">float</span> speed);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<a class="code" href="struct_map.html">Map</a>* <a class="code" href="map_8h.html#a92c61ecb670c1960ed8bff4819485094">initMap</a>(SDL_Surface *screen,<span class="keywordtype">char</span> * level_name);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> freeMap(<a class="code" href="struct_map.html">Map</a> *m);</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#endif // MAP_H_INCLUDED</span></div>
-<div class="ttc" id="map_8h_html_afc8482e2afe6f96b7d6cb6ce3fc7081c"><div class="ttname"><a href="map_8h.html#afc8482e2afe6f96b7d6cb6ce3fc7081c">updateScreenMap</a></div><div class="ttdeci">void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset)</div><div class="ttdef"><b>Definition:</b> map.c:17</div></div>
-<div class="ttc" id="map_8h_html_a6f031e5ad35ada9038d3a72a56053760"><div class="ttname"><a href="map_8h.html#a6f031e5ad35ada9038d3a72a56053760">scrolling</a></div><div class="ttdeci">void scrolling(Map *m, int direction, float speed)</div><div class="ttdef"><b>Definition:</b> map.c:55</div></div>
-<div class="ttc" id="file__level_8h_html"><div class="ttname"><a href="file__level_8h.html">file_level.h</a></div><div class="ttdoc">Gestion des fichiers de carte. </div></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;input.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="text_8h.html">text.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="share_8h.html">share.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#aba96287d54d5dbd87f817b62e7efa044">updateScreenMap</a>(SDL_Surface *screen, <a class="code" href="struct_map.html">Map</a> *m,<span class="keywordtype">char</span> *tileset, <a class="code" href="struct_cursor.html">Cursor</a> *cursor);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<a class="code" href="struct_map.html">Map</a>* <a class="code" href="map_8h.html#a92c61ecb670c1960ed8bff4819485094">initMap</a>(SDL_Surface *screen,<span class="keywordtype">char</span> * level_name);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#a7db72a2f3d427d9bc0b84b89a7c866ed">fillLine</a>(<a class="code" href="struct_map.html">Map</a> *m, <span class="keywordtype">int</span> line, <span class="keywordtype">int</span> column, <span class="keywordtype">char</span> tileID);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#a2df5d973f2059d0834b5224bf0ef4625">fillColumn</a>(<a class="code" href="struct_map.html">Map</a> *m, <span class="keywordtype">int</span> line, <span class="keywordtype">int</span> column, <span class="keywordtype">char</span> tileID);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#ada7a341a80060dfd7c2685f5a7b15f16">fillRect</a>(<a class="code" href="struct_map.html">Map</a> *m, <span class="keywordtype">int</span> line, <span class="keywordtype">int</span> column, <span class="keywordtype">char</span> tileID);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#a7a6108fe5abfab806adec1371905007f">displayHelp</a>(SDL_Surface *screen, SDLKey *kc);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#a3935bb6ade113dad7068ed17cb2c6898">saveMap</a>(SDL_Surface *screen, <a class="code" href="struct_map.html">Map</a> *m);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#a282d563a5925d1581f1c291480d429c6">deleteMap</a>(SDL_Surface *screen, <span class="keywordtype">char</span> *map_name, <span class="keywordtype">char</span> *map_path);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#ae21019fd11e4de007090c6a02b0ffad5">extendMap</a>(<a class="code" href="struct_map.html">Map</a> *m);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#a8b0e7b929dc7159efa7e432f1059dc8e">resetMap</a>(<a class="code" href="struct_map.html">Map</a> *m);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="keywordtype">void</span> <a class="code" href="map_8h.html#ac8d4dd6fc80c79d9cb5899684740d074">freeMap</a>(<a class="code" href="struct_map.html">Map</a> *m);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#endif // MAP_H_INCLUDED</span></div>
+<div class="ttc" id="share_8h_html"><div class="ttname"><a href="share_8h.html">share.h</a></div><div class="ttdoc">share.c header </div></div>
+<div class="ttc" id="map_8h_html_ac8d4dd6fc80c79d9cb5899684740d074"><div class="ttname"><a href="map_8h.html#ac8d4dd6fc80c79d9cb5899684740d074">freeMap</a></div><div class="ttdeci">void freeMap(Map *m)</div><div class="ttdef"><b>Definition:</b> map.c:733</div></div>
+<div class="ttc" id="map_8h_html_ae21019fd11e4de007090c6a02b0ffad5"><div class="ttname"><a href="map_8h.html#ae21019fd11e4de007090c6a02b0ffad5">extendMap</a></div><div class="ttdeci">void extendMap(Map *m)</div><div class="ttdef"><b>Definition:</b> map.c:703</div></div>
+<div class="ttc" id="text_8h_html"><div class="ttname"><a href="text_8h.html">text.h</a></div><div class="ttdoc">text.c header </div></div>
+<div class="ttc" id="map_8h_html_a8b0e7b929dc7159efa7e432f1059dc8e"><div class="ttname"><a href="map_8h.html#a8b0e7b929dc7159efa7e432f1059dc8e">resetMap</a></div><div class="ttdeci">void resetMap(Map *m)</div><div class="ttdef"><b>Definition:</b> map.c:723</div></div>
+<div class="ttc" id="map_8h_html_a7a6108fe5abfab806adec1371905007f"><div class="ttname"><a href="map_8h.html#a7a6108fe5abfab806adec1371905007f">displayHelp</a></div><div class="ttdeci">void displayHelp(SDL_Surface *screen, SDLKey *kc)</div><div class="ttdef"><b>Definition:</b> map.c:336</div></div>
+<div class="ttc" id="map_8h_html_ada7a341a80060dfd7c2685f5a7b15f16"><div class="ttname"><a href="map_8h.html#ada7a341a80060dfd7c2685f5a7b15f16">fillRect</a></div><div class="ttdeci">void fillRect(Map *m, int line, int column, char tileID)</div><div class="ttdef"><b>Definition:</b> map.c:317</div></div>
+<div class="ttc" id="file__level_8h_html"><div class="ttname"><a href="file__level_8h.html">file_level.h</a></div><div class="ttdoc">file_level.c header </div></div>
 <div class="ttc" id="image_8h_html"><div class="ttname"><a href="image_8h.html">image.h</a></div><div class="ttdoc">contient les fonction liées aux images </div></div>
-<div class="ttc" id="struct_map_html"><div class="ttname"><a href="struct_map.html">Map</a></div><div class="ttdef"><b>Definition:</b> const.h:37</div></div>
-<div class="ttc" id="map_8h_html_a92c61ecb670c1960ed8bff4819485094"><div class="ttname"><a href="map_8h.html#a92c61ecb670c1960ed8bff4819485094">initMap</a></div><div class="ttdeci">Map * initMap(SDL_Surface *screen, char *level_name)</div><div class="ttdef"><b>Definition:</b> map.c:77</div></div>
+<div class="ttc" id="map_8h_html_a3935bb6ade113dad7068ed17cb2c6898"><div class="ttname"><a href="map_8h.html#a3935bb6ade113dad7068ed17cb2c6898">saveMap</a></div><div class="ttdeci">void saveMap(SDL_Surface *screen, Map *m)</div><div class="ttdef"><b>Definition:</b> map.c:411</div></div>
+<div class="ttc" id="struct_map_html"><div class="ttname"><a href="struct_map.html">Map</a></div><div class="ttdef"><b>Definition:</b> structures.h:54</div></div>
+<div class="ttc" id="map_8h_html_a282d563a5925d1581f1c291480d429c6"><div class="ttname"><a href="map_8h.html#a282d563a5925d1581f1c291480d429c6">deleteMap</a></div><div class="ttdeci">void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)</div><div class="ttdef"><b>Definition:</b> map.c:601</div></div>
+<div class="ttc" id="map_8h_html_aba96287d54d5dbd87f817b62e7efa044"><div class="ttname"><a href="map_8h.html#aba96287d54d5dbd87f817b62e7efa044">updateScreenMap</a></div><div class="ttdeci">void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)</div><div class="ttdef"><b>Definition:</b> map.c:10</div></div>
+<div class="ttc" id="map_8h_html_a2df5d973f2059d0834b5224bf0ef4625"><div class="ttname"><a href="map_8h.html#a2df5d973f2059d0834b5224bf0ef4625">fillColumn</a></div><div class="ttdeci">void fillColumn(Map *m, int line, int column, char tileID)</div><div class="ttdef"><b>Definition:</b> map.c:298</div></div>
+<div class="ttc" id="struct_cursor_html"><div class="ttname"><a href="struct_cursor.html">Cursor</a></div><div class="ttdef"><b>Definition:</b> structures.h:28</div></div>
+<div class="ttc" id="map_8h_html_a92c61ecb670c1960ed8bff4819485094"><div class="ttname"><a href="map_8h.html#a92c61ecb670c1960ed8bff4819485094">initMap</a></div><div class="ttdeci">Map * initMap(SDL_Surface *screen, char *level_name)</div><div class="ttdef"><b>Definition:</b> map.c:263</div></div>
+<div class="ttc" id="map_8h_html_a7db72a2f3d427d9bc0b84b89a7c866ed"><div class="ttname"><a href="map_8h.html#a7db72a2f3d427d9bc0b84b89a7c866ed">fillLine</a></div><div class="ttdeci">void fillLine(Map *m, int line, int column, char tileID)</div><div class="ttdef"><b>Definition:</b> map.c:279</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 21:35:36 for Super Martin Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

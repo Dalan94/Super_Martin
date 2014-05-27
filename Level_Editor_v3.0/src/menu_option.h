@@ -39,7 +39,7 @@
 int menuOptions(SDL_Surface *screen,int *go, SDLKey *kc);
 
 /**
- *\fn void keyboardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
+ *\fn void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
  *print the keyboard options and deals with the user choises
  *\param[out] screen the game screen
  *\param[in,out] go main loop validation

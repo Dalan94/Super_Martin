@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['closefile',['closeFile',['../file_8c.html#a0fca34d72624f611d2cbeac47279bb1f',1,'closeFile(FILE *ptr_fichier):&#160;file.c'],['../file_8h.html#a0fca34d72624f611d2cbeac47279bb1f',1,'closeFile(FILE *ptr_fichier):&#160;file.c']]],
-  ['closelevel',['closeLevel',['../file__level_8h.html#a38020f30305d2344cdf39d06c7e8768e',1,'file_level.c']]],
-  ['closelevellist',['closeLevelList',['../file__level_8h.html#a3fafc12e3c322fc5a8166f7fb323bfe6',1,'file_level.c']]],
-  ['collisionsprite',['collisionSprite',['../player_8c.html#a74592844d979355c6b83af0bda7ce14f',1,'collisionSprite(SDL_Rect r, Map *m):&#160;player.c'],['../player_8h.html#a74592844d979355c6b83af0bda7ce14f',1,'collisionSprite(SDL_Rect r, Map *m):&#160;player.c']]],
-  ['creatercharacter',['createrCharacter',['../player_8c.html#a3638b65ca0405b3a93824dbd7c6bad98',1,'createrCharacter(char *spR, char *spL):&#160;player.c'],['../player_8h.html#a8157b7870fc8049298ca3ca227ca7a02',1,'createrCharacter(char *spR, char *spL):&#160;player.c']]],
-  ['createsound',['createSound',['../sound_8c.html#a3b1e12665aed7169d8efdb2cc611184e',1,'createSound(void):&#160;sound.c'],['../sound_8h.html#a32a66a56d175c0916741cdf8059091ba',1,'createSound(void):&#160;sound.c']]]
+  ['capturetext',['captureText',['../text_8c.html#abd63f9d237bb4bc462d33c00802cd7b9',1,'captureText(SDL_Surface *screen, SDL_Rect posText, char *text, int text_length, int r, int g, int b, char *font, int text_size, int *go):&#160;text.c'],['../text_8h.html#abd63f9d237bb4bc462d33c00802cd7b9',1,'captureText(SDL_Surface *screen, SDL_Rect posText, char *text, int text_length, int r, int g, int b, char *font, int text_size, int *go):&#160;text.c']]],
+  ['choosekey',['chooseKey',['../menu__option_8c.html#a09208fc21970afd80a59971051150a3b',1,'chooseKey(SDL_Surface *screen, Input *in, char *action, SDLKey *kc, int nb):&#160;menu_option.c'],['../menu__option_8h.html#a09208fc21970afd80a59971051150a3b',1,'chooseKey(SDL_Surface *screen, Input *in, char *action, SDLKey *kc, int nb):&#160;menu_option.c']]],
+  ['closefile',['closeFile',['../file_8c.html#adf55ac6bc5d81f94b54e4c8ea554f884',1,'closeFile(FILE *ptr_file):&#160;file.c'],['../file_8h.html#a0fca34d72624f611d2cbeac47279bb1f',1,'closeFile(FILE *ptr_fichier):&#160;file.c']]],
+  ['closelevel',['closeLevel',['../file__level_8c.html#a38020f30305d2344cdf39d06c7e8768e',1,'closeLevel(Level *lvl):&#160;file_level.c'],['../file__level_8h.html#a38020f30305d2344cdf39d06c7e8768e',1,'closeLevel(Level *lvl):&#160;file_level.c']]],
+  ['closelevellist',['closeLevelList',['../file__level_8c.html#a3fafc12e3c322fc5a8166f7fb323bfe6',1,'closeLevelList(char **level_names, int nb_lvl):&#160;file_level.c'],['../file__level_8h.html#a3fafc12e3c322fc5a8166f7fb323bfe6',1,'closeLevelList(char **level_names, int nb_lvl):&#160;file_level.c']]]
 ];

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['updateevents',['updateEvents',['../input_8c.html#a96302a81fac34b8c2bfa2add1a03d802',1,'input.c']]],
-  ['updatescreenmap',['updateScreenMap',['../map_8c.html#afc8482e2afe6f96b7d6cb6ce3fc7081c',1,'updateScreenMap(SDL_Surface *screen, Map *m, char *tileset):&#160;map.c'],['../map_8h.html#afc8482e2afe6f96b7d6cb6ce3fc7081c',1,'updateScreenMap(SDL_Surface *screen, Map *m, char *tileset):&#160;map.c']]],
-  ['updatespeed',['updateSpeed',['../game_8c.html#a1bd040efd0195821d1e069d4006ffabf',1,'updateSpeed(float *speed, int acceleration):&#160;game.c'],['../game_8h.html#a1bd040efd0195821d1e069d4006ffabf',1,'updateSpeed(float *speed, int acceleration):&#160;game.c']]],
-  ['updatewaitevents',['updateWaitEvents',['../input_8c.html#ad3310b398fa046500863c183fd4468e6',1,'input.c']]]
+  ['play',['play',['../game_8c.html#a3be984c6f3d228041d098485fe01f98c',1,'play(SDL_Surface *screen, char *level_name, SDLKey *kc):&#160;game.c'],['../game_8h.html#a3be984c6f3d228041d098485fe01f98c',1,'play(SDL_Surface *screen, char *level_name, SDLKey *kc):&#160;game.c']]],
+  ['printconfirmation',['printConfirmation',['../game_8c.html#aef36043913d82479cc03e51d01a320a1',1,'printConfirmation(SDL_Surface *screen, Input *in, int *go):&#160;game.c'],['../game_8h.html#aef36043913d82479cc03e51d01a320a1',1,'printConfirmation(SDL_Surface *screen, Input *in, int *go):&#160;game.c']]],
+  ['printtext',['printText',['../text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3',1,'printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r, int g, int b, char *font, int ptSize, int mode):&#160;text.c'],['../text_8h.html#a1bd80be1aff6fe5303bdd5aa80161da3',1,'printText(SDL_Surface *screen, SDL_Rect *posText, char *text, int r, int g, int b, char *font, int ptSize, int mode):&#160;text.c']]]
 ];

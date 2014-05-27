@@ -1,9 +1,9 @@
-\hypertarget{game_8h}{\section{game.\-h File Reference}
+\hypertarget{game_8h}{\subsection{game.\-h File Reference}
 \label{game_8h}\index{game.\-h@{game.\-h}}
 }
 
 
-header de \hyperlink{game_8c}{game.\-c}  
+\hyperlink{game_8c}{game.\-c} header  
 
 
 {\ttfamily \#include $<$stdlib.\-h$>$}\\*
@@ -12,152 +12,89 @@ header de \hyperlink{game_8c}{game.\-c}
 {\ttfamily \#include $<$S\-D\-L/\-S\-D\-L.\-h$>$}\\*
 {\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
 {\ttfamily \#include \char`\"{}const.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}structures.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}text.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}sound.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}share.\-h\char`\"{}}\\*
-{\ttfamily \#include \char`\"{}player.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}file\-\_\-level.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}map.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
-Include dependency graph for game.\-h\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{game_8h__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=192pt]{game_8h__dep__incl}
-\end{center}
-\end{figure}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{game_8h_ae342e4b762af0d52f4ee914643441426}{play} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name)
+void \hyperlink{game_8h_a3be984c6f3d228041d098485fe01f98c}{play} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name, S\-D\-L\-Key $\ast$kc)
 \item 
-void \hyperlink{game_8h_aea20c6ea437379685d22df23af8e15dc}{print\-Game\-Over} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$continuer, \hyperlink{struct_input}{Input} $\ast$in)
-\item 
-\hypertarget{game_8h_a7f2f239253453097bfecb9a7e0f28934}{void {\bfseries move} (int move\-\_\-left, int move\-\_\-right, \hyperlink{struct_character}{Character} $\ast$player, \hyperlink{struct_map}{Map} $\ast$m, float speed, int $\ast$acceleration)}\label{game_8h_a7f2f239253453097bfecb9a7e0f28934}
-
-\item 
-void \hyperlink{game_8h_a1bd040efd0195821d1e069d4006ffabf}{update\-Speed} (float $\ast$speed, int acceleration)
-\item 
-void \hyperlink{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362}{print\-Pause} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_input}{Input} $\ast$in, int $\ast$time, int $\ast$continuer)
-\item 
-\hypertarget{game_8h_ad16d857230b785e820b9b497b50b7fff}{Uint32 {\bfseries decomptage} (Uint32 intervalle, void $\ast$parametre)}\label{game_8h_ad16d857230b785e820b9b497b50b7fff}
-
+void \hyperlink{game_8h_aef36043913d82479cc03e51d01a320a1}{print\-Confirmation} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_input}{Input} $\ast$in, int $\ast$go)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-header de \hyperlink{game_8c}{game.\-c} \begin{DoxyAuthor}{Author}
-Xavier C\-O\-P\-O\-N\-E\-T 
+\subsubsection{Detailed Description}
+\hyperlink{game_8c}{game.\-c} header \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T, Glenn H\-E\-R\-R\-O\-U 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-2014-\/02-\/27 
+2014-\/05-\/15 
 \end{DoxyDate}
 
 
-\subsection{Function Documentation}
-\hypertarget{game_8h_ae342e4b762af0d52f4ee914643441426}{\index{game.\-h@{game.\-h}!play@{play}}
+\subsubsection{Function Documentation}
+\hypertarget{game_8h_a3be984c6f3d228041d098485fe01f98c}{\index{game.\-h@{game.\-h}!play@{play}}
 \index{play@{play}!game.h@{game.\-h}}
-\subsubsection[{play}]{\setlength{\rightskip}{0pt plus 5cm}void play (
+\paragraph[{play}]{\setlength{\rightskip}{0pt plus 5cm}void play (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
-\item[{char $\ast$}]{level\-\_\-name}
+\item[{char $\ast$}]{level\-\_\-name, }
+\item[{S\-D\-L\-Key $\ast$}]{kc}
 \end{DoxyParamCaption}
-)}}\label{game_8h_ae342e4b762af0d52f4ee914643441426}
-contient la boucle principale du jeu qui appelle les fonctions 
+)}}\label{game_8h_a3be984c6f3d228041d098485fe01f98c}
+Include the main loop of the game 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in,out}  & {\em screen} & L'écran de jeu \\
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
 \hline
-\mbox{\tt in}  & {\em lvel\-\_\-name} & le nom du niveau \\
+\mbox{\tt in}  & {\em level\-\_\-name} & The name of the level \\
+\hline
+\mbox{\tt in}  & {\em kc} & The keyboard configuration \\
 \hline
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=550pt]{game_8h_ae342e4b762af0d52f4ee914643441426_cgraph}
+\includegraphics[width=350pt]{game_8h_a3be984c6f3d228041d098485fe01f98c_cgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{game_8h_aea20c6ea437379685d22df23af8e15dc}{\index{game.\-h@{game.\-h}!print\-Game\-Over@{print\-Game\-Over}}
-\index{print\-Game\-Over@{print\-Game\-Over}!game.h@{game.\-h}}
-\subsubsection[{print\-Game\-Over}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Game\-Over (
-\begin{DoxyParamCaption}
-\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
-\item[{int $\ast$}]{continuer, }
-\item[{{\bf Input} $\ast$}]{in}
-\end{DoxyParamCaption}
-)}}\label{game_8h_aea20c6ea437379685d22df23af8e15dc}
-affiche le message de game overflow\-\_\-error 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em screen} & l'écran de jeu \\
-\hline
-\end{DoxyParams}
-
-
-Here is the call graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=278pt]{game_8h_aea20c6ea437379685d22df23af8e15dc_cgraph}
-\end{center}
-\end{figure}
-
-
-\hypertarget{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362}{\index{game.\-h@{game.\-h}!print\-Pause@{print\-Pause}}
-\index{print\-Pause@{print\-Pause}!game.h@{game.\-h}}
-\subsubsection[{print\-Pause}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Pause (
+\hypertarget{game_8h_aef36043913d82479cc03e51d01a320a1}{\index{game.\-h@{game.\-h}!print\-Confirmation@{print\-Confirmation}}
+\index{print\-Confirmation@{print\-Confirmation}!game.h@{game.\-h}}
+\paragraph[{print\-Confirmation}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Confirmation (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
 \item[{{\bf Input} $\ast$}]{in, }
-\item[{int $\ast$}]{time, }
-\item[{int $\ast$}]{continuer}
+\item[{int $\ast$}]{go}
 \end{DoxyParamCaption}
-)}}\label{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362}
-Met en pause le jeu 
+)}}\label{game_8h_aef36043913d82479cc03e51d01a320a1}
+Display the confirmation screen, before leaving the edition of a level 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em screen} & l'écran de jeu \\
+\mbox{\tt out}  & {\em screen} & The screen of the game \\
 \hline
-\mbox{\tt out}  & {\em time} & le temps restant \\
+\mbox{\tt in}  & {\em in} & The input structure \\
 \hline
-\mbox{\tt in}  & {\em in} & la structure input \\
-\hline
-\mbox{\tt out}  & {\em le} & booléen de main loop de la fonction jouer \\
+\mbox{\tt out}  & {\em go} & The main loop activation \\
 \hline
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=258pt]{game_8h_a1e2c9afdbc98faa067cc4b9d304f4362_cgraph}
+\includegraphics[width=350pt]{game_8h_aef36043913d82479cc03e51d01a320a1_cgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{game_8h_a1bd040efd0195821d1e069d4006ffabf}{\index{game.\-h@{game.\-h}!update\-Speed@{update\-Speed}}
-\index{update\-Speed@{update\-Speed}!game.h@{game.\-h}}
-\subsubsection[{update\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}void update\-Speed (
-\begin{DoxyParamCaption}
-\item[{float $\ast$}]{speed, }
-\item[{int}]{acceleration}
-\end{DoxyParamCaption}
-)}}\label{game_8h_a1bd040efd0195821d1e069d4006ffabf}
-Met a jour la vitesse 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em float} & la vitesse \\
-\hline
-\mbox{\tt out}  & {\em acceleration} & l'acceleration \\
-\hline
-\end{DoxyParams}
