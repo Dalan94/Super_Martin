@@ -1,7 +1,0 @@
-<map id="menu" name="menu">
-<area shape="rect" id="node2" href="$image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="122,5,241,32"/>
-<area shape="rect" id="node3" href="$input_8c.html#ad3310b398fa046500863c183fd4468e6" title="updateWaitEvents" alt="" coords="117,56,246,83"/>
-<area shape="rect" id="node4" href="$input_8c.html#aac9044909637f02a277d101651e126a7" title="keyboardActionMenu" alt="" coords="109,107,253,133"/>
-<area shape="rect" id="node5" href="$share_8c.html#a6e428694268169eee69c8f07827e72de" title="waitFPS" alt="" coords="145,157,217,184"/>
-<area shape="rect" id="node6" href="$text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="145,208,218,235"/>
-</map>

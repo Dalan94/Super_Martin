@@ -1,8 +1,0 @@
-<map id="writeLevel" name="writeLevel">
-<area shape="rect" id="node2" href="$file__level_8c.html#a4aeb62489e5fc5c31868d7f1935b9214" title="adaptSizeLevel" alt="" coords="137,31,247,57"/>
-<area shape="rect" id="node5" href="$file_8c.html#ab763060cbdd57fdb704871d896fc492a" title="openFile" alt="" coords="157,81,227,108"/>
-<area shape="rect" id="node6" href="$file__level_8c.html#a38020f30305d2344cdf39d06c7e8768e" title="closeLevel" alt="" coords="150,132,234,159"/>
-<area shape="rect" id="node7" href="$file_8c.html#adf55ac6bc5d81f94b54e4c8ea554f884" title="closeFile" alt="" coords="155,183,229,209"/>
-<area shape="rect" id="node3" href="$file__level_8c.html#abd4c02fab44779b57294a058c8486365" title="searchEndLevel" alt="" coords="296,5,411,32"/>
-<area shape="rect" id="node4" href="$file__level_8c.html#a76e77e4f54cd176374bd70e25c1ffc07" title="initLevel" alt="" coords="318,56,389,83"/>
-</map>

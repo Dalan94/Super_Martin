@@ -1,9 +1,0 @@
-<map id="newPlayer" name="newPlayer">
-<area shape="rect" id="node2" href="$file__level_8c.html#a8f93e9edca6b3e54fa194e27bacf8f46" title="readLevelFile" alt="" coords="147,44,245,70"/>
-<area shape="rect" id="node3" href="$file_8c.html#ab763060cbdd57fdb704871d896fc492a" title="openFile" alt="" coords="334,6,405,33"/>
-<area shape="rect" id="node4" href="$file_8c.html#adf55ac6bc5d81f94b54e4c8ea554f884" title="closeFile" alt="" coords="332,82,407,109"/>
-<area shape="rect" id="node5" href="$image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="137,145,255,172"/>
-<area shape="rect" id="node6" href="$text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="333,209,406,236"/>
-<area shape="rect" id="node7" href="$input_8c.html#adf8840e198ccba8364c2d051b700a690" title="updateWaitEvents" alt="" coords="305,272,434,298"/>
-<area shape="rect" id="node8" href="$text_8c.html#a458f74becdf9be4cb93716d0393dbae7" title="captureText" alt="" coords="151,246,241,273"/>
-</map>

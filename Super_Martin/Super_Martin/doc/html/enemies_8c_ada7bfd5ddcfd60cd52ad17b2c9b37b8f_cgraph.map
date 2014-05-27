@@ -1,7 +1,0 @@
-<map id="blitEnemies" name="blitEnemies">
-<area shape="rect" id="node2" href="$enemies_8c.html#aa0ae9a01476366cb08c3e904e2f31433" title="setOnFirst" alt="" coords="151,5,233,32"/>
-<area shape="rect" id="node3" href="$enemies_8c.html#a7774be61944dce2ae021e0e4442b4515" title="outOfList" alt="" coords="288,81,363,108"/>
-<area shape="rect" id="node4" href="$character_8c.html#a3c4b84a9d7123af243336f3540d2ae83" title="blitCharacter" alt="" coords="144,107,240,133"/>
-<area shape="rect" id="node5" href="$enemies_8c.html#a1e9424bcb6302d001589f04a99802abf" title="next" alt="" coords="169,157,215,184"/>
-<area shape="rect" id="node6" href="$enemies_8c.html#a185b7dd5b77fdf2b6315358ac7767e44" title="empty" alt="" coords="296,157,355,184"/>
-</map>
