@@ -194,9 +194,10 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset)
 
 void scrolling(Map *m, int direction,float speed)
 {
-    switch (direction){
+    switch (direction)
+    {
         case RIGHT:
-            if(m->xScroll < (m->lvl->width+1)*TILE_SIZE-m->screenWidth)
+            if(m->xScroll< (m->lvl->width+1)*TILE_SIZE-m->screenWidth)
                 m->xScroll+= speed;
             break;
 

@@ -257,7 +257,8 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
 
 }
 
-Map *initMap(SDL_Surface *screen,char *level_name){
+Map *initMap(SDL_Surface *screen,char *level_name)
+{
     Map *m;
 
     m = (Map *)malloc(sizeof(Map));

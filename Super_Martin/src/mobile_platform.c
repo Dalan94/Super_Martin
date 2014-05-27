@@ -110,7 +110,10 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m)
         {
             p->location.x += p->speed;
             if(c->OnPlatform == nb)
+            {
                 c->location.x += p->speed; //déplacement si perso sur platform
+                scrolling(m,RIGHT,p->speed);
+            }
             else if(collisionSprite(p->location,c->location)==1)
             {
                 c->location.x += p->speed; //déplacement si perso devant plateforme
@@ -122,7 +125,10 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m)
         {
             p->location.x -= p->speed;
             if(c->OnPlatform == nb)
+            {
                 c->location.x -= p->speed;
+                scrolling(m,LEFT,p->speed);
+            }
             else if(collisionSprite(p->location,c->location)==1)
             {
                 c->location.x -= p->speed; //déplacement si perso devant plateforme
