@@ -21,6 +21,8 @@
     FMOD_System_Create(&s->sys);
     FMOD_System_Init(s->sys, 32, FMOD_INIT_NORMAL, NULL);
 
+    s->mscSound = NULL;
+    s->fxSound = NULL;
 
     FMOD_System_GetChannel(s->sys,0,&s->fx);
     FMOD_System_GetChannel(s->sys,1,&s->music);
@@ -33,7 +35,6 @@
 
 void playMusic(char *file,Sound *s)
 {
-    FMOD_SOUND *sound;
     FMOD_BOOL b;
     int index;
 
@@ -44,19 +45,19 @@ void playMusic(char *file,Sound *s)
 
         if(FMOD_System_CreateSound(s->sys, file,
                     FMOD_LOOP_NORMAL|FMOD_SOFTWARE | FMOD_2D | FMOD_CREATESTREAM,
-                    0, &sound) != FMOD_OK)
+                    0, &s->mscSound) != FMOD_OK)
         {
             perror("can't read audio file");
             exit(errno);
         }
 
         /* infinite repetition */
-        FMOD_Sound_SetLoopCount(sound, -1);
+        FMOD_Sound_SetLoopCount(s->mscSound, -1);
 
 
         /* playing the music */
         FMOD_Channel_GetIndex(s->music,&index);
-        FMOD_System_PlaySound(s->sys,index, sound,0, NULL);
+        FMOD_System_PlaySound(s->sys,index, s->mscSound,0, NULL);
         FMOD_Channel_SetVolume(s->music,s->musicVolume);
 
 
@@ -66,20 +67,19 @@ void playMusic(char *file,Sound *s)
 
 void playShortSound(char *file,Sound *s)
 {
-    FMOD_SOUND *sound;
     if(s == NULL)
         return;
     /*sound file loading*/
     if(FMOD_System_CreateSound(s->sys, file,
                 FMOD_CREATESAMPLE,
-                0, &sound) != FMOD_OK)
+                0, &s->fxSound) != FMOD_OK)
     {
         perror("can't read audio file");
         exit(errno);
     }
 
     /* sound playing */
-    FMOD_System_PlaySound(s->sys,0,sound,0,NULL);
+    FMOD_System_PlaySound(s->sys,0,s->fxSound,0,NULL);
     FMOD_Channel_SetVolume(s->fx,s->fxVolume);
 }
 
@@ -102,9 +102,11 @@ void stopSound(Sound *s,int chan)
     {
         case 0:
             FMOD_Channel_Stop(s->fx);
+            FMOD_Sound_Release(s->fxSound);
             break;
         case 1:
             FMOD_Channel_Stop(s->music);
+            FMOD_Sound_Release(s->mscSound);
             break;
         default: ;
     }

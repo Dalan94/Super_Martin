@@ -23,6 +23,8 @@ typedef struct
     FMOD_SYSTEM *sys; /*! the sound system*/
     FMOD_CHANNEL *music; /*! the music channel*/
     FMOD_CHANNEL *fx; /*! the effects channel */
+    FMOD_SOUND *mscSound;
+    FMOD_SOUND *fxSound;
     float musicVolume; /*! the music volume */
     float fxVolume; /*! the effect volume */
 }Sound;
