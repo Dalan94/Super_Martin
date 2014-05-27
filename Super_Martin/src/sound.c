@@ -102,11 +102,19 @@ void stopSound(Sound *s,int chan)
     {
         case 0:
             FMOD_Channel_Stop(s->fx);
-            FMOD_Sound_Release(s->fxSound);
+            if(s->fxSound != NULL)
+            {
+                FMOD_Sound_Release(s->fxSound);
+                s->fxSound = NULL;
+            }
             break;
         case 1:
             FMOD_Channel_Stop(s->music);
-            FMOD_Sound_Release(s->mscSound);
+            if(s->mscSound != NULL)
+            {
+                FMOD_Sound_Release(s->mscSound);
+                s->mscSound = NULL;
+            }
             break;
         default: ;
     }
