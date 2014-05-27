@@ -263,7 +263,7 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in,char *play
 void chooseKey(SDL_Surface *screen,Input *in,char *action,SDLKey *kc,int nb)
 {
 
-    int i = 0;
+    int i = 0,j;
     SDL_Surface *keyChoose = NULL;
     SDL_Rect posGame;
     char st[MAX_SIZE_FILE_NAME];
@@ -282,10 +282,16 @@ void chooseKey(SDL_Surface *screen,Input *in,char *action,SDLKey *kc,int nb)
     memset(&in->key,0,sizeof(char)*SDLK_LAST);
 
     while(!updateWaitEvents(in,NULL));
-    for(i=0;i<SDLK_LAST;i++)
+    for(i=SDLK_SPACE;i<SDLK_LAST;i++)
     {
         if(in->key[i])
         {
+            for (j=0;j<NB_KEY;j++)
+                if(kc[j] == i)
+                {
+                    kc[j] = SDLK_UNKNOWN;
+                    break;
+                }
             kc[nb] = i;
             break;
         }
