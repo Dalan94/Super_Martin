@@ -59,7 +59,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
     if(!in->useJoystick)
         SDL_JoystickEventState(SDL_IGNORE);
 
-    if(player->nbLifes < 0)
+    if(player->nbLifes <= 0)
         loadPlayer("save/.save", player_name, player);
     /*nputs input*/
 
@@ -124,12 +124,11 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
                 stopSound(sound_sys,1);
                 player->nbLifes--;
                 printGameOver(screen,go,in,sound_sys);
-                if(player->nbLifes >= 0)
+                if(player->nbLifes > 0)
                     ret = 1;
 
                 else
                     ret = 0;
-                //break;
                 death=1;
             }
             old_time=m->lvl->timer_level;
@@ -148,14 +147,14 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
         {
             player->nbProjectile = maryo->nbProjectile;
             player->nbLifes = maryo->nbLifes;
+            player->nbCoins = maryo->countStars;
             if(player->levelMax == currentLevel)
             {
-                player->nbCoins = maryo->countStars;
                 if(player->levelMax < (nb_lvl))
                     player->levelMax += 1;
-                savePlayer("save/.save", player_name, player);
-            }
 
+            }
+            savePlayer("save/.save", player_name, player);
             printWin(screen,go,in,sound_sys);
             break;
         }
@@ -318,16 +317,15 @@ void printPause(SDL_Surface *screen, Input *in, int *time, int *go,SDLKey *kc)
 
     blitColor(0,0,0,200,screen);
 
-    SDL_Rect posTex;
-    //posTex.x = 394;
-    posTex.x = -1;
-    posTex.y = screen->h/2 - 100;
+    SDL_Rect posText;
+    posText.x = -1;
+    posText.y = screen->h/2 - 100;
 
-    printText(screen,&posTex,"PAUSE",186,38,18,"polices/manga.ttf",65,1);
-    posTex.x = -1;
-    posTex.y = screen->h/2 + 100;
+    printText(screen,&posText,"PAUSE",186,38,18,"polices/manga.ttf",65,1);
+    posText.x = -1;
+    posText.y = screen->h/2 + 100;
     sprintf(st,"Press %s to restart",SDL_GetKeyName(kc[3]));
-    printText(screen,&posTex,st,186,38,18,"polices/ubuntu.ttf",50,1);
+    printText(screen,&posText,st,186,38,18,"polices/PressStart2P.ttf",40,1);
     SDL_Flip(screen);
 
 
