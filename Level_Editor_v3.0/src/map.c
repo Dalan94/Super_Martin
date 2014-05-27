@@ -398,7 +398,7 @@ void displayHelp(SDL_Surface *screen, SDLKey *kc)
             }
 
 
-            printText(screen,&posText,key,255,60,30,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
+            printText(screen,&posText,key,255,60,30,"../Super_Martin/polices/PressStart2P.ttf",text_size,1);
         }
 
         SDL_Flip(screen);
@@ -624,7 +624,7 @@ void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
 
     /*  Text size */
 
-    text_size = 40;
+    text_size = 25;
 
     /*  Initialization of the structure input */
 
@@ -640,11 +640,11 @@ void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
 
         SDL_BlitSurface(waiting, NULL, screen, &posWait);
         posText.x = -1; // Center the text
-        posText.y = 150;
-        printText(screen, &posText, "Do you really want to delete the map :", 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        posText.y = 250;
+        printText(screen, &posText, "Do you really want to delete the map :", 0, 0, 0, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
         posText.x = -1;
-        posText.y = 210;
-        printText(screen, &posText, confirmation, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        posText.y = 300;
+        printText(screen, &posText, confirmation, 0, 0, 0, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
         updateEvents(&in);
         if(in.key[SDLK_y])
         {
@@ -685,11 +685,11 @@ void deleteMap(SDL_Surface *screen, char *map_name, char *map_path)
         if(event_appear)
         {
         posText.x = -1;
-        posText.y = 300;
-        printText(screen, &posText, deleted, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        posText.y = 400;
+        printText(screen, &posText, deleted, 0, 0, 0, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
         posText.x = -1;
-        posText.y = 350;
-        printText(screen, &posText, pressEnter, 0, 0, 0, "../Super_Martin/polices/ubuntu.ttf", text_size, 1);
+        posText.y = 450;
+        printText(screen, &posText, pressEnter, 0, 0, 0, "../Super_Martin/polices/PressStart2P.ttf", text_size, 1);
         }
 
         SDL_Flip(screen);

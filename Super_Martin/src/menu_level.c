@@ -29,6 +29,9 @@ int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sou
     posWait.x = 0;
     posWait.y = 0;
 
+    /*music*/
+    playMusic("sound/Lorena.mp3",sound_sys);
+
     level_names=readLevelFile("level/level", nb_lvl);
     memset(&in->key,0,SDLK_LAST*sizeof(char));
     if(in->isJoystick)

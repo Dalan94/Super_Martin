@@ -47,10 +47,10 @@ int menuOptions(SDL_Surface *screen,int *go,SDLKey *kc)
                 text_size=60;
             posText.y = screen->h / (1+nb_option) * (i+1) - text_size/2;
             if(i != pos_curseur)
-                printText(screen,&posText,option_names[i],0,0,0,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
+                printText(screen,&posText,option_names[i],0,0,0,"../Super_Martin/polices/PressStart2P.ttf",text_size,1);
             else
             {
-                printText(screen,&posText,option_names[i],255,60,30,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
+                printText(screen,&posText,option_names[i],255,60,30,"../Super_Martin/polices/PressStart2P.ttf",text_size,1);
             }
         }
 
@@ -80,7 +80,7 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
 
     SDL_Rect posText={0,0,0,0};
 
-    /*winting screen */
+    /*waiting screen */
     waiting = imageLoadAlpha("../Super_Martin/sprites/Background/menu_background.png");
     posWait.x = 0;
     posWait.y = 0;
@@ -100,17 +100,17 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
         {
 
             text_size= (screen->h -300)/ (min(nb_key, OPTIONS_PER_COLUMN));
-            if (text_size > 35)
-                text_size=35;
+            if (text_size > 20)
+                text_size=20;
             if(i>=OPTIONS_PER_COLUMN)
             {
                 posText.x = 680;
-                posText.y = 150 +screen->h / (1.5*(1+OPTIONS_PER_COLUMN)) * (i+1-OPTIONS_PER_COLUMN) - text_size;
+                posText.y = 150 + (screen->h - 300) / (1.25*(1+OPTIONS_PER_COLUMN)) * (i+1-OPTIONS_PER_COLUMN) - text_size;
             }
             else
             {
                 posText.x = 300;
-                posText.y = 150 + screen->h / (1.5*(1+min(OPTIONS_PER_COLUMN, nb_key))) * (i+1) - text_size;
+                posText.y = 150 + (screen->h - 300) / (1.25*(1+min(OPTIONS_PER_COLUMN, nb_key))) * (i+1) - text_size;
             }
 
 
@@ -118,9 +118,9 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc)
             sprintf(key,"%s : %s",key_names[i],SDL_GetKeyName(kc[i]));
 
             if(i != pos_curseur)
-                printText(screen,&posText,key,0,0,0,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
+                printText(screen,&posText,key,0,0,0,"../Super_Martin/polices/PressStart2P.ttf",text_size,1);
             else
-                printText(screen,&posText,key,255,60,30,"../Super_Martin/polices/ubuntu.ttf",text_size,1);
+                printText(screen,&posText,key,255,60,30,"../Super_Martin/polices/PressStart2P.ttf",text_size,1);
         }
 
         SDL_Flip(screen);
@@ -151,7 +151,7 @@ void chooseKey(SDL_Surface *screen,Input *in,char *action,SDLKey *kc,int nb)
     SDL_BlitSurface(keyChoose,NULL,screen,&posGame);
 
     sprintf(st,"Please, choose a key for %s",action);
-    printText(screen,NULL,st,186,38,18,"polices/ubuntu.ttf",65,1);
+    printText(screen,NULL,st,186,38,18,"polices/PressStart2P.ttf",65,1);
     SDL_Flip(screen);
 
     SDL_Delay(1500);
