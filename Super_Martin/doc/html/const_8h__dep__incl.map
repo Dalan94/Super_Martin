@@ -1,19 +1,35 @@
 <map id="const.h" name="const.h">
-<area shape="rect" id="node3" href="$file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="228,89,311,122"/>
-<area shape="rect" id="node5" href="$player_8h.html" title="header de player.c " alt="" coords="76,171,143,205"/>
-<area shape="rect" id="node7" href="$game_8h.html" title="header de game.c " alt="" coords="151,337,215,370"/>
-<area shape="rect" id="node11" href="$main_8c.html" title="main.c" alt="" coords="591,419,652,453"/>
-<area shape="rect" id="node18" href="$menu_8h.html" title="header de menu.c " alt="" coords="658,337,722,370"/>
-<area shape="rect" id="node23" href="$menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="479,337,578,370"/>
-<area shape="rect" id="node38" href="$share_8h.html" title="Gestion des fichiers de carte. " alt="" coords="355,89,419,122"/>
-<area shape="rect" id="node45" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="455,89,522,122"/>
-<area shape="rect" id="node31" href="$map_8h.html" title="header de map.c " alt="" coords="240,171,299,205"/>
-<area shape="rect" id="node13" href="$input_8h_source.html" title="input.h" alt="" coords="296,254,358,287"/>
-<area shape="rect" id="node28" href="$player_8c.html" title="contient les fonction pour manipuler le joueur " alt="" coords="54,254,120,287"/>
-<area shape="rect" id="node9" href="$game_8c.html" title="contient les fonction liées au jeu " alt="" coords="151,419,215,453"/>
-<area shape="rect" id="node16" href="$input_8c.html" title="input.c" alt="" coords="296,337,358,370"/>
-<area shape="rect" id="node21" href="$menu_8c.html" title="contient les fonction liées au menu " alt="" coords="676,419,740,453"/>
-<area shape="rect" id="node26" href="$menu__level_8c.html" title="Menu gerant le choix du niveau. " alt="" coords="468,419,567,453"/>
-<area shape="rect" id="node34" href="$map_8c.html" title="contient les fonction liées au chargement et à l&#39;affichage de la carte " alt="" coords="382,254,440,287"/>
-<area shape="rect" id="node50" href="$image_8c.html" title="contient les fonction liées aux images " alt="" coords="576,171,643,205"/>
+<area shape="rect" id="node2" href="$character_8h.html" title="header de character.c " alt="" coords="1515,155,1601,181"/>
+<area shape="rect" id="node4" href="$enemies_8h.html" title="enemies.c header " alt="" coords="1713,229,1795,256"/>
+<area shape="rect" id="node5" href="$file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1531,304,1615,331"/>
+<area shape="rect" id="node7" href="$game_8h.html" title="game.c header " alt="" coords="1591,453,1656,480"/>
+<area shape="rect" id="node9" href="$main_8c.html" title="main.c" alt="" coords="547,528,608,555"/>
+<area shape="rect" id="node11" href="$player_8h.html" title="player.c header " alt="" coords="1035,379,1103,405"/>
+<area shape="rect" id="node13" href="$menu__level_8h.html" title="Menu gerant le choix du niveau. " alt="" coords="705,379,804,405"/>
+<area shape="rect" id="node23" href="$menu_8h.html" title="header de menu.c " alt="" coords="474,379,539,405"/>
+<area shape="rect" id="node25" href="$menu__option_8h.html" title="menu_option.h" alt="" coords="299,379,405,405"/>
+<area shape="rect" id="node30" href="$structures_8h.html" title="structures.h" alt="" coords="1097,80,1188,107"/>
+<area shape="rect" id="node31" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="1453,80,1520,107"/>
+<area shape="rect" id="node33" href="$share_8h.html" title="share.c header " alt="" coords="643,80,708,107"/>
+<area shape="rect" id="node3" href="$character_8c.html" title="manipulate character " alt="" coords="1551,229,1637,256"/>
+<area shape="rect" id="node19" href="$mobile__platform_8h.html" title="mobile_platform.c header " alt="" coords="1401,229,1527,256"/>
+<area shape="rect" id="node21" href="$input_8h_source.html" title="input.h" alt="" coords="941,229,1003,256"/>
+<area shape="rect" id="node15" href="$projectile_8h.html" title="projectile.c header " alt="" coords="1848,304,1933,331"/>
+<area shape="rect" id="node18" href="$enemies_8c.html" title="contain enemies gestion function " alt="" coords="1691,304,1772,331"/>
+<area shape="rect" id="node6" href="$map_8h.html" title="map.c header " alt="" coords="2008,379,2065,405"/>
+<area shape="rect" id="node10" href="$map_8c.html" title="loading and displaying the map " alt="" coords="2008,453,2065,480"/>
+<area shape="rect" id="node8" href="$game_8c.html" title="contient les fonction liées au jeu " alt="" coords="1591,528,1656,555"/>
+<area shape="rect" id="node12" href="$player_8c.html" title="Management of the player system. " alt="" coords="977,453,1044,480"/>
+<area shape="rect" id="node14" href="$menu__level_8c.html" title="level choose menu " alt="" coords="619,453,717,480"/>
+<area shape="rect" id="node16" href="$input_8c.html" title="the funtions to deal with the player inputs " alt="" coords="1712,379,1773,405"/>
+<area shape="rect" id="node17" href="$projectile_8c.html" title="contains the functions to deal with the projectiles " alt="" coords="1848,379,1933,405"/>
+<area shape="rect" id="node20" href="$mobile__platform_8c.html" title="contains the functions to deal with the mobile platforms " alt="" coords="1381,304,1507,331"/>
+<area shape="rect" id="node22" href="$text_8h.html" title="text.c header " alt="" coords="846,304,900,331"/>
+<area shape="rect" id="node28" href="$option_8h.html" title="option.c header " alt="" coords="195,304,263,331"/>
+<area shape="rect" id="node27" href="$text_8c.html" title="Management of the display of text on the screen. " alt="" coords="846,379,900,405"/>
+<area shape="rect" id="node24" href="$menu_8c.html" title="contains some functions tied to the title and main menu " alt="" coords="474,453,539,480"/>
+<area shape="rect" id="node26" href="$menu__option_8c.html" title="contains the option menu functions " alt="" coords="343,453,449,480"/>
+<area shape="rect" id="node29" href="$option_8c.html" title="contains the funtions that manipulate the options " alt="" coords="206,379,273,405"/>
+<area shape="rect" id="node32" href="$image_8c.html" title="Contain the functions managing the images. " alt="" coords="1966,155,2033,181"/>
+<area shape="rect" id="node34" href="$share_8c.html" title="Management of FPS rate. " alt="" coords="345,155,409,181"/>
 </map>

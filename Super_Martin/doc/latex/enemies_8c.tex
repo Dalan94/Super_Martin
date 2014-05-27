@@ -1,0 +1,371 @@
+\hypertarget{enemies_8c}{\section{enemies.\-c File Reference}
+\label{enemies_8c}\index{enemies.\-c@{enemies.\-c}}
+}
+
+
+contain enemies gestion function  
+
+
+{\ttfamily \#include \char`\"{}enemies.\-h\char`\"{}}\\*
+Include dependency graph for enemies.\-c\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{enemies_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{enemies_8c_a68e86bc615a3b71cf549b32a71f6c943}{void {\bfseries create\-Enemy} (char $\ast$tile, int x, int y, \hyperlink{structlist}{list} $\ast$l, int type)}\label{enemies_8c_a68e86bc615a3b71cf549b32a71f6c943}
+
+\item 
+void \hyperlink{enemies_8c_a766e049c933ace6a69ba1e7c3fab142c}{free\-Enemies} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+\hypertarget{enemies_8c_ada7bfd5ddcfd60cd52ad17b2c9b37b8f}{void {\bfseries blit\-Enemies} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_map}{Map} $\ast$m)}\label{enemies_8c_ada7bfd5ddcfd60cd52ad17b2c9b37b8f}
+
+\item 
+int \hyperlink{enemies_8c_ae36bc711341ade0e08eb57e1c5063174}{collision\-Enemy} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_map}{Map} $\ast$m)
+\item 
+\hypertarget{enemies_8c_a5cc0822e34be00f2555f70f8acf17680}{void {\bfseries move\-Enemies} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_map}{Map} $\ast$m, \hyperlink{structlist}{list} $\ast$p, \hyperlink{structprojectile_set}{projectile\-Set} $\ast$ps, int $\ast$launch)}\label{enemies_8c_a5cc0822e34be00f2555f70f8acf17680}
+
+\item 
+\hypertarget{enemies_8c_a315db1acddbe1cd18db63bab85f1709a}{int {\bfseries move\-Character\-Col} (\hyperlink{struct_character}{Character} $\ast$c, int move\-\_\-left, int move\-\_\-right, \hyperlink{struct_map}{Map} $\ast$m)}\label{enemies_8c_a315db1acddbe1cd18db63bab85f1709a}
+
+\item 
+\hypertarget{enemies_8c_a86da34107b65b23bb7105568af701160}{\hyperlink{structnode}{node} $\ast$ {\bfseries new\-Node} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{structnode}{node} $\ast$n, \hyperlink{structnode}{node} $\ast$p)}\label{enemies_8c_a86da34107b65b23bb7105568af701160}
+
+\item 
+void \hyperlink{enemies_8c_aaca0e3ca99177d70268a1f770c50e264}{init\-List} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+int \hyperlink{enemies_8c_a185b7dd5b77fdf2b6315358ac7767e44}{empty} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+int \hyperlink{enemies_8c_a0f5c139f75d0a54b38c0d33e1bc22223}{first} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+int \hyperlink{enemies_8c_a86d339159e440962ce42347b99e07625}{last} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+int \hyperlink{enemies_8c_a7774be61944dce2ae021e0e4442b4515}{out\-Of\-List} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+void \hyperlink{enemies_8c_aa0ae9a01476366cb08c3e904e2f31433}{set\-On\-First} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+void \hyperlink{enemies_8c_ad8a2ca1098f3a37401100bf88c3a4f03}{set\-On\-Last} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+void \hyperlink{enemies_8c_a1e9424bcb6302d001589f04a99802abf}{next} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+void \hyperlink{enemies_8c_ab6a55e4b951590640debd7d4110c37e6}{previous} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+\hyperlink{struct_character}{Character} $\ast$ \hyperlink{enemies_8c_ad2b7dfcca2dece6a5c7deffdf0b6a4b1}{get\-Current} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+\hypertarget{enemies_8c_a277ce428e10c4d50abdae6d162128f48}{int {\bfseries insert\-First} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)}\label{enemies_8c_a277ce428e10c4d50abdae6d162128f48}
+
+\item 
+\hypertarget{enemies_8c_a121944b1f370af47e1f980128bf0fc86}{int {\bfseries insert\-Last} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)}\label{enemies_8c_a121944b1f370af47e1f980128bf0fc86}
+
+\item 
+\hypertarget{enemies_8c_ae745be19268624b512665dce384c7eb4}{int {\bfseries insert\-After\-Current} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)}\label{enemies_8c_ae745be19268624b512665dce384c7eb4}
+
+\item 
+\hypertarget{enemies_8c_ae8c5bac4a4363592b055b0cd4000864c}{int {\bfseries insert\-Before\-Current} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)}\label{enemies_8c_ae8c5bac4a4363592b055b0cd4000864c}
+
+\item 
+\hyperlink{struct_character}{Character} $\ast$ \hyperlink{enemies_8c_a1d19853ad1ad5712c72159157e026164}{delete\-First} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+\hyperlink{struct_character}{Character} $\ast$ \hyperlink{enemies_8c_ae74eb855c1a8951c927e7322c08b33c0}{delete\-Last} (\hyperlink{structlist}{list} $\ast$l)
+\item 
+\hyperlink{struct_character}{Character} $\ast$ \hyperlink{enemies_8c_afd06d60d09ccb8510aa7e8fe1246094b}{delete\-Current} (\hyperlink{structlist}{list} $\ast$l)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+contain enemies gestion function \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/04-\/14 
+\end{DoxyDate}
+
+
+\subsection{Function Documentation}
+\hypertarget{enemies_8c_ae36bc711341ade0e08eb57e1c5063174}{\index{enemies.\-c@{enemies.\-c}!collision\-Enemy@{collision\-Enemy}}
+\index{collision\-Enemy@{collision\-Enemy}!enemies.c@{enemies.\-c}}
+\subsubsection[{collision\-Enemy}]{\setlength{\rightskip}{0pt plus 5cm}int collision\-Enemy (
+\begin{DoxyParamCaption}
+\item[{{\bf Character} $\ast$}]{c, }
+\item[{{\bf list} $\ast$}]{l, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_ae36bc711341ade0e08eb57e1c5063174}
+determine if there is a collision beteewen the player sprite and an enemy and deals with 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em c} & the player \\
+\hline
+\mbox{\tt in,out}  & {\em l} & the enemy list, change the current node \\
+\hline
+\mbox{\tt in}  & {\em m} & the game map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if there is a collision, 0 if not 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{enemies_8c_ae36bc711341ade0e08eb57e1c5063174_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{enemies_8c_afd06d60d09ccb8510aa7e8fe1246094b}{\index{enemies.\-c@{enemies.\-c}!delete\-Current@{delete\-Current}}
+\index{delete\-Current@{delete\-Current}!enemies.c@{enemies.\-c}}
+\subsubsection[{delete\-Current}]{\setlength{\rightskip}{0pt plus 5cm}enemy $\ast$ delete\-Current (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_afd06d60d09ccb8510aa7e8fe1246094b}
+delete the current node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list which has to be modified \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the current node's enemy, N\-U\-L\-L if empty list 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{enemies_8c_afd06d60d09ccb8510aa7e8fe1246094b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{enemies_8c_a1d19853ad1ad5712c72159157e026164}{\index{enemies.\-c@{enemies.\-c}!delete\-First@{delete\-First}}
+\index{delete\-First@{delete\-First}!enemies.c@{enemies.\-c}}
+\subsubsection[{delete\-First}]{\setlength{\rightskip}{0pt plus 5cm}enemy $\ast$ delete\-First (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_a1d19853ad1ad5712c72159157e026164}
+delete the first node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list which has to be modified \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the first node's enemy, N\-U\-L\-L if empty list 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{enemies_8c_a1d19853ad1ad5712c72159157e026164_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{enemies_8c_ae74eb855c1a8951c927e7322c08b33c0}{\index{enemies.\-c@{enemies.\-c}!delete\-Last@{delete\-Last}}
+\index{delete\-Last@{delete\-Last}!enemies.c@{enemies.\-c}}
+\subsubsection[{delete\-Last}]{\setlength{\rightskip}{0pt plus 5cm}enemy $\ast$ delete\-Last (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_ae74eb855c1a8951c927e7322c08b33c0}
+delete the last node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list which has to be modified \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the last node's enemy, N\-U\-L\-L if empty list 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{enemies_8c_ae74eb855c1a8951c927e7322c08b33c0_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{enemies_8c_a185b7dd5b77fdf2b6315358ac7767e44}{\index{enemies.\-c@{enemies.\-c}!empty@{empty}}
+\index{empty@{empty}!enemies.c@{enemies.\-c}}
+\subsubsection[{empty}]{\setlength{\rightskip}{0pt plus 5cm}int empty (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_a185b7dd5b77fdf2b6315358ac7767e44}
+tests if the list is empty 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em l} & the list to be tested \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the list is empty, 0 if not 
+\end{DoxyReturn}
+\hypertarget{enemies_8c_a0f5c139f75d0a54b38c0d33e1bc22223}{\index{enemies.\-c@{enemies.\-c}!first@{first}}
+\index{first@{first}!enemies.c@{enemies.\-c}}
+\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}int first (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_a0f5c139f75d0a54b38c0d33e1bc22223}
+tests if the current node is the first node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em l} & the list to be tested \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the current node is the first node, 0 if not 
+\end{DoxyReturn}
+\hypertarget{enemies_8c_a766e049c933ace6a69ba1e7c3fab142c}{\index{enemies.\-c@{enemies.\-c}!free\-Enemies@{free\-Enemies}}
+\index{free\-Enemies@{free\-Enemies}!enemies.c@{enemies.\-c}}
+\subsubsection[{free\-Enemies}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Enemies (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_a766e049c933ace6a69ba1e7c3fab142c}
+free all the enemies and the list 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the enemy list \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{enemies_8c_a766e049c933ace6a69ba1e7c3fab142c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{enemies_8c_ad2b7dfcca2dece6a5c7deffdf0b6a4b1}{\index{enemies.\-c@{enemies.\-c}!get\-Current@{get\-Current}}
+\index{get\-Current@{get\-Current}!enemies.c@{enemies.\-c}}
+\subsubsection[{get\-Current}]{\setlength{\rightskip}{0pt plus 5cm}enemy $\ast$ get\-Current (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_ad2b7dfcca2dece6a5c7deffdf0b6a4b1}
+get the character of the current node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em l} & the list to be modified \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemies_8c_aaca0e3ca99177d70268a1f770c50e264}{\index{enemies.\-c@{enemies.\-c}!init\-List@{init\-List}}
+\index{init\-List@{init\-List}!enemies.c@{enemies.\-c}}
+\subsubsection[{init\-List}]{\setlength{\rightskip}{0pt plus 5cm}void init\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_aaca0e3ca99177d70268a1f770c50e264}
+initialize the enemy list 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list to be initalized \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemies_8c_a86d339159e440962ce42347b99e07625}{\index{enemies.\-c@{enemies.\-c}!last@{last}}
+\index{last@{last}!enemies.c@{enemies.\-c}}
+\subsubsection[{last}]{\setlength{\rightskip}{0pt plus 5cm}int last (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_a86d339159e440962ce42347b99e07625}
+tests if the current node is the last node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em l} & the list to be tested \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the current node is the last node, 0 if not 
+\end{DoxyReturn}
+\hypertarget{enemies_8c_a1e9424bcb6302d001589f04a99802abf}{\index{enemies.\-c@{enemies.\-c}!next@{next}}
+\index{next@{next}!enemies.c@{enemies.\-c}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}void next (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_a1e9424bcb6302d001589f04a99802abf}
+set the current node on its next node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list to be modified \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{enemies_8c_a1e9424bcb6302d001589f04a99802abf_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{enemies_8c_a7774be61944dce2ae021e0e4442b4515}{\index{enemies.\-c@{enemies.\-c}!out\-Of\-List@{out\-Of\-List}}
+\index{out\-Of\-List@{out\-Of\-List}!enemies.c@{enemies.\-c}}
+\subsubsection[{out\-Of\-List}]{\setlength{\rightskip}{0pt plus 5cm}int out\-Of\-List (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_a7774be61944dce2ae021e0e4442b4515}
+tests if the current node is in the list 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em l} & the list to be tested \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the current node is in the list, 0 if not 
+\end{DoxyReturn}
+\hypertarget{enemies_8c_ab6a55e4b951590640debd7d4110c37e6}{\index{enemies.\-c@{enemies.\-c}!previous@{previous}}
+\index{previous@{previous}!enemies.c@{enemies.\-c}}
+\subsubsection[{previous}]{\setlength{\rightskip}{0pt plus 5cm}void previous (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_ab6a55e4b951590640debd7d4110c37e6}
+set the current node on its previous node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list to be modified \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemies_8c_aa0ae9a01476366cb08c3e904e2f31433}{\index{enemies.\-c@{enemies.\-c}!set\-On\-First@{set\-On\-First}}
+\index{set\-On\-First@{set\-On\-First}!enemies.c@{enemies.\-c}}
+\subsubsection[{set\-On\-First}]{\setlength{\rightskip}{0pt plus 5cm}void set\-On\-First (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_aa0ae9a01476366cb08c3e904e2f31433}
+set the current node on the first node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list to be modified \\
+\hline
+\end{DoxyParams}
+\hypertarget{enemies_8c_ad8a2ca1098f3a37401100bf88c3a4f03}{\index{enemies.\-c@{enemies.\-c}!set\-On\-Last@{set\-On\-Last}}
+\index{set\-On\-Last@{set\-On\-Last}!enemies.c@{enemies.\-c}}
+\subsubsection[{set\-On\-Last}]{\setlength{\rightskip}{0pt plus 5cm}void set\-On\-Last (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l}
+\end{DoxyParamCaption}
+)}}\label{enemies_8c_ad8a2ca1098f3a37401100bf88c3a4f03}
+set the current node on the last node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list to be modified \\
+\hline
+\end{DoxyParams}

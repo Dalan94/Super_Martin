@@ -11,11 +11,12 @@
 
 void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset)
 {
-    SDL_Surface *tile, *tree, *cloud, *flower, *spring, *canon;
-    SDL_Surface *end = NULL;
+    static SDL_Surface *tile, *cloud, *flower, *spring, *canon;
+    SDL_Surface *end, *tree = NULL;
     SDL_Rect posTile, posTileSet, posTree;
     int i,j,minx,maxx,nbRow;
     float x_off, y_off;
+    static int already_load=0;
 
     posTile.h = posTile.w = posTileSet.h = posTileSet.w = TILE_SIZE;
 
@@ -23,11 +24,15 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset)
     maxx = (m->xScroll + m->screenWidth)/TILE_SIZE+1;
     nbRow = m->screenHeight/TILE_SIZE;
 
-    spring = imageLoadAlpha("sprites/spring1.png");
-    tile = imageLoadAlpha(tileset);
-    cloud = imageLoadAlpha("sprites/cloud.png");
-    flower = imageLoadAlpha("sprites/flower.png");
-    canon = imageLoadAlpha(("sprites/canon.png"));
+    if (already_load == 0)
+    {
+        spring = imageLoadAlpha("sprites/spring1.png");
+        tile = imageLoadAlpha(tileset);
+        cloud = imageLoadAlpha("sprites/cloud.png");
+        flower = imageLoadAlpha("sprites/flower.png");
+        canon = imageLoadAlpha(("sprites/canon.png"));
+        already_load =1;
+    }
 
     if(!(strcmp(tileset, "sprites/tileSet_Snow.png")))
     {
@@ -175,11 +180,12 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset)
         SDL_FreeSurface(end);
     }
 
-    SDL_FreeSurface(tile);
     SDL_FreeSurface(tree);
+    /*SDL_FreeSurface(tile);
     SDL_FreeSurface(cloud);
     SDL_FreeSurface(flower);
     SDL_FreeSurface(canon);
+    SDL_FreeSurface(spring);*/
     //SDL_FreeSurface(heart);
    // SDL_FreeSurface(addLife);
 

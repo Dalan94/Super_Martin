@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['life',['life',['../struct_character.html#adf488ff0ce8098cd956c07890cbc5d50',1,'Character']]]
+  ['button',['button',['../struct_input.html#a7f901d4dc1179ea534cb9e5cce0a260b',1,'Input']]]
 ];

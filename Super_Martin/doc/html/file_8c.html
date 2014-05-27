@@ -90,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>Fonctions d'acces au fichiers.  
+<p>file access functions  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="file_8h_source.html">file.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
@@ -103,19 +103,17 @@ Include dependency graph for file.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a8f17d8993e6de59936122f7c8ef4e37b"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_8c.html#a8f17d8993e6de59936122f7c8ef4e37b">openFile</a> (char nom[], char mode[])</td></tr>
-<tr class="separator:a8f17d8993e6de59936122f7c8ef4e37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fca34d72624f611d2cbeac47279bb1f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_8c.html#a0fca34d72624f611d2cbeac47279bb1f">closeFile</a> (FILE *ptr_fichier)</td></tr>
-<tr class="separator:a0fca34d72624f611d2cbeac47279bb1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2924419af4232858df0519818c6fa64"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_8c.html#ad2924419af4232858df0519818c6fa64">readFileSize</a> (FILE *ptr_fichier)</td></tr>
-<tr class="separator:ad2924419af4232858df0519818c6fa64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab763060cbdd57fdb704871d896fc492a"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_8c.html#ab763060cbdd57fdb704871d896fc492a">openFile</a> (char name[], char mode[])</td></tr>
+<tr class="separator:ab763060cbdd57fdb704871d896fc492a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf55ac6bc5d81f94b54e4c8ea554f884"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file_8c.html#adf55ac6bc5d81f94b54e4c8ea554f884">closeFile</a> (FILE *ptr_file)</td></tr>
+<tr class="separator:adf55ac6bc5d81f94b54e4c8ea554f884"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Fonctions d'acces au fichiers. </p>
+<div class="textblock"><p>file access functions </p>
 <dl class="section author"><dt>Author</dt><dd>Remi BERTHO </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>15/03/14 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a0fca34d72624f611d2cbeac47279bb1f"></a>
+<a class="anchor" id="adf55ac6bc5d81f94b54e4c8ea554f884"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -123,23 +121,23 @@ Functions</h2></td></tr>
           <td class="memname">int closeFile </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
-          <td class="paramname"><em>ptr_fichier</em></td><td>)</td>
+          <td class="paramname"><em>ptr_file</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Ferme le fichier </p>
+<p>close a file </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*ptr_fichier</td><td>le fichier </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*ptr_file</td><td>the file to be closed </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>entier 0 si tout s'est bien passe, 1 sinon </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int 0 if the file was succefuly closed, 1 if not </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="a8f17d8993e6de59936122f7c8ef4e37b"></a>
+<a class="anchor" id="ab763060cbdd57fdb704871d896fc492a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -147,7 +145,7 @@ Functions</h2></td></tr>
           <td class="memname">FILE * openFile </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>nom</em>[], </td>
+          <td class="paramname"><em>name</em>[], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -162,46 +160,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Ouvre un fichier a partir de son nom (nom[]) et du mode voulu (mode[]) </p>
+<p>open a file </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">nom[]</td><td>le nom du fichier </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mode[]</td><td>le mode voulu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>the file name/path </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>the opening mode </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>un pointeur sur le fichier ouvert, NULL s'il y a eut un probleme </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ad2924419af4232858df0519818c6fa64"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int readFileSize </td>
-          <td>(</td>
-          <td class="paramtype">FILE *&#160;</td>
-          <td class="paramname"><em>ptr_fichier</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Lis la taille du fichier </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*ptr_fichier</td><td>le fichier </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>entier ayant la taille du fichier </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>a pointer on the opened file, NULL if error </dd></dl>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 26 2014 17:03:28 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

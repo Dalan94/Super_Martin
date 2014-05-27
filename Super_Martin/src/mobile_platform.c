@@ -195,7 +195,10 @@ void freePlatformSet(platformSet *ps)
 {
     int i;
     for(i = 0;i<ps->nb;i++)
+    {
+        SDL_FreeSurface(ps->tab[i]->sprite);
         free((void *)ps->tab[i]);
+    }
 }
 
 /* ************************************** */

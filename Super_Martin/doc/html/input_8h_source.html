@@ -95,33 +95,66 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;errno.h&gt;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="player_8h.html">player.h</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="character_8h.html">character.h</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="struct_input.html">   12</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">char</span> key[SDLK_LAST];</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">int</span> quit;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;} <a class="code" href="struct_input.html">Input</a>;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*prototype*/</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">int</span> <a class="code" href="input_8c.html#a96302a81fac34b8c2bfa2add1a03d802">updateEvents</a>(<a class="code" href="struct_input.html">Input</a>* in);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="input_8c.html#a02a609bb8821ffe9d5719858775e6f0c">keyboardActionGame</a>(<a class="code" href="struct_input.html">Input</a> *in,<span class="keywordtype">int</span> *move_left,<span class="keywordtype">int</span> *move_right,<span class="keywordtype">int</span> *jump,<span class="keywordtype">int</span> *pause,<a class="code" href="struct_character.html">Character</a> *player);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">int</span> <a class="code" href="input_8c.html#ad3310b398fa046500863c183fd4468e6">updateWaitEvents</a>(<a class="code" href="struct_input.html">Input</a>* in);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="input_8c.html#af272764fd4eba51f28af6b9b56273b37">keyboardActionMenu</a>(<a class="code" href="struct_input.html">Input</a> *in,<span class="keywordtype">int</span> *cursorPos,<span class="keywordtype">int</span> *play_level,<span class="keywordtype">int</span> nb_lvl);</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif // INPUT_H_INCLUDED</span></div>
-<div class="ttc" id="struct_character_html"><div class="ttname"><a href="struct_character.html">Character</a></div><div class="ttdef"><b>Definition:</b> player.h:39</div></div>
-<div class="ttc" id="player_8h_html"><div class="ttname"><a href="player_8h.html">player.h</a></div><div class="ttdoc">header de player.c </div></div>
-<div class="ttc" id="input_8c_html_a02a609bb8821ffe9d5719858775e6f0c"><div class="ttname"><a href="input_8c.html#a02a609bb8821ffe9d5719858775e6f0c">keyboardActionGame</a></div><div class="ttdeci">void keyboardActionGame(Input *in, int *move_left, int *move_right, int *jump, int *pause, Character *player)</div><div class="ttdef"><b>Definition:</b> input.c:53</div></div>
-<div class="ttc" id="input_8c_html_af272764fd4eba51f28af6b9b56273b37"><div class="ttname"><a href="input_8c.html#af272764fd4eba51f28af6b9b56273b37">keyboardActionMenu</a></div><div class="ttdeci">void keyboardActionMenu(Input *in, int *cursorPos, int *play_level, int nb_lvl)</div><div class="ttdef"><b>Definition:</b> input.c:119</div></div>
-<div class="ttc" id="struct_input_html"><div class="ttname"><a href="struct_input.html">Input</a></div><div class="ttdef"><b>Definition:</b> input.h:12</div></div>
-<div class="ttc" id="input_8c_html_a96302a81fac34b8c2bfa2add1a03d802"><div class="ttname"><a href="input_8c.html#a96302a81fac34b8c2bfa2add1a03d802">updateEvents</a></div><div class="ttdeci">int updateEvents(Input *in)</div><div class="ttdef"><b>Definition:</b> input.c:18</div></div>
-<div class="ttc" id="input_8c_html_ad3310b398fa046500863c183fd4468e6"><div class="ttname"><a href="input_8c.html#ad3310b398fa046500863c183fd4468e6">updateWaitEvents</a></div><div class="ttdeci">int updateWaitEvents(Input *in)</div><div class="ttdef"><b>Definition:</b> input.c:86</div></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    A = 0,B,X,Y,R1=5,BACK = 6,START</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}joyButton;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="struct_input.html">   24</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">char</span> key[SDLK_LAST]; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="struct_input.html#ab05991ed532329184893692211b355fa">   27</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_input.html#ab05991ed532329184893692211b355fa">space</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> quit; </div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="struct_input.html#a163e08d0d19093f658f448710f8e3c49">   31</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_input.html#a163e08d0d19093f658f448710f8e3c49">isJoystick</a>; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="struct_input.html#a66b84ad51037935b993fc2b860b15cb6">   32</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_input.html#a66b84ad51037935b993fc2b860b15cb6">useJoystick</a>; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="struct_input.html#a5fe6c6b426f70a21df07c64227b2c337">   33</a></span>&#160;    SDL_Joystick *<a class="code" href="struct_input.html#a5fe6c6b426f70a21df07c64227b2c337">joystick</a>; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="struct_input.html#a7f901d4dc1179ea534cb9e5cce0a260b">   34</a></span>&#160;    <span class="keywordtype">char</span> *<a class="code" href="struct_input.html#a7f901d4dc1179ea534cb9e5cce0a260b">button</a>; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="struct_input.html#ae2fe71f7c5edeaa9fc2676be4a93499a">   35</a></span>&#160;    <span class="keywordtype">int</span> *<a class="code" href="struct_input.html#ae2fe71f7c5edeaa9fc2676be4a93499a">axes</a>; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="struct_input.html#ab1c8c264ad7cfee584093b1479c03f75">   36</a></span>&#160;    <span class="keywordtype">int</span> *<a class="code" href="struct_input.html#ab1c8c264ad7cfee584093b1479c03f75">hat</a>; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="struct_input.html#af7cf3c53ae2105eec18ce989dd3ddae0">   38</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_input.html#af7cf3c53ae2105eec18ce989dd3ddae0">hatMoved</a>; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;} <a class="code" href="struct_input.html">Input</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">/*prototype*/</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> <a class="code" href="input_8c.html#ad630e59ba080f6bbde9d4e1de45b126c">initInput</a>(<a class="code" href="struct_input.html">Input</a> *in);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> initJoystick(<a class="code" href="struct_input.html">Input</a> *in);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">void</span> <a class="code" href="input_8c.html#a473359e91c8f9f7bf41b58df1dd8436b">freeInput</a>(<a class="code" href="struct_input.html">Input</a> *in);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">int</span> updateEvents(<a class="code" href="struct_input.html">Input</a>* in,<span class="keywordtype">int</span> *go);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keywordtype">void</span> <a class="code" href="input_8c.html#a2b672258ad51a0794365f8fa73393c95">inputActionGame</a>(<a class="code" href="struct_input.html">Input</a> *in,<span class="keywordtype">float</span> *move_left,<span class="keywordtype">float</span> *move_right,<span class="keywordtype">int</span> *jump,<span class="keywordtype">int</span> *pause,<a class="code" href="struct_character.html">Character</a> *player,<span class="keywordtype">int</span> *acceleration,SDLKey *kc,<a class="code" href="structprojectile_set.html">projectileSet</a> *ps);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keywordtype">int</span> <a class="code" href="input_8c.html#adf8840e198ccba8364c2d051b700a690">updateWaitEvents</a>(<a class="code" href="struct_input.html">Input</a>* in,<span class="keywordtype">int</span> *go);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keywordtype">void</span> <a class="code" href="input_8c.html#aa6bee0b289cdccb4873683ffeaadc78e">inputActionMenu</a>(<a class="code" href="struct_input.html">Input</a> *in,<span class="keywordtype">int</span> *cursorPos,<span class="keywordtype">int</span> *play_level,<span class="keywordtype">int</span> nb_lvl);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif // INPUT_H_INCLUDED</span></div>
+<div class="ttc" id="character_8h_html"><div class="ttname"><a href="character_8h.html">character.h</a></div><div class="ttdoc">header de character.c </div></div>
+<div class="ttc" id="struct_input_html_af7cf3c53ae2105eec18ce989dd3ddae0"><div class="ttname"><a href="struct_input.html#af7cf3c53ae2105eec18ce989dd3ddae0">Input::hatMoved</a></div><div class="ttdeci">int hatMoved</div><div class="ttdef"><b>Definition:</b> input.h:38</div></div>
+<div class="ttc" id="struct_character_html"><div class="ttname"><a href="struct_character.html">Character</a></div><div class="ttdef"><b>Definition:</b> structures.h:17</div></div>
+<div class="ttc" id="struct_input_html_ab05991ed532329184893692211b355fa"><div class="ttname"><a href="struct_input.html#ab05991ed532329184893692211b355fa">Input::space</a></div><div class="ttdeci">int space</div><div class="ttdef"><b>Definition:</b> input.h:27</div></div>
+<div class="ttc" id="input_8c_html_adf8840e198ccba8364c2d051b700a690"><div class="ttname"><a href="input_8c.html#adf8840e198ccba8364c2d051b700a690">updateWaitEvents</a></div><div class="ttdeci">int updateWaitEvents(Input *in, int *go)</div><div class="ttdef"><b>Definition:</b> input.c:230</div></div>
+<div class="ttc" id="input_8c_html_a473359e91c8f9f7bf41b58df1dd8436b"><div class="ttname"><a href="input_8c.html#a473359e91c8f9f7bf41b58df1dd8436b">freeInput</a></div><div class="ttdeci">void freeInput(Input *in)</div><div class="ttdef"><b>Definition:</b> input.c:88</div></div>
+<div class="ttc" id="struct_input_html_a66b84ad51037935b993fc2b860b15cb6"><div class="ttname"><a href="struct_input.html#a66b84ad51037935b993fc2b860b15cb6">Input::useJoystick</a></div><div class="ttdeci">int useJoystick</div><div class="ttdef"><b>Definition:</b> input.h:32</div></div>
+<div class="ttc" id="struct_input_html_ab1c8c264ad7cfee584093b1479c03f75"><div class="ttname"><a href="struct_input.html#ab1c8c264ad7cfee584093b1479c03f75">Input::hat</a></div><div class="ttdeci">int * hat</div><div class="ttdef"><b>Definition:</b> input.h:36</div></div>
+<div class="ttc" id="input_8c_html_aa6bee0b289cdccb4873683ffeaadc78e"><div class="ttname"><a href="input_8c.html#aa6bee0b289cdccb4873683ffeaadc78e">inputActionMenu</a></div><div class="ttdeci">void inputActionMenu(Input *in, int *cursorPos, int *play_level, int nb_options)</div><div class="ttdef"><b>Definition:</b> input.c:288</div></div>
+<div class="ttc" id="struct_input_html_a163e08d0d19093f658f448710f8e3c49"><div class="ttname"><a href="struct_input.html#a163e08d0d19093f658f448710f8e3c49">Input::isJoystick</a></div><div class="ttdeci">int isJoystick</div><div class="ttdef"><b>Definition:</b> input.h:31</div></div>
+<div class="ttc" id="struct_input_html"><div class="ttname"><a href="struct_input.html">Input</a></div><div class="ttdef"><b>Definition:</b> input.h:24</div></div>
+<div class="ttc" id="struct_input_html_a7f901d4dc1179ea534cb9e5cce0a260b"><div class="ttname"><a href="struct_input.html#a7f901d4dc1179ea534cb9e5cce0a260b">Input::button</a></div><div class="ttdeci">char * button</div><div class="ttdef"><b>Definition:</b> input.h:34</div></div>
+<div class="ttc" id="input_8c_html_ad630e59ba080f6bbde9d4e1de45b126c"><div class="ttname"><a href="input_8c.html#ad630e59ba080f6bbde9d4e1de45b126c">initInput</a></div><div class="ttdeci">void initInput(Input *in)</div><div class="ttdef"><b>Definition:</b> input.c:13</div></div>
+<div class="ttc" id="struct_input_html_a5fe6c6b426f70a21df07c64227b2c337"><div class="ttname"><a href="struct_input.html#a5fe6c6b426f70a21df07c64227b2c337">Input::joystick</a></div><div class="ttdeci">SDL_Joystick * joystick</div><div class="ttdef"><b>Definition:</b> input.h:33</div></div>
+<div class="ttc" id="input_8c_html_a2b672258ad51a0794365f8fa73393c95"><div class="ttname"><a href="input_8c.html#a2b672258ad51a0794365f8fa73393c95">inputActionGame</a></div><div class="ttdeci">void inputActionGame(Input *in, float *move_left, float *move_right, int *jump, int *pause, Character *player, int *acceleration, SDLKey *kc, projectileSet *ps)</div><div class="ttdef"><b>Definition:</b> input.c:152</div></div>
+<div class="ttc" id="struct_input_html_ae2fe71f7c5edeaa9fc2676be4a93499a"><div class="ttname"><a href="struct_input.html#ae2fe71f7c5edeaa9fc2676be4a93499a">Input::axes</a></div><div class="ttdeci">int * axes</div><div class="ttdef"><b>Definition:</b> input.h:35</div></div>
+<div class="ttc" id="structprojectile_set_html"><div class="ttname"><a href="structprojectile_set.html">projectileSet</a></div><div class="ttdef"><b>Definition:</b> structures.h:132</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 26 2014 17:03:28 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

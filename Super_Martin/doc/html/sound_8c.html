@@ -90,7 +90,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>contient les fonction pour jouer du son  
+<p>contains the sound playing function  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="sound_8h_source.html">sound.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
@@ -105,19 +105,19 @@ Include dependency graph for sound.c:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a3b1e12665aed7169d8efdb2cc611184e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_sound.html">Sound</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#a3b1e12665aed7169d8efdb2cc611184e">createSound</a> (void)</td></tr>
 <tr class="separator:a3b1e12665aed7169d8efdb2cc611184e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3af6fda5716d5f42846d0ccc01d5e2ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#a3af6fda5716d5f42846d0ccc01d5e2ca">playMusic</a> (<a class="el" href="struct_sound.html">Sound</a> *s, char *file)</td></tr>
-<tr class="separator:a3af6fda5716d5f42846d0ccc01d5e2ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5378cbd0e1d0bfeaa823df1a8ea215f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#a5378cbd0e1d0bfeaa823df1a8ea215f3">playMusicOnce</a> (<a class="el" href="struct_sound.html">Sound</a> *s, char *file)</td></tr>
-<tr class="separator:a5378cbd0e1d0bfeaa823df1a8ea215f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c981aed72c43f6f824e5ad4ad6e2b68"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#a4c981aed72c43f6f824e5ad4ad6e2b68">playMusic</a> (char *file, <a class="el" href="struct_sound.html">Sound</a> *s)</td></tr>
+<tr class="separator:a4c981aed72c43f6f824e5ad4ad6e2b68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6703afe3fbb9a56c97f10e71c571889"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#af6703afe3fbb9a56c97f10e71c571889">playShortSound</a> (char *file, <a class="el" href="struct_sound.html">Sound</a> *s)</td></tr>
+<tr class="separator:af6703afe3fbb9a56c97f10e71c571889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc13f1ac1e0bac5afe39405869772a08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#acc13f1ac1e0bac5afe39405869772a08">freeSound</a> (<a class="el" href="struct_sound.html">Sound</a> *s)</td></tr>
 <tr class="separator:acc13f1ac1e0bac5afe39405869772a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3737f55b80ac35471d115d0304e8bc3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#ac3737f55b80ac35471d115d0304e8bc3">stopSound</a> (<a class="el" href="struct_sound.html">Sound</a> *s)</td></tr>
-<tr class="separator:ac3737f55b80ac35471d115d0304e8bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63831c086cacea9358f5c86bebbfb288"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#a63831c086cacea9358f5c86bebbfb288">soundVolume</a> (<a class="el" href="struct_sound.html">Sound</a> *s, float volume)</td></tr>
-<tr class="separator:a63831c086cacea9358f5c86bebbfb288"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18be184fe7f93acf424e2fb881c92218"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#a18be184fe7f93acf424e2fb881c92218">stopSound</a> (<a class="el" href="struct_sound.html">Sound</a> *s, int chan)</td></tr>
+<tr class="separator:a18be184fe7f93acf424e2fb881c92218"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a808dfdd0b2bdf172ff0741b3a94c3f2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sound_8c.html#a808dfdd0b2bdf172ff0741b3a94c3f2d">soundVolume</a> (<a class="el" href="struct_sound.html">Sound</a> *s, int chan, float volume)</td></tr>
+<tr class="separator:a808dfdd0b2bdf172ff0741b3a94c3f2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>contient les fonction pour jouer du son </p>
+<div class="textblock"><p>contains the sound playing function </p>
 <dl class="section author"><dt>Author</dt><dd>Xavier COPONET </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2014-02-27 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -134,8 +134,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>créer une structure son </p>
-<dl class="section return"><dt>Returns</dt><dd>la structure son </dd></dl>
+<p>create a sound structure </p>
+<dl class="section return"><dt>Returns</dt><dd>the sound structure </dd></dl>
 
 </div>
 </div>
@@ -162,21 +162,21 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a3af6fda5716d5f42846d0ccc01d5e2ca"></a>
+<a class="anchor" id="a4c981aed72c43f6f824e5ad4ad6e2b68"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void playMusic </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_sound.html">Sound</a> *&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>file</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_sound.html">Sound</a> *&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -185,32 +185,32 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>lit un fichier long (musique) </p>
+<p>play a long sound file (music) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>la structure son que l'on manipule </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">file</td><td>Le fichier son à lire </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">file</td><td>the sound file to be played </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">s</td><td>the sound system we manipulate </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a5378cbd0e1d0bfeaa823df1a8ea215f3"></a>
+<a class="anchor" id="af6703afe3fbb9a56c97f10e71c571889"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void playMusicOnce </td>
+          <td class="memname">void playShortSound </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_sound.html">Sound</a> *&#160;</td>
-          <td class="paramname"><em>s</em>, </td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>file</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>file</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_sound.html">Sound</a> *&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -219,18 +219,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>lit un fichier long une fois </p>
+<p>play a short sound file (effect sound) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">s</td><td>la structure son que l'on manipule </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">file</td><td>Le fichier son à lire </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">file</td><td>the sound file to be played </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">s</td><td>the sound system we manipulate </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a63831c086cacea9358f5c86bebbfb288"></a>
+<a class="anchor" id="a808dfdd0b2bdf172ff0741b3a94c3f2d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -239,6 +239,12 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_sound.html">Sound</a> *&#160;</td>
           <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>chan</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -256,7 +262,8 @@ Functions</h2></td></tr>
 <p>set the sound volume </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">s</td><td>the sound </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">s</td><td>the sound system </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">chan</td><td>the channel which the volume's has to be changed </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">volume</td><td>the sound volume : [0.0 : no sound ; 1.0 (default) max power] </td></tr>
   </table>
   </dd>
@@ -264,7 +271,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac3737f55b80ac35471d115d0304e8bc3"></a>
+<a class="anchor" id="a18be184fe7f93acf424e2fb881c92218"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -272,15 +279,26 @@ Functions</h2></td></tr>
           <td class="memname">void stopSound </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_sound.html">Sound</a> *&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>chan</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>stop the sound </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">the</td><td>sound to stop </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">s</td><td>the sound system </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">chan</td><td>the channel which has to be stoped </td></tr>
   </table>
   </dd>
 </dl>
@@ -290,7 +308,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 26 2014 17:03:29 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

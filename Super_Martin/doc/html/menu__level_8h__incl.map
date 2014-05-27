@@ -1,11 +1,16 @@
 <map id="menu_level.h" name="menu_level.h">
-<area shape="rect" id="node15" href="$const_8h.html" title="contient les constantes du programme " alt="" coords="1211,337,1275,370"/>
-<area shape="rect" id="node17" href="$file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="485,254,568,287"/>
-<area shape="rect" id="node29" href="$share_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1139,254,1203,287"/>
-<area shape="rect" id="node33" href="$text_8h.html" title="header de text.c " alt="" coords="312,254,365,287"/>
-<area shape="rect" id="node41" href="$sound_8h.html" title="header de sound.c " alt="" coords="1368,337,1435,370"/>
-<area shape="rect" id="node48" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="845,254,912,287"/>
-<area shape="rect" id="node56" href="$input_8h_source.html" title="input.h" alt="" coords="987,89,1048,122"/>
-<area shape="rect" id="node22" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="565,337,616,370"/>
-<area shape="rect" id="node62" href="$player_8h.html" title="header de player.c " alt="" coords="1037,171,1104,205"/>
+<area shape="rect" id="node8" href="$const_8h.html" title="containe the program constantes " alt="" coords="165,453,229,480"/>
+<area shape="rect" id="node9" href="$structures_8h.html" title="structures.h" alt="" coords="475,379,565,405"/>
+<area shape="rect" id="node10" href="$file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1022,80,1105,107"/>
+<area shape="rect" id="node15" href="$share_8h.html" title="share.c header " alt="" coords="195,304,260,331"/>
+<area shape="rect" id="node17" href="$image_8h.html" title="contient les fonction liées aux images " alt="" coords="990,379,1057,405"/>
+<area shape="rect" id="node19" href="$sound_8h.html" title="header de sound.c " alt="" coords="1867,379,1935,405"/>
+<area shape="rect" id="node22" href="$text_8h.html" title="text.c header " alt="" coords="1677,80,1731,107"/>
+<area shape="rect" id="node23" href="$input_8h_source.html" title="input.h" alt="" coords="1605,155,1667,181"/>
+<area shape="rect" id="node11" href="$file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="1640,379,1691,405"/>
+<area shape="rect" id="node13" href="$enemies_8h.html" title="enemies.c header " alt="" coords="944,155,1025,181"/>
+<area shape="rect" id="node18" href="$mobile__platform_8h.html" title="mobile_platform.c header " alt="" coords="691,304,816,331"/>
+<area shape="rect" id="node14" href="$character_8h.html" title="header de character.c " alt="" coords="942,229,1028,256"/>
+<area shape="rect" id="node21" href="$projectile_8h.html" title="projectile.c header " alt="" coords="1043,304,1128,331"/>
+<area shape="rect" id="node16" href="$map_8h.html" title="map.c header " alt="" coords="1203,304,1260,331"/>
 </map>

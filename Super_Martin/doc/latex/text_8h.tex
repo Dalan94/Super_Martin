@@ -3,23 +3,27 @@
 }
 
 
-header de \hyperlink{text_8c}{text.\-c}  
+\hyperlink{text_8c}{text.\-c} header  
 
 
 {\ttfamily \#include $<$stdlib.\-h$>$}\\*
 {\ttfamily \#include $<$stdio.\-h$>$}\\*
 {\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}structures.\-h\char`\"{}}\\*
 {\ttfamily \#include $<$S\-D\-L/\-S\-D\-L.\-h$>$}\\*
 {\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
 {\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-ttf.\-h$>$}\\*
-Include dependency graph for text.\-h\-:\nopagebreak
+{\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
+Include dependency graph for text.\-h\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{text_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\-:\nopagebreak
+This graph shows which files directly or indirectly include this file\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -30,19 +34,75 @@ This graph shows which files directly or indirectly include this file\-:\nopageb
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{text_8h_a1bd80be1aff6fe5303bdd5aa80161da3}{print\-Text} (S\-D\-L\-\_\-\-Surface $\ast$screen, S\-D\-L\-\_\-\-Rect $\ast$pos\-Text, char $\ast$text, int r, int g, int b, char $\ast$font, int pt\-Size, int mode)
+\item 
+void \hyperlink{text_8h_a458f74becdf9be4cb93716d0393dbae7}{capture\-Text} (S\-D\-L\-\_\-\-Surface $\ast$screen, S\-D\-L\-\_\-\-Rect pos\-Text, char $\ast$text, int text\-\_\-length, int r, int g, int b, char $\ast$font, int text\-\_\-size, int $\ast$go, int $\ast$ret)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-header de \hyperlink{text_8c}{text.\-c} \begin{DoxyAuthor}{Author}
-Xavier C\-O\-P\-O\-N\-E\-T 
+\hyperlink{text_8c}{text.\-c} header \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T, Glenn H\-E\-R\-R\-O\-U 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-2014-\/02-\/27 
+2014-\/04-\/27 
 \end{DoxyDate}
 
 
 \subsection{Function Documentation}
+\hypertarget{text_8h_a458f74becdf9be4cb93716d0393dbae7}{\index{text.\-h@{text.\-h}!capture\-Text@{capture\-Text}}
+\index{capture\-Text@{capture\-Text}!text.h@{text.\-h}}
+\subsubsection[{capture\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void capture\-Text (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{S\-D\-L\-\_\-\-Rect}]{pos\-Text, }
+\item[{char $\ast$}]{text, }
+\item[{int}]{text\-\_\-length, }
+\item[{int}]{r, }
+\item[{int}]{g, }
+\item[{int}]{b, }
+\item[{char $\ast$}]{font, }
+\item[{int}]{text\-\_\-size, }
+\item[{int $\ast$}]{go, }
+\item[{int $\ast$}]{ret}
+\end{DoxyParamCaption}
+)}}\label{text_8h_a458f74becdf9be4cb93716d0393dbae7}
+Capture the text corresponding to the keyboard inputs and display it on the screen at the given position 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt in}  & {\em pos\-Text} & The position of the text. If N\-U\-L\-L, the text is centered \\
+\hline
+\mbox{\tt out}  & {\em text} & The text to display \\
+\hline
+\mbox{\tt in}  & {\em int} & r red value \\
+\hline
+\mbox{\tt in}  & {\em int} & g green value \\
+\hline
+\mbox{\tt in}  & {\em int} & b blue value \\
+\hline
+\mbox{\tt in}  & {\em font} & The path to the font file \\
+\hline
+\mbox{\tt in}  & {\em pt\-Size} & The text size \\
+\hline
+\mbox{\tt in}  & {\em mode} & The writing mode \-: 0 (Solid), 1 (Blended) \\
+\hline
+\mbox{\tt out}  & {\em go} & The main loop validation \\
+\hline
+\mbox{\tt in,out}  & {\em ret} & The press return indicator \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{text_8h_a458f74becdf9be4cb93716d0393dbae7_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{text_8h_a1bd80be1aff6fe5303bdd5aa80161da3}{\index{text.\-h@{text.\-h}!print\-Text@{print\-Text}}
 \index{print\-Text@{print\-Text}!text.h@{text.\-h}}
 \subsubsection[{print\-Text}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Text (
@@ -58,13 +118,13 @@ Xavier C\-O\-P\-O\-N\-E\-T
 \item[{int}]{mode}
 \end{DoxyParamCaption}
 )}}\label{text_8h_a1bd80be1aff6fe5303bdd5aa80161da3}
-affiche le texte sur l'écran à la position donnée 
+Display the given text on the screen, at the given position 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt out}  & {\em screen} & L'écran \\
+\mbox{\tt out}  & {\em screen} & The screen of the game \\
 \hline
-\mbox{\tt in}  & {\em pos\-Text} & La position du texte à afficher ; si N\-U\-L\-L, centré en largeur et hauteur \\
+\mbox{\tt in}  & {\em pos\-Text} & The position of the text. If N\-U\-L\-L, the text is centered \\
 \hline
-\mbox{\tt in}  & {\em text} & Le texte à afficher \\
+\mbox{\tt in}  & {\em text} & The text to display \\
 \hline
 \mbox{\tt in}  & {\em int} & r red value \\
 \hline
@@ -72,10 +132,10 @@ affiche le texte sur l'écran à la position donnée
 \hline
 \mbox{\tt in}  & {\em int} & b blue value \\
 \hline
-\mbox{\tt in}  & {\em font} & L'adresse de la police d'affichage (.ttf) \\
+\mbox{\tt in}  & {\em font} & The path to the font file \\
 \hline
-\mbox{\tt in}  & {\em pt\-Size} & la taille du texte à afficher \\
+\mbox{\tt in}  & {\em pt\-Size} & The text size \\
 \hline
-\mbox{\tt in}  & {\em mode} & Le mode d'écriture \-: 0 (Solid), 1 (Blended) \\
+\mbox{\tt in}  & {\em mode} & The writing mode \-: 0 (Solid), 1 (Blended) \\
 \hline
 \end{DoxyParams}

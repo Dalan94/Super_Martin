@@ -1,6 +1,6 @@
 /**
  *\file structures.h
- *containe the definition of some structures
+ * contain the definition of some structures
  *\author X.COPONET
  *\date 2014-04-15
  */

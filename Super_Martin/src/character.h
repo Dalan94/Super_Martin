@@ -58,6 +58,13 @@
 int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m,float* speed,list *l,Sound *s,platformSet *ps);
 
 /**
+ *\fn void freeCharacters(Character *c)
+ * Free a character
+ *\param[in,out] c the character
+ */
+void freeCharacters(Character *c);
+
+/**
  *\fn Character *createCharacter(char *tile,int x, int y,int npc, int nbProjectile, int nbCoins, int nbLifes)
  *create a character
  *\param[in] tile character tileSet address

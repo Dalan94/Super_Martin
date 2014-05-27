@@ -3,7 +3,7 @@
 }
 
 
-Fonctions d'acces au fichiers.  
+file access functions  
 
 
 {\ttfamily \#include \char`\"{}file.\-h\char`\"{}}\\*
@@ -17,16 +17,14 @@ Include dependency graph for file.\-c\-:\nopagebreak
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-F\-I\-L\-E $\ast$ \hyperlink{file_8c_a8f17d8993e6de59936122f7c8ef4e37b}{open\-File} (char nom\mbox{[}$\,$\mbox{]}, char mode\mbox{[}$\,$\mbox{]})
+F\-I\-L\-E $\ast$ \hyperlink{file_8c_ab763060cbdd57fdb704871d896fc492a}{open\-File} (char name\mbox{[}$\,$\mbox{]}, char mode\mbox{[}$\,$\mbox{]})
 \item 
-int \hyperlink{file_8c_a0fca34d72624f611d2cbeac47279bb1f}{close\-File} (F\-I\-L\-E $\ast$ptr\-\_\-fichier)
-\item 
-int \hyperlink{file_8c_ad2924419af4232858df0519818c6fa64}{read\-File\-Size} (F\-I\-L\-E $\ast$ptr\-\_\-fichier)
+int \hyperlink{file_8c_adf55ac6bc5d81f94b54e4c8ea554f884}{close\-File} (F\-I\-L\-E $\ast$ptr\-\_\-file)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Fonctions d'acces au fichiers. \begin{DoxyAuthor}{Author}
+file access functions \begin{DoxyAuthor}{Author}
 Remi B\-E\-R\-T\-H\-O 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
@@ -35,51 +33,36 @@ Remi B\-E\-R\-T\-H\-O
 
 
 \subsection{Function Documentation}
-\hypertarget{file_8c_a0fca34d72624f611d2cbeac47279bb1f}{\index{file.\-c@{file.\-c}!close\-File@{close\-File}}
+\hypertarget{file_8c_adf55ac6bc5d81f94b54e4c8ea554f884}{\index{file.\-c@{file.\-c}!close\-File@{close\-File}}
 \index{close\-File@{close\-File}!file.c@{file.\-c}}
 \subsubsection[{close\-File}]{\setlength{\rightskip}{0pt plus 5cm}int close\-File (
 \begin{DoxyParamCaption}
-\item[{F\-I\-L\-E $\ast$}]{ptr\-\_\-fichier}
+\item[{F\-I\-L\-E $\ast$}]{ptr\-\_\-file}
 \end{DoxyParamCaption}
-)}}\label{file_8c_a0fca34d72624f611d2cbeac47279bb1f}
-Ferme le fichier 
+)}}\label{file_8c_adf55ac6bc5d81f94b54e4c8ea554f884}
+close a file 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em $\ast$ptr\-\_\-fichier} & le fichier \\
+\mbox{\tt in}  & {\em $\ast$ptr\-\_\-file} & the file to be closed \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-entier 0 si tout s'est bien passe, 1 sinon 
+int 0 if the file was succefuly closed, 1 if not 
 \end{DoxyReturn}
-\hypertarget{file_8c_a8f17d8993e6de59936122f7c8ef4e37b}{\index{file.\-c@{file.\-c}!open\-File@{open\-File}}
+\hypertarget{file_8c_ab763060cbdd57fdb704871d896fc492a}{\index{file.\-c@{file.\-c}!open\-File@{open\-File}}
 \index{open\-File@{open\-File}!file.c@{file.\-c}}
 \subsubsection[{open\-File}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E $\ast$ open\-File (
 \begin{DoxyParamCaption}
-\item[{char}]{nom\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{name\mbox{[}$\,$\mbox{]}, }
 \item[{char}]{mode\mbox{[}$\,$\mbox{]}}
 \end{DoxyParamCaption}
-)}}\label{file_8c_a8f17d8993e6de59936122f7c8ef4e37b}
-Ouvre un fichier a partir de son nom (nom\mbox{[}\mbox{]}) et du mode voulu (mode\mbox{[}\mbox{]}) 
+)}}\label{file_8c_ab763060cbdd57fdb704871d896fc492a}
+open a file 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em nom\mbox{[}$\,$\mbox{]}} & le nom du fichier \\
+\mbox{\tt in}  & {\em name} & the file name/path \\
 \hline
-\mbox{\tt in}  & {\em mode\mbox{[}$\,$\mbox{]}} & le mode voulu \\
+\mbox{\tt in}  & {\em mode} & the opening mode \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-un pointeur sur le fichier ouvert, N\-U\-L\-L s'il y a eut un probleme 
-\end{DoxyReturn}
-\hypertarget{file_8c_ad2924419af4232858df0519818c6fa64}{\index{file.\-c@{file.\-c}!read\-File\-Size@{read\-File\-Size}}
-\index{read\-File\-Size@{read\-File\-Size}!file.c@{file.\-c}}
-\subsubsection[{read\-File\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int read\-File\-Size (
-\begin{DoxyParamCaption}
-\item[{F\-I\-L\-E $\ast$}]{ptr\-\_\-fichier}
-\end{DoxyParamCaption}
-)}}\label{file_8c_ad2924419af4232858df0519818c6fa64}
-Lis la taille du fichier 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em $\ast$ptr\-\_\-fichier} & le fichier \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-entier ayant la taille du fichier 
+a pointer on the opened file, N\-U\-L\-L if error 
 \end{DoxyReturn}
