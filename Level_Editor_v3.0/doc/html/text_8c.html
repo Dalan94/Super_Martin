@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Super Martin: text.c File Reference</title>
+<title>Super Martin Level Editor: text.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Super Martin
+   <div id="projectname">Super Martin Level Editor
    </div>
   </td>
  </tr>
@@ -90,27 +90,121 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p>contient les fonction pour afficher du texte à l'écran  
+<p>Management of the display of text on the screen.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="text_8h_source.html">text.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for text.c:</div>
-<div class="dyncontent">
-<div class="center"><img src="text_8c__incl.png" border="0" usemap="#text_8c" alt=""/></div>
-<map name="text_8c" id="text_8c">
-<area shape="rect" id="node3" href="text_8h.html" title="header de text.c " alt="" coords="232,89,285,122"/></map>
-</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a1bd80be1aff6fe5303bdd5aa80161da3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3">printText</a> (SDL_Surface *screen, SDL_Rect *posText, char *text, int r, int g, int b, char *font, int ptSize, int mode)</td></tr>
 <tr class="separator:a1bd80be1aff6fe5303bdd5aa80161da3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd63f9d237bb4bc462d33c00802cd7b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="text_8c.html#abd63f9d237bb4bc462d33c00802cd7b9">captureText</a> (SDL_Surface *screen, SDL_Rect posText, char *text, int text_length, int r, int g, int b, char *font, int text_size, int *go)</td></tr>
+<tr class="separator:abd63f9d237bb4bc462d33c00802cd7b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>contient les fonction pour afficher du texte à l'écran </p>
-<dl class="section author"><dt>Author</dt><dd>Xavier COPONET </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2014-02-27 </dd></dl>
+<div class="textblock"><p>Management of the display of text on the screen. </p>
+<dl class="section author"><dt>Author</dt><dd>Xavier COPONET, Glenn HERROU </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2014-04-27 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="abd63f9d237bb4bc462d33c00802cd7b9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void captureText </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>screen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Rect&#160;</td>
+          <td class="paramname"><em>posText</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>text_length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>r</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>font</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>text_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>go</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Capture the text corresponding to the keyboard inputs and display it on the screen at the given position </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>The screen of the game </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">posText</td><td>The position of the text. If NULL, the text is centered </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">text</td><td>The text to display </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>red value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>green value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>blue value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">text_length</td><td>the text length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>The path to the font file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">text_size</td><td>The text size </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">go</td><td>The main loop validation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="text_8c_abd63f9d237bb4bc462d33c00802cd7b9_cgraph.png" border="0" usemap="#text_8c_abd63f9d237bb4bc462d33c00802cd7b9_cgraph" alt=""/></div>
+<map name="text_8c_abd63f9d237bb4bc462d33c00802cd7b9_cgraph" id="text_8c_abd63f9d237bb4bc462d33c00802cd7b9_cgraph">
+<area shape="rect" id="node2" href="input_8c.html#ad3310b398fa046500863c183fd4468e6" title="updateWaitEvents" alt="" coords="145,5,274,32"/><area shape="rect" id="node3" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="173,56,246,83"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a1bd80be1aff6fe5303bdd5aa80161da3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -176,18 +270,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>affiche le texte sur l'écran à la position donnée </p>
+<p>Display the given text on the screen, at the given position </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>L'écran </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">posText</td><td>La position du texte à afficher ; si NULL, centré en largeur et hauteur </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>Le texte à afficher </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>r red value </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>g green value </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>b blue value </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>L'adresse de la police d'affichage (.ttf) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ptSize</td><td>la taille du texte à afficher </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>Le mode d'écriture : 0 (Solid), 1 (Blended) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>The screen of the game </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">posText</td><td>The position of the text. If NULL, the text is centered </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>The text to display </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>red value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>green value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>blue value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>The path to the font file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptSize</td><td>The text size </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>The writing mode : 0 (Solid), 1 (Blended) </td></tr>
   </table>
   </dd>
 </dl>
@@ -197,7 +291,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 21:35:36 for Super Martin Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

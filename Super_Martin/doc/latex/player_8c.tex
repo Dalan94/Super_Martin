@@ -17,6 +17,8 @@ void \hyperlink{player_8c_a8330f47dea4a7c01a97ecef3607c3448}{load\-Player} (char
 int \hyperlink{player_8c_ac02b9148199bc3334b6c7149789c946c}{save\-Player} (char file\-Save\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, char player\-\_\-name\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, \hyperlink{struct_player}{Player} $\ast$player)
 \item 
 void \hyperlink{player_8c_a5bb0205907acbfde9bc8a6935e9da97e}{save} (S\-D\-L\-\_\-\-Surface $\ast$screen, char file\-Save\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, char player\-\_\-name\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, \hyperlink{struct_player}{Player} $\ast$player, int $\ast$go)
+\item 
+void \hyperlink{player_8c_a759d67ed182fea0f5ec9d9722c188336}{delete\-Player} (S\-D\-L\-\_\-\-Surface $\ast$screen, char file\-Save\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, char player\-\_\-name\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]})
 \end{DoxyCompactItemize}
 
 
@@ -33,6 +35,36 @@ Glenn H\-E\-R\-R\-O\-U
 
 
 \subsubsection{Function Documentation}
+\hypertarget{player_8c_a759d67ed182fea0f5ec9d9722c188336}{\index{player.\-c@{player.\-c}!delete\-Player@{delete\-Player}}
+\index{delete\-Player@{delete\-Player}!player.c@{player.\-c}}
+\paragraph[{delete\-Player}]{\setlength{\rightskip}{0pt plus 5cm}void delete\-Player (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char}]{file\-Save\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{char}]{player\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{player_8c_a759d67ed182fea0f5ec9d9722c188336}
+Delete the current player in the player list. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt in,out}  & {\em file\-Save} & The path to the binary file containing the progression of each player \\
+\hline
+\mbox{\tt in}  & {\em player\-\_\-name} & The name of the current player \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8c_a759d67ed182fea0f5ec9d9722c188336_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{player_8c_a8330f47dea4a7c01a97ecef3607c3448}{\index{player.\-c@{player.\-c}!load\-Player@{load\-Player}}
 \index{load\-Player@{load\-Player}!player.c@{player.\-c}}
 \paragraph[{load\-Player}]{\setlength{\rightskip}{0pt plus 5cm}void load\-Player (
@@ -77,7 +109,8 @@ Display the interface to create a new player
 \end{DoxyReturn}
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -112,7 +145,8 @@ Display the interface to save the player progression
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:\nopagebreak
+Here is the call graph for this function\-:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

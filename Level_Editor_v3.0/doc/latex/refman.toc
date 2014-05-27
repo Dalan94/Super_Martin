@@ -1,149 +1,199 @@
-\contentsline {chapter}{\numberline {1}Data Structure Index}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}Data Structures}{1}{section.1.1}
-\contentsline {chapter}{\numberline {2}File Index}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}File List}{3}{section.2.1}
-\contentsline {chapter}{\numberline {3}Data Structure Documentation}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}Character Struct Reference}{5}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Field Documentation}{5}{subsection.3.1.1}
-\contentsline {subsubsection}{\numberline {3.1.1.1}is\discretionary {-}{}{}Jumping}{5}{subsubsection.3.1.1.1}
-\contentsline {subsubsection}{\numberline {3.1.1.2}is\discretionary {-}{}{}On\discretionary {-}{}{}Ground}{5}{subsubsection.3.1.1.2}
-\contentsline {subsubsection}{\numberline {3.1.1.3}life}{5}{subsubsection.3.1.1.3}
-\contentsline {section}{\numberline {3.2}Input Struct Reference}{5}{section.3.2}
-\contentsline {section}{\numberline {3.3}Level Struct Reference}{6}{section.3.3}
-\contentsline {section}{\numberline {3.4}Map Struct Reference}{6}{section.3.4}
-\contentsline {section}{\numberline {3.5}Sound Struct Reference}{7}{section.3.5}
-\contentsline {chapter}{\numberline {4}File Documentation}{9}{chapter.4}
-\contentsline {section}{\numberline {4.1}const.\discretionary {-}{}{}h File Reference}{9}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{10}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}file.\discretionary {-}{}{}c File Reference}{10}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{11}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Function Documentation}{11}{subsection.4.2.2}
-\contentsline {subsubsection}{\numberline {4.2.2.1}close\discretionary {-}{}{}File}{11}{subsubsection.4.2.2.1}
-\contentsline {subsubsection}{\numberline {4.2.2.2}open\discretionary {-}{}{}File}{11}{subsubsection.4.2.2.2}
-\contentsline {subsubsection}{\numberline {4.2.2.3}read\discretionary {-}{}{}File\discretionary {-}{}{}Size}{11}{subsubsection.4.2.2.3}
-\contentsline {section}{\numberline {4.3}file.\discretionary {-}{}{}h File Reference}{11}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{13}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Function Documentation}{13}{subsection.4.3.2}
-\contentsline {subsubsection}{\numberline {4.3.2.1}close\discretionary {-}{}{}File}{13}{subsubsection.4.3.2.1}
-\contentsline {subsubsection}{\numberline {4.3.2.2}open\discretionary {-}{}{}File}{13}{subsubsection.4.3.2.2}
-\contentsline {subsubsection}{\numberline {4.3.2.3}read\discretionary {-}{}{}File\discretionary {-}{}{}Size}{13}{subsubsection.4.3.2.3}
-\contentsline {section}{\numberline {4.4}file\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}h File Reference}{14}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{15}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}Function Documentation}{16}{subsection.4.4.2}
-\contentsline {subsubsection}{\numberline {4.4.2.1}close\discretionary {-}{}{}Level}{16}{subsubsection.4.4.2.1}
-\contentsline {subsubsection}{\numberline {4.4.2.2}close\discretionary {-}{}{}Level\discretionary {-}{}{}List}{16}{subsubsection.4.4.2.2}
-\contentsline {subsubsection}{\numberline {4.4.2.3}init\discretionary {-}{}{}Level}{16}{subsubsection.4.4.2.3}
-\contentsline {subsubsection}{\numberline {4.4.2.4}open\discretionary {-}{}{}Level}{16}{subsubsection.4.4.2.4}
-\contentsline {subsubsection}{\numberline {4.4.2.5}read\discretionary {-}{}{}Level\discretionary {-}{}{}File}{17}{subsubsection.4.4.2.5}
-\contentsline {subsubsection}{\numberline {4.4.2.6}write\discretionary {-}{}{}Level}{17}{subsubsection.4.4.2.6}
-\contentsline {section}{\numberline {4.5}game.\discretionary {-}{}{}c File Reference}{18}{section.4.5}
-\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{18}{subsection.4.5.1}
-\contentsline {subsection}{\numberline {4.5.2}Function Documentation}{19}{subsection.4.5.2}
-\contentsline {subsubsection}{\numberline {4.5.2.1}play}{19}{subsubsection.4.5.2.1}
-\contentsline {subsubsection}{\numberline {4.5.2.2}print\discretionary {-}{}{}Game\discretionary {-}{}{}Over}{20}{subsubsection.4.5.2.2}
-\contentsline {subsubsection}{\numberline {4.5.2.3}print\discretionary {-}{}{}Pause}{21}{subsubsection.4.5.2.3}
-\contentsline {subsubsection}{\numberline {4.5.2.4}update\discretionary {-}{}{}Speed}{22}{subsubsection.4.5.2.4}
-\contentsline {section}{\numberline {4.6}game.\discretionary {-}{}{}h File Reference}{23}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{24}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Function Documentation}{24}{subsection.4.6.2}
-\contentsline {subsubsection}{\numberline {4.6.2.1}play}{24}{subsubsection.4.6.2.1}
-\contentsline {subsubsection}{\numberline {4.6.2.2}print\discretionary {-}{}{}Game\discretionary {-}{}{}Over}{25}{subsubsection.4.6.2.2}
-\contentsline {subsubsection}{\numberline {4.6.2.3}print\discretionary {-}{}{}Pause}{26}{subsubsection.4.6.2.3}
-\contentsline {subsubsection}{\numberline {4.6.2.4}update\discretionary {-}{}{}Speed}{27}{subsubsection.4.6.2.4}
-\contentsline {section}{\numberline {4.7}image.\discretionary {-}{}{}c File Reference}{28}{section.4.7}
-\contentsline {subsection}{\numberline {4.7.1}Detailed Description}{28}{subsection.4.7.1}
-\contentsline {subsection}{\numberline {4.7.2}Function Documentation}{28}{subsection.4.7.2}
-\contentsline {subsubsection}{\numberline {4.7.2.1}image\discretionary {-}{}{}Load}{28}{subsubsection.4.7.2.1}
-\contentsline {subsubsection}{\numberline {4.7.2.2}image\discretionary {-}{}{}Load\discretionary {-}{}{}Alpha}{29}{subsubsection.4.7.2.2}
-\contentsline {section}{\numberline {4.8}image.\discretionary {-}{}{}h File Reference}{29}{section.4.8}
-\contentsline {subsection}{\numberline {4.8.1}Detailed Description}{30}{subsection.4.8.1}
-\contentsline {subsection}{\numberline {4.8.2}Function Documentation}{30}{subsection.4.8.2}
-\contentsline {subsubsection}{\numberline {4.8.2.1}image\discretionary {-}{}{}Load}{30}{subsubsection.4.8.2.1}
-\contentsline {subsubsection}{\numberline {4.8.2.2}image\discretionary {-}{}{}Load\discretionary {-}{}{}Alpha}{31}{subsubsection.4.8.2.2}
-\contentsline {section}{\numberline {4.9}input.\discretionary {-}{}{}c File Reference}{32}{section.4.9}
-\contentsline {subsection}{\numberline {4.9.1}Detailed Description}{32}{subsection.4.9.1}
-\contentsline {subsection}{\numberline {4.9.2}Function Documentation}{32}{subsection.4.9.2}
-\contentsline {subsubsection}{\numberline {4.9.2.1}keyboard\discretionary {-}{}{}Action\discretionary {-}{}{}Game}{32}{subsubsection.4.9.2.1}
-\contentsline {subsubsection}{\numberline {4.9.2.2}keyboard\discretionary {-}{}{}Action\discretionary {-}{}{}Menu}{33}{subsubsection.4.9.2.2}
-\contentsline {subsubsection}{\numberline {4.9.2.3}update\discretionary {-}{}{}Events}{33}{subsubsection.4.9.2.3}
-\contentsline {subsubsection}{\numberline {4.9.2.4}update\discretionary {-}{}{}Wait\discretionary {-}{}{}Events}{33}{subsubsection.4.9.2.4}
-\contentsline {section}{\numberline {4.10}main.\discretionary {-}{}{}c File Reference}{33}{section.4.10}
-\contentsline {subsection}{\numberline {4.10.1}Detailed Description}{34}{subsection.4.10.1}
-\contentsline {section}{\numberline {4.11}map.\discretionary {-}{}{}c File Reference}{34}{section.4.11}
-\contentsline {subsection}{\numberline {4.11.1}Detailed Description}{35}{subsection.4.11.1}
-\contentsline {subsection}{\numberline {4.11.2}Function Documentation}{35}{subsection.4.11.2}
-\contentsline {subsubsection}{\numberline {4.11.2.1}init\discretionary {-}{}{}Map}{35}{subsubsection.4.11.2.1}
-\contentsline {subsubsection}{\numberline {4.11.2.2}scrolling}{35}{subsubsection.4.11.2.2}
-\contentsline {subsubsection}{\numberline {4.11.2.3}update\discretionary {-}{}{}Screen\discretionary {-}{}{}Map}{36}{subsubsection.4.11.2.3}
-\contentsline {section}{\numberline {4.12}map.\discretionary {-}{}{}h File Reference}{36}{section.4.12}
-\contentsline {subsection}{\numberline {4.12.1}Detailed Description}{37}{subsection.4.12.1}
-\contentsline {subsection}{\numberline {4.12.2}Function Documentation}{37}{subsection.4.12.2}
-\contentsline {subsubsection}{\numberline {4.12.2.1}init\discretionary {-}{}{}Map}{37}{subsubsection.4.12.2.1}
-\contentsline {subsubsection}{\numberline {4.12.2.2}scrolling}{38}{subsubsection.4.12.2.2}
-\contentsline {subsubsection}{\numberline {4.12.2.3}update\discretionary {-}{}{}Screen\discretionary {-}{}{}Map}{38}{subsubsection.4.12.2.3}
-\contentsline {section}{\numberline {4.13}menu.\discretionary {-}{}{}c File Reference}{39}{section.4.13}
-\contentsline {subsection}{\numberline {4.13.1}Detailed Description}{39}{subsection.4.13.1}
-\contentsline {subsection}{\numberline {4.13.2}Function Documentation}{39}{subsection.4.13.2}
-\contentsline {subsubsection}{\numberline {4.13.2.1}blink\discretionary {-}{}{}Text}{39}{subsubsection.4.13.2.1}
-\contentsline {section}{\numberline {4.14}menu.\discretionary {-}{}{}h File Reference}{39}{section.4.14}
-\contentsline {subsection}{\numberline {4.14.1}Detailed Description}{40}{subsection.4.14.1}
-\contentsline {subsection}{\numberline {4.14.2}Function Documentation}{41}{subsection.4.14.2}
-\contentsline {subsubsection}{\numberline {4.14.2.1}blink\discretionary {-}{}{}Text}{41}{subsubsection.4.14.2.1}
-\contentsline {section}{\numberline {4.15}menu\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}c File Reference}{41}{section.4.15}
-\contentsline {subsection}{\numberline {4.15.1}Detailed Description}{41}{subsection.4.15.1}
-\contentsline {subsection}{\numberline {4.15.2}Function Documentation}{42}{subsection.4.15.2}
-\contentsline {subsubsection}{\numberline {4.15.2.1}menu\discretionary {-}{}{}Level}{42}{subsubsection.4.15.2.1}
-\contentsline {section}{\numberline {4.16}menu\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}h File Reference}{42}{section.4.16}
-\contentsline {subsection}{\numberline {4.16.1}Detailed Description}{43}{subsection.4.16.1}
-\contentsline {subsection}{\numberline {4.16.2}Function Documentation}{44}{subsection.4.16.2}
-\contentsline {subsubsection}{\numberline {4.16.2.1}menu\discretionary {-}{}{}Level}{44}{subsubsection.4.16.2.1}
-\contentsline {section}{\numberline {4.17}player.\discretionary {-}{}{}c File Reference}{44}{section.4.17}
-\contentsline {subsection}{\numberline {4.17.1}Detailed Description}{45}{subsection.4.17.1}
-\contentsline {subsection}{\numberline {4.17.2}Function Documentation}{45}{subsection.4.17.2}
-\contentsline {subsubsection}{\numberline {4.17.2.1}blit\discretionary {-}{}{}Character}{45}{subsubsection.4.17.2.1}
-\contentsline {subsubsection}{\numberline {4.17.2.2}collision\discretionary {-}{}{}Sprite}{46}{subsubsection.4.17.2.2}
-\contentsline {subsubsection}{\numberline {4.17.2.3}creater\discretionary {-}{}{}Character}{46}{subsubsection.4.17.2.3}
-\contentsline {subsubsection}{\numberline {4.17.2.4}move\discretionary {-}{}{}Character}{46}{subsubsection.4.17.2.4}
-\contentsline {subsubsection}{\numberline {4.17.2.5}movement\discretionary {-}{}{}Vector}{47}{subsubsection.4.17.2.5}
-\contentsline {section}{\numberline {4.18}player.\discretionary {-}{}{}h File Reference}{47}{section.4.18}
-\contentsline {subsection}{\numberline {4.18.1}Detailed Description}{49}{subsection.4.18.1}
-\contentsline {subsection}{\numberline {4.18.2}Macro Definition Documentation}{49}{subsection.4.18.2}
-\contentsline {subsubsection}{\numberline {4.18.2.1}A\discretionary {-}{}{}B\discretionary {-}{}{}S}{49}{subsubsection.4.18.2.1}
-\contentsline {subsubsection}{\numberline {4.18.2.2}S\discretionary {-}{}{}G\discretionary {-}{}{}N}{49}{subsubsection.4.18.2.2}
-\contentsline {subsection}{\numberline {4.18.3}Function Documentation}{49}{subsection.4.18.3}
-\contentsline {subsubsection}{\numberline {4.18.3.1}blit\discretionary {-}{}{}Character}{49}{subsubsection.4.18.3.1}
-\contentsline {subsubsection}{\numberline {4.18.3.2}collision\discretionary {-}{}{}Sprite}{49}{subsubsection.4.18.3.2}
-\contentsline {subsubsection}{\numberline {4.18.3.3}creater\discretionary {-}{}{}Character}{50}{subsubsection.4.18.3.3}
-\contentsline {subsubsection}{\numberline {4.18.3.4}move\discretionary {-}{}{}Character}{51}{subsubsection.4.18.3.4}
-\contentsline {subsubsection}{\numberline {4.18.3.5}movement\discretionary {-}{}{}Vector}{51}{subsubsection.4.18.3.5}
-\contentsline {section}{\numberline {4.19}share.\discretionary {-}{}{}h File Reference}{52}{section.4.19}
-\contentsline {subsection}{\numberline {4.19.1}Detailed Description}{53}{subsection.4.19.1}
-\contentsline {subsection}{\numberline {4.19.2}Function Documentation}{53}{subsection.4.19.2}
-\contentsline {subsubsection}{\numberline {4.19.2.1}wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}{54}{subsubsection.4.19.2.1}
-\contentsline {section}{\numberline {4.20}sound.\discretionary {-}{}{}c File Reference}{55}{section.4.20}
-\contentsline {subsection}{\numberline {4.20.1}Detailed Description}{55}{subsection.4.20.1}
-\contentsline {subsection}{\numberline {4.20.2}Function Documentation}{56}{subsection.4.20.2}
-\contentsline {subsubsection}{\numberline {4.20.2.1}create\discretionary {-}{}{}Sound}{56}{subsubsection.4.20.2.1}
-\contentsline {subsubsection}{\numberline {4.20.2.2}free\discretionary {-}{}{}Sound}{56}{subsubsection.4.20.2.2}
-\contentsline {subsubsection}{\numberline {4.20.2.3}play\discretionary {-}{}{}Music}{56}{subsubsection.4.20.2.3}
-\contentsline {subsubsection}{\numberline {4.20.2.4}play\discretionary {-}{}{}Music\discretionary {-}{}{}Once}{56}{subsubsection.4.20.2.4}
-\contentsline {subsubsection}{\numberline {4.20.2.5}sound\discretionary {-}{}{}Volume}{56}{subsubsection.4.20.2.5}
-\contentsline {subsubsection}{\numberline {4.20.2.6}stop\discretionary {-}{}{}Sound}{56}{subsubsection.4.20.2.6}
-\contentsline {section}{\numberline {4.21}sound.\discretionary {-}{}{}h File Reference}{57}{section.4.21}
-\contentsline {subsection}{\numberline {4.21.1}Detailed Description}{58}{subsection.4.21.1}
-\contentsline {subsection}{\numberline {4.21.2}Function Documentation}{58}{subsection.4.21.2}
-\contentsline {subsubsection}{\numberline {4.21.2.1}create\discretionary {-}{}{}Sound}{58}{subsubsection.4.21.2.1}
-\contentsline {subsubsection}{\numberline {4.21.2.2}free\discretionary {-}{}{}Sound}{58}{subsubsection.4.21.2.2}
-\contentsline {subsubsection}{\numberline {4.21.2.3}play\discretionary {-}{}{}Music}{58}{subsubsection.4.21.2.3}
-\contentsline {subsubsection}{\numberline {4.21.2.4}play\discretionary {-}{}{}Music\discretionary {-}{}{}Once}{58}{subsubsection.4.21.2.4}
-\contentsline {subsubsection}{\numberline {4.21.2.5}sound\discretionary {-}{}{}Volume}{59}{subsubsection.4.21.2.5}
-\contentsline {subsubsection}{\numberline {4.21.2.6}stop\discretionary {-}{}{}Sound}{59}{subsubsection.4.21.2.6}
-\contentsline {section}{\numberline {4.22}text.\discretionary {-}{}{}c File Reference}{59}{section.4.22}
-\contentsline {subsection}{\numberline {4.22.1}Detailed Description}{59}{subsection.4.22.1}
-\contentsline {subsection}{\numberline {4.22.2}Function Documentation}{60}{subsection.4.22.2}
-\contentsline {subsubsection}{\numberline {4.22.2.1}print\discretionary {-}{}{}Text}{60}{subsubsection.4.22.2.1}
-\contentsline {section}{\numberline {4.23}text.\discretionary {-}{}{}h File Reference}{60}{section.4.23}
-\contentsline {subsection}{\numberline {4.23.1}Detailed Description}{61}{subsection.4.23.1}
-\contentsline {subsection}{\numberline {4.23.2}Function Documentation}{61}{subsection.4.23.2}
-\contentsline {subsubsection}{\numberline {4.23.2.1}print\discretionary {-}{}{}Text}{61}{subsubsection.4.23.2.1}
-\contentsline {chapter}{Index}{63}{section*.36}
+\contentsline {section}{\numberline {1}Data Structure Documentation}{1}{section.1}
+\contentsline {subsection}{\numberline {1.1}Cursor Struct Reference}{1}{subsection.1.1}
+\contentsline {subsubsection}{\numberline {1.1.1}Detailed Description}{1}{subsubsection.1.1.1}
+\contentsline {subsubsection}{\numberline {1.1.2}Field Documentation}{1}{subsubsection.1.1.2}
+\contentsline {paragraph}{\numberline {1.1.2.1}tile\discretionary {-}{}{}I\discretionary {-}{}{}D}{1}{paragraph.1.1.2.1}
+\contentsline {paragraph}{\numberline {1.1.2.2}x}{1}{paragraph.1.1.2.2}
+\contentsline {paragraph}{\numberline {1.1.2.3}y}{1}{paragraph.1.1.2.3}
+\contentsline {subsection}{\numberline {1.2}Input Struct Reference}{2}{subsection.1.2}
+\contentsline {subsubsection}{\numberline {1.2.1}Detailed Description}{2}{subsubsection.1.2.1}
+\contentsline {subsubsection}{\numberline {1.2.2}Field Documentation}{2}{subsubsection.1.2.2}
+\contentsline {paragraph}{\numberline {1.2.2.1}key}{2}{paragraph.1.2.2.1}
+\contentsline {paragraph}{\numberline {1.2.2.2}mouse}{2}{paragraph.1.2.2.2}
+\contentsline {paragraph}{\numberline {1.2.2.3}mouse\discretionary {-}{}{}X}{2}{paragraph.1.2.2.3}
+\contentsline {paragraph}{\numberline {1.2.2.4}mouse\discretionary {-}{}{}Y}{2}{paragraph.1.2.2.4}
+\contentsline {paragraph}{\numberline {1.2.2.5}quit}{2}{paragraph.1.2.2.5}
+\contentsline {subsection}{\numberline {1.3}Level Struct Reference}{2}{subsection.1.3}
+\contentsline {subsubsection}{\numberline {1.3.1}Detailed Description}{3}{subsubsection.1.3.1}
+\contentsline {subsubsection}{\numberline {1.3.2}Field Documentation}{3}{subsubsection.1.3.2}
+\contentsline {paragraph}{\numberline {1.3.2.1}background}{3}{paragraph.1.3.2.1}
+\contentsline {paragraph}{\numberline {1.3.2.2}height}{3}{paragraph.1.3.2.2}
+\contentsline {paragraph}{\numberline {1.3.2.3}map}{3}{paragraph.1.3.2.3}
+\contentsline {paragraph}{\numberline {1.3.2.4}music}{3}{paragraph.1.3.2.4}
+\contentsline {paragraph}{\numberline {1.3.2.5}tile\discretionary {-}{}{}Set}{3}{paragraph.1.3.2.5}
+\contentsline {paragraph}{\numberline {1.3.2.6}timer\discretionary {-}{}{}\_\discretionary {-}{}{}level}{3}{paragraph.1.3.2.6}
+\contentsline {paragraph}{\numberline {1.3.2.7}width}{3}{paragraph.1.3.2.7}
+\contentsline {subsection}{\numberline {1.4}Map Struct Reference}{3}{subsection.1.4}
+\contentsline {subsubsection}{\numberline {1.4.1}Detailed Description}{4}{subsubsection.1.4.1}
+\contentsline {subsubsection}{\numberline {1.4.2}Field Documentation}{4}{subsubsection.1.4.2}
+\contentsline {paragraph}{\numberline {1.4.2.1}lvl}{4}{paragraph.1.4.2.1}
+\contentsline {paragraph}{\numberline {1.4.2.2}screen\discretionary {-}{}{}Height}{4}{paragraph.1.4.2.2}
+\contentsline {paragraph}{\numberline {1.4.2.3}screen\discretionary {-}{}{}Width}{4}{paragraph.1.4.2.3}
+\contentsline {paragraph}{\numberline {1.4.2.4}x\discretionary {-}{}{}Scroll}{4}{paragraph.1.4.2.4}
+\contentsline {section}{\numberline {2}File Documentation}{4}{section.2}
+\contentsline {subsection}{\numberline {2.1}const.\discretionary {-}{}{}h File Reference}{4}{subsection.2.1}
+\contentsline {subsubsection}{\numberline {2.1.1}Detailed Description}{5}{subsubsection.2.1.1}
+\contentsline {subsubsection}{\numberline {2.1.2}Macro Definition Documentation}{5}{subsubsection.2.1.2}
+\contentsline {paragraph}{\numberline {2.1.2.1}F\discretionary {-}{}{}P\discretionary {-}{}{}S}{5}{paragraph.2.1.2.1}
+\contentsline {paragraph}{\numberline {2.1.2.2}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}T\discretionary {-}{}{}H\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}N\discretionary {-}{}{}A\discretionary {-}{}{}M\discretionary {-}{}{}E}{5}{paragraph.2.1.2.2}
+\contentsline {paragraph}{\numberline {2.1.2.3}min}{5}{paragraph.2.1.2.3}
+\contentsline {paragraph}{\numberline {2.1.2.4}N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}S\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}X}{5}{paragraph.2.1.2.4}
+\contentsline {paragraph}{\numberline {2.1.2.5}N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}S\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}Y}{5}{paragraph.2.1.2.5}
+\contentsline {paragraph}{\numberline {2.1.2.6}O\discretionary {-}{}{}P\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}S\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}C\discretionary {-}{}{}O\discretionary {-}{}{}L\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}N}{5}{paragraph.2.1.2.6}
+\contentsline {paragraph}{\numberline {2.1.2.7}S\discretionary {-}{}{}C\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T}{5}{paragraph.2.1.2.7}
+\contentsline {paragraph}{\numberline {2.1.2.8}S\discretionary {-}{}{}C\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}W\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}T\discretionary {-}{}{}H}{5}{paragraph.2.1.2.8}
+\contentsline {paragraph}{\numberline {2.1.2.9}S\discretionary {-}{}{}C\discretionary {-}{}{}R\discretionary {-}{}{}O\discretionary {-}{}{}L\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}G\discretionary {-}{}{}I\discretionary {-}{}{}N}{5}{paragraph.2.1.2.9}
+\contentsline {paragraph}{\numberline {2.1.2.10}T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}{6}{paragraph.2.1.2.10}
+\contentsline {paragraph}{\numberline {2.1.2.11}T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}S\discretionary {-}{}{}E\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}{6}{paragraph.2.1.2.11}
+\contentsline {subsection}{\numberline {2.2}file.\discretionary {-}{}{}c File Reference}{6}{subsection.2.2}
+\contentsline {subsubsection}{\numberline {2.2.1}Detailed Description}{6}{subsubsection.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2}Function Documentation}{6}{subsubsection.2.2.2}
+\contentsline {paragraph}{\numberline {2.2.2.1}close\discretionary {-}{}{}File}{6}{paragraph.2.2.2.1}
+\contentsline {paragraph}{\numberline {2.2.2.2}open\discretionary {-}{}{}File}{6}{paragraph.2.2.2.2}
+\contentsline {subsection}{\numberline {2.3}file.\discretionary {-}{}{}h File Reference}{7}{subsection.2.3}
+\contentsline {subsubsection}{\numberline {2.3.1}Detailed Description}{7}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.2}Function Documentation}{7}{subsubsection.2.3.2}
+\contentsline {paragraph}{\numberline {2.3.2.1}close\discretionary {-}{}{}File}{7}{paragraph.2.3.2.1}
+\contentsline {paragraph}{\numberline {2.3.2.2}open\discretionary {-}{}{}File}{7}{paragraph.2.3.2.2}
+\contentsline {subsection}{\numberline {2.4}file\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}c File Reference}{8}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Detailed Description}{8}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Function Documentation}{8}{subsubsection.2.4.2}
+\contentsline {paragraph}{\numberline {2.4.2.1}adapt\discretionary {-}{}{}Size\discretionary {-}{}{}Level}{8}{paragraph.2.4.2.1}
+\contentsline {paragraph}{\numberline {2.4.2.2}close\discretionary {-}{}{}Level}{9}{paragraph.2.4.2.2}
+\contentsline {paragraph}{\numberline {2.4.2.3}close\discretionary {-}{}{}Level\discretionary {-}{}{}List}{9}{paragraph.2.4.2.3}
+\contentsline {paragraph}{\numberline {2.4.2.4}init\discretionary {-}{}{}Level}{9}{paragraph.2.4.2.4}
+\contentsline {paragraph}{\numberline {2.4.2.5}open\discretionary {-}{}{}Level}{9}{paragraph.2.4.2.5}
+\contentsline {paragraph}{\numberline {2.4.2.6}read\discretionary {-}{}{}Level\discretionary {-}{}{}File}{10}{paragraph.2.4.2.6}
+\contentsline {paragraph}{\numberline {2.4.2.7}search\discretionary {-}{}{}End\discretionary {-}{}{}Level}{10}{paragraph.2.4.2.7}
+\contentsline {paragraph}{\numberline {2.4.2.8}write\discretionary {-}{}{}Level}{11}{paragraph.2.4.2.8}
+\contentsline {subsection}{\numberline {2.5}file\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}h File Reference}{11}{subsection.2.5}
+\contentsline {subsubsection}{\numberline {2.5.1}Detailed Description}{12}{subsubsection.2.5.1}
+\contentsline {subsubsection}{\numberline {2.5.2}Macro Definition Documentation}{12}{subsubsection.2.5.2}
+\contentsline {paragraph}{\numberline {2.5.2.1}B\discretionary {-}{}{}U\discretionary {-}{}{}F\discretionary {-}{}{}F\discretionary {-}{}{}E\discretionary {-}{}{}R\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}{12}{paragraph.2.5.2.1}
+\contentsline {subsubsection}{\numberline {2.5.3}Function Documentation}{12}{subsubsection.2.5.3}
+\contentsline {paragraph}{\numberline {2.5.3.1}adapt\discretionary {-}{}{}Size\discretionary {-}{}{}Level}{12}{paragraph.2.5.3.1}
+\contentsline {paragraph}{\numberline {2.5.3.2}close\discretionary {-}{}{}Level}{12}{paragraph.2.5.3.2}
+\contentsline {paragraph}{\numberline {2.5.3.3}close\discretionary {-}{}{}Level\discretionary {-}{}{}List}{13}{paragraph.2.5.3.3}
+\contentsline {paragraph}{\numberline {2.5.3.4}init\discretionary {-}{}{}Level}{13}{paragraph.2.5.3.4}
+\contentsline {paragraph}{\numberline {2.5.3.5}open\discretionary {-}{}{}Level}{13}{paragraph.2.5.3.5}
+\contentsline {paragraph}{\numberline {2.5.3.6}read\discretionary {-}{}{}Level\discretionary {-}{}{}File}{13}{paragraph.2.5.3.6}
+\contentsline {paragraph}{\numberline {2.5.3.7}search\discretionary {-}{}{}End\discretionary {-}{}{}Level}{14}{paragraph.2.5.3.7}
+\contentsline {paragraph}{\numberline {2.5.3.8}write\discretionary {-}{}{}Level}{14}{paragraph.2.5.3.8}
+\contentsline {subsection}{\numberline {2.6}game.\discretionary {-}{}{}c File Reference}{15}{subsection.2.6}
+\contentsline {subsubsection}{\numberline {2.6.1}Detailed Description}{15}{subsubsection.2.6.1}
+\contentsline {subsubsection}{\numberline {2.6.2}Function Documentation}{15}{subsubsection.2.6.2}
+\contentsline {paragraph}{\numberline {2.6.2.1}play}{15}{paragraph.2.6.2.1}
+\contentsline {paragraph}{\numberline {2.6.2.2}print\discretionary {-}{}{}Confirmation}{16}{paragraph.2.6.2.2}
+\contentsline {subsection}{\numberline {2.7}game.\discretionary {-}{}{}h File Reference}{17}{subsection.2.7}
+\contentsline {subsubsection}{\numberline {2.7.1}Detailed Description}{17}{subsubsection.2.7.1}
+\contentsline {subsubsection}{\numberline {2.7.2}Function Documentation}{17}{subsubsection.2.7.2}
+\contentsline {paragraph}{\numberline {2.7.2.1}play}{17}{paragraph.2.7.2.1}
+\contentsline {paragraph}{\numberline {2.7.2.2}print\discretionary {-}{}{}Confirmation}{18}{paragraph.2.7.2.2}
+\contentsline {subsection}{\numberline {2.8}image.\discretionary {-}{}{}c File Reference}{18}{subsection.2.8}
+\contentsline {subsubsection}{\numberline {2.8.1}Detailed Description}{19}{subsubsection.2.8.1}
+\contentsline {subsubsection}{\numberline {2.8.2}Function Documentation}{19}{subsubsection.2.8.2}
+\contentsline {paragraph}{\numberline {2.8.2.1}image\discretionary {-}{}{}Load}{19}{paragraph.2.8.2.1}
+\contentsline {paragraph}{\numberline {2.8.2.2}image\discretionary {-}{}{}Load\discretionary {-}{}{}Alpha}{19}{paragraph.2.8.2.2}
+\contentsline {subsection}{\numberline {2.9}image.\discretionary {-}{}{}h File Reference}{19}{subsection.2.9}
+\contentsline {subsubsection}{\numberline {2.9.1}Detailed Description}{20}{subsubsection.2.9.1}
+\contentsline {subsubsection}{\numberline {2.9.2}Function Documentation}{20}{subsubsection.2.9.2}
+\contentsline {paragraph}{\numberline {2.9.2.1}image\discretionary {-}{}{}Load}{20}{paragraph.2.9.2.1}
+\contentsline {paragraph}{\numberline {2.9.2.2}image\discretionary {-}{}{}Load\discretionary {-}{}{}Alpha}{20}{paragraph.2.9.2.2}
+\contentsline {subsection}{\numberline {2.10}input.\discretionary {-}{}{}c File Reference}{20}{subsection.2.10}
+\contentsline {subsubsection}{\numberline {2.10.1}Detailed Description}{20}{subsubsection.2.10.1}
+\contentsline {subsubsection}{\numberline {2.10.2}Function Documentation}{21}{subsubsection.2.10.2}
+\contentsline {paragraph}{\numberline {2.10.2.1}keyboard\discretionary {-}{}{}Action\discretionary {-}{}{}Game}{21}{paragraph.2.10.2.1}
+\contentsline {paragraph}{\numberline {2.10.2.2}keyboard\discretionary {-}{}{}Action\discretionary {-}{}{}Menu}{21}{paragraph.2.10.2.2}
+\contentsline {paragraph}{\numberline {2.10.2.3}update\discretionary {-}{}{}Events}{21}{paragraph.2.10.2.3}
+\contentsline {paragraph}{\numberline {2.10.2.4}update\discretionary {-}{}{}Wait\discretionary {-}{}{}Events}{22}{paragraph.2.10.2.4}
+\contentsline {subsection}{\numberline {2.11}main.\discretionary {-}{}{}c File Reference}{22}{subsection.2.11}
+\contentsline {subsubsection}{\numberline {2.11.1}Detailed Description}{22}{subsubsection.2.11.1}
+\contentsline {subsubsection}{\numberline {2.11.2}Function Documentation}{22}{subsubsection.2.11.2}
+\contentsline {paragraph}{\numberline {2.11.2.1}main}{22}{paragraph.2.11.2.1}
+\contentsline {subsection}{\numberline {2.12}map.\discretionary {-}{}{}c File Reference}{23}{subsection.2.12}
+\contentsline {subsubsection}{\numberline {2.12.1}Detailed Description}{24}{subsubsection.2.12.1}
+\contentsline {subsubsection}{\numberline {2.12.2}Function Documentation}{24}{subsubsection.2.12.2}
+\contentsline {paragraph}{\numberline {2.12.2.1}delete\discretionary {-}{}{}Map}{24}{paragraph.2.12.2.1}
+\contentsline {paragraph}{\numberline {2.12.2.2}display\discretionary {-}{}{}Help}{25}{paragraph.2.12.2.2}
+\contentsline {paragraph}{\numberline {2.12.2.3}extend\discretionary {-}{}{}Map}{26}{paragraph.2.12.2.3}
+\contentsline {paragraph}{\numberline {2.12.2.4}fill\discretionary {-}{}{}Column}{26}{paragraph.2.12.2.4}
+\contentsline {paragraph}{\numberline {2.12.2.5}fill\discretionary {-}{}{}Line}{26}{paragraph.2.12.2.5}
+\contentsline {paragraph}{\numberline {2.12.2.6}fill\discretionary {-}{}{}Rect}{26}{paragraph.2.12.2.6}
+\contentsline {paragraph}{\numberline {2.12.2.7}free\discretionary {-}{}{}Map}{27}{paragraph.2.12.2.7}
+\contentsline {paragraph}{\numberline {2.12.2.8}init\discretionary {-}{}{}Map}{27}{paragraph.2.12.2.8}
+\contentsline {paragraph}{\numberline {2.12.2.9}reset\discretionary {-}{}{}Map}{28}{paragraph.2.12.2.9}
+\contentsline {paragraph}{\numberline {2.12.2.10}save\discretionary {-}{}{}Map}{28}{paragraph.2.12.2.10}
+\contentsline {paragraph}{\numberline {2.12.2.11}update\discretionary {-}{}{}Screen\discretionary {-}{}{}Map}{29}{paragraph.2.12.2.11}
+\contentsline {subsection}{\numberline {2.13}map.\discretionary {-}{}{}h File Reference}{29}{subsection.2.13}
+\contentsline {subsubsection}{\numberline {2.13.1}Detailed Description}{30}{subsubsection.2.13.1}
+\contentsline {subsubsection}{\numberline {2.13.2}Function Documentation}{30}{subsubsection.2.13.2}
+\contentsline {paragraph}{\numberline {2.13.2.1}delete\discretionary {-}{}{}Map}{30}{paragraph.2.13.2.1}
+\contentsline {paragraph}{\numberline {2.13.2.2}display\discretionary {-}{}{}Help}{31}{paragraph.2.13.2.2}
+\contentsline {paragraph}{\numberline {2.13.2.3}extend\discretionary {-}{}{}Map}{32}{paragraph.2.13.2.3}
+\contentsline {paragraph}{\numberline {2.13.2.4}fill\discretionary {-}{}{}Column}{32}{paragraph.2.13.2.4}
+\contentsline {paragraph}{\numberline {2.13.2.5}fill\discretionary {-}{}{}Line}{32}{paragraph.2.13.2.5}
+\contentsline {paragraph}{\numberline {2.13.2.6}fill\discretionary {-}{}{}Rect}{32}{paragraph.2.13.2.6}
+\contentsline {paragraph}{\numberline {2.13.2.7}free\discretionary {-}{}{}Map}{33}{paragraph.2.13.2.7}
+\contentsline {paragraph}{\numberline {2.13.2.8}init\discretionary {-}{}{}Map}{33}{paragraph.2.13.2.8}
+\contentsline {paragraph}{\numberline {2.13.2.9}reset\discretionary {-}{}{}Map}{34}{paragraph.2.13.2.9}
+\contentsline {paragraph}{\numberline {2.13.2.10}save\discretionary {-}{}{}Map}{34}{paragraph.2.13.2.10}
+\contentsline {paragraph}{\numberline {2.13.2.11}update\discretionary {-}{}{}Screen\discretionary {-}{}{}Map}{35}{paragraph.2.13.2.11}
+\contentsline {subsection}{\numberline {2.14}menu.\discretionary {-}{}{}c File Reference}{35}{subsection.2.14}
+\contentsline {subsubsection}{\numberline {2.14.1}Detailed Description}{36}{subsubsection.2.14.1}
+\contentsline {subsubsection}{\numberline {2.14.2}Function Documentation}{36}{subsubsection.2.14.2}
+\contentsline {paragraph}{\numberline {2.14.2.1}menu}{36}{paragraph.2.14.2.1}
+\contentsline {paragraph}{\numberline {2.14.2.2}menu\discretionary {-}{}{}Tile\discretionary {-}{}{}Set}{36}{paragraph.2.14.2.2}
+\contentsline {subsection}{\numberline {2.15}menu.\discretionary {-}{}{}h File Reference}{37}{subsection.2.15}
+\contentsline {subsubsection}{\numberline {2.15.1}Detailed Description}{38}{subsubsection.2.15.1}
+\contentsline {subsubsection}{\numberline {2.15.2}Function Documentation}{38}{subsubsection.2.15.2}
+\contentsline {paragraph}{\numberline {2.15.2.1}menu}{38}{paragraph.2.15.2.1}
+\contentsline {paragraph}{\numberline {2.15.2.2}menu\discretionary {-}{}{}Tile\discretionary {-}{}{}Set}{38}{paragraph.2.15.2.2}
+\contentsline {subsection}{\numberline {2.16}menu\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}c File Reference}{39}{subsection.2.16}
+\contentsline {subsubsection}{\numberline {2.16.1}Detailed Description}{39}{subsubsection.2.16.1}
+\contentsline {subsubsection}{\numberline {2.16.2}Function Documentation}{40}{subsubsection.2.16.2}
+\contentsline {paragraph}{\numberline {2.16.2.1}menu\discretionary {-}{}{}Level}{40}{paragraph.2.16.2.1}
+\contentsline {subsection}{\numberline {2.17}menu\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}h File Reference}{40}{subsection.2.17}
+\contentsline {subsubsection}{\numberline {2.17.1}Detailed Description}{41}{subsubsection.2.17.1}
+\contentsline {subsubsection}{\numberline {2.17.2}Function Documentation}{41}{subsubsection.2.17.2}
+\contentsline {paragraph}{\numberline {2.17.2.1}menu\discretionary {-}{}{}Level}{41}{paragraph.2.17.2.1}
+\contentsline {subsection}{\numberline {2.18}menu\discretionary {-}{}{}\_\discretionary {-}{}{}option.\discretionary {-}{}{}c File Reference}{42}{subsection.2.18}
+\contentsline {subsubsection}{\numberline {2.18.1}Detailed Description}{42}{subsubsection.2.18.1}
+\contentsline {subsubsection}{\numberline {2.18.2}Function Documentation}{43}{subsubsection.2.18.2}
+\contentsline {paragraph}{\numberline {2.18.2.1}choose\discretionary {-}{}{}Key}{43}{paragraph.2.18.2.1}
+\contentsline {paragraph}{\numberline {2.18.2.2}key\discretionary {-}{}{}Board\discretionary {-}{}{}Options}{44}{paragraph.2.18.2.2}
+\contentsline {paragraph}{\numberline {2.18.2.3}menu\discretionary {-}{}{}Options}{45}{paragraph.2.18.2.3}
+\contentsline {subsection}{\numberline {2.19}menu\discretionary {-}{}{}\_\discretionary {-}{}{}option.\discretionary {-}{}{}h File Reference}{46}{subsection.2.19}
+\contentsline {subsubsection}{\numberline {2.19.1}Detailed Description}{46}{subsubsection.2.19.1}
+\contentsline {subsubsection}{\numberline {2.19.2}Function Documentation}{47}{subsubsection.2.19.2}
+\contentsline {paragraph}{\numberline {2.19.2.1}choose\discretionary {-}{}{}Key}{47}{paragraph.2.19.2.1}
+\contentsline {paragraph}{\numberline {2.19.2.2}key\discretionary {-}{}{}Board\discretionary {-}{}{}Options}{47}{paragraph.2.19.2.2}
+\contentsline {paragraph}{\numberline {2.19.2.3}menu\discretionary {-}{}{}Options}{48}{paragraph.2.19.2.3}
+\contentsline {subsection}{\numberline {2.20}option.\discretionary {-}{}{}c File Reference}{49}{subsection.2.20}
+\contentsline {subsubsection}{\numberline {2.20.1}Detailed Description}{49}{subsubsection.2.20.1}
+\contentsline {subsubsection}{\numberline {2.20.2}Function Documentation}{49}{subsubsection.2.20.2}
+\contentsline {paragraph}{\numberline {2.20.2.1}load\discretionary {-}{}{}Options}{49}{paragraph.2.20.2.1}
+\contentsline {paragraph}{\numberline {2.20.2.2}save\discretionary {-}{}{}Options}{50}{paragraph.2.20.2.2}
+\contentsline {subsection}{\numberline {2.21}option.\discretionary {-}{}{}h File Reference}{50}{subsection.2.21}
+\contentsline {subsubsection}{\numberline {2.21.1}Detailed Description}{51}{subsubsection.2.21.1}
+\contentsline {subsubsection}{\numberline {2.21.2}Function Documentation}{51}{subsubsection.2.21.2}
+\contentsline {paragraph}{\numberline {2.21.2.1}load\discretionary {-}{}{}Options}{51}{paragraph.2.21.2.1}
+\contentsline {paragraph}{\numberline {2.21.2.2}save\discretionary {-}{}{}Options}{51}{paragraph.2.21.2.2}
+\contentsline {subsection}{\numberline {2.22}share.\discretionary {-}{}{}c File Reference}{52}{subsection.2.22}
+\contentsline {subsubsection}{\numberline {2.22.1}Detailed Description}{52}{subsubsection.2.22.1}
+\contentsline {subsubsection}{\numberline {2.22.2}Function Documentation}{52}{subsubsection.2.22.2}
+\contentsline {paragraph}{\numberline {2.22.2.1}wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}{52}{paragraph.2.22.2.1}
+\contentsline {subsection}{\numberline {2.23}share.\discretionary {-}{}{}h File Reference}{53}{subsection.2.23}
+\contentsline {subsubsection}{\numberline {2.23.1}Detailed Description}{53}{subsubsection.2.23.1}
+\contentsline {subsubsection}{\numberline {2.23.2}Function Documentation}{53}{subsubsection.2.23.2}
+\contentsline {paragraph}{\numberline {2.23.2.1}wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}{53}{paragraph.2.23.2.1}
+\contentsline {subsection}{\numberline {2.24}text.\discretionary {-}{}{}c File Reference}{53}{subsection.2.24}
+\contentsline {subsubsection}{\numberline {2.24.1}Detailed Description}{54}{subsubsection.2.24.1}
+\contentsline {subsubsection}{\numberline {2.24.2}Function Documentation}{54}{subsubsection.2.24.2}
+\contentsline {paragraph}{\numberline {2.24.2.1}capture\discretionary {-}{}{}Text}{54}{paragraph.2.24.2.1}
+\contentsline {paragraph}{\numberline {2.24.2.2}print\discretionary {-}{}{}Text}{54}{paragraph.2.24.2.2}
+\contentsline {subsection}{\numberline {2.25}text.\discretionary {-}{}{}h File Reference}{55}{subsection.2.25}
+\contentsline {subsubsection}{\numberline {2.25.1}Detailed Description}{55}{subsubsection.2.25.1}
+\contentsline {subsubsection}{\numberline {2.25.2}Function Documentation}{55}{subsubsection.2.25.2}
+\contentsline {paragraph}{\numberline {2.25.2.1}capture\discretionary {-}{}{}Text}{55}{paragraph.2.25.2.1}
+\contentsline {paragraph}{\numberline {2.25.2.2}print\discretionary {-}{}{}Text}{56}{paragraph.2.25.2.2}
+\contentsline {section}{Index}{57}{section*.33}

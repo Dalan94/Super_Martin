@@ -119,6 +119,8 @@ Functions</h2></td></tr>
 <tr class="separator:ac02b9148199bc3334b6c7149789c946c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5bb0205907acbfde9bc8a6935e9da97e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8h.html#a5bb0205907acbfde9bc8a6935e9da97e">save</a> (SDL_Surface *screen, char fileSave[<a class="el" href="const_8h.html#a95feb1f1a8c13ebeb7da1e49b2896c24">MAX_SIZE_FILE_NAME</a>], char player_name[<a class="el" href="const_8h.html#a95feb1f1a8c13ebeb7da1e49b2896c24">MAX_SIZE_FILE_NAME</a>], <a class="el" href="struct_player.html">Player</a> *player, int *go)</td></tr>
 <tr class="separator:a5bb0205907acbfde9bc8a6935e9da97e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a759d67ed182fea0f5ec9d9722c188336"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="player_8h.html#a759d67ed182fea0f5ec9d9722c188336">deletePlayer</a> (SDL_Surface *screen, char fileSave[<a class="el" href="const_8h.html#a95feb1f1a8c13ebeb7da1e49b2896c24">MAX_SIZE_FILE_NAME</a>], char player_name[<a class="el" href="const_8h.html#a95feb1f1a8c13ebeb7da1e49b2896c24">MAX_SIZE_FILE_NAME</a>])</td></tr>
+<tr class="separator:a759d67ed182fea0f5ec9d9722c188336"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="player_8c.html" title="Management of the player system. ">player.c</a> header </p>
@@ -126,6 +128,56 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>06/05/14 </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a759d67ed182fea0f5ec9d9722c188336"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void deletePlayer </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>screen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>fileSave</em>[MAX_SIZE_FILE_NAME], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>player_name</em>[MAX_SIZE_FILE_NAME]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Delete the current player in the player list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">screen</td><td>The screen of the game </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">fileSave</td><td>The path to the binary file containing the progression of each player </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player_name</td><td>The name of the current player </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="player_8h_a759d67ed182fea0f5ec9d9722c188336_cgraph.png" border="0" usemap="#player_8h_a759d67ed182fea0f5ec9d9722c188336_cgraph" alt=""/></div>
+<map name="player_8h_a759d67ed182fea0f5ec9d9722c188336_cgraph" id="player_8h_a759d67ed182fea0f5ec9d9722c188336_cgraph">
+<area shape="rect" id="node2" href="image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="155,5,274,32"/><area shape="rect" id="node3" href="input_8c.html#adf8840e198ccba8364c2d051b700a690" title="updateWaitEvents" alt="" coords="150,56,279,83"/><area shape="rect" id="node4" href="share_8c.html#a6e428694268169eee69c8f07827e72de" title="waitFPS" alt="" coords="179,107,251,133"/><area shape="rect" id="node5" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="178,157,251,184"/><area shape="rect" id="node6" href="input_8c.html#abac71ea80b72ae7944d6e064341296a0" title="updateEvents" alt="" coords="163,208,266,235"/><area shape="rect" id="node7" href="file__level_8c.html#a8f93e9edca6b3e54fa194e27bacf8f46" title="readLevelFile" alt="" coords="165,259,264,285"/><area shape="rect" id="node9" href="file_8c.html#adf55ac6bc5d81f94b54e4c8ea554f884" title="closeFile" alt="" coords="328,309,403,336"/><area shape="rect" id="node10" href="file__level_8c.html#a3fafc12e3c322fc5a8166f7fb323bfe6" title="closeLevelList" alt="" coords="162,360,267,387"/><area shape="rect" id="node8" href="file_8c.html#ab763060cbdd57fdb704871d896fc492a" title="openFile" alt="" coords="330,259,401,285"/></map>
+</div>
+</p>
+
+</div>
+</div>
 <a class="anchor" id="a8330f47dea4a7c01a97ecef3607c3448"></a>
 <div class="memitem">
 <div class="memproto">
@@ -333,7 +385,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 27 2014 19:13:31 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 21:36:51 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

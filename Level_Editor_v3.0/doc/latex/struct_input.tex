@@ -1,17 +1,46 @@
-\hypertarget{struct_input}{\section{Input Struct Reference}
+\hypertarget{struct_input}{\subsection{Input Struct Reference}
 \label{struct_input}\index{Input@{Input}}
 }
-\subsection*{Data Fields}
+
+
+{\ttfamily \#include $<$structures.\-h$>$}
+
+\subsubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{struct_input_afc4eabd057bd0061b56de4005f5ecbb8}{char {\bfseries key} \mbox{[}S\-D\-L\-K\-\_\-\-L\-A\-S\-T\mbox{]}}\label{struct_input_afc4eabd057bd0061b56de4005f5ecbb8}
-
+char \hyperlink{struct_input_afc4eabd057bd0061b56de4005f5ecbb8}{key} \mbox{[}S\-D\-L\-K\-\_\-\-L\-A\-S\-T\mbox{]}
 \item 
-\hypertarget{struct_input_a2896431d6a80cd39b3d24b40237612ee}{int {\bfseries quit}}\label{struct_input_a2896431d6a80cd39b3d24b40237612ee}
-
+char \hyperlink{struct_input_abdf8b0b51bc72dab0a8b2c2b550620d9}{mouse} \mbox{[}6\mbox{]}
+\item 
+int \hyperlink{struct_input_a85ea1b63086b31a15d3ed2579c5715a6}{mouse\-X}
+\item 
+int \hyperlink{struct_input_a3637abebcaa9d04aa18b1610d0921e16}{mouse\-Y}
+\item 
+int \hyperlink{struct_input_a2896431d6a80cd39b3d24b40237612ee}{quit}
 \end{DoxyCompactItemize}
 
 
+\subsubsection{Detailed Description}
+The input structure 
+
+\subsubsection{Field Documentation}
+\hypertarget{struct_input_afc4eabd057bd0061b56de4005f5ecbb8}{\index{Input@{Input}!key@{key}}
+\index{key@{key}!Input@{Input}}
+\paragraph[{key}]{\setlength{\rightskip}{0pt plus 5cm}char key\mbox{[}S\-D\-L\-K\-\_\-\-L\-A\-S\-T\mbox{]}}}\label{struct_input_afc4eabd057bd0061b56de4005f5ecbb8}
+all the keyboard keys \-: 1 the key is pushed, 0 isn't \hypertarget{struct_input_abdf8b0b51bc72dab0a8b2c2b550620d9}{\index{Input@{Input}!mouse@{mouse}}
+\index{mouse@{mouse}!Input@{Input}}
+\paragraph[{mouse}]{\setlength{\rightskip}{0pt plus 5cm}char mouse\mbox{[}6\mbox{]}}}\label{struct_input_abdf8b0b51bc72dab0a8b2c2b550620d9}
+all the mouse buttons \-: 1 the button is pushed, 0 isn't \hypertarget{struct_input_a85ea1b63086b31a15d3ed2579c5715a6}{\index{Input@{Input}!mouse\-X@{mouse\-X}}
+\index{mouse\-X@{mouse\-X}!Input@{Input}}
+\paragraph[{mouse\-X}]{\setlength{\rightskip}{0pt plus 5cm}int mouse\-X}}\label{struct_input_a85ea1b63086b31a15d3ed2579c5715a6}
+The x coordinate of the mouse \hypertarget{struct_input_a3637abebcaa9d04aa18b1610d0921e16}{\index{Input@{Input}!mouse\-Y@{mouse\-Y}}
+\index{mouse\-Y@{mouse\-Y}!Input@{Input}}
+\paragraph[{mouse\-Y}]{\setlength{\rightskip}{0pt plus 5cm}int mouse\-Y}}\label{struct_input_a3637abebcaa9d04aa18b1610d0921e16}
+The y coordinate of the mouse \hypertarget{struct_input_a2896431d6a80cd39b3d24b40237612ee}{\index{Input@{Input}!quit@{quit}}
+\index{quit@{quit}!Input@{Input}}
+\paragraph[{quit}]{\setlength{\rightskip}{0pt plus 5cm}int quit}}\label{struct_input_a2896431d6a80cd39b3d24b40237612ee}
+is 1 is the S\-D\-L\-\_\-\-Q\-U\-I\-T event happens 
+
 The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-input.\-h\end{DoxyCompactItemize}
+structures.\-h\end{DoxyCompactItemize}

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Super Martin: input.c File Reference</title>
+<title>Super Martin Level Editor: input.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Super Martin
+   <div id="projectname">Super Martin Level Editor
    </div>
   </td>
  </tr>
@@ -90,68 +90,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;input.h&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for input.c:</div>
-<div class="dyncontent">
-<div class="center"><img src="input_8c__incl.png" border="0" usemap="#input_8c" alt=""/></div>
-<map name="input_8c" id="input_8c">
-<area shape="rect" id="node3" href="input_8h_source.html" title="input.h" alt="" coords="527,89,588,122"/><area shape="rect" id="node13" href="player_8h.html" title="header de player.c " alt="" coords="524,171,591,205"/><area shape="rect" id="node15" href="const_8h.html" title="contient les constantes du programme " alt="" coords="561,337,625,370"/><area shape="rect" id="node23" href="file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="181,254,264,287"/><area shape="rect" id="node35" href="share_8h.html" title="Gestion des fichiers de carte. " alt="" coords="681,254,745,287"/><area shape="rect" id="node39" href="sound_8h.html" title="header de sound.c " alt="" coords="649,337,716,370"/><area shape="rect" id="node46" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="489,254,556,287"/><area shape="rect" id="node29" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="180,337,231,370"/></map>
-</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a96302a81fac34b8c2bfa2add1a03d802"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#a96302a81fac34b8c2bfa2add1a03d802">updateEvents</a> (<a class="el" href="struct_input.html">Input</a> *in)</td></tr>
-<tr class="separator:a96302a81fac34b8c2bfa2add1a03d802"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02a609bb8821ffe9d5719858775e6f0c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#a02a609bb8821ffe9d5719858775e6f0c">keyboardActionGame</a> (<a class="el" href="struct_input.html">Input</a> *in, int *move_left, int *move_right, int *jump, int *pause, <a class="el" href="struct_character.html">Character</a> *player)</td></tr>
-<tr class="separator:a02a609bb8821ffe9d5719858775e6f0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a907831170dedec3a0af4e4b1e178b854"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#a907831170dedec3a0af4e4b1e178b854">updateEvents</a> (<a class="el" href="struct_input.html">Input</a> *in)</td></tr>
+<tr class="separator:a907831170dedec3a0af4e4b1e178b854"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f2aa7e2cd7674e43532893e4f2802e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#a0f2aa7e2cd7674e43532893e4f2802e8">keyboardActionGame</a> (SDL_Surface *screen, <a class="el" href="struct_input.html">Input</a> *in, <a class="el" href="struct_map.html">Map</a> *m, <a class="el" href="struct_cursor.html">Cursor</a> *cursor, SDLKey *kc)</td></tr>
+<tr class="separator:a0f2aa7e2cd7674e43532893e4f2802e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3310b398fa046500863c183fd4468e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#ad3310b398fa046500863c183fd4468e6">updateWaitEvents</a> (<a class="el" href="struct_input.html">Input</a> *in)</td></tr>
 <tr class="separator:ad3310b398fa046500863c183fd4468e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af272764fd4eba51f28af6b9b56273b37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#af272764fd4eba51f28af6b9b56273b37">keyboardActionMenu</a> (<a class="el" href="struct_input.html">Input</a> *in, int *cursorPos, int *play_level, int nb_lvl)</td></tr>
-<tr class="separator:af272764fd4eba51f28af6b9b56273b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac9044909637f02a277d101651e126a7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#aac9044909637f02a277d101651e126a7">keyboardActionMenu</a> (<a class="el" href="struct_input.html">Input</a> *in, int *cursorPos, int *select, int nb_options)</td></tr>
+<tr class="separator:aac9044909637f02a277d101651e126a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Xavier COPONET </dd></dl>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>Xavier COPONET, Glenn HERROU </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2014-03-18 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a02a609bb8821ffe9d5719858775e6f0c"></a>
+<a class="anchor" id="a0f2aa7e2cd7674e43532893e4f2802e8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void keyboardActionGame </td>
           <td>(</td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>screen</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype"><a class="el" href="struct_input.html">Input</a> *&#160;</td>
           <td class="paramname"><em>in</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>move_left</em>, </td>
+          <td class="paramtype"><a class="el" href="struct_map.html">Map</a> *&#160;</td>
+          <td class="paramname"><em>m</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>move_right</em>, </td>
+          <td class="paramtype"><a class="el" href="struct_cursor.html">Cursor</a> *&#160;</td>
+          <td class="paramname"><em>cursor</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>jump</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>pause</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_character.html">Character</a> *&#160;</td>
-          <td class="paramname"><em>player</em>&#160;</td>
+          <td class="paramtype">SDLKey *&#160;</td>
+          <td class="paramname"><em>kc</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,22 +147,30 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>perform action command by keyboard action </p>
+<p>perform action commanded by keyboard action </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>the input structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">move_left</td><td>the left movement boolean </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">move_right</td><td>the right movement boolean </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">jump</td><td>the jump boolean </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">pause</td><td>the pause boolean </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>the Player </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">screen</td><td>The screen of the game </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">in</td><td>the input structure </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">m</td><td>the map to update </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">cursor</td><td>the cursor structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">kc</td><td>the keyboard bindings </td></tr>
   </table>
   </dd>
 </dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="input_8c_a0f2aa7e2cd7674e43532893e4f2802e8_cgraph.png" border="0" usemap="#input_8c_a0f2aa7e2cd7674e43532893e4f2802e8_cgraph" alt=""/></div>
+<map name="input_8c_a0f2aa7e2cd7674e43532893e4f2802e8_cgraph" id="input_8c_a0f2aa7e2cd7674e43532893e4f2802e8_cgraph">
+<area shape="rect" id="node2" href="map_8c.html#ae21019fd11e4de007090c6a02b0ffad5" title="extendMap" alt="" coords="202,183,289,209"/><area shape="rect" id="node3" href="map_8c.html#a3935bb6ade113dad7068ed17cb2c6898" title="saveMap" alt="" coords="208,233,283,260"/><area shape="rect" id="node17" href="map_8c.html#a8b0e7b929dc7159efa7e432f1059dc8e" title="resetMap" alt="" coords="207,411,283,437"/><area shape="rect" id="node18" href="map_8c.html#ada7a341a80060dfd7c2685f5a7b15f16" title="fillRect" alt="" coords="214,461,277,488"/><area shape="rect" id="node19" href="map_8c.html#a7db72a2f3d427d9bc0b84b89a7c866ed" title="fillLine" alt="" coords="363,512,421,539"/><area shape="rect" id="node20" href="map_8c.html#a2df5d973f2059d0834b5224bf0ef4625" title="fillColumn" alt="" coords="205,563,285,589"/><area shape="rect" id="node21" href="map_8c.html#a7a6108fe5abfab806adec1371905007f" title="displayHelp" alt="" coords="200,360,291,387"/><area shape="rect" id="node4" href="file__level_8c.html#ac17ea9a301548c44632d88d4a34db36b" title="readLevelFile" alt="" coords="343,56,441,83"/><area shape="rect" id="node6" href="file_8c.html#adf55ac6bc5d81f94b54e4c8ea554f884" title="closeFile" alt="" coords="521,5,596,32"/><area shape="rect" id="node7" href="image_8c.html#a9862daea48ad8bfd1d3a0c401a9f5210" title="imageLoad" alt="" coords="349,360,435,387"/><area shape="rect" id="node8" href="text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="522,309,595,336"/><area shape="rect" id="node9" href="text_8c.html#abd63f9d237bb4bc462d33c00802cd7b9" title="captureText" alt="" coords="347,259,437,285"/><area shape="rect" id="node10" href="input_8c.html#ad3310b398fa046500863c183fd4468e6" title="updateWaitEvents" alt="" coords="494,259,623,285"/><area shape="rect" id="node11" href="file__level_8c.html#aa22f94cc3689a4c98d553ff300c32bc9" title="writeLevel" alt="" coords="351,107,433,133"/><area shape="rect" id="node16" href="file__level_8c.html#a3fafc12e3c322fc5a8166f7fb323bfe6" title="closeLevelList" alt="" coords="339,208,445,235"/><area shape="rect" id="node5" href="file_8c.html#ab763060cbdd57fdb704871d896fc492a" title="openFile" alt="" coords="523,56,594,83"/><area shape="rect" id="node12" href="file__level_8c.html#a4aeb62489e5fc5c31868d7f1935b9214" title="adaptSizeLevel" alt="" coords="503,107,614,133"/><area shape="rect" id="node15" href="file__level_8c.html#a38020f30305d2344cdf39d06c7e8768e" title="closeLevel" alt="" coords="517,157,601,184"/><area shape="rect" id="node13" href="file__level_8c.html#abd4c02fab44779b57294a058c8486365" title="searchEndLevel" alt="" coords="672,81,787,108"/><area shape="rect" id="node14" href="file__level_8c.html#a76e77e4f54cd176374bd70e25c1ffc07" title="initLevel" alt="" coords="694,132,765,159"/></map>
+</div>
+</p>
+
 </div>
 </div>
-<a class="anchor" id="af272764fd4eba51f28af6b9b56273b37"></a>
+<a class="anchor" id="aac9044909637f02a277d101651e126a7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -195,13 +190,13 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>play_level</em>, </td>
+          <td class="paramname"><em>select</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_lvl</em>&#160;</td>
+          <td class="paramname"><em>nb_options</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -210,25 +205,25 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>perform action command by keyboard action </p>
+<p>perform menu action commanded by keyboard action </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>the input structure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">cursorPos</td><td>cursor position </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">play_level</td><td>boolean about playing the level or quit to title screen </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">nb_lvl</td><td>the number of levels </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cursorPos</td><td>the cursor position </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">select</td><td>boolean about selecting the option or quit to title screen </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nb_options</td><td>the number of options of the menu </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a96302a81fac34b8c2bfa2add1a03d802"></a>
+<a class="anchor" id="a907831170dedec3a0af4e4b1e178b854"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int updateEvents </td>
+          <td class="memname">void updateEvents </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_input.html">Input</a> *&#160;</td>
           <td class="paramname"><em>in</em></td><td>)</td>
@@ -236,14 +231,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>recuperate keyboard input with a SDL_PollEvent </p>
+<p>get keyboard input with a SDL_PollEvent </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">in</td><td>the input structure </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 if a key is activated </dd></dl>
 
 </div>
 </div>
@@ -260,7 +254,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>recuperate keyboard input with a SDL_WaitEvent </p>
+<p>get keyboard input with a SDL_WaitEvent </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">in</td><td>the input structure </td></tr>
@@ -274,7 +268,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 21:35:36 for Super Martin Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

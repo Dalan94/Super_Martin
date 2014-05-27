@@ -16,8 +16,10 @@
 #include "const.h"
 #include "structures.h"
 
-#define TAILLE_MAX_NB_BLOCS_LARGEUR 5
-#define TAILLE_MAX_NB_BLOCS_HAUTEUR 4
+/*!
+ * \def BUFFER_SIZE
+ * The buffer size
+ */
 #define BUFFER_SIZE 2
 
 /*!

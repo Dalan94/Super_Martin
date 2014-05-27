@@ -1,7 +1,0 @@
-<map id="printGameOver" name="printGameOver">
-<area shape="rect" id="node3" href="$sound_8c.html#a3b1e12665aed7169d8efdb2cc611184e" title="createSound" alt="" coords="171,5,264,38"/>
-<area shape="rect" id="node5" href="$sound_8c.html#a3af6fda5716d5f42846d0ccc01d5e2ca" title="playMusic" alt="" coords="177,61,257,94"/>
-<area shape="rect" id="node7" href="$text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="181,117,253,150"/>
-<area shape="rect" id="node9" href="$input_8c.html#a96302a81fac34b8c2bfa2add1a03d802" title="updateEvents" alt="" coords="167,173,268,206"/>
-<area shape="rect" id="node11" href="$sound_8c.html#acc13f1ac1e0bac5afe39405869772a08" title="freeSound" alt="" coords="177,229,257,262"/>
-</map>

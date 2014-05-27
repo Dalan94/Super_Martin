@@ -26,14 +26,14 @@
 #include "input.h"
 
 /**
- *\fn void play(SDL_Surface *screen,char *level_name)
+ *\fn void play(SDL_Surface *screen, char *level_name, SDLKey *kc)
  *Include the main loop of the game
  *\param[in,out] screen The screen of the game
  *\param[in] level_name The name of the level
  *\param[in] kc The keyboard configuration
  */
 
-void play(SDL_Surface *screen,char *level_name, SDLKey *kc);
+void play(SDL_Surface *screen, char *level_name, SDLKey *kc);
 
 /**
  *\fn void printConfirmation(SDL_Surface *screen, Input *in, int *go)

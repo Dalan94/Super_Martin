@@ -25,7 +25,7 @@
  *\fn void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
  *update and display the map on the screen
  *\param[in,out] screen The screen of the game
- *\param[in] Map *m The map
+ *\param[in] m The map
  *\param[in] tileset The level tileset
  *\param[in] cursor The mouse cursor
  */
@@ -48,6 +48,7 @@ Map* initMap(SDL_Surface *screen,char * level_name);
  *\param[in] m The map
  *\param[in] line The line pointed by the cursor
  *\param[in] column The column pointed by the cursor
+ *\param[in] tileID the tile ID
  */
 
 void fillLine(Map *m, int line, int column, char tileID);
@@ -58,6 +59,7 @@ void fillLine(Map *m, int line, int column, char tileID);
  *\param[in] m The map
  *\param[in] line The line pointed by the cursor
  *\param[in] column The column pointed by the cursor
+ *\param[in] tileID the tile ID
  */
 
 void fillColumn(Map *m, int line, int column, char tileID);
@@ -68,6 +70,7 @@ void fillColumn(Map *m, int line, int column, char tileID);
  *\param[in] m The map
  *\param[in] line The line pointed by the cursor
  *\param[in] column The column pointed by the cursor
+ *\param[in] tileID the tile ID
  */
 
 void fillRect(Map *m, int line, int column, char tileID);
@@ -82,7 +85,7 @@ void fillRect(Map *m, int line, int column, char tileID);
 void displayHelp(SDL_Surface *screen, SDLKey *kc);
 
 /**
-  *\fn void saveMap(SDL_Surface *screen, map *m)
+  *\fn void saveMap(SDL_Surface *screen, Map *m)
   *Save the map in a new file and update the file 'level' containing the map list
   *\param[in,out] screen The screen of the game
   *\param[in] m The map to save
@@ -109,7 +112,7 @@ void deleteMap(SDL_Surface *screen, char *map_name, char *map_path);
 void extendMap(Map *m);
 
 /**
-  *\fn void resetMap(map *m)
+  *\fn void resetMap(Map *m)
   *Fill a map with blank tiles. This function doesn't change the current map file.
   *\param[in,out] m The map to reinit
   */
@@ -117,7 +120,7 @@ void extendMap(Map *m);
 void resetMap(Map *m);
 
  /**
-  *\fn void freeMap(map *m)
+  *\fn void freeMap(Map *m)
   *Free memory allocated to the map
   *\param[in,out] m the map
   */

@@ -1,85 +1,61 @@
-\hypertarget{file_8c}{\section{file.\-c File Reference}
+\hypertarget{file_8c}{\subsection{file.\-c File Reference}
 \label{file_8c}\index{file.\-c@{file.\-c}}
 }
 
 
-Fonctions d'acces au fichiers.  
+Functions to access to the files.  
 
 
 {\ttfamily \#include \char`\"{}file.\-h\char`\"{}}\\*
-Include dependency graph for file.\-c\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=256pt]{file_8c__incl}
-\end{center}
-\end{figure}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-F\-I\-L\-E $\ast$ \hyperlink{file_8c_a8f17d8993e6de59936122f7c8ef4e37b}{open\-File} (char nom\mbox{[}$\,$\mbox{]}, char mode\mbox{[}$\,$\mbox{]})
+F\-I\-L\-E $\ast$ \hyperlink{file_8c_ab763060cbdd57fdb704871d896fc492a}{open\-File} (char name\mbox{[}$\,$\mbox{]}, char mode\mbox{[}$\,$\mbox{]})
 \item 
-int \hyperlink{file_8c_a0fca34d72624f611d2cbeac47279bb1f}{close\-File} (F\-I\-L\-E $\ast$ptr\-\_\-fichier)
-\item 
-int \hyperlink{file_8c_ad2924419af4232858df0519818c6fa64}{read\-File\-Size} (F\-I\-L\-E $\ast$ptr\-\_\-fichier)
+int \hyperlink{file_8c_adf55ac6bc5d81f94b54e4c8ea554f884}{close\-File} (F\-I\-L\-E $\ast$ptr\-\_\-file)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-Fonctions d'acces au fichiers. \begin{DoxyAuthor}{Author}
-Remi B\-E\-R\-T\-H\-O 
+\subsubsection{Detailed Description}
+Functions to access to the files. \begin{DoxyAuthor}{Author}
+Remi B\-E\-R\-T\-H\-O, Glenn H\-E\-R\-R\-O\-U 
 \end{DoxyAuthor}
 \begin{DoxyDate}{Date}
-15/03/14 
+2014-\/05-\/12 
 \end{DoxyDate}
 
 
-\subsection{Function Documentation}
-\hypertarget{file_8c_a0fca34d72624f611d2cbeac47279bb1f}{\index{file.\-c@{file.\-c}!close\-File@{close\-File}}
+\subsubsection{Function Documentation}
+\hypertarget{file_8c_adf55ac6bc5d81f94b54e4c8ea554f884}{\index{file.\-c@{file.\-c}!close\-File@{close\-File}}
 \index{close\-File@{close\-File}!file.c@{file.\-c}}
-\subsubsection[{close\-File}]{\setlength{\rightskip}{0pt plus 5cm}int close\-File (
+\paragraph[{close\-File}]{\setlength{\rightskip}{0pt plus 5cm}int close\-File (
 \begin{DoxyParamCaption}
-\item[{F\-I\-L\-E $\ast$}]{ptr\-\_\-fichier}
+\item[{F\-I\-L\-E $\ast$}]{ptr\-\_\-file}
 \end{DoxyParamCaption}
-)}}\label{file_8c_a0fca34d72624f611d2cbeac47279bb1f}
-Ferme le fichier 
+)}}\label{file_8c_adf55ac6bc5d81f94b54e4c8ea554f884}
+Close the given file 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em $\ast$ptr\-\_\-fichier} & le fichier \\
+\mbox{\tt in}  & {\em $\ast$ptr\-\_\-file} & the file \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-entier 0 si tout s'est bien passe, 1 sinon 
+0 if the file has been succesfully closed, 1 otherwise 
 \end{DoxyReturn}
-\hypertarget{file_8c_a8f17d8993e6de59936122f7c8ef4e37b}{\index{file.\-c@{file.\-c}!open\-File@{open\-File}}
+\hypertarget{file_8c_ab763060cbdd57fdb704871d896fc492a}{\index{file.\-c@{file.\-c}!open\-File@{open\-File}}
 \index{open\-File@{open\-File}!file.c@{file.\-c}}
-\subsubsection[{open\-File}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E $\ast$ open\-File (
+\paragraph[{open\-File}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E $\ast$ open\-File (
 \begin{DoxyParamCaption}
-\item[{char}]{nom\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{name\mbox{[}$\,$\mbox{]}, }
 \item[{char}]{mode\mbox{[}$\,$\mbox{]}}
 \end{DoxyParamCaption}
-)}}\label{file_8c_a8f17d8993e6de59936122f7c8ef4e37b}
-Ouvre un fichier a partir de son nom (nom\mbox{[}\mbox{]}) et du mode voulu (mode\mbox{[}\mbox{]}) 
+)}}\label{file_8c_ab763060cbdd57fdb704871d896fc492a}
+Open a file which path is name with the given mode 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em nom\mbox{[}$\,$\mbox{]}} & le nom du fichier \\
+\mbox{\tt in}  & {\em name\mbox{[}$\,$\mbox{]}} & name of the file \\
 \hline
-\mbox{\tt in}  & {\em mode\mbox{[}$\,$\mbox{]}} & le mode voulu \\
+\mbox{\tt in}  & {\em mode\mbox{[}$\,$\mbox{]}} & the opening mode \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-un pointeur sur le fichier ouvert, N\-U\-L\-L s'il y a eut un probleme 
-\end{DoxyReturn}
-\hypertarget{file_8c_ad2924419af4232858df0519818c6fa64}{\index{file.\-c@{file.\-c}!read\-File\-Size@{read\-File\-Size}}
-\index{read\-File\-Size@{read\-File\-Size}!file.c@{file.\-c}}
-\subsubsection[{read\-File\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int read\-File\-Size (
-\begin{DoxyParamCaption}
-\item[{F\-I\-L\-E $\ast$}]{ptr\-\_\-fichier}
-\end{DoxyParamCaption}
-)}}\label{file_8c_ad2924419af4232858df0519818c6fa64}
-Lis la taille du fichier 
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\tt in}  & {\em $\ast$ptr\-\_\-fichier} & le fichier \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-entier ayant la taille du fichier 
+a pointer if the opening has been succesfull, N\-U\-L\-L otherwise 
 \end{DoxyReturn}

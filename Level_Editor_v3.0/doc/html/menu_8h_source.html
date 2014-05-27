@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Super Martin: menu.h Source File</title>
+<title>Super Martin Level Editor: menu.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Super Martin
+   <div id="projectname">Super Martin Level Editor
    </div>
   </td>
  </tr>
@@ -103,30 +103,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="const_8h.html">const.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="text_8h.html">text.h</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="sound_8h.html">sound.h</a>&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="share_8h.html">share.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="image_8h.html">image.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;input.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="share_8h.html">share.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="image_8h.html">image.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;input.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*prototypes*/</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">int</span> menu(SDL_Surface *screen,<span class="keywordtype">int</span> *continuer,<a class="code" href="struct_sound.html">Sound</a> *s);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;Uint32 <a class="code" href="menu_8h.html#a379c27eb17605f99e8d92b6045104ed4">blinkText</a>(Uint32 interval, <span class="keywordtype">void</span> *param);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif // MENU_H</span></div>
-<div class="ttc" id="share_8h_html"><div class="ttname"><a href="share_8h.html">share.h</a></div><div class="ttdoc">Gestion des fichiers de carte. </div></div>
-<div class="ttc" id="sound_8h_html"><div class="ttname"><a href="sound_8h.html">sound.h</a></div><div class="ttdoc">header de sound.c </div></div>
-<div class="ttc" id="menu_8h_html_a379c27eb17605f99e8d92b6045104ed4"><div class="ttname"><a href="menu_8h.html#a379c27eb17605f99e8d92b6045104ed4">blinkText</a></div><div class="ttdeci">Uint32 blinkText(Uint32 interval, void *param)</div><div class="ttdef"><b>Definition:</b> menu.c:99</div></div>
-<div class="ttc" id="struct_sound_html"><div class="ttname"><a href="struct_sound.html">Sound</a></div><div class="ttdef"><b>Definition:</b> sound.h:16</div></div>
-<div class="ttc" id="text_8h_html"><div class="ttname"><a href="text_8h.html">text.h</a></div><div class="ttdoc">header de text.c </div></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">int</span> <a class="code" href="menu_8h.html#a9b210afb32784dfdf07bd2d4ef25e0bc">menu</a>(SDL_Surface *screen,<span class="keywordtype">int</span> *choice, <span class="keywordtype">int</span> *go);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">int</span> <a class="code" href="menu_8h.html#a2e385684b2e6cc22168f98525f3693d8">menuTileSet</a>(SDL_Surface *screen, <span class="keywordtype">char</span> tileSet_name[<a class="code" href="const_8h.html#a9620725a4f8ab39e0912adede7cb347f">MAX_LENGTH_FILE_NAME</a>]);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif // MENU_H</span></div>
+<div class="ttc" id="share_8h_html"><div class="ttname"><a href="share_8h.html">share.h</a></div><div class="ttdoc">share.c header </div></div>
+<div class="ttc" id="text_8h_html"><div class="ttname"><a href="text_8h.html">text.h</a></div><div class="ttdoc">text.c header </div></div>
+<div class="ttc" id="const_8h_html_a9620725a4f8ab39e0912adede7cb347f"><div class="ttname"><a href="const_8h.html#a9620725a4f8ab39e0912adede7cb347f">MAX_LENGTH_FILE_NAME</a></div><div class="ttdeci">#define MAX_LENGTH_FILE_NAME</div><div class="ttdef"><b>Definition:</b> const.h:69</div></div>
 <div class="ttc" id="image_8h_html"><div class="ttname"><a href="image_8h.html">image.h</a></div><div class="ttdoc">contient les fonction liées aux images </div></div>
+<div class="ttc" id="menu_8h_html_a9b210afb32784dfdf07bd2d4ef25e0bc"><div class="ttname"><a href="menu_8h.html#a9b210afb32784dfdf07bd2d4ef25e0bc">menu</a></div><div class="ttdeci">int menu(SDL_Surface *screen, int *choice, int *go)</div><div class="ttdef"><b>Definition:</b> menu.c:10</div></div>
 <div class="ttc" id="const_8h_html"><div class="ttname"><a href="const_8h.html">const.h</a></div><div class="ttdoc">contient les constantes du programme </div></div>
+<div class="ttc" id="menu_8h_html_a2e385684b2e6cc22168f98525f3693d8"><div class="ttname"><a href="menu_8h.html#a2e385684b2e6cc22168f98525f3693d8">menuTileSet</a></div><div class="ttdeci">int menuTileSet(SDL_Surface *screen, char tileSet_name[MAX_LENGTH_FILE_NAME])</div><div class="ttdef"><b>Definition:</b> menu.c:97</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 21:35:36 for Super Martin Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

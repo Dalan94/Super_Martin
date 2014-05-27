@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['blinktext',['blinkText',['../menu_8c.html#a379c27eb17605f99e8d92b6045104ed4',1,'blinkText(Uint32 interval, void *param):&#160;menu.c'],['../menu_8h.html#a379c27eb17605f99e8d92b6045104ed4',1,'blinkText(Uint32 interval, void *param):&#160;menu.c']]],
-  ['blitcharacter',['blitCharacter',['../player_8c.html#a3c4b84a9d7123af243336f3540d2ae83',1,'blitCharacter(SDL_Surface *screen, Character *c, Map *m):&#160;player.c'],['../player_8h.html#a3c4b84a9d7123af243336f3540d2ae83',1,'blitCharacter(SDL_Surface *screen, Character *c, Map *m):&#160;player.c']]]
+  ['background',['background',['../struct_level.html#ad8280c14050559fbd855943575019840',1,'Level']]],
+  ['buffer_5fsize',['BUFFER_SIZE',['../file__level_8h.html#a6b20d41d6252e9871430c242cb1a56e7',1,'file_level.h']]]
 ];

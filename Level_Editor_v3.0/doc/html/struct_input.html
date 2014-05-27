@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Super Martin: Input Struct Reference</title>
+<title>Super Martin Level Editor: Input Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Super Martin
+   <div id="projectname">Super Martin Level Editor
    </div>
   </td>
  </tr>
@@ -86,23 +86,97 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Input Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="structures_8h_source.html">structures.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:afc4eabd057bd0061b56de4005f5ecbb8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc4eabd057bd0061b56de4005f5ecbb8"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>key</b> [SDLK_LAST]</td></tr>
+<tr class="memitem:afc4eabd057bd0061b56de4005f5ecbb8"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#afc4eabd057bd0061b56de4005f5ecbb8">key</a> [SDLK_LAST]</td></tr>
 <tr class="separator:afc4eabd057bd0061b56de4005f5ecbb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2896431d6a80cd39b3d24b40237612ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2896431d6a80cd39b3d24b40237612ee"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
+<tr class="memitem:abdf8b0b51bc72dab0a8b2c2b550620d9"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#abdf8b0b51bc72dab0a8b2c2b550620d9">mouse</a> [6]</td></tr>
+<tr class="separator:abdf8b0b51bc72dab0a8b2c2b550620d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85ea1b63086b31a15d3ed2579c5715a6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#a85ea1b63086b31a15d3ed2579c5715a6">mouseX</a></td></tr>
+<tr class="separator:a85ea1b63086b31a15d3ed2579c5715a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3637abebcaa9d04aa18b1610d0921e16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#a3637abebcaa9d04aa18b1610d0921e16">mouseY</a></td></tr>
+<tr class="separator:a3637abebcaa9d04aa18b1610d0921e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2896431d6a80cd39b3d24b40237612ee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#a2896431d6a80cd39b3d24b40237612ee">quit</a></td></tr>
 <tr class="separator:a2896431d6a80cd39b3d24b40237612ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The input structure </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a class="anchor" id="afc4eabd057bd0061b56de4005f5ecbb8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char key[SDLK_LAST]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>all the keyboard keys : 1 the key is pushed, 0 isn't </p>
+
+</div>
+</div>
+<a class="anchor" id="abdf8b0b51bc72dab0a8b2c2b550620d9"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char mouse[6]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>all the mouse buttons : 1 the button is pushed, 0 isn't </p>
+
+</div>
+</div>
+<a class="anchor" id="a85ea1b63086b31a15d3ed2579c5715a6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mouseX</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The x coordinate of the mouse </p>
+
+</div>
+</div>
+<a class="anchor" id="a3637abebcaa9d04aa18b1610d0921e16"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int mouseY</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The y coordinate of the mouse </p>
+
+</div>
+</div>
+<a class="anchor" id="a2896431d6a80cd39b3d24b40237612ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int quit</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>is 1 is the SDL_QUIT event happens </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="input_8h_source.html">input.h</a></li>
+<li><a class="el" href="structures_8h_source.html">structures.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 20 2014 14:59:36 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 21:35:36 for Super Martin Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

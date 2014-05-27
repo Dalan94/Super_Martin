@@ -1,6 +1,6 @@
 <map id="initMap" name="initMap">
-<area shape="rect" id="node3" href="$file__level_8h.html#a149f2e0878473ca6968717a39c119639" title="openLevel" alt="" coords="119,61,199,94"/>
-<area shape="rect" id="node5" href="$file_8c.html#a8f17d8993e6de59936122f7c8ef4e37b" title="openFile" alt="" coords="251,5,320,38"/>
-<area shape="rect" id="node7" href="$file__level_8h.html#a1749fb3f97d8b947c393f8eac9d29707" title="initLevel" alt="" coords="251,61,320,94"/>
-<area shape="rect" id="node9" href="$file_8c.html#a0fca34d72624f611d2cbeac47279bb1f" title="closeFile" alt="" coords="248,117,323,150"/>
+<area shape="rect" id="node2" href="$file__level_8c.html#a3933e20f86523f60b0c0da935f1b8846" title="openLevel" alt="" coords="118,56,199,83"/>
+<area shape="rect" id="node3" href="$file_8c.html#ab763060cbdd57fdb704871d896fc492a" title="openFile" alt="" coords="250,5,321,32"/>
+<area shape="rect" id="node4" href="$file__level_8c.html#a76e77e4f54cd176374bd70e25c1ffc07" title="initLevel" alt="" coords="250,56,321,83"/>
+<area shape="rect" id="node5" href="$file_8c.html#adf55ac6bc5d81f94b54e4c8ea554f884" title="closeFile" alt="" coords="248,107,323,133"/>
 </map>

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['game_2ec',['game.c',['../game_8c.html',1,'']]],
-  ['game_2eh',['game.h',['../game_8h.html',1,'']]]
+  ['extendmap',['extendMap',['../map_8c.html#ae21019fd11e4de007090c6a02b0ffad5',1,'extendMap(Map *m):&#160;map.c'],['../map_8h.html#ae21019fd11e4de007090c6a02b0ffad5',1,'extendMap(Map *m):&#160;map.c']]]
 ];

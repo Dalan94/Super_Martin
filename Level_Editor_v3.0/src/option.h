@@ -13,7 +13,7 @@
 #include "input.h"
 
 /**
- *\fn void loadOptions(char confFile[],Sound *soundSys,keyConf *kc)
+ *\fn void loadOptions(char confFile[],SDLKey *kc)
  *Load the options from the config file
  *\param[in] confFile the config file path
  *\param[out] kc the keyboard configuration structure
@@ -22,7 +22,7 @@
 void loadOptions(char confFile[],SDLKey *kc);
 
 /**
- *\fn void saveOptions(char confFile[],keyConf *kc)
+ *\fn void saveOptions(char confFile[],SDLKey *kc)
  *save the options to the config file
  *\param[in] confFile the config file path
  *\param[in] kc the keyboard configuration structure

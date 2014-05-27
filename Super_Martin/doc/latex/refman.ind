@@ -30,8 +30,8 @@
     \subitem {mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}, 
 		\hyperpage{108}
   \item {blit\discretionary {-}{}{}Projectile}
-    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{123}
-    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{126}
+    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{125}
+    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{128}
   \item {button}
     \subitem {Input}, \hyperpage{4}
 
@@ -40,10 +40,10 @@
   \item {c}
     \subitem {node}, \hyperpage{8}
   \item {C\discretionary {-}{}{}O\discretionary {-}{}{}L\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}D\discretionary {-}{}{}J\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}M\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}T}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{24}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
   \item {capture\discretionary {-}{}{}Text}
-    \subitem {text.\discretionary {-}{}{}c}, \hyperpage{134}
-    \subitem {text.\discretionary {-}{}{}h}, \hyperpage{136}
+    \subitem {text.\discretionary {-}{}{}c}, \hyperpage{136}
+    \subitem {text.\discretionary {-}{}{}h}, \hyperpage{138}
   \item {Character}, \hyperpage{2}
     \subitem {count\discretionary {-}{}{}Stars}, \hyperpage{2}
     \subitem {dir\discretionary {-}{}{}X}, \hyperpage{2}
@@ -68,36 +68,36 @@
     \subitem {wall\discretionary {-}{}{}Jump}, \hyperpage{3}
   \item {character.\discretionary {-}{}{}c}, \hyperpage{14}
     \subitem {blit\discretionary {-}{}{}Character}, \hyperpage{14}
-    \subitem {check\discretionary {-}{}{}Fall}, \hyperpage{14}
+    \subitem {check\discretionary {-}{}{}Fall}, \hyperpage{15}
     \subitem {check\discretionary {-}{}{}Wall}, \hyperpage{15}
     \subitem {collision\discretionary {-}{}{}Sprite}, \hyperpage{15}
     \subitem {create\discretionary {-}{}{}Character}, \hyperpage{15}
     \subitem {free\discretionary {-}{}{}Characters}, \hyperpage{16}
     \subitem {move\discretionary {-}{}{}Character}, \hyperpage{16}
     \subitem {presise\discretionary {-}{}{}Move\discretionary {-}{}{}Character}, 
-		\hyperpage{16}
+		\hyperpage{17}
     \subitem {try\discretionary {-}{}{}Movement}, \hyperpage{17}
   \item {character.\discretionary {-}{}{}h}, \hyperpage{18}
     \subitem {A\discretionary {-}{}{}B\discretionary {-}{}{}S}, 
 		\hyperpage{19}
     \subitem {blit\discretionary {-}{}{}Character}, \hyperpage{19}
     \subitem {check\discretionary {-}{}{}Fall}, \hyperpage{19}
-    \subitem {check\discretionary {-}{}{}Wall}, \hyperpage{19}
+    \subitem {check\discretionary {-}{}{}Wall}, \hyperpage{20}
     \subitem {collision\discretionary {-}{}{}Sprite}, \hyperpage{20}
     \subitem {create\discretionary {-}{}{}Character}, \hyperpage{20}
-    \subitem {free\discretionary {-}{}{}Characters}, \hyperpage{20}
+    \subitem {free\discretionary {-}{}{}Characters}, \hyperpage{21}
     \subitem {move\discretionary {-}{}{}Character}, \hyperpage{21}
     \subitem {presise\discretionary {-}{}{}Move\discretionary {-}{}{}Character}, 
-		\hyperpage{21}
+		\hyperpage{22}
     \subitem {S\discretionary {-}{}{}G\discretionary {-}{}{}N}, 
 		\hyperpage{19}
-    \subitem {try\discretionary {-}{}{}Movement}, \hyperpage{22}
+    \subitem {try\discretionary {-}{}{}Movement}, \hyperpage{23}
   \item {check\discretionary {-}{}{}Fall}
-    \subitem {character.\discretionary {-}{}{}c}, \hyperpage{14}
+    \subitem {character.\discretionary {-}{}{}c}, \hyperpage{15}
     \subitem {character.\discretionary {-}{}{}h}, \hyperpage{19}
   \item {check\discretionary {-}{}{}Wall}
     \subitem {character.\discretionary {-}{}{}c}, \hyperpage{15}
-    \subitem {character.\discretionary {-}{}{}h}, \hyperpage{19}
+    \subitem {character.\discretionary {-}{}{}h}, \hyperpage{20}
   \item {choose\discretionary {-}{}{}Key}
     \subitem {menu\discretionary {-}{}{}\_\discretionary {-}{}{}option.\discretionary {-}{}{}c}, 
 		\hyperpage{96}
@@ -130,17 +130,17 @@
   \item {collision\discretionary {-}{}{}Sprite}
     \subitem {character.\discretionary {-}{}{}c}, \hyperpage{15}
     \subitem {character.\discretionary {-}{}{}h}, \hyperpage{20}
-  \item {const.\discretionary {-}{}{}h}, \hyperpage{23}
+  \item {const.\discretionary {-}{}{}h}, \hyperpage{24}
     \subitem {C\discretionary {-}{}{}O\discretionary {-}{}{}L\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}D\discretionary {-}{}{}J\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}M\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}T}, 
-		\hyperpage{24}
+		\hyperpage{25}
     \subitem {F\discretionary {-}{}{}P\discretionary {-}{}{}S}, 
-		\hyperpage{24}
+		\hyperpage{25}
     \subitem {G\discretionary {-}{}{}R\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}, 
-		\hyperpage{24}
+		\hyperpage{25}
     \subitem {I\discretionary {-}{}{}M\discretionary {-}{}{}G\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}, 
-		\hyperpage{24}
+		\hyperpage{25}
     \subitem {J\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}P\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T}, 
-		\hyperpage{24}
+		\hyperpage{25}
     \subitem {M\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}G\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}C\discretionary {-}{}{}R\discretionary {-}{}{}O\discretionary {-}{}{}L\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}G}, 
 		\hyperpage{25}
     \subitem {M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}F\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}M}, 
@@ -151,21 +151,21 @@
 		\hyperpage{25}
     \subitem {M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}, 
 		\hyperpage{25}
-    \subitem {min}, \hyperpage{25}
+    \subitem {min}, \hyperpage{26}
     \subitem {N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}K\discretionary {-}{}{}E\discretionary {-}{}{}Y}, 
-		\hyperpage{25}
+		\hyperpage{26}
     \subitem {P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}F\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}, 
-		\hyperpage{25}
+		\hyperpage{26}
     \subitem {P\discretionary {-}{}{}R\discretionary {-}{}{}O\discretionary {-}{}{}J\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}, 
-		\hyperpage{25}
+		\hyperpage{26}
     \subitem {S\discretionary {-}{}{}C\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T}, 
-		\hyperpage{25}
+		\hyperpage{26}
     \subitem {S\discretionary {-}{}{}C\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}W\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}T\discretionary {-}{}{}H}, 
-		\hyperpage{25}
+		\hyperpage{26}
     \subitem {S\discretionary {-}{}{}P\discretionary {-}{}{}R\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T}, 
-		\hyperpage{25}
+		\hyperpage{26}
     \subitem {T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}X}, 
-		\hyperpage{25}
+		\hyperpage{26}
     \subitem {T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}, 
 		\hyperpage{26}
   \item {count\discretionary {-}{}{}Stars}
@@ -174,7 +174,7 @@
     \subitem {character.\discretionary {-}{}{}c}, \hyperpage{15}
     \subitem {character.\discretionary {-}{}{}h}, \hyperpage{20}
   \item {create\discretionary {-}{}{}Enemy}
-    \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{29}
+    \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{28}
     \subitem {enemies.\discretionary {-}{}{}h}, \hyperpage{41}
   \item {create\discretionary {-}{}{}Platform}
     \subitem {mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}, 
@@ -182,11 +182,11 @@
     \subitem {mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}, 
 		\hyperpage{108}
   \item {create\discretionary {-}{}{}Projectile}
-    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{123}
-    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{126}
+    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{125}
+    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{128}
   \item {create\discretionary {-}{}{}Sound}
-    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{130}
-    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{132}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{132}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{134}
   \item {current}
     \subitem {list}, \hyperpage{7}
 
@@ -196,17 +196,20 @@
     \subitem {game.\discretionary {-}{}{}c}, \hyperpage{58}
     \subitem {game.\discretionary {-}{}{}h}, \hyperpage{65}
   \item {delete\discretionary {-}{}{}Current}
-    \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{29}
+    \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{30}
     \subitem {enemies.\discretionary {-}{}{}h}, \hyperpage{41}
   \item {delete\discretionary {-}{}{}First}
-    \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{30}
+    \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{31}
     \subitem {enemies.\discretionary {-}{}{}h}, \hyperpage{42}
   \item {delete\discretionary {-}{}{}Last}
-    \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{30}
+    \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{31}
     \subitem {enemies.\discretionary {-}{}{}h}, \hyperpage{42}
+  \item {delete\discretionary {-}{}{}Player}
+    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{117}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{121}
   \item {delete\discretionary {-}{}{}Projectile}
-    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{123}
-    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{126}
+    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{125}
+    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{128}
   \item {dir\discretionary {-}{}{}X}
     \subitem {Character}, \hyperpage{2}
   \item {dir\discretionary {-}{}{}Y}
@@ -225,10 +228,10 @@
   \item {enemies.\discretionary {-}{}{}c}, \hyperpage{26}
     \subitem {blit\discretionary {-}{}{}Enemies}, \hyperpage{27}
     \subitem {collision\discretionary {-}{}{}Enemy}, \hyperpage{28}
-    \subitem {create\discretionary {-}{}{}Enemy}, \hyperpage{29}
-    \subitem {delete\discretionary {-}{}{}Current}, \hyperpage{29}
-    \subitem {delete\discretionary {-}{}{}First}, \hyperpage{30}
-    \subitem {delete\discretionary {-}{}{}Last}, \hyperpage{30}
+    \subitem {create\discretionary {-}{}{}Enemy}, \hyperpage{28}
+    \subitem {delete\discretionary {-}{}{}Current}, \hyperpage{30}
+    \subitem {delete\discretionary {-}{}{}First}, \hyperpage{31}
+    \subitem {delete\discretionary {-}{}{}Last}, \hyperpage{31}
     \subitem {empty}, \hyperpage{32}
     \subitem {first}, \hyperpage{32}
     \subitem {free\discretionary {-}{}{}Enemies}, \hyperpage{33}
@@ -288,7 +291,7 @@
   \indexspace
 
   \item {F\discretionary {-}{}{}P\discretionary {-}{}{}S}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{24}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
   \item {file.\discretionary {-}{}{}c}, \hyperpage{51}
     \subitem {close\discretionary {-}{}{}File}, \hyperpage{51}
     \subitem {open\discretionary {-}{}{}File}, \hyperpage{51}
@@ -321,7 +324,7 @@
     \subitem {list}, \hyperpage{7}
   \item {free\discretionary {-}{}{}Characters}
     \subitem {character.\discretionary {-}{}{}c}, \hyperpage{16}
-    \subitem {character.\discretionary {-}{}{}h}, \hyperpage{20}
+    \subitem {character.\discretionary {-}{}{}h}, \hyperpage{21}
   \item {free\discretionary {-}{}{}Enemies}
     \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{33}
     \subitem {enemies.\discretionary {-}{}{}h}, \hyperpage{45}
@@ -336,14 +339,16 @@
     \subitem {mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}, 
 		\hyperpage{110}
   \item {free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}
-    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{123}
-    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{126}
+    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{125}
+    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{128}
   \item {free\discretionary {-}{}{}Sound}
-    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{130}
-    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{132}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{132}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{134}
   \item {from\discretionary {-}{}{}N\discretionary {-}{}{}P\discretionary {-}{}{}C}
     \subitem {projectile}, \hyperpage{12}
   \item {fx}
+    \subitem {Sound}, \hyperpage{13}
+  \item {fx\discretionary {-}{}{}Sound}
     \subitem {Sound}, \hyperpage{13}
   \item {fx\discretionary {-}{}{}Volume}
     \subitem {Sound}, \hyperpage{13}
@@ -351,7 +356,7 @@
   \indexspace
 
   \item {G\discretionary {-}{}{}R\discretionary {-}{}{}A\discretionary {-}{}{}V\discretionary {-}{}{}I\discretionary {-}{}{}T\discretionary {-}{}{}Y\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{24}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
   \item {game.\discretionary {-}{}{}c}, \hyperpage{57}
     \subitem {decrement}, \hyperpage{58}
     \subitem {move}, \hyperpage{58}
@@ -396,7 +401,7 @@
   \indexspace
 
   \item {I\discretionary {-}{}{}M\discretionary {-}{}{}G\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{24}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
   \item {image.\discretionary {-}{}{}c}, \hyperpage{72}
     \subitem {blit\discretionary {-}{}{}Color}, \hyperpage{73}
     \subitem {image\discretionary {-}{}{}Load}, \hyperpage{73}
@@ -434,8 +439,8 @@
     \subitem {mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}, 
 		\hyperpage{110}
   \item {init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}
-    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{124}
-    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{127}
+    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{126}
+    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{129}
   \item {Input}, \hyperpage{4}
     \subitem {axes}, \hyperpage{4}
     \subitem {button}, \hyperpage{4}
@@ -490,7 +495,7 @@
   \indexspace
 
   \item {J\discretionary {-}{}{}U\discretionary {-}{}{}M\discretionary {-}{}{}P\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{24}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
   \item {joystick}
     \subitem {Input}, \hyperpage{4}
 
@@ -532,8 +537,8 @@
     \subitem {option.\discretionary {-}{}{}c}, \hyperpage{112}
     \subitem {option.\discretionary {-}{}{}h}, \hyperpage{115}
   \item {load\discretionary {-}{}{}Player}
-    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{117}
-    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{120}
+    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{118}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{122}
   \item {load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}
     \subitem {option.\discretionary {-}{}{}c}, \hyperpage{113}
     \subitem {option.\discretionary {-}{}{}h}, \hyperpage{115}
@@ -598,7 +603,7 @@
 		\hyperpage{92}
     \subitem {menu\discretionary {-}{}{}Level}, \hyperpage{93}
   \item {menu\discretionary {-}{}{}\_\discretionary {-}{}{}level.\discretionary {-}{}{}h}, 
-		\hyperpage{93}
+		\hyperpage{94}
     \subitem {menu\discretionary {-}{}{}Level}, \hyperpage{94}
   \item {menu\discretionary {-}{}{}\_\discretionary {-}{}{}option.\discretionary {-}{}{}c}, 
 		\hyperpage{95}
@@ -623,7 +628,7 @@
     \subitem {menu.\discretionary {-}{}{}c}, \hyperpage{86}
     \subitem {menu.\discretionary {-}{}{}h}, \hyperpage{90}
   \item {min}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{26}
   \item {mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}, 
 		\hyperpage{103}
     \subitem {blit\discretionary {-}{}{}Platform}, \hyperpage{104}
@@ -668,18 +673,20 @@
     \subitem {mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}, 
 		\hyperpage{110}
   \item {move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}
-    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{124}
-    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{127}
+    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{126}
+    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{129}
   \item {move\discretionary {-}{}{}Platform}
     \subitem {mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}, 
 		\hyperpage{105}
     \subitem {mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}, 
 		\hyperpage{111}
   \item {move\discretionary {-}{}{}Projectiles}
-    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{124}
-    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{127}
+    \subitem {projectile.\discretionary {-}{}{}c}, \hyperpage{126}
+    \subitem {projectile.\discretionary {-}{}{}h}, \hyperpage{129}
   \item {moving}
     \subitem {Character}, \hyperpage{3}
+  \item {msc\discretionary {-}{}{}Sound}
+    \subitem {Sound}, \hyperpage{13}
   \item {music}
     \subitem {Level}, \hyperpage{5}
     \subitem {Sound}, \hyperpage{13}
@@ -689,9 +696,9 @@
   \indexspace
 
   \item {N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}K\discretionary {-}{}{}E\discretionary {-}{}{}Y}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{26}
   \item {N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}Y\discretionary {-}{}{}O\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}W\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}T\discretionary {-}{}{}H}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{26}
   \item {nb}
     \subitem {platform\discretionary {-}{}{}Set}, \hyperpage{10}
     \subitem {projectile\discretionary {-}{}{}Set}, \hyperpage{12}
@@ -708,7 +715,7 @@
     \subitem {enemies.\discretionary {-}{}{}h}, \hyperpage{49}
   \item {new\discretionary {-}{}{}Player}
     \subitem {player.\discretionary {-}{}{}c}, \hyperpage{118}
-    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{120}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{122}
   \item {next}
     \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{38}
     \subitem {enemies.\discretionary {-}{}{}h}, \hyperpage{50}
@@ -760,9 +767,9 @@
   \indexspace
 
   \item {P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}F\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{26}
   \item {P\discretionary {-}{}{}R\discretionary {-}{}{}O\discretionary {-}{}{}J\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{26}
   \item {platform}, \hyperpage{9}
     \subitem {direction}, \hyperpage{9}
     \subitem {location}, \hyperpage{9}
@@ -785,29 +792,31 @@
     \subitem {game.\discretionary {-}{}{}c}, \hyperpage{59}
     \subitem {game.\discretionary {-}{}{}h}, \hyperpage{66}
   \item {play\discretionary {-}{}{}Music}
-    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{130}
-    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{132}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{132}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{134}
   \item {play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}
-    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{130}
-    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{132}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{132}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{134}
   \item {Player}, \hyperpage{11}
     \subitem {level\discretionary {-}{}{}Max}, \hyperpage{11}
     \subitem {nb\discretionary {-}{}{}Coins}, \hyperpage{11}
     \subitem {nb\discretionary {-}{}{}Lifes}, \hyperpage{11}
     \subitem {nb\discretionary {-}{}{}Projectile}, \hyperpage{11}
   \item {player.\discretionary {-}{}{}c}, \hyperpage{117}
-    \subitem {load\discretionary {-}{}{}Player}, \hyperpage{117}
+    \subitem {delete\discretionary {-}{}{}Player}, \hyperpage{117}
+    \subitem {load\discretionary {-}{}{}Player}, \hyperpage{118}
     \subitem {new\discretionary {-}{}{}Player}, \hyperpage{118}
-    \subitem {save}, \hyperpage{118}
-    \subitem {save\discretionary {-}{}{}Player}, \hyperpage{119}
-  \item {player.\discretionary {-}{}{}h}, \hyperpage{119}
-    \subitem {load\discretionary {-}{}{}Player}, \hyperpage{120}
-    \subitem {new\discretionary {-}{}{}Player}, \hyperpage{120}
-    \subitem {save}, \hyperpage{121}
-    \subitem {save\discretionary {-}{}{}Player}, \hyperpage{122}
+    \subitem {save}, \hyperpage{119}
+    \subitem {save\discretionary {-}{}{}Player}, \hyperpage{120}
+  \item {player.\discretionary {-}{}{}h}, \hyperpage{120}
+    \subitem {delete\discretionary {-}{}{}Player}, \hyperpage{121}
+    \subitem {load\discretionary {-}{}{}Player}, \hyperpage{122}
+    \subitem {new\discretionary {-}{}{}Player}, \hyperpage{122}
+    \subitem {save}, \hyperpage{123}
+    \subitem {save\discretionary {-}{}{}Player}, \hyperpage{124}
   \item {presise\discretionary {-}{}{}Move\discretionary {-}{}{}Character}
-    \subitem {character.\discretionary {-}{}{}c}, \hyperpage{16}
-    \subitem {character.\discretionary {-}{}{}h}, \hyperpage{21}
+    \subitem {character.\discretionary {-}{}{}c}, \hyperpage{17}
+    \subitem {character.\discretionary {-}{}{}h}, \hyperpage{22}
   \item {previous}
     \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{38}
     \subitem {enemies.\discretionary {-}{}{}h}, \hyperpage{50}
@@ -822,8 +831,8 @@
     \subitem {game.\discretionary {-}{}{}c}, \hyperpage{61}
     \subitem {game.\discretionary {-}{}{}h}, \hyperpage{69}
   \item {print\discretionary {-}{}{}Text}
-    \subitem {text.\discretionary {-}{}{}c}, \hyperpage{135}
-    \subitem {text.\discretionary {-}{}{}h}, \hyperpage{137}
+    \subitem {text.\discretionary {-}{}{}c}, \hyperpage{137}
+    \subitem {text.\discretionary {-}{}{}h}, \hyperpage{139}
   \item {print\discretionary {-}{}{}Win}
     \subitem {game.\discretionary {-}{}{}c}, \hyperpage{63}
     \subitem {game.\discretionary {-}{}{}h}, \hyperpage{71}
@@ -833,28 +842,28 @@
 		\hyperpage{12}
     \subitem {location}, \hyperpage{12}
     \subitem {sprite}, \hyperpage{12}
-  \item {projectile.\discretionary {-}{}{}c}, \hyperpage{122}
-    \subitem {blit\discretionary {-}{}{}Projectile}, \hyperpage{123}
-    \subitem {create\discretionary {-}{}{}Projectile}, \hyperpage{123}
-    \subitem {delete\discretionary {-}{}{}Projectile}, \hyperpage{123}
+  \item {projectile.\discretionary {-}{}{}c}, \hyperpage{124}
+    \subitem {blit\discretionary {-}{}{}Projectile}, \hyperpage{125}
+    \subitem {create\discretionary {-}{}{}Projectile}, \hyperpage{125}
+    \subitem {delete\discretionary {-}{}{}Projectile}, \hyperpage{125}
     \subitem {free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}, 
-		\hyperpage{123}
+		\hyperpage{125}
     \subitem {init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}, 
-		\hyperpage{124}
-    \subitem {move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}, 
-		\hyperpage{124}
-    \subitem {move\discretionary {-}{}{}Projectiles}, \hyperpage{124}
-  \item {projectile.\discretionary {-}{}{}h}, \hyperpage{125}
-    \subitem {blit\discretionary {-}{}{}Projectile}, \hyperpage{126}
-    \subitem {create\discretionary {-}{}{}Projectile}, \hyperpage{126}
-    \subitem {delete\discretionary {-}{}{}Projectile}, \hyperpage{126}
-    \subitem {free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}, 
 		\hyperpage{126}
-    \subitem {init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}, 
-		\hyperpage{127}
     \subitem {move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}, 
-		\hyperpage{127}
-    \subitem {move\discretionary {-}{}{}Projectiles}, \hyperpage{127}
+		\hyperpage{126}
+    \subitem {move\discretionary {-}{}{}Projectiles}, \hyperpage{126}
+  \item {projectile.\discretionary {-}{}{}h}, \hyperpage{127}
+    \subitem {blit\discretionary {-}{}{}Projectile}, \hyperpage{128}
+    \subitem {create\discretionary {-}{}{}Projectile}, \hyperpage{128}
+    \subitem {delete\discretionary {-}{}{}Projectile}, \hyperpage{128}
+    \subitem {free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}, 
+		\hyperpage{128}
+    \subitem {init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}, 
+		\hyperpage{129}
+    \subitem {move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}, 
+		\hyperpage{129}
+    \subitem {move\discretionary {-}{}{}Projectiles}, \hyperpage{129}
   \item {projectile\discretionary {-}{}{}Set}, \hyperpage{12}
     \subitem {nb}, \hyperpage{12}
     \subitem {projectile\discretionary {-}{}{}Thrown}, \hyperpage{13}
@@ -881,22 +890,22 @@
   \indexspace
 
   \item {S\discretionary {-}{}{}C\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{26}
   \item {S\discretionary {-}{}{}C\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}W\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}T\discretionary {-}{}{}H}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{26}
   \item {S\discretionary {-}{}{}G\discretionary {-}{}{}N}
     \subitem {character.\discretionary {-}{}{}h}, \hyperpage{19}
   \item {S\discretionary {-}{}{}P\discretionary {-}{}{}R\discretionary {-}{}{}I\discretionary {-}{}{}N\discretionary {-}{}{}G\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{26}
   \item {save}
-    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{118}
-    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{121}
+    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{119}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{123}
   \item {save\discretionary {-}{}{}Input\discretionary {-}{}{}Options}
     \subitem {option.\discretionary {-}{}{}c}, \hyperpage{113}
     \subitem {option.\discretionary {-}{}{}h}, \hyperpage{116}
   \item {save\discretionary {-}{}{}Player}
-    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{119}
-    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{122}
+    \subitem {player.\discretionary {-}{}{}c}, \hyperpage{120}
+    \subitem {player.\discretionary {-}{}{}h}, \hyperpage{124}
   \item {save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}
     \subitem {option.\discretionary {-}{}{}c}, \hyperpage{114}
     \subitem {option.\discretionary {-}{}{}h}, \hyperpage{116}
@@ -917,42 +926,43 @@
   \item {set\discretionary {-}{}{}On\discretionary {-}{}{}Last}
     \subitem {enemies.\discretionary {-}{}{}c}, \hyperpage{39}
     \subitem {enemies.\discretionary {-}{}{}h}, \hyperpage{51}
-  \item {share.\discretionary {-}{}{}c}, \hyperpage{128}
+  \item {share.\discretionary {-}{}{}c}, \hyperpage{130}
     \subitem {wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}, 
-		\hyperpage{129}
-  \item {share.\discretionary {-}{}{}h}, \hyperpage{129}
+		\hyperpage{131}
+  \item {share.\discretionary {-}{}{}h}, \hyperpage{131}
     \subitem {wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}, 
-		\hyperpage{129}
+		\hyperpage{131}
   \item {Sound}, \hyperpage{13}
     \subitem {fx}, \hyperpage{13}
+    \subitem {fx\discretionary {-}{}{}Sound}, \hyperpage{13}
     \subitem {fx\discretionary {-}{}{}Volume}, \hyperpage{13}
+    \subitem {msc\discretionary {-}{}{}Sound}, \hyperpage{13}
     \subitem {music}, \hyperpage{13}
     \subitem {music\discretionary {-}{}{}Volume}, \hyperpage{13}
-    \subitem {sys}, \hyperpage{13}
-  \item {sound.\discretionary {-}{}{}c}, \hyperpage{129}
-    \subitem {create\discretionary {-}{}{}Sound}, \hyperpage{130}
-    \subitem {free\discretionary {-}{}{}Sound}, \hyperpage{130}
-    \subitem {play\discretionary {-}{}{}Music}, \hyperpage{130}
-    \subitem {play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}, 
-		\hyperpage{130}
-    \subitem {sound\discretionary {-}{}{}Volume}, \hyperpage{131}
-    \subitem {stop\discretionary {-}{}{}Sound}, \hyperpage{131}
-  \item {sound.\discretionary {-}{}{}h}, \hyperpage{131}
+  \item {sound.\discretionary {-}{}{}c}, \hyperpage{131}
     \subitem {create\discretionary {-}{}{}Sound}, \hyperpage{132}
     \subitem {free\discretionary {-}{}{}Sound}, \hyperpage{132}
     \subitem {play\discretionary {-}{}{}Music}, \hyperpage{132}
     \subitem {play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}, 
 		\hyperpage{132}
-    \subitem {sound\discretionary {-}{}{}Volume}, \hyperpage{132}
-    \subitem {stop\discretionary {-}{}{}Sound}, \hyperpage{132}
+    \subitem {sound\discretionary {-}{}{}Volume}, \hyperpage{133}
+    \subitem {stop\discretionary {-}{}{}Sound}, \hyperpage{133}
+  \item {sound.\discretionary {-}{}{}h}, \hyperpage{133}
+    \subitem {create\discretionary {-}{}{}Sound}, \hyperpage{134}
+    \subitem {free\discretionary {-}{}{}Sound}, \hyperpage{134}
+    \subitem {play\discretionary {-}{}{}Music}, \hyperpage{134}
+    \subitem {play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}, 
+		\hyperpage{134}
+    \subitem {sound\discretionary {-}{}{}Volume}, \hyperpage{134}
+    \subitem {stop\discretionary {-}{}{}Sound}, \hyperpage{134}
   \item {sound\discretionary {-}{}{}Options}
     \subitem {menu\discretionary {-}{}{}\_\discretionary {-}{}{}option.\discretionary {-}{}{}c}, 
 		\hyperpage{98}
     \subitem {menu\discretionary {-}{}{}\_\discretionary {-}{}{}option.\discretionary {-}{}{}h}, 
 		\hyperpage{102}
   \item {sound\discretionary {-}{}{}Volume}
-    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{131}
-    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{132}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{133}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{134}
   \item {space}
     \subitem {Input}, \hyperpage{4}
   \item {speed}
@@ -961,27 +971,25 @@
     \subitem {platform}, \hyperpage{9}
     \subitem {projectile}, \hyperpage{12}
   \item {stop\discretionary {-}{}{}Sound}
-    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{131}
-    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{132}
-  \item {structures.\discretionary {-}{}{}h}, \hyperpage{132}
-  \item {sys}
-    \subitem {Sound}, \hyperpage{13}
+    \subitem {sound.\discretionary {-}{}{}c}, \hyperpage{133}
+    \subitem {sound.\discretionary {-}{}{}h}, \hyperpage{134}
+  \item {structures.\discretionary {-}{}{}h}, \hyperpage{134}
 
   \indexspace
 
   \item {T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}X}
-    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{25}
+    \subitem {const.\discretionary {-}{}{}h}, \hyperpage{26}
   \item {T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E}
     \subitem {const.\discretionary {-}{}{}h}, \hyperpage{26}
   \item {tab}
     \subitem {platform\discretionary {-}{}{}Set}, \hyperpage{10}
     \subitem {projectile\discretionary {-}{}{}Set}, \hyperpage{13}
-  \item {text.\discretionary {-}{}{}c}, \hyperpage{133}
-    \subitem {capture\discretionary {-}{}{}Text}, \hyperpage{134}
-    \subitem {print\discretionary {-}{}{}Text}, \hyperpage{135}
-  \item {text.\discretionary {-}{}{}h}, \hyperpage{135}
+  \item {text.\discretionary {-}{}{}c}, \hyperpage{135}
     \subitem {capture\discretionary {-}{}{}Text}, \hyperpage{136}
     \subitem {print\discretionary {-}{}{}Text}, \hyperpage{137}
+  \item {text.\discretionary {-}{}{}h}, \hyperpage{137}
+    \subitem {capture\discretionary {-}{}{}Text}, \hyperpage{138}
+    \subitem {print\discretionary {-}{}{}Text}, \hyperpage{139}
   \item {tile}
     \subitem {Character}, \hyperpage{3}
   \item {tile\discretionary {-}{}{}Set}
@@ -997,7 +1005,7 @@
     \subitem {menu.\discretionary {-}{}{}h}, \hyperpage{91}
   \item {try\discretionary {-}{}{}Movement}
     \subitem {character.\discretionary {-}{}{}c}, \hyperpage{17}
-    \subitem {character.\discretionary {-}{}{}h}, \hyperpage{22}
+    \subitem {character.\discretionary {-}{}{}h}, \hyperpage{23}
   \item {type}
     \subitem {platform}, \hyperpage{9}
 
@@ -1019,8 +1027,8 @@
   \indexspace
 
   \item {wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}
-    \subitem {share.\discretionary {-}{}{}c}, \hyperpage{129}
-    \subitem {share.\discretionary {-}{}{}h}, \hyperpage{129}
+    \subitem {share.\discretionary {-}{}{}c}, \hyperpage{131}
+    \subitem {share.\discretionary {-}{}{}h}, \hyperpage{131}
   \item {wall\discretionary {-}{}{}Jump}
     \subitem {Character}, \hyperpage{3}
   \item {width}
