@@ -1,0 +1,25 @@
+<map id="moveEnemies" name="moveEnemies">
+<area shape="rect" id="node2" href="$enemies_8c.html#aa0ae9a01476366cb08c3e904e2f31433" title="setOnFirst" alt="" coords="861,50,944,77"/>
+<area shape="rect" id="node3" href="$enemies_8c.html#a7774be61944dce2ae021e0e4442b4515" title="outOfList" alt="" coords="1020,152,1095,178"/>
+<area shape="rect" id="node4" href="$projectile_8c.html#ad1a769841aab1287f8f32159e2a7f768" title="createProjectile" alt="" coords="160,506,272,533"/>
+<area shape="rect" id="node6" href="$character_8c.html#aea69b279f0dc778dde496ea610f1aa82" title="checkFall" alt="" coords="358,405,437,432"/>
+<area shape="rect" id="node7" href="$character_8c.html#afee02e189e4fc6308f0359f0afe747cb" title="moveCharacter" alt="" coords="161,278,271,305"/>
+<area shape="rect" id="node15" href="$enemies_8c.html#afd06d60d09ccb8510aa7e8fe1246094b" title="deleteCurrent" alt="" coords="853,304,953,330"/>
+<area shape="rect" id="node22" href="$enemies_8c.html#a1e9424bcb6302d001589f04a99802abf" title="next" alt="" coords="879,101,926,128"/>
+<area shape="rect" id="node5" href="$image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="338,506,457,533"/>
+<area shape="rect" id="node8" href="$sound_8c.html#af6703afe3fbb9a56c97f10e71c571889" title="playShortSound" alt="" coords="672,354,787,381"/>
+<area shape="rect" id="node9" href="$character_8c.html#a81dc963e2a308d0e3e627b7652aa7489" title="checkWall" alt="" coords="356,202,439,229"/>
+<area shape="rect" id="node10" href="$character_8c.html#af15e182c04b17ce9a3d16872f2bf4f49" title="tryMovement" alt="" coords="523,278,621,305"/>
+<area shape="rect" id="node24" href="$character_8c.html#a780616fe53145812a634dcf5e4f20959" title="presiseMoveCharacter" alt="" coords="321,253,474,280"/>
+<area shape="rect" id="node11" href="$map_8c.html#abf181167fafe365865bf0468959f1426" title="collisionMap" alt="" coords="682,253,777,280"/>
+<area shape="rect" id="node13" href="$enemies_8c.html#ae36bc711341ade0e08eb57e1c5063174" title="collisionEnemy" alt="" coords="674,202,785,229"/>
+<area shape="rect" id="node23" href="$mobile__platform_8c.html#a9bf410713b80221b6c138ba58a6fcb37" title="collisionPlatform" alt="" coords="670,304,789,330"/>
+<area shape="rect" id="node12" href="$character_8c.html#a7b6d5ab652a57c5d6ffbaea628164402" title="collisionSprite" alt="" coords="851,253,954,280"/>
+<area shape="rect" id="node14" href="$enemies_8c.html#a315db1acddbe1cd18db63bab85f1709a" title="moveCharacterCol" alt="" coords="837,152,968,178"/>
+<area shape="rect" id="node16" href="$enemies_8c.html#a185b7dd5b77fdf2b6315358ac7767e44" title="empty" alt="" coords="1148,228,1207,254"/>
+<area shape="rect" id="node17" href="$enemies_8c.html#a0f5c139f75d0a54b38c0d33e1bc22223" title="first" alt="" coords="1035,354,1079,381"/>
+<area shape="rect" id="node18" href="$enemies_8c.html#a1d19853ad1ad5712c72159157e026164" title="deleteFirst" alt="" coords="1016,304,1099,330"/>
+<area shape="rect" id="node20" href="$enemies_8c.html#a86d339159e440962ce42347b99e07625" title="last" alt="" coords="1036,405,1079,432"/>
+<area shape="rect" id="node21" href="$enemies_8c.html#ae74eb855c1a8951c927e7322c08b33c0" title="deleteLast" alt="" coords="1016,253,1099,280"/>
+<area shape="rect" id="node19" href="$enemies_8c.html#aaca0e3ca99177d70268a1f770c50e264" title="initList" alt="" coords="1147,304,1207,330"/>
+</map>

@@ -1,4 +1,4 @@
-\hypertarget{menu__option_8c}{\section{menu\-\_\-option.\-c File Reference}
+\hypertarget{menu__option_8c}{\subsection{menu\-\_\-option.\-c File Reference}
 \label{menu__option_8c}\index{menu\-\_\-option.\-c@{menu\-\_\-option.\-c}}
 }
 
@@ -7,30 +7,20 @@ contains the option menu functions
 
 
 {\ttfamily \#include \char`\"{}menu\-\_\-option.\-h\char`\"{}}\\*
-Include dependency graph for menu\-\_\-option.\-c\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{menu__option_8c__incl}
-\end{center}
-\end{figure}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{menu__option_8c_a6f370e66ea56a5fdf95dfa2abfac5baa}{int {\bfseries option\-Menu} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$go, \hyperlink{struct_sound}{Sound} $\ast$sound\-\_\-sys, S\-D\-L\-Key $\ast$kc, \hyperlink{struct_input}{Input} $\ast$in)}\label{menu__option_8c_a6f370e66ea56a5fdf95dfa2abfac5baa}
-
+int \hyperlink{menu__option_8c_a6f370e66ea56a5fdf95dfa2abfac5baa}{option\-Menu} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$go, \hyperlink{struct_sound}{Sound} $\ast$sound\-\_\-sys, S\-D\-L\-Key $\ast$kc, \hyperlink{struct_input}{Input} $\ast$in)
 \item 
 void \hyperlink{menu__option_8c_a4f6cf43efdfbd7eed400139b49a29311}{sound\-Options} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$go, \hyperlink{struct_sound}{Sound} $\ast$sound\-\_\-sys, \hyperlink{struct_input}{Input} $\ast$in)
 \item 
-\hypertarget{menu__option_8c_a0a6efce8886df987edd48aae7654d1d5}{void {\bfseries key\-Board\-Options} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$go, S\-D\-L\-Key $\ast$kc, \hyperlink{struct_input}{Input} $\ast$in, char $\ast$player\-\_\-name)}\label{menu__option_8c_a0a6efce8886df987edd48aae7654d1d5}
-
+void \hyperlink{menu__option_8c_a0a6efce8886df987edd48aae7654d1d5}{key\-Board\-Options} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$go, S\-D\-L\-Key $\ast$kc, \hyperlink{struct_input}{Input} $\ast$in, char $\ast$player\-\_\-name)
 \item 
 void \hyperlink{menu__option_8c_a09208fc21970afd80a59971051150a3b}{choose\-Key} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_input}{Input} $\ast$in, char $\ast$action, S\-D\-L\-Key $\ast$kc, int nb)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 contains the option menu functions \begin{DoxyAuthor}{Author}
 X.\-C\-O\-P\-O\-N\-E\-T 
 \end{DoxyAuthor}
@@ -39,10 +29,10 @@ X.\-C\-O\-P\-O\-N\-E\-T
 \end{DoxyDate}
 
 
-\subsection{Function Documentation}
+\subsubsection{Function Documentation}
 \hypertarget{menu__option_8c_a09208fc21970afd80a59971051150a3b}{\index{menu\-\_\-option.\-c@{menu\-\_\-option.\-c}!choose\-Key@{choose\-Key}}
 \index{choose\-Key@{choose\-Key}!menu_option.c@{menu\-\_\-option.\-c}}
-\subsubsection[{choose\-Key}]{\setlength{\rightskip}{0pt plus 5cm}void choose\-Key (
+\paragraph[{choose\-Key}]{\setlength{\rightskip}{0pt plus 5cm}void choose\-Key (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
 \item[{{\bf Input} $\ast$}]{in, }
@@ -66,8 +56,7 @@ print the message asking the player to choose a key and wait until the player pr
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -76,9 +65,82 @@ Here is the call graph for this function\-:
 \end{figure}
 
 
+\hypertarget{menu__option_8c_a0a6efce8886df987edd48aae7654d1d5}{\index{menu\-\_\-option.\-c@{menu\-\_\-option.\-c}!key\-Board\-Options@{key\-Board\-Options}}
+\index{key\-Board\-Options@{key\-Board\-Options}!menu_option.c@{menu\-\_\-option.\-c}}
+\paragraph[{key\-Board\-Options}]{\setlength{\rightskip}{0pt plus 5cm}void key\-Board\-Options (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{int $\ast$}]{go, }
+\item[{S\-D\-L\-Key $\ast$}]{kc, }
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{char $\ast$}]{player\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{menu__option_8c_a0a6efce8886df987edd48aae7654d1d5}
+print the keyboard options and deals with the user choises 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & the game screen \\
+\hline
+\mbox{\tt in,out}  & {\em go} & main loop validation \\
+\hline
+\mbox{\tt in,out}  & {\em kc} & the keyboard config structure \\
+\hline
+\mbox{\tt in,out}  & {\em in} & the input structure \\
+\hline
+\mbox{\tt in}  & {\em player\-\_\-name} & the current player name \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu__option_8c_a0a6efce8886df987edd48aae7654d1d5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{menu__option_8c_a6f370e66ea56a5fdf95dfa2abfac5baa}{\index{menu\-\_\-option.\-c@{menu\-\_\-option.\-c}!option\-Menu@{option\-Menu}}
+\index{option\-Menu@{option\-Menu}!menu_option.c@{menu\-\_\-option.\-c}}
+\paragraph[{option\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}int option\-Menu (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{int $\ast$}]{go, }
+\item[{{\bf Sound} $\ast$}]{sound\-\_\-sys, }
+\item[{S\-D\-L\-Key $\ast$}]{kc, }
+\item[{{\bf Input} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{menu__option_8c_a6f370e66ea56a5fdf95dfa2abfac5baa}
+print the option menu on the screen 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & the game screen \\
+\hline
+\mbox{\tt in,out}  & {\em go} & main loop validation \\
+\hline
+\mbox{\tt in,out}  & {\em sound\-\_\-sys} & sound system \\
+\hline
+\mbox{\tt in,out}  & {\em kc} & the keyboard configuration structure \\
+\hline
+\mbox{\tt in,out}  & {\em in} & the input structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of the option which is choosen, -\/1 if esc 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu__option_8c_a6f370e66ea56a5fdf95dfa2abfac5baa_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{menu__option_8c_a4f6cf43efdfbd7eed400139b49a29311}{\index{menu\-\_\-option.\-c@{menu\-\_\-option.\-c}!sound\-Options@{sound\-Options}}
 \index{sound\-Options@{sound\-Options}!menu_option.c@{menu\-\_\-option.\-c}}
-\subsubsection[{sound\-Options}]{\setlength{\rightskip}{0pt plus 5cm}void sound\-Options (
+\paragraph[{sound\-Options}]{\setlength{\rightskip}{0pt plus 5cm}void sound\-Options (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
 \item[{int $\ast$}]{go, }
@@ -92,15 +154,16 @@ print the sound options and deals with the user choises
 \hline
 \mbox{\tt in,out}  & {\em go} & main loop validation \\
 \hline
-\mbox{\tt in,out}  & {\em sys} & sound system \\
+\mbox{\tt in,out}  & {\em sound\-\_\-sys} & sound system \\
 \hline
 \mbox{\tt in,out}  & {\em in} & the input structure \\
+\hline
+\mbox{\tt in,out}  & {\em sound\-\_\-sys} & the sound system \\
 \hline
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sgn',['SGN',['../character_8h.html#a3af35b2f3ecf099e959f98d3aaa558a5',1,'character.h']]]
+  ['buffer_5fsize',['BUFFER_SIZE',['../file__level_8h.html#a6b20d41d6252e9871430c242cb1a56e7',1,'file_level.h']]]
 ];

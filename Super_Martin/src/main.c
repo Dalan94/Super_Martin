@@ -17,6 +17,12 @@
 
 #include "player.h"
 
+/**
+ *\fn int main(int argc, char *argv[])
+ * Main
+ *\param[in,out] argc argc
+ *\param[in,out] argv argv
+ */
 int main(int argc, char *argv[])
 {
     SDL_Surface *screen = NULL;

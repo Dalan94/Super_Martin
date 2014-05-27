@@ -95,25 +95,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &quot;input.h&quot;</code><br/>
 <code>#include &quot;SDL/SDL_joystick.h&quot;</code><br/>
 <code>#include &quot;<a class="el" href="projectile_8h_source.html">projectile.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for input.c:</div>
-<div class="dyncontent">
-<div class="center"><img src="input_8c__incl.png" border="0" usemap="#input_8c" alt=""/></div>
-<map name="input_8c" id="input_8c">
-<area shape="rect" id="node2" href="input_8h_source.html" title="input.h" alt="" coords="597,80,659,107"/><area shape="rect" id="node15" href="projectile_8h.html" title="projectile.c header " alt="" coords="831,453,916,480"/><area shape="rect" id="node7" href="character_8h.html" title="header de character.c " alt="" coords="962,155,1048,181"/><area shape="rect" id="node8" href="const_8h.html" title="containe the program constantes " alt="" coords="993,603,1057,629"/><area shape="rect" id="node10" href="file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="766,304,849,331"/><area shape="rect" id="node13" href="structures_8h.html" title="structures.h" alt="" coords="1212,528,1303,555"/><area shape="rect" id="node14" href="enemies_8h.html" title="enemies.c header " alt="" coords="835,379,916,405"/><area shape="rect" id="node16" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="991,528,1059,555"/><area shape="rect" id="node17" href="mobile__platform_8h.html" title="mobile_platform.c header " alt="" coords="1144,379,1269,405"/><area shape="rect" id="node18" href="share_8h.html" title="share.c header " alt="" coords="1549,528,1613,555"/><area shape="rect" id="node19" href="map_8h.html" title="map.c header " alt="" coords="1043,229,1100,256"/><area shape="rect" id="node20" href="sound_8h.html" title="header de sound.c " alt="" coords="195,528,263,555"/><area shape="rect" id="node12" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="491,528,541,555"/></map>
-</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad630e59ba080f6bbde9d4e1de45b126c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#ad630e59ba080f6bbde9d4e1de45b126c">initInput</a> (<a class="el" href="struct_input.html">Input</a> *in)</td></tr>
 <tr class="separator:ad630e59ba080f6bbde9d4e1de45b126c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac46828cccdff1a744d9201caca7f4fe6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac46828cccdff1a744d9201caca7f4fe6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initJoystick</b> (<a class="el" href="struct_input.html">Input</a> *in)</td></tr>
+<tr class="memitem:ac46828cccdff1a744d9201caca7f4fe6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#ac46828cccdff1a744d9201caca7f4fe6">initJoystick</a> (<a class="el" href="struct_input.html">Input</a> *in)</td></tr>
 <tr class="separator:ac46828cccdff1a744d9201caca7f4fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a473359e91c8f9f7bf41b58df1dd8436b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#a473359e91c8f9f7bf41b58df1dd8436b">freeInput</a> (<a class="el" href="struct_input.html">Input</a> *in)</td></tr>
 <tr class="separator:a473359e91c8f9f7bf41b58df1dd8436b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abac71ea80b72ae7944d6e064341296a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abac71ea80b72ae7944d6e064341296a0"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>updateEvents</b> (<a class="el" href="struct_input.html">Input</a> *in, int *go)</td></tr>
+<tr class="memitem:abac71ea80b72ae7944d6e064341296a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#abac71ea80b72ae7944d6e064341296a0">updateEvents</a> (<a class="el" href="struct_input.html">Input</a> *in, int *go)</td></tr>
 <tr class="separator:abac71ea80b72ae7944d6e064341296a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2b672258ad51a0794365f8fa73393c95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="input_8c.html#a2b672258ad51a0794365f8fa73393c95">inputActionGame</a> (<a class="el" href="struct_input.html">Input</a> *in, float *move_left, float *move_right, int *jump, int *pause, <a class="el" href="struct_character.html">Character</a> *player, int *acceleration, SDLKey *kc, <a class="el" href="structprojectile_set.html">projectileSet</a> *ps)</td></tr>
 <tr class="separator:a2b672258ad51a0794365f8fa73393c95"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,6 +158,38 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>updateEvents</b> (<a c
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">in</td><td>the input structure to be initialized </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="input_8c_ad630e59ba080f6bbde9d4e1de45b126c_cgraph.png" border="0" usemap="#input_8c_ad630e59ba080f6bbde9d4e1de45b126c_cgraph" alt=""/></div>
+<map name="input_8c_ad630e59ba080f6bbde9d4e1de45b126c_cgraph" id="input_8c_ad630e59ba080f6bbde9d4e1de45b126c_cgraph">
+<area shape="rect" id="node2" href="input_8c.html#ac46828cccdff1a744d9201caca7f4fe6" title="initJoystick" alt="" coords="123,5,211,32"/></map>
+</div>
+</p>
+
+</div>
+</div>
+<a class="anchor" id="ac46828cccdff1a744d9201caca7f4fe6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initJoystick </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_input.html">Input</a> *&#160;</td>
+          <td class="paramname"><em>in</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>initialize the joystic fiels of the input structure </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">in</td><td>the joystick input structure to be initialized </td></tr>
   </table>
   </dd>
 </dl>
@@ -254,6 +277,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>updateEvents</b> (<a c
   </dd>
 </dl>
 
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="input_8c_a2b672258ad51a0794365f8fa73393c95_cgraph.png" border="0" usemap="#input_8c_a2b672258ad51a0794365f8fa73393c95_cgraph" alt=""/></div>
+<map name="input_8c_a2b672258ad51a0794365f8fa73393c95_cgraph" id="input_8c_a2b672258ad51a0794365f8fa73393c95_cgraph">
+<area shape="rect" id="node2" href="projectile_8c.html#ad1a769841aab1287f8f32159e2a7f768" title="createProjectile" alt="" coords="176,5,288,32"/><area shape="rect" id="node3" href="image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="337,5,455,32"/></map>
+</div>
+</p>
+
 </div>
 </div>
 <a class="anchor" id="aa6bee0b289cdccb4873683ffeaadc78e"></a>
@@ -282,7 +314,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>updateEvents</b> (<a c
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>nb_options</em>&#160;</td>
+          <td class="paramname"><em>nb_lvl</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -296,11 +328,46 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>updateEvents</b> (<a c
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>the input structure </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">cursorPos</td><td>cursor position </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">select</td><td>boolean about selecting the current option </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">nb_options</td><td>the number of options </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">play_level</td><td>play level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">nb_lvl</td><td>the number of level </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a class="anchor" id="abac71ea80b72ae7944d6e064341296a0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int updateEvents </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_input.html">Input</a> *&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>go</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>recuperate keyboard/joystick input with a SDL_PollEvent </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">in</td><td>the input structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">go</td><td>the software main loop validation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 if a key is activated </dd></dl>
 
 </div>
 </div>
@@ -342,7 +409,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>updateEvents</b> (<a c
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 26 2014 17:03:29 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 19:13:31 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

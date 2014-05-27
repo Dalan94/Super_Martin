@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['moving',['moving',['../struct_character.html#ad892143587536d5edaac114b6d9b38f6',1,'Character']]],
-  ['music',['music',['../struct_sound.html#acca26c408c6140c8cdc0d8f49d31ad4a',1,'Sound']]],
-  ['musicvolume',['musicVolume',['../struct_sound.html#a6f06b572245c72c79f052b7efb89dc3b',1,'Sound']]]
+  ['last',['last',['../structlist.html#a1e751cb2643f0c20321d5b233e4fdf65',1,'list']]],
+  ['levelmax',['levelMax',['../struct_player.html#a239aaece8decb78587f72db6166743ca',1,'Player']]],
+  ['location',['location',['../struct_character.html#a08e7ab1c2395b84bea7ca13eb99bac60',1,'Character::location()'],['../structplatform.html#a08e7ab1c2395b84bea7ca13eb99bac60',1,'platform::location()'],['../structprojectile.html#a08e7ab1c2395b84bea7ca13eb99bac60',1,'projectile::location()']]],
+  ['lvl',['lvl',['../struct_map.html#abca19b7de8e60347a507d1aeff95c764',1,'Map']]]
 ];

@@ -1,4 +1,4 @@
-\hypertarget{projectile_8h}{\section{projectile.\-h File Reference}
+\hypertarget{projectile_8h}{\subsection{projectile.\-h File Reference}
 \label{projectile_8h}\index{projectile.\-h@{projectile.\-h}}
 }
 
@@ -10,44 +10,26 @@
 {\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}enemies.\-h\char`\"{}}\\*
 {\ttfamily \#include $<$errno.\-h$>$}\\*
-Include dependency graph for projectile.\-h\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{projectile_8h__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{projectile_8h__dep__incl}
-\end{center}
-\end{figure}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{projectile_8h_a20b9e3307c60eebff33270405168dfd5}{init\-Proj\-Set} (\hyperlink{structprojectile_set}{projectile\-Set} $\ast$proj\-Set)
 \item 
 void \hyperlink{projectile_8h_a81ffa52ab74595ba47d07efa3455a4ee}{free\-Projectile\-Set} (\hyperlink{structprojectile_set}{projectile\-Set} $\ast$ps)
 \item 
-\hypertarget{projectile_8h_ad1a769841aab1287f8f32159e2a7f768}{void {\bfseries create\-Projectile} (\hyperlink{structprojectile_set}{projectile\-Set} $\ast$proj\-Set, char $\ast$path\-Sprite, int dir, int x, int y, int from\-N\-P\-C)}\label{projectile_8h_ad1a769841aab1287f8f32159e2a7f768}
-
+void \hyperlink{projectile_8h_ad1a769841aab1287f8f32159e2a7f768}{create\-Projectile} (\hyperlink{structprojectile_set}{projectile\-Set} $\ast$proj\-Set, char $\ast$path\-Sprite, int dir, int x, int y, int from\-N\-P\-C)
 \item 
 void \hyperlink{projectile_8h_a7548b539c7fb4a1f58d77f66cc381b9e}{delete\-Projectile} (\hyperlink{structprojectile_set}{projectile\-Set} $\ast$ps, int nb)
 \item 
 void \hyperlink{projectile_8h_a17ab2a269b02b1210842dfdf5025c0c8}{blit\-Projectile} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{structprojectile_set}{projectile\-Set} $\ast$ps, \hyperlink{struct_map}{Map} $\ast$m)
 \item 
-\hypertarget{projectile_8h_a9cb158ade0d61650a901cb376d913088}{void {\bfseries move\-Projectiles} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m, \hyperlink{structprojectile_set}{projectile\-Set} $\ast$ps, \hyperlink{structlist}{list} $\ast$l)}\label{projectile_8h_a9cb158ade0d61650a901cb376d913088}
-
+void \hyperlink{projectile_8h_a5187eabbcf884457729afaa9dc1b4053}{move\-Projectiles} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m, \hyperlink{structprojectile_set}{projectile\-Set} $\ast$ps, \hyperlink{structlist}{list} $\ast$enemy\-List)
 \item 
-void \hyperlink{projectile_8h_a9b4cc37f44661ca0c4bf24b6f33da481}{move\-One\-Projectile} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m, \hyperlink{structprojectile_set}{projectile\-Set} $\ast$ps, \hyperlink{structlist}{list} $\ast$enemy\-List, int nb)
+void \hyperlink{projectile_8h_a6a0c06e7d85b486fb37bca7986f6763a}{move\-One\-Projectile} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{struct_map}{Map} $\ast$m, \hyperlink{structprojectile_set}{projectile\-Set} $\ast$ps, \hyperlink{structlist}{list} $\ast$l, int nb)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 \hyperlink{projectile_8c}{projectile.\-c} header \begin{DoxyAuthor}{Author}
 X.\-C\-O\-P\-O\-N\-E\-T 
 \end{DoxyAuthor}
@@ -56,10 +38,10 @@ X.\-C\-O\-P\-O\-N\-E\-T
 \end{DoxyDate}
 
 
-\subsection{Function Documentation}
+\subsubsection{Function Documentation}
 \hypertarget{projectile_8h_a17ab2a269b02b1210842dfdf5025c0c8}{\index{projectile.\-h@{projectile.\-h}!blit\-Projectile@{blit\-Projectile}}
 \index{blit\-Projectile@{blit\-Projectile}!projectile.h@{projectile.\-h}}
-\subsubsection[{blit\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}void blit\-Projectile (
+\paragraph[{blit\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}void blit\-Projectile (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
 \item[{{\bf projectile\-Set} $\ast$}]{ps, }
@@ -70,14 +52,52 @@ blit the projectiles on the game screen
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in,out}  & {\em screen} & game screen \\
 \hline
-\mbox{\tt in,out}  & {\em proj\-Set} & the projectile set \\
+\mbox{\tt in,out}  & {\em ps} & the projectile set \\
 \hline
 \mbox{\tt in}  & {\em m} & the current level map \\
 \hline
 \end{DoxyParams}
+\hypertarget{projectile_8h_ad1a769841aab1287f8f32159e2a7f768}{\index{projectile.\-h@{projectile.\-h}!create\-Projectile@{create\-Projectile}}
+\index{create\-Projectile@{create\-Projectile}!projectile.h@{projectile.\-h}}
+\paragraph[{create\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}void create\-Projectile (
+\begin{DoxyParamCaption}
+\item[{{\bf projectile\-Set} $\ast$}]{proj\-Set, }
+\item[{char $\ast$}]{path\-Sprite, }
+\item[{int}]{dir, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{from\-N\-P\-C}
+\end{DoxyParamCaption}
+)}}\label{projectile_8h_ad1a769841aab1287f8f32159e2a7f768}
+creates a projectile and adds it to the projectile set 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em proj\-Set} & the projectile set \\
+\hline
+\mbox{\tt in,out}  & {\em path\-Sprite} & the path for the sprite \\
+\hline
+\mbox{\tt in}  & {\em dir} & the projectile's direction \\
+\hline
+\mbox{\tt in}  & {\em x} & the start absciss coordinate of the projectile \\
+\hline
+\mbox{\tt in}  & {\em y} & the start ordinate coordinate of the projectile \\
+\hline
+\mbox{\tt in}  & {\em from\-N\-P\-C} & indicates if from npc or not \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{projectile_8h_ad1a769841aab1287f8f32159e2a7f768_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{projectile_8h_a7548b539c7fb4a1f58d77f66cc381b9e}{\index{projectile.\-h@{projectile.\-h}!delete\-Projectile@{delete\-Projectile}}
 \index{delete\-Projectile@{delete\-Projectile}!projectile.h@{projectile.\-h}}
-\subsubsection[{delete\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}void delete\-Projectile (
+\paragraph[{delete\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}void delete\-Projectile (
 \begin{DoxyParamCaption}
 \item[{{\bf projectile\-Set} $\ast$}]{ps, }
 \item[{int}]{nb}
@@ -92,19 +112,19 @@ delete a projectile
 \end{DoxyParams}
 \hypertarget{projectile_8h_a81ffa52ab74595ba47d07efa3455a4ee}{\index{projectile.\-h@{projectile.\-h}!free\-Projectile\-Set@{free\-Projectile\-Set}}
 \index{free\-Projectile\-Set@{free\-Projectile\-Set}!projectile.h@{projectile.\-h}}
-\subsubsection[{free\-Projectile\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Projectile\-Set (
+\paragraph[{free\-Projectile\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Projectile\-Set (
 \begin{DoxyParamCaption}
 \item[{{\bf projectile\-Set} $\ast$}]{ps}
 \end{DoxyParamCaption}
 )}}\label{projectile_8h_a81ffa52ab74595ba47d07efa3455a4ee}
 free all the projectiles 
-\begin{DoxyParams}{Parameters}
-{\em int,out\mbox{]}} & ps the projectile set \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em ps} & the projectile set \\
 \hline
 \end{DoxyParams}
 \hypertarget{projectile_8h_a20b9e3307c60eebff33270405168dfd5}{\index{projectile.\-h@{projectile.\-h}!init\-Proj\-Set@{init\-Proj\-Set}}
 \index{init\-Proj\-Set@{init\-Proj\-Set}!projectile.h@{projectile.\-h}}
-\subsubsection[{init\-Proj\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Proj\-Set (
+\paragraph[{init\-Proj\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Proj\-Set (
 \begin{DoxyParamCaption}
 \item[{{\bf projectile\-Set} $\ast$}]{proj\-Set}
 \end{DoxyParamCaption}
@@ -114,9 +134,9 @@ initialize a projectile set
 \mbox{\tt out}  & {\em proj\-Set} & the projectile set to be initialized \\
 \hline
 \end{DoxyParams}
-\hypertarget{projectile_8h_a9b4cc37f44661ca0c4bf24b6f33da481}{\index{projectile.\-h@{projectile.\-h}!move\-One\-Projectile@{move\-One\-Projectile}}
+\hypertarget{projectile_8h_a6a0c06e7d85b486fb37bca7986f6763a}{\index{projectile.\-h@{projectile.\-h}!move\-One\-Projectile@{move\-One\-Projectile}}
 \index{move\-One\-Projectile@{move\-One\-Projectile}!projectile.h@{projectile.\-h}}
-\subsubsection[{move\-One\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}void move\-One\-Projectile (
+\paragraph[{move\-One\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}void move\-One\-Projectile (
 \begin{DoxyParamCaption}
 \item[{{\bf Character} $\ast$}]{c, }
 \item[{{\bf Map} $\ast$}]{m, }
@@ -124,7 +144,7 @@ initialize a projectile set
 \item[{{\bf list} $\ast$}]{l, }
 \item[{int}]{nb}
 \end{DoxyParamCaption}
-)}}\label{projectile_8h_a9b4cc37f44661ca0c4bf24b6f33da481}
+)}}\label{projectile_8h_a6a0c06e7d85b486fb37bca7986f6763a}
 moves one projectile 
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in,out}  & {\em c} & the player \\
@@ -135,17 +155,48 @@ moves one projectile
 \hline
 \mbox{\tt in,out}  & {\em l} & the enemy list \\
 \hline
-\mbox{\tt in}  & {\em the} & number of the projectile which is moved \\
+\mbox{\tt in}  & {\em nb} & the number of the projectile which is moved \\
 \hline
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{projectile_8h_a9b4cc37f44661ca0c4bf24b6f33da481_cgraph}
+\includegraphics[width=350pt]{projectile_8h_a6a0c06e7d85b486fb37bca7986f6763a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{projectile_8h_a5187eabbcf884457729afaa9dc1b4053}{\index{projectile.\-h@{projectile.\-h}!move\-Projectiles@{move\-Projectiles}}
+\index{move\-Projectiles@{move\-Projectiles}!projectile.h@{projectile.\-h}}
+\paragraph[{move\-Projectiles}]{\setlength{\rightskip}{0pt plus 5cm}void move\-Projectiles (
+\begin{DoxyParamCaption}
+\item[{{\bf Character} $\ast$}]{c, }
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{{\bf projectile\-Set} $\ast$}]{ps, }
+\item[{{\bf list} $\ast$}]{enemy\-List}
+\end{DoxyParamCaption}
+)}}\label{projectile_8h_a5187eabbcf884457729afaa9dc1b4053}
+moves all the projectiles 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em c} & the player \\
+\hline
+\mbox{\tt in,out}  & {\em m} & the game map \\
+\hline
+\mbox{\tt in,out}  & {\em ps} & the projectile set \\
+\hline
+\mbox{\tt in,out}  & {\em enemy\-List} & the enemy list \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{projectile_8h_a5187eabbcf884457729afaa9dc1b4053_cgraph}
 \end{center}
 \end{figure}
 

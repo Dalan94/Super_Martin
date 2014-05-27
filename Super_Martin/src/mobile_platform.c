@@ -186,11 +186,6 @@ int collisionPlatform(Character *c,platformSet *ps,SDL_Rect futureLocation)
     return 0;
 }
 
-/**
- *\fn void freePlatformSet(platformSet *ps)
- *free all the platforms
- *\param[int,out] ps the platform set
- */
 void freePlatformSet(platformSet *ps)
 {
     int i;

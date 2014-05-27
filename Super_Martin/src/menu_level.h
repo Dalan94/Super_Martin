@@ -25,13 +25,13 @@
 #include "input.h"
 
 /**
- *\fn int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys char player_name[MAX_SIZE_FILE_NAME], Player *player, int *go, int *nb_lvl, Input *in)
- *  Menu to choose the lvl
+ *\fn int menuLevel(SDL_Surface *screen,char level_name[MAX_SIZE_FILE_NAME],Sound *sound_sys, char player_name[MAX_SIZE_FILE_NAME], Player *player, int *go, int *nb_lvl, Input *in)
  *\param[out] screen game screen
  *\param[out] level_name the name of the level we will want to launch
  *\param[in,out] sound_sys the sound system
- *\param[in, out] Player the player structure
+ *\param[in,out] player the player structure
  *\param[in,out] go the soft main loop validation
+ *\param[in,out] player_name the player name
  *\param[in] nb_lvl the number of level
  *\param[in,out] in the input structure
  *\return 1 if a level has been choosen, 0 if not

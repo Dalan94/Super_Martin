@@ -358,12 +358,12 @@ Uint32 decrement(Uint32 interval,void* parameter)
     return interval;
 }
 
-Uint32 rocketLaunch(Uint32 intervalle,void* parametre)
+Uint32 rocketLaunch(Uint32 interval,void* parameter)
 {
-    int *launch = parametre;
+    int *launch = parameter;
     *launch ^= 1;
 
-    return intervalle;
+    return interval;
 }
 
 void printHUD(SDL_Surface *screen,Character *player,Map *m)

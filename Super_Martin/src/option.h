@@ -33,7 +33,6 @@ void saveSoundOptions(char confFile[],Sound *soundSys);
  *\fn void loadInputOptions(char player_name[],SDLKey *kc,Input *in)
  *load the input options from the player input config file
  *\param[in] player_name the current player's name
- *\param[out] soundSys the sound system
  *\param[out] kc the keyboard configuration structure
  *\param[out] in the input structure
  */

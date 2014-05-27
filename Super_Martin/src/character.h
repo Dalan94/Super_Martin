@@ -43,7 +43,7 @@
 
 
 /**
- *\fn int moveCharacter(Character *c,int move_left, int move_right,int jump,Map *m,float *speed,list *l, Sound *sound_sys,platformSet *ps)
+ *\fn int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m,float* speed,list *l,Sound *sound_sys,platformSet *ps)
  *move player according to the direction
  *\param[in,out] c the character
  *\param[in] move_left indicates if must go to the left
@@ -53,9 +53,10 @@
  *\param[in] speed movement speed
  *\param[in,out] l the enemy list
  *\param[out] sound_sys the sound system
+ *\param[out] ps the platform set
  *\return 1 if character was moved without using the precise movement function, 0 if not
  */
-int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m,float* speed,list *l,Sound *s,platformSet *ps);
+int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m,float* speed,list *l,Sound *sound_sys,platformSet *ps);
 
 /**
  *\fn void freeCharacters(Character *c)
@@ -89,7 +90,7 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 
 
 /**
- *\fn int tryMovement(Character *c,int vx,in vy,Map *m,list *l,platformSet *ps,Sound *sound_sys)
+ *\fn int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound *sound_sys)
  *try to move a character
  *\param[in,out] c the character
  *\param[in] vx the horizontal component of the movement vector
@@ -103,7 +104,7 @@ void blitCharacter(SDL_Surface *screen, Character *c,Map *m);
 int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound *sound_sys);
 
 /**
- *\fn void presiseMoveCharacter(Charactere *c, int vx,int vy, Map *m,list *l,platformSet *ps)
+ *\fn void presiseMoveCharacter(Character *c, int vx,int vy, Map *m,list *l,platformSet *ps)
  *make a more presise move of a character if he can still move but the distance between it and the obstacle is less than its speed
  *\param[in,out] c the charactere
  *\param[in] m the map

@@ -254,6 +254,9 @@ void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset, Cursor *cursor)
     SDL_FreeSurface(canonL);
     SDL_FreeSurface(canonR);
     SDL_FreeSurface(canonB);
+    SDL_FreeSurface(platform);
+    SDL_FreeSurface(platformH);
+    SDL_FreeSurface(platformV);
 
 }
 

@@ -1,4 +1,4 @@
-\hypertarget{menu_8c}{\section{menu.\-c File Reference}
+\hypertarget{menu_8c}{\subsection{menu.\-c File Reference}
 \label{menu_8c}\index{menu.\-c@{menu.\-c}}
 }
 
@@ -7,29 +7,20 @@ contains some functions tied to the title and main menu
 
 
 {\ttfamily \#include \char`\"{}menu.\-h\char`\"{}}\\*
-Include dependency graph for menu.\-c\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{menu_8c__incl}
-\end{center}
-\end{figure}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{menu_8c_a72c95e4ae4a8b43b04a597ef950da154}{int {\bfseries title\-Menu} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$go, \hyperlink{struct_sound}{Sound} $\ast$sound\-\_\-sys, \hyperlink{struct_input}{Input} $\ast$in)}\label{menu_8c_a72c95e4ae4a8b43b04a597ef950da154}
-
+int \hyperlink{menu_8c_a72c95e4ae4a8b43b04a597ef950da154}{title\-Menu} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$go, \hyperlink{struct_sound}{Sound} $\ast$sound\-\_\-sys, \hyperlink{struct_input}{Input} $\ast$in)
 \item 
 Uint32 \hyperlink{menu_8c_a379c27eb17605f99e8d92b6045104ed4}{blink\-Text} (Uint32 interval, void $\ast$param)
 \item 
 int \hyperlink{menu_8c_a55f5e31e6730d3d1855ddc8b27ca2980}{main\-Menu} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$go, \hyperlink{struct_sound}{Sound} $\ast$sound\-\_\-sys, char $\ast$player\-\_\-name, \hyperlink{struct_input}{Input} $\ast$in)
 \item 
-int \hyperlink{menu_8c_a7bece8c619fc5c0f0dccad7adf435060}{menu\-Players} (S\-D\-L\-\_\-\-Surface $\ast$screen, char player\-\_\-name\mbox{[}M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, int $\ast$go, \hyperlink{struct_sound}{Sound} $\ast$sound\-\_\-sys, \hyperlink{struct_input}{Input} $\ast$in)
+int \hyperlink{menu_8c_a7bece8c619fc5c0f0dccad7adf435060}{menu\-Players} (S\-D\-L\-\_\-\-Surface $\ast$screen, char player\-\_\-name\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, int $\ast$go, \hyperlink{struct_sound}{Sound} $\ast$sound\-\_\-sys, \hyperlink{struct_input}{Input} $\ast$in)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 contains some functions tied to the title and main menu \begin{DoxyAuthor}{Author}
 Xavier C\-O\-P\-O\-N\-E\-T 
 \end{DoxyAuthor}
@@ -38,10 +29,10 @@ Xavier C\-O\-P\-O\-N\-E\-T
 \end{DoxyDate}
 
 
-\subsection{Function Documentation}
+\subsubsection{Function Documentation}
 \hypertarget{menu_8c_a379c27eb17605f99e8d92b6045104ed4}{\index{menu.\-c@{menu.\-c}!blink\-Text@{blink\-Text}}
 \index{blink\-Text@{blink\-Text}!menu.c@{menu.\-c}}
-\subsubsection[{blink\-Text}]{\setlength{\rightskip}{0pt plus 5cm}Uint32 blink\-Text (
+\paragraph[{blink\-Text}]{\setlength{\rightskip}{0pt plus 5cm}Uint32 blink\-Text (
 \begin{DoxyParamCaption}
 \item[{Uint32}]{interval, }
 \item[{void $\ast$}]{param}
@@ -51,13 +42,15 @@ toggle the printing text boolean (timer callback function)
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\tt in}  & {\em interval} & the interval between two callback of the function \\
 \hline
+\mbox{\tt in}  & {\em param} & a parameter \\
+\hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 1000 if the boolean is right, 600 if not 
 \end{DoxyReturn}
 \hypertarget{menu_8c_a55f5e31e6730d3d1855ddc8b27ca2980}{\index{menu.\-c@{menu.\-c}!main\-Menu@{main\-Menu}}
 \index{main\-Menu@{main\-Menu}!menu.c@{menu.\-c}}
-\subsubsection[{main\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}int main\-Menu (
+\paragraph[{main\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}int main\-Menu (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
 \item[{int $\ast$}]{go, }
@@ -72,7 +65,7 @@ print the main menu on the screen
 \hline
 \mbox{\tt in,out}  & {\em go} & main loop validation \\
 \hline
-\mbox{\tt out}  & {\em sys} & sound system \\
+\mbox{\tt out}  & {\em sound\-\_\-sys} & sound system \\
 \hline
 \mbox{\tt in}  & {\em player\-\_\-name} & the current player name \\
 \hline
@@ -84,19 +77,18 @@ the number of the menu which is choosen, -\/1 if esc
 \end{DoxyReturn}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=276pt]{menu_8c_a55f5e31e6730d3d1855ddc8b27ca2980_cgraph}
+\includegraphics[width=350pt]{menu_8c_a55f5e31e6730d3d1855ddc8b27ca2980_cgraph}
 \end{center}
 \end{figure}
 
 
 \hypertarget{menu_8c_a7bece8c619fc5c0f0dccad7adf435060}{\index{menu.\-c@{menu.\-c}!menu\-Players@{menu\-Players}}
 \index{menu\-Players@{menu\-Players}!menu.c@{menu.\-c}}
-\subsubsection[{menu\-Players}]{\setlength{\rightskip}{0pt plus 5cm}int menu\-Players (
+\paragraph[{menu\-Players}]{\setlength{\rightskip}{0pt plus 5cm}int menu\-Players (
 \begin{DoxyParamCaption}
 \item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
 \item[{char}]{player\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
@@ -123,12 +115,46 @@ Menu to choose the player
 \end{DoxyReturn}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=288pt]{menu_8c_a7bece8c619fc5c0f0dccad7adf435060_cgraph}
+\includegraphics[width=350pt]{menu_8c_a7bece8c619fc5c0f0dccad7adf435060_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{menu_8c_a72c95e4ae4a8b43b04a597ef950da154}{\index{menu.\-c@{menu.\-c}!title\-Menu@{title\-Menu}}
+\index{title\-Menu@{title\-Menu}!menu.c@{menu.\-c}}
+\paragraph[{title\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}int title\-Menu (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{int $\ast$}]{go, }
+\item[{{\bf Sound} $\ast$}]{sound\-\_\-sys, }
+\item[{{\bf Input} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{menu_8c_a72c95e4ae4a8b43b04a597ef950da154}
+print the title menu on the screen 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & the game screen \\
+\hline
+\mbox{\tt in,out}  & {\em go} & main loop validation \\
+\hline
+\mbox{\tt out}  & {\em sound\-\_\-sys} & sound \\
+\hline
+\mbox{\tt in,out}  & {\em in} & the input structure \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if the enter key has been pushed 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu_8c_a72c95e4ae4a8b43b04a597ef950da154_cgraph}
 \end{center}
 \end{figure}
 

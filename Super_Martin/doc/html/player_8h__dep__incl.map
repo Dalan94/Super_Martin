@@ -1,6 +1,0 @@
-<map id="player.h" name="player.h">
-<area shape="rect" id="node2" href="$game_8h.html" title="game.c header " alt="" coords="22,80,87,107"/>
-<area shape="rect" id="node4" href="$main_8c.html" title="main.c" alt="" coords="95,155,156,181"/>
-<area shape="rect" id="node5" href="$player_8c.html" title="Management of the player system. " alt="" coords="163,80,231,107"/>
-<area shape="rect" id="node3" href="$game_8c.html" title="contient les fonction liées au jeu " alt="" coords="5,155,69,181"/>
-</map>

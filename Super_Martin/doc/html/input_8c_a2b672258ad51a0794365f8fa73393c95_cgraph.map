@@ -1,0 +1,4 @@
+<map id="inputActionGame" name="inputActionGame">
+<area shape="rect" id="node2" href="$projectile_8c.html#ad1a769841aab1287f8f32159e2a7f768" title="createProjectile" alt="" coords="176,5,288,32"/>
+<area shape="rect" id="node3" href="$image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="337,5,455,32"/>
+</map>

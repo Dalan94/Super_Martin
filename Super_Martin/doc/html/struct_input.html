@@ -91,13 +91,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:afc4eabd057bd0061b56de4005f5ecbb8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc4eabd057bd0061b56de4005f5ecbb8"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>key</b> [SDLK_LAST]</td></tr>
+<tr class="memitem:afc4eabd057bd0061b56de4005f5ecbb8"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#afc4eabd057bd0061b56de4005f5ecbb8">key</a> [SDLK_LAST]</td></tr>
 <tr class="separator:afc4eabd057bd0061b56de4005f5ecbb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab05991ed532329184893692211b355fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#ab05991ed532329184893692211b355fa">space</a></td></tr>
 <tr class="separator:ab05991ed532329184893692211b355fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2896431d6a80cd39b3d24b40237612ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2896431d6a80cd39b3d24b40237612ee"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
+<tr class="memitem:a2896431d6a80cd39b3d24b40237612ee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#a2896431d6a80cd39b3d24b40237612ee">quit</a></td></tr>
 <tr class="separator:a2896431d6a80cd39b3d24b40237612ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a163e08d0d19093f658f448710f8e3c49"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_input.html#a163e08d0d19093f658f448710f8e3c49">isJoystick</a></td></tr>
 <tr class="separator:a163e08d0d19093f658f448710f8e3c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -126,7 +124,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>all the joystick buttons : 1 the button is pushed, 0 isn't </p>
+<p>the joystick axes value : between -32768 and 32767 </p>
 
 </div>
 </div>
@@ -139,7 +137,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>the joystick </p>
+<p>all the joystick buttons : 1 the button is pushed, 0 isn't </p>
 
 </div>
 </div>
@@ -152,7 +150,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>the joystick axes value : between -32768 and 32767 </p>
+<p>the joystick hats value : SDL_HAT_CENTERED, SDL_HAT_UP, SDL_HAT_RIGHT, SDL_HAT_DOWN, SDL_HAT_LEFT, SDL_HAT_RIGHTUP, SDL_HAT_RIGHTDOWN, SDL_HAT_LEFTUP, SDL_HAT_LEFTDOWN </p>
 
 </div>
 </div>
@@ -165,7 +163,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>the joystick hats value : SDL_HAT_CENTERED, SDL_HAT_UP, SDL_HAT_RIGHT, SDL_HAT_DOWN, SDL_HAT_LEFT, SDL_HAT_RIGHTUP, SDL_HAT_RIGHTDOWN, SDL_HAT_LEFTUP, SDL_HAT_LEFTDOWN </p>
+<p>indicates if a hat has been moved during the last updateEvent </p>
 
 </div>
 </div>
@@ -178,7 +176,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>is 1 is the SDL_QUIT event happens </p>
+<p>indicate if there is a joystick plugged in </p>
 
 </div>
 </div>
@@ -191,7 +189,33 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>indicate if the joystick is willing to be used </p>
+<p>the joystick </p>
+
+</div>
+</div>
+<a class="anchor" id="afc4eabd057bd0061b56de4005f5ecbb8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char key[SDLK_LAST]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>all the keyboard keys : 1 the key is pushed, 0 isn't </p>
+
+</div>
+</div>
+<a class="anchor" id="a2896431d6a80cd39b3d24b40237612ee"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int quit</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>is 1 is the SDL_QUIT event happens </p>
 
 </div>
 </div>
@@ -204,7 +228,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>all the keyboard keys : 1 the key is pushed, 0 isn't </p>
+<p>Space </p>
 
 </div>
 </div>
@@ -217,7 +241,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>indicate if there is a joystick plugged in </p>
+<p>indicate if the joystick is willing to be used </p>
 
 </div>
 </div>
@@ -227,7 +251,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>quit</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 26 2014 17:03:29 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 19:13:31 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -23,19 +23,19 @@ typedef enum
  */
 typedef struct
 {
-	char key[SDLK_LAST]; /*! all the keyboard keys : 1 the key is pushed, 0 isn't */
-	int space;
+	char key[SDLK_LAST]; /*!< all the keyboard keys : 1 the key is pushed, 0 isn't */
+	int space; /*!< Space */
 
-	int quit; /*! is 1 is the SDL_QUIT event happens */
+	int quit; /*!< is 1 is the SDL_QUIT event happens */
 
-    int isJoystick; /*! indicate if there is a joystick plugged in */
-    int useJoystick; /*! indicate if the joystick is willing to be used */
-	SDL_Joystick *joystick; /*! the joystick */
-	char *button; /*! all the joystick buttons : 1 the button is pushed, 0 isn't */
-    int *axes; /*! the joystick axes value : between -32768 and 32767 */
-    int *hat; /*! the  joystick hats value : SDL_HAT_CENTERED, SDL_HAT_UP, SDL_HAT_RIGHT,
+    int isJoystick; /*!< indicate if there is a joystick plugged in */
+    int useJoystick; /*!< indicate if the joystick is willing to be used */
+	SDL_Joystick *joystick; /*!< the joystick */
+	char *button; /*!< all the joystick buttons : 1 the button is pushed, 0 isn't */
+    int *axes; /*!< the joystick axes value : between -32768 and 32767 */
+    int *hat; /*!< the  joystick hats value : SDL_HAT_CENTERED, SDL_HAT_UP, SDL_HAT_RIGHT,
                 SDL_HAT_DOWN, SDL_HAT_LEFT, SDL_HAT_RIGHTUP, SDL_HAT_RIGHTDOWN, SDL_HAT_LEFTUP, SDL_HAT_LEFTDOWN*/
-    int hatMoved; /*! indicates if a hat has been moved during the last updateEvent */
+    int hatMoved; /*!< indicates if a hat has been moved during the last updateEvent */
 
 } Input;
 
@@ -49,9 +49,9 @@ typedef struct
 void initInput(Input *in);
 
 /**
- *\fn void initJoystick(Joystick *joy)
+ *\fn void initJoystick(Input *in)
  * initialize the joystic fiels of the input structure
- *\param[out] joy the joystick input structure to be initialized
+ *\param[out] in the joystick input structure to be initialized
  */
 void initJoystick(Input *in);
 
@@ -63,9 +63,10 @@ void initJoystick(Input *in);
 void freeInput(Input *in);
 
 /**
- *\fn int updateEvents(Input* in)
+ *\fn int updateEvents(Input* in,int *go);
  *recuperate keyboard/joystick input with a SDL_PollEvent
  *\param[out] in the input structure
+ *\param[out] go the software main loop validation
  *\return 1 if a key is activated
  */
 int updateEvents(Input* in,int *go);
@@ -95,12 +96,12 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
 int updateWaitEvents(Input* in,int *go);
 
 /**
- *\fn void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_options)
+ *\fn void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl)
  *perform action command by keyboard action
  *\param[in] in the input structure
  *\param[out] cursorPos cursor position
- *\param[out] select boolean about selecting the current option
- *\param[in] nb_options the number of options
+ *\param[out] play_level play level
+ *\param[in] nb_lvl the number of level
  */
 void inputActionMenu(Input *in,int *cursorPos,int *play_level,int nb_lvl);
 

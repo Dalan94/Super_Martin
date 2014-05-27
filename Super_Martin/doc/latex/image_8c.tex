@@ -1,4 +1,4 @@
-\hypertarget{image_8c}{\section{image.\-c File Reference}
+\hypertarget{image_8c}{\subsection{image.\-c File Reference}
 \label{image_8c}\index{image.\-c@{image.\-c}}
 }
 
@@ -7,24 +7,18 @@ Contain the functions managing the images.
 
 
 {\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
-Include dependency graph for image.\-c\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{image_8c__incl}
-\end{center}
-\end{figure}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 S\-D\-L\-\_\-\-Surface $\ast$ \hyperlink{image_8c_a9862daea48ad8bfd1d3a0c401a9f5210}{image\-Load} (char $\ast$file\-\_\-name)
 \item 
 S\-D\-L\-\_\-\-Surface $\ast$ \hyperlink{image_8c_a569b068180b77bf2d44cf580322c68ad}{image\-Load\-Alpha} (char $\ast$file\-\_\-name)
+\item 
+void \hyperlink{image_8c_a3917cdd2e4b298f247aedfdf76268c75}{blit\-Color} (Uint32 red, Uint32 green, Uint32 blue, int alpha, S\-D\-L\-\_\-\-Surface $\ast$screen)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 Contain the functions managing the images. \begin{DoxyAuthor}{Author}
 Rémi B\-E\-R\-T\-H\-O 
 \end{DoxyAuthor}
@@ -33,10 +27,34 @@ Rémi B\-E\-R\-T\-H\-O
 \end{DoxyDate}
 
 
-\subsection{Function Documentation}
+\subsubsection{Function Documentation}
+\hypertarget{image_8c_a3917cdd2e4b298f247aedfdf76268c75}{\index{image.\-c@{image.\-c}!blit\-Color@{blit\-Color}}
+\index{blit\-Color@{blit\-Color}!image.c@{image.\-c}}
+\paragraph[{blit\-Color}]{\setlength{\rightskip}{0pt plus 5cm}void blit\-Color (
+\begin{DoxyParamCaption}
+\item[{Uint32}]{red, }
+\item[{Uint32}]{green, }
+\item[{Uint32}]{blue, }
+\item[{int}]{alpha, }
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen}
+\end{DoxyParamCaption}
+)}}\label{image_8c_a3917cdd2e4b298f247aedfdf76268c75}
+Blit a color on the screen 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em red} & the red of the color \\
+\hline
+\mbox{\tt in}  & {\em green} & the green of the color \\
+\hline
+\mbox{\tt in}  & {\em blue} & the blue of the color \\
+\hline
+\mbox{\tt in}  & {\em alpha} & the transparency of the image file \\
+\hline
+\mbox{\tt in}  & {\em screen} & the screen \\
+\hline
+\end{DoxyParams}
 \hypertarget{image_8c_a9862daea48ad8bfd1d3a0c401a9f5210}{\index{image.\-c@{image.\-c}!image\-Load@{image\-Load}}
 \index{image\-Load@{image\-Load}!image.c@{image.\-c}}
-\subsubsection[{image\-Load}]{\setlength{\rightskip}{0pt plus 5cm}S\-D\-L\-\_\-\-Surface $\ast$ image\-Load (
+\paragraph[{image\-Load}]{\setlength{\rightskip}{0pt plus 5cm}S\-D\-L\-\_\-\-Surface $\ast$ image\-Load (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{file\-\_\-name}
 \end{DoxyParamCaption}
@@ -51,7 +69,7 @@ a pointer on the S\-D\-L\-\_\-\-Surface created
 \end{DoxyReturn}
 \hypertarget{image_8c_a569b068180b77bf2d44cf580322c68ad}{\index{image.\-c@{image.\-c}!image\-Load\-Alpha@{image\-Load\-Alpha}}
 \index{image\-Load\-Alpha@{image\-Load\-Alpha}!image.c@{image.\-c}}
-\subsubsection[{image\-Load\-Alpha}]{\setlength{\rightskip}{0pt plus 5cm}S\-D\-L\-\_\-\-Surface $\ast$ image\-Load\-Alpha (
+\paragraph[{image\-Load\-Alpha}]{\setlength{\rightskip}{0pt plus 5cm}S\-D\-L\-\_\-\-Surface $\ast$ image\-Load\-Alpha (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{file\-\_\-name}
 \end{DoxyParamCaption}
