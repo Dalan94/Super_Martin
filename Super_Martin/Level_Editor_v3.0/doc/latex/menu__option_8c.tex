@@ -1,0 +1,129 @@
+\hypertarget{menu__option_8c}{\subsection{menu\-\_\-option.\-c File Reference}
+\label{menu__option_8c}\index{menu\-\_\-option.\-c@{menu\-\_\-option.\-c}}
+}
+
+
+contain the option menu functions  
+
+
+{\ttfamily \#include \char`\"{}menu\-\_\-option.\-h\char`\"{}}\\*
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{menu__option_8c_a3529f1d52146bafa1f04dcf740ee0056}{menu\-Options} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$go, S\-D\-L\-Key $\ast$kc)
+\item 
+void \hyperlink{menu__option_8c_aec745341a7cdd39be0329420a1dccc43}{key\-Board\-Options} (S\-D\-L\-\_\-\-Surface $\ast$screen, int $\ast$go, S\-D\-L\-Key $\ast$kc)
+\item 
+void \hyperlink{menu__option_8c_a09208fc21970afd80a59971051150a3b}{choose\-Key} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_input}{Input} $\ast$in, char $\ast$action, S\-D\-L\-Key $\ast$kc, int nb)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+contain the option menu functions \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/04-\/27 
+\end{DoxyDate}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{menu__option_8c_a09208fc21970afd80a59971051150a3b}{\index{menu\-\_\-option.\-c@{menu\-\_\-option.\-c}!choose\-Key@{choose\-Key}}
+\index{choose\-Key@{choose\-Key}!menu_option.c@{menu\-\_\-option.\-c}}
+\paragraph[{choose\-Key}]{\setlength{\rightskip}{0pt plus 5cm}void choose\-Key (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{char $\ast$}]{action, }
+\item[{S\-D\-L\-Key $\ast$}]{kc, }
+\item[{int}]{nb}
+\end{DoxyParamCaption}
+)}}\label{menu__option_8c_a09208fc21970afd80a59971051150a3b}
+print the message asking the player to choose a key and wait until the player press a key and deals with this key 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & the game screen \\
+\hline
+\mbox{\tt in,out}  & {\em in} & the input structure \\
+\hline
+\mbox{\tt in}  & {\em action} & the action which the key has to be choosen \\
+\hline
+\mbox{\tt out}  & {\em kc} & the keyboard configuration \\
+\hline
+\mbox{\tt in}  & {\em nb} & the number of the action \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=280pt]{menu__option_8c_a09208fc21970afd80a59971051150a3b_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{menu__option_8c_aec745341a7cdd39be0329420a1dccc43}{\index{menu\-\_\-option.\-c@{menu\-\_\-option.\-c}!key\-Board\-Options@{key\-Board\-Options}}
+\index{key\-Board\-Options@{key\-Board\-Options}!menu_option.c@{menu\-\_\-option.\-c}}
+\paragraph[{key\-Board\-Options}]{\setlength{\rightskip}{0pt plus 5cm}void key\-Board\-Options (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{int $\ast$}]{go, }
+\item[{S\-D\-L\-Key $\ast$}]{kc}
+\end{DoxyParamCaption}
+)}}\label{menu__option_8c_aec745341a7cdd39be0329420a1dccc43}
+print the keyboard options and deals with the user choises 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & the game screen \\
+\hline
+\mbox{\tt in,out}  & {\em go} & main loop validation \\
+\hline
+\mbox{\tt in,out}  & {\em kc} & the keyboard config \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{menu__option_8c_aec745341a7cdd39be0329420a1dccc43_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{menu__option_8c_a3529f1d52146bafa1f04dcf740ee0056}{\index{menu\-\_\-option.\-c@{menu\-\_\-option.\-c}!menu\-Options@{menu\-Options}}
+\index{menu\-Options@{menu\-Options}!menu_option.c@{menu\-\_\-option.\-c}}
+\paragraph[{menu\-Options}]{\setlength{\rightskip}{0pt plus 5cm}int menu\-Options (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{int $\ast$}]{go, }
+\item[{S\-D\-L\-Key $\ast$}]{kc}
+\end{DoxyParamCaption}
+)}}\label{menu__option_8c_a3529f1d52146bafa1f04dcf740ee0056}
+print the option menu on the screen 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & the game screen \\
+\hline
+\mbox{\tt in,out}  & {\em go} & main loop validation \\
+\hline
+\mbox{\tt in,out}  & {\em kc} & the keyboard configuration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of the option which is choosen, -\/1 if esc 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{menu__option_8c_a3529f1d52146bafa1f04dcf740ee0056_cgraph}
+\end{center}
+\end{figure}
+
+

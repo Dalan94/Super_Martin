@@ -1,0 +1,175 @@
+\hypertarget{player_8c}{\subsection{player.\-c File Reference}
+\label{player_8c}\index{player.\-c@{player.\-c}}
+}
+
+
+Management of the player system.  
+
+
+{\ttfamily \#include \char`\"{}player.\-h\char`\"{}}\\*
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{player_8c_a4d30b7faab667544df4847e535dfc6e3}{new\-Player} (S\-D\-L\-\_\-\-Surface $\ast$screen, char player\-\_\-name\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, \hyperlink{struct_sound}{Sound} $\ast$s, int $\ast$go)
+\item 
+void \hyperlink{player_8c_a8330f47dea4a7c01a97ecef3607c3448}{load\-Player} (char file\-Save\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, char player\-\_\-name\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, \hyperlink{struct_player}{Player} $\ast$player)
+\item 
+int \hyperlink{player_8c_ac02b9148199bc3334b6c7149789c946c}{save\-Player} (char file\-Save\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, char player\-\_\-name\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, \hyperlink{struct_player}{Player} $\ast$player)
+\item 
+void \hyperlink{player_8c_a5bb0205907acbfde9bc8a6935e9da97e}{save} (S\-D\-L\-\_\-\-Surface $\ast$screen, char file\-Save\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, char player\-\_\-name\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, \hyperlink{struct_player}{Player} $\ast$player, int $\ast$go)
+\item 
+void \hyperlink{player_8c_a759d67ed182fea0f5ec9d9722c188336}{delete\-Player} (S\-D\-L\-\_\-\-Surface $\ast$screen, char file\-Save\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]}, char player\-\_\-name\mbox{[}\hyperlink{const_8h_a95feb1f1a8c13ebeb7da1e49b2896c24}{M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E}\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Management of the player system. \begin{DoxyAuthor}{Author}
+Glenn H\-E\-R\-R\-O\-U 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+06/05/14 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-0 
+\end{DoxyVersion}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{player_8c_a759d67ed182fea0f5ec9d9722c188336}{\index{player.\-c@{player.\-c}!delete\-Player@{delete\-Player}}
+\index{delete\-Player@{delete\-Player}!player.c@{player.\-c}}
+\paragraph[{delete\-Player}]{\setlength{\rightskip}{0pt plus 5cm}void delete\-Player (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char}]{file\-Save\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{char}]{player\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{player_8c_a759d67ed182fea0f5ec9d9722c188336}
+Delete the current player in the player list. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt in,out}  & {\em file\-Save} & The path to the binary file containing the progression of each player \\
+\hline
+\mbox{\tt in}  & {\em player\-\_\-name} & The name of the current player \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8c_a759d67ed182fea0f5ec9d9722c188336_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{player_8c_a8330f47dea4a7c01a97ecef3607c3448}{\index{player.\-c@{player.\-c}!load\-Player@{load\-Player}}
+\index{load\-Player@{load\-Player}!player.c@{player.\-c}}
+\paragraph[{load\-Player}]{\setlength{\rightskip}{0pt plus 5cm}void load\-Player (
+\begin{DoxyParamCaption}
+\item[{char}]{file\-Save\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{char}]{player\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{{\bf Player} $\ast$}]{player}
+\end{DoxyParamCaption}
+)}}\label{player_8c_a8330f47dea4a7c01a97ecef3607c3448}
+Load the progression of the given player from the binary file named file\-Save 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em file\-Save} & The path to the binary file containing the progression of each player \\
+\hline
+\mbox{\tt in}  & {\em player\-\_\-name} & The name of the current player \\
+\hline
+\mbox{\tt out}  & {\em player} & The player structure where the progression will be loaded \\
+\hline
+\end{DoxyParams}
+\hypertarget{player_8c_a4d30b7faab667544df4847e535dfc6e3}{\index{player.\-c@{player.\-c}!new\-Player@{new\-Player}}
+\index{new\-Player@{new\-Player}!player.c@{player.\-c}}
+\paragraph[{new\-Player}]{\setlength{\rightskip}{0pt plus 5cm}int new\-Player (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char}]{player\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{{\bf Sound} $\ast$}]{s, }
+\item[{int $\ast$}]{go}
+\end{DoxyParamCaption}
+)}}\label{player_8c_a4d30b7faab667544df4847e535dfc6e3}
+Display the interface to create a new player 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt out}  & {\em player\-\_\-name} & The name of the new player \\
+\hline
+\mbox{\tt out}  & {\em s} & the sound system \\
+\hline
+\mbox{\tt out}  & {\em go} & the main loop validation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if a new player has been created, 0 otherwise 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8c_a4d30b7faab667544df4847e535dfc6e3_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{player_8c_a5bb0205907acbfde9bc8a6935e9da97e}{\index{player.\-c@{player.\-c}!save@{save}}
+\index{save@{save}!player.c@{player.\-c}}
+\paragraph[{save}]{\setlength{\rightskip}{0pt plus 5cm}void save (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char}]{file\-Save\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{char}]{player\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{{\bf Player} $\ast$}]{player, }
+\item[{int $\ast$}]{go}
+\end{DoxyParamCaption}
+)}}\label{player_8c_a5bb0205907acbfde9bc8a6935e9da97e}
+Display the interface to save the player progression 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt in}  & {\em file\-Save} & The path to the binary file containing the progression of each player \\
+\hline
+\mbox{\tt in}  & {\em player\-\_\-name} & The name of the current player \\
+\hline
+\mbox{\tt out}  & {\em player} & The player structure where the progression is stored \\
+\hline
+\mbox{\tt out}  & {\em go} & The main loop validation \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{player_8c_a5bb0205907acbfde9bc8a6935e9da97e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{player_8c_ac02b9148199bc3334b6c7149789c946c}{\index{player.\-c@{player.\-c}!save\-Player@{save\-Player}}
+\index{save\-Player@{save\-Player}!player.c@{player.\-c}}
+\paragraph[{save\-Player}]{\setlength{\rightskip}{0pt plus 5cm}int save\-Player (
+\begin{DoxyParamCaption}
+\item[{char}]{file\-Save\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{char}]{player\-\_\-name\mbox{[}\-M\-A\-X\-\_\-\-S\-I\-Z\-E\-\_\-\-F\-I\-L\-E\-\_\-\-N\-A\-M\-E\mbox{]}, }
+\item[{{\bf Player} $\ast$}]{player}
+\end{DoxyParamCaption}
+)}}\label{player_8c_ac02b9148199bc3334b6c7149789c946c}
+Save the progression of the given player in the binary file named file\-Save 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em file\-Save} & The path to the binary file containing the progression of each player \\
+\hline
+\mbox{\tt in}  & {\em player\-\_\-name} & The name of the current player \\
+\hline
+\mbox{\tt out}  & {\em player} & The player structure where the progression is stored \\
+\hline
+\end{DoxyParams}

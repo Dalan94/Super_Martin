@@ -1,0 +1,146 @@
+\hypertarget{option_8c}{\subsection{option.\-c File Reference}
+\label{option_8c}\index{option.\-c@{option.\-c}}
+}
+
+
+contains the funtions that manipulate the options  
+
+
+{\ttfamily \#include \char`\"{}option.\-h\char`\"{}}\\*
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{option_8c_a82de9e33ffe49578aedcb1796c2a524c}{load\-Sound\-Options} (char conf\-File\mbox{[}$\,$\mbox{]}, \hyperlink{struct_sound}{Sound} $\ast$sound\-Sys)
+\item 
+void \hyperlink{option_8c_ab75794ec6a13d9a1538d9f4fa2cb60f0}{save\-Sound\-Options} (char conf\-File\mbox{[}$\,$\mbox{]}, \hyperlink{struct_sound}{Sound} $\ast$sound\-Sys)
+\item 
+void \hyperlink{option_8c_a7f505e8b70cf0674aac99379c7b0a3ce}{load\-Input\-Options} (char player\-\_\-name\mbox{[}$\,$\mbox{]}, S\-D\-L\-Key $\ast$kc, \hyperlink{struct_input}{Input} $\ast$in)
+\item 
+void \hyperlink{option_8c_a8c9263c45096babd087bb2b1eafa0859}{save\-Input\-Options} (char player\-\_\-name\mbox{[}$\,$\mbox{]}, S\-D\-L\-Key $\ast$kc, \hyperlink{struct_input}{Input} $\ast$in)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+contains the funtions that manipulate the options \begin{DoxyAuthor}{Author}
+X.\-C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/04-\/28 
+\end{DoxyDate}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{option_8c_a7f505e8b70cf0674aac99379c7b0a3ce}{\index{option.\-c@{option.\-c}!load\-Input\-Options@{load\-Input\-Options}}
+\index{load\-Input\-Options@{load\-Input\-Options}!option.c@{option.\-c}}
+\paragraph[{load\-Input\-Options}]{\setlength{\rightskip}{0pt plus 5cm}void load\-Input\-Options (
+\begin{DoxyParamCaption}
+\item[{char}]{player\-\_\-name\mbox{[}$\,$\mbox{]}, }
+\item[{S\-D\-L\-Key $\ast$}]{kc, }
+\item[{{\bf Input} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{option_8c_a7f505e8b70cf0674aac99379c7b0a3ce}
+load the input options from the player input config file 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em player\-\_\-name} & the current player's name \\
+\hline
+\mbox{\tt out}  & {\em kc} & the keyboard configuration structure \\
+\hline
+\mbox{\tt out}  & {\em in} & the input structure \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{option_8c_a7f505e8b70cf0674aac99379c7b0a3ce_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{option_8c_a82de9e33ffe49578aedcb1796c2a524c}{\index{option.\-c@{option.\-c}!load\-Sound\-Options@{load\-Sound\-Options}}
+\index{load\-Sound\-Options@{load\-Sound\-Options}!option.c@{option.\-c}}
+\paragraph[{load\-Sound\-Options}]{\setlength{\rightskip}{0pt plus 5cm}void load\-Sound\-Options (
+\begin{DoxyParamCaption}
+\item[{char}]{conf\-File\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Sound} $\ast$}]{sound\-Sys}
+\end{DoxyParamCaption}
+)}}\label{option_8c_a82de9e33ffe49578aedcb1796c2a524c}
+load the sound options from the sound config file 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em conf\-File} & the config file path \\
+\hline
+\mbox{\tt out}  & {\em sound\-Sys} & the sound system \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{option_8c_a82de9e33ffe49578aedcb1796c2a524c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{option_8c_a8c9263c45096babd087bb2b1eafa0859}{\index{option.\-c@{option.\-c}!save\-Input\-Options@{save\-Input\-Options}}
+\index{save\-Input\-Options@{save\-Input\-Options}!option.c@{option.\-c}}
+\paragraph[{save\-Input\-Options}]{\setlength{\rightskip}{0pt plus 5cm}void save\-Input\-Options (
+\begin{DoxyParamCaption}
+\item[{char}]{player\-\_\-name\mbox{[}$\,$\mbox{]}, }
+\item[{S\-D\-L\-Key $\ast$}]{kc, }
+\item[{{\bf Input} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{option_8c_a8c9263c45096babd087bb2b1eafa0859}
+save the input options to the player input config file 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em player\-\_\-name} & the current player name \\
+\hline
+\mbox{\tt out}  & {\em kc} & the keyboard configuration structure \\
+\hline
+\mbox{\tt out}  & {\em in} & the input structure \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{option_8c_a8c9263c45096babd087bb2b1eafa0859_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{option_8c_ab75794ec6a13d9a1538d9f4fa2cb60f0}{\index{option.\-c@{option.\-c}!save\-Sound\-Options@{save\-Sound\-Options}}
+\index{save\-Sound\-Options@{save\-Sound\-Options}!option.c@{option.\-c}}
+\paragraph[{save\-Sound\-Options}]{\setlength{\rightskip}{0pt plus 5cm}void save\-Sound\-Options (
+\begin{DoxyParamCaption}
+\item[{char}]{conf\-File\mbox{[}$\,$\mbox{]}, }
+\item[{{\bf Sound} $\ast$}]{sound\-Sys}
+\end{DoxyParamCaption}
+)}}\label{option_8c_ab75794ec6a13d9a1538d9f4fa2cb60f0}
+save the sound options to the config file 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em conf\-File} & the config file path \\
+\hline
+\mbox{\tt in}  & {\em sound\-Sys} & the sound system \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{option_8c_ab75794ec6a13d9a1538d9f4fa2cb60f0_cgraph}
+\end{center}
+\end{figure}
+
+

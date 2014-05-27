@@ -1,0 +1,71 @@
+\hypertarget{struct_input}{\subsection{Input Struct Reference}
+\label{struct_input}\index{Input@{Input}}
+}
+
+
+{\ttfamily \#include $<$input.\-h$>$}
+
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{struct_input_afc4eabd057bd0061b56de4005f5ecbb8}{key} \mbox{[}S\-D\-L\-K\-\_\-\-L\-A\-S\-T\mbox{]}
+\item 
+int \hyperlink{struct_input_ab05991ed532329184893692211b355fa}{space}
+\item 
+int \hyperlink{struct_input_a2896431d6a80cd39b3d24b40237612ee}{quit}
+\item 
+int \hyperlink{struct_input_a163e08d0d19093f658f448710f8e3c49}{is\-Joystick}
+\item 
+int \hyperlink{struct_input_a66b84ad51037935b993fc2b860b15cb6}{use\-Joystick}
+\item 
+S\-D\-L\-\_\-\-Joystick $\ast$ \hyperlink{struct_input_a5fe6c6b426f70a21df07c64227b2c337}{joystick}
+\item 
+char $\ast$ \hyperlink{struct_input_a7f901d4dc1179ea534cb9e5cce0a260b}{button}
+\item 
+int $\ast$ \hyperlink{struct_input_ae2fe71f7c5edeaa9fc2676be4a93499a}{axes}
+\item 
+int $\ast$ \hyperlink{struct_input_ab1c8c264ad7cfee584093b1479c03f75}{hat}
+\item 
+int \hyperlink{struct_input_af7cf3c53ae2105eec18ce989dd3ddae0}{hat\-Moved}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+the global input structure 
+
+\subsubsection{Field Documentation}
+\hypertarget{struct_input_ae2fe71f7c5edeaa9fc2676be4a93499a}{\index{Input@{Input}!axes@{axes}}
+\index{axes@{axes}!Input@{Input}}
+\paragraph[{axes}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ axes}}\label{struct_input_ae2fe71f7c5edeaa9fc2676be4a93499a}
+the joystick axes value \-: between -\/32768 and 32767 \hypertarget{struct_input_a7f901d4dc1179ea534cb9e5cce0a260b}{\index{Input@{Input}!button@{button}}
+\index{button@{button}!Input@{Input}}
+\paragraph[{button}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ button}}\label{struct_input_a7f901d4dc1179ea534cb9e5cce0a260b}
+all the joystick buttons \-: 1 the button is pushed, 0 isn't \hypertarget{struct_input_ab1c8c264ad7cfee584093b1479c03f75}{\index{Input@{Input}!hat@{hat}}
+\index{hat@{hat}!Input@{Input}}
+\paragraph[{hat}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ hat}}\label{struct_input_ab1c8c264ad7cfee584093b1479c03f75}
+the joystick hats value \-: S\-D\-L\-\_\-\-H\-A\-T\-\_\-\-C\-E\-N\-T\-E\-R\-E\-D, S\-D\-L\-\_\-\-H\-A\-T\-\_\-\-U\-P, S\-D\-L\-\_\-\-H\-A\-T\-\_\-\-R\-I\-G\-H\-T, S\-D\-L\-\_\-\-H\-A\-T\-\_\-\-D\-O\-W\-N, S\-D\-L\-\_\-\-H\-A\-T\-\_\-\-L\-E\-F\-T, S\-D\-L\-\_\-\-H\-A\-T\-\_\-\-R\-I\-G\-H\-T\-U\-P, S\-D\-L\-\_\-\-H\-A\-T\-\_\-\-R\-I\-G\-H\-T\-D\-O\-W\-N, S\-D\-L\-\_\-\-H\-A\-T\-\_\-\-L\-E\-F\-T\-U\-P, S\-D\-L\-\_\-\-H\-A\-T\-\_\-\-L\-E\-F\-T\-D\-O\-W\-N \hypertarget{struct_input_af7cf3c53ae2105eec18ce989dd3ddae0}{\index{Input@{Input}!hat\-Moved@{hat\-Moved}}
+\index{hat\-Moved@{hat\-Moved}!Input@{Input}}
+\paragraph[{hat\-Moved}]{\setlength{\rightskip}{0pt plus 5cm}int hat\-Moved}}\label{struct_input_af7cf3c53ae2105eec18ce989dd3ddae0}
+indicates if a hat has been moved during the last update\-Event \hypertarget{struct_input_a163e08d0d19093f658f448710f8e3c49}{\index{Input@{Input}!is\-Joystick@{is\-Joystick}}
+\index{is\-Joystick@{is\-Joystick}!Input@{Input}}
+\paragraph[{is\-Joystick}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Joystick}}\label{struct_input_a163e08d0d19093f658f448710f8e3c49}
+indicate if there is a joystick plugged in \hypertarget{struct_input_a5fe6c6b426f70a21df07c64227b2c337}{\index{Input@{Input}!joystick@{joystick}}
+\index{joystick@{joystick}!Input@{Input}}
+\paragraph[{joystick}]{\setlength{\rightskip}{0pt plus 5cm}S\-D\-L\-\_\-\-Joystick$\ast$ joystick}}\label{struct_input_a5fe6c6b426f70a21df07c64227b2c337}
+the joystick \hypertarget{struct_input_afc4eabd057bd0061b56de4005f5ecbb8}{\index{Input@{Input}!key@{key}}
+\index{key@{key}!Input@{Input}}
+\paragraph[{key}]{\setlength{\rightskip}{0pt plus 5cm}char key\mbox{[}S\-D\-L\-K\-\_\-\-L\-A\-S\-T\mbox{]}}}\label{struct_input_afc4eabd057bd0061b56de4005f5ecbb8}
+all the keyboard keys \-: 1 the key is pushed, 0 isn't \hypertarget{struct_input_a2896431d6a80cd39b3d24b40237612ee}{\index{Input@{Input}!quit@{quit}}
+\index{quit@{quit}!Input@{Input}}
+\paragraph[{quit}]{\setlength{\rightskip}{0pt plus 5cm}int quit}}\label{struct_input_a2896431d6a80cd39b3d24b40237612ee}
+is 1 is the S\-D\-L\-\_\-\-Q\-U\-I\-T event happens \hypertarget{struct_input_ab05991ed532329184893692211b355fa}{\index{Input@{Input}!space@{space}}
+\index{space@{space}!Input@{Input}}
+\paragraph[{space}]{\setlength{\rightskip}{0pt plus 5cm}int space}}\label{struct_input_ab05991ed532329184893692211b355fa}
+Space \hypertarget{struct_input_a66b84ad51037935b993fc2b860b15cb6}{\index{Input@{Input}!use\-Joystick@{use\-Joystick}}
+\index{use\-Joystick@{use\-Joystick}!Input@{Input}}
+\paragraph[{use\-Joystick}]{\setlength{\rightskip}{0pt plus 5cm}int use\-Joystick}}\label{struct_input_a66b84ad51037935b993fc2b860b15cb6}
+indicate if the joystick is willing to be used 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+input.\-h\end{DoxyCompactItemize}

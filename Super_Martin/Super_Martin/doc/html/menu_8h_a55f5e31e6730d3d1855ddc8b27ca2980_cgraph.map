@@ -1,0 +1,9 @@
+<map id="mainMenu" name="mainMenu">
+<area shape="rect" id="node2" href="$sound_8c.html#a4c981aed72c43f6f824e5ad4ad6e2b68" title="playMusic" alt="" coords="161,5,242,32"/>
+<area shape="rect" id="node3" href="$image_8c.html#a569b068180b77bf2d44cf580322c68ad" title="imageLoadAlpha" alt="" coords="142,56,261,83"/>
+<area shape="rect" id="node4" href="$input_8c.html#ad630e59ba080f6bbde9d4e1de45b126c" title="initInput" alt="" coords="167,107,235,133"/>
+<area shape="rect" id="node6" href="$input_8c.html#adf8840e198ccba8364c2d051b700a690" title="updateWaitEvents" alt="" coords="137,157,266,184"/>
+<area shape="rect" id="node7" href="$input_8c.html#aa6bee0b289cdccb4873683ffeaadc78e" title="inputActionMenu" alt="" coords="142,208,261,235"/>
+<area shape="rect" id="node8" href="$text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="165,259,238,285"/>
+<area shape="rect" id="node5" href="$input_8c.html#ac46828cccdff1a744d9201caca7f4fe6" title="initJoystick" alt="" coords="315,107,403,133"/>
+</map>

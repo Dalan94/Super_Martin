@@ -1,0 +1,193 @@
+\hypertarget{input_8c}{\subsection{input.\-c File Reference}
+\label{input_8c}\index{input.\-c@{input.\-c}}
+}
+
+
+the funtions to deal with the player inputs  
+
+
+{\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-D\-L/\-S\-D\-L\-\_\-joystick.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}projectile.\-h\char`\"{}}\\*
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{input_8c_ad630e59ba080f6bbde9d4e1de45b126c}{init\-Input} (\hyperlink{struct_input}{Input} $\ast$in)
+\item 
+void \hyperlink{input_8c_ac46828cccdff1a744d9201caca7f4fe6}{init\-Joystick} (\hyperlink{struct_input}{Input} $\ast$in)
+\item 
+void \hyperlink{input_8c_a473359e91c8f9f7bf41b58df1dd8436b}{free\-Input} (\hyperlink{struct_input}{Input} $\ast$in)
+\item 
+int \hyperlink{input_8c_abac71ea80b72ae7944d6e064341296a0}{update\-Events} (\hyperlink{struct_input}{Input} $\ast$in, int $\ast$go)
+\item 
+void \hyperlink{input_8c_a2b672258ad51a0794365f8fa73393c95}{input\-Action\-Game} (\hyperlink{struct_input}{Input} $\ast$in, float $\ast$move\-\_\-left, float $\ast$move\-\_\-right, int $\ast$jump, int $\ast$pause, \hyperlink{struct_character}{Character} $\ast$player, int $\ast$acceleration, S\-D\-L\-Key $\ast$kc, \hyperlink{structprojectile_set}{projectile\-Set} $\ast$ps)
+\item 
+int \hyperlink{input_8c_adf8840e198ccba8364c2d051b700a690}{update\-Wait\-Events} (\hyperlink{struct_input}{Input} $\ast$in, int $\ast$go)
+\item 
+void \hyperlink{input_8c_aa6bee0b289cdccb4873683ffeaadc78e}{input\-Action\-Menu} (\hyperlink{struct_input}{Input} $\ast$in, int $\ast$cursor\-Pos, int $\ast$play\-\_\-level, int nb\-\_\-options)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+the funtions to deal with the player inputs \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/03-\/18 
+\end{DoxyDate}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{input_8c_a473359e91c8f9f7bf41b58df1dd8436b}{\index{input.\-c@{input.\-c}!free\-Input@{free\-Input}}
+\index{free\-Input@{free\-Input}!input.c@{input.\-c}}
+\paragraph[{free\-Input}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Input (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{input_8c_a473359e91c8f9f7bf41b58df1dd8436b}
+free the input structure 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em in} & the input structure \\
+\hline
+\end{DoxyParams}
+\hypertarget{input_8c_ad630e59ba080f6bbde9d4e1de45b126c}{\index{input.\-c@{input.\-c}!init\-Input@{init\-Input}}
+\index{init\-Input@{init\-Input}!input.c@{input.\-c}}
+\paragraph[{init\-Input}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Input (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{input_8c_ad630e59ba080f6bbde9d4e1de45b126c}
+initialize the input structure 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em in} & the input structure to be initialized \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{input_8c_ad630e59ba080f6bbde9d4e1de45b126c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{input_8c_ac46828cccdff1a744d9201caca7f4fe6}{\index{input.\-c@{input.\-c}!init\-Joystick@{init\-Joystick}}
+\index{init\-Joystick@{init\-Joystick}!input.c@{input.\-c}}
+\paragraph[{init\-Joystick}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Joystick (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in}
+\end{DoxyParamCaption}
+)}}\label{input_8c_ac46828cccdff1a744d9201caca7f4fe6}
+initialize the joystic fiels of the input structure 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em in} & the joystick input structure to be initialized \\
+\hline
+\end{DoxyParams}
+\hypertarget{input_8c_a2b672258ad51a0794365f8fa73393c95}{\index{input.\-c@{input.\-c}!input\-Action\-Game@{input\-Action\-Game}}
+\index{input\-Action\-Game@{input\-Action\-Game}!input.c@{input.\-c}}
+\paragraph[{input\-Action\-Game}]{\setlength{\rightskip}{0pt plus 5cm}void input\-Action\-Game (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{float $\ast$}]{move\-\_\-left, }
+\item[{float $\ast$}]{move\-\_\-right, }
+\item[{int $\ast$}]{jump, }
+\item[{int $\ast$}]{pause, }
+\item[{{\bf Character} $\ast$}]{player, }
+\item[{int $\ast$}]{acceleration, }
+\item[{S\-D\-L\-Key $\ast$}]{kc, }
+\item[{{\bf projectile\-Set} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}}\label{input_8c_a2b672258ad51a0794365f8fa73393c95}
+perform action command by keyboard or joystick action 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em in} & the input structure \\
+\hline
+\mbox{\tt out}  & {\em move\-\_\-left} & the left movement boolean \\
+\hline
+\mbox{\tt out}  & {\em move\-\_\-right} & the right movement boolean \\
+\hline
+\mbox{\tt out}  & {\em jump} & the jump boolean \\
+\hline
+\mbox{\tt out}  & {\em pause} & the pause boolean \\
+\hline
+\mbox{\tt in}  & {\em player} & the \hyperlink{struct_player}{Player} \\
+\hline
+\mbox{\tt in}  & {\em acceleration} & the acceleration \\
+\hline
+\mbox{\tt in}  & {\em kc} & the keyboard configuration structure \\
+\hline
+\mbox{\tt out}  & {\em ps} & the projectile set \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{input_8c_a2b672258ad51a0794365f8fa73393c95_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{input_8c_aa6bee0b289cdccb4873683ffeaadc78e}{\index{input.\-c@{input.\-c}!input\-Action\-Menu@{input\-Action\-Menu}}
+\index{input\-Action\-Menu@{input\-Action\-Menu}!input.c@{input.\-c}}
+\paragraph[{input\-Action\-Menu}]{\setlength{\rightskip}{0pt plus 5cm}void input\-Action\-Menu (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{int $\ast$}]{cursor\-Pos, }
+\item[{int $\ast$}]{play\-\_\-level, }
+\item[{int}]{nb\-\_\-lvl}
+\end{DoxyParamCaption}
+)}}\label{input_8c_aa6bee0b289cdccb4873683ffeaadc78e}
+perform action command by keyboard action 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em in} & the input structure \\
+\hline
+\mbox{\tt out}  & {\em cursor\-Pos} & cursor position \\
+\hline
+\mbox{\tt out}  & {\em play\-\_\-level} & play level \\
+\hline
+\mbox{\tt in}  & {\em nb\-\_\-lvl} & the number of level \\
+\hline
+\end{DoxyParams}
+\hypertarget{input_8c_abac71ea80b72ae7944d6e064341296a0}{\index{input.\-c@{input.\-c}!update\-Events@{update\-Events}}
+\index{update\-Events@{update\-Events}!input.c@{input.\-c}}
+\paragraph[{update\-Events}]{\setlength{\rightskip}{0pt plus 5cm}int update\-Events (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{int $\ast$}]{go}
+\end{DoxyParamCaption}
+)}}\label{input_8c_abac71ea80b72ae7944d6e064341296a0}
+recuperate keyboard/joystick input with a S\-D\-L\-\_\-\-Poll\-Event 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em in} & the input structure \\
+\hline
+\mbox{\tt out}  & {\em go} & the software main loop validation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if a key is activated 
+\end{DoxyReturn}
+\hypertarget{input_8c_adf8840e198ccba8364c2d051b700a690}{\index{input.\-c@{input.\-c}!update\-Wait\-Events@{update\-Wait\-Events}}
+\index{update\-Wait\-Events@{update\-Wait\-Events}!input.c@{input.\-c}}
+\paragraph[{update\-Wait\-Events}]{\setlength{\rightskip}{0pt plus 5cm}int update\-Wait\-Events (
+\begin{DoxyParamCaption}
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{int $\ast$}]{go}
+\end{DoxyParamCaption}
+)}}\label{input_8c_adf8840e198ccba8364c2d051b700a690}
+recuperate keyboard input with a S\-D\-L\-\_\-\-Wait\-Event 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em in} & the input structure \\
+\hline
+\mbox{\tt in,out}  & {\em go} & the software main loop validation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if a key is activated 
+\end{DoxyReturn}

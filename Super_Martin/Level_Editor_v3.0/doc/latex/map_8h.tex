@@ -1,0 +1,325 @@
+\hypertarget{map_8h}{\subsection{map.\-h File Reference}
+\label{map_8h}\index{map.\-h@{map.\-h}}
+}
+
+
+\hyperlink{map_8c}{map.\-c} header  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}file\-\_\-level.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}text.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}share.\-h\char`\"{}}\\*
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{map_8h_aba96287d54d5dbd87f817b62e7efa044}{update\-Screen\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_map}{Map} $\ast$m, char $\ast$tileset, \hyperlink{struct_cursor}{Cursor} $\ast$cursor)
+\item 
+\hyperlink{struct_map}{Map} $\ast$ \hyperlink{map_8h_a92c61ecb670c1960ed8bff4819485094}{init\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name)
+\item 
+void \hyperlink{map_8h_a7db72a2f3d427d9bc0b84b89a7c866ed}{fill\-Line} (\hyperlink{struct_map}{Map} $\ast$m, int line, int column, char tile\-I\-D)
+\item 
+void \hyperlink{map_8h_a2df5d973f2059d0834b5224bf0ef4625}{fill\-Column} (\hyperlink{struct_map}{Map} $\ast$m, int line, int column, char tile\-I\-D)
+\item 
+void \hyperlink{map_8h_ada7a341a80060dfd7c2685f5a7b15f16}{fill\-Rect} (\hyperlink{struct_map}{Map} $\ast$m, int line, int column, char tile\-I\-D)
+\item 
+void \hyperlink{map_8h_a7a6108fe5abfab806adec1371905007f}{display\-Help} (S\-D\-L\-\_\-\-Surface $\ast$screen, S\-D\-L\-Key $\ast$kc)
+\item 
+void \hyperlink{map_8h_a3935bb6ade113dad7068ed17cb2c6898}{save\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_map}{Map} $\ast$m)
+\item 
+void \hyperlink{map_8h_a282d563a5925d1581f1c291480d429c6}{delete\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$map\-\_\-name, char $\ast$map\-\_\-path)
+\item 
+void \hyperlink{map_8h_ae21019fd11e4de007090c6a02b0ffad5}{extend\-Map} (\hyperlink{struct_map}{Map} $\ast$m)
+\item 
+void \hyperlink{map_8h_a8b0e7b929dc7159efa7e432f1059dc8e}{reset\-Map} (\hyperlink{struct_map}{Map} $\ast$m)
+\item 
+void \hyperlink{map_8h_ac8d4dd6fc80c79d9cb5899684740d074}{free\-Map} (\hyperlink{struct_map}{Map} $\ast$m)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\hyperlink{map_8c}{map.\-c} header \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T, Glenn H\-E\-R\-R\-O\-U 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/05-\/18 
+\end{DoxyDate}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{map_8h_a282d563a5925d1581f1c291480d429c6}{\index{map.\-h@{map.\-h}!delete\-Map@{delete\-Map}}
+\index{delete\-Map@{delete\-Map}!map.h@{map.\-h}}
+\paragraph[{delete\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void delete\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char $\ast$}]{map\-\_\-name, }
+\item[{char $\ast$}]{map\-\_\-path}
+\end{DoxyParamCaption}
+)}}\label{map_8h_a282d563a5925d1581f1c291480d429c6}
+Delete a the map file and update the level list file 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt in}  & {\em map\-\_\-name} & The name of the map to delete \\
+\hline
+\mbox{\tt in}  & {\em map\-\_\-path} & The path to the file of the map to delete \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8h_a282d563a5925d1581f1c291480d429c6_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8h_a7a6108fe5abfab806adec1371905007f}{\index{map.\-h@{map.\-h}!display\-Help@{display\-Help}}
+\index{display\-Help@{display\-Help}!map.h@{map.\-h}}
+\paragraph[{display\-Help}]{\setlength{\rightskip}{0pt plus 5cm}void display\-Help (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{S\-D\-L\-Key $\ast$}]{kc}
+\end{DoxyParamCaption}
+)}}\label{map_8h_a7a6108fe5abfab806adec1371905007f}
+Display the list of keybindings on the screen 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt in}  & {\em kc} & The array containing the keybindings \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{map_8h_a7a6108fe5abfab806adec1371905007f_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8h_ae21019fd11e4de007090c6a02b0ffad5}{\index{map.\-h@{map.\-h}!extend\-Map@{extend\-Map}}
+\index{extend\-Map@{extend\-Map}!map.h@{map.\-h}}
+\paragraph[{extend\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void extend\-Map (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{map_8h_ae21019fd11e4de007090c6a02b0ffad5}
+Extend the width of a map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em m} & The map to extend \\
+\hline
+\end{DoxyParams}
+\hypertarget{map_8h_a2df5d973f2059d0834b5224bf0ef4625}{\index{map.\-h@{map.\-h}!fill\-Column@{fill\-Column}}
+\index{fill\-Column@{fill\-Column}!map.h@{map.\-h}}
+\paragraph[{fill\-Column}]{\setlength{\rightskip}{0pt plus 5cm}void fill\-Column (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{int}]{line, }
+\item[{int}]{column, }
+\item[{char}]{tile\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{map_8h_a2df5d973f2059d0834b5224bf0ef4625}
+Fill a column with the current tile. The filling stops if another non-\/void tile is reached. This function works only with ground tiles 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em m} & The map \\
+\hline
+\mbox{\tt in}  & {\em line} & The line pointed by the cursor \\
+\hline
+\mbox{\tt in}  & {\em column} & The column pointed by the cursor \\
+\hline
+\mbox{\tt in}  & {\em tile\-I\-D} & the tile I\-D \\
+\hline
+\end{DoxyParams}
+\hypertarget{map_8h_a7db72a2f3d427d9bc0b84b89a7c866ed}{\index{map.\-h@{map.\-h}!fill\-Line@{fill\-Line}}
+\index{fill\-Line@{fill\-Line}!map.h@{map.\-h}}
+\paragraph[{fill\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void fill\-Line (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{int}]{line, }
+\item[{int}]{column, }
+\item[{char}]{tile\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{map_8h_a7db72a2f3d427d9bc0b84b89a7c866ed}
+Fill a line with the current tile. The filling stops if another non-\/void tile is reached. This function works only with ground tiles 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em m} & The map \\
+\hline
+\mbox{\tt in}  & {\em line} & The line pointed by the cursor \\
+\hline
+\mbox{\tt in}  & {\em column} & The column pointed by the cursor \\
+\hline
+\mbox{\tt in}  & {\em tile\-I\-D} & the tile I\-D \\
+\hline
+\end{DoxyParams}
+\hypertarget{map_8h_ada7a341a80060dfd7c2685f5a7b15f16}{\index{map.\-h@{map.\-h}!fill\-Rect@{fill\-Rect}}
+\index{fill\-Rect@{fill\-Rect}!map.h@{map.\-h}}
+\paragraph[{fill\-Rect}]{\setlength{\rightskip}{0pt plus 5cm}void fill\-Rect (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{int}]{line, }
+\item[{int}]{column, }
+\item[{char}]{tile\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{map_8h_ada7a341a80060dfd7c2685f5a7b15f16}
+Fill a rectangle with the current tile. The filling stops if another non-\/void tile is reached. This function works only with ground tiles 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em m} & The map \\
+\hline
+\mbox{\tt in}  & {\em line} & The line pointed by the cursor \\
+\hline
+\mbox{\tt in}  & {\em column} & The column pointed by the cursor \\
+\hline
+\mbox{\tt in}  & {\em tile\-I\-D} & the tile I\-D \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{map_8h_ada7a341a80060dfd7c2685f5a7b15f16_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8h_ac8d4dd6fc80c79d9cb5899684740d074}{\index{map.\-h@{map.\-h}!free\-Map@{free\-Map}}
+\index{free\-Map@{free\-Map}!map.h@{map.\-h}}
+\paragraph[{free\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Map (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{map_8h_ac8d4dd6fc80c79d9cb5899684740d074}
+Free memory allocated to the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em m} & the map \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{map_8h_ac8d4dd6fc80c79d9cb5899684740d074_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8h_a92c61ecb670c1960ed8bff4819485094}{\index{map.\-h@{map.\-h}!init\-Map@{init\-Map}}
+\index{init\-Map@{init\-Map}!map.h@{map.\-h}}
+\paragraph[{init\-Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map}$\ast$ init\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char $\ast$}]{level\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{map_8h_a92c61ecb670c1960ed8bff4819485094}
+initialize the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em screen} & game screen \\
+\hline
+\mbox{\tt in}  & {\em level\-\_\-name} & lvl name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer on the map 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{map_8h_a92c61ecb670c1960ed8bff4819485094_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8h_a8b0e7b929dc7159efa7e432f1059dc8e}{\index{map.\-h@{map.\-h}!reset\-Map@{reset\-Map}}
+\index{reset\-Map@{reset\-Map}!map.h@{map.\-h}}
+\paragraph[{reset\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void reset\-Map (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{map_8h_a8b0e7b929dc7159efa7e432f1059dc8e}
+Fill a map with blank tiles. This function doesn't change the current map file. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em m} & The map to reinit \\
+\hline
+\end{DoxyParams}
+\hypertarget{map_8h_a3935bb6ade113dad7068ed17cb2c6898}{\index{map.\-h@{map.\-h}!save\-Map@{save\-Map}}
+\index{save\-Map@{save\-Map}!map.h@{map.\-h}}
+\paragraph[{save\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void save\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{map_8h_a3935bb6ade113dad7068ed17cb2c6898}
+Save the map in a new file and update the file 'level' containing the map list 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt in}  & {\em m} & The map to save \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8h_a3935bb6ade113dad7068ed17cb2c6898_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8h_aba96287d54d5dbd87f817b62e7efa044}{\index{map.\-h@{map.\-h}!update\-Screen\-Map@{update\-Screen\-Map}}
+\index{update\-Screen\-Map@{update\-Screen\-Map}!map.h@{map.\-h}}
+\paragraph[{update\-Screen\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void update\-Screen\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{char $\ast$}]{tileset, }
+\item[{{\bf Cursor} $\ast$}]{cursor}
+\end{DoxyParamCaption}
+)}}\label{map_8h_aba96287d54d5dbd87f817b62e7efa044}
+update and display the map on the screen 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt in}  & {\em m} & The map \\
+\hline
+\mbox{\tt in}  & {\em tileset} & The level tileset \\
+\hline
+\mbox{\tt in}  & {\em cursor} & The mouse cursor \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{map_8h_aba96287d54d5dbd87f817b62e7efa044_cgraph}
+\end{center}
+\end{figure}
+
+

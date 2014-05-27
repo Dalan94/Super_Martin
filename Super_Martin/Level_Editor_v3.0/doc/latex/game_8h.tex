@@ -1,0 +1,100 @@
+\hypertarget{game_8h}{\subsection{game.\-h File Reference}
+\label{game_8h}\index{game.\-h@{game.\-h}}
+}
+
+
+\hyperlink{game_8c}{game.\-c} header  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}const.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}structures.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}text.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}share.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}file\-\_\-level.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}image.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}map.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}input.\-h\char`\"{}}\\*
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{game_8h_a3be984c6f3d228041d098485fe01f98c}{play} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name, S\-D\-L\-Key $\ast$kc)
+\item 
+void \hyperlink{game_8h_aef36043913d82479cc03e51d01a320a1}{print\-Confirmation} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_input}{Input} $\ast$in, int $\ast$go)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\hyperlink{game_8c}{game.\-c} header \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T, Glenn H\-E\-R\-R\-O\-U 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/05-\/15 
+\end{DoxyDate}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{game_8h_a3be984c6f3d228041d098485fe01f98c}{\index{game.\-h@{game.\-h}!play@{play}}
+\index{play@{play}!game.h@{game.\-h}}
+\paragraph[{play}]{\setlength{\rightskip}{0pt plus 5cm}void play (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char $\ast$}]{level\-\_\-name, }
+\item[{S\-D\-L\-Key $\ast$}]{kc}
+\end{DoxyParamCaption}
+)}}\label{game_8h_a3be984c6f3d228041d098485fe01f98c}
+Include the main loop of the game 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt in}  & {\em level\-\_\-name} & The name of the level \\
+\hline
+\mbox{\tt in}  & {\em kc} & The keyboard configuration \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8h_a3be984c6f3d228041d098485fe01f98c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{game_8h_aef36043913d82479cc03e51d01a320a1}{\index{game.\-h@{game.\-h}!print\-Confirmation@{print\-Confirmation}}
+\index{print\-Confirmation@{print\-Confirmation}!game.h@{game.\-h}}
+\paragraph[{print\-Confirmation}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Confirmation (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf Input} $\ast$}]{in, }
+\item[{int $\ast$}]{go}
+\end{DoxyParamCaption}
+)}}\label{game_8h_aef36043913d82479cc03e51d01a320a1}
+Display the confirmation screen, before leaving the edition of a level 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em screen} & The screen of the game \\
+\hline
+\mbox{\tt in}  & {\em in} & The input structure \\
+\hline
+\mbox{\tt out}  & {\em go} & The main loop activation \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{game_8h_aef36043913d82479cc03e51d01a320a1_cgraph}
+\end{center}
+\end{figure}
+
+

@@ -1,0 +1,7 @@
+bin
+obj
+monpremierjeu.depend
+monpremierjeu.layout
+SDL.workspace.layout
+
+*.o

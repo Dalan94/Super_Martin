@@ -1,0 +1,121 @@
+\hypertarget{struct_character}{\subsection{Character Struct Reference}
+\label{struct_character}\index{Character@{Character}}
+}
+
+
+{\ttfamily \#include $<$structures.\-h$>$}
+
+\subsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{struct_character_a9ffc306de2b2ce522b1d1908accd5938}{is\-Npc}
+\item 
+S\-D\-L\-\_\-\-Surface $\ast$ \hyperlink{struct_character_a36a8f1f7bc9c241b9926d97b82811407}{tile}
+\item 
+S\-D\-L\-\_\-\-Rect \hyperlink{struct_character_a08e7ab1c2395b84bea7ca13eb99bac60}{location}
+\item 
+int \hyperlink{struct_character_a72c195fb4fffc6a9267fffce902bf641}{save\-X}
+\item 
+int \hyperlink{struct_character_a5cb5844063a443a2bc538124f0709b13}{save\-Y}
+\item 
+float \hyperlink{struct_character_ab1761c91e3594dec827fe60e992d2e1a}{dir\-X}
+\item 
+float \hyperlink{struct_character_a72324d3d2f391a353c57aaa03b148d8d}{dir\-Y}
+\item 
+int \hyperlink{struct_character_ac73a92163fd55152d03d0aaca5093b72}{is\-Right}
+\item 
+int \hyperlink{struct_character_aa4061d19d285d0ef281f333dee8f9a00}{is\-On\-Ground}
+\item 
+int \hyperlink{struct_character_a917917ad1fee47a2101d4ece8dbd33e8}{double\-Jump}
+\item 
+int \hyperlink{struct_character_aa7fe887a46ee52d925d7b5871e78a202}{wall\-Jump}
+\item 
+int \hyperlink{struct_character_a9aa790f93d2d067a4f5608fdb8409f94}{hp}
+\item 
+int \hyperlink{struct_character_a3bf25d4c62de464729fb3409d2a3d194}{hp\-Max}
+\item 
+int \hyperlink{struct_character_ae4069fd5e08497b888237e5eb9f2e4ad}{nb\-Lifes}
+\item 
+int \hyperlink{struct_character_ad5865bf5f782961efc238cd4a84a445d}{count\-Stars}
+\item 
+int \hyperlink{struct_character_a707f2ed2ff6b487daef553437fe9751d}{is\-Hurt}
+\item 
+int \hyperlink{struct_character_a1f82fe73359859bfa39df1d66d6e652a}{is\-Falling}
+\item 
+int \hyperlink{struct_character_ad892143587536d5edaac114b6d9b38f6}{moving}
+\item 
+int \hyperlink{struct_character_a6aa1000eea413726c603222d5d30fdfe}{On\-Platform}
+\item 
+int \hyperlink{struct_character_a803fd7edf0558a9e0dc73e6351ad85d0}{nb\-Projectile}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+the game characters \-: player and npc 
+
+\subsubsection{Field Documentation}
+\hypertarget{struct_character_ad5865bf5f782961efc238cd4a84a445d}{\index{Character@{Character}!count\-Stars@{count\-Stars}}
+\index{count\-Stars@{count\-Stars}!Character@{Character}}
+\paragraph[{count\-Stars}]{\setlength{\rightskip}{0pt plus 5cm}int count\-Stars}}\label{struct_character_ad5865bf5f782961efc238cd4a84a445d}
+character points with caught stars \hypertarget{struct_character_ab1761c91e3594dec827fe60e992d2e1a}{\index{Character@{Character}!dir\-X@{dir\-X}}
+\index{dir\-X@{dir\-X}!Character@{Character}}
+\paragraph[{dir\-X}]{\setlength{\rightskip}{0pt plus 5cm}float dir\-X}}\label{struct_character_ab1761c91e3594dec827fe60e992d2e1a}
+the direction vectors of the character \hypertarget{struct_character_a72324d3d2f391a353c57aaa03b148d8d}{\index{Character@{Character}!dir\-Y@{dir\-Y}}
+\index{dir\-Y@{dir\-Y}!Character@{Character}}
+\paragraph[{dir\-Y}]{\setlength{\rightskip}{0pt plus 5cm}float dir\-Y}}\label{struct_character_a72324d3d2f391a353c57aaa03b148d8d}
+the direction vectors of the character \hypertarget{struct_character_a917917ad1fee47a2101d4ece8dbd33e8}{\index{Character@{Character}!double\-Jump@{double\-Jump}}
+\index{double\-Jump@{double\-Jump}!Character@{Character}}
+\paragraph[{double\-Jump}]{\setlength{\rightskip}{0pt plus 5cm}int double\-Jump}}\label{struct_character_a917917ad1fee47a2101d4ece8dbd33e8}
+0 when not jumping, 1 if made 1 jump (ie can make a double jump), 2 if have made double jump \hypertarget{struct_character_a9aa790f93d2d067a4f5608fdb8409f94}{\index{Character@{Character}!hp@{hp}}
+\index{hp@{hp}!Character@{Character}}
+\paragraph[{hp}]{\setlength{\rightskip}{0pt plus 5cm}int hp}}\label{struct_character_a9aa790f93d2d067a4f5608fdb8409f94}
+character hit points, dead when 0 \hypertarget{struct_character_a3bf25d4c62de464729fb3409d2a3d194}{\index{Character@{Character}!hp\-Max@{hp\-Max}}
+\index{hp\-Max@{hp\-Max}!Character@{Character}}
+\paragraph[{hp\-Max}]{\setlength{\rightskip}{0pt plus 5cm}int hp\-Max}}\label{struct_character_a3bf25d4c62de464729fb3409d2a3d194}
+The H\-P max \hypertarget{struct_character_a1f82fe73359859bfa39df1d66d6e652a}{\index{Character@{Character}!is\-Falling@{is\-Falling}}
+\index{is\-Falling@{is\-Falling}!Character@{Character}}
+\paragraph[{is\-Falling}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Falling}}\label{struct_character_a1f82fe73359859bfa39df1d66d6e652a}
+indicate if the character is falling \hypertarget{struct_character_a707f2ed2ff6b487daef553437fe9751d}{\index{Character@{Character}!is\-Hurt@{is\-Hurt}}
+\index{is\-Hurt@{is\-Hurt}!Character@{Character}}
+\paragraph[{is\-Hurt}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Hurt}}\label{struct_character_a707f2ed2ff6b487daef553437fe9751d}
+indicate if the character was hurt recently \hypertarget{struct_character_a9ffc306de2b2ce522b1d1908accd5938}{\index{Character@{Character}!is\-Npc@{is\-Npc}}
+\index{is\-Npc@{is\-Npc}!Character@{Character}}
+\paragraph[{is\-Npc}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Npc}}\label{struct_character_a9ffc306de2b2ce522b1d1908accd5938}
+the type of npc, 0 if not a npc, \hypertarget{struct_character_aa4061d19d285d0ef281f333dee8f9a00}{\index{Character@{Character}!is\-On\-Ground@{is\-On\-Ground}}
+\index{is\-On\-Ground@{is\-On\-Ground}!Character@{Character}}
+\paragraph[{is\-On\-Ground}]{\setlength{\rightskip}{0pt plus 5cm}int is\-On\-Ground}}\label{struct_character_aa4061d19d285d0ef281f333dee8f9a00}
+indicate if the character is on the ground \hypertarget{struct_character_ac73a92163fd55152d03d0aaca5093b72}{\index{Character@{Character}!is\-Right@{is\-Right}}
+\index{is\-Right@{is\-Right}!Character@{Character}}
+\paragraph[{is\-Right}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Right}}\label{struct_character_ac73a92163fd55152d03d0aaca5093b72}
+indicate the character's diraction (1 right, 0 left) \hypertarget{struct_character_a08e7ab1c2395b84bea7ca13eb99bac60}{\index{Character@{Character}!location@{location}}
+\index{location@{location}!Character@{Character}}
+\paragraph[{location}]{\setlength{\rightskip}{0pt plus 5cm}S\-D\-L\-\_\-\-Rect location}}\label{struct_character_a08e7ab1c2395b84bea7ca13eb99bac60}
+the location of the character \hypertarget{struct_character_ad892143587536d5edaac114b6d9b38f6}{\index{Character@{Character}!moving@{moving}}
+\index{moving@{moving}!Character@{Character}}
+\paragraph[{moving}]{\setlength{\rightskip}{0pt plus 5cm}int moving}}\label{struct_character_ad892143587536d5edaac114b6d9b38f6}
+indicate the number of moving \hypertarget{struct_character_ae4069fd5e08497b888237e5eb9f2e4ad}{\index{Character@{Character}!nb\-Lifes@{nb\-Lifes}}
+\index{nb\-Lifes@{nb\-Lifes}!Character@{Character}}
+\paragraph[{nb\-Lifes}]{\setlength{\rightskip}{0pt plus 5cm}int nb\-Lifes}}\label{struct_character_ae4069fd5e08497b888237e5eb9f2e4ad}
+nb of the character has \hypertarget{struct_character_a803fd7edf0558a9e0dc73e6351ad85d0}{\index{Character@{Character}!nb\-Projectile@{nb\-Projectile}}
+\index{nb\-Projectile@{nb\-Projectile}!Character@{Character}}
+\paragraph[{nb\-Projectile}]{\setlength{\rightskip}{0pt plus 5cm}int nb\-Projectile}}\label{struct_character_a803fd7edf0558a9e0dc73e6351ad85d0}
+indicates the number of projectiles the character has \hypertarget{struct_character_a6aa1000eea413726c603222d5d30fdfe}{\index{Character@{Character}!On\-Platform@{On\-Platform}}
+\index{On\-Platform@{On\-Platform}!Character@{Character}}
+\paragraph[{On\-Platform}]{\setlength{\rightskip}{0pt plus 5cm}int On\-Platform}}\label{struct_character_a6aa1000eea413726c603222d5d30fdfe}
+indicates if the character is on the platform number x, -\/1 if not on a platform \hypertarget{struct_character_a72c195fb4fffc6a9267fffce902bf641}{\index{Character@{Character}!save\-X@{save\-X}}
+\index{save\-X@{save\-X}!Character@{Character}}
+\paragraph[{save\-X}]{\setlength{\rightskip}{0pt plus 5cm}int save\-X}}\label{struct_character_a72c195fb4fffc6a9267fffce902bf641}
+save the position of the pnj to know if he is blocked at the next loop iteration \hypertarget{struct_character_a5cb5844063a443a2bc538124f0709b13}{\index{Character@{Character}!save\-Y@{save\-Y}}
+\index{save\-Y@{save\-Y}!Character@{Character}}
+\paragraph[{save\-Y}]{\setlength{\rightskip}{0pt plus 5cm}int save\-Y}}\label{struct_character_a5cb5844063a443a2bc538124f0709b13}
+save the position of the pnj to know if he is blocked at the next loop iteration \hypertarget{struct_character_a36a8f1f7bc9c241b9926d97b82811407}{\index{Character@{Character}!tile@{tile}}
+\index{tile@{tile}!Character@{Character}}
+\paragraph[{tile}]{\setlength{\rightskip}{0pt plus 5cm}S\-D\-L\-\_\-\-Surface$\ast$ tile}}\label{struct_character_a36a8f1f7bc9c241b9926d97b82811407}
+the tile set of the character \hypertarget{struct_character_aa7fe887a46ee52d925d7b5871e78a202}{\index{Character@{Character}!wall\-Jump@{wall\-Jump}}
+\index{wall\-Jump@{wall\-Jump}!Character@{Character}}
+\paragraph[{wall\-Jump}]{\setlength{\rightskip}{0pt plus 5cm}int wall\-Jump}}\label{struct_character_aa7fe887a46ee52d925d7b5871e78a202}
+indicates if can do wall jump, 0 don't, 1 wall at right, 2 wall at left 
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structures_8h}{structures.\-h}\end{DoxyCompactItemize}

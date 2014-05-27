@@ -1,7 +1,22 @@
-bin
-obj
-monpremierjeu.depend
-monpremierjeu.layout
-SDL.workspace.layout
+*.layout
+*.depend
+monpremierjeu/bin/
+monpremierjeu/obj/
 
+# Object files
 *.o
+*.ko
+*.obj
+*.elf
+
+# Shared objects (inc. Windows DLLs)
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex

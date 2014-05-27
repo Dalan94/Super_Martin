@@ -1,0 +1,175 @@
+\hypertarget{map_8c}{\subsection{map.\-c File Reference}
+\label{map_8c}\index{map.\-c@{map.\-c}}
+}
+
+
+loading and displaying the map  
+
+
+{\ttfamily \#include \char`\"{}map.\-h\char`\"{}}\\*
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{map_8c_afc8482e2afe6f96b7d6cb6ce3fc7081c}{update\-Screen\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{struct_map}{Map} $\ast$m, char $\ast$tileset)
+\item 
+void \hyperlink{map_8c_a6f031e5ad35ada9038d3a72a56053760}{scrolling} (\hyperlink{struct_map}{Map} $\ast$m, int direction, float speed)
+\item 
+\hyperlink{struct_map}{Map} $\ast$ \hyperlink{map_8c_ace46be3df708e41a326676e6ad122bcc}{init\-Map} (S\-D\-L\-\_\-\-Surface $\ast$screen, char $\ast$level\-\_\-name, \hyperlink{structlist}{list} $\ast$l, \hyperlink{structplatform_set}{platform\-Set} $\ast$ps)
+\item 
+void \hyperlink{map_8c_ac8d4dd6fc80c79d9cb5899684740d074}{free\-Map} (\hyperlink{struct_map}{Map} $\ast$m)
+\item 
+int \hyperlink{map_8c_abf181167fafe365865bf0468959f1426}{collision\-Map} (S\-D\-L\-\_\-\-Rect r, \hyperlink{struct_map}{Map} $\ast$m, int type)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+loading and displaying the map \begin{DoxyAuthor}{Author}
+Xavier C\-O\-P\-O\-N\-E\-T 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/03-\/18 
+\end{DoxyDate}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{map_8c_abf181167fafe365865bf0468959f1426}{\index{map.\-c@{map.\-c}!collision\-Map@{collision\-Map}}
+\index{collision\-Map@{collision\-Map}!map.c@{map.\-c}}
+\paragraph[{collision\-Map}]{\setlength{\rightskip}{0pt plus 5cm}int collision\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Rect}]{r, }
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{map_8c_abf181167fafe365865bf0468959f1426}
+determine if there is a collision beteewen a sprite and a \char`\"{}wall\char`\"{} of the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em r} & S\-D\-L\-\_\-\-Rect corresponding to the sprite \\
+\hline
+\mbox{\tt in}  & {\em m} & map \\
+\hline
+\mbox{\tt in}  & {\em type} & 0 if not a projectile \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if there is a collision, 0 if not,2 if collision with star/coin, 3 if spring 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{map_8c_abf181167fafe365865bf0468959f1426_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8c_ac8d4dd6fc80c79d9cb5899684740d074}{\index{map.\-c@{map.\-c}!free\-Map@{free\-Map}}
+\index{free\-Map@{free\-Map}!map.c@{map.\-c}}
+\paragraph[{free\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Map (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{map_8c_ac8d4dd6fc80c79d9cb5899684740d074}
+free memory allocated to the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em m} & the map \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{map_8c_ac8d4dd6fc80c79d9cb5899684740d074_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8c_ace46be3df708e41a326676e6ad122bcc}{\index{map.\-c@{map.\-c}!init\-Map@{init\-Map}}
+\index{init\-Map@{init\-Map}!map.c@{map.\-c}}
+\paragraph[{init\-Map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Map} $\ast$ init\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{char $\ast$}]{level\-\_\-name, }
+\item[{{\bf list} $\ast$}]{l, }
+\item[{{\bf platform\-Set} $\ast$}]{ps}
+\end{DoxyParamCaption}
+)}}\label{map_8c_ace46be3df708e41a326676e6ad122bcc}
+initialize the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em screen} & game screen \\
+\hline
+\mbox{\tt in}  & {\em level\-\_\-name} & lvl name \\
+\hline
+\mbox{\tt out}  & {\em l} & the enemy list that stocks the enemies \\
+\hline
+\mbox{\tt out}  & {\em ps} & the platform set for the mobile platforms \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer on the map 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{map_8c_ace46be3df708e41a326676e6ad122bcc_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{map_8c_a6f031e5ad35ada9038d3a72a56053760}{\index{map.\-c@{map.\-c}!scrolling@{scrolling}}
+\index{scrolling@{scrolling}!map.c@{map.\-c}}
+\paragraph[{scrolling}]{\setlength{\rightskip}{0pt plus 5cm}void scrolling (
+\begin{DoxyParamCaption}
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{int}]{direction, }
+\item[{float}]{speed}
+\end{DoxyParamCaption}
+)}}\label{map_8c_a6f031e5ad35ada9038d3a72a56053760}
+scroll the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em m} & the lvl \\
+\hline
+\mbox{\tt in}  & {\em direction} & scrolling direction \\
+\hline
+\mbox{\tt in}  & {\em speed} & scrolling speed \\
+\hline
+\end{DoxyParams}
+\hypertarget{map_8c_afc8482e2afe6f96b7d6cb6ce3fc7081c}{\index{map.\-c@{map.\-c}!update\-Screen\-Map@{update\-Screen\-Map}}
+\index{update\-Screen\-Map@{update\-Screen\-Map}!map.c@{map.\-c}}
+\paragraph[{update\-Screen\-Map}]{\setlength{\rightskip}{0pt plus 5cm}void update\-Screen\-Map (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{char $\ast$}]{tileset}
+\end{DoxyParamCaption}
+)}}\label{map_8c_afc8482e2afe6f96b7d6cb6ce3fc7081c}
+update and display the map 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & \\
+\hline
+\mbox{\tt in}  & {\em m} & The map \\
+\hline
+\mbox{\tt in}  & {\em tileset} & the level tileset \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{map_8c_afc8482e2afe6f96b7d6cb6ce3fc7081c_cgraph}
+\end{center}
+\end{figure}
+
+

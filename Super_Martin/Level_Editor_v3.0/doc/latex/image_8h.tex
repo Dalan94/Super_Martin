@@ -1,0 +1,63 @@
+\hypertarget{image_8h}{\subsection{image.\-h File Reference}
+\label{image_8h}\index{image.\-h@{image.\-h}}
+}
+
+
+contient les fonction liées aux images  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L.\-h$>$}\\*
+{\ttfamily \#include $<$S\-D\-L/\-S\-D\-L\-\_\-image.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}const.\-h\char`\"{}}\\*
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+S\-D\-L\-\_\-\-Surface $\ast$ \hyperlink{image_8h_aa53e98f2ff3d527d25b36023ea7f9d56}{image\-Load} (char $\ast$file\-\_\-name)
+\item 
+S\-D\-L\-\_\-\-Surface $\ast$ \hyperlink{image_8h_a469cf40e18cf579993e349b4393a2876}{image\-Load\-Alpha} (char $\ast$file\-\_\-name)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+contient les fonction liées aux images \begin{DoxyAuthor}{Author}
+Rémi B\-E\-R\-T\-H\-O 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2014-\/02-\/27 
+\end{DoxyDate}
+
+
+\subsubsection{Function Documentation}
+\hypertarget{image_8h_aa53e98f2ff3d527d25b36023ea7f9d56}{\index{image.\-h@{image.\-h}!image\-Load@{image\-Load}}
+\index{image\-Load@{image\-Load}!image.h@{image.\-h}}
+\paragraph[{image\-Load}]{\setlength{\rightskip}{0pt plus 5cm}S\-D\-L\-\_\-\-Surface$\ast$ image\-Load (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{image_8h_aa53e98f2ff3d527d25b36023ea7f9d56}
+Load an image 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em file\-\_\-name} & the name of the image file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer on the S\-D\-L\-\_\-\-Surface created 
+\end{DoxyReturn}
+\hypertarget{image_8h_a469cf40e18cf579993e349b4393a2876}{\index{image.\-h@{image.\-h}!image\-Load\-Alpha@{image\-Load\-Alpha}}
+\index{image\-Load\-Alpha@{image\-Load\-Alpha}!image.h@{image.\-h}}
+\paragraph[{image\-Load\-Alpha}]{\setlength{\rightskip}{0pt plus 5cm}S\-D\-L\-\_\-\-Surface$\ast$ image\-Load\-Alpha (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\-\_\-name}
+\end{DoxyParamCaption}
+)}}\label{image_8h_a469cf40e18cf579993e349b4393a2876}
+Load an image with alpha management 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em file\-\_\-name} & the name of the image file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer on the S\-D\-L\-\_\-\-Surface created 
+\end{DoxyReturn}

@@ -1,0 +1,7 @@
+<map id="printWin" name="printWin">
+<area shape="rect" id="node2" href="$sound_8c.html#a4c981aed72c43f6f824e5ad4ad6e2b68" title="playMusic" alt="" coords="150,5,231,32"/>
+<area shape="rect" id="node3" href="$image_8c.html#a3917cdd2e4b298f247aedfdf76268c75" title="blitColor" alt="" coords="155,56,226,83"/>
+<area shape="rect" id="node4" href="$text_8c.html#a1bd80be1aff6fe5303bdd5aa80161da3" title="printText" alt="" coords="154,107,227,133"/>
+<area shape="rect" id="node5" href="$input_8c.html#adf8840e198ccba8364c2d051b700a690" title="updateWaitEvents" alt="" coords="126,157,255,184"/>
+<area shape="rect" id="node6" href="$sound_8c.html#a18be184fe7f93acf424e2fb881c92218" title="stopSound" alt="" coords="149,208,233,235"/>
+</map>
