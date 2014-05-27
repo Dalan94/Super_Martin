@@ -1,4 +1,4 @@
-\hypertarget{file__level_8h}{\section{file\-\_\-level.\-h File Reference}
+\hypertarget{file__level_8h}{\subsection{file\-\_\-level.\-h File Reference}
 \label{file__level_8h}\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}}
 }
 
@@ -14,35 +14,12 @@ Gestion des fichiers de carte.
 {\ttfamily \#include \char`\"{}structures.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}enemies.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}mobile\-\_\-platform.\-h\char`\"{}}\\*
-Include dependency graph for file\-\_\-level.\-h\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{file__level_8h__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{file__level_8h__dep__incl}
-\end{center}
-\end{figure}
-\subsection*{Macros}
+\subsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{file__level_8h_adabecd955aadf3da34af1f25e648123e}{\#define {\bfseries T\-A\-I\-L\-L\-E\-\_\-\-M\-A\-X\-\_\-\-N\-B\-\_\-\-B\-L\-O\-C\-S\-\_\-\-L\-A\-R\-G\-E\-U\-R}~5}\label{file__level_8h_adabecd955aadf3da34af1f25e648123e}
-
-\item 
-\hypertarget{file__level_8h_a2e49d63b0269b66342f6a99dd233ac22}{\#define {\bfseries T\-A\-I\-L\-L\-E\-\_\-\-M\-A\-X\-\_\-\-N\-B\-\_\-\-B\-L\-O\-C\-S\-\_\-\-H\-A\-U\-T\-E\-U\-R}~4}\label{file__level_8h_a2e49d63b0269b66342f6a99dd233ac22}
-
-\item 
-\hypertarget{file__level_8h_afa7b7638d0ac972327d9fadc93db9802}{\#define {\bfseries T\-A\-I\-L\-L\-E\-\_\-\-B\-U\-F\-F\-E\-R}~2}\label{file__level_8h_afa7b7638d0ac972327d9fadc93db9802}
-
+\#define \hyperlink{file__level_8h_a6b20d41d6252e9871430c242cb1a56e7}{B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~2
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{struct_level}{Level} $\ast$ \hyperlink{file__level_8h_a05b04a7e24539a2ae826cfb87ea4d859}{open\-Level} (char $\ast$file\-\_\-name, \hyperlink{structlist}{list} $\ast$l, \hyperlink{structplatform_set}{platform\-Set} $\ast$ps)
@@ -51,14 +28,13 @@ void \hyperlink{file__level_8h_a38020f30305d2344cdf39d06c7e8768e}{close\-Level} 
 \item 
 \hyperlink{struct_level}{Level} $\ast$ \hyperlink{file__level_8h_a1749fb3f97d8b947c393f8eac9d29707}{init\-Level} (\hyperlink{struct_level}{Level} $\ast$lvl)
 \item 
-\hypertarget{file__level_8h_ad0e6f3889cea3bf75de57060534d5760}{char $\ast$$\ast$ {\bfseries read\-Level\-File} (char $\ast$file\-\_\-path, int $\ast$nb\-\_\-lvl)}\label{file__level_8h_ad0e6f3889cea3bf75de57060534d5760}
-
+char $\ast$$\ast$ \hyperlink{file__level_8h_ad0e6f3889cea3bf75de57060534d5760}{read\-Level\-File} (char $\ast$file\-\_\-path, int $\ast$nb\-\_\-lvl)
 \item 
 void \hyperlink{file__level_8h_a3fafc12e3c322fc5a8166f7fb323bfe6}{close\-Level\-List} (char $\ast$$\ast$level\-\_\-names, int nb\-\_\-lvl)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 Gestion des fichiers de carte. \begin{DoxyAuthor}{Author}
 Remi B\-E\-R\-T\-H\-O 
 \end{DoxyAuthor}
@@ -70,10 +46,16 @@ Remi B\-E\-R\-T\-H\-O
 \end{DoxyVersion}
 
 
-\subsection{Function Documentation}
+\subsubsection{Macro Definition Documentation}
+\hypertarget{file__level_8h_a6b20d41d6252e9871430c242cb1a56e7}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}}
+\index{B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}!file_level.h@{file\-\_\-level.\-h}}
+\paragraph[{B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E~2}}\label{file__level_8h_a6b20d41d6252e9871430c242cb1a56e7}
+The buffer size 
+
+\subsubsection{Function Documentation}
 \hypertarget{file__level_8h_a38020f30305d2344cdf39d06c7e8768e}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!close\-Level@{close\-Level}}
 \index{close\-Level@{close\-Level}!file_level.h@{file\-\_\-level.\-h}}
-\subsubsection[{close\-Level}]{\setlength{\rightskip}{0pt plus 5cm}void close\-Level (
+\paragraph[{close\-Level}]{\setlength{\rightskip}{0pt plus 5cm}void close\-Level (
 \begin{DoxyParamCaption}
 \item[{{\bf Level} $\ast$}]{lvl}
 \end{DoxyParamCaption}
@@ -85,7 +67,7 @@ close a level freeing its allocated memory
 \end{DoxyParams}
 \hypertarget{file__level_8h_a3fafc12e3c322fc5a8166f7fb323bfe6}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!close\-Level\-List@{close\-Level\-List}}
 \index{close\-Level\-List@{close\-Level\-List}!file_level.h@{file\-\_\-level.\-h}}
-\subsubsection[{close\-Level\-List}]{\setlength{\rightskip}{0pt plus 5cm}void close\-Level\-List (
+\paragraph[{close\-Level\-List}]{\setlength{\rightskip}{0pt plus 5cm}void close\-Level\-List (
 \begin{DoxyParamCaption}
 \item[{char $\ast$$\ast$}]{level\-\_\-names, }
 \item[{int}]{nb\-\_\-lvl}
@@ -100,7 +82,7 @@ desallocate the level name list
 \end{DoxyParams}
 \hypertarget{file__level_8h_a1749fb3f97d8b947c393f8eac9d29707}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!init\-Level@{init\-Level}}
 \index{init\-Level@{init\-Level}!file_level.h@{file\-\_\-level.\-h}}
-\subsubsection[{init\-Level}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Level}$\ast$ init\-Level (
+\paragraph[{init\-Level}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Level}$\ast$ init\-Level (
 \begin{DoxyParamCaption}
 \item[{{\bf Level} $\ast$}]{lvl}
 \end{DoxyParamCaption}
@@ -115,7 +97,7 @@ a pointer on the level structure
 \end{DoxyReturn}
 \hypertarget{file__level_8h_a05b04a7e24539a2ae826cfb87ea4d859}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!open\-Level@{open\-Level}}
 \index{open\-Level@{open\-Level}!file_level.h@{file\-\_\-level.\-h}}
-\subsubsection[{open\-Level}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Level}$\ast$ open\-Level (
+\paragraph[{open\-Level}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Level}$\ast$ open\-Level (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{file\-\_\-name, }
 \item[{{\bf list} $\ast$}]{l, }
@@ -136,12 +118,40 @@ a pointer on the level structure
 \end{DoxyReturn}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{file__level_8h_a05b04a7e24539a2ae826cfb87ea4d859_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{file__level_8h_ad0e6f3889cea3bf75de57060534d5760}{\index{file\-\_\-level.\-h@{file\-\_\-level.\-h}!read\-Level\-File@{read\-Level\-File}}
+\index{read\-Level\-File@{read\-Level\-File}!file_level.h@{file\-\_\-level.\-h}}
+\paragraph[{read\-Level\-File}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ read\-Level\-File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file\-\_\-path, }
+\item[{int $\ast$}]{nb\-\_\-lvl}
+\end{DoxyParamCaption}
+)}}\label{file__level_8h_ad0e6f3889cea3bf75de57060534d5760}
+read a file level 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em nb\-\_\-lvl} & number of level \\
+\hline
+\mbox{\tt out}  & {\em file\-\_\-path} & the file path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer on the level list created 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{file__level_8h_ad0e6f3889cea3bf75de57060534d5760_cgraph}
 \end{center}
 \end{figure}
 

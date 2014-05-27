@@ -1,5 +1,5 @@
 /*!
- * \file    file_map.c
+ * \file    file_level.c
  * \brief   map file gestion
  * \author  Remi BERTHO
  * \date    15/03/14
@@ -13,7 +13,7 @@ Level *openLevel(char *file_name,list *l,platformSet *ps)
  {
     FILE *ptr_file;
     int i,j;
-    char buffer[TAILLE_BUFFER];
+    char buffer[BUFFER_SIZE];
     Level *lvl;
     char *cleaning;
 
@@ -41,7 +41,7 @@ Level *openLevel(char *file_name,list *l,platformSet *ps)
 
     initLevel(lvl);
 
-    fgets(buffer,TAILLE_BUFFER,ptr_file);
+    fgets(buffer,BUFFER_SIZE,ptr_file);
     fgets(lvl->tileSet,MAX_SIZE_FILE_NAME,ptr_file);
     fgets(lvl->background,MAX_SIZE_FILE_NAME,ptr_file);
     fgets(lvl->music,MAX_SIZE_FILE_NAME,ptr_file);
@@ -64,7 +64,7 @@ Level *openLevel(char *file_name,list *l,platformSet *ps)
     for(i=0 ; i < lvl->height ; i++)
     {
         fgets((char *)lvl->map[i],lvl->width+1,ptr_file);
-        fgets(buffer,TAILLE_BUFFER,ptr_file);
+        fgets(buffer,BUFFER_SIZE,ptr_file);
         for (j=0 ; j < lvl->width ; j++)
         {
             switch(lvl->map[i][j])

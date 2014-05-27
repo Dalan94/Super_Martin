@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['savex',['saveX',['../struct_character.html#a72c195fb4fffc6a9267fffce902bf641',1,'Character']]],
-  ['space',['space',['../struct_input.html#ab05991ed532329184893692211b355fa',1,'Input']]],
-  ['speed',['speed',['../structplatform.html#a218b4f7c6cc2681a99c23a3b089d68b1',1,'platform']]]
+  ['previous',['previous',['../structnode.html#aba783da56f092df6846bd3b7b9555728',1,'node']]],
+  ['projectilethrown',['projectileThrown',['../structprojectile_set.html#accfd9d1d6194770a3368821b58ffc3b6',1,'projectileSet']]]
 ];

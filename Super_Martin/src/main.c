@@ -17,6 +17,12 @@
 
 #include "player.h"
 
+/**
+ *\fn int main(int argc, char *argv[])
+ * Main
+ *\param[in,out] argc argc
+ *\param[in,out] argv argv
+ */
 int main(int argc, char *argv[])
 {
     SDL_Surface *screen = NULL;
@@ -42,12 +48,6 @@ int main(int argc, char *argv[])
     Player *current_player;
 
     current_player = (Player *)malloc(sizeof(Player));
-
-    current_player->levelMax = 8;
-    //current_player->hpMax = 150;
-    current_player->nbCoins = 90;
-    current_player->nbLifes = 3;
-
 
     /*screen initialization*/
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
@@ -76,14 +76,22 @@ int main(int argc, char *argv[])
                     case 2  :
                         ret2 = newPlayer(screen, player_name, sound_system, &go);
                         if(ret2 == 1)
-                            save(screen, "save/.save", player_name, current_player, &go);
+                        {
+                            current_player->levelMax = 1;
+                            current_player->nbCoins = 0;
+                            current_player->nbLifes = 3;
+                            current_player->nbProjectile = 5;
+                            savePlayer("save/.save", player_name, current_player);
+                            loadInputOptions("default",kc,&in);
+                            saveInputOptions(player_name, kc, &in);
+                        }
                         else
                             break;
 
                     case 1  :
                         loadPlayer("save/.save", player_name, current_player);
                         loadInputOptions(player_name,kc,&in);
-                        while((ret1 = mainMenu(screen,&go,sound_system, player_name, &in)) != -1 && go)
+                        while(go && (ret1 = mainMenu(screen,&go,sound_system, player_name, &in)) != -1)
                         {
                             switch(ret1)
                             {
@@ -104,6 +112,7 @@ int main(int argc, char *argv[])
 
                                 case 2 :
                                     while((ret = optionMenu(screen,&go,sound_system,kc, &in)) != -1 && go)
+                                    {
                                         switch(ret)
                                         {
                                             case -1:
@@ -116,9 +125,19 @@ int main(int argc, char *argv[])
                                                 break;
                                             default:;
                                         }
+                                    }
+                                    break;
+
+                                case 3 :
+                                    deletePlayer(screen, "save/players", player_name);
+                                    go = 0;
+                                    break;
+
                                 default: ;
                             }
                         }
+                        go = 1;
+                        break;
 
                     default : ;
 

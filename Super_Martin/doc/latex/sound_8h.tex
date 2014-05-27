@@ -1,4 +1,4 @@
-\hypertarget{sound_8h}{\section{sound.\-h File Reference}
+\hypertarget{sound_8h}{\subsection{sound.\-h File Reference}
 \label{sound_8h}\index{sound.\-h@{sound.\-h}}
 }
 
@@ -10,27 +10,12 @@ header de \hyperlink{sound_8c}{sound.\-c}
 {\ttfamily \#include $<$stdlib.\-h$>$}\\*
 {\ttfamily \#include $<$stdio.\-h$>$}\\*
 {\ttfamily \#include $<$errno.\-h$>$}\\*
-Include dependency graph for sound.\-h\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{sound_8h__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{sound_8h__dep__incl}
-\end{center}
-\end{figure}
-\subsection*{Data Structures}
+\subsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
 struct \hyperlink{struct_sound}{Sound}
 \end{DoxyCompactItemize}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{struct_sound}{Sound} $\ast$ \hyperlink{sound_8h_a32a66a56d175c0916741cdf8059091ba}{create\-Sound} (void)
@@ -47,7 +32,7 @@ void \hyperlink{sound_8h_a808dfdd0b2bdf172ff0741b3a94c3f2d}{sound\-Volume} (\hyp
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 header de \hyperlink{sound_8c}{sound.\-c} \begin{DoxyAuthor}{Author}
 Xavier C\-O\-P\-O\-N\-E\-T 
 \end{DoxyAuthor}
@@ -56,10 +41,10 @@ Xavier C\-O\-P\-O\-N\-E\-T
 \end{DoxyDate}
 
 
-\subsection{Function Documentation}
+\subsubsection{Function Documentation}
 \hypertarget{sound_8h_a32a66a56d175c0916741cdf8059091ba}{\index{sound.\-h@{sound.\-h}!create\-Sound@{create\-Sound}}
 \index{create\-Sound@{create\-Sound}!sound.h@{sound.\-h}}
-\subsubsection[{create\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sound}$\ast$ create\-Sound (
+\paragraph[{create\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Sound}$\ast$ create\-Sound (
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
@@ -69,7 +54,7 @@ the sound structure
 \end{DoxyReturn}
 \hypertarget{sound_8h_acc13f1ac1e0bac5afe39405869772a08}{\index{sound.\-h@{sound.\-h}!free\-Sound@{free\-Sound}}
 \index{free\-Sound@{free\-Sound}!sound.h@{sound.\-h}}
-\subsubsection[{free\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Sound (
+\paragraph[{free\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Sound (
 \begin{DoxyParamCaption}
 \item[{{\bf Sound} $\ast$}]{s}
 \end{DoxyParamCaption}
@@ -81,7 +66,7 @@ release the sound
 \end{DoxyParams}
 \hypertarget{sound_8h_a4c981aed72c43f6f824e5ad4ad6e2b68}{\index{sound.\-h@{sound.\-h}!play\-Music@{play\-Music}}
 \index{play\-Music@{play\-Music}!sound.h@{sound.\-h}}
-\subsubsection[{play\-Music}]{\setlength{\rightskip}{0pt plus 5cm}void play\-Music (
+\paragraph[{play\-Music}]{\setlength{\rightskip}{0pt plus 5cm}void play\-Music (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{file, }
 \item[{{\bf Sound} $\ast$}]{s}
@@ -96,7 +81,7 @@ play a long sound file (music)
 \end{DoxyParams}
 \hypertarget{sound_8h_af6703afe3fbb9a56c97f10e71c571889}{\index{sound.\-h@{sound.\-h}!play\-Short\-Sound@{play\-Short\-Sound}}
 \index{play\-Short\-Sound@{play\-Short\-Sound}!sound.h@{sound.\-h}}
-\subsubsection[{play\-Short\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void play\-Short\-Sound (
+\paragraph[{play\-Short\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void play\-Short\-Sound (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{file, }
 \item[{{\bf Sound} $\ast$}]{s}
@@ -111,7 +96,7 @@ play a short sound file (effect sound)
 \end{DoxyParams}
 \hypertarget{sound_8h_a808dfdd0b2bdf172ff0741b3a94c3f2d}{\index{sound.\-h@{sound.\-h}!sound\-Volume@{sound\-Volume}}
 \index{sound\-Volume@{sound\-Volume}!sound.h@{sound.\-h}}
-\subsubsection[{sound\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}void sound\-Volume (
+\paragraph[{sound\-Volume}]{\setlength{\rightskip}{0pt plus 5cm}void sound\-Volume (
 \begin{DoxyParamCaption}
 \item[{{\bf Sound} $\ast$}]{s, }
 \item[{int}]{chan, }
@@ -129,7 +114,7 @@ set the sound volume
 \end{DoxyParams}
 \hypertarget{sound_8h_a18be184fe7f93acf424e2fb881c92218}{\index{sound.\-h@{sound.\-h}!stop\-Sound@{stop\-Sound}}
 \index{stop\-Sound@{stop\-Sound}!sound.h@{sound.\-h}}
-\subsubsection[{stop\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void stop\-Sound (
+\paragraph[{stop\-Sound}]{\setlength{\rightskip}{0pt plus 5cm}void stop\-Sound (
 \begin{DoxyParamCaption}
 \item[{{\bf Sound} $\ast$}]{s, }
 \item[{int}]{chan}

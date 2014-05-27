@@ -55,7 +55,7 @@ void movePlatform(Character *c,platformSet *ps,list *l,Map *m);
  *\param[in,out] c the player
  *\param[in,out] p the platform
  *\param[in,out] l the enemy list
- *\param[in] the number of the platform which is moved
+ *\param[in] nb the number of the platform which is moved
  *\param[in] m the game map
  */
 void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m);
@@ -65,7 +65,7 @@ void moveOnePlatform(Character *c,platform *p,list *l,int nb,Map *m);
  *determine if there is a collision beteewen the player and a mobile platform and deals with
  *\param[in,out] c the player
  *\param[in,out] ps the platform set
- *\param[in] futurLocation the tryMovement variabla to test the future position
+ *\param[in] futureLocation the tryMovement variabla to test the future position
  *\return 1 if there is a collision, 0 if not
  */
 int collisionPlatform(Character *c,platformSet *ps,SDL_Rect futureLocation);
@@ -73,7 +73,7 @@ int collisionPlatform(Character *c,platformSet *ps,SDL_Rect futureLocation);
 /**
  *\fn void freePlatformSet(platformSet *ps)
  *free all the platforms
- *\param[int,out] ps the platform set
+ *\param[in,out] ps the platform set
  */
 void freePlatformSet(platformSet *ps);
 

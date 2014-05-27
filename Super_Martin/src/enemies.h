@@ -16,7 +16,7 @@
 
  /*prototypes*/
  /**
- *\fn node *newNode(enemy *c, node *n, node *p)
+ *\fn node *newNode(Character *c, node *n, node *p)
  *creates a new node
  *\param[in] c the character of the node
  *\param[in] n the next node
@@ -100,37 +100,37 @@
  Character *getCurrent (list * l);
 
 /**
- *\fn int insertFirst (list *l, enemy *c)
+ *\fn  int insertFirst(list * l, Character *c);
  *insert a enemy as first node
  *\param[out] l the list in which the enemy has to be inserted
- *\param[in] c the enemy to be inserted
+ *\param[in] c the charcter to be inserted
  *\return 1 if enemy inserted, 0 if failure
  */
  int insertFirst(list * l, Character *c);
 
  /**
- *\fn int insertLast (list *l, enemy *c)
+ *\fn  int insertLast(list * l, Character *c);
  *insert a enemy as last node
  *\param[out] l the list in which the enemy has to be inserted
- *\param[in] c the enemy to be inserted
+ *\param[in] c the character to be inserted
  *\return 1 if enemy inserted, 0 if failure
  */
  int insertLast(list * l, Character *c);
 
  /**
- *\fn int insertAfterCurrent (list *l, enemy *c)
+ *\fn  int insertAfterCurrent(list * l, Character *c);
  *insert a enemy just after the current node
  *\param[out] l the list in which the enemy has to be inserted
- *\param[in] c the enemy to be inserted
+ *\param[in] c the character to be inserted
  *\return 1 if enemy inserted, 0 if failure
  */
  int insertAfterCurrent(list * l, Character *c);
 
  /**
- *\fn int insertBeforeCurrent (list *l, enemy *c)
+ *\fn  int insertBeforeCurrent(list * l, Character *c);
  *insert a enemy just before the current node
  *\param[out] l the list in which the enemy has to be inserted
- *\param[in] c the enemy to be inserted
+ *\param[in] c the character to be inserted
  *\return 1 if enemy inserted, 0 if failure
  */
  int insertBeforeCurrent(list * l, Character *c);
@@ -160,10 +160,9 @@
  Character *deleteCurrent(list * l);
 
 /**
- *\fn void createEnemy(char *spR,char *spL,int x,int y, list *l,int type)
+ *\fn void createEnemy(char *tile,int x,int y, list *l,int type);
  *creates an enemy and adds it to an enemies list
- *\param[in] spR right sprite address
- *\param[in] spL right sprite address
+ *\param[in] tile the tilset name
  *\param[in] x enemy's x location
  *\param[in] y enemy's y location
  *\param[out] l enemies list
@@ -179,9 +178,10 @@ void createEnemy(char *tile,int x,int y, list *l,int type);
 void freeEnemies(list *l);
 
 /**
- *\fn void blitEnemies(SDL_Surface *screen, list *l)
+ *\fn void blitEnemies(SDL_Surface *screen, list *l,Map *m)
  *blit the enemies
  *\param[in,out] screen game screen
+ *\param[in,out] m the map
  *\param[in,out] l the enemy list
  */
 void blitEnemies(SDL_Surface *screen, list *l,Map *m);
@@ -197,7 +197,7 @@ void blitEnemies(SDL_Surface *screen, list *l,Map *m);
 int collisionEnemy(Character *c,list *l,Map *m);
 
 /**
- *\fn void moveEnemies(list *l, Map *m, list *p,projectilSet *ps, int launch)
+ *\fn void moveEnemies(list *l, Map *m, list *p,projectileSet *ps,int *launch)
  *make the enemies moving
  *\param[in,out] l the enemy list
  *\param[in] m the game map
@@ -205,13 +205,14 @@ int collisionEnemy(Character *c,list *l,Map *m);
  *\param[out] ps the projectile set
  *\param[in] launch if 1, canons can fire an rocket
  */
-void moveEnemies(list *l, Map *m,list *p,projectileSet *ps, int *lanch);
+void moveEnemies(list *l, Map *m, list *p,projectileSet *ps,int *launch);
 
 /**
- *\fn int moveCharacterCol(Character *c,int direction,Map *m)
+ *\fn int moveCharacterCol(Character *c,int move_left, int move_right,Map *m);
  *moves the character if it's hurt by an enemy
  *\param[in,out] c the character
- *\param[in] direction the direction of the movement
+ *\param[in,out] move_left indicate if the character must move left
+ *\param[in,out] move_right indicate if the character must move right
  *\param[in] m level map
  *\return 1 if character was moved without using the precise movement function, 0 if not
  */

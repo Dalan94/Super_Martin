@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['nb',['nb',['../structplatform_set.html#ab310c6afcc676eab3930dce2650511c0',1,'platformSet::nb()'],['../structprojectile_set.html#ab310c6afcc676eab3930dce2650511c0',1,'projectileSet::nb()']]],
-  ['nbprojectile',['nbProjectile',['../struct_character.html#a803fd7edf0558a9e0dc73e6351ad85d0',1,'Character']]],
-  ['next',['next',['../structnode.html#a0dc1b6470487aa86d9936e3cab8b95be',1,'node']]]
+  ['map',['map',['../struct_level.html#a6d985f8729c187f1c35dabba2738f0bd',1,'Level']]],
+  ['moving',['moving',['../struct_character.html#ad892143587536d5edaac114b6d9b38f6',1,'Character']]],
+  ['music',['music',['../struct_level.html#a16d4a8b2aa62b5e644923bdf44da16f7',1,'Level::music()'],['../struct_sound.html#acca26c408c6140c8cdc0d8f49d31ad4a',1,'Sound::music()']]],
+  ['musicvolume',['musicVolume',['../struct_sound.html#a6f06b572245c72c79f052b7efb89dc3b',1,'Sound']]]
 ];

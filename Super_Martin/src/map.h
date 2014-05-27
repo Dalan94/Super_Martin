@@ -22,16 +22,16 @@
 /**
  *\fn void updateScreenMap(SDL_Surface *screen, Map *m,char *tileset)
  *update and display the map
- *\param[in,out] game screen
- *\param[in] Map *m The map
+ *\param[in,out] screen
+ *\param[in] m The map
  *\param[in] tileset the level tileset
  */
-void updateScreenMap(SDL_Surface *screen, Map *m, char *tileSet);
+void updateScreenMap(SDL_Surface *screen, Map *m, char *tileset);
 
 /**
  *\fn void scrolling(Map *m,int direction,float speed)
  *scroll the map
- *\param[in,out] map the lvl
+ *\param[in,out] m the lvl
  *\param[in] direction scrolling direction
  *\param[in] speed scrolling speed
  */
@@ -50,7 +50,7 @@ Map* initMap(SDL_Surface *screen,char * level_name, list *l,platformSet *ps);
 
 
  /**
-  *\fn void freeMap(map *m)
+  *\fn void freeMap(Map *m)
   *free memory allocated to the map
   *\param[in,out] m the map
   */

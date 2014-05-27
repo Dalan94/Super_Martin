@@ -93,13 +93,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Contain the functions managing the images.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="image_8h_source.html">image.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for image.c:</div>
-<div class="dyncontent">
-<div class="center"><img src="image_8c__incl.png" border="0" usemap="#image_8c" alt=""/></div>
-<map name="image_8c" id="image_8c">
-<area shape="rect" id="node2" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="226,80,293,107"/><area shape="rect" id="node8" href="const_8h.html" title="containe the program constantes " alt="" coords="534,155,599,181"/></map>
-</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -107,12 +100,69 @@ Functions</h2></td></tr>
 <tr class="separator:a9862daea48ad8bfd1d3a0c401a9f5210"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a569b068180b77bf2d44cf580322c68ad"><td class="memItemLeft" align="right" valign="top">SDL_Surface *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="image_8c.html#a569b068180b77bf2d44cf580322c68ad">imageLoadAlpha</a> (char *file_name)</td></tr>
 <tr class="separator:a569b068180b77bf2d44cf580322c68ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3917cdd2e4b298f247aedfdf76268c75"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="image_8c.html#a3917cdd2e4b298f247aedfdf76268c75">blitColor</a> (Uint32 red, Uint32 green, Uint32 blue, int alpha, SDL_Surface *screen)</td></tr>
+<tr class="separator:a3917cdd2e4b298f247aedfdf76268c75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Contain the functions managing the images. </p>
 <dl class="section author"><dt>Author</dt><dd>Rémi BERTHO </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2014-02-27 </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="a3917cdd2e4b298f247aedfdf76268c75"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void blitColor </td>
+          <td>(</td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>red</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>green</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uint32&#160;</td>
+          <td class="paramname"><em>blue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>alpha</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SDL_Surface *&#160;</td>
+          <td class="paramname"><em>screen</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Blit a color on the screen </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">red</td><td>the red of the color </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">green</td><td>the green of the color </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">blue</td><td>the blue of the color </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">alpha</td><td>the transparency of the image file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">screen</td><td>the screen </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a9862daea48ad8bfd1d3a0c401a9f5210"></a>
 <div class="memitem">
 <div class="memproto">
@@ -164,7 +214,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 26 2014 17:03:28 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 19:13:31 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

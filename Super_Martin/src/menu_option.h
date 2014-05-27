@@ -27,11 +27,11 @@
 #include "option.h"
 
 /**
- *\fn int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,keyConf *kc,Input *in)
+ *\fn int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc,Input *in)
  *print the option menu on the screen
  *\param[out] screen the game screen
  *\param[in,out] go main loop validation
- *\param[in,out] sys sound system
+ *\param[in,out] sound_sys sound system
  *\param[in,out] kc the keyboard configuration structure
  *\param[in,out] in the input structure
  *\return the number of the option which is choosen, -1 if esc
@@ -43,13 +43,14 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc,Input *in
  *print the sound options and deals with the user choises
  *\param[out] screen the game screen
  *\param[in,out] go main loop validation
- *\param[in,out] sys sound system
+ *\param[in,out] sound_sys sound system
  *\param[in,out] in the input structure
+ *\param[in,out] sound_sys the sound system
  */
 void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys,Input *in);
 
 /**
- *\fn void keyboardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in,char *player_name)
+ *\fn void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in,char *player_name)
  *print the keyboard options and deals with the user choises
  *\param[out] screen the game screen
  *\param[in,out] go main loop validation

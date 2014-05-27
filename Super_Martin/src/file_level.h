@@ -18,9 +18,12 @@
 #include "enemies.h"
 #include "mobile_platform.h"
 
-#define TAILLE_MAX_NB_BLOCS_LARGEUR 5
-#define TAILLE_MAX_NB_BLOCS_HAUTEUR 4
-#define TAILLE_BUFFER 2
+
+/*!
+ * \def BUFFER_SIZE
+ * The buffer size
+ */
+#define BUFFER_SIZE 2
 
 /*!
  * \fn  Level *openLevel(char *file_name, list *l,platformSet *ps)
@@ -48,9 +51,10 @@ void closeLevel(Level *lvl);
 Level *initLevel(Level *lvl);
 
 /*!
- * \fn  char **readLevelFile(int *nb_lvl)
+ * \fn char **readLevelFile(char *file_path, int *nb_lvl);
  *  read a file level
  * \param[out] nb_lvl number of level
+ * \param[out] file_path the file path
  * \return pointer on the level list created
  */
 char **readLevelFile(char *file_path, int *nb_lvl);

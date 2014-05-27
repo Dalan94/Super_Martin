@@ -93,13 +93,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Management of the display of text on the screen.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="text_8h_source.html">text.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for text.c:</div>
-<div class="dyncontent">
-<div class="center"><img src="text_8c__incl.png" border="0" usemap="#text_8c" alt=""/></div>
-<map name="text_8c" id="text_8c">
-<area shape="rect" id="node2" href="text_8h.html" title="text.c header " alt="" coords="1193,80,1247,107"/><area shape="rect" id="node6" href="structures_8h.html" title="structures.h" alt="" coords="1427,603,1517,629"/><area shape="rect" id="node11" href="input_8h_source.html" title="input.h" alt="" coords="771,155,832,181"/><area shape="rect" id="node8" href="const_8h.html" title="containe the program constantes " alt="" coords="1506,677,1571,704"/><area shape="rect" id="node12" href="character_8h.html" title="header de character.c " alt="" coords="1183,229,1269,256"/><area shape="rect" id="node13" href="file__level_8h.html" title="Gestion des fichiers de carte. " alt="" coords="1083,379,1167,405"/><area shape="rect" id="node16" href="enemies_8h.html" title="enemies.c header " alt="" coords="1464,453,1545,480"/><area shape="rect" id="node18" href="image_8h.html" title="contient les fonction liées aux images " alt="" coords="995,603,1063,629"/><area shape="rect" id="node19" href="mobile__platform_8h.html" title="mobile_platform.c header " alt="" coords="1315,453,1440,480"/><area shape="rect" id="node20" href="share_8h.html" title="share.c header " alt="" coords="1739,603,1804,629"/><area shape="rect" id="node21" href="map_8h.html" title="map.c header " alt="" coords="828,304,885,331"/><area shape="rect" id="node22" href="sound_8h.html" title="header de sound.c " alt="" coords="246,603,313,629"/><area shape="rect" id="node15" href="file_8h.html" title="Prototypes des fonctions d&#39;acces aux fichiers. " alt="" coords="491,603,541,629"/><area shape="rect" id="node17" href="projectile_8h.html" title="projectile.c header " alt="" coords="1365,528,1451,555"/></map>
-</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -196,12 +189,12 @@ Functions</h2></td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>The screen of the game </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">posText</td><td>The position of the text. If NULL, the text is centered </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">text</td><td>The text to display </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>r red value </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>g green value </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>b blue value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>red value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>green value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>blue value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">text_length</td><td>the text length </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>The path to the font file </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ptSize</td><td>The text size </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>The writing mode : 0 (Solid), 1 (Blended) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">text_size</td><td>The text size </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">go</td><td>The main loop validation </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">ret</td><td>The press return indicator </td></tr>
   </table>
@@ -290,9 +283,9 @@ Here is the call graph for this function:</div>
     <tr><td class="paramdir">[out]</td><td class="paramname">screen</td><td>The screen of the game </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">posText</td><td>The position of the text. If NULL, the text is centered </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">text</td><td>The text to display </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>r red value </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>g green value </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">int</td><td>b blue value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">r</td><td>red value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>green value </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>blue value </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">font</td><td>The path to the font file </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ptSize</td><td>The text size </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>The writing mode : 0 (Solid), 1 (Blended) </td></tr>
@@ -305,7 +298,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 26 2014 17:03:29 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 27 2014 19:13:31 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -45,14 +45,14 @@ int optionMenu(SDL_Surface *screen,int *go,Sound *sound_sys,SDLKey *kc,Input *in
         {
             posText.x = -1;
             text_size=screen->h / nb_option;
-            if (text_size > 60)
-                text_size=60;
-            posText.y = screen->h / (1+nb_option) * (i+1) - text_size/2;
+            if (text_size > 30)
+                text_size=30;
+            posText.y = 150 + (screen->h - 350)/ (1+nb_option) * (i+1) - text_size/2;
             if(i != pos_curseur)
-                printText(screen,&posText,option_names[i],0,0,0,"polices/ubuntu.ttf",text_size,1);
+                printText(screen,&posText,option_names[i],0,0,0,"polices/PressStart2P.ttf",text_size,1);
             else
             {
-                printText(screen,&posText,option_names[i],255,60,30,"polices/ubuntu.ttf",text_size,1);
+                printText(screen,&posText,option_names[i],255,60,30,"polices/PressStart2P.ttf",text_size,1);
             }
         }
 
@@ -102,12 +102,12 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys, Input *in)
 
         for (i=0 ; i < nb_option ; i++)
         {
-            posText.x = 70;
+            posText.x = 300;
             text_size=screen->h / nb_option;
-            if (text_size > 60)
-                text_size=60;
-            value.y = posText.y = screen->h / (1+nb_option) * (i+1) - text_size/2;
-            value.x = 300;
+            if (text_size > 30)
+                text_size=30;
+            value.y = posText.y = 150 + (screen->h - 300) / (1+nb_option) * (i+1) - text_size/2;
+            value.x = 570;
             value.h = text_size;
             switch(i)
             {
@@ -121,9 +121,9 @@ void soundOptions(SDL_Surface *screen,int *go,Sound *sound_sys, Input *in)
             }
 
             if(i != pos_curseur)
-                printText(screen,&posText,option_names[i],0,0,0,"polices/ubuntu.ttf",text_size,1);
+                printText(screen,&posText,option_names[i],0,0,0,"polices/PressStart2P.ttf",text_size,1);
             else
-                printText(screen,&posText,option_names[i],255,60,30,"polices/ubuntu.ttf",text_size,1);
+                printText(screen,&posText,option_names[i],255,60,30,"polices/PressStart2P.ttf",text_size,1);
 
             SDL_FillRect(screen,&value,SDL_MapRGB(screen->format,200,0,0));
         }
@@ -203,9 +203,9 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in,char *play
         {
             posText.x = 70;
             text_size=screen->h / nb_key;
-            if (text_size > 60)
-                text_size=60;
-            posText.y = screen->h / (1+nb_key) * (i+1) - text_size/2;
+            if (text_size > 30)
+                text_size=30;
+            posText.y = 150 + (screen->h -350)/ (1+nb_key) * (i+1) - text_size/2;
             posText.x = -1;
 
             sprintf(st,"%s",SDL_GetKeyName(kc[i]));
@@ -233,12 +233,12 @@ void keyBoardOptions(SDL_Surface *screen,int *go,SDLKey *kc,Input *in,char *play
             if(i != pos_curseur)
             {
                 if(i == NB_KEY-1 && !in->isJoystick)
-                    printText(screen,&posText,key,117,117,117,"polices/ubuntu.ttf",text_size,1);
+                    printText(screen,&posText,key,117,117,117,"polices/PressStart2P.ttf",text_size,1);
                 else
-                    printText(screen,&posText,key,0,0,0,"polices/ubuntu.ttf",text_size,1);
+                    printText(screen,&posText,key,0,0,0,"polices/PressStart2P.ttf",text_size,1);
             }
             else
-                printText(screen,&posText,key,255,60,30,"polices/ubuntu.ttf",text_size,1);
+                printText(screen,&posText,key,255,60,30,"polices/PressStart2P.ttf",text_size,1);
                 /* ******* */
         }
 
@@ -274,7 +274,7 @@ void chooseKey(SDL_Surface *screen,Input *in,char *action,SDLKey *kc,int nb)
     SDL_BlitSurface(keyChoose,NULL,screen,&posGame);
 
     sprintf(st,"Please, choose a key for %s",action);
-    printText(screen,NULL,st,186,38,18,"polices/ubuntu.ttf",65,1);
+    printText(screen,NULL,st,186,38,18,"polices/PressStart2P.ttf",30,1);
     SDL_Flip(screen);
 
     SDL_Delay(1500);

@@ -1,4 +1,4 @@
-\hypertarget{enemies_8h}{\section{enemies.\-h File Reference}
+\hypertarget{enemies_8h}{\subsection{enemies.\-h File Reference}
 \label{enemies_8h}\index{enemies.\-h@{enemies.\-h}}
 }
 
@@ -10,27 +10,10 @@
 {\ttfamily \#include \char`\"{}projectile.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}const.\-h\char`\"{}}\\*
 {\ttfamily \#include \char`\"{}structures.\-h\char`\"{}}\\*
-Include dependency graph for enemies.\-h\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{enemies_8h__incl}
-\end{center}
-\end{figure}
-This graph shows which files directly or indirectly include this file\-:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{enemies_8h__dep__incl}
-\end{center}
-\end{figure}
-\subsection*{Functions}
+\subsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{enemies_8h_a86da34107b65b23bb7105568af701160}{\hyperlink{structnode}{node} $\ast$ {\bfseries new\-Node} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{structnode}{node} $\ast$n, \hyperlink{structnode}{node} $\ast$p)}\label{enemies_8h_a86da34107b65b23bb7105568af701160}
-
+\hyperlink{structnode}{node} $\ast$ \hyperlink{enemies_8h_a86da34107b65b23bb7105568af701160}{new\-Node} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{structnode}{node} $\ast$n, \hyperlink{structnode}{node} $\ast$p)
 \item 
 void \hyperlink{enemies_8h_aaca0e3ca99177d70268a1f770c50e264}{init\-List} (\hyperlink{structlist}{list} $\ast$l)
 \item 
@@ -52,17 +35,13 @@ void \hyperlink{enemies_8h_ab6a55e4b951590640debd7d4110c37e6}{previous} (\hyperl
 \item 
 \hyperlink{struct_character}{Character} $\ast$ \hyperlink{enemies_8h_a38ef80c447f07fdd6319ab28fd5dc7da}{get\-Current} (\hyperlink{structlist}{list} $\ast$l)
 \item 
-\hypertarget{enemies_8h_a277ce428e10c4d50abdae6d162128f48}{int {\bfseries insert\-First} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)}\label{enemies_8h_a277ce428e10c4d50abdae6d162128f48}
-
+int \hyperlink{enemies_8h_a277ce428e10c4d50abdae6d162128f48}{insert\-First} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)
 \item 
-\hypertarget{enemies_8h_a121944b1f370af47e1f980128bf0fc86}{int {\bfseries insert\-Last} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)}\label{enemies_8h_a121944b1f370af47e1f980128bf0fc86}
-
+int \hyperlink{enemies_8h_a121944b1f370af47e1f980128bf0fc86}{insert\-Last} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)
 \item 
-\hypertarget{enemies_8h_ae745be19268624b512665dce384c7eb4}{int {\bfseries insert\-After\-Current} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)}\label{enemies_8h_ae745be19268624b512665dce384c7eb4}
-
+int \hyperlink{enemies_8h_ae745be19268624b512665dce384c7eb4}{insert\-After\-Current} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)
 \item 
-\hypertarget{enemies_8h_ae8c5bac4a4363592b055b0cd4000864c}{int {\bfseries insert\-Before\-Current} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)}\label{enemies_8h_ae8c5bac4a4363592b055b0cd4000864c}
-
+int \hyperlink{enemies_8h_ae8c5bac4a4363592b055b0cd4000864c}{insert\-Before\-Current} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_character}{Character} $\ast$c)
 \item 
 \hyperlink{struct_character}{Character} $\ast$ \hyperlink{enemies_8h_a194e361c113eeffdd25fc8726b3c000d}{delete\-First} (\hyperlink{structlist}{list} $\ast$l)
 \item 
@@ -70,25 +49,21 @@ void \hyperlink{enemies_8h_ab6a55e4b951590640debd7d4110c37e6}{previous} (\hyperl
 \item 
 \hyperlink{struct_character}{Character} $\ast$ \hyperlink{enemies_8h_ac507237248dd8833577460bb908e100b}{delete\-Current} (\hyperlink{structlist}{list} $\ast$l)
 \item 
-\hypertarget{enemies_8h_a68e86bc615a3b71cf549b32a71f6c943}{void {\bfseries create\-Enemy} (char $\ast$tile, int x, int y, \hyperlink{structlist}{list} $\ast$l, int type)}\label{enemies_8h_a68e86bc615a3b71cf549b32a71f6c943}
-
+void \hyperlink{enemies_8h_a68e86bc615a3b71cf549b32a71f6c943}{create\-Enemy} (char $\ast$tile, int x, int y, \hyperlink{structlist}{list} $\ast$l, int type)
 \item 
 void \hyperlink{enemies_8h_a766e049c933ace6a69ba1e7c3fab142c}{free\-Enemies} (\hyperlink{structlist}{list} $\ast$l)
 \item 
-\hypertarget{enemies_8h_ada7bfd5ddcfd60cd52ad17b2c9b37b8f}{void {\bfseries blit\-Enemies} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_map}{Map} $\ast$m)}\label{enemies_8h_ada7bfd5ddcfd60cd52ad17b2c9b37b8f}
-
+void \hyperlink{enemies_8h_ada7bfd5ddcfd60cd52ad17b2c9b37b8f}{blit\-Enemies} (S\-D\-L\-\_\-\-Surface $\ast$screen, \hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_map}{Map} $\ast$m)
 \item 
 int \hyperlink{enemies_8h_ae36bc711341ade0e08eb57e1c5063174}{collision\-Enemy} (\hyperlink{struct_character}{Character} $\ast$c, \hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_map}{Map} $\ast$m)
 \item 
-\hypertarget{enemies_8h_ad65074c8bc86ef4a58f8c55c83412dad}{void {\bfseries move\-Enemies} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_map}{Map} $\ast$m, \hyperlink{structlist}{list} $\ast$p, \hyperlink{structprojectile_set}{projectile\-Set} $\ast$ps, int $\ast$lanch)}\label{enemies_8h_ad65074c8bc86ef4a58f8c55c83412dad}
-
+void \hyperlink{enemies_8h_a5cc0822e34be00f2555f70f8acf17680}{move\-Enemies} (\hyperlink{structlist}{list} $\ast$l, \hyperlink{struct_map}{Map} $\ast$m, \hyperlink{structlist}{list} $\ast$p, \hyperlink{structprojectile_set}{projectile\-Set} $\ast$ps, int $\ast$launch)
 \item 
-\hypertarget{enemies_8h_a315db1acddbe1cd18db63bab85f1709a}{int {\bfseries move\-Character\-Col} (\hyperlink{struct_character}{Character} $\ast$c, int move\-\_\-left, int move\-\_\-right, \hyperlink{struct_map}{Map} $\ast$m)}\label{enemies_8h_a315db1acddbe1cd18db63bab85f1709a}
-
+int \hyperlink{enemies_8h_a315db1acddbe1cd18db63bab85f1709a}{move\-Character\-Col} (\hyperlink{struct_character}{Character} $\ast$c, int move\-\_\-left, int move\-\_\-right, \hyperlink{struct_map}{Map} $\ast$m)
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsubsection{Detailed Description}
 \hyperlink{enemies_8c}{enemies.\-c} header \begin{DoxyAuthor}{Author}
 Xavier C\-O\-P\-O\-N\-E\-T 
 \end{DoxyAuthor}
@@ -97,10 +72,39 @@ Xavier C\-O\-P\-O\-N\-E\-T
 \end{DoxyDate}
 
 
-\subsection{Function Documentation}
+\subsubsection{Function Documentation}
+\hypertarget{enemies_8h_ada7bfd5ddcfd60cd52ad17b2c9b37b8f}{\index{enemies.\-h@{enemies.\-h}!blit\-Enemies@{blit\-Enemies}}
+\index{blit\-Enemies@{blit\-Enemies}!enemies.h@{enemies.\-h}}
+\paragraph[{blit\-Enemies}]{\setlength{\rightskip}{0pt plus 5cm}void blit\-Enemies (
+\begin{DoxyParamCaption}
+\item[{S\-D\-L\-\_\-\-Surface $\ast$}]{screen, }
+\item[{{\bf list} $\ast$}]{l, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{enemies_8h_ada7bfd5ddcfd60cd52ad17b2c9b37b8f}
+blit the enemies 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em screen} & game screen \\
+\hline
+\mbox{\tt in,out}  & {\em m} & the map \\
+\hline
+\mbox{\tt in,out}  & {\em l} & the enemy list \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{enemies_8h_ada7bfd5ddcfd60cd52ad17b2c9b37b8f_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{enemies_8h_ae36bc711341ade0e08eb57e1c5063174}{\index{enemies.\-h@{enemies.\-h}!collision\-Enemy@{collision\-Enemy}}
 \index{collision\-Enemy@{collision\-Enemy}!enemies.h@{enemies.\-h}}
-\subsubsection[{collision\-Enemy}]{\setlength{\rightskip}{0pt plus 5cm}int collision\-Enemy (
+\paragraph[{collision\-Enemy}]{\setlength{\rightskip}{0pt plus 5cm}int collision\-Enemy (
 \begin{DoxyParamCaption}
 \item[{{\bf Character} $\ast$}]{c, }
 \item[{{\bf list} $\ast$}]{l, }
@@ -121,8 +125,7 @@ determine if there is a collision beteewen the player sprite and an enemy and de
 \end{DoxyReturn}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -131,9 +134,44 @@ Here is the call graph for this function\-:
 \end{figure}
 
 
+\hypertarget{enemies_8h_a68e86bc615a3b71cf549b32a71f6c943}{\index{enemies.\-h@{enemies.\-h}!create\-Enemy@{create\-Enemy}}
+\index{create\-Enemy@{create\-Enemy}!enemies.h@{enemies.\-h}}
+\paragraph[{create\-Enemy}]{\setlength{\rightskip}{0pt plus 5cm}void create\-Enemy (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{tile, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{{\bf list} $\ast$}]{l, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{enemies_8h_a68e86bc615a3b71cf549b32a71f6c943}
+creates an enemy and adds it to an enemies list 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em tile} & the tilset name \\
+\hline
+\mbox{\tt in}  & {\em x} & enemy's x location \\
+\hline
+\mbox{\tt in}  & {\em y} & enemy's y location \\
+\hline
+\mbox{\tt out}  & {\em l} & enemies list \\
+\hline
+\mbox{\tt in}  & {\em type} & the type of enemy \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{enemies_8h_a68e86bc615a3b71cf549b32a71f6c943_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{enemies_8h_ac507237248dd8833577460bb908e100b}{\index{enemies.\-h@{enemies.\-h}!delete\-Current@{delete\-Current}}
 \index{delete\-Current@{delete\-Current}!enemies.h@{enemies.\-h}}
-\subsubsection[{delete\-Current}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Character}$\ast$ delete\-Current (
+\paragraph[{delete\-Current}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Character}$\ast$ delete\-Current (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -148,8 +186,7 @@ the current node's enemy, N\-U\-L\-L if empty list
 \end{DoxyReturn}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -160,7 +197,7 @@ Here is the call graph for this function\-:
 
 \hypertarget{enemies_8h_a194e361c113eeffdd25fc8726b3c000d}{\index{enemies.\-h@{enemies.\-h}!delete\-First@{delete\-First}}
 \index{delete\-First@{delete\-First}!enemies.h@{enemies.\-h}}
-\subsubsection[{delete\-First}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Character}$\ast$ delete\-First (
+\paragraph[{delete\-First}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Character}$\ast$ delete\-First (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -175,8 +212,7 @@ the first node's enemy, N\-U\-L\-L if empty list
 \end{DoxyReturn}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -187,7 +223,7 @@ Here is the call graph for this function\-:
 
 \hypertarget{enemies_8h_ae1ba17d62391833365fa4462690b31c5}{\index{enemies.\-h@{enemies.\-h}!delete\-Last@{delete\-Last}}
 \index{delete\-Last@{delete\-Last}!enemies.h@{enemies.\-h}}
-\subsubsection[{delete\-Last}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Character}$\ast$ delete\-Last (
+\paragraph[{delete\-Last}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Character}$\ast$ delete\-Last (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -202,8 +238,7 @@ the last node's enemy, N\-U\-L\-L if empty list
 \end{DoxyReturn}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -214,7 +249,7 @@ Here is the call graph for this function\-:
 
 \hypertarget{enemies_8h_a185b7dd5b77fdf2b6315358ac7767e44}{\index{enemies.\-h@{enemies.\-h}!empty@{empty}}
 \index{empty@{empty}!enemies.h@{enemies.\-h}}
-\subsubsection[{empty}]{\setlength{\rightskip}{0pt plus 5cm}int empty (
+\paragraph[{empty}]{\setlength{\rightskip}{0pt plus 5cm}int empty (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -229,7 +264,7 @@ tests if the list is empty
 \end{DoxyReturn}
 \hypertarget{enemies_8h_a0f5c139f75d0a54b38c0d33e1bc22223}{\index{enemies.\-h@{enemies.\-h}!first@{first}}
 \index{first@{first}!enemies.h@{enemies.\-h}}
-\subsubsection[{first}]{\setlength{\rightskip}{0pt plus 5cm}int first (
+\paragraph[{first}]{\setlength{\rightskip}{0pt plus 5cm}int first (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -244,7 +279,7 @@ tests if the current node is the first node
 \end{DoxyReturn}
 \hypertarget{enemies_8h_a766e049c933ace6a69ba1e7c3fab142c}{\index{enemies.\-h@{enemies.\-h}!free\-Enemies@{free\-Enemies}}
 \index{free\-Enemies@{free\-Enemies}!enemies.h@{enemies.\-h}}
-\subsubsection[{free\-Enemies}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Enemies (
+\paragraph[{free\-Enemies}]{\setlength{\rightskip}{0pt plus 5cm}void free\-Enemies (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -256,8 +291,7 @@ free all the enemies and the list
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -268,7 +302,7 @@ Here is the call graph for this function\-:
 
 \hypertarget{enemies_8h_a38ef80c447f07fdd6319ab28fd5dc7da}{\index{enemies.\-h@{enemies.\-h}!get\-Current@{get\-Current}}
 \index{get\-Current@{get\-Current}!enemies.h@{enemies.\-h}}
-\subsubsection[{get\-Current}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Character}$\ast$ get\-Current (
+\paragraph[{get\-Current}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Character}$\ast$ get\-Current (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -280,7 +314,7 @@ get the character of the current node
 \end{DoxyParams}
 \hypertarget{enemies_8h_aaca0e3ca99177d70268a1f770c50e264}{\index{enemies.\-h@{enemies.\-h}!init\-List@{init\-List}}
 \index{init\-List@{init\-List}!enemies.h@{enemies.\-h}}
-\subsubsection[{init\-List}]{\setlength{\rightskip}{0pt plus 5cm}void init\-List (
+\paragraph[{init\-List}]{\setlength{\rightskip}{0pt plus 5cm}void init\-List (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -290,9 +324,125 @@ initialize the enemy list
 \mbox{\tt out}  & {\em l} & the list to be initalized \\
 \hline
 \end{DoxyParams}
+\hypertarget{enemies_8h_ae745be19268624b512665dce384c7eb4}{\index{enemies.\-h@{enemies.\-h}!insert\-After\-Current@{insert\-After\-Current}}
+\index{insert\-After\-Current@{insert\-After\-Current}!enemies.h@{enemies.\-h}}
+\paragraph[{insert\-After\-Current}]{\setlength{\rightskip}{0pt plus 5cm}int insert\-After\-Current (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l, }
+\item[{{\bf Character} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}}\label{enemies_8h_ae745be19268624b512665dce384c7eb4}
+insert a enemy just after the current node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list in which the enemy has to be inserted \\
+\hline
+\mbox{\tt in}  & {\em c} & the character to be inserted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if enemy inserted, 0 if failure 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{enemies_8h_ae745be19268624b512665dce384c7eb4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{enemies_8h_ae8c5bac4a4363592b055b0cd4000864c}{\index{enemies.\-h@{enemies.\-h}!insert\-Before\-Current@{insert\-Before\-Current}}
+\index{insert\-Before\-Current@{insert\-Before\-Current}!enemies.h@{enemies.\-h}}
+\paragraph[{insert\-Before\-Current}]{\setlength{\rightskip}{0pt plus 5cm}int insert\-Before\-Current (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l, }
+\item[{{\bf Character} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}}\label{enemies_8h_ae8c5bac4a4363592b055b0cd4000864c}
+insert a enemy just before the current node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list in which the enemy has to be inserted \\
+\hline
+\mbox{\tt in}  & {\em c} & the character to be inserted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if enemy inserted, 0 if failure 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{enemies_8h_ae8c5bac4a4363592b055b0cd4000864c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{enemies_8h_a277ce428e10c4d50abdae6d162128f48}{\index{enemies.\-h@{enemies.\-h}!insert\-First@{insert\-First}}
+\index{insert\-First@{insert\-First}!enemies.h@{enemies.\-h}}
+\paragraph[{insert\-First}]{\setlength{\rightskip}{0pt plus 5cm}int insert\-First (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l, }
+\item[{{\bf Character} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}}\label{enemies_8h_a277ce428e10c4d50abdae6d162128f48}
+insert a enemy as first node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list in which the enemy has to be inserted \\
+\hline
+\mbox{\tt in}  & {\em c} & the charcter to be inserted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if enemy inserted, 0 if failure 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{enemies_8h_a277ce428e10c4d50abdae6d162128f48_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{enemies_8h_a121944b1f370af47e1f980128bf0fc86}{\index{enemies.\-h@{enemies.\-h}!insert\-Last@{insert\-Last}}
+\index{insert\-Last@{insert\-Last}!enemies.h@{enemies.\-h}}
+\paragraph[{insert\-Last}]{\setlength{\rightskip}{0pt plus 5cm}int insert\-Last (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l, }
+\item[{{\bf Character} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}}\label{enemies_8h_a121944b1f370af47e1f980128bf0fc86}
+insert a enemy as last node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em l} & the list in which the enemy has to be inserted \\
+\hline
+\mbox{\tt in}  & {\em c} & the character to be inserted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if enemy inserted, 0 if failure 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{enemies_8h_a121944b1f370af47e1f980128bf0fc86_cgraph}
+\end{center}
+\end{figure}
+
+
 \hypertarget{enemies_8h_a86d339159e440962ce42347b99e07625}{\index{enemies.\-h@{enemies.\-h}!last@{last}}
 \index{last@{last}!enemies.h@{enemies.\-h}}
-\subsubsection[{last}]{\setlength{\rightskip}{0pt plus 5cm}int last (
+\paragraph[{last}]{\setlength{\rightskip}{0pt plus 5cm}int last (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -305,9 +455,100 @@ tests if the current node is the last node
 \begin{DoxyReturn}{Returns}
 1 if the current node is the last node, 0 if not 
 \end{DoxyReturn}
+\hypertarget{enemies_8h_a315db1acddbe1cd18db63bab85f1709a}{\index{enemies.\-h@{enemies.\-h}!move\-Character\-Col@{move\-Character\-Col}}
+\index{move\-Character\-Col@{move\-Character\-Col}!enemies.h@{enemies.\-h}}
+\paragraph[{move\-Character\-Col}]{\setlength{\rightskip}{0pt plus 5cm}int move\-Character\-Col (
+\begin{DoxyParamCaption}
+\item[{{\bf Character} $\ast$}]{c, }
+\item[{int}]{move\-\_\-left, }
+\item[{int}]{move\-\_\-right, }
+\item[{{\bf Map} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}}\label{enemies_8h_a315db1acddbe1cd18db63bab85f1709a}
+moves the character if it's hurt by an enemy 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em c} & the character \\
+\hline
+\mbox{\tt in,out}  & {\em move\-\_\-left} & indicate if the character must move left \\
+\hline
+\mbox{\tt in,out}  & {\em move\-\_\-right} & indicate if the character must move right \\
+\hline
+\mbox{\tt in}  & {\em m} & level map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if character was moved without using the precise movement function, 0 if not 
+\end{DoxyReturn}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{enemies_8h_a315db1acddbe1cd18db63bab85f1709a_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{enemies_8h_a5cc0822e34be00f2555f70f8acf17680}{\index{enemies.\-h@{enemies.\-h}!move\-Enemies@{move\-Enemies}}
+\index{move\-Enemies@{move\-Enemies}!enemies.h@{enemies.\-h}}
+\paragraph[{move\-Enemies}]{\setlength{\rightskip}{0pt plus 5cm}void move\-Enemies (
+\begin{DoxyParamCaption}
+\item[{{\bf list} $\ast$}]{l, }
+\item[{{\bf Map} $\ast$}]{m, }
+\item[{{\bf list} $\ast$}]{p, }
+\item[{{\bf projectile\-Set} $\ast$}]{ps, }
+\item[{int $\ast$}]{launch}
+\end{DoxyParamCaption}
+)}}\label{enemies_8h_a5cc0822e34be00f2555f70f8acf17680}
+make the enemies moving 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em l} & the enemy list \\
+\hline
+\mbox{\tt in}  & {\em m} & the game map \\
+\hline
+\mbox{\tt in,out}  & {\em p} & the player list \\
+\hline
+\mbox{\tt out}  & {\em ps} & the projectile set \\
+\hline
+\mbox{\tt in}  & {\em launch} & if 1, canons can fire an rocket \\
+\hline
+\end{DoxyParams}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{enemies_8h_a5cc0822e34be00f2555f70f8acf17680_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{enemies_8h_a86da34107b65b23bb7105568af701160}{\index{enemies.\-h@{enemies.\-h}!new\-Node@{new\-Node}}
+\index{new\-Node@{new\-Node}!enemies.h@{enemies.\-h}}
+\paragraph[{new\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf node}$\ast$ new\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Character} $\ast$}]{c, }
+\item[{{\bf node} $\ast$}]{n, }
+\item[{{\bf node} $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{enemies_8h_a86da34107b65b23bb7105568af701160}
+creates a new node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em c} & the character of the node \\
+\hline
+\mbox{\tt in}  & {\em n} & the next node \\
+\hline
+\mbox{\tt in}  & {\em p} & the previous node \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer on the created node 
+\end{DoxyReturn}
 \hypertarget{enemies_8h_a1e9424bcb6302d001589f04a99802abf}{\index{enemies.\-h@{enemies.\-h}!next@{next}}
 \index{next@{next}!enemies.h@{enemies.\-h}}
-\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}void next (
+\paragraph[{next}]{\setlength{\rightskip}{0pt plus 5cm}void next (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -319,8 +560,7 @@ set the current node on its next node
 \end{DoxyParams}
 
 
-Here is the call graph for this function\-:
-\nopagebreak
+Here is the call graph for this function\-:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -331,7 +571,7 @@ Here is the call graph for this function\-:
 
 \hypertarget{enemies_8h_a7774be61944dce2ae021e0e4442b4515}{\index{enemies.\-h@{enemies.\-h}!out\-Of\-List@{out\-Of\-List}}
 \index{out\-Of\-List@{out\-Of\-List}!enemies.h@{enemies.\-h}}
-\subsubsection[{out\-Of\-List}]{\setlength{\rightskip}{0pt plus 5cm}int out\-Of\-List (
+\paragraph[{out\-Of\-List}]{\setlength{\rightskip}{0pt plus 5cm}int out\-Of\-List (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -346,7 +586,7 @@ tests if the current node is in the list
 \end{DoxyReturn}
 \hypertarget{enemies_8h_ab6a55e4b951590640debd7d4110c37e6}{\index{enemies.\-h@{enemies.\-h}!previous@{previous}}
 \index{previous@{previous}!enemies.h@{enemies.\-h}}
-\subsubsection[{previous}]{\setlength{\rightskip}{0pt plus 5cm}void previous (
+\paragraph[{previous}]{\setlength{\rightskip}{0pt plus 5cm}void previous (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -358,7 +598,7 @@ set the current node on its previous node
 \end{DoxyParams}
 \hypertarget{enemies_8h_aa0ae9a01476366cb08c3e904e2f31433}{\index{enemies.\-h@{enemies.\-h}!set\-On\-First@{set\-On\-First}}
 \index{set\-On\-First@{set\-On\-First}!enemies.h@{enemies.\-h}}
-\subsubsection[{set\-On\-First}]{\setlength{\rightskip}{0pt plus 5cm}void set\-On\-First (
+\paragraph[{set\-On\-First}]{\setlength{\rightskip}{0pt plus 5cm}void set\-On\-First (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}
@@ -370,7 +610,7 @@ set the current node on the first node
 \end{DoxyParams}
 \hypertarget{enemies_8h_ad8a2ca1098f3a37401100bf88c3a4f03}{\index{enemies.\-h@{enemies.\-h}!set\-On\-Last@{set\-On\-Last}}
 \index{set\-On\-Last@{set\-On\-Last}!enemies.h@{enemies.\-h}}
-\subsubsection[{set\-On\-Last}]{\setlength{\rightskip}{0pt plus 5cm}void set\-On\-Last (
+\paragraph[{set\-On\-Last}]{\setlength{\rightskip}{0pt plus 5cm}void set\-On\-Last (
 \begin{DoxyParamCaption}
 \item[{{\bf list} $\ast$}]{l}
 \end{DoxyParamCaption}

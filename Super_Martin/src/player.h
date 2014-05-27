@@ -69,6 +69,16 @@ int savePlayer(char fileSave[MAX_SIZE_FILE_NAME], char player_name[MAX_SIZE_FILE
 
 void save(SDL_Surface *screen, char fileSave[MAX_SIZE_FILE_NAME], char player_name[MAX_SIZE_FILE_NAME], Player *player, int *go);
 
+/**
+ *\fn void deletePlayer(SDL_Surface *screen, char fileSave[MAX_SIZE_FILE_NAME], char player_name[MAX_SIZE_FILE_NAME])
+ *Delete the current player in the player list.
+ *\param[in, out] screen The screen of the game
+ *\param[in, out] fileSave The path to the binary file containing the progression of each player
+ *\param[in] player_name The name of the current player
+ */
+
+void deletePlayer(SDL_Surface *screen, char fileSave[MAX_SIZE_FILE_NAME], char player_name[MAX_SIZE_FILE_NAME]);
+
 
 
 
