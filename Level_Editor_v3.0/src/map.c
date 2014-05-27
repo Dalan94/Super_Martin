@@ -367,8 +367,8 @@ void displayHelp(SDL_Surface *screen, SDLKey *kc)
         {
 
             text_size= (screen->h -300)/ (min(nb_key, OPTIONS_PER_COLUMN));
-            if (text_size > 35)
-                text_size=35;
+            if (text_size > 20)
+                text_size=20;
             if(i>= 2*OPTIONS_PER_COLUMN)
             {
                 posText.x = 750;
