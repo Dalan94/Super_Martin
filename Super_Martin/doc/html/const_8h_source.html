@@ -145,47 +145,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keyword">enum</span> {L=0,R,J,P,H};</div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="struct_level.html">  165</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;{</div>
-<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="struct_level.html#a6d985f8729c187f1c35dabba2738f0bd">  167</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>**<a class="code" href="struct_level.html#a6d985f8729c187f1c35dabba2738f0bd">map</a>; </div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="struct_level.html#a2474a5474cbff19523a51eb1de01cda4">  168</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_level.html#a2474a5474cbff19523a51eb1de01cda4">width</a>; </div>
-<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="struct_level.html#ad12fc34ce789bce6c8a05d8a17138534">  169</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_level.html#ad12fc34ce789bce6c8a05d8a17138534">height</a>; </div>
-<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="struct_level.html#a28c59da9677a9d7b98db49328a77dc3c">  170</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_level.html#a28c59da9677a9d7b98db49328a77dc3c">timer_level</a>; </div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="struct_level.html#a65e1491050070e8d940ac310bb3ee901">  171</a></span>&#160;    <span class="keywordtype">char</span> tileSet[<a class="code" href="const_8h.html#a95feb1f1a8c13ebeb7da1e49b2896c24">MAX_SIZE_FILE_NAME</a>]; </div>
-<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="struct_level.html#a31c790abec040f1888acf0e062d1c827">  172</a></span>&#160;    <span class="keywordtype">char</span> tileSet2[<a class="code" href="const_8h.html#a95feb1f1a8c13ebeb7da1e49b2896c24">MAX_SIZE_FILE_NAME</a>]; </div>
-<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="struct_level.html#ad086ee40635033453f3e41bc143af7b7">  173</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_level.html#ad086ee40635033453f3e41bc143af7b7">tileSetUse</a>; </div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="struct_level.html#a138d74a180ed8126b24d9b9b5b135882">  174</a></span>&#160;    <span class="keywordtype">char</span> background[<a class="code" href="const_8h.html#a95feb1f1a8c13ebeb7da1e49b2896c24">MAX_SIZE_FILE_NAME</a>]; </div>
-<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="struct_level.html#a16d4a8b2aa62b5e644923bdf44da16f7">  175</a></span>&#160;    <span class="keywordtype">char</span> music[<a class="code" href="const_8h.html#a95feb1f1a8c13ebeb7da1e49b2896c24">MAX_SIZE_FILE_NAME</a>]; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}<a class="code" href="struct_level.html">Level</a>;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="struct_map.html">  182</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{</div>
-<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="struct_map.html#abca19b7de8e60347a507d1aeff95c764">  184</a></span>&#160;    <a class="code" href="struct_level.html">Level</a> *<a class="code" href="struct_map.html#abca19b7de8e60347a507d1aeff95c764">lvl</a>; </div>
-<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="struct_map.html#aa83bbdf2603e42824cd0bab44bf315c2">  185</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_map.html#aa83bbdf2603e42824cd0bab44bf315c2">xScroll</a>; </div>
-<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="struct_map.html#ae50cb92a78d9e0a4f4bd718fc02bd294">  186</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_map.html#ae50cb92a78d9e0a4f4bd718fc02bd294">screenWidth</a>; </div>
-<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="struct_map.html#a9ebc1dbd77788c4bfa27758a6725413f">  187</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="struct_map.html#a9ebc1dbd77788c4bfa27758a6725413f">screenHeight</a>; </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;}<a class="code" href="struct_map.html">Map</a>;</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">#endif // CONST_H_INCLUDED</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor"></span></div>
-<div class="ttc" id="struct_level_html_ad12fc34ce789bce6c8a05d8a17138534"><div class="ttname"><a href="struct_level.html#ad12fc34ce789bce6c8a05d8a17138534">Level::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> const.h:169</div></div>
-<div class="ttc" id="struct_map_html_a9ebc1dbd77788c4bfa27758a6725413f"><div class="ttname"><a href="struct_map.html#a9ebc1dbd77788c4bfa27758a6725413f">Map::screenHeight</a></div><div class="ttdeci">int screenHeight</div><div class="ttdef"><b>Definition:</b> const.h:187</div></div>
-<div class="ttc" id="struct_level_html_a2474a5474cbff19523a51eb1de01cda4"><div class="ttname"><a href="struct_level.html#a2474a5474cbff19523a51eb1de01cda4">Level::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition:</b> const.h:168</div></div>
-<div class="ttc" id="const_8h_html_a95feb1f1a8c13ebeb7da1e49b2896c24"><div class="ttname"><a href="const_8h.html#a95feb1f1a8c13ebeb7da1e49b2896c24">MAX_SIZE_FILE_NAME</a></div><div class="ttdeci">#define MAX_SIZE_FILE_NAME</div><div class="ttdef"><b>Definition:</b> const.h:39</div></div>
-<div class="ttc" id="struct_map_html"><div class="ttname"><a href="struct_map.html">Map</a></div><div class="ttdef"><b>Definition:</b> const.h:182</div></div>
-<div class="ttc" id="struct_map_html_aa83bbdf2603e42824cd0bab44bf315c2"><div class="ttname"><a href="struct_map.html#aa83bbdf2603e42824cd0bab44bf315c2">Map::xScroll</a></div><div class="ttdeci">int xScroll</div><div class="ttdef"><b>Definition:</b> const.h:185</div></div>
-<div class="ttc" id="struct_level_html"><div class="ttname"><a href="struct_level.html">Level</a></div><div class="ttdef"><b>Definition:</b> const.h:165</div></div>
-<div class="ttc" id="struct_level_html_ad086ee40635033453f3e41bc143af7b7"><div class="ttname"><a href="struct_level.html#ad086ee40635033453f3e41bc143af7b7">Level::tileSetUse</a></div><div class="ttdeci">int tileSetUse</div><div class="ttdef"><b>Definition:</b> const.h:173</div></div>
-<div class="ttc" id="struct_level_html_a6d985f8729c187f1c35dabba2738f0bd"><div class="ttname"><a href="struct_level.html#a6d985f8729c187f1c35dabba2738f0bd">Level::map</a></div><div class="ttdeci">unsigned char ** map</div><div class="ttdef"><b>Definition:</b> const.h:167</div></div>
-<div class="ttc" id="struct_map_html_ae50cb92a78d9e0a4f4bd718fc02bd294"><div class="ttname"><a href="struct_map.html#ae50cb92a78d9e0a4f4bd718fc02bd294">Map::screenWidth</a></div><div class="ttdeci">int screenWidth</div><div class="ttdef"><b>Definition:</b> const.h:186</div></div>
-<div class="ttc" id="struct_level_html_a28c59da9677a9d7b98db49328a77dc3c"><div class="ttname"><a href="struct_level.html#a28c59da9677a9d7b98db49328a77dc3c">Level::timer_level</a></div><div class="ttdeci">int timer_level</div><div class="ttdef"><b>Definition:</b> const.h:170</div></div>
-<div class="ttc" id="struct_map_html_abca19b7de8e60347a507d1aeff95c764"><div class="ttname"><a href="struct_map.html#abca19b7de8e60347a507d1aeff95c764">Map::lvl</a></div><div class="ttdeci">Level * lvl</div><div class="ttdef"><b>Definition:</b> const.h:184</div></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="preprocessor">#endif // CONST_H_INCLUDED</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 2 2014 13:58:38 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jun 2 2014 17:19:17 for Super Martin by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

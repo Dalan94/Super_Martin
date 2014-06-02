@@ -32,7 +32,7 @@ Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescrip
 
 [Files]
 Source: "Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "Release\Super_Martin\configuration\.conf"; DestDir: "{app}\Super_Martin\configuration";
+Source: "Release\Super_Martin\save\.save"; DestDir: "{app}\Super_Martin\save";
 Source: "Release\Level_Editor\.conf"; DestDir: "{app}\Level_Editor";
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
