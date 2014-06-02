@@ -534,137 +534,137 @@
 \indexentry{init\discretionary {-}{}{}Platform\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Platform\discretionary {-}{}{}Set}!mobile_platform.c@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}|hyperpage}{105}
 \indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}!move\discretionary {-}{}{}One\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}One\discretionary {-}{}{}Platform}|hyperpage}{105}
 \indexentry{move\discretionary {-}{}{}One\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}One\discretionary {-}{}{}Platform}!mobile_platform.c@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}|hyperpage}{105}
-\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}!move\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}Platform}|hyperpage}{105}
-\indexentry{move\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}Platform}!mobile_platform.c@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}|hyperpage}{105}
-\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}!platform\discretionary {-}{}{}Map@{platform\discretionary {-}{}{}Map}|hyperpage}{107}
-\indexentry{platform\discretionary {-}{}{}Map@{platform\discretionary {-}{}{}Map}!mobile_platform.c@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}|hyperpage}{107}
+\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}!move\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}Platform}|hyperpage}{106}
+\indexentry{move\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}Platform}!mobile_platform.c@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}|hyperpage}{106}
+\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}!platform\discretionary {-}{}{}Map@{platform\discretionary {-}{}{}Map}|hyperpage}{106}
+\indexentry{platform\discretionary {-}{}{}Map@{platform\discretionary {-}{}{}Map}!mobile_platform.c@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}c}|hyperpage}{106}
 \indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{107}
-\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!blit\discretionary {-}{}{}Platform@{blit\discretionary {-}{}{}Platform}|hyperpage}{108}
-\indexentry{blit\discretionary {-}{}{}Platform@{blit\discretionary {-}{}{}Platform}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{108}
+\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!blit\discretionary {-}{}{}Platform@{blit\discretionary {-}{}{}Platform}|hyperpage}{107}
+\indexentry{blit\discretionary {-}{}{}Platform@{blit\discretionary {-}{}{}Platform}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{107}
 \indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!collision\discretionary {-}{}{}Platform@{collision\discretionary {-}{}{}Platform}|hyperpage}{108}
 \indexentry{collision\discretionary {-}{}{}Platform@{collision\discretionary {-}{}{}Platform}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{108}
 \indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!create\discretionary {-}{}{}Platform@{create\discretionary {-}{}{}Platform}|hyperpage}{108}
 \indexentry{create\discretionary {-}{}{}Platform@{create\discretionary {-}{}{}Platform}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{108}
-\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!free\discretionary {-}{}{}Platform\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Platform\discretionary {-}{}{}Set}|hyperpage}{110}
-\indexentry{free\discretionary {-}{}{}Platform\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Platform\discretionary {-}{}{}Set}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{110}
-\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!init\discretionary {-}{}{}Platform\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Platform\discretionary {-}{}{}Set}|hyperpage}{110}
-\indexentry{init\discretionary {-}{}{}Platform\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Platform\discretionary {-}{}{}Set}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{110}
-\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!move\discretionary {-}{}{}One\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}One\discretionary {-}{}{}Platform}|hyperpage}{110}
-\indexentry{move\discretionary {-}{}{}One\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}One\discretionary {-}{}{}Platform}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{110}
-\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!move\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}Platform}|hyperpage}{111}
-\indexentry{move\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}Platform}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{111}
-\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!platform\discretionary {-}{}{}Map@{platform\discretionary {-}{}{}Map}|hyperpage}{111}
-\indexentry{platform\discretionary {-}{}{}Map@{platform\discretionary {-}{}{}Map}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{111}
-\indexentry{option.\discretionary {-}{}{}c@{option.\discretionary {-}{}{}c}|hyperpage}{112}
-\indexentry{option.\discretionary {-}{}{}c@{option.\discretionary {-}{}{}c}!load\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options}|hyperpage}{112}
-\indexentry{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options}!option.c@{option.\discretionary {-}{}{}c}|hyperpage}{112}
-\indexentry{option.\discretionary {-}{}{}c@{option.\discretionary {-}{}{}c}!load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}|hyperpage}{113}
-\indexentry{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}!option.c@{option.\discretionary {-}{}{}c}|hyperpage}{113}
-\indexentry{option.\discretionary {-}{}{}c@{option.\discretionary {-}{}{}c}!save\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options}|hyperpage}{113}
-\indexentry{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options}!option.c@{option.\discretionary {-}{}{}c}|hyperpage}{113}
-\indexentry{option.\discretionary {-}{}{}c@{option.\discretionary {-}{}{}c}!save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}|hyperpage}{114}
-\indexentry{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}!option.c@{option.\discretionary {-}{}{}c}|hyperpage}{114}
-\indexentry{option.\discretionary {-}{}{}h@{option.\discretionary {-}{}{}h}|hyperpage}{114}
-\indexentry{option.\discretionary {-}{}{}h@{option.\discretionary {-}{}{}h}!load\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options}|hyperpage}{115}
-\indexentry{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options}!option.h@{option.\discretionary {-}{}{}h}|hyperpage}{115}
-\indexentry{option.\discretionary {-}{}{}h@{option.\discretionary {-}{}{}h}!load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}|hyperpage}{115}
-\indexentry{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}!option.h@{option.\discretionary {-}{}{}h}|hyperpage}{115}
-\indexentry{option.\discretionary {-}{}{}h@{option.\discretionary {-}{}{}h}!save\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options}|hyperpage}{116}
-\indexentry{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options}!option.h@{option.\discretionary {-}{}{}h}|hyperpage}{116}
-\indexentry{option.\discretionary {-}{}{}h@{option.\discretionary {-}{}{}h}!save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}|hyperpage}{116}
-\indexentry{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}!option.h@{option.\discretionary {-}{}{}h}|hyperpage}{116}
-\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}|hyperpage}{117}
-\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}!delete\discretionary {-}{}{}Player@{delete\discretionary {-}{}{}Player}|hyperpage}{117}
-\indexentry{delete\discretionary {-}{}{}Player@{delete\discretionary {-}{}{}Player}!player.c@{player.\discretionary {-}{}{}c}|hyperpage}{117}
-\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}!load\discretionary {-}{}{}Player@{load\discretionary {-}{}{}Player}|hyperpage}{118}
-\indexentry{load\discretionary {-}{}{}Player@{load\discretionary {-}{}{}Player}!player.c@{player.\discretionary {-}{}{}c}|hyperpage}{118}
-\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}!new\discretionary {-}{}{}Player@{new\discretionary {-}{}{}Player}|hyperpage}{118}
-\indexentry{new\discretionary {-}{}{}Player@{new\discretionary {-}{}{}Player}!player.c@{player.\discretionary {-}{}{}c}|hyperpage}{118}
-\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}!save@{save}|hyperpage}{119}
-\indexentry{save@{save}!player.c@{player.\discretionary {-}{}{}c}|hyperpage}{119}
-\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}!save\discretionary {-}{}{}Player@{save\discretionary {-}{}{}Player}|hyperpage}{120}
-\indexentry{save\discretionary {-}{}{}Player@{save\discretionary {-}{}{}Player}!player.c@{player.\discretionary {-}{}{}c}|hyperpage}{120}
-\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}|hyperpage}{120}
-\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}!delete\discretionary {-}{}{}Player@{delete\discretionary {-}{}{}Player}|hyperpage}{121}
-\indexentry{delete\discretionary {-}{}{}Player@{delete\discretionary {-}{}{}Player}!player.h@{player.\discretionary {-}{}{}h}|hyperpage}{121}
-\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}!load\discretionary {-}{}{}Player@{load\discretionary {-}{}{}Player}|hyperpage}{122}
-\indexentry{load\discretionary {-}{}{}Player@{load\discretionary {-}{}{}Player}!player.h@{player.\discretionary {-}{}{}h}|hyperpage}{122}
-\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}!new\discretionary {-}{}{}Player@{new\discretionary {-}{}{}Player}|hyperpage}{122}
-\indexentry{new\discretionary {-}{}{}Player@{new\discretionary {-}{}{}Player}!player.h@{player.\discretionary {-}{}{}h}|hyperpage}{122}
-\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}!save@{save}|hyperpage}{123}
-\indexentry{save@{save}!player.h@{player.\discretionary {-}{}{}h}|hyperpage}{123}
-\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}!save\discretionary {-}{}{}Player@{save\discretionary {-}{}{}Player}|hyperpage}{124}
-\indexentry{save\discretionary {-}{}{}Player@{save\discretionary {-}{}{}Player}!player.h@{player.\discretionary {-}{}{}h}|hyperpage}{124}
-\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}|hyperpage}{124}
-\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!blit\discretionary {-}{}{}Projectile@{blit\discretionary {-}{}{}Projectile}|hyperpage}{125}
-\indexentry{blit\discretionary {-}{}{}Projectile@{blit\discretionary {-}{}{}Projectile}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{125}
-\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!create\discretionary {-}{}{}Projectile@{create\discretionary {-}{}{}Projectile}|hyperpage}{125}
-\indexentry{create\discretionary {-}{}{}Projectile@{create\discretionary {-}{}{}Projectile}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{125}
-\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!delete\discretionary {-}{}{}Projectile@{delete\discretionary {-}{}{}Projectile}|hyperpage}{125}
-\indexentry{delete\discretionary {-}{}{}Projectile@{delete\discretionary {-}{}{}Projectile}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{125}
-\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}|hyperpage}{125}
-\indexentry{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{125}
-\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}|hyperpage}{126}
-\indexentry{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{126}
-\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile@{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}|hyperpage}{126}
-\indexentry{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile@{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{126}
-\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!move\discretionary {-}{}{}Projectiles@{move\discretionary {-}{}{}Projectiles}|hyperpage}{126}
-\indexentry{move\discretionary {-}{}{}Projectiles@{move\discretionary {-}{}{}Projectiles}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{126}
-\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}|hyperpage}{127}
-\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!blit\discretionary {-}{}{}Projectile@{blit\discretionary {-}{}{}Projectile}|hyperpage}{128}
-\indexentry{blit\discretionary {-}{}{}Projectile@{blit\discretionary {-}{}{}Projectile}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{128}
-\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!create\discretionary {-}{}{}Projectile@{create\discretionary {-}{}{}Projectile}|hyperpage}{128}
-\indexentry{create\discretionary {-}{}{}Projectile@{create\discretionary {-}{}{}Projectile}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{128}
-\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!delete\discretionary {-}{}{}Projectile@{delete\discretionary {-}{}{}Projectile}|hyperpage}{128}
-\indexentry{delete\discretionary {-}{}{}Projectile@{delete\discretionary {-}{}{}Projectile}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{128}
-\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}|hyperpage}{128}
-\indexentry{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{128}
-\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}|hyperpage}{129}
-\indexentry{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{129}
-\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile@{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}|hyperpage}{129}
-\indexentry{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile@{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{129}
-\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!move\discretionary {-}{}{}Projectiles@{move\discretionary {-}{}{}Projectiles}|hyperpage}{129}
-\indexentry{move\discretionary {-}{}{}Projectiles@{move\discretionary {-}{}{}Projectiles}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{129}
-\indexentry{share.\discretionary {-}{}{}c@{share.\discretionary {-}{}{}c}|hyperpage}{130}
-\indexentry{share.\discretionary {-}{}{}c@{share.\discretionary {-}{}{}c}!wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S@{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}|hyperpage}{131}
-\indexentry{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S@{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}!share.c@{share.\discretionary {-}{}{}c}|hyperpage}{131}
-\indexentry{share.\discretionary {-}{}{}h@{share.\discretionary {-}{}{}h}|hyperpage}{131}
-\indexentry{share.\discretionary {-}{}{}h@{share.\discretionary {-}{}{}h}!wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S@{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}|hyperpage}{131}
-\indexentry{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S@{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}!share.h@{share.\discretionary {-}{}{}h}|hyperpage}{131}
-\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}|hyperpage}{131}
-\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!create\discretionary {-}{}{}Sound@{create\discretionary {-}{}{}Sound}|hyperpage}{132}
-\indexentry{create\discretionary {-}{}{}Sound@{create\discretionary {-}{}{}Sound}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{132}
-\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!free\discretionary {-}{}{}Sound@{free\discretionary {-}{}{}Sound}|hyperpage}{132}
-\indexentry{free\discretionary {-}{}{}Sound@{free\discretionary {-}{}{}Sound}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{132}
-\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!play\discretionary {-}{}{}Music@{play\discretionary {-}{}{}Music}|hyperpage}{132}
-\indexentry{play\discretionary {-}{}{}Music@{play\discretionary {-}{}{}Music}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{132}
-\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound@{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}|hyperpage}{132}
-\indexentry{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound@{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{132}
-\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!sound\discretionary {-}{}{}Volume@{sound\discretionary {-}{}{}Volume}|hyperpage}{133}
-\indexentry{sound\discretionary {-}{}{}Volume@{sound\discretionary {-}{}{}Volume}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{133}
-\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!stop\discretionary {-}{}{}Sound@{stop\discretionary {-}{}{}Sound}|hyperpage}{133}
-\indexentry{stop\discretionary {-}{}{}Sound@{stop\discretionary {-}{}{}Sound}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{133}
-\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}|hyperpage}{133}
-\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!create\discretionary {-}{}{}Sound@{create\discretionary {-}{}{}Sound}|hyperpage}{134}
-\indexentry{create\discretionary {-}{}{}Sound@{create\discretionary {-}{}{}Sound}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{134}
-\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!free\discretionary {-}{}{}Sound@{free\discretionary {-}{}{}Sound}|hyperpage}{134}
-\indexentry{free\discretionary {-}{}{}Sound@{free\discretionary {-}{}{}Sound}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{134}
-\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!play\discretionary {-}{}{}Music@{play\discretionary {-}{}{}Music}|hyperpage}{134}
-\indexentry{play\discretionary {-}{}{}Music@{play\discretionary {-}{}{}Music}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{134}
-\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound@{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}|hyperpage}{134}
-\indexentry{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound@{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{134}
-\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!sound\discretionary {-}{}{}Volume@{sound\discretionary {-}{}{}Volume}|hyperpage}{134}
-\indexentry{sound\discretionary {-}{}{}Volume@{sound\discretionary {-}{}{}Volume}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{134}
-\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!stop\discretionary {-}{}{}Sound@{stop\discretionary {-}{}{}Sound}|hyperpage}{134}
-\indexentry{stop\discretionary {-}{}{}Sound@{stop\discretionary {-}{}{}Sound}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{134}
-\indexentry{structures.\discretionary {-}{}{}h@{structures.\discretionary {-}{}{}h}|hyperpage}{134}
-\indexentry{text.\discretionary {-}{}{}c@{text.\discretionary {-}{}{}c}|hyperpage}{135}
-\indexentry{text.\discretionary {-}{}{}c@{text.\discretionary {-}{}{}c}!capture\discretionary {-}{}{}Text@{capture\discretionary {-}{}{}Text}|hyperpage}{136}
-\indexentry{capture\discretionary {-}{}{}Text@{capture\discretionary {-}{}{}Text}!text.c@{text.\discretionary {-}{}{}c}|hyperpage}{136}
-\indexentry{text.\discretionary {-}{}{}c@{text.\discretionary {-}{}{}c}!print\discretionary {-}{}{}Text@{print\discretionary {-}{}{}Text}|hyperpage}{137}
-\indexentry{print\discretionary {-}{}{}Text@{print\discretionary {-}{}{}Text}!text.c@{text.\discretionary {-}{}{}c}|hyperpage}{137}
-\indexentry{text.\discretionary {-}{}{}h@{text.\discretionary {-}{}{}h}|hyperpage}{137}
-\indexentry{text.\discretionary {-}{}{}h@{text.\discretionary {-}{}{}h}!capture\discretionary {-}{}{}Text@{capture\discretionary {-}{}{}Text}|hyperpage}{138}
-\indexentry{capture\discretionary {-}{}{}Text@{capture\discretionary {-}{}{}Text}!text.h@{text.\discretionary {-}{}{}h}|hyperpage}{138}
-\indexentry{text.\discretionary {-}{}{}h@{text.\discretionary {-}{}{}h}!print\discretionary {-}{}{}Text@{print\discretionary {-}{}{}Text}|hyperpage}{139}
-\indexentry{print\discretionary {-}{}{}Text@{print\discretionary {-}{}{}Text}!text.h@{text.\discretionary {-}{}{}h}|hyperpage}{139}
+\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!free\discretionary {-}{}{}Platform\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Platform\discretionary {-}{}{}Set}|hyperpage}{108}
+\indexentry{free\discretionary {-}{}{}Platform\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Platform\discretionary {-}{}{}Set}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{108}
+\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!init\discretionary {-}{}{}Platform\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Platform\discretionary {-}{}{}Set}|hyperpage}{109}
+\indexentry{init\discretionary {-}{}{}Platform\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Platform\discretionary {-}{}{}Set}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{109}
+\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!move\discretionary {-}{}{}One\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}One\discretionary {-}{}{}Platform}|hyperpage}{109}
+\indexentry{move\discretionary {-}{}{}One\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}One\discretionary {-}{}{}Platform}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{109}
+\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!move\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}Platform}|hyperpage}{109}
+\indexentry{move\discretionary {-}{}{}Platform@{move\discretionary {-}{}{}Platform}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{109}
+\indexentry{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}!platform\discretionary {-}{}{}Map@{platform\discretionary {-}{}{}Map}|hyperpage}{110}
+\indexentry{platform\discretionary {-}{}{}Map@{platform\discretionary {-}{}{}Map}!mobile_platform.h@{mobile\discretionary {-}{}{}\_\discretionary {-}{}{}platform.\discretionary {-}{}{}h}|hyperpage}{110}
+\indexentry{option.\discretionary {-}{}{}c@{option.\discretionary {-}{}{}c}|hyperpage}{110}
+\indexentry{option.\discretionary {-}{}{}c@{option.\discretionary {-}{}{}c}!load\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options}|hyperpage}{111}
+\indexentry{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options}!option.c@{option.\discretionary {-}{}{}c}|hyperpage}{111}
+\indexentry{option.\discretionary {-}{}{}c@{option.\discretionary {-}{}{}c}!load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}|hyperpage}{111}
+\indexentry{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}!option.c@{option.\discretionary {-}{}{}c}|hyperpage}{111}
+\indexentry{option.\discretionary {-}{}{}c@{option.\discretionary {-}{}{}c}!save\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options}|hyperpage}{112}
+\indexentry{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options}!option.c@{option.\discretionary {-}{}{}c}|hyperpage}{112}
+\indexentry{option.\discretionary {-}{}{}c@{option.\discretionary {-}{}{}c}!save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}|hyperpage}{112}
+\indexentry{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}!option.c@{option.\discretionary {-}{}{}c}|hyperpage}{112}
+\indexentry{option.\discretionary {-}{}{}h@{option.\discretionary {-}{}{}h}|hyperpage}{113}
+\indexentry{option.\discretionary {-}{}{}h@{option.\discretionary {-}{}{}h}!load\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options}|hyperpage}{113}
+\indexentry{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Input\discretionary {-}{}{}Options}!option.h@{option.\discretionary {-}{}{}h}|hyperpage}{113}
+\indexentry{option.\discretionary {-}{}{}h@{option.\discretionary {-}{}{}h}!load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}|hyperpage}{114}
+\indexentry{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{load\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}!option.h@{option.\discretionary {-}{}{}h}|hyperpage}{114}
+\indexentry{option.\discretionary {-}{}{}h@{option.\discretionary {-}{}{}h}!save\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options}|hyperpage}{114}
+\indexentry{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Input\discretionary {-}{}{}Options}!option.h@{option.\discretionary {-}{}{}h}|hyperpage}{114}
+\indexentry{option.\discretionary {-}{}{}h@{option.\discretionary {-}{}{}h}!save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}|hyperpage}{115}
+\indexentry{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options@{save\discretionary {-}{}{}Sound\discretionary {-}{}{}Options}!option.h@{option.\discretionary {-}{}{}h}|hyperpage}{115}
+\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}|hyperpage}{115}
+\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}!delete\discretionary {-}{}{}Player@{delete\discretionary {-}{}{}Player}|hyperpage}{116}
+\indexentry{delete\discretionary {-}{}{}Player@{delete\discretionary {-}{}{}Player}!player.c@{player.\discretionary {-}{}{}c}|hyperpage}{116}
+\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}!load\discretionary {-}{}{}Player@{load\discretionary {-}{}{}Player}|hyperpage}{116}
+\indexentry{load\discretionary {-}{}{}Player@{load\discretionary {-}{}{}Player}!player.c@{player.\discretionary {-}{}{}c}|hyperpage}{116}
+\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}!new\discretionary {-}{}{}Player@{new\discretionary {-}{}{}Player}|hyperpage}{117}
+\indexentry{new\discretionary {-}{}{}Player@{new\discretionary {-}{}{}Player}!player.c@{player.\discretionary {-}{}{}c}|hyperpage}{117}
+\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}!save@{save}|hyperpage}{117}
+\indexentry{save@{save}!player.c@{player.\discretionary {-}{}{}c}|hyperpage}{117}
+\indexentry{player.\discretionary {-}{}{}c@{player.\discretionary {-}{}{}c}!save\discretionary {-}{}{}Player@{save\discretionary {-}{}{}Player}|hyperpage}{118}
+\indexentry{save\discretionary {-}{}{}Player@{save\discretionary {-}{}{}Player}!player.c@{player.\discretionary {-}{}{}c}|hyperpage}{118}
+\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}|hyperpage}{118}
+\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}!delete\discretionary {-}{}{}Player@{delete\discretionary {-}{}{}Player}|hyperpage}{119}
+\indexentry{delete\discretionary {-}{}{}Player@{delete\discretionary {-}{}{}Player}!player.h@{player.\discretionary {-}{}{}h}|hyperpage}{119}
+\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}!load\discretionary {-}{}{}Player@{load\discretionary {-}{}{}Player}|hyperpage}{120}
+\indexentry{load\discretionary {-}{}{}Player@{load\discretionary {-}{}{}Player}!player.h@{player.\discretionary {-}{}{}h}|hyperpage}{120}
+\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}!new\discretionary {-}{}{}Player@{new\discretionary {-}{}{}Player}|hyperpage}{120}
+\indexentry{new\discretionary {-}{}{}Player@{new\discretionary {-}{}{}Player}!player.h@{player.\discretionary {-}{}{}h}|hyperpage}{120}
+\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}!save@{save}|hyperpage}{121}
+\indexentry{save@{save}!player.h@{player.\discretionary {-}{}{}h}|hyperpage}{121}
+\indexentry{player.\discretionary {-}{}{}h@{player.\discretionary {-}{}{}h}!save\discretionary {-}{}{}Player@{save\discretionary {-}{}{}Player}|hyperpage}{122}
+\indexentry{save\discretionary {-}{}{}Player@{save\discretionary {-}{}{}Player}!player.h@{player.\discretionary {-}{}{}h}|hyperpage}{122}
+\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}|hyperpage}{122}
+\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!blit\discretionary {-}{}{}Projectile@{blit\discretionary {-}{}{}Projectile}|hyperpage}{123}
+\indexentry{blit\discretionary {-}{}{}Projectile@{blit\discretionary {-}{}{}Projectile}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{123}
+\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!create\discretionary {-}{}{}Projectile@{create\discretionary {-}{}{}Projectile}|hyperpage}{123}
+\indexentry{create\discretionary {-}{}{}Projectile@{create\discretionary {-}{}{}Projectile}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{123}
+\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!delete\discretionary {-}{}{}Projectile@{delete\discretionary {-}{}{}Projectile}|hyperpage}{123}
+\indexentry{delete\discretionary {-}{}{}Projectile@{delete\discretionary {-}{}{}Projectile}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{123}
+\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}|hyperpage}{123}
+\indexentry{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{123}
+\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}|hyperpage}{124}
+\indexentry{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{124}
+\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile@{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}|hyperpage}{124}
+\indexentry{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile@{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{124}
+\indexentry{projectile.\discretionary {-}{}{}c@{projectile.\discretionary {-}{}{}c}!move\discretionary {-}{}{}Projectiles@{move\discretionary {-}{}{}Projectiles}|hyperpage}{124}
+\indexentry{move\discretionary {-}{}{}Projectiles@{move\discretionary {-}{}{}Projectiles}!projectile.c@{projectile.\discretionary {-}{}{}c}|hyperpage}{124}
+\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}|hyperpage}{125}
+\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!blit\discretionary {-}{}{}Projectile@{blit\discretionary {-}{}{}Projectile}|hyperpage}{126}
+\indexentry{blit\discretionary {-}{}{}Projectile@{blit\discretionary {-}{}{}Projectile}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{126}
+\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!create\discretionary {-}{}{}Projectile@{create\discretionary {-}{}{}Projectile}|hyperpage}{126}
+\indexentry{create\discretionary {-}{}{}Projectile@{create\discretionary {-}{}{}Projectile}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{126}
+\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!delete\discretionary {-}{}{}Projectile@{delete\discretionary {-}{}{}Projectile}|hyperpage}{126}
+\indexentry{delete\discretionary {-}{}{}Projectile@{delete\discretionary {-}{}{}Projectile}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{126}
+\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}|hyperpage}{126}
+\indexentry{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set@{free\discretionary {-}{}{}Projectile\discretionary {-}{}{}Set}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{126}
+\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}|hyperpage}{127}
+\indexentry{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set@{init\discretionary {-}{}{}Proj\discretionary {-}{}{}Set}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{127}
+\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile@{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}|hyperpage}{127}
+\indexentry{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile@{move\discretionary {-}{}{}One\discretionary {-}{}{}Projectile}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{127}
+\indexentry{projectile.\discretionary {-}{}{}h@{projectile.\discretionary {-}{}{}h}!move\discretionary {-}{}{}Projectiles@{move\discretionary {-}{}{}Projectiles}|hyperpage}{127}
+\indexentry{move\discretionary {-}{}{}Projectiles@{move\discretionary {-}{}{}Projectiles}!projectile.h@{projectile.\discretionary {-}{}{}h}|hyperpage}{127}
+\indexentry{share.\discretionary {-}{}{}c@{share.\discretionary {-}{}{}c}|hyperpage}{128}
+\indexentry{share.\discretionary {-}{}{}c@{share.\discretionary {-}{}{}c}!wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S@{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}|hyperpage}{129}
+\indexentry{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S@{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}!share.c@{share.\discretionary {-}{}{}c}|hyperpage}{129}
+\indexentry{share.\discretionary {-}{}{}h@{share.\discretionary {-}{}{}h}|hyperpage}{129}
+\indexentry{share.\discretionary {-}{}{}h@{share.\discretionary {-}{}{}h}!wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S@{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}|hyperpage}{129}
+\indexentry{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S@{wait\discretionary {-}{}{}F\discretionary {-}{}{}P\discretionary {-}{}{}S}!share.h@{share.\discretionary {-}{}{}h}|hyperpage}{129}
+\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}|hyperpage}{129}
+\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!create\discretionary {-}{}{}Sound@{create\discretionary {-}{}{}Sound}|hyperpage}{130}
+\indexentry{create\discretionary {-}{}{}Sound@{create\discretionary {-}{}{}Sound}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{130}
+\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!free\discretionary {-}{}{}Sound@{free\discretionary {-}{}{}Sound}|hyperpage}{130}
+\indexentry{free\discretionary {-}{}{}Sound@{free\discretionary {-}{}{}Sound}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{130}
+\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!play\discretionary {-}{}{}Music@{play\discretionary {-}{}{}Music}|hyperpage}{130}
+\indexentry{play\discretionary {-}{}{}Music@{play\discretionary {-}{}{}Music}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{130}
+\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound@{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}|hyperpage}{130}
+\indexentry{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound@{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{130}
+\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!sound\discretionary {-}{}{}Volume@{sound\discretionary {-}{}{}Volume}|hyperpage}{131}
+\indexentry{sound\discretionary {-}{}{}Volume@{sound\discretionary {-}{}{}Volume}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{131}
+\indexentry{sound.\discretionary {-}{}{}c@{sound.\discretionary {-}{}{}c}!stop\discretionary {-}{}{}Sound@{stop\discretionary {-}{}{}Sound}|hyperpage}{131}
+\indexentry{stop\discretionary {-}{}{}Sound@{stop\discretionary {-}{}{}Sound}!sound.c@{sound.\discretionary {-}{}{}c}|hyperpage}{131}
+\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}|hyperpage}{131}
+\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!create\discretionary {-}{}{}Sound@{create\discretionary {-}{}{}Sound}|hyperpage}{132}
+\indexentry{create\discretionary {-}{}{}Sound@{create\discretionary {-}{}{}Sound}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{132}
+\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!free\discretionary {-}{}{}Sound@{free\discretionary {-}{}{}Sound}|hyperpage}{132}
+\indexentry{free\discretionary {-}{}{}Sound@{free\discretionary {-}{}{}Sound}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{132}
+\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!play\discretionary {-}{}{}Music@{play\discretionary {-}{}{}Music}|hyperpage}{132}
+\indexentry{play\discretionary {-}{}{}Music@{play\discretionary {-}{}{}Music}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{132}
+\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound@{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}|hyperpage}{132}
+\indexentry{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound@{play\discretionary {-}{}{}Short\discretionary {-}{}{}Sound}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{132}
+\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!sound\discretionary {-}{}{}Volume@{sound\discretionary {-}{}{}Volume}|hyperpage}{132}
+\indexentry{sound\discretionary {-}{}{}Volume@{sound\discretionary {-}{}{}Volume}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{132}
+\indexentry{sound.\discretionary {-}{}{}h@{sound.\discretionary {-}{}{}h}!stop\discretionary {-}{}{}Sound@{stop\discretionary {-}{}{}Sound}|hyperpage}{132}
+\indexentry{stop\discretionary {-}{}{}Sound@{stop\discretionary {-}{}{}Sound}!sound.h@{sound.\discretionary {-}{}{}h}|hyperpage}{132}
+\indexentry{structures.\discretionary {-}{}{}h@{structures.\discretionary {-}{}{}h}|hyperpage}{132}
+\indexentry{text.\discretionary {-}{}{}c@{text.\discretionary {-}{}{}c}|hyperpage}{133}
+\indexentry{text.\discretionary {-}{}{}c@{text.\discretionary {-}{}{}c}!capture\discretionary {-}{}{}Text@{capture\discretionary {-}{}{}Text}|hyperpage}{134}
+\indexentry{capture\discretionary {-}{}{}Text@{capture\discretionary {-}{}{}Text}!text.c@{text.\discretionary {-}{}{}c}|hyperpage}{134}
+\indexentry{text.\discretionary {-}{}{}c@{text.\discretionary {-}{}{}c}!print\discretionary {-}{}{}Text@{print\discretionary {-}{}{}Text}|hyperpage}{135}
+\indexentry{print\discretionary {-}{}{}Text@{print\discretionary {-}{}{}Text}!text.c@{text.\discretionary {-}{}{}c}|hyperpage}{135}
+\indexentry{text.\discretionary {-}{}{}h@{text.\discretionary {-}{}{}h}|hyperpage}{135}
+\indexentry{text.\discretionary {-}{}{}h@{text.\discretionary {-}{}{}h}!capture\discretionary {-}{}{}Text@{capture\discretionary {-}{}{}Text}|hyperpage}{136}
+\indexentry{capture\discretionary {-}{}{}Text@{capture\discretionary {-}{}{}Text}!text.h@{text.\discretionary {-}{}{}h}|hyperpage}{136}
+\indexentry{text.\discretionary {-}{}{}h@{text.\discretionary {-}{}{}h}!print\discretionary {-}{}{}Text@{print\discretionary {-}{}{}Text}|hyperpage}{137}
+\indexentry{print\discretionary {-}{}{}Text@{print\discretionary {-}{}{}Text}!text.h@{text.\discretionary {-}{}{}h}|hyperpage}{137}
