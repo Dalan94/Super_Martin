@@ -155,6 +155,7 @@ int play(SDL_Surface *screen, char *level_name,Sound *sound_sys,int *go,SDLKey *
 
             }
             savePlayer("save/.save", player_name, player);
+            stopSound(sound_sys,1);
             printWin(screen,go,in,sound_sys);
             break;
         }

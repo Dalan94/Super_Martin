@@ -158,34 +158,7 @@ enum {RIGHT,LEFT,UP,DOWN};
 
 enum {L=0,R,J,P,H};
 
-/**
- *\struct Level
- * The level structure
- */
-typedef struct
-{
-    unsigned char**map; /*!< The map*/
-    int width; /*!< The width*/
-    int height; /*!< The height*/
-    int timer_level; /*!< The timer level*/
-    char tileSet[MAX_SIZE_FILE_NAME]; /*!< The tilset*/
-    char tileSet2[MAX_SIZE_FILE_NAME]; /*!< The tilset 2*/
-    int tileSetUse; /*!< The tilset which is used*/
-    char background[MAX_SIZE_FILE_NAME]; /*!< The background*/
-    char music[MAX_SIZE_FILE_NAME]; /*!< The music*/
-}Level;
 
-/**
- *\struct Map
- * The map structure
- */
-typedef struct
-{
-    Level *lvl; /*!< The level*/
-    int xScroll; /*!< The xscroll*/
-    int screenWidth; /*!< The Screen width*/
-    int screenHeight; /*!< The screen height*/
-}Map;
 
 
 
