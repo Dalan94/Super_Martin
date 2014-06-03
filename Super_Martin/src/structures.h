@@ -150,8 +150,7 @@ typedef struct
     int height; /*!< The height*/
     int timer_level; /*!< The timer level*/
     char tileSet[MAX_SIZE_FILE_NAME]; /*!< The tilset*/
-    char tileSet2[MAX_SIZE_FILE_NAME]; /*!< The tilset 2*/
-    int tileSetUse; /*!< The tilset which is used*/
+    int tileSetUse; /*!< The tilset of the spring which is used*/
     char background[MAX_SIZE_FILE_NAME]; /*!< The background*/
     char music[MAX_SIZE_FILE_NAME]; /*!< The music*/
 }Level;
