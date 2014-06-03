@@ -155,9 +155,9 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     if((in->key[kc[L]] || (in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT)))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_left = 1;
-    if((!(in->key[kc[L]] || (in->isJoystick&&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-3000))) && player->isOnGround)||player->wallJump == 3)
+    if((!(in->key[kc[L]] || (in->isJoystick&&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-10000))) && player->isOnGround)||player->wallJump == 3)
         *move_left = 0;
-    if(in->isJoystick&&(in->axes[0] < - 3000))
+    if(in->isJoystick&&(in->axes[0] < - 10000))
     {
         *move_left = ABS(in->axes[0])*MAX_SPEED/32000;
     }
@@ -166,9 +166,9 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     if((in->key[kc[R]] || (in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT)))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_right = 1;
-    if((!(in->key[kc[R]] || (in->isJoystick&&(in->hat[0]==SDL_HAT_RIGHT && in->axes[0]<3000))) && player->isOnGround)|| player->wallJump == 3)
+    if((!(in->key[kc[R]] || (in->isJoystick&&(in->hat[0]==SDL_HAT_RIGHT && in->axes[0]<10000))) && player->isOnGround)|| player->wallJump == 3)
         *move_right = 0;
-    if(in->isJoystick&&in->axes[0] > 3000)
+    if(in->isJoystick&&in->axes[0] > 10000)
     {
         *move_right = ABS(in->axes[0])*MAX_SPEED/32000;
     }
@@ -178,10 +178,10 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
          *jump = 1;
     }
     if((in->key[kc[J]] || (in->isJoystick&&in->button[A])) && player->wallJump == 1
-        && (in->key[kc[R]] || (in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT || in->axes[0] > 3000)))  && !in->space)
+        && (in->key[kc[R]] || (in->isJoystick&&(in->hat[0] == SDL_HAT_RIGHT || in->axes[0] > 10000)))  && !in->space)
         *jump = 3;
     if((in->key[kc[J]] || (in->isJoystick&&in->button[A])) && player->wallJump == 2
-        && (in->key[kc[L]] || (in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT || in->axes[0] < -3000))) && !in->space)
+        && (in->key[kc[L]] || (in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT || in->axes[0] < -10000))) && !in->space)
         *jump = 4;
     if((player->location.x < 17 && *jump >0 ))
         *jump = 0;
