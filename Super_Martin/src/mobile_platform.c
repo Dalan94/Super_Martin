@@ -183,6 +183,7 @@ int collisionPlatform(Character *c,platformSet *ps,SDL_Rect futureLocation)
             {
                 c->OnPlatform = i;
                 c->dirY = 0;
+                return 2;
             }
             return 1;
         }

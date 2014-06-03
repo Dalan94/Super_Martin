@@ -205,6 +205,14 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
                 futureLocation.x -= COLLISION_ADJUSTMENT;
             futureLocation.w += COLLISION_ADJUSTMENT;
         }
+        if(c->OnPlatform>=0)
+        {
+            futureLocation.y = c->location.y;
+            c->isOnGround = 1;
+            c->isFalling = 0;
+            c->doubleJump = 0;
+            c->wallJump = 0;
+        }
 
         switch (ret)
         {

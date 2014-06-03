@@ -141,7 +141,7 @@
 \contentsline {paragraph}{\numberline {2.2.3.8}presise\discretionary {-}{}{}Move\discretionary {-}{}{}Character}{22}{paragraph.2.2.3.8}
 \contentsline {paragraph}{\numberline {2.2.3.9}try\discretionary {-}{}{}Movement}{23}{paragraph.2.2.3.9}
 \contentsline {subsection}{\numberline {2.3}const.\discretionary {-}{}{}h File Reference}{24}{subsection.2.3}
-\contentsline {subsubsection}{\numberline {2.3.1}Detailed Description}{25}{subsubsection.2.3.1}
+\contentsline {subsubsection}{\numberline {2.3.1}Detailed Description}{24}{subsubsection.2.3.1}
 \contentsline {subsubsection}{\numberline {2.3.2}Macro Definition Documentation}{25}{subsubsection.2.3.2}
 \contentsline {paragraph}{\numberline {2.3.2.1}C\discretionary {-}{}{}O\discretionary {-}{}{}L\discretionary {-}{}{}L\discretionary {-}{}{}I\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}D\discretionary {-}{}{}J\discretionary {-}{}{}U\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}M\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}T}{25}{paragraph.2.3.2.1}
 \contentsline {paragraph}{\numberline {2.3.2.2}D\discretionary {-}{}{}E\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}M\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}T\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}O\discretionary {-}{}{}U\discretionary {-}{}{}R\discretionary {-}{}{}C\discretionary {-}{}{}E\discretionary {-}{}{}N\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}G\discretionary {-}{}{}E}{25}{paragraph.2.3.2.2}
@@ -155,9 +155,9 @@
 \contentsline {paragraph}{\numberline {2.3.2.10}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}F\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}M}{25}{paragraph.2.3.2.10}
 \contentsline {paragraph}{\numberline {2.3.2.11}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}P\discretionary {-}{}{}R\discretionary {-}{}{}O\discretionary {-}{}{}J\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E}{25}{paragraph.2.3.2.11}
 \contentsline {paragraph}{\numberline {2.3.2.12}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}I\discretionary {-}{}{}Z\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}F\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}N\discretionary {-}{}{}A\discretionary {-}{}{}M\discretionary {-}{}{}E}{25}{paragraph.2.3.2.12}
-\contentsline {paragraph}{\numberline {2.3.2.13}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}{26}{paragraph.2.3.2.13}
-\contentsline {paragraph}{\numberline {2.3.2.14}min}{26}{paragraph.2.3.2.14}
-\contentsline {paragraph}{\numberline {2.3.2.15}N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}K\discretionary {-}{}{}E\discretionary {-}{}{}Y}{26}{paragraph.2.3.2.15}
+\contentsline {paragraph}{\numberline {2.3.2.13}M\discretionary {-}{}{}A\discretionary {-}{}{}X\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}{25}{paragraph.2.3.2.13}
+\contentsline {paragraph}{\numberline {2.3.2.14}min}{25}{paragraph.2.3.2.14}
+\contentsline {paragraph}{\numberline {2.3.2.15}N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}K\discretionary {-}{}{}E\discretionary {-}{}{}Y}{25}{paragraph.2.3.2.15}
 \contentsline {paragraph}{\numberline {2.3.2.16}N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}Y\discretionary {-}{}{}O\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}I\discretionary {-}{}{}G\discretionary {-}{}{}H\discretionary {-}{}{}T}{26}{paragraph.2.3.2.16}
 \contentsline {paragraph}{\numberline {2.3.2.17}N\discretionary {-}{}{}B\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}R\discretionary {-}{}{}Y\discretionary {-}{}{}O\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}W\discretionary {-}{}{}I\discretionary {-}{}{}D\discretionary {-}{}{}T\discretionary {-}{}{}H}{26}{paragraph.2.3.2.17}
 \contentsline {paragraph}{\numberline {2.3.2.18}P\discretionary {-}{}{}L\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}F\discretionary {-}{}{}O\discretionary {-}{}{}R\discretionary {-}{}{}M\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}P\discretionary {-}{}{}E\discretionary {-}{}{}E\discretionary {-}{}{}D}{26}{paragraph.2.3.2.18}
@@ -174,14 +174,14 @@
 \contentsline {paragraph}{\numberline {2.4.2.2}collision\discretionary {-}{}{}Enemy}{28}{paragraph.2.4.2.2}
 \contentsline {paragraph}{\numberline {2.4.2.3}create\discretionary {-}{}{}Enemy}{29}{paragraph.2.4.2.3}
 \contentsline {paragraph}{\numberline {2.4.2.4}delete\discretionary {-}{}{}Current}{30}{paragraph.2.4.2.4}
-\contentsline {paragraph}{\numberline {2.4.2.5}delete\discretionary {-}{}{}First}{31}{paragraph.2.4.2.5}
+\contentsline {paragraph}{\numberline {2.4.2.5}delete\discretionary {-}{}{}First}{30}{paragraph.2.4.2.5}
 \contentsline {paragraph}{\numberline {2.4.2.6}delete\discretionary {-}{}{}Last}{31}{paragraph.2.4.2.6}
-\contentsline {paragraph}{\numberline {2.4.2.7}empty}{32}{paragraph.2.4.2.7}
+\contentsline {paragraph}{\numberline {2.4.2.7}empty}{31}{paragraph.2.4.2.7}
 \contentsline {paragraph}{\numberline {2.4.2.8}first}{32}{paragraph.2.4.2.8}
 \contentsline {paragraph}{\numberline {2.4.2.9}free\discretionary {-}{}{}Enemies}{33}{paragraph.2.4.2.9}
 \contentsline {paragraph}{\numberline {2.4.2.10}get\discretionary {-}{}{}Current}{33}{paragraph.2.4.2.10}
 \contentsline {paragraph}{\numberline {2.4.2.11}init\discretionary {-}{}{}List}{33}{paragraph.2.4.2.11}
-\contentsline {paragraph}{\numberline {2.4.2.12}insert\discretionary {-}{}{}After\discretionary {-}{}{}Current}{33}{paragraph.2.4.2.12}
+\contentsline {paragraph}{\numberline {2.4.2.12}insert\discretionary {-}{}{}After\discretionary {-}{}{}Current}{34}{paragraph.2.4.2.12}
 \contentsline {paragraph}{\numberline {2.4.2.13}insert\discretionary {-}{}{}Before\discretionary {-}{}{}Current}{34}{paragraph.2.4.2.13}
 \contentsline {paragraph}{\numberline {2.4.2.14}insert\discretionary {-}{}{}First}{35}{paragraph.2.4.2.14}
 \contentsline {paragraph}{\numberline {2.4.2.15}insert\discretionary {-}{}{}Last}{35}{paragraph.2.4.2.15}
@@ -461,4 +461,4 @@
 \contentsline {subsubsection}{\numberline {2.38.2}Function Documentation}{136}{subsubsection.2.38.2}
 \contentsline {paragraph}{\numberline {2.38.2.1}capture\discretionary {-}{}{}Text}{136}{paragraph.2.38.2.1}
 \contentsline {paragraph}{\numberline {2.38.2.2}print\discretionary {-}{}{}Text}{137}{paragraph.2.38.2.2}
-\contentsline {section}{Index}{138}{section*.58}
+\contentsline {section}{Index}{138}{section*.57}
