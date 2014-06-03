@@ -238,12 +238,13 @@ int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound 
                 break;
             case 4:
                 c->nbProjectile++;
+                break;
 
             case 5 :
                 c->hp += 50;
                 break;
             case 6 :
-
+                c->nbLifes++;
                 break;
             default:;
         }
