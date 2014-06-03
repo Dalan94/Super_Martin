@@ -182,7 +182,6 @@ int moveCharacter(Character *c,float move_left, float move_right,int jump,Map *m
 int tryMovement(Character *c,int vx,int vy,Map *m,list *l,platformSet *ps,Sound *sound_sys)
 {
     int ret = 0;
-    int t;
     int coins = c->countStars/100;
     SDL_Rect futureLocation = c->location;
     futureLocation.x += vx;
