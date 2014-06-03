@@ -155,7 +155,7 @@ void inputActionGame(Input *in,float *move_left,float *move_right,int *jump,int 
     if((in->key[kc[L]] || (in->isJoystick&&(in->hat[0] == SDL_HAT_LEFT)))
             && (player->dirY < (-JUMP_HEIGHT + 7) || (player->doubleJump == 0 && player->isOnGround)))
         *move_left = 1;
-    if((!(in->key[kc[L]] || (in->isJoystick&&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-3000))) && player->isOnGround)||player->wallJump == 3)
+    if(!((in->key[kc[L]] || (in->isJoystick&&(in->hat[0]==SDL_HAT_LEFT && in->axes[0]>-3000))) && player->isOnGround)||player->wallJump == 3)
         *move_left = 0;
     if(in->isJoystick&&(in->axes[0] < - 3000))
     {

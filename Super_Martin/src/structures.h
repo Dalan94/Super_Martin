@@ -122,7 +122,8 @@ typedef struct
 
     int direction; /*!< the platform direction */
 
-    int fromNPC; /*!< indicates if the projectile belongs to the player (0) or to a npc */
+    int fromNPC; /*!< indicates if the projectile
+     belongs to the player (0) or to a npc */
 }projectile;
 
 /**
@@ -133,7 +134,8 @@ typedef struct
 {
     projectile* tab[MAX_NB_PROJECTILE]; /*!< the projectile set*/
     int nb; /*!< the number of projectiles on the map */
-    int projectileThrown; /*!< indicates if a projectile has been thrown by the player and the key wasn't released yet */
+    int projectileThrown; /*!< indicates if a projectile has been
+    thrown by the player and the key wasn't released yet */
 }projectileSet;
 
 /* lvl */
